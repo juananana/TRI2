@@ -1,0 +1,186 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{amsmath}
+
+\title{Temporal Referent Integrity in Tool-Using LLM Agents}
+\author{Anonymous Authors}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Tool-using language agents often operate in environments that change while a task is being executed. Existing evaluations ask whether agents can update their beliefs when observations change. We study a complementary question: when should an agent not update the referent of a user's target description? We introduce temporal referent integrity (TRI), the requirement that an agent distinguish references that bind to an entity before an observation update from references that should be evaluated after the update. In a state-overwrite controller, which retains the original natural-language goal and the latest observation but not the previously bound entity, three model families show a strong paired contrast: they drift on anchored-flip tasks while remaining largely correct on dynamic-flip controls. GLM-5.1 drifts in 97.0\% of 33 valid anchored-flip cases and succeeds in 100\% of 21 dynamic-flip cases; Qwen3.5 obtains 0.0\% anchored-flip accuracy and 100.0\% dynamic-flip accuracy over 15 all-paraphrase development tasks per condition; MiniMax-M2.5 obtains 0.0\% and 93.3\%, respectively. A DeepSeek-V4-Pro pilot shows the same qualitative pattern but the endpoint was unstable in longer runs. Typed temporal reference ledgers, natural-language memory in simple cases, and automatic compile-then-act controllers repair the failure: GLM-5.1 compiles and acts correctly on 30/30 anchored/dynamic flip tasks, with smaller Qwen3.5 and MiniMax-M2.5 pilots also succeeding. These results suggest that reliable tool agents need goal representations that record binding time and entity identity, not only updated observations and re-evaluable natural-language instructions.
+\end{abstract}
+
+\section{Introduction}
+
+Consider two instructions to a tool-using agent: (i) ``First identify the currently highest-severity incident. After refreshing, escalate that same incident.'' (ii) ``Refresh first. Then identify the currently highest-severity incident and escalate it.'' The first instruction binds an entity before the refresh, while the second intentionally evaluates the referring expression after the refresh. If a refresh changes which incident has the highest severity, a reliable agent must preserve the first target but update the second.
+
+This distinction is easy to lose in LLM-agent controllers. Many agents carry a natural-language goal forward while updating their environment state. If the controller later sees only the latest state and the original goal, a phrase such as ``the currently highest-severity incident'' can be re-evaluated in the wrong state. The agent may confidently act on the new incident, even though the user had already bound the old one.
+
+We call this failure referent drift and study the broader property of temporal referent integrity. TRI is not simply memory retention, dynamic-environment adaptation, or referential ambiguity. The central question is not whether the world changed, but whether this referring expression should be re-bound after the world changes.
+
+\section{Problem Definition}
+
+Let $s_0$ be the initial observation, $s_1$ a later observation after a refresh, and $r$ a referring expression in the user's instruction. An anchored reference binds before the update:
+\[
+    target = bind(r, s_0).
+\]
+A dynamic reference binds after the update:
+\[
+    target = bind(r, s_1).
+\]
+Temporal referent integrity requires the agent to preserve this binding-time distinction even when $bind(r,s_0) \ne bind(r,s_1)$.
+
+TRI is also a sufficient-state requirement. A controller state containing only the latest observation and the original goal is not sufficient for anchored references. A sufficient referent state should include
+\[
+z = (r, binding\_time, bound\_entity\_id, selector, validity, provenance).
+\]
+This converts the phenomenon from a generic forgetting error into a representation problem: latest-state summaries can be insufficient even when the latest observation is perfectly accurate.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+Binding & Update & Correct behavior \\
+\midrule
+Anchored & Flip & preserve pre-refresh entity \\
+Anchored & Stable & preserve same entity \\
+Dynamic & Flip & select post-refresh entity \\
+Dynamic & Stable & select same entity \\
+\bottomrule
+\end{tabular}
+\caption{Core TRI design. The anchored+flip condition is the critical counterexample.}
+\end{table}
+
+\section{Benchmark and Agent Modes}
+
+We generate deterministic tasks over structured mini-domains. Each task contains a user instruction, an initial state with stable entity IDs, a refreshed state, an oracle target ID, and a fixed action schema. Domains include incidents, meetings, support tickets, repository branches, shipments, experiment runs, invoices, devices, patient cases, and datasets. Selectors cover numeric maxima, queue position, Boolean selection, default branch, active run, urgent case, and assignment status. Scoring is exact string matching over entity IDs; no LLM judge is used.
+
+We compare direct semantic resolution, full-transcript interactive control, state-overwrite control, compressed memory, natural memory, typed temporal ledgers, and a compile-then-act prototype. The state-overwrite controller retains only the original instruction and refreshed state. The typed ledger stores binding time, selector, bound target ID, and validity condition. We also instantiate the tasks as a small stateful tool environment with observe, refresh, and process tools, and evaluate latest-state, full-history, lossy-summary, and compile-then-act controller policies in this tool loop.
+
+\section{Results}
+
+\subsection{Main Mechanism Result}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lllrr}
+\toprule
+Model & Mode & Condition & Acc. & Drift \\
+\midrule
+GLM-5.1 & overwrite & anchored+flip (n=33) & 3.0 & 97.0 \\
+GLM-5.1 & overwrite & dynamic+flip (n=21) & 100.0 & 0.0 \\
+Qwen3.5 & overwrite & anchored+flip (n=15) & 0.0 & 73.3 \\
+Qwen3.5 & overwrite & dynamic+flip (n=15) & 100.0 & 0.0 \\
+MiniMax-M2.5 & overwrite & anchored+flip (n=15) & 0.0 & 100.0 \\
+MiniMax-M2.5 & overwrite & dynamic+flip (n=15) & 93.3 & 0.0 \\
+DeepSeek-V4-Pro & overwrite & anchored+flip (n=3) & 0.0 & 100.0 \\
+DeepSeek-V4-Pro & overwrite & dynamic+flip (n=3) & 100.0 & 0.0 \\
+\bottomrule
+\end{tabular}
+\caption{State-overwrite controllers drift on anchored references but succeed on dynamic controls. Values are percentages.}
+\end{table}
+
+For GLM-5.1 under state-overwrite-once, anchored+flip accuracy is 0\% for p0, p1, p3, and p4, and 20\% for the highly explicit p2 paraphrase. On held-out domains (invoice, device, patient case, dataset), GLM-5.1 fails on 20/20 anchored-flip tasks. Among valid held-out dynamic responses, dynamic-flip accuracy is 6/6.
+
+\subsection{Stateful Tool Controller Replication}
+
+To reduce the risk that TRI is only an artifact of hand-constructed JSON prompts, we run a small stateful tool environment. Each episode produces an observe-refresh-process trace: the controller sees the initial tool observation, calls refresh, receives the refreshed observation, and then calls process on a target ID.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llrr}
+\toprule
+Controller & Condition & Acc. & Drift \\
+\midrule
+latest-state & anchored+flip (n=14) & 21.4 & 64.3 \\
+latest-state & dynamic+flip (n=15) & 100.0 & 0.0 \\
+full-history & anchored+flip (n=3) & 100.0 & 0.0 \\
+full-history & dynamic+flip (n=3) & 100.0 & 0.0 \\
+lossy-summary & anchored+flip (n=3) & 66.7 & 33.3 \\
+lossy-summary & dynamic+flip (n=3) & 100.0 & 0.0 \\
+compile-then-act & anchored+flip (n=3) & 100.0 & 0.0 \\
+compile-then-act & dynamic+flip (n=3) & 100.0 & 0.0 \\
+\bottomrule
+\end{tabular}
+\caption{GLM-5.1 in a stateful tool loop. Latest-state control remains unreliable on all-paraphrase anchored references but succeeds on dynamic controls; full history and compile-then-act repair the p0 failure.}
+\end{table}
+
+\subsection{Repair and Memory Baselines}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lllr}
+\toprule
+Model & Mode & Condition & Accuracy \\
+\midrule
+GLM-5.1 & compile-then-act & anchored+flip (n=15) & 100.0 \\
+GLM-5.1 & compile-then-act & dynamic+flip (n=15) & 100.0 \\
+Qwen3.5 & compile-then-act & anchored+flip (n=9) & 100.0 \\
+Qwen3.5 & compile-then-act & dynamic+flip (n=6) & 100.0 \\
+MiniMax-M2.5 & compile-then-act & anchored+flip (n=6) & 100.0 \\
+MiniMax-M2.5 & compile-then-act & dynamic+flip (n=6) & 100.0 \\
+GLM-5.1 & natural memory & anchored+flip (n=3) & 100.0 \\
+GLM-5.1 & compressed memory & anchored+flip (n=3) & 0.0 \\
+GLM-5.1 & compressed memory & dynamic+flip (n=3) & 100.0 \\
+GLM-5.1 & ledger-safe & anchored-removed (n=3) & 100.0 \\
+\bottomrule
+\end{tabular}
+\caption{Memory and ledger results. Natural memory can solve simple cases, but compressed memory without IDs collapses back to referent drift.}
+\end{table}
+
+The memory baselines clarify the mechanism. A free-form natural note can preserve enough identity information in simple tasks, but a compressed note that drops entity IDs and exact values collapses back to state-overwrite behavior: anchored-flip fails while dynamic-flip remains correct. This supports the interpretation that the key missing variable is executable identity preservation.
+
+We also test a summary-controller variant: the agent refreshes, a controller memory module summarizes the transcript, and the next step acts from the generated summary plus refreshed state. When the summary module is instructed to preserve task-critical entity identity, GLM-5.1 solves 3/3 anchored-flip and 3/3 dynamic-flip p0 tasks. A lossy bounded summary that forbids entity IDs is much less reliable over the all-paraphrase development set: anchored-flip accuracy falls to 26.7\% (4/15), with 53.3\% drift to the post-refresh target and additional invalid-action errors, while dynamic-flip remains high at 93.3\% (14/15). This is important because the identity loss is produced by an automatic controller summary, not directly by the benchmark author deleting a field. In a case-study analysis, 100\% of anchored lossy summaries contain temporal anchor words such as ``initial,'' ``original,'' or ``before,'' but 0\% contain an entity ID; temporal wording alone is therefore not sufficient controller state. The real risk is not summary itself, but summaries that fail to preserve executable identity for pre-bound referents.
+
+\subsection{Field Ablation}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Representation & Anchored+Flip & Anchored+Removed & Dynamic+Flip \\
+\midrule
+raw goal + latest state & 0.0 & 0.0 & 100.0 \\
+selector memory & 0.0 & 0.0 & 100.0 \\
+binding-time only & 0.0 & 0.0 & 100.0 \\
+entity only & 100.0 & 0.0 & 0.0 \\
+time + entity & 100.0 & 0.0 & 100.0 \\
+full ledger & 100.0 & 100.0 & 100.0 \\
+\bottomrule
+\end{tabular}
+\caption{Oracle field ablation over all generated tasks. Entity identity fixes anchored flips but not removed entities; validity is needed for safe behavior.}
+\end{table}
+
+\section{Method: Temporal Reference Compiler}
+
+The compiler transforms user goals into structured referent records. It performs binding-time inference, selector grounding, and identity persistence. At action time:
+\[
+\begin{cases}
+act(bound\_target\_id), & binding\_time = pre\_refresh \land valid(bound\_target\_id,s_1) \\
+invalid, & binding\_time = pre\_refresh \land \neg valid(bound\_target\_id,s_1) \\
+act(bind(selector,s_1)), & binding\_time = post\_refresh.
+\end{cases}
+\]
+
+\section{Related Work}
+
+Stateful tool-use benchmarks such as ToolSandbox and app-like benchmarks such as AppWorld evaluate tool use over changing state and insufficient information. Dynamic-environment benchmarks such as ClawArena and EvoArena evaluate robustness under changing environments, evolving tasks, and multi-agent perturbations. TRI differs because both adapting and refusing to adapt can be correct depending on binding time. Work on referential ambiguity studies whether models resolve ambiguous references or ask for clarification; TRI can fail even when the initial reference is unambiguous, because the controller later reinterprets the description against a new state.
+
+\section{Limitations}
+
+The all-paraphrase paired development matrix is complete for GLM-5.1, Qwen3.5, and MiniMax-M2.5, but DeepSeek-V4-Pro remains a small pilot because the SiliconFlow endpoint was unstable in longer runs. Natural-language memory is a strong baseline on simple tasks; compressed-memory and lossy-summary results are first stress tests. The compile-then-act controller has a complete GLM-5.1 development matrix and smaller Qwen3.5/MiniMax-M2.5 pilots, but not yet a full cross-model compiler matrix. We include a local stateful tool loop, but external ToolSandbox/AppWorld-style framework replication remains future work. Entity invalidation should be expanded to renamed entities and action-specific invalidity.
+
+\section{Conclusion}
+
+Temporal referent integrity exposes a subtle but consequential gap in tool-using LLM agents. Agents must not only update their beliefs when the world changes; they must also know which parts of the user's goal should remain fixed. A state-overwrite controller can systematically drift from a pre-refresh entity to a post-refresh entity, even while handling dynamic references correctly. Typed temporal reference ledgers and compile-then-act controllers provide a simple and effective repair.
+
+\end{document}
