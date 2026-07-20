@@ -1,0 +1,97 @@
+{
+  "seed": 20260720,
+  "bootstrap_samples": 10000,
+  "runs": [
+    {
+      "file": "runs/v7_deepseek_generic_structured_ledger_then_act_full_v1.jsonl",
+      "model": "DeepSeek",
+      "controller": "generic_structured_ledger_then_act",
+      "n": 240,
+      "unique_state_clusters": 40,
+      "correct": 177,
+      "accuracy_ci95_state_cluster": [
+        0.7041666666666667,
+        0.775
+      ],
+      "api_errors": 0,
+      "parse_or_internal_errors": 0,
+      "anchored_initial_correct": 119,
+      "anchored_n": 120,
+      "mode_correct": 0,
+      "mode_n": 0,
+      "core_opportunities": 79,
+      "core_drifts": 59,
+      "core_drift_ci95_state_cluster": [
+        0.625,
+        0.8607594936708861
+      ],
+      "stable_n": 40,
+      "stable_errors": 0,
+      "binding_slices": [
+        {
+          "binding": "anchored",
+          "n": 120,
+          "correct": 57
+        },
+        {
+          "binding": "dynamic",
+          "n": 120,
+          "correct": 120
+        }
+      ]
+    },
+    {
+      "file": "runs/v7_deepseek_compile_then_act_full_v1.jsonl",
+      "model": "DeepSeek",
+      "controller": "compile_then_act",
+      "n": 240,
+      "unique_state_clusters": 40,
+      "correct": 219,
+      "accuracy_ci95_state_cluster": [
+        0.8583333333333333,
+        0.9583333333333334
+      ],
+      "api_errors": 0,
+      "parse_or_internal_errors": 0,
+      "anchored_initial_correct": 107,
+      "anchored_n": 120,
+      "mode_correct": 228,
+      "mode_n": 240,
+      "core_opportunities": 70,
+      "core_drifts": 0,
+      "core_drift_ci95_state_cluster": [
+        0.0,
+        0.0
+      ],
+      "stable_n": 40,
+      "stable_errors": 1,
+      "binding_slices": [
+        {
+          "binding": "anchored",
+          "n": 120,
+          "correct": 109
+        },
+        {
+          "binding": "dynamic",
+          "n": 120,
+          "correct": 110
+        }
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "a": "runs/v7_deepseek_generic_structured_ledger_then_act_full_v1.jsonl",
+      "b": "runs/v7_deepseek_compile_then_act_full_v1.jsonl",
+      "mode_a": "generic_structured_ledger_then_act",
+      "mode_b": "compile_then_act",
+      "model": "DeepSeek",
+      "n": 240,
+      "delta_b_minus_a": 0.175,
+      "ci95_state_cluster": [
+        0.10833333333333334,
+        0.23333333333333334
+      ]
+    }
+  ]
+}

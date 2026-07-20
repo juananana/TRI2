@@ -33,7 +33,8 @@ Qwen3.5-122B/GLM-5.1, whereas pre-refresh Compile-then-act (CTA) reaches 95.0\%/
 Always-Lock and Always-Reevaluate each reach 60.0\% and fail opposite modes. In a separately
 frozen 240-task replication, conditional on correct initial binding, Generic drifts on 43/72 and
 38/80 opportunities; CTA and Lifecycle-Gated drift on none, and all 81 Generic drifts replay as
-wrong-entity SQLite writes. A typed Lifecycle reaches 98.1\%/100.0\% on the primary set, but its
+wrong-entity SQLite writes. A post-primary DeepSeek replication finds 59/79 versus 0/70
+Generic/CTA drifts. A typed Lifecycle reaches 98.1\%/100.0\% on the primary set, but its
 gate adds only 1.2--1.9 points over a matched free actor. Three blind annotators obtain Fleiss'
 $\kappa=.708$ and 86\% majority-gold agreement on 100 original/rewrite items. Public
 ToolSandbox, AppWorld, and $\tau^3$ audits find almost no strict TRI opportunities, and external
@@ -336,7 +337,8 @@ autonomous external benchmark.
 
 \paragraph{Models, inference, and auditing.}
 We use Qwen3.5-122B-A10B and GLM-5.1 through the same OpenAI-compatible API at temperature zero,
-with thinking disabled and a 1,200-token output cap. Balanced smoke tests gate each expansion.
+with thinking disabled and a 1,200-token output cap. A post-primary robustness replication uses
+DeepSeek-V4-Pro with the same settings. Balanced smoke tests gate each expansion.
 Final reports verify expected task IDs, duplicates, status, request attempts, and retries. All
 reported v3/v4 full files are complete and contain zero API errors and zero retries. API failures
 would be reported separately rather than interpreted as model behavior.
@@ -447,8 +449,12 @@ to the refreshed winner 43/72 times (59.7\%, state-cluster 95\% CI [46.5,72.4]) 
 (47.5\%, [35.0,61.3]); stable final-target errors are 4/40 and 2/40. Exact CTA and Gated have
 zero such drift after a correct binding. Overall CTA improves over Generic by 23.3 points
 [16.2,30.4] and 24.2 [19.6,28.7]. Qwen's lower dynamic accuracy exposes compound-selector
-grounding rather than temporal drift, so this post-primary replication strengthens the existence
-claim without converting the synthetic benchmark into a prevalence estimate.
+grounding rather than temporal drift. In a later matched DeepSeek run on all 240 frozen tasks,
+Generic reaches 73.8\% and drifts on 59/79 core opportunities, whereas CTA reaches 91.2\%,
+drifts on 0/70, and improves accuracy by 17.5 points [10.8,23.3]. SQLite replay turns all 59
+DeepSeek Generic core drifts into wrong-entity writes; CTA still makes 17 non-core wrong writes
+from mode, initial-ID, or selector errors. Thus the replication strengthens the conditional
+mechanism claim without converting the synthetic benchmark into a prevalence or general-safety estimate.
 
 \paragraph{Human judgments support the core transition, with a fallback boundary.}
 Across 100 blinded items, Fleiss' $\kappa=.708$, Krippendorff's $\alpha=.709$, and majority--gold

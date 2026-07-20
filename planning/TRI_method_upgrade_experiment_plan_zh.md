@@ -20,6 +20,7 @@
 - M1：Qwen 9/20、GLM 20/20；M2：Qwen 15/20、GLM 18/20。M2 schema 为 15/20、18/20，selector equivalence 为 15/20、19/20，未达到双模型 95% 门槛。
 - 对照 CTA：Qwen 13/20，M2 +2；GLM 20/20，M2 -2，方向冲突。Go/No-Go 判定为不升级 M2，标量主方法保留 Exact CTA。
 - v6 四条组合压力：Qwen CTA/scalar Lifecycle/role-indexed/M2 为 2/2/4/4；GLM 均为 4/4。Role-Indexed Lifecycle 保留为组合扩展，M2 只作探索性结果。
+- DeepSeek 第三模型冻结 v7 全量已完成：Generic 73.8%，CTA 91.2%，conditional drift 59/79 对 0/70，配对提升 +17.5 points [10.8,23.3]；SQLite replay 将 59 次 core drift 全部重放为 wrong writes。
 - 统一报告：`reports/method_upgrade_closed_loop_v1.json` 与 `reports/method_upgrade_closed_loop_v1.md`。
 
 ## 1. 截止日期与当前判断

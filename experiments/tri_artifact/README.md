@@ -161,6 +161,16 @@ PYTHONPATH=. ../../.venv-toolsandbox/bin/python \
 The resulting files are `reports/method_upgrade_closed_loop_v1.json` and `.md`. This is an
 exploratory Go/No-Go audit, not a powered confirmatory result.
 
+## Third-model robustness replication
+
+After a 4-task endpoint check and frozen 16-task pilot, DeepSeek-V4-Pro was run without prompt
+changes on the complete 240-task v7 core replication. Generic reaches 73.8% and Exact CTA 91.2%;
+conditional core drift is 59/79 versus 0/70, and the paired state-cluster interval for the
+17.5-point accuracy gain is [10.8, 23.3]. Both files contain 240/240 rows with zero API/parse
+errors and zero retries. Deterministic SQLite replay turns all 59 Generic core drifts into
+wrong-entity writes. See `reports/v7_deepseek_full_v1.md` and
+`reports/v7_deepseek_write_audit_v1.md`. This is a post-primary robustness result.
+
 ## Single-turn ToolSandbox existence study
 
 The frozen confirmatory extension is

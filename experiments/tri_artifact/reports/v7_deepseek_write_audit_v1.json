@@ -1,0 +1,32 @@
+{
+  "replay_file": "runs/v7_deepseek_sqlite_replay_v1.jsonl",
+  "missing_replay_rows": [],
+  "summary": [
+    {
+      "model": "DeepSeek",
+      "controller": "compile_then_act",
+      "n": 240,
+      "core_opportunities": 70,
+      "core_tri_writes": 0,
+      "all_wrong_writes": 17,
+      "dynamic_old_target_writes": 8,
+      "stable_wrong_writes": 0,
+      "other_wrong_writes": 9,
+      "invalid_target_attempts": 0,
+      "unnecessary_rejections": 4
+    },
+    {
+      "model": "DeepSeek",
+      "controller": "generic_structured_ledger_then_act",
+      "n": 240,
+      "core_opportunities": 79,
+      "core_tri_writes": 59,
+      "all_wrong_writes": 60,
+      "dynamic_old_target_writes": 0,
+      "stable_wrong_writes": 0,
+      "other_wrong_writes": 1,
+      "invalid_target_attempts": 0,
+      "unnecessary_rejections": 3
+    }
+  ]
+}

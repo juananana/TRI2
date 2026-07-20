@@ -175,6 +175,37 @@ def load_tasks(
     return rows[:limit] if limit else rows
 
 
+def completed_task_ids(path: Path) -> set[str]:
+    """Read completed task IDs so long API runs can resume without duplicates."""
+    if not path.exists():
+        return set()
+    completed: set[str] = set()
+    with path.open(encoding="utf-8") as handle:
+        for line in handle:
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            task_id = row.get("task", {}).get("id")
+            if task_id is not None:
+                completed.add(str(task_id))
+    return completed
+
+
+def truncate_partial_jsonl(path: Path) -> None:
+    """Discard an interrupted final JSONL fragment before appending resumed rows."""
+    if not path.exists():
+        return
+    data = path.read_bytes()
+    if not data or data.endswith(b"\n"):
+        return
+    last_complete = data.rfind(b"\n")
+    with path.open("r+b") as handle:
+        handle.truncate(last_complete + 1 if last_complete >= 0 else 0)
+
+
 def common_payload(task: dict) -> dict:
     return {
         "instruction": task["instruction"],
@@ -1031,6 +1062,10 @@ def main() -> None:
     ap.add_argument("--domains", default="all")
     ap.add_argument("--data", default=str(DATA / "temporal_referent.jsonl"))
     ap.add_argument("--output")
+    ap.add_argument(
+        "--resume", action="store_true",
+        help="append only tasks absent from an existing --output file",
+    )
     args = ap.parse_args()
 
     key = os.environ.get("LLM_API_KEY")
@@ -1053,11 +1088,16 @@ def main() -> None:
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     safe_model = args.model.replace("/", "_").replace(":", "_")
     path = Path(args.output) if args.output else RUNS / f"{stamp}_{safe_model}_{args.mode}_{args.split}_{args.paraphrase}.jsonl"
-    with path.open("w", encoding="utf-8") as f:
+    if args.resume:
+        truncate_partial_jsonl(path)
+        done = completed_task_ids(path)
+        tasks = [task for task in tasks if str(task["id"]) not in done]
+    with path.open("a" if args.resume else "w", encoding="utf-8") as f:
         for i, task in enumerate(tasks, 1):
             started = time.time()
             attempts_before = client.request_attempts
             retries_before = client.retry_events
+            usage_before = len(client.usage_records)
             try:
                 if args.mode == "direct":
                     result = run_direct(client, task, args.temperature)
@@ -1124,6 +1164,7 @@ def main() -> None:
                 "latency_s": round(time.time() - started, 3),
                 "api_request_attempts": client.request_attempts - attempts_before,
                 "api_retries": client.retry_events - retries_before,
+                "api_usage": client.usage_records[usage_before:],
                 "task": task,
                 "result": result,
             }
