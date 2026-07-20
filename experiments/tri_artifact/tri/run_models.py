@@ -40,6 +40,7 @@ class ChatClient:
         self.enable_thinking = enable_thinking
         self.request_attempts = 0
         self.retry_events = 0
+        self.usage_records: list[dict] = []
 
     def chat(self, messages: list[dict], temperature: float = 0.0) -> str:
         body = {
@@ -62,6 +63,7 @@ class ChatClient:
             try:
                 with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                     result = json.load(resp)
+                self.usage_records.append(result.get("usage", {}))
                 return result["choices"][0]["message"]["content"]
             except urllib.error.HTTPError as exc:
                 retryable = exc.code in self.RETRYABLE_HTTP_CODES

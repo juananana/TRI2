@@ -25,28 +25,20 @@ Temporal Referent Integrity in Tool-Using Agents}
 \maketitle
 
 \begin{abstract}
-Tool-using language agents repeatedly refresh external state while carrying out a user's
-request. A refreshed observation, however, does not by itself authorize the agent to change
-the entity denoted by an earlier reference. We formalize this post-binding authorization
-problem as \emph{temporal referent integrity} (TRI): belief update and referent transition are
-separate controller decisions. On a frozen 160-task minimal-pair diagnostic, a Generic
-Structured Ledger that retains the instruction, selected ID, snapshot, selector, and action
-preconditions reaches 64.4\% and 71.9\% with Qwen3.5-122B and GLM-5.1. Explicit pre-refresh
-Compile-then-act reaches 95.0\% and 96.2\%, recovering most of the observed gap and supporting
-pre-refresh commitment compilation as the leading mechanism. Deterministic Always-Lock and
-Always-Reevaluate controls each reach only 60.0\% and fail opposite reference modes, showing
-that the target is selective transition authorization rather than persistence alone. A separately
-frozen 240-task core replication spans 40 new state clusters and ten unseen schemas. Conditional
-on correct initial binding, Generic drifts on 43/72 Qwen and 38/80 GLM opportunities, versus zero
-for Compile-then-act and Lifecycle-Gated; all 81 drifts become wrong-entity SQLite writes.
-Compile-then-act improves replication accuracy by 23.3 and 24.2 points. A typed Lifecycle
-representation reaches 98.1\% and 100.0\% on the primary set, but its gate adds only 1.2--1.9
-points over a matched free actor and cannot repair compiler or selector errors. Three blind
-annotators on 100 original/natural-rewrite items obtain Fleiss' $\kappa=.708$ and 86\%
-majority-gold agreement. Public ToolSandbox/AppWorld audits identify natural post-binding
-persistence traces but no native controlled TRI pair; ToolSandbox-style and AppWorld-backed
-full-history studies observe zero conditional TRI, bounding universality. TRI therefore contributes a controlled, model- and controller-
-conditional diagnosis and executable authorization contract, not a prevalence or safety claim.
+Refreshing external state does not by itself authorize a tool-using agent to change the entity
+denoted by an earlier reference. We formalize this post-binding problem as \emph{temporal
+referent integrity} (TRI), separating belief updates from referent transitions. On a frozen
+160-task diagnostic, a Generic Structured Ledger reaches 64.4\%/71.9\% with
+Qwen3.5-122B/GLM-5.1, whereas pre-refresh Compile-then-act (CTA) reaches 95.0\%/96.2\%.
+Always-Lock and Always-Reevaluate each reach 60.0\% and fail opposite modes. In a separately
+frozen 240-task replication, conditional on correct initial binding, Generic drifts on 43/72 and
+38/80 opportunities; CTA and Lifecycle-Gated drift on none, and all 81 Generic drifts replay as
+wrong-entity SQLite writes. A typed Lifecycle reaches 98.1\%/100.0\% on the primary set, but its
+gate adds only 1.2--1.9 points over a matched free actor. Three blind annotators obtain Fleiss'
+$\kappa=.708$ and 86\% majority-gold agreement on 100 original/rewrite items. Public
+ToolSandbox, AppWorld, and $\tau^3$ audits find almost no strict TRI opportunities, and external
+full-history studies observe zero conditional TRI. TRI is therefore a controlled,
+model- and controller-conditional mechanism diagnosis, not a prevalence or safety claim.
 \end{abstract}
 
 \section{Introduction}
@@ -113,76 +105,33 @@ Our contributions are threefold:
 
 \section{Related Work}
 
-\paragraph{Reference and entity binding.}
-Discourse Representation Theory and centering distinguish discourse referents from changing
-descriptions and salience \cite{kamp1993discourse,grosz1995centering}. Neural coreference
-models and Quoref recover textual identity links \cite{lee2017coreference,joshi2020spanbert,
-dasigi2019quoref}. Entity Binding Failures studies wrong initial tool arguments, provenance,
-clarification, and confidence gating \cite{babu2026entitybinding}. These works ask whether an
-entity was grounded correctly from the available context. Entity Binding Failures therefore asks
-whether $bind(r,S_0)$ is correct; TRI conditions on a correct binding having occurred and asks
-whether observing $S_1$ licenses a denotation transition, a question that arises only after the
-binding event.
+\paragraph{Reference, binding, and memory.}
+Discourse theories distinguish referents from changing descriptions and salience
+\cite{kamp1993discourse,grosz1995centering}; coreference work recovers textual identity links
+\cite{lee2017coreference,joshi2020spanbert,dasigi2019quoref}. Entity Binding Failures studies
+wrong initial tool arguments \cite{babu2026entitybinding}; TRI instead conditions on correct
+$bind(r,S_0)$ and asks whether $S_1$ licenses a transition. Agent memory and entity tracking retain
+facts or traces \cite{tang2026entitytracking,packer2023memgpt,sumers2024coala,yao2023react},
+but an ID alone does not state whether it is committed or a stale selector result.
 
-\paragraph{Binding persistence and drift.}
-Binding Drift in multi-step tool-augmented agents is the closest neighboring formulation:
-it studies a correctly selected entity being silently replaced during later workflow steps,
-and evaluates entity locking and independent re-verification as countermeasures
-\cite{indukuri2026bindingdrift}. TRI overlaps with its Preserve branch, but does not treat every
-post-binding target change as an error. The same transition is correct to preserve for
-``choose now, refresh, then act on it'' and correct to reevaluate for ``refresh first, then
-choose.'' Thus an unconditional lock and an unconditional re-verification policy are both
-necessarily wrong on one half of TRI minimal pairs. Our deterministic controls quantify these
-two extremes on the frozen inventory; they are conceptual policy controls, not a claim to
-reproduce the full Binding Drift agent or its workflow benchmark. The distinction is therefore
-authorization of a denotation transition, rather than target persistence alone.
+\paragraph{Binding Drift.}
+The closest neighbor studies silent entity replacement in multi-step workflows and evaluates
+locking and re-verification \cite{indukuri2026bindingdrift}. TRI overlaps with its Preserve
+branch but also includes authorized Reevaluate cases: ``choose now, refresh, act'' and ``refresh,
+then choose'' require opposite targets under the same transition. We reproduce its deterministic
+offline harness, but its oracle re-verifier reads a gold target; its Entity Lock corresponds to
+our Always-Lock extreme. TRI therefore studies authorization of transition, not persistence alone.
 
-\paragraph{Entity tracking and agent memory.}
-Recent entity-tracking work tests whether language models preserve entity identity while facts
-change across state transitions \cite{tang2026entitytracking}. Memory systems retain summaries,
-experiences, skills, or retrieved traces, including Generative Agents, Reflexion, Self-Refine,
-Voyager, MemGPT, MemoryBank, and AutoGen \cite{park2023generative,shinn2023reflexion,
-madaan2023selfrefine,wang2023voyager,packer2023memgpt,zhong2024memorybank,wu2023autogen};
-surveys and cognitive-architecture work organize these choices
-\cite{zhang2024memorysurvey,sumers2024coala}. ReAct interleaves reasoning and acting
-\cite{yao2023react}. TRI isolates a missing relationship in such state: whether a selector
-remains executable after refresh or has become provenance for a committed identity.
-
-\paragraph{Tool-use and interactive benchmarks.}
-Toolformer, API-Bank, ToolLLM, and Gorilla study API acquisition and tool calling
-\cite{schick2023toolformer,li2023apibank,qin2024toolllm,patil2023gorilla}. AgentBench,
-WebArena, VisualWebArena, WebShop, GAIA, SWE-bench, and MINT evaluate agents in web, coding,
-multimodal, and feedback-rich environments \cite{liu2024agentbench,zhou2024webarena,
-koh2024visualwebarena,yao2022webshop,mialon2024gaia,jimenez2024swebench,wang2024mint}.
-ToolSandbox, AppWorld, and $\tau$-bench add stateful applications, policies, and user
-interaction \cite{lu2025toolsandbox,trivedi2024appworld,yao2024taubench}. $\tau^2$-bench
-introduces dual-control settings in which user-side and agent-side actions can affect a shared
-environment; the current public repository has progressed to a $\tau^3$-bench release with
-additional domains and modalities \cite{barres2025tau2,sierra2026tau3}. These benchmarks are
-strong candidates for external validation, but their default task gold does not explicitly
-label post-binding Preserve versus Reevaluate transitions, so a TRI study must freeze a
-transparent adaptation rather than reuse a leaderboard score as TRI evidence. ToolEmu studies
-agent risk \cite{ruan2024toolemu}. Dynamic-environment suites such as ClawArena and EvoArena
-focus on evolving information and memory robustness \cite{ji2026clawarena,xu2026evoarena}.
-Temporal Blindness and TicToc instead study whether elapsed time should trigger a tool refresh
-\cite{cheng2026temporalblindness}; TRI conditions on an update having occurred and asks whether
-that update authorizes changing an already established action referent.
-TRI complements these benchmarks with controlled temporal-target minimal pairs and a focused
-SQLite mutation test rather than claiming coverage of their broader environments.
-
-\paragraph{Executable constraints and diagnostic evaluation.}
-LMQL, guided generation, and DSPy structure model calls or compile declarative programs
-\cite{beurer2023lmql,willard2023guided,khattab2024dspy}. LedgerAgent combines typed state with
-policy checks. Bounded Autonomy constrains mutations with typed consumer-side action contracts,
-but also reports that wrong-entity mutations can escape schema- and policy-derived checks
-without separate disambiguation or confirmation \cite{uddin2026ledgeragent,sohail2026bounded}.
-These checks ask whether a proposed action is permitted for its proposed entity; they do not by
-themselves determine which entity the discourse authorized. TRI instead asks the earlier
-discourse-derived question: whether selection in $S_0$ established
-an identity commitment before refresh, or left a description to be evaluated in $S_1$.
-Execution-time validity remains necessary but does not authorize substituting a different valid
-entity. We do not claim the first ledger, typed contract, or gate. Finally, CheckList and contrast sets motivate our
-clustered minimal-pair evaluation \cite{ribeiro2020checklist,gardner2020contrast}.
+\paragraph{Tool agents and executable constraints.}
+Tool-use benchmarks cover APIs, web environments, and stateful interaction
+\cite{schick2023toolformer,li2023apibank,qin2024toolllm,patil2023gorilla,
+liu2024agentbench,zhou2024webarena,lu2025toolsandbox,trivedi2024appworld,
+yao2024taubench,barres2025tau2,sierra2026tau3}. Their gold does not label post-binding
+Preserve/Reevaluate opportunities. LedgerAgent and Bounded Autonomy add typed state or action
+contracts \cite{uddin2026ledgeragent,sohail2026bounded}; action validity still cannot determine
+which valid entity discourse authorized. Structured generation can enforce syntax
+\cite{beurer2023lmql,willard2023guided,khattab2024dspy}, while our clustered minimal pairs
+follow diagnostic and contrast-set methodology \cite{ribeiro2020checklist,gardner2020contrast}.
 
 \section{Problem Formulation: Temporal Referent Integrity}
 
@@ -209,58 +158,12 @@ For the scalar policies evaluated here, the execution branches are
 \textsc{Conditional},\;g(e,q,S_1) &\Rightarrow e, \\
 \textsc{Conditional},\;\neg g(e,q,S_1) &\Rightarrow q(S_1).
 \end{align}
-An invalid preserved entity remains the discourse referent $e$ under $R$ even when $P$ makes
-the authorized action output $\bot$. Thus rejection is an execution-policy decision, not a
-claim that the reference denotes nothing. The human study below empirically motivates this
-factorization: referential transitions receive stronger agreement than invalid-target handling.
-TRI-v4 distinguishes $g_{\mathrm{act}}=V_a(e,S_1)$ from
-$g_{\mathrm{sel}}=[q(S_1)=e]$. This matters when a refresh changes the selector winner but
-the original entity remains action-valid: $g_{\mathrm{act}}$ preserves it, whereas
-$g_{\mathrm{sel}}$ rebinds.
-
-Three insufficiency pairs motivate this factorization. First, two tasks can share $S_1$, $q$,
-and $a$ but differ only in whether the discourse selected before or after refresh. Latest-state
-control cannot recover the missing commitment. Second, two tasks can store the same old ID,
-but in one it is committed and in the other it is merely a stale dynamic-selector result;
-an ID without a role annotation cannot choose correctly for both. Third, two tasks can share mode and ID while
-requesting actions with different preconditions. The target may be valid for viewing but not
-for canceling, shipping, or approving. Validity is therefore $V_a(e,S)$, not mere existence.
-
-These are three distinct claims. An observation may be \emph{informationally insufficient}
-because a binding event was discarded. A full transcript or ledger may be informationally
-sufficient but leave the role of an ID \emph{computationally implicit} in prose. Even a model
-that infers the intended role correctly does not provide \emph{enforcement}: a later actor can
-still violate that decision unless the mutation boundary checks it. TRI targets the latter two
-failure modes without claiming that full history is unable to represent the answer.
-
-The selector $q$ and validity $V_a$ have distinct roles. In a preserved reference, $q$ was
-used to establish identity in $S_0$; reapplying it after refresh is precisely the error under
-study. Only the action schema determines whether the committed entity can still receive $a$.
-Conditional language can explicitly reactivate $q$, but that permission must be represented
-rather than inferred afresh by every downstream actor.
-
-The contract makes the authorization boundary explicit. Let $\mathcal{A}(L,S_1)$ be the
-set of targets licensed after refresh:
-\begin{equation}
-\mathcal{A}(L,S_1)=
-\begin{array}{ll}
-\{e\}, & \substack{m=\textsc{Preserve},\\ V_a(e,S_1)},\\
-\{q(S_1)\}, & m=\textsc{Reevaluate},\\
-\{e\}, & \substack{m=\textsc{Conditional},\\ g(e,q,S_1)},\\
-\{q(S_1)\}, & \substack{m=\textsc{Conditional},\\ \neg g(e,q,S_1)},\\
-\{q(S_1)\}, & \substack{m=\textsc{Preserve},\\ \neg V_a(e,S_1),\ \pi=\textsc{Reevaluate}},\\
-\{\bot\}, & \substack{m=\textsc{Preserve}\land\neg V_a(e,S_1),\\
-\pi=\textsc{Reject}.}
-\end{array}
-\end{equation}
-TRI compliance requires a proposed target $x$ to belong to $\mathcal{A}(L,S_1)$. Mutation
-authorization is a second check: a non-rejection proposal may execute only if
-$V_a(x,S_1)$. If it fails, the mutation boundary blocks it; action validity alone never
-authorizes substituting a different valid target. Whether the blocked outcome is surfaced as
-rejection, clarification, or another explicit fallback belongs to $P$, not to referential
-semantics. This two-layer condition applies only after the controller has compiled the correct
-mode, identity, guard, and fallback from the instruction; it does not assume an infallible LLM
-compiler.
+An invalid preserved entity remains the discourse referent even when policy returns $\bot$.
+Likewise, $q$ establishes identity under Preserve but remains executable under Reevaluate;
+action validity never authorizes substituting a different valid entity. Full history may contain
+all necessary facts while leaving this relationship computationally implicit, and correct
+inference still requires enforcement at the mutation boundary. TRI-v4 distinguishes
+$g_{\mathrm{act}}=V_a(e,S_1)$ from $g_{\mathrm{sel}}=[q(S_1)=e]$.
 
 \paragraph{Proposition (mode-blind policy impossibility).}
 Consider a Preserve/Reevaluate minimal pair with identical $S_0$, $S_1$, $q$, and $a$, where
@@ -273,39 +176,15 @@ Always-Reevaluate instantiate the two complementary extremes measured in our pol
 This establishes the need for a selective transition decision, not the necessity of our
 particular lifecycle serialization.
 
-\paragraph{Observation (state-overwrite indistinguishability).}
-Consider a controller whose post-refresh state is exactly $(u,S_1)$, where $u$ is the
-original instruction and $S_1$ is the refreshed observation. There exist two histories with
-the same anchored instruction $u$ and the same $S_1$, but different initial states $S_0,S'_0$
-such that $bind(r,S_0)=e$, $bind(r,S'_0)=e'$, and $e\ne e'$. If both histories refresh to
-$S_1$, the controller receives the same post-refresh input while the correct targets differ.
-Therefore any deterministic state-overwrite controller is wrong on at least one history.
-This matches the tested baseline: the temporal instruction remains in the input, but the
-earlier binding result is not recoverable from the common latest state. The construction is a
-diagnostic lower bound, not a claim that every full-history or learned-memory controller fails.
-
 \paragraph{Authorization invariant (conditional guarantee).}
-Assume (i) $L$ correctly encodes the user's authorized mode, identity, selector, guard, and
-fallback; (ii) entity IDs remain stable across the evaluated transition; (iii) selector and
-guard evaluation are correct and $V_a$ completely implements the action schema; and (iv) the executor follows the branches
-defining $\mathcal{A}(L,S_1)$. Then every proposed non-rejection target belongs to
-$\mathcal{A}(L,S_1)$. If the mutation tool executes only proposals satisfying $V_a$, every
-executed mutation is both referentially authorized and action-valid; an authorized but invalid
-proposal is blocked rather than silently replaced. The first claim follows by cases on $m$,
-$g$, and $\pi$, and the second by the mutation precondition. The guarantee ends at the compiled
-contract: a wrong but action-valid bound ID can still pass, and identity migration or an
-incomplete action schema violates the assumptions.
+If $L$ is correct, IDs are stable, selector/guard evaluation is correct, and the executor follows
+the branches above, every emitted target is referentially authorized; enforcing $V_a$ additionally
+makes each executed mutation action-valid. The guarantee ends at compilation: a wrong but valid
+ID, identity migration, or an incomplete action schema can still pass.
 
-\paragraph{Safety-sensitive outcomes.}
-Exact target accuracy treats every mismatch equally, but the operational consequences differ.
-A \emph{wrong-target attempt} names an entity other than the gold target; if that entity is
-present and action-valid, it becomes a \emph{wrong-entity write}. An \emph{invalid-target
-attempt} names an entity that violates action preconditions and should be blocked by the tool.
-An \emph{unnecessary rejection} returns $\bot$ when a valid target exists. The first two can
-modify the wrong external record; the last is conservative loss of utility. We therefore report
-resolution accuracy, final database state, wrong writes, invalid attempts, and unnecessary
-rejections separately. TRI does not define safety as refusal: a controller that always rejects
-would avoid wrong writes but fail every actionable task.
+\paragraph{Outcomes.}
+We separately report exact target/final state, wrong-entity writes, invalid attempts, and
+unnecessary rejection; always rejecting avoids writes but fails every actionable task.
 
 \section{Method: Pre-Refresh Commitment Compilation}
 
@@ -335,43 +214,12 @@ choice exposes selector grounding as a measurable stage rather than using gold s
 The complete controller procedure and model-facing interfaces are provided in the supplement.
 Gold targets and benchmark selector fields are never provided to the compiler or actor.
 
-\subsection{Controller Information and Fairness}
-
-Table~\ref{tab:fairness} separates the information boundary, task decomposition, and
-enforcement mechanism. Except for the unchanged historical predecessor, each compiler sees
-the instruction, $S_0$, action schema, and the fact that refresh precedes action. Generic also
-retains all task-relevant evidence for its post-refresh actor; its weakness is therefore
-behavioral accessibility, not information loss.
-Untyped and Lifecycle-free are the closest two-call representation comparison. Historical
-Compile-then-act is a strong predecessor but omits action validity from its actor interface.
-
-\begin{table}[t]
-\centering
-\scriptsize
-\setlength{\tabcolsep}{2.5pt}
-\begin{tabular}{p{0.25\columnwidth}p{0.39\columnwidth}cc}
-\toprule
-Controller & Pre-refresh record & Calls & Gate \\
-\midrule
-Generic ledger & ID, snapshot, selector, action, preconditions & 2 & no \\
-Untyped plan & one free-form plan & 2 & no \\
-Historical CTA & binding time, ID, selector, reason & 2 & no \\
-Lifecycle free & mode, ID, selector, policy & 2 & no \\
-Lifecycle gated & same typed record & 1 or 2 & yes \\
-Always-Lock control & $S_0$ ID + validity & 0 & deterministic \\
-Always-Reevaluate control & $q(S_1)$ & 0 & deterministic \\
-\bottomrule
-\end{tabular}
-\caption{Controller audit. Calls are per task: the gated Preserve branch skips the actor.
-Prompts, exact actor inputs, and the executor-level oracle sufficiency check are supplementary.}
-\label{tab:fairness}
-\end{table}
-
-When task-generator fields are supplied directly, a deterministic full-lifecycle executor
-reaches 100\% on the 246-task TRI-v2 suite, whereas reduced records reach 41.9--74.0\%.
-This is only an executor-level representation sufficiency check under generated semantics,
-not evidence that lifecycle fields are minimal or that an LLM can infer them. Full results are
-reported in the supplement rather than used as method-performance evidence.
+\paragraph{Information fairness.}
+Compilers see the instruction, $S_0$, action schema, and planned refresh, never gold targets or
+generator selector fields. Generic retains the instruction, selected ID, snapshot, selector,
+action, and preconditions for its second-call actor. CTA, Lifecycle-free, and Generic each use
+two calls; Lifecycle-Gated skips the actor for a valid Preserve branch. Full prompts, interfaces,
+and executor-level oracle checks are supplementary.
 
 \section{Experimental Setup}
 
@@ -539,18 +387,8 @@ the new core replication.}
 \label{tab:main}
 \end{table*}
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=0.98\textwidth]{Figures/tri_v3_results.pdf}
-\caption{The full post-primary controller ladder on the same frozen 160-task inventory.
-Pre-refresh compilation produces the main jump at Exact CTA; typed Lifecycle state is
-statistically tied with CTA, and deterministic gating adds only 1.2--1.9 points over the
-matched free actor.}
-\label{fig:results}
-\end{figure*}
-
 \paragraph{Structured facts are not a commitment.}
-Table~\ref{tab:main} and Figure~\ref{fig:results} show the same mechanism across models.
+Table~\ref{tab:main} shows the same mechanism across models.
 On the primary language-cluster test, Generic Structured Ledger reaches 64.4\% for Qwen and
 71.9\% for GLM, despite carrying identity, facts, selector, preconditions, and the original
 instruction. Lifecycle-Gated reaches 98.1\% and 100.0\%. Paired discordance is 3 generic-only
@@ -650,7 +488,7 @@ family is a stronger natural near-match: tasks selected as assigned-to-me are re
 initial selector. In 42 released trajectories from 14 experiment configurations, 16 correct
 target-binding operations are followed by 16 same-ID comments and zero post-binding substitutions;
 most failures omit targets before binding. Thus an independent benchmark supports the task
-structure, but neither inventory estimates strict TRI prevalence. At current $	au^3$-bench
+structure, but neither inventory estimates strict TRI prevalence. At current $\tau^3$-bench
 commit \texttt{cf71a80}, a separate audit covers 2,449 airline/retail/telecom tasks and 10,832
 released GPT-4.1/Claude/o4-mini trajectories. It finds zero strict same-role TRI opportunities;
 eight telecom tasks naturally bind a bill, let the user pay, and continue on an associated line,
@@ -749,9 +587,10 @@ refresh, while a negative multi-referent stress test does not establish composit
 \paragraph{Causal attribution and external validity.}
 The primary 20 template clusters and post-primary 40-state replication use temperature-zero calls
 and do not characterize execution variance or all model families. The replication was frozen
-after the mechanism hypothesis was selected and remains synthetic. The deterministic lock/reverify
-controls expose the relevant policy extremes, but we have not rerun the named Binding Drift
-Entity Lock and Independent Re-verification implementations on its workflow benchmark.
+after the mechanism hypothesis was selected and remains synthetic. We reproduced the 25
+deterministic offline assertions in the Binding Drift artifact after a filename adaptation, but
+have not rerun its Bedrock model sweep. Its deterministic re-verification reads a gold target and
+is therefore an oracle upper bound, while Entity Lock corresponds to our Always-Lock extreme.
 Compound-selector grounding remains a bottleneck. Fixed query-refresh order, local SQLite,
 ToolSandbox-style tasks, and a two-cluster custom AppWorld case study do not establish
 real-traffic prevalence. The public trace near-matches have no Stable/Flip contrast, the official

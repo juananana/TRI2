@@ -1,9 +1,11 @@
 # Temporal Referent Integrity
 
-This project extends the round-1 candidate tournament with a focused round-2
-idea: tool-using agents should preserve the identity of entities that were
-bound before an environment refresh, while still re-evaluating references that
-are intentionally dynamic.
+This artifact studies temporal referent integrity (TRI): after an entity has been
+correctly selected, an environment refresh updates world knowledge but does not
+automatically authorize the agent to substitute another entity. Some instructions
+commit to a pre-refresh identity, while others intentionally defer selection until
+after refresh. The paper diagnoses this distinction, evaluates pre-refresh commitment
+compilation, and reports both real SQLite consequences and external-validity boundaries.
 
 The benchmark has four matched conditions:
 
@@ -130,9 +132,34 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error AnonymousSubmission2027.tex
 ```
 
 The verified target is seven pages of main content plus references, within the
-AAAI-27 nine-page total limit. From the artifact root, run
-`PYTHONPATH=. ../../.venv-toolsandbox/bin/pytest -q tests`; the current working tree has 93
-passing tests. The custom ToolSandbox environment is documented separately.
+AAAI-27 nine-page total limit. The current full build is eight pages total. From the
+artifact root, run:
+
+```bash
+PYTHONPATH=. ../../.venv-toolsandbox/bin/pytest -q tests
+```
+
+The validated local environment is Python 3.12.13 with pytest 9.1.1; the current working
+tree has 126 passing tests. Most TRI generators, deterministic evaluators, SQLite replays,
+and report scripts use only the Python standard library. External-pilot tests additionally
+depend on their pinned ToolSandbox/AppWorld environments and are documented separately.
+
+## Post-primary method-upgrade decision
+
+The frozen 20-task method-upgrade smoke combines 16 v7 scalar-core tasks with four v6
+multi-refresh/role tasks. Event Graph and Executable Selector were evaluated with Qwen and
+GLM after the main mechanism was selected. They did not satisfy the predeclared cross-model
+schema, selector-equivalence, and direction-consistency gates, so neither replaces Exact CTA
+as the paper's scalar main method. Role-Indexed Lifecycle remains a limited compositional
+extension. Reproduce the unified decision report with:
+
+```bash
+PYTHONPATH=. ../../.venv-toolsandbox/bin/python \
+  scripts/analyze_method_upgrade_closed_loop.py
+```
+
+The resulting files are `reports/method_upgrade_closed_loop_v1.json` and `.md`. This is an
+exploratory Go/No-Go audit, not a powered confirmatory result.
 
 ## Single-turn ToolSandbox existence study
 

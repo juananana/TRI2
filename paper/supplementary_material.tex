@@ -226,8 +226,8 @@ failures in the audit, although the reported v3/v4 complete runs contain zero AP
 and zero retries.
 
 \subsection{TRI-v7 Core Replication}
-The post-primary replication was frozen before its model calls with SHA-256
-\texttt{2504f4979f1b4bfad5357e0cf734cbe4881adcadbe4e3cb1ca4fca0620657891}.
+The post-primary replication was frozen before its model calls with SHA-256 prefix
+\texttt{2504f4979f1b}; the artifact manifest records the complete hash.
 It contains 240 tasks over ten schemas unused in v3 primary or transfer, four independently
 parameterized state instances per schema, and balanced binding, update, and explicitness factors.
 All old targets remain present and action-valid. We resample the 40 state-instance clusters.
@@ -376,6 +376,48 @@ matched scalar-versus-role comparison, Qwen improves from 35/40 to 39/40 final s
 recovery sensitivity gives 40/40 for both. Against historical CTA, Qwen obtains 38/40 versus
 39/40 final states (33/40 vs. 39/40 target accuracy), and recovered GLM ties at 40/40. These results motivate role indexing but do not support
 stable superiority over simpler compilation.
+
+\section{Post-Primary Method-Upgrade Go/No-Go}
+After the scalar and compositional results above were known, we froze a 20-task decision set:
+16 v7 core tasks over 16 state clusters and four v6 multi-refresh/role tasks. We reused the
+matching frozen Generic, Exact CTA, Lifecycle, and role-indexed outputs and newly ran an Event
+Graph compiler (M1) and Event Graph plus Executable Selector (M2) with both models. This is an
+exploratory method-selection smoke, not a powered confirmatory comparison.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Model & Method & Correct & Schema & Mode & Selector \\
+\midrule
+Qwen3.5 & Event Graph & 9/20 & 14/20 & 12/20 & -- \\
+Qwen3.5 & Executable Selector & 15/20 & 15/20 & 14/20 & 15/20 \\
+GLM-5.1 & Event Graph & 20/20 & 20/20 & 20/20 & -- \\
+GLM-5.1 & Executable Selector & 18/20 & 18/20 & 18/20 & 19/20 \\
+\bottomrule
+\end{tabular}
+\caption{Post-primary 20-task method-upgrade smoke. Selector reports equivalence on both initial
+and final states. Parse/schema failures count as incorrect under intention-to-treat.}
+\end{table}
+
+On the same combined tasks, Exact CTA obtains 13/20 for Qwen and 20/20 for GLM. M2 therefore
+changes accuracy by +2 and $-2$ tasks, respectively, and fails the predeclared requirements that
+both models reach at least 95\% schema/selector equivalence and show a consistent direction.
+We do not promote M1 or M2 to the main method. Exact CTA remains the scalar mechanism, while the
+independently frozen v6 evidence above motivates role indexing as a limited compositional
+extension. The zero-API oracle executor is 440/440 on v3/v7/v6 and blocks all stale/wrong writes
+in 120 deterministic concurrency sequences; this establishes implementation sufficiency only,
+not learned compiler performance.
+
+\paragraph{Binding Drift audit.}
+We audited the official Binding Drift repository at commit
+\texttt{0e040e0954b1}. Its documented offline command references
+two files deleted at that commit; exposing the current \texttt{workflows\_200.jsonl} under the
+legacy filename in a temporary directory yields 25/25 assertions with unmodified metric and
+defense code. Its deterministic re-verification reads a gold target and is an oracle upper bound,
+whereas Entity Lock corresponds to our Always-Lock extreme. We therefore do not place its oracle
+score in the learned-method main table.
 
 \section{Request Cost}
 On the 160-task primary set, Generic uses 320 requests per model. Lifecycle-Gated uses 80
