@@ -1,0 +1,84 @@
+{
+  "replay_file": "runs/v7_core_sqlite_replay.jsonl",
+  "missing_replay_rows": [],
+  "summary": [
+    {
+      "model": "GLM-5.1",
+      "controller": "compile_then_act",
+      "n": 240,
+      "core_opportunities": 70,
+      "core_tri_writes": 0,
+      "all_wrong_writes": 14,
+      "dynamic_old_target_writes": 4,
+      "stable_wrong_writes": 0,
+      "other_wrong_writes": 10,
+      "invalid_target_attempts": 0,
+      "unnecessary_rejections": 0
+    },
+    {
+      "model": "GLM-5.1",
+      "controller": "factorized_hybrid_compile_then_act",
+      "n": 240,
+      "core_opportunities": 79,
+      "core_tri_writes": 0,
+      "all_wrong_writes": 7,
+      "dynamic_old_target_writes": 6,
+      "stable_wrong_writes": 0,
+      "other_wrong_writes": 1,
+      "invalid_target_attempts": 0,
+      "unnecessary_rejections": 0
+    },
+    {
+      "model": "GLM-5.1",
+      "controller": "generic_structured_ledger_then_act",
+      "n": 240,
+      "core_opportunities": 80,
+      "core_tri_writes": 38,
+      "all_wrong_writes": 38,
+      "dynamic_old_target_writes": 0,
+      "stable_wrong_writes": 0,
+      "other_wrong_writes": 0,
+      "invalid_target_attempts": 0,
+      "unnecessary_rejections": 34
+    },
+    {
+      "model": "Qwen3.5",
+      "controller": "compile_then_act",
+      "n": 240,
+      "core_opportunities": 71,
+      "core_tri_writes": 0,
+      "all_wrong_writes": 8,
+      "dynamic_old_target_writes": 6,
+      "stable_wrong_writes": 0,
+      "other_wrong_writes": 2,
+      "invalid_target_attempts": 50,
+      "unnecessary_rejections": 12
+    },
+    {
+      "model": "Qwen3.5",
+      "controller": "factorized_hybrid_compile_then_act",
+      "n": 240,
+      "core_opportunities": 64,
+      "core_tri_writes": 0,
+      "all_wrong_writes": 17,
+      "dynamic_old_target_writes": 13,
+      "stable_wrong_writes": 0,
+      "other_wrong_writes": 4,
+      "invalid_target_attempts": 30,
+      "unnecessary_rejections": 22
+    },
+    {
+      "model": "Qwen3.5",
+      "controller": "generic_structured_ledger_then_act",
+      "n": 240,
+      "core_opportunities": 72,
+      "core_tri_writes": 43,
+      "all_wrong_writes": 44,
+      "dynamic_old_target_writes": 0,
+      "stable_wrong_writes": 0,
+      "other_wrong_writes": 1,
+      "invalid_target_attempts": 33,
+      "unnecessary_rejections": 49
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "data": "data/temporal_referent_v4_policy_smoke.jsonl",
+  "n_expected": 10,
+  "files": [
+    {
+      "file": "runs/20260717T040528Z_Qwen_Qwen3.5-122B-A10B_generic_v4_policy_smoke.jsonl",
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "mode": "generic_structured_ledger_then_act",
+      "n_rows": 10,
+      "n_expected": 10,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 10
+      },
+      "internal_error_counts": {},
+      "success_count": 4,
+      "accuracy_if_complete_rows": 0.4,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "tri-v4-policy-projects-action_validity-t1-flip",
+      "last_task": "tri-v4-policy-expenses-selector_match-t5-flip"
+    },
+    {
+      "file": "runs/20260717T040625Z_Qwen_Qwen3.5-122B-A10B_guarded_lifecycle_v4_policy_smoke.jsonl",
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "mode": "guarded_lifecycle_then_act",
+      "n_rows": 10,
+      "n_expected": 10,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 10
+      },
+      "internal_error_counts": {},
+      "success_count": 8,
+      "accuracy_if_complete_rows": 0.8,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "tri-v4-policy-projects-action_validity-t1-flip",
+      "last_task": "tri-v4-policy-expenses-selector_match-t5-flip"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "bootstrap_samples": 10000,
+  "seed": 20260717,
+  "runs": [
+    {
+      "file": "runs/20260717T035659Z_Qwen_Qwen3.5-122B-A10B_sqlite_generic_v3_full.jsonl",
+      "model": "Qwen3.5",
+      "mode": "sqlite_generic_structured_ledger",
+      "n_tasks": 40,
+      "n_clusters": 20,
+      "task_accuracy": 0.675,
+      "template_macro_accuracy": 0.675,
+      "cluster_bootstrap_ci95_low": 0.5,
+      "cluster_bootstrap_ci95_high": 0.85,
+      "api_errors": 0
+    },
+    {
+      "file": "runs/20260717T040055Z_Qwen_Qwen3.5-122B-A10B_sqlite_lifecycle_v3_full.jsonl",
+      "model": "Qwen3.5",
+      "mode": "sqlite_lifecycle_gated",
+      "n_tasks": 40,
+      "n_clusters": 20,
+      "task_accuracy": 1.0,
+      "template_macro_accuracy": 1.0,
+      "cluster_bootstrap_ci95_low": 1.0,
+      "cluster_bootstrap_ci95_high": 1.0,
+      "api_errors": 0
+    }
+  ],
+  "pairs": [
+    {
+      "file_a": "runs/20260717T035659Z_Qwen_Qwen3.5-122B-A10B_sqlite_generic_v3_full.jsonl",
+      "file_b": "runs/20260717T040055Z_Qwen_Qwen3.5-122B-A10B_sqlite_lifecycle_v3_full.jsonl",
+      "model_a": "Qwen3.5",
+      "model_b": "Qwen3.5",
+      "mode_a": "sqlite_generic_structured_ledger",
+      "mode_b": "sqlite_lifecycle_gated",
+      "n_tasks": 40,
+      "n_clusters": 20,
+      "delta_b_minus_a": 0.325,
+      "cluster_bootstrap_ci95_low": 0.15,
+      "cluster_bootstrap_ci95_high": 0.5
+    }
+  ]
+}

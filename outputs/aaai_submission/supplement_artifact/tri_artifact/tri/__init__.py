@@ -1,2 +1,0 @@
-"""Temporal referent integrity experiments."""
-

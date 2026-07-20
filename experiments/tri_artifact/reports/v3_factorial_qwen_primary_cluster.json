@@ -1,0 +1,95 @@
+{
+  "bootstrap_samples": 10000,
+  "seed": 20260717,
+  "runs": [
+    {
+      "file": "runs/20260717T025047Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+      "model": "Qwen3.5",
+      "mode": "generic_structured_ledger_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "task_accuracy": 0.64375,
+      "template_macro_accuracy": 0.64375,
+      "cluster_bootstrap_ci95_low": 0.49375,
+      "cluster_bootstrap_ci95_high": 0.7875,
+      "api_errors": 0
+    },
+    {
+      "file": "runs/v3_factorial_qwen_primary_generic_validity_gate.jsonl",
+      "model": "Qwen3.5",
+      "mode": "generic_validity_gated_ledger_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "task_accuracy": 0.65,
+      "template_macro_accuracy": 0.65,
+      "cluster_bootstrap_ci95_low": 0.49375,
+      "cluster_bootstrap_ci95_high": 0.79375,
+      "api_errors": 0
+    },
+    {
+      "file": "runs/v3_factorial_qwen_primary_lifecycle_free.jsonl",
+      "model": "Qwen3.5",
+      "mode": "factorized_schema_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "task_accuracy": 0.96875,
+      "template_macro_accuracy": 0.96875,
+      "cluster_bootstrap_ci95_low": 0.9375,
+      "cluster_bootstrap_ci95_high": 0.99375,
+      "api_errors": 0
+    },
+    {
+      "file": "runs/20260717T030034Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v3_language_clusters_nothinking.jsonl",
+      "model": "Qwen3.5",
+      "mode": "factorized_hybrid_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "task_accuracy": 0.98125,
+      "template_macro_accuracy": 0.98125,
+      "cluster_bootstrap_ci95_low": 0.95,
+      "cluster_bootstrap_ci95_high": 1.0,
+      "api_errors": 0
+    }
+  ],
+  "pairs": [
+    {
+      "file_a": "runs/20260717T025047Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+      "file_b": "runs/v3_factorial_qwen_primary_generic_validity_gate.jsonl",
+      "model_a": "Qwen3.5",
+      "model_b": "Qwen3.5",
+      "mode_a": "generic_structured_ledger_then_act",
+      "mode_b": "generic_validity_gated_ledger_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "delta_b_minus_a": 0.00625,
+      "cluster_bootstrap_ci95_low": 0.0,
+      "cluster_bootstrap_ci95_high": 0.01875
+    },
+    {
+      "file_a": "runs/v3_factorial_qwen_primary_generic_validity_gate.jsonl",
+      "file_b": "runs/v3_factorial_qwen_primary_lifecycle_free.jsonl",
+      "model_a": "Qwen3.5",
+      "model_b": "Qwen3.5",
+      "mode_a": "generic_validity_gated_ledger_then_act",
+      "mode_b": "factorized_schema_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "delta_b_minus_a": 0.31875,
+      "cluster_bootstrap_ci95_low": 0.175,
+      "cluster_bootstrap_ci95_high": 0.475
+    },
+    {
+      "file_a": "runs/v3_factorial_qwen_primary_lifecycle_free.jsonl",
+      "file_b": "runs/20260717T030034Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v3_language_clusters_nothinking.jsonl",
+      "model_a": "Qwen3.5",
+      "model_b": "Qwen3.5",
+      "mode_a": "factorized_schema_compile_then_act",
+      "mode_b": "factorized_hybrid_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "delta_b_minus_a": 0.0125,
+      "cluster_bootstrap_ci95_low": 0.0,
+      "cluster_bootstrap_ci95_high": 0.03125
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "upstream": "https://github.com/sierra-research/tau2-bench.git",
+  "commit": "cf71a8070269883e38a365ffa85f78f46844c1f4",
+  "scope": [
+    "airline",
+    "retail",
+    "telecom"
+  ],
+  "total_tasks": 2449,
+  "domains": {
+    "airline": {
+      "tasks": 50,
+      "tasks_with_user_evaluation_mutation": 0,
+      "tasks_with_user_mutation_carrying_stable_entity_id": 0,
+      "metadata_strict_candidates_before_manual_audit": 0
+    },
+    "retail": {
+      "tasks": 114,
+      "tasks_with_user_evaluation_mutation": 0,
+      "tasks_with_user_mutation_carrying_stable_entity_id": 0,
+      "metadata_strict_candidates_before_manual_audit": 0
+    },
+    "telecom": {
+      "tasks": 2285,
+      "tasks_with_user_evaluation_mutation": 2250,
+      "tasks_with_user_mutation_carrying_stable_entity_id": 0,
+      "metadata_strict_candidates_before_manual_audit": 0
+    }
+  },
+  "metadata_strict_candidates": [],
+  "strict_native_tri_opportunities_after_manual_semantic_audit": 0,
+  "natural_stateful_near_matches": {
+    "telecom_overdue_payment_then_resume_line_tasks": 8,
+    "interpretation": "The Agent binds a bill, the user pays it, and the Agent resumes a line. This is a natural dual-control transition but not TRI: bill and line are different referential roles, and no competing selector winner can replace a previously committed mutation target."
+  },
+  "exclusion_logic": {
+    "airline_retail": "No user-side tools mutate shared state during the conversation; task actions therefore cannot supply an independent post-binding transition.",
+    "telecom": "User-side mutations target a single simulated device or an app name and carry no customer/line/bill stable ID. The task worlds do not provide a competing same-role entity whose selector status can change after a prior binding."
+  },
+  "scientific_interpretation": "The official inventory adds natural language, dual control, and ordinary published Agents, but it has zero strict TRI opportunities under the frozen definition. It therefore measures benchmark coverage, not TRI prevalence or absence.",
+  "released_traces": {
+    "files": 26,
+    "simulations": 10832,
+    "by_domain": {
+      "airline": 800,
+      "retail": 1824,
+      "telecom": 4560,
+      "telecom-workflow": 3648
+    },
+    "by_agent_model": {
+      "claude-3-7-sonnet-20250219": 1112,
+      "gpt-4.1-2025-04-14": 4304,
+      "gpt-4.1-mini-2025-04-14": 1112,
+      "o4-mini-2025-04-16": 4304
+    },
+    "payment_near_match_trajectories": 936
+  }
+}

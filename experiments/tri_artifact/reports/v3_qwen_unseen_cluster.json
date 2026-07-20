@@ -1,0 +1,45 @@
+{
+  "bootstrap_samples": 10000,
+  "seed": 20260717,
+  "runs": [
+    {
+      "file": "runs/20260717T031033Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_unseen_domains_nothinking.jsonl",
+      "model": "Qwen3.5",
+      "mode": "generic_structured_ledger_then_act",
+      "n_tasks": 80,
+      "n_clusters": 20,
+      "task_accuracy": 0.4625,
+      "template_macro_accuracy": 0.4625,
+      "cluster_bootstrap_ci95_low": 0.325,
+      "cluster_bootstrap_ci95_high": 0.5875,
+      "api_errors": 0
+    },
+    {
+      "file": "runs/20260717T031633Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v3_unseen_domains_nothinking.jsonl",
+      "model": "Qwen3.5",
+      "mode": "factorized_hybrid_compile_then_act",
+      "n_tasks": 80,
+      "n_clusters": 20,
+      "task_accuracy": 0.825,
+      "template_macro_accuracy": 0.825,
+      "cluster_bootstrap_ci95_low": 0.725,
+      "cluster_bootstrap_ci95_high": 0.9125,
+      "api_errors": 0
+    }
+  ],
+  "pairs": [
+    {
+      "file_a": "runs/20260717T031033Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_unseen_domains_nothinking.jsonl",
+      "file_b": "runs/20260717T031633Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v3_unseen_domains_nothinking.jsonl",
+      "model_a": "Qwen3.5",
+      "model_b": "Qwen3.5",
+      "mode_a": "generic_structured_ledger_then_act",
+      "mode_b": "factorized_hybrid_compile_then_act",
+      "n_tasks": 80,
+      "n_clusters": 20,
+      "delta_b_minus_a": 0.3625,
+      "cluster_bootstrap_ci95_low": 0.25,
+      "cluster_bootstrap_ci95_high": 0.475
+    }
+  ]
+}

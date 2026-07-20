@@ -1,0 +1,216 @@
+{
+  "bootstrap_samples": 10000,
+  "seed": 20260717,
+  "runs": [
+    {
+      "file": "runs/20260717T025047Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+      "model": "Qwen3.5",
+      "mode": "generic_structured_ledger_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "task_accuracy": 0.64375,
+      "template_macro_accuracy": 0.64375,
+      "cluster_bootstrap_ci95_low": 0.49375,
+      "cluster_bootstrap_ci95_high": 0.7875,
+      "api_errors": 0,
+      "binding_slices": [
+        {
+          "binding": "anchored",
+          "n_tasks": 80,
+          "task_accuracy": 0.3375
+        },
+        {
+          "binding": "dynamic",
+          "n_tasks": 80,
+          "task_accuracy": 0.95
+        }
+      ]
+    },
+    {
+      "file": "runs/v3_prefrefresh_untyped_qwen_full.jsonl",
+      "model": "Qwen3.5",
+      "mode": "pre_refresh_untyped_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "task_accuracy": 0.8125,
+      "template_macro_accuracy": 0.8125,
+      "cluster_bootstrap_ci95_low": 0.71875,
+      "cluster_bootstrap_ci95_high": 0.9,
+      "api_errors": 0,
+      "binding_slices": [
+        {
+          "binding": "anchored",
+          "n_tasks": 80,
+          "task_accuracy": 0.7125
+        },
+        {
+          "binding": "dynamic",
+          "n_tasks": 80,
+          "task_accuracy": 0.9125
+        }
+      ]
+    },
+    {
+      "file": "runs/v3_factorial_qwen_primary_lifecycle_free.jsonl",
+      "model": "Qwen3.5",
+      "mode": "factorized_schema_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "task_accuracy": 0.96875,
+      "template_macro_accuracy": 0.96875,
+      "cluster_bootstrap_ci95_low": 0.9375,
+      "cluster_bootstrap_ci95_high": 0.99375,
+      "api_errors": 0,
+      "binding_slices": [
+        {
+          "binding": "anchored",
+          "n_tasks": 80,
+          "task_accuracy": 0.975
+        },
+        {
+          "binding": "dynamic",
+          "n_tasks": 80,
+          "task_accuracy": 0.9625
+        }
+      ]
+    },
+    {
+      "file": "runs/20260717T032824Z_Pro_zai-org_GLM-5.1_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+      "model": "GLM-5.1",
+      "mode": "generic_structured_ledger_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "task_accuracy": 0.71875,
+      "template_macro_accuracy": 0.71875,
+      "cluster_bootstrap_ci95_low": 0.61875,
+      "cluster_bootstrap_ci95_high": 0.81875,
+      "api_errors": 0,
+      "binding_slices": [
+        {
+          "binding": "anchored",
+          "n_tasks": 80,
+          "task_accuracy": 0.5625
+        },
+        {
+          "binding": "dynamic",
+          "n_tasks": 80,
+          "task_accuracy": 0.875
+        }
+      ]
+    },
+    {
+      "file": "runs/v3_prefrefresh_untyped_glm_full.jsonl",
+      "model": "GLM-5.1",
+      "mode": "pre_refresh_untyped_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "task_accuracy": 0.70625,
+      "template_macro_accuracy": 0.70625,
+      "cluster_bootstrap_ci95_low": 0.5625,
+      "cluster_bootstrap_ci95_high": 0.84375,
+      "api_errors": 0,
+      "binding_slices": [
+        {
+          "binding": "anchored",
+          "n_tasks": 80,
+          "task_accuracy": 0.425
+        },
+        {
+          "binding": "dynamic",
+          "n_tasks": 80,
+          "task_accuracy": 0.9875
+        }
+      ]
+    },
+    {
+      "file": "runs/v3_factorial_glm_primary_lifecycle_free.jsonl",
+      "model": "GLM-5.1",
+      "mode": "factorized_schema_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "task_accuracy": 0.98125,
+      "template_macro_accuracy": 0.98125,
+      "cluster_bootstrap_ci95_low": 0.9625,
+      "cluster_bootstrap_ci95_high": 1.0,
+      "api_errors": 0,
+      "binding_slices": [
+        {
+          "binding": "anchored",
+          "n_tasks": 80,
+          "task_accuracy": 0.9625
+        },
+        {
+          "binding": "dynamic",
+          "n_tasks": 80,
+          "task_accuracy": 1.0
+        }
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "file_a": "runs/20260717T025047Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+      "file_b": "runs/v3_prefrefresh_untyped_qwen_full.jsonl",
+      "model_a": "Qwen3.5",
+      "model_b": "Qwen3.5",
+      "mode_a": "generic_structured_ledger_then_act",
+      "mode_b": "pre_refresh_untyped_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "delta_b_minus_a": 0.16875,
+      "cluster_bootstrap_ci95_low": 0.05,
+      "cluster_bootstrap_ci95_high": 0.29375,
+      "template_wins_b": 12,
+      "template_ties": 4,
+      "template_wins_a": 4
+    },
+    {
+      "file_a": "runs/v3_prefrefresh_untyped_qwen_full.jsonl",
+      "file_b": "runs/v3_factorial_qwen_primary_lifecycle_free.jsonl",
+      "model_a": "Qwen3.5",
+      "model_b": "Qwen3.5",
+      "mode_a": "pre_refresh_untyped_compile_then_act",
+      "mode_b": "factorized_schema_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "delta_b_minus_a": 0.15625,
+      "cluster_bootstrap_ci95_low": 0.075,
+      "cluster_bootstrap_ci95_high": 0.25,
+      "template_wins_b": 13,
+      "template_ties": 6,
+      "template_wins_a": 1
+    },
+    {
+      "file_a": "runs/20260717T032824Z_Pro_zai-org_GLM-5.1_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+      "file_b": "runs/v3_prefrefresh_untyped_glm_full.jsonl",
+      "model_a": "GLM-5.1",
+      "model_b": "GLM-5.1",
+      "mode_a": "generic_structured_ledger_then_act",
+      "mode_b": "pre_refresh_untyped_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "delta_b_minus_a": -0.0125,
+      "cluster_bootstrap_ci95_low": -0.0875,
+      "cluster_bootstrap_ci95_high": 0.06265624999999772,
+      "template_wins_b": 7,
+      "template_ties": 6,
+      "template_wins_a": 7
+    },
+    {
+      "file_a": "runs/v3_prefrefresh_untyped_glm_full.jsonl",
+      "file_b": "runs/v3_factorial_glm_primary_lifecycle_free.jsonl",
+      "model_a": "GLM-5.1",
+      "model_b": "GLM-5.1",
+      "mode_a": "pre_refresh_untyped_compile_then_act",
+      "mode_b": "factorized_schema_compile_then_act",
+      "n_tasks": 160,
+      "n_clusters": 20,
+      "delta_b_minus_a": 0.275,
+      "cluster_bootstrap_ci95_low": 0.15,
+      "cluster_bootstrap_ci95_high": 0.4125,
+      "template_wins_b": 11,
+      "template_ties": 9,
+      "template_wins_a": 0
+    }
+  ]
+}

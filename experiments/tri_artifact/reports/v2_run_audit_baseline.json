@@ -1,0 +1,146 @@
+{
+  "data": "data/temporal_referent_v2_api_scalar.jsonl",
+  "n_expected": 160,
+  "files": [
+    {
+      "file": "$HOME/Desktop/TRI_AAAI_Paper_Project_20260716/temporal_referent_integrity/runs/20260716T071021Z_Pro_zai-org_GLM-5.1_state_overwrite_once_dev_all.jsonl",
+      "model": "Pro/zai-org/GLM-5.1",
+      "mode": "state_overwrite_once",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 98,
+      "accuracy_if_complete_rows": 0.6125,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2-mail-explicit_anchor-flip",
+      "last_task": "v2-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "$HOME/Desktop/TRI_AAAI_Paper_Project_20260716/temporal_referent_integrity/runs/20260716T072247Z_Pro_zai-org_GLM-5.1_compile_then_act_dev_all.jsonl",
+      "model": "Pro/zai-org/GLM-5.1",
+      "mode": "compile_then_act",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 143,
+      "accuracy_if_complete_rows": 0.89375,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2-mail-explicit_anchor-flip",
+      "last_task": "v2-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "$HOME/Desktop/TRI_AAAI_Paper_Project_20260716/temporal_referent_integrity/runs/20260716T082503Z_Qwen_Qwen3.5-397B-A17B_state_overwrite_once_dev_all.jsonl",
+      "model": "Qwen/Qwen3.5-397B-A17B",
+      "mode": "state_overwrite_once",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 96,
+      "accuracy_if_complete_rows": 0.6,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2-mail-explicit_anchor-flip",
+      "last_task": "v2-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "$HOME/Desktop/TRI_AAAI_Paper_Project_20260716/temporal_referent_integrity/runs/20260716T083738Z_Qwen_Qwen3.5-397B-A17B_compile_then_act_dev_all.jsonl",
+      "model": "Qwen/Qwen3.5-397B-A17B",
+      "mode": "compile_then_act",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 108,
+        "api_internal_error": 52
+      },
+      "internal_error_counts": {
+        "The read operation timed out": 6,
+        "HTTP Error 403: Forbidden": 46
+      },
+      "success_count": 86,
+      "accuracy_if_complete_rows": 0.5375,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2-mail-explicit_anchor-flip",
+      "last_task": "v2-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "$HOME/Desktop/TRI_AAAI_Paper_Project_20260716/temporal_referent_integrity/runs/20260716T100113Z_Pro_MiniMaxAI_MiniMax-M2.5_state_overwrite_once_dev_all.jsonl",
+      "model": "Pro/MiniMaxAI/MiniMax-M2.5",
+      "mode": "state_overwrite_once",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "api_internal_error": 160
+      },
+      "internal_error_counts": {
+        "HTTP Error 403: Forbidden": 160
+      },
+      "success_count": 0,
+      "accuracy_if_complete_rows": 0.0,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2-mail-explicit_anchor-flip",
+      "last_task": "v2-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "$HOME/Desktop/TRI_AAAI_Paper_Project_20260716/temporal_referent_integrity/runs/20260716T100138Z_Pro_MiniMaxAI_MiniMax-M2.5_compile_then_act_dev_all.jsonl",
+      "model": "Pro/MiniMaxAI/MiniMax-M2.5",
+      "mode": "compile_then_act",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "api_internal_error": 160
+      },
+      "internal_error_counts": {
+        "HTTP Error 403: Forbidden": 160
+      },
+      "success_count": 0,
+      "accuracy_if_complete_rows": 0.0,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2-mail-explicit_anchor-flip",
+      "last_task": "v2-shipping-implicit_dynamic-name_collision"
+    }
+  ]
+}

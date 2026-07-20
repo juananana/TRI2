@@ -1,0 +1,21 @@
+[
+  {
+    "file_a": "runs/20260717T035659Z_Qwen_Qwen3.5-122B-A10B_sqlite_generic_v3_full.jsonl",
+    "file_b": "runs/20260717T040055Z_Qwen_Qwen3.5-122B-A10B_sqlite_lifecycle_v3_full.jsonl",
+    "model_a": "Qwen3.5",
+    "model_b": "Qwen3.5",
+    "mode_a": "sqlite_generic_structured_ledger",
+    "mode_b": "sqlite_lifecycle_gated",
+    "n_paired": 40,
+    "accuracy_a": 0.675,
+    "accuracy_b": 1.0,
+    "delta_b_minus_a": 0.32499999999999996,
+    "both_correct": 27,
+    "a_only_correct": 0,
+    "b_only_correct": 13,
+    "both_wrong": 0,
+    "api_errors_a": 0,
+    "api_errors_b": 0,
+    "mcnemar_exact_p": 0.000244140625
+  }
+]

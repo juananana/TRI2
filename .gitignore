@@ -5,6 +5,36 @@ __pycache__/
 .env.*
 venv/
 .venv/
+.venv-toolsandbox/
+.venv-appworld*/
 node_modules/
 .idea/
 .vscode/
+
+# LaTeX build products (final PDFs are tracked explicitly)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
+# Human-study private materials: keep locally, never stage or publish
+experiments/tri_artifact/human_validation/*.xlsx
+experiments/tri_artifact/human_validation/private_returns/
+experiments/tri_artifact/human_validation/annotation_key_private.csv
+experiments/tri_artifact/human_validation/00_你先填写_实验协调表.csv
+experiments/tri_artifact/human_validation/作者试填_不计入正式统计.csv
+
+# Temporary experiment outputs
+experiments/tri_artifact/runs/*.tmp
+experiments/tri_artifact/runs/*.partial
+
+# Downloaded public benchmark runtimes and pinned source checkouts
+experiments/tri_artifact/external_pilots/appworld_runtime/
+external_sources/
+
+# Local third-party tools used for repository inspection, not part of TRI
+tools/

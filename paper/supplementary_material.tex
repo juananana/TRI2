@@ -1,0 +1,500 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\setlength{\emergencystretch}{3em}
+\title{Supplementary Material\\[2pt]
+\large Updating the World Is Not Rebinding the Target}
+\author{Anonymous Submission}
+\date{}
+
+\begin{document}
+\maketitle
+
+\paragraph{Review note.}
+This document supports the main submission with implementation, protocol, and extended-result
+details. The main paper is self-contained. No result reported here changes the primary
+estimand, and all files are included in the accompanying anonymous artifact rather than
+referenced through an external webpage.
+
+\section{Benchmark and Frozen Protocol}
+The TRI-v3 primary evaluation contains 160 tasks in 20 frozen language-template clusters.
+Tasks are balanced across anchored and dynamic references and across flip, stable, remove,
+invalidate, and name-collision transitions. The transfer evaluation contains 80 tasks over
+four unseen schemas (projects, expenses, inventory, and cloud deployments). The guarded
+TRI-v4 extension contains 40 conditional tasks and distinguishes action-validity and
+selector-match guards. The model-facing SQLite replay uses a frozen 40-task subset and
+records every query, refresh, target proposal, mutation attempt, and final database diff.
+
+The task generator evaluates the selector in $S_0$, applies a controlled transition to obtain
+$S_1$, and computes the gold target from the instruction's reference mode and policy. Paired
+items share their schema, entities, transition, and action; only the temporal discourse
+varies. Gold targets and benchmark metadata are not passed to the model.
+
+\section{Controller Records}
+The Generic Structured Ledger stores the original instruction, the initial selected ID,
+the full entity snapshot, the selector, requested action, and action preconditions. It omits
+reference mode and invalidity/fallback semantics. The Lifecycle compiler additionally emits
+\texttt{reference\_mode}, \texttt{bound\_target\_id}, \texttt{selector},
+\texttt{guard\_type}, and \texttt{fallback\_policy}. A deterministic executor checks action
+validity for preserved identities and delegates only explicitly dynamic or unresolved
+branches to the actor. The exact historical Compile-then-act baseline is retained unchanged
+as a neighboring audit.
+
+\subsection{Lifecycle-Gated procedure}
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{rp{0.82\textwidth}}
+\toprule
+& Lifecycle-Gated execution \\
+\midrule
+1 & Observe $S_0$ and compile $L(r,a)$ from the instruction and action schema. \\
+2 & Execute the required environment refresh and receive $S_1$. \\
+3 & If mode is \textsc{Preserve}, check the compiled bound ID against $V_a$. \\
+4 & If valid, emit the bound ID without invoking the actor. \\
+5 & If invalid, apply the compiled reject or reselection fallback. \\
+6 & For \textsc{Reevaluate} or unresolved conditional branches, invoke the actor on $L(r)$ and $S_1$. \\
+\bottomrule
+\end{tabular}
+\caption{Controller procedure. Gold targets and benchmark selector fields are never provided to
+the compiler or actor.}
+\label{tab:supp-procedure}
+\end{table}
+
+\subsection{Information and execution audit}
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llll}
+\toprule
+Controller & Pre-refresh output & Calls & Gate\\
+\midrule
+Generic ledger & ID, snapshot, selector, action, preconditions & 2 & no\\
+Untyped plan & free-form plan & 2 & no\\
+Historical CTA & binding time, ID, selector, reason & 2 & no\\
+Lifecycle free & mode, ID, selector, policy & 2 & no\\
+Lifecycle gated & same typed record & 1 or 2 & yes\\
+\bottomrule
+\end{tabular}
+\caption{The gated Preserve branch omits the actor call. Generic retains all task-relevant
+evidence and is not an information-deletion baseline.}
+\end{table}
+
+Untyped-plan and Lifecycle-free both compile before refresh, use two calls, share the action
+schema and actor, and differ in whether the intermediate contract is free-form or typed.
+Historical CTA is not a pure representation match: its actor omits the action schema and its
+Preserve rule rejects only missing, rather than present-but-invalid, entities.
+
+\subsection{Executor-level oracle check}
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrl}
+\toprule
+Generator-supplied representation & Accuracy & Characteristic failure\\
+\midrule
+Bound ID only & 41.9 & premature binding\\
+Binding time only & 58.1 & no anchored identity\\
+Bound name only & 58.9 & alias/name collision\\
+Latest state & 64.6 & temporal rebinding\\
+Time + ID & 74.0 & invalidity/conditional policy\\
+Full lifecycle schema & 100.0 & --\\
+\bottomrule
+\end{tabular}
+\caption{Deterministic execution over 246 generated tasks. This establishes sufficiency for
+generated semantics only, not model performance, minimality, or natural-language validity.}
+\end{table}
+
+\section{Extended Component Audit}
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrr}
+\toprule
+Controller & Qwen3.5 & GLM-5.1\\
+\midrule
+Generic free actor & 64.4 & 71.9\\
+Generic + reference mode & 75.0 & 75.0\\
+Generic + validity gate & 65.0 & 73.1\\
+Untyped pre-refresh plan & 81.2 & 70.6\\
+Exact Compile-then-act & 95.0 & 96.2\\
+Lifecycle free actor & 96.9 & 98.1\\
+Lifecycle + gate & 98.1 & 100.0\\
+\bottomrule
+\end{tabular}
+\caption{Exact target accuracy on the identical 160-task language set.}
+\end{table}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Policy control & Overall & Anchored & Dynamic \\
+\midrule
+Always-Lock + validity & 96/160 (60.0) & 80/80 (100.0) & 16/80 (20.0) \\
+Always-Reevaluate & 96/160 (60.0) & 16/80 (20.0) & 80/80 (100.0) \\
+\bottomrule
+\end{tabular}
+\caption{Deterministic policy extremes on the same frozen inventory. These controls are not
+LLM runs or reproductions of a named external agent; they expose the complementary errors of
+unconditional locking and unconditional selector re-evaluation. The machine-readable report
+is \texttt{reports/policy\_extreme\_controls.md}.}
+\end{table}
+
+The post-freeze Generic+reference-mode ablation adds only the explicit mode field and reaches
+75.0\% for both models. Its paired cluster gains over Generic are +10.6
+$[+5.0,+16.9]$ for Qwen and +3.1 $[-2.5,+9.4]$ for GLM; the latter includes zero. The
+ablation therefore supports explicit mode classification as a component, but not as a complete
+explanation of CTA's gain. The audit separates three effects. A validity-only gate changes Generic accuracy by only
+0.6 and 1.2 points. Lifecycle state with a free actor reaches 96.9 and 98.1\%, while the
+deterministic gate adds 1.2 and 1.9 points. Exact Compile-then-act reaches 95.0 and 96.2\%.
+The call-matched untyped plan reaches 81.2 and 70.6\%; Lifecycle-free exceeds it by 15.6 and
+27.5 points with cluster intervals excluding zero. The evidence therefore supports structured
+pre-refresh semantic compilation as the main accuracy
+mechanism, with typed lifecycle state providing an auditable interface and deterministic
+enforcement providing a smaller safety contribution.
+
+\subsection{Referential-core versus reject-policy sensitivity}
+The pre-specified aggregate includes 32 anchored remove/invalidate items whose gold execution
+outcome is the author-specified \texttt{INVALID\_BOUND\_ENTITY}. Table~\ref{tab:policy-split}
+separates these from the 128 actionable referential-core items without redefining benchmark
+gold or replacing the aggregate estimand.
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrr}
+\toprule
+Run & Actionable core & Reject policy \\
+\midrule
+Qwen Generic & 95/128 (74.2) & 8/32 (25.0) \\
+Qwen Generic + validity gate & 95/128 (74.2) & 9/32 (28.1) \\
+Qwen Untyped plan & 106/128 (82.8) & 24/32 (75.0) \\
+Qwen Historical CTA & 126/128 (98.4) & 26/32 (81.2) \\
+Qwen Lifecycle-free & 123/128 (96.1) & 32/32 (100.0) \\
+Qwen Lifecycle-Gated & 125/128 (97.7) & 32/32 (100.0) \\
+GLM Generic & 93/128 (72.7) & 22/32 (68.8) \\
+GLM Generic + validity gate & 93/128 (72.7) & 24/32 (75.0) \\
+GLM Untyped plan & 107/128 (83.6) & 6/32 (18.8) \\
+GLM Historical CTA & 127/128 (99.2) & 27/32 (84.4) \\
+GLM Lifecycle-free & 125/128 (97.7) & 32/32 (100.0) \\
+GLM Lifecycle-Gated & 128/128 (100.0) & 32/32 (100.0) \\
+\bottomrule
+\end{tabular}
+\caption{Correct/total and accuracy in parentheses. The policy slice measures compliance with
+the benchmark's explicit execution rule, not equally human-supported referential semantics.}
+\label{tab:policy-split}
+\end{table}
+On the actionable core, Gated-minus-Generic differences are +23.4 points with a
+template-cluster interval of [+11.3,+38.4] for Qwen and +27.3 [+16.9,+39.8] for GLM.
+Gated-minus-Historical-CTA is $-0.8$ [$-4.9,+3.1$] and +0.8 [0.0,+2.6], respectively;
+the cross-model evidence therefore does not establish Gated superiority over the strong
+pre-refresh predecessor. Complete reject-policy contrasts are in the artifact report.
+
+\subsection{Frozen error taxonomy}
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{0.23\textwidth}p{0.68\textwidth}}
+\toprule
+Error label & Operational meaning \\
+\midrule
+Temporal rebinding & A committed pre-refresh target is replaced by the refreshed selector winner. \\
+Premature binding & A dynamic reference incorrectly retains a pre-refresh entity. \\
+Invalid processed & A preserved entity violates action preconditions but is still selected. \\
+Unneeded rejection & The controller returns $\bot$ although a valid gold target exists. \\
+Selector grounding & Mode or guard is correct, but the compiler or actor misapplies a filtered selector. \\
+\bottomrule
+\end{tabular}
+\caption{Mechanism-oriented labels used in stage and write-consequence reports.}
+\label{tab:supp-errors}
+\end{table}
+
+\section{Statistical and Audit Details}
+The primary comparison is Lifecycle-Gated minus Generic Structured Ledger on Qwen's 20
+language clusters. We resample complete clusters 10,000 times with seed 20260717. The
+primary Qwen difference is +33.8 points with a cluster interval of [+18.1,+50.0]; the GLM
+replication difference is +28.1 points with [+18.1,+38.1]. Exact paired McNemar tests are
+secondary: Qwen has 3 Generic-only versus 57 Lifecycle-only wins, $p=6.25\times10^{-14}$;
+GLM has 0 versus 45, $p=5.68\times10^{-14}$. API errors and missing rows are counted as
+failures in the audit, although the reported v3/v4 complete runs contain zero API errors
+and zero retries.
+
+\subsection{TRI-v7 Core Replication}
+The post-primary replication was frozen before its model calls with SHA-256
+\texttt{2504f4979f1b4bfad5357e0cf734cbe4881adcadbe4e3cb1ca4fca0620657891}.
+It contains 240 tasks over ten schemas unused in v3 primary or transfer, four independently
+parameterized state instances per schema, and balanced binding, update, and explicitness factors.
+All old targets remain present and action-valid. We resample the 40 state-instance clusters.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Model & Controller & Acc. & Initial ID & Core drift & Stable err. \\
+\midrule
+Qwen3.5 & Generic & 47.5 & 107/120 & 43/72 & 4/40 \\
+Qwen3.5 & Exact CTA & 70.8 & 103/120 & 0/71 & 6/40 \\
+Qwen3.5 & Gated & 71.2 & 95/120 & 0/64 & 9/40 \\
+GLM-5.1 & Generic & 70.0 & 120/120 & 38/80 & 2/40 \\
+GLM-5.1 & Exact CTA & 94.2 & 104/120 & 0/70 & 0/40 \\
+GLM-5.1 & Gated & 97.1 & 119/120 & 0/79 & 0/40 \\
+\bottomrule
+\end{tabular}
+\caption{Frozen new-state replication. Core drift is conditioned on a correct initial binding;
+stable error counts any final-target error on anchored stable controls.}
+\end{table}
+
+Generic conditional drift is 59.7\% for Qwen, state-cluster 95\% CI [46.5,72.4], and
+47.5\% for GLM [35.0,61.3]. CTA-minus-Generic overall differences are +23.3 points
+[16.2,30.4] and +24.2 [19.6,28.7]. SQLite replay turns all 43 and 38 Generic core drifts
+into wrong-entity writes. CTA/Gated produce zero core TRI writes after a correct binding, but
+still produce 8/17 Qwen and 14/7 GLM wrong writes from opposite-mode or selector errors. Thus
+the replication supports the conditional phenomenon and commitment compilation, not general
+write safety. All six 240-row runs contain zero API, parse, or internal errors.
+GLM CTA records one successful transport retry; the other five runs record none.
+
+The Qwen 40-task SQLite run gives Generic Structured Ledger 27/40 final states and 13
+wrong-entity writes; the GLM run gives 26/40 and 8 wrong-entity writes. A conditional audit
+requires a correct initial binding, an anchored flip/name-collision update, continued presence
+and action-validity of the old entity, and a final write to the refreshed winner. Under this
+strict definition, core TRI writes occur in 8/8 Qwen and 6/8 GLM opportunities, versus 0/4
+stable controls for each model. The remaining 5 and 2 wrong writes follow removal or invalidation
+and are reported separately as reject-policy errors. On Qwen, Generic
+plus a validity-only gate remains 27/40, while Lifecycle-free and Lifecycle-Gated reach 40/40.
+The separately run GLM Lifecycle-Gated replay also reaches 40/40; GLM Lifecycle-free was not
+run on SQLite. All reported 40/40 cells have zero wrong writes and collateral modifications.
+These are controlled mutation results, not a claim about arbitrary
+unconstrained agents: they assume the lifecycle record was compiled correctly.
+
+\section{External Boundary Check}
+The ToolSandbox-based 24-task pilot is exploratory and is not an official benchmark score.
+For Generic, Lifecycle, Gated, and Untyped, respectively, accuracies are
+79.2/87.5/91.7/91.7\% for GLM and 91.7/83.3/91.7/79.2\% for Qwen. Gated includes one GLM
+and two Qwen wrong writes. It therefore demonstrates that the target-integrity diagnosis can be
+instantiated in a stateful external-style tool loop, but does not establish a stable method
+advantage outside the controlled TRI setting.
+
+We then ran a separate frozen 96-task single-user-turn ToolSandbox-based extension with a
+Preserve/Reevaluate $\times$ Stable/Flip design and an auditable initial-binding opportunity.
+Qwen and GLM full-history agents had zero conditional TRI mechanism errors in 70 and 73
+opportunities; matched Qwen and GLM Generic Ledgers had zero in 64 and 87 opportunities. The
+runs still produced 6, 13, 5, and 4 wrong-entity writes, respectively, but all were initial selector or tool
+ordering errors and therefore excluded from the post-binding numerator. This negative external
+result is retained as a boundary check rather than merged with the 24-task pilot or interpreted as
+a prevalence estimate.
+
+\subsection{Official opportunity and released-trace audit}
+We separately audited the unmodified public task inventories rather than multiplying semantic
+tasks by tool-description augmentations. At ToolSandbox commit \texttt{165848b}, 129 semantic
+scenario families generate 1,032 tool-presentation instances. None contains the strict sequence
+correct binding, independent external transition, and later substitutable entity mutation. One
+multiple-user-turn task is TRI-like: after finding all friends and changing those stable person
+IDs to enemies, ``them'' refers to the same IDs when changing them back. It has no external
+refresh, competitor, or selector flip.
+
+The downloaded AppWorld \texttt{0.1.3.post1} release contains 732 task instances from 244
+generator families. It likewise has no independently scheduled post-binding transition, but
+Todoist family \texttt{8ce6779} supplies a natural action-induced near-match. The Agent selects
+incomplete tasks assigned to the user, reassigns them, and then must ``leave a comment there'' on
+the same task IDs even though reassignment makes them fail the initial selector. We audited all
+42 released trajectories for this family across 14 experiment configurations. Among 16 operations
+on gold task IDs, all 16 subsequent comments preserve the same ID and none substitutes another
+target. There are 152 omitted gold targets, two assignments to non-gold IDs, and three comments
+on non-gold IDs; only two trajectories pass every official test. These are upstream selection and
+coverage failures, not post-binding substitutions after a correct target operation.
+
+At current $\tau^3$-bench commit \texttt{cf71a80}, we further audit 2,449 core tasks: 50
+airline, 114 retail, and 2,285 telecom. Airline and retail expose no user-side mutation during
+conversation. Telecom has 2,250 tasks with user mutation actions, but none carries a customer,
+line, or bill stable ID, and its single-device/app actions create no competing same-role selector
+target. The strict native TRI count is therefore zero. Eight telecom tasks are natural dual-control
+near-matches: the Agent binds an overdue bill, the user pays it, and the Agent resumes an
+associated line. Bill and line are different referential roles, so these are not TRI. The 26
+released result files contain 10,832 trajectories from GPT-4.1, GPT-4.1-mini, Claude 3.7, and
+o4-mini; 936 trajectory IDs match the payment family, but none supplies a strict TRI denominator.
+
+\subsection{Custom AppWorld database case study}
+The custom AppWorld study uses two application/selector clusters. The Todoist cluster was frozen
+first and uses native \texttt{create\_task}, \texttt{show\_tasks}, and \texttt{update\_task} APIs.
+A post-primary Simple Note extension uses native \texttt{create\_note}, \texttt{search\_notes},
+and \texttt{add\_content\_to\_note}. Each cluster crosses Preserve/Reevaluate, Stable/Flip, and
+two paraphrases. Todoist selects the earliest-due incomplete task; Stable adds a later task and
+Flip an earlier one. Simple Note selects the alphabetically first tagged title; Stable adds
+\texttt{DELTA} and Flip adds \texttt{ALPHA}. Old targets remain present and editable. Gold is
+computed from stable IDs, and evaluators compare post-sync and final database snapshots without
+an LLM judge.
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{llrrrrr}
+\toprule
+App & Agent & Strict & Write & Bind & TRI & Wrong \\
+\midrule
+Todoist & Qwen3.5 & 6/8 & 8/8 & 6/8 & 0/6 & 0 \\
+Todoist & GLM-5.1 & 8/8 & 8/8 & 8/8 & 0/8 & 0 \\
+Simple Note & Qwen3.5 & 6/8 & 7/8 & 6/8 & 0/6 & 1 \\
+Simple Note & GLM-5.1 & 4/8 & 8/8 & 4/8 & 0/4 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Custom AppWorld boundary study. Across 24 correct, correctly timed bindings, conditional
+TRI is 0/24. The one Simple Note wrong write follows synchronization before binding and is excluded
+from that denominator. Explicit sidecar omission causes the remaining strict failures. This is not
+an AppWorld leaderboard result; each app contributes one selector cluster.}
+\end{table}
+
+A post-primary lower-intervention addendum removes \texttt{record\_binding} and all prompt
+language about TRI, binding, or temporal authorization. Each ordinary selector API returns one
+stable ID, which is logged automatically as the binding event. Across 32 Qwen/GLM trajectories,
+strict success is 28/32, authorized writes are 30/32, and conditional TRI is 0/28 (0/6 in
+Preserve/Flip). Qwen's two wrong writes use the same Preserve wording in both apps: it synchronizes
+before its first selector call, then writes the refreshed winner. Matched Stable rows exhibit the
+same order defect but happen to write A because the winner is unchanged. This is a reproducible
+pre-binding temporal-order failure and illustrates why Stable controls and a conditional TRI
+denominator are both necessary.
+
+\section{Negative Compositional Stress Tests}
+The frozen Qwen TRI-v5 stress test contains 40 SQLite tasks with two refreshes, a monitoring
+referent, an unrelated tool call, and a final mutation. Generic obtains 32/40 final states,
+one wrong write, and four unnecessary rejections. Scalar Lifecycle obtains 28/40, six wrong
+writes, six unnecessary rejections, and one parse/internal error. The difference is $-10.0$
+points with a template-cluster interval of $[-35.0,12.5]$. Lifecycle mode accuracy is only
+25/40: its scalar record confuses monitoring and action-target roles.
+
+A frozen role-indexed held-out addendum then tests 40 tasks from four unseen schemas. In the
+matched scalar-versus-role comparison, Qwen improves from 35/40 to 39/40 final states
+(difference +10.0, cluster CI [+2.5,+20.0], McNemar $p=.21875$). GLM intention-to-treat is
+40/40 scalar versus 37/40 role-indexed because three role runs fail in transport; a serial
+recovery sensitivity gives 40/40 for both. Against historical CTA, Qwen obtains 38/40 versus
+39/40 final states (33/40 vs. 39/40 target accuracy), and recovered GLM ties at 40/40. These results motivate role indexing but do not support
+stable superiority over simpler compilation.
+
+\section{Request Cost}
+On the 160-task primary set, Generic uses 320 requests per model. Lifecycle-Gated uses 80
+Preserve compiler calls and 160 Reevaluate compiler/actor calls, totaling 240. Mean
+client-observed Qwen latency is 2.84 seconds for gated Preserve versus 3.63 for Generic
+anchored tasks; corresponding GLM means are 3.47 versus 5.18 seconds. On the 40-task SQLite
+set, Generic uses 80 requests and Gated uses 60. Token usage was not captured and latency is
+network-dependent, so these are request-efficiency observations rather than a controlled
+systems benchmark.
+
+\section{Blind Human Construct Validation}
+One volunteer uninvolved in TRI design naturally rewrote 50 sampled scalar instructions.
+Three other volunteers independently labeled 100 differently randomized original/rewrite
+items. Forms used opaque IDs and concealed source task, binding mode, update, variant, and
+gold. Responses were an entity ID, \textsc{Reject}, or \textsc{Clarify}; confidence was
+optional. All three files contain exactly the 100 keyed IDs with no missing, duplicate,
+invalid, or payload-mismatched rows. No two annotators have identical response vectors.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Slice & $n$ & Maj.--gold & Unanimous & $\kappa$ & $\alpha$\\
+\midrule
+All & 100 & 86.0 & 72.0 & .708 & .709\\
+Original & 50 & 84.0 & 70.0 & .679 & .681\\
+Human rewrite & 50 & 88.0 & 74.0 & .737 & .738\\
+Explicit & 60 & 86.7 & 70.0 & .672 & .674\\
+Implicit & 40 & 85.0 & 75.0 & .758 & .760\\
+Dynamic & 50 & 98.0 & 96.0 & .924 & .925\\
+Anchored actionable & 30 & 86.7 & 63.3 & .538 & .543\\
+Anchored reject & 20 & 55.0 & 25.0 & .087 & .102\\
+\bottomrule
+\end{tabular}
+\caption{Human agreement (percent except coefficients). Majority--gold uses all items, treating
+six three-way ties as not matching gold. Among 94 determinate majorities, accuracy is 91.5\%.}
+\end{table}
+
+Pairwise raw agreement is 79.3\%; 4\% of items receive at least one \textsc{Clarify}. All 72
+unanimous items match gold. Annotator-level gold agreement is 87\%, 80\%, and 89\%; confidence
+was absent for annotator 1 and therefore is not used as an outcome. The rewrite slice does not
+degrade agreement, and explicit/implicit slices are similar. The main weakness is execution
+fallback: participants often preserve an invalid entity as the discourse referent while
+disagreeing whether the action answer should be \textsc{Reject}. We therefore interpret the
+study as support for the Preserve/Reevaluate core, not as validation of reject or conditional
+policy. Complete disagreement rows and the auditable analysis script accompany the artifact.
+
+\paragraph{Human-majority model sensitivity.}
+Of the 50 original items, 46 have a determinate human majority, 42 majorities match benchmark
+gold, and 35 are unanimously gold-aligned. Re-scoring frozen model outputs against the human
+majority gives:
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Model & Generic & Lifecycle-Gated & Historical CTA\\
+\midrule
+Qwen3.5 & 32/46 (69.6) & 41/46 (89.1) & 42/46 (91.3)\\
+GLM-5.1 & 34/46 (73.9) & 42/46 (91.3) & 41/46 (89.1)\\
+\bottomrule
+\end{tabular}
+\caption{Accuracy against determinate human-majority targets (percent in parentheses).}
+\end{table}
+Gated-minus-Generic template-cluster gaps are +19.6 points with a 95\% interval of
+[+5.0,+36.4] for Qwen and +17.4 [+6.8,+31.6] for GLM (18 clusters, 10,000 draws).
+Secondary task-level exact McNemar tests give $p=.0117$ and $.0078$.
+On the 42 majority-gold items, Gated reaches 97.6\% and 100\%; on the 35 unanimous-gold
+items it reaches 97.1\% and 100\%. This sensitivity preserves the Generic-to-compiled gap but
+does not show Lifecycle-Gated superiority over historical pre-refresh compilation.
+
+\section{Independent Human-Rewrite Model Evaluation}
+After the human study and before model calls, we froze 50 instructions rewritten by one
+independent volunteer
+and reran the unchanged four controllers. All eight files contain exactly 50 unique expected
+IDs, all 400 rows have \texttt{status=ok}, and no request retry occurred.
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Model & Generic & CTA & Lifecycle-free & Gated \\
+\midrule
+Qwen3.5, benchmark gold & 60.0 & 90.0 & 88.0 & 90.0 \\
+GLM-5.1, benchmark gold & 74.0 & 98.0 & 92.0 & 94.0 \\
+Qwen3.5, human majority & 60.4 & 89.6 & 83.3 & 85.4 \\
+GLM-5.1, human majority & 68.8 & 93.8 & 83.3 & 85.4 \\
+Qwen3.5, human actionable & 68.3 & 92.7 & 80.5 & 82.9 \\
+GLM-5.1, human actionable & 68.3 & 92.7 & 80.5 & 82.9 \\
+\bottomrule
+\end{tabular}
+\caption{Accuracy (\%) on all 50 rewrite golds, the 48 determinate rewrite majorities, and
+the 41 majority-actionable items (excluding majority-\textsc{Reject}).}
+\end{table}
+On the 37 unanimous-gold rewrites, Generic/CTA/Lifecycle-free/Gated reach
+75.7/97.3/86.5/89.2\% for Qwen and 81.1/100/89.2/91.9\% for GLM. On the 25 dynamic
+items, CTA/Gated reach 96/80\% and 100/88\%, respectively; complete explicitness, update,
+template, error-type, and majority-gold slices are in the artifact.
+CTA-minus-Generic benchmark-gold differences are +30.0 points with a template-cluster
+interval of [+11.3,+50.0] for Qwen and +24.0 [+8.3,+41.3] for GLM. Gated reaches the same
+Qwen gold accuracy as CTA but is four points lower for GLM and lower against human majorities
+for both models. Direct CTA-minus-Gated intervals are 0.0 $[-11.1,+11.1]$ for Qwen and
++4.0 $[-4.3,+14.8]$ for GLM; CTA-minus-Lifecycle-free intervals are +2.0
+$[-8.5,+12.2]$ and +6.0 $[-3.6,+16.7]$, respectively. None excludes zero, so the experiment
+does not establish CTA superiority over either typed variant. All five Qwen and three GLM Gated benchmark-gold errors are dynamic items
+compiled as \textsc{Preserve}; one is human-contested. CTA's errors are predominantly
+author-specified invalid-target outcomes. The result therefore supports pre-refresh commitment
+compilation on this volunteer-authored rewrite set, not
+Lifecycle-Gated superiority. The execution log discloses two pre-call empty-run failures and
+the non-balanced health-smoke deviation.
+
+\section{Artifact Map}
+The accompanying anonymous artifact contains the frozen JSONL task files, raw model outputs,
+SQLite traces, report scripts, controller implementations, protocol files, SHA-256 manifests,
+and tests. The directory \texttt{tri\_artifact/reports/} contains the primary
+cluster reports, component audits, SQLite replay reports, ToolSandbox pilot report, and
+claim-provenance records, official opportunity/trace audits, and the AppWorld custom protocol.
+Current submission runners receive credentials through environment
+variables; credentials are not embedded in or stored with the artifact.
+
+\end{document}
