@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from tri.v7_core_report import build_report
+from tri.v7_core_report import build_report, markdown
 
 
 def make_row(task_id: str, cluster: str, update: str, predicted: str) -> dict:
@@ -44,3 +44,4 @@ def test_v7_report_conditions_drift_on_correct_initial_binding(tmp_path: Path) -
     assert run["core_opportunities"] == 2
     assert run["core_drifts"] == 1
     assert run["stable_errors"] == 0
+    assert "(2 in this report)" in markdown(report)

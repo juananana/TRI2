@@ -40,7 +40,7 @@
 以下规则高于原实验愿望清单：
 
 1. 不再为把 M2 做成正结果而改 prompt 或扩大任务。
-2. 不新增第三模型，除非师姐明确认为“两模型不足”是阻断性问题，且接口当天可稳定完成。
+2. DeepSeek 第三模型已完成 4-task 健康检查和 16-task 冻结标量 pilot；在师姐评估前不扩到全量，也不把 pilot 写成主结果。
 3. 不再扩大 AppWorld、ToolSandbox 或 tau3 模板；现有零 opportunity/null 结果已经支持 coverage blind spot。
 4. 新 API 实验必须回答一个会改变主文结论的问题，并先通过小 smoke。
 5. 7 月 24 日后原则上不启动新模型实验；只允许 transport repair 或致命审稿问题验证。
@@ -153,10 +153,11 @@
 - Binding Drift 官方离线 harness 25/25 断言复现及可比性审计；
 - 零 API Event Graph/Selector/Atomic Gate oracle tests；
 - API key 未写入仓库或输出。
+- DeepSeek 第三模型 16-task pilot 已完成：Generic 11/16，CTA 15/16；conditional core drift 为 5/6 对 0/6，0 API/parse error。
 
-今晚继续：
+今晚剩余：
 
-- 完成师姐评估文档；
-- 同步 claim provenance 和 supplement；
-- 全量测试、论文编译、匿名与密钥扫描；
-- 输出明早可直接发送的文件清单。
+- 将第三模型 pilot 同步到 claim provenance，但不进入摘要和主结果表；
+- 修复子集报告中的 cluster 数说明并复跑相关测试；
+- 重新执行匿名与密钥扫描；
+- 创建并推送新的安全 GitHub 快照，输出明早可直接发送的文件清单。

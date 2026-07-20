@@ -184,10 +184,12 @@ def pct(count: int, total: int) -> str:
 
 
 def markdown(report: dict[str, Any]) -> str:
+    cluster_counts = sorted({row["unique_state_clusters"] for row in report["runs"]})
+    cluster_text = ", ".join(str(count) for count in cluster_counts)
     lines = [
         "# TRI-v7 Core Replication Report",
         "",
-        "Intervals resample the 40 state-instance clusters.",
+        f"Intervals resample each run's observed state-instance clusters ({cluster_text} in this report).",
         "",
         "| Model | Controller | n | Accuracy | Correct initial anchored | Core drift | Stable errors | API / parse errors |",
         "|---|---|---:|---:|---:|---:|---:|---:|",

@@ -83,6 +83,7 @@ Refreshing external state does not by itself authorize a tool-using agent to cha
 | 人工语义 | 100 tasks，3 annotators | Fleiss kappa 0.708；majority-gold 86% | Preserve/Reevaluate 区分具有人类可操作性 |
 | 独立英文改写 | 50 tasks | CTA 90/98%；Generic 60/74% | 效果不只存在于原始模板 |
 | v6 多指称组合 | 40 tasks | Qwen role-indexed 39/40，scalar 35/40；GLM 均为 40/40 | 角色索引有潜力，但优势未跨模型稳定 |
+| 第三模型探索性复制 | 冻结 v7 标量子集 16 tasks，DeepSeek-V4-Pro | Generic 11/16；CTA 15/16；在 6 个正确初始绑定的 core opportunities 中，Generic 漂移 5 次、CTA 漂移 0 次 | 第三个模型家族上复现同方向机制，但样本小、配对 cluster CI 含 0，暂不作为主结果 |
 
 ## 7. 外部验证与边界
 
@@ -114,6 +115,12 @@ Refreshing external state does not by itself authorize a tool-using agent to cha
 - Role-Indexed Lifecycle 保留为组合扩展；
 - 20-task 结果只作为方法选择和负面消融，不作为有统计功效的主结果。
 
+### 8.1 今晚新增的第三模型检查
+
+在查看正式子集结果前，我们冻结 DeepSeek-V4-Pro、普通结构化记录与目标承诺编译两个方法，以及 16 条 v7 标量任务。4 条平衡任务健康检查无 API 错误后，完整子集同样 0 API/parse error。普通结构化记录准确率为 11/16（68.8%），目标承诺编译为 15/16（93.8%），配对差为 +25.0 points，state-cluster bootstrap 95% CI 为 [0.0, 50.0]。
+
+更关键的机制分解是：普通结构化记录在 6 个“初始目标已正确绑定、刷新后出现同角色新赢家”的机会中漂移 5 次；目标承诺编译漂移 0 次。目标承诺编译唯一错误发生在刷新前把 BAT-3B 错认成 oldest batch，属于 initial binding error，不是 post-binding drift。该结果支持现有问题分解，但 16 条不足以单独承担跨模型泛化主张。明天需要决定是扩到冻结的 v7 全量，还是只把它作为 pilot 并在限制中保留两模型主结果。
+
 ## 9. 当前论文贡献
 
 1. 提出并形式化正确初始绑定之后的“指称转换授权”问题，区别于初始实体绑定、普通 coreference 和状态过期。
@@ -140,7 +147,7 @@ Refreshing external state does not by itself authorize a tool-using agent to cha
 1. **外部有效性**：自然环境没有观察到 conditional TRI，论文必须定位为机制诊断和评测盲区。
 2. **方法新颖性**：CTA 很简单，贡献需要依靠问题定义、受控证据、错误后果和 benchmark audit，而不是复杂控制器。
 3. **合成任务**：需要强调 cluster 设计、独立状态复制、人类改写和真实写入，而不能把样本量本身当泛化。
-4. **两模型限制**：目前只有 Qwen 与 GLM；是否补第三模型需要权衡剩余时间和接口稳定性。
+4. **第三模型证据仍小**：DeepSeek 16-task 子集方向一致，但配对区间仍触及 0；若要在摘要或主表写三模型，需要扩大冻结样本并完成同等 provenance。
 5. **组合能力**：role indexing 的提升只在 Qwen 明显，不能写成通用扩展成功。
 6. **相关工作可比性**：Binding Drift 的确定性 reverify 使用 gold target，不能作为 learned baseline；Entity Lock 与 Always-Lock 语义接近。
 
@@ -148,7 +155,7 @@ Refreshing external state does not by itself authorize a tool-using agent to cha
 
 1. 这个问题定义和最小对是否足以支撑 AAAI 的 novelty？
 2. 论文应更偏“Agent memory/controller mechanism”，还是“diagnostic benchmark blind spot”？
-3. 当前两模型是否是致命问题，还是可以在限制中说明？
+3. DeepSeek 的 16-task 同方向结果是否值得扩到冻结 v7 全量，还是两模型主结果加第三模型 pilot 已足够？
 4. CTA 很简单，是否应突出“问题发现与因果机制分解”，而不是包装成复杂新方法？
 5. 外部 benchmark 零 opportunity/null TRI 应放主结果还是限制？
 6. 20-task Event Graph/Executable Selector 负面结果是否只放 supplement？
