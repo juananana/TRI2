@@ -20,8 +20,10 @@ errors. The repeated `p2` Reevaluate/Flip failure generalizes across selector cl
 the Qwen pattern, but it is an adjacent instruction-order failure rather than post-binding
 unauthorized rebinding.
 
-Together, Qwen and GLM ordinary full-history Agents produce zero TRI mechanism errors in 143
-auditable opportunities. This is negative external evidence against a universal-LLM framing. The
-next discriminating experiment is the same frozen inventory under a generic rewritable state
-controller: a nonzero conditional error there would locate the risk in Agent state management
-rather than in every full-history model trajectory.
+Within this frozen 96-task, ordinary full-history protocol, Qwen and GLM produce zero TRI
+mechanism errors in 143 auditable opportunities. This is negative evidence against a
+universal-LLM framing, not a claim that every ToolSandbox-compatible controller is null. A
+separate post-hoc strict audit of the earlier frozen 24-task intervention finds conditional TRI
+under GLM Generic (3/6) and Qwen Lifecycle-free (2/6), while matched Stable controls are clean.
+Those tasks use the same native reminder database and search/modify tools but a different custom
+controller and transition protocol; see `toolsandbox_tri_pilot_conditional_audit_v1.md`.

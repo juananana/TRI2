@@ -7,7 +7,7 @@
 | 用途 | 文件 |
 | --- | --- |
 | 主论文源码 | `AnonymousSubmission2027.tex` |
-| 主论文 PDF | `AnonymousSubmission2027.pdf`（最近一次成功编译；本轮源码修改后需重新编译） |
+| 主论文 PDF | `AnonymousSubmission2027.pdf`（2026-07-21 成功编译，8 页：7 页正文 + 1 页参考文献） |
 | 补充材料源码 | `supplementary_material.tex` |
 | 补充材料 PDF | `supplementary_material.pdf` |
 | 参考文献 | `aaai2027.bib` |
@@ -17,7 +17,7 @@
 
 主文和补充材料使用的文件名保持 AAAI 官方模板约定，便于直接复制到 Overleaf。`paper/` 中的样式文件与 `AuthorKit27/` 中的官方样式文件内容一致；前者是当前稿独立编译所需的工作副本，后者是只读参考模板，不要删除或混用两套源码。
 
-当前环境尚未安装可调用的 `latexmk`、`pdflatex` 和 `bibtex`，因此本轮修改后的权威版本是两个 `.tex` 源文件；现有 PDF 是修改前的最近一次成功编译结果。安装 TeX Live 后，应先重新编译并检查页数、表格、图和参考文献，再把新的 PDF 视为投稿版本。
+当前环境已安装 TeX Live 2026。本轮主文和补充材料均已用 `latexmk` 完整编译；主文为 8 页，正文止于第 7 页，参考文献从第 8 页开始。PDF 仍应在每次实质源码修改后重新编译并检查页数、表格、图和参考文献。
 
 ## 证据和复现文件
 

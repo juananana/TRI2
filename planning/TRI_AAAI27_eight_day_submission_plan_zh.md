@@ -32,7 +32,7 @@
 4. 81 次 conditional drift 全部可重放为 wrong-entity SQLite writes。
 5. 人工语义：Fleiss kappa 0.708，majority-gold 86%。
 6. 50 条独立英文改写：CTA 90/98%，Generic 60/74%。
-7. 外部 benchmark audit：公开基准几乎不提供严格 TRI opportunity，外部 full-history Agent conditional TRI 为 0。
+7. 外部证据：公开基准几乎不提供原生严格 TRI opportunity；冻结 ToolSandbox-compatible pilot 的 post-hoc 严格审计发现 GLM Generic 3/6 条件 TRI，而低干预 ToolSandbox/AppWorld full-history Agent 为 null。
 8. 组合边界：scalar lifecycle 不稳定；role indexing 能改善 Qwen，但 GLM 上与简单方法持平。
 
 ## 4. 动态调整规则

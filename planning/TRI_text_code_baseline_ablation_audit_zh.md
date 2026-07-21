@@ -48,6 +48,8 @@
 
 1. **第三模型全量复现**：DeepSeek 冻结 v7 240-task 已完成；Generic/CTA 为 73.8/91.2，配对 +17.5 points [10.8,23.3]，conditional drift 为 59/79 对 0/70，0 API/parse error。
 2. **实现可复现性**：长跑 runner 已加入 `--resume`、逐行 flush 和 `api_usage` 记录，防止长实验中断或无法核对成本。
+3. **完整历史强基线**：三模型、两种 full-history 条件均完成冻结 v7 240-task 全量。普通两轮轨迹为 63.3/67.1/68.8%，最终 TRI-aware 语义提醒为 69.6/80.8/75.8%，Exact CTA 为 70.8/94.2/91.2%（Qwen/GLM/DeepSeek）。CTA 相对提醒在 Qwen 为 +1.2 points [-6.7,9.2]，在 GLM/DeepSeek 为 +13.3 [8.8,17.9] 和 +15.4 [9.2,21.7]。因此不得写“CTA 在所有模型总准确率显著优于强提示”；应写“完整历史和后置提醒仍留下大量 anchored substitution，刷新前编译提供可审计且可执行的承诺”。
+4. **强基线写入后果**：1,440 次 SQLite 重放中，普通完整历史 wrong writes 为 87/79/75，语义提醒为 70/46/57。full-history 没有单独评分的刷新前绑定，这些是无条件错误写入，不能并入 conditional TRI 分母。
 
 ## 今晚运行矩阵
 
@@ -57,6 +59,8 @@
 | 已完成 | v7 scalar 16-task | DeepSeek | Generic、CTA | pilot 方向 | 已完成：11/16 vs 15/16；drift 5/6 vs 0/6 |
 | 已完成 | v7 full 240-task | DeepSeek | Generic、CTA | 降低两模型限制 | 480 tasks、960 requests、0 error/retry；结果通过方向和完整性检查 |
 | 已完成 | v7 SQLite replay 480 episodes | deterministic | Generic、CTA predictions | 验证错误写入后果 | Generic core TRI writes 59/79；CTA 0/70 |
+| 已完成 | v7 matched full-history 1,440 tasks | Qwen、GLM、DeepSeek | ordinary interactive、TRI-aware one-shot | 排除 Generic ledger 特异解释，加入强提示基线 | 六组均 240/240、0 final API/parse failure；提醒有帮助但三模型均残留替换 |
+| 已完成 | SQLite replay 1,440 episodes | deterministic | 六组 full-history predictions | 验证强基线错误后果 | wrong writes 414；另有 4 invalid attempts、1 unnecessary reject |
 | 暂不运行 | v7 full | DeepSeek | Event Graph/M2/Binding Drift learned reimplementation | 已知不改变主线，成本高且可比性弱 | 不启动 |
 
 ## 统计与写作规则

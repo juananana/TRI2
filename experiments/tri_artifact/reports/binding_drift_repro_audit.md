@@ -7,6 +7,7 @@ Audit date: 2026-07-20
 - Repository: `https://github.com/shashank-indukuri/binding-drift`
 - Audited commit: `0e040e0954b18d4621a6f9b16f6e6e9591c822e1`
 - Commit subject: `v2: 200-workflow benchmark, LLM re-verifier, 8-model full sweep`
+- Remote verification: `origin/main` was fetched on 2026-07-21 and still resolves to the same commit.
 - Code license: MIT. Data/results license stated in README: CC BY 4.0.
 
 ## Offline reproduction

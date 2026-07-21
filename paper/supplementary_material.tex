@@ -237,22 +237,24 @@ All old targets remain present and action-valid. We resample the 40 state-instan
 \begin{table}[h]
 \centering
 \small
-\begin{tabular}{llrrrr}
+\begin{tabular}{llrrrrr}
 \toprule
-Model & Controller & Acc. & Initial ID & Core drift & Stable err. \\
+Model & Controller & E2E target & Initial bind & Cond. TRI & Wrong writes & Stable err. \\
 \midrule
-Qwen3.5 & Generic & 47.5 & 107/120 & 43/72 & 4/40 \\
-Qwen3.5 & Exact CTA & 70.8 & 103/120 & 0/71 & 6/40 \\
-Qwen3.5 & Gated & 71.2 & 95/120 & 0/64 & 9/40 \\
-GLM-5.1 & Generic & 70.0 & 120/120 & 38/80 & 2/40 \\
-GLM-5.1 & Exact CTA & 94.2 & 104/120 & 0/70 & 0/40 \\
-GLM-5.1 & Gated & 97.1 & 119/120 & 0/79 & 0/40 \\
-DeepSeek-V4-Pro & Generic & 73.8 & 119/120 & 59/79 & 0/40 \\
-DeepSeek-V4-Pro & Exact CTA & 91.2 & 107/120 & 0/70 & 1/40 \\
+Qwen3.5 & Generic & 47.5 & 107/120 & 43/72 & 44/240 & 4/40 \\
+Qwen3.5 & Exact CTA & 70.8 & 103/120 & 0/71 & 8/240 & 6/40 \\
+Qwen3.5 & Gated & 71.2 & 95/120 & 0/64 & 17/240 & 9/40 \\
+GLM-5.1 & Generic & 70.0 & 120/120 & 38/80 & 38/240 & 2/40 \\
+GLM-5.1 & Exact CTA & 94.2 & 104/120 & 0/70 & 14/240 & 0/40 \\
+GLM-5.1 & Gated & 97.1 & 119/120 & 0/79 & 7/240 & 0/40 \\
+DeepSeek-V4-Pro & Generic & 73.8 & 119/120 & 59/79 & 60/240 & 0/40 \\
+DeepSeek-V4-Pro & Exact CTA & 91.2 & 107/120 & 0/70 & 17/240 & 1/40 \\
 \bottomrule
 \end{tabular}
-\caption{Frozen new-state replication. Core drift is conditioned on a correct initial binding;
-stable error counts any final-target error on anchored stable controls.}
+\caption{Frozen new-state replication with distinct denominators. E2E target uses all 240 rows;
+initial binding uses 120 anchored rows; conditional TRI requires a correct binding, a changed
+winner, and a still-valid old entity; wrong writes count all non-gold mutations; stable error uses
+40 anchored Stable controls.}
 \end{table}
 
 Generic conditional drift is 59.7\% for Qwen, state-cluster 95\% CI [46.5,72.4], and
@@ -270,6 +272,40 @@ CTA-minus-Generic accuracy is +17.5 points [10.8,23.3]. All 59 Generic core drif
 wrong-entity SQLite writes. Across all errors, Generic and CTA produce 60 and 17 wrong writes;
 CTA's remaining errors are outside the conditional TRI mechanism. Both 240-row files have zero
 API/parse errors and zero retries.
+
+\subsection{Matched Full-History Baselines}
+After the v7 and DeepSeek results were known, we froze a separate strong-baseline protocol on the
+unchanged 240 tasks. \texttt{interactive} is an ordinary two-call trajectory: the first response
+requests refresh and the second retains the complete conversation, without TRI or reference-mode
+terminology. \texttt{full\_history\_once} is a one-call semantic upper baseline that sees both
+states and is explicitly asked whether to preserve, reevaluate, or reject. Exact CTA uses the
+existing matched v7 run. Temperature is zero, thinking is disabled, and the output cap is 1,200.
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+Model & Interactive & Aware & CTA & Int. subst. & Aware subst. & CTA--Aware CI \\
+\midrule
+Qwen3.5 & 63.3 & 69.6 & 70.8 & 77/80 & 56/80 & +1.2 [-6.7,9.2] \\
+GLM-5.1 & 67.1 & 80.8 & 94.2 & 74/80 & 38/80 & +13.3 [8.8,17.9] \\
+DeepSeek & 68.8 & 75.8 & 91.2 & 68/80 & 42/80 & +15.4 [9.2,21.7] \\
+\bottomrule
+\end{tabular}
+\caption{Matched v7 exact-target accuracy (\%) and anchored changed-winner substitutions.
+Intervals resample 40 state clusters. CTA ties the aware Qwen baseline in overall accuracy.}
+\end{table}
+
+All six files contain 240 rows and zero final API/parse failures. Qwen aware uses 269 request
+attempts with 29 retries; the other one-call aware runs use 240 attempts and zero retries.
+Interactive runs use 480 attempts. Since neither full-history condition exposes a separately
+scored pre-refresh selection, its substitution rate is unconditional and is not conditional TRI.
+SQLite replay converts the interactive errors into 87/79/75 wrong writes and the aware errors
+into 70/46/57 wrong writes for Qwen/GLM/DeepSeek, with four invalid attempts and one unnecessary
+rejection across all six runs. Thus complete history and a late semantic reminder do not remove
+wrong-entity consequences; the result does not establish universal overall CTA superiority.
 
 The Qwen 40-task SQLite run gives Generic Structured Ledger 27/40 final states and 13
 wrong-entity writes; the GLM run gives 26/40 and 8 wrong-entity writes. A conditional audit
@@ -291,6 +327,17 @@ For Generic, Lifecycle, Gated, and Untyped, respectively, accuracies are
 and two Qwen wrong writes. It therefore demonstrates that the target-integrity diagnosis can be
 instantiated in a stateful external-style tool loop, but does not establish a stable method
 advantage outside the controlled TRI setting.
+
+A post-hoc strict audit joins each trace to the frozen manifest and counts only Preserve/Flip rows
+where the compiled initial ID is correct, the old entity remains present, and the refreshed winner
+is a different stable ID. GLM Generic writes the refreshed winner in 3/6 opportunities, with 0/2
+wrong writes on eligible Stable controls; GLM Lifecycle is 0/5. Qwen Generic is 0/6, while Qwen
+Lifecycle-free is 2/6 and deterministic gate replay reduces this to 0/6. Untyped plans expose no
+auditable compiled ID and are excluded from this conditional denominator. The violating GLM tasks
+span newest-created, oldest-created, and alphabetically-last selectors. This is positive evidence
+that TRI can occur in a benchmark-compatible database/tool substrate, but the inventory has only
+six selector clusters and the strict audit was specified after the outputs existed. We therefore
+report task IDs and no confirmatory interval or prevalence claim.
 
 We then ran a separate frozen 96-task single-user-turn ToolSandbox-based extension with a
 Preserve/Reevaluate $\times$ Stable/Flip design and an auditable initial-binding opportunity.
@@ -422,13 +469,77 @@ in 120 deterministic concurrency sequences; this establishes implementation suff
 not learned compiler performance.
 
 \paragraph{Binding Drift audit.}
+The two projects can be located on two independent decision axes:
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+Initial binding & Preserve after update & Reevaluate after update \\
+\midrule
+Correct & TRI-Preserve & TRI-Reevaluate \\
+Incorrect & Error propagation/repair & Repair plus authorized reselection \\
+\bottomrule
+\end{tabular}
+\caption{Problem map. Binding Drift primarily studies initial binding correctness and its
+propagation; TRI conditions on a correct binding and varies whether later reevaluation is
+authorized. The lower-right combination is outside the present TRI claim.}
+\end{table}
+
 We audited the official Binding Drift repository at commit
 \texttt{0e040e0954b1}. Its documented offline command references
 two files deleted at that commit; exposing the current \texttt{workflows\_200.jsonl} under the
 legacy filename in a temporary directory yields 25/25 assertions with unmodified metric and
 defense code. Its deterministic re-verification reads a gold target and is an oracle upper bound,
 whereas Entity Lock corresponds to our Always-Lock extreme. We therefore do not place its oracle
-score in the learned-method main table.
+score in the learned-method main table. Our matched one-shot aware baseline sees the original
+instruction and both state epochs and must resolve whether to preserve, reevaluate, or reject;
+it is a practical post-refresh re-resolution approximation, not the official self/cross method.
+The official learned re-verifiers have not been adapted to expose a separately scored
+pre-refresh binding or a user-authorized deferred query, so we do not label that comparison as an
+official reproduction.
+
+After freezing a 20-task symmetric smoke (ten v7 domains, one identical-state
+Preserve/Reevaluate Flip pair per domain), we ran an explicit author adaptation. The official
+re-verifier normally receives a short \texttt{step1\_referent}; using only TRI's selector would
+delete the temporal authorization variable, so the official prompt frame receives the complete
+TRI instruction and refreshed candidates. Gold, mode labels, and CTA state are hidden.
+\begin{table}[h]
+\centering
+\scriptsize
+\begin{tabular}{llrrr}
+\toprule
+Model & Policy & Overall & Preserve & Reevaluate \\
+\midrule
+Qwen & Lock analogue & 10/20 & 10/10 & 0/10 \\
+Qwen & Self reverify & 3/20 & 0/10 & 3/10 \\
+Qwen & Cross (GLM) & 10/20 & 0/10 & 10/10 \\
+Qwen & Frozen CTA & 12/20 & 8/10 & 4/10 \\
+GLM & Lock analogue & 10/20 & 10/10 & 0/10 \\
+GLM & Self reverify & 10/20 & 0/10 & 10/10 \\
+GLM & Cross (Qwen) & 3/20 & 0/10 & 3/10 \\
+GLM & Frozen CTA & 17/20 & 7/10 & 10/10 \\
+\bottomrule
+\end{tabular}
+\caption{Post-primary Binding Drift author-adaptation smoke. Cross rows reuse the other model's
+independent verifier output on the same input, avoiding duplicate calls. This is not an official
+Binding Drift score. Qwen reverify selects another visible but selector-ineligible entity on
+14/20 tasks; GLM selects the refreshed winner on all 20.}
+\end{table}
+
+Both verifier runs contain 20/20 expected rows, zero API/parse errors, and zero retries (16,088
+tokens total). Thus GLM cleanly exposes complementary lock/re-resolution errors, while Qwen mainly
+exposes an interface grounding failure. CTA is not perfect, but is the only tested policy with
+nonzero accuracy on both modes for both models. These results do not test initial-misbinding repair
+and cannot establish superiority on Binding Drift's original benchmark.
+
+\paragraph{Leave-group-out sensitivity.}
+On the 240-task v7 replication, we recompute the matched CTA-minus-Generic difference after
+excluding one complete domain or one complete template family. The ten domain exclusions retain
+ranges of 18.5--25.5, 23.1--25.9, and 15.7--22.2 points for Qwen, GLM, and DeepSeek; the sixteen
+template-family exclusions retain 20.4--26.3, 20.8--26.1, and 14.2--19.6 points. Every exclusion
+remains positive. This rules out dominance by one domain or template family, but does not make
+templated rows independent natural-world observations.
 
 \section{Request Cost}
 On the 160-task primary set, Generic uses 320 requests per model. Lifecycle-Gated uses 80
@@ -547,6 +658,7 @@ Lifecycle-Gated superiority. The execution log discloses two pre-call empty-run 
 the non-balanced health-smoke deviation.
 
 \section{Artifact Map}
+\enlargethispage{2\baselineskip}
 The accompanying anonymous artifact contains the frozen JSONL task files, raw model outputs,
 SQLite traces, report scripts, controller implementations, protocol files, SHA-256 manifests,
 and tests. The directory \texttt{tri\_artifact/reports/} contains the primary

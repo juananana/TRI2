@@ -21,6 +21,10 @@
 - 对照 CTA：Qwen 13/20，M2 +2；GLM 20/20，M2 -2，方向冲突。Go/No-Go 判定为不升级 M2，标量主方法保留 Exact CTA。
 - v6 四条组合压力：Qwen CTA/scalar Lifecycle/role-indexed/M2 为 2/2/4/4；GLM 均为 4/4。Role-Indexed Lifecycle 保留为组合扩展，M2 只作探索性结果。
 - DeepSeek 第三模型冻结 v7 全量已完成：Generic 73.8%，CTA 91.2%，conditional drift 59/79 对 0/70，配对提升 +17.5 points [10.8,23.3]；SQLite replay 将 59 次 core drift 全部重放为 wrong writes。
+- 三模型匹配完整历史基线已完成：ordinary interactive 为 63.3/67.1/68.8%，TRI-aware one-shot 为 69.6/80.8/75.8%，CTA 为 70.8/94.2/91.2%（Qwen/GLM/DeepSeek）。Qwen CTA 与 aware 总准确率持平；GLM/DeepSeek 的差值区间不含 0。
+- 强基线 anchored changed substitution：ordinary 为 77/74/68（每模型 80 个），aware 为 56/38/42；full-history 不暴露独立初始绑定，因此这些只能称 unconditional substitution。
+- 六组强基线共 1,440 次 SQLite replay：ordinary wrong writes 87/79/75，aware 为 70/46/57；证明错误具有真实写入后果，但不改变 conditional TRI 的严格分母。
+- 对既有冻结 24-task ToolSandbox-compatible pilot 完成 post-hoc 严格条件审计：GLM Generic 3/6 conditional TRI、匹配 Stable 0/2；Qwen Lifecycle-free 2/6，atomic gate replay 0/6。该结果使用原生 reminder 数据库和 search/modify 工具，但任务/transition 为 custom intervention，且严格审计 post-hoc。
 - 统一报告：`reports/method_upgrade_closed_loop_v1.json` 与 `reports/method_upgrade_closed_loop_v1.md`。
 
 ## 1. 截止日期与当前判断
@@ -31,7 +35,7 @@
 - 从 2026-07-20 到全文标称截止日还剩 **8 个日历日**；按北京时间实际提交时刻计算，约有 9 天，但计划不得消耗这一天时区余量。
 - AAAI-27 主文最多 7 页正文、9 页总计；第 8 页起只能是参考文献。当前 `paper/AnonymousSubmission2027.pdf` 为 8 页，正文止于第 7 页，参考文献从第 8 页开始。
 
-结论：原计划科学上完整，但无法在截止前同时可靠完成 M1--M5、多个外部方法复现、1,500--2,500 次模型请求和论文重写。投稿前必须采用“保底主线 + 有门槛升级”，不能把未经充分验证的新控制器强行设为主方法。
+结论：M1/M2 已按冻结门槛 No-Go，投稿主线锁定 Exact CTA。当前新增实验优先级从“再扩方法”转为“修复正文页数、完成强基线溯源、做独立 reviewer pass”；只有不影响这些 P0 工作时，才考虑 40-task 温度零重复稳定性检查。
 
 ## 2. 投稿主张与方法定位
 
@@ -252,6 +256,18 @@ Smoke 只允许修 schema、解析和明显 prompt 歧义。不得看完整 v7 �
 ### Phase F：外部边界（P1）
 
 不再以获得正向 TRI 为目标扩模板。现有 ToolSandbox/AppWorld/tau3 审计已经足以支持 coverage blind spot。仅在主文需要一个端到端例子且不影响 P0 时，运行 AppWorld 16-task case study。
+
+### Phase G：匹配完整历史强基线（已完成，post-primary）
+
+- 数据：冻结 v7 240 tasks，40 个 state clusters，hash 不变；
+- 模型：Qwen3.5-122B-A10B、GLM-5.1、DeepSeek-V4-Pro；
+- 普通基线：两轮完整对话，第一轮仅请求 refresh，第二轮保留全部 history；
+- 强提示基线：一次调用同时看两个状态，并明确判断 preserve/reevaluate/reject；
+- 比较：同模型 Exact CTA 历史冻结 run；
+- 报告总体/anchored/dynamic accuracy、changed-winner substitution、stable errors、cluster bootstrap、请求、重试、tokens 和 SQLite writes；
+- 边界：full-history 没有单独评分的 pre-refresh binding，不报告 conditional TRI。
+
+该实验排除了“只有 Generic ledger 才会失败”的解释。它没有证明 CTA 在所有模型总准确率都优于强提示：Qwen 的差值区间跨 0。支持的更窄结论是：后置语义提醒能改善结果，但仍不能像刷新前编译那样产生可审计、可执行的身份承诺。
 
 ## 8. 主要指标与统计
 

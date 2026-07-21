@@ -37,9 +37,10 @@ wrong-entity SQLite writes. A post-primary DeepSeek replication finds 59/79 vers
 Generic/CTA drifts. A typed Lifecycle reaches 98.1\%/100.0\% on the primary set, but its
 gate adds only 1.2--1.9 points over a matched free actor. Three blind annotators obtain Fleiss'
 $\kappa=.708$ and 86\% majority-gold agreement on 100 original/rewrite items. Public
-ToolSandbox, AppWorld, and $\tau^3$ audits find almost no strict TRI opportunities, and external
-full-history studies observe zero conditional TRI. TRI is therefore a controlled,
-model- and controller-conditional mechanism diagnosis, not a prevalence or safety claim.
+ToolSandbox, AppWorld, and $\tau^3$ audits find almost no native strict opportunities. A post-hoc
+audit finds 3/6 GLM Generic violations in a frozen ToolSandbox-compatible intervention, while
+lower-intervention tool loops are null. TRI is a controlled, model- and controller-conditional
+diagnosis, not a prevalence or safety claim.
 \end{abstract}
 
 \section{Introduction}
@@ -97,7 +98,7 @@ Our contributions are threefold:
     \item We introduce frozen clustered diagnostics for language-template clusters,
     schema transfer under shared language templates, and guarded conditional commitments. We pre-specify cluster-resampled
     statistics and audit API failures, missing tasks, retries, and stage-wise errors.
-    \item Across two models, independent human rewrites, SQLite mutations, and public trace
+    \item Across three model families, independent human rewrites, SQLite mutations, and public trace
     audits, component
     evidence most strongly supports pre-refresh commitment compilation. Minimal CTA has the
     highest or tied scalar point estimate; typed lifecycle state exposes a richer authorization
@@ -113,7 +114,9 @@ Discourse theories distinguish referents from changing descriptions and salience
 wrong initial tool arguments \cite{babu2026entitybinding}; TRI instead conditions on correct
 $bind(r,S_0)$ and asks whether $S_1$ licenses a transition. Agent memory and entity tracking retain
 facts or traces \cite{tang2026entitytracking,packer2023memgpt,sumers2024coala,yao2023react},
-but an ID alone does not state whether it is committed or a stale selector result.
+but an ID alone does not state whether it is committed or a stale selector result. Evolving-
+environment benchmarks study belief and memory adaptation \cite{ji2026clawarena,xu2026evoarena};
+TRI instead asks whether adaptation licenses changing a resolved action referent.
 
 \paragraph{Binding Drift.}
 The closest neighbor studies silent entity replacement in multi-step workflows and evaluates
@@ -121,7 +124,15 @@ locking and re-verification \cite{indukuri2026bindingdrift}. TRI overlaps with i
 branch but also includes authorized Reevaluate cases: ``choose now, refresh, act'' and ``refresh,
 then choose'' require opposite targets under the same transition. We reproduce its deterministic
 offline harness, but its oracle re-verifier reads a gold target; its Entity Lock corresponds to
-our Always-Lock extreme. TRI therefore studies authorization of transition, not persistence alone.
+our Always-Lock extreme. Its learned self/cross re-verifiers resolve the original step-1 referent
+and target initial binding or propagation; they do not expose a separate user-authorized deferred
+query. TRI therefore studies authorization of transition, not persistence alone. We do not claim
+an official LLM-sweep reproduction. In a post-primary 20-task author adaptation, the lock analogue
+scores 10/10 Preserve and 0/10 Reevaluate, while GLM re-verification reverses this to 0/10 and
+10/10; Qwen re-verification is dominated by selector-grounding errors. Frozen CTA is the only
+tested policy nonzero on both modes for both models (full table supplementary). Initial-binding correctness and post-update
+reevaluation authorization are orthogonal axes: Binding Drift targets the former, while TRI
+conditions on it to isolate the latter (matrix and audit details are supplementary).
 
 \paragraph{Tool agents and executable constraints.}
 Tool-use benchmarks cover APIs, web environments, and stateful interaction
@@ -136,20 +147,24 @@ follow diagnostic and contrast-set methodology \cite{ribeiro2020checklist,gardne
 
 \section{Problem Formulation: Temporal Referent Integrity}
 
-Let $u$ be an instruction, $r$ its action-target reference, $S_0$ the state before refresh,
-$S_1$ the refreshed state, and $a$ the requested action. We factor the executable contract into
-a referential lifecycle $R$ and an action policy $P$:
+Let $H_t$ be interaction history, $S_t$ world state, $r$ an action-target reference, and $q_r$
+its selector. Referential control state is either an unresolved query $C_t(r)=U(q_r)$ or a bound
+commitment $C_t(r)=B(e)$. Language and history induce a transition authorization
+$\Gamma_{t+1}(r,e\!\rightarrow\!e')$; a world update alone does not:
 \begin{equation}
 \begin{aligned}
-L(r,a)&=(R(r),P(a)),\\
-R&=(m,e,q,g),\qquad P=(V_a,\pi),
+S_t\ne S_{t+1}&\;\not\Rightarrow\;C_t(r)\ne C_{t+1}(r),\\
+B(e)\to B(e'),\ e'\ne e&\;\Rightarrow\;\Gamma_{t+1}(r,e\to e').
 \end{aligned}
 \end{equation}
-where $m$ is a reference mode, $e$ is an identity bound in $S_0$, $q$ is a selector,
-$g$ is an optional persistence guard, $\pi$ is a fallback policy, and $V_a(e,S)$ is validity
-under the requested action schema. The main TRI-v3 setting uses
-$m\in\{\textsc{Preserve},\textsc{Reevaluate}\}$ and an explicit reject policy for an invalid
-preserved target. TRI-v4 adds conditional guards.
+Thus a selector can be evaluated to establish $B(q_r(S_0))$, preserved across refresh, or left
+as $U(q_r)$ for authorized evaluation in $S_1$. Returning from $B(e)$ to query evaluation requires
+authorization; a refreshed selector winner is evidence about the world, not such authorization.
+
+For execution, $V_a(e,S)$ denotes action-relative validity and $\pi$ an invalid-target policy.
+Our lifecycle record $L=(m,e,q,g,V_a,\pi)$ is one implementation of this state machine, not the
+definition of TRI. TRI-v3 uses $m\in\{\textsc{Preserve},\textsc{Reevaluate}\}$; TRI-v4 adds a
+conditional guard $g$.
 
 For the scalar policies evaluated here, the execution branches are
 \begin{align}
@@ -159,8 +174,8 @@ For the scalar policies evaluated here, the execution branches are
 \textsc{Conditional},\;g(e,q,S_1) &\Rightarrow e, \\
 \textsc{Conditional},\;\neg g(e,q,S_1) &\Rightarrow q(S_1).
 \end{align}
-An invalid preserved entity remains the discourse referent even when policy returns $\bot$.
-Likewise, $q$ establishes identity under Preserve but remains executable under Reevaluate;
+An invalid preserved entity remains $B(e)$ even when execution returns $\bot$.
+Likewise, $q$ establishes identity under Preserve but remains unresolved under Reevaluate;
 action validity never authorizes substituting a different valid entity. Full history may contain
 all necessary facts while leaving this relationship computationally implicit, and correct
 inference still requires enforcement at the mutation boundary. TRI-v4 distinguishes
@@ -170,12 +185,12 @@ $g_{\mathrm{act}}=V_a(e,S_1)$ from $g_{\mathrm{sel}}=[q(S_1)=e]$.
 Consider a Preserve/Reevaluate minimal pair with identical $S_0$, $S_1$, $q$, and $a$, where
 $e=q(S_0)$, $e'=q(S_1)$, and $e\ne e'$. The authorized targets are $e$ and $e'$, respectively.
 Any deterministic post-refresh policy of the form $f(e,q,S_1,a)$, containing neither the
-original discourse nor a compiled mode (or equivalent discourse-sensitive distinction),
+original history nor a compiled transition authorization,
 receives the same inputs for both tasks and must return the same target; it is therefore wrong
 on at least one member. Always-Lock and
 Always-Reevaluate instantiate the two complementary extremes measured in our policy controls.
-This establishes the need for a selective transition decision, not the necessity of our
-particular lifecycle serialization.
+This establishes the need for a discourse-sensitive transition decision, not the necessity of
+our particular serialization.
 
 \paragraph{Authorization invariant (conditional guarantee).}
 If $L$ is correct, IDs are stable, selector/guard evaluation is correct, and the executor follows
@@ -370,7 +385,7 @@ coordination files. Post-primary audits are labeled as such.
 \small
 \begin{tabular}{llrrrrr}
 \toprule
-Benchmark & Model & Generic & CTA & Lifecycle/Guarded & $\Delta$ & Cluster 95\% CI \\
+Benchmark & Model & Generic E2E & CTA E2E & Lifecycle E2E & $\Delta$ & Cluster 95\% CI \\
 \midrule
 Language clusters (primary) & Qwen3.5 & 64.4 & 95.0 & 98.1 & +33.8 & [+18.1, +50.0] \\
 Language clusters & GLM-5.1 & 71.9 & 96.2 & 100.0 & +28.1 & [+18.1, +38.1] \\
@@ -382,10 +397,10 @@ Model-facing SQLite & GLM-5.1 & 65.0 & -- & 100.0 & +35.0 & [+17.5, +52.5] \\
 Guarded conditional policies & Qwen3.5 & 52.5 & -- & 85.0 & +32.5 & [+15.0, +52.5] \\
 \bottomrule
 \end{tabular}
-\caption{Exact target or final-state accuracy (\%). CTA is shown where it was run on the
-identical scalar language inventory; $\Delta$ remains Lifecycle/Guarded minus Generic. Confidence
-intervals resample complete language-template clusters for v3 and state-instance clusters for
-the new core replication.}
+\caption{End-to-end (E2E) authorized-target accuracy (\%); SQLite rows instead use final
+database-state success. These totals are not initial-binding accuracy or conditional TRI.
+CTA is shown where run on the identical inventory; $\Delta$ is Lifecycle/Guarded minus Generic.
+Intervals resample complete template or state-instance clusters.}
 \label{tab:main}
 \end{table*}
 
@@ -404,7 +419,7 @@ Because the Lifecycle compiler receives explicit reference-mode and invalidity s
 comparison does not by itself identify the causal contribution of serialization, prompt
 supervision, and the deterministic gate separately. The historical compile-then-act results in
 Table~\ref{tab:components} provide a strong neighboring comparison and motivate the narrower
-interpretation: explicit pre-refresh compilation is the main performance mechanism, while
+interpretation: the gain is primarily associated with explicit pre-refresh compilation, while
 lifecycle state makes its authorization and validity decisions auditable and enforceable.
 
 The post-primary component audit sharpens this conclusion. A validity-only gate changes
@@ -454,172 +469,131 @@ Generic reaches 73.8\% and drifts on 59/79 core opportunities, whereas CTA reach
 drifts on 0/70, and improves accuracy by 17.5 points [10.8,23.3]. SQLite replay turns all 59
 DeepSeek Generic core drifts into wrong-entity writes; CTA still makes 17 non-core wrong writes
 from mode, initial-ID, or selector errors. Thus the replication strengthens the conditional
-mechanism claim without converting the synthetic benchmark into a prevalence or general-safety estimate.
+behavioral diagnosis without converting the synthetic benchmark into a prevalence or general-safety estimate.
+
+Leave-one-group-out sensitivity keeps the CTA--Generic difference positive after excluding any
+one of ten domains or any one of sixteen template families. Across Qwen, GLM, and DeepSeek, the
+domain-exclusion ranges are 18.5--25.5, 23.1--25.9, and 15.7--22.2 points; template-exclusion
+ranges are 20.4--26.3, 20.8--26.1, and 14.2--19.6. No single domain or template explains the gain.
+
+We keep four denominators distinct: E2E target accuracy covers all 240 rows; initial binding
+covers 120 anchored rows; conditional TRI covers only correct bindings with a valid old target and
+changed winner; wrong-write rate counts every executed mutation to a non-gold entity. The unified
+mechanism table is supplementary.
+
+\paragraph{Matched full-history baselines do not remove substitution.}
+To test whether the Generic ledger itself induces failure, we froze two additional v7 baselines
+for all three models. An ordinary two-turn agent retaining the complete transcript obtains
+63.3/67.1/68.8\% for Qwen/GLM/DeepSeek. A strong one-shot post-refresh re-resolution prompt that explicitly asks whether to
+preserve, reevaluate, or reject improves this to 69.6/80.8/75.8\%, but still substitutes the
+refreshed winner on 56/38/42 of 80 anchored changed-winner rows. CTA obtains
+70.8/94.2/91.2\%; versus the strong prompt its paired differences are +1.2
+$[-6.7,9.2]$, +13.3 $[8.8,17.9]$, and +15.4 $[9.2,21.7]$ points. Thus CTA is tied on Qwen
+overall accuracy, not universally superior. Because full-history baselines expose no separately
+verified pre-refresh binding, their substitutions are unconditional and are not counted as
+conditional TRI. The result supports explicit, executable commitment over history retention or
+a late semantic re-resolution decision, while preserving that denominator distinction. It is a
+practical nearest-neighbor approximation, not an official Binding Drift self/cross reproduction.
 
 \paragraph{Human judgments support the core transition, with a fallback boundary.}
 Across 100 blinded items, Fleiss' $\kappa=.708$, Krippendorff's $\alpha=.709$, and majority--gold
 agreement is 86\% (91.5\% among 94 determinate items); original and rewritten language obtain
-84\% and 88\%. On 50 frozen volunteer rewrites, Generic/CTA/Lifecycle-free/Gated reach
-60/90/88/90\% for Qwen and 74/98/92/94\% for GLM. Direct CTA-minus-Gated intervals are 0.0
-$[-11.1,+11.1]$ and +4.0 $[-4.3,+14.8]$ points; CTA-minus-Lifecycle-free intervals also span
-zero. Against 48 rewrite majorities, CTA reaches 89.6/93.8\% versus Gated's 85.4/85.4\%; on 41
-majority-actionable items, the values are 92.7/92.7\% versus 82.9/82.9\%. Lifecycle errors
-mostly miscompile refresh-first rewrites as \textsc{Preserve}; CTA errors concentrate in invalid-target
-policy. Action-invalid \textsc{Reject} obtains only 55\% majority--gold and 25\% unanimity, so
-we treat Preserve/Reevaluate as the human-supported core and Reject as a normative action policy.
+84\% and 88\%. Using the 46 determinate original-item majorities as alternative gold,
+Generic/CTA score 69.6/91.3\% for Qwen and 73.9/89.1\% for GLM; on the 35 unanimous-gold items,
+they score 85.7/100.0\% and 88.6/97.1\%. On 50 frozen volunteer rewrites,
+Generic/CTA/Lifecycle-free/Gated reach 60/90/88/90\% for Qwen and 74/98/92/94\% for GLM;
+against 48 rewrite majorities, CTA reaches 89.6/93.8\%. Thus the compiled-method gap survives
+human-majority and high-consensus scoring. Action-invalid \textsc{Reject} obtains only 55\%
+majority--gold and 25\% unanimity, so Preserve/Reevaluate is the human-supported core and Reject
+remains a normative action policy.
 
 \subsection{External and Compositional Boundaries}
 The external and compositional evaluations do not show a stable extension of the scalar result.
 In the 24-task ToolSandbox-style pilot, Generic, Lifecycle, Gated, and Untyped obtain
 79.2/87.5/91.7/91.7\% for GLM and 91.7/83.3/91.7/79.2\% for Qwen, respectively. Gated
 permits one GLM and two Qwen wrong writes. We therefore treat this pilot as an external
-validity boundary check: the TRI diagnosis can be instantiated in a stateful tool loop, but
-the controller advantage is not stable once tool choice and upstream compilation are exposed.
+validity boundary check: the controller advantage is not stable once tool choice and upstream
+compilation are exposed. A post-hoc strict trace audit nevertheless finds a benchmark-compatible
+positive instance: conditional on a correct compiled ID, a preserved valid old target, and a Flip,
+GLM Generic writes the refreshed winner in 3/6 opportunities versus 0/2 Stable controls; GLM
+Lifecycle is 0/5. Qwen Generic is 0/6, while its free Lifecycle actor is 2/6 and deterministic gate
+replay removes both. These custom tasks use ToolSandbox's native reminder database and
+search/modify tools, but are neither an official score nor prevalence evidence.
 
-We additionally froze a 96-task, single-user-turn ToolSandbox-based 2$\times$2 extension with an
-auditable binding opportunity. Qwen and GLM full-history agents produced zero TRI mechanism
-errors in 70 and 73 eligible opportunities, respectively; matched Qwen and GLM Generic Ledgers
-produced zero in 64 and 87. The external runs did produce real wrong-entity writes (6, 13, 5,
-and 4), but each was
-an initial selector or tool-order error outside the TRI denominator. We report this negative
-external result as a boundary, not as prevalence evidence: the controlled Generic result is
-model- and controller-dependent and does not imply that every full-history LLM will exhibit TRI.
+In a separate 96-task ToolSandbox-style extension with auditable binding, Qwen/GLM full-history
+agents and matched Generic Ledgers produce zero conditional TRI in 70/73 and 64/87 eligible
+opportunities. Their 6/13/5/4 wrong writes are initial selector or tool-order errors. This negative
+boundary shows that the controlled result is model- and controller-dependent, not universal.
 
-We also audited unmodified public inventories before adaptation. At pinned ToolSandbox commit
-\texttt{165848b}, none of 129 semantic scenario families contains a strict post-binding external
-transition plus a later substitutable mutation; one task naturally preserves ``them'' after the
-selected contacts change category. Across AppWorld's 244 generator families, one public Todoist
-family is a stronger natural near-match: tasks selected as assigned-to-me are reassigned and then
-``leave a comment there'' must retain the same task IDs even though they no longer satisfy the
-initial selector. In 42 released trajectories from 14 experiment configurations, 16 correct
-target-binding operations are followed by 16 same-ID comments and zero post-binding substitutions;
-most failures omit targets before binding. Thus an independent benchmark supports the task
-structure, but neither inventory estimates strict TRI prevalence. At current $\tau^3$-bench
-commit \texttt{cf71a80}, a separate audit covers 2,449 airline/retail/telecom tasks and 10,832
-released GPT-4.1/Claude/o4-mini trajectories. It finds zero strict same-role TRI opportunities;
-eight telecom tasks naturally bind a bill, let the user pay, and continue on an associated line,
-but bill and line are different roles with no competing selector target.
+Audits of unmodified ToolSandbox (129 families), AppWorld (244 families), and $\tau^3$ (2,449
+tasks; 10,832 released trajectories) find zero native strict opportunities and a few near-matches.
+One AppWorld Todoist family naturally preserves task IDs after reassignment makes them fail the
+original selector; 16 correct operations are followed by 16 same-ID comments. These audits support
+the task structure and a coverage gap, not prevalence; checklist and candidate IDs are supplementary.
 
-Finally, a custom AppWorld case study crosses reference mode, Stable/Flip, and two paraphrases in
-two application/selector clusters: Todoist earliest-due tasks (frozen first) and a post-primary
-Simple Note alphabetical-title extension. Across 32 Qwen/GLM full-history trajectories using
-native APIs and database IDs, 31 write the authorized target. Of 24 trajectories with a correct,
-correctly timed observable binding, conditional TRI is 0/24 (0/4 in Preserve/Flip). The sole
-wrong write follows synchronization before binding and is therefore a delayed-binding/tool-order
-error, not post-binding drift. This is a custom adaptation, not an AppWorld leaderboard score,
-but it confirms that the external null is not an artifact of label-only scoring.
+In a two-cluster custom AppWorld study, conditional TRI is 0/24 with observable binding and 0/28
+after removing TRI prompt language; two wrong writes are pre-binding order errors. This is not an
+AppWorld leaderboard score.
 
-A lower-intervention addendum then removes the binding sidecar and all prompt language about
-TRI, temporal authorization, or reference modes. Ordinary selector APIs expose the returned ID
-without a measurement call. Across the same two apps and models, 28/32 trajectories form a
-correctly timed binding and conditional TRI is 0/28 (0/6 Preserve/Flip). Qwen makes two real
-Flip wrong writes, but in each matched app it synchronizes before its first selector call; the
-corresponding Stable row has the same order defect but masks it because the winner is unchanged.
-Thus these are pre-binding temporal-order errors, not post-binding drift.
-
-The frozen Qwen TRI-v5 stress test contains two refreshes, a monitoring referent, an unrelated
-tool call, and a final mutation. Generic obtains 32/40 final states, one wrong write, and four
-unnecessary rejections; scalar Lifecycle obtains 28/40, six wrong writes, six unnecessary
-rejections, and one parse/internal error. The difference is $-10.0$ points with a
-template-cluster interval of $[-35.0,12.5]$. A role-indexed held-out addendum improves Qwen
-from 35/40 to 39/40 final states, but recovered GLM is tied at 40/40; this motivates role
-indexing without establishing stable superiority over simpler compilation. These results
-bound the current claim to controller-orchestrated, single-refresh, scalar mutations rather
-than general multi-referent reliability.
+A two-refresh Qwen stress test favors Generic over scalar Lifecycle (32/40 vs. 28/40;
+$-10.0$ points, cluster CI $[-35.0,12.5]$). Role indexing improves Qwen from 35/40 to 39/40,
+but recovered GLM ties at 40/40. The claim therefore remains limited to controller-orchestrated,
+single-refresh, scalar mutations.
 
 \subsection{Error and Safety Analysis}
 \paragraph{Stage analysis localizes the remaining error.}
-On language clusters, GLM compiles mode, ID, and policy correctly on all tasks and has no actor
-failure. Qwen also compiles all lifecycle fields correctly; its three final errors occur in the
-dynamic actor. Under schema transfer with shared templates, mode remains 100\%, but bound-ID accuracy falls to 55.0\%
-for explicit and 50.0\% for implicit anchored references. The errors concentrate in compound
-selectors such as ``lowest-stock reorderable item'' and ``oldest failing deployment'': Qwen
-sometimes chooses the lowest item before filtering \texttt{reorderable}, or the oldest
-deployment before filtering \texttt{failing}. The gate then rejects the ineligible ID. This
-produces conservative errors rather than wrong writes, but it shows that TRI semantics and
-selector grounding are separate research problems.
+Primary lifecycle compilation is correct; remaining Qwen errors occur in the dynamic actor.
+Under schema transfer, mode remains 100\% but anchored bound-ID accuracy falls to 55.0/50.0\%
+for explicit/implicit language, concentrated in compound selectors. The gate rejects ineligible
+IDs, showing that TRI semantics and selector grounding are distinct problems.
 
 \paragraph{Transfer and real write consequences.}
-On the four new schemas under shared templates, lifecycle control improves Qwen from 46.2\% to 82.5\%; the
-cluster interval excludes zero. In model-facing SQLite runs, Generic Structured Ledger gives Qwen 27/40 final states with 13
-wrong-entity writes, while GLM gives 26/40 with 8 wrong-entity writes. A conditional trace audit
-separates the referential core from invalidity policy. Both models compile the correct initial ID
-on all 20 anchored tasks. Among the eight flip/name-collision cases in which that entity remains
-present and action-valid, Generic writes the refreshed selector winner in 8/8 Qwen and 6/8 GLM
-trajectories; stable controls have 0/4 wrong writes for each model. The remaining 5 and 2 wrong
-writes occur after removal or invalidation and therefore test the benchmark's reject policy
-rather than the core post-binding transition. Lifecycle-
-Gated reaches 40/40 for both models with no wrong write, invalid attempt, unnecessary
-rejection, or collateral modification. The paired exact test for Qwen gives
-$p=2.44\times10^{-4}$; the GLM paired cluster difference is reported in Table~\ref{tab:main}.
-These are actual post-refresh database mutations, not target-string labels. Generic plus a
-validity-only gate still produces 13 Qwen wrong writes because replacement targets are often
-action-valid; both Lifecycle variants obtain 40/40. This demonstrates a correctly compiled
-contract, not general reliability against compiler or tool failures.
+On new schemas, lifecycle improves Qwen from 46.2\% to 82.5\%. In model-facing SQLite, Generic
+gives Qwen/GLM 27/40 and 26/40 final states with 13/8 wrong writes. Given correct initial IDs,
+it writes the refreshed winner in 8/8 and 6/8 valid flip/name-collision opportunities versus 0/4
+Stable controls; remaining wrong writes test reject policy. Lifecycle-Gated reaches 40/40 for both
+models with no wrong or collateral write. A validity-only gate still leaves all 13 Qwen wrong
+writes because replacements are action-valid; this is a contract result, not general tool safety.
 
 \section{Discussion}
 
 \paragraph{Commitments benefit from explicit controller state.}
-Generic already carries enough evidence in principle; its failures instead show that an implicit
-relationship remains behaviorally unstable: is a selector still an instruction to search, or
-provenance for a committed ID? Pre-refresh compilation answers this once. Typed lifecycle state
-makes the answer auditable and separates revisable beliefs from discourse commitments without
-claiming that the tuple is the only sufficient representation.
+Generic carries enough evidence, but leaves unstable whether a selector is still executable or
+only provenance for a committed ID. Pre-refresh compilation makes that distinction auditable.
 
 \paragraph{Gates move, rather than erase, the reliability bottleneck.}
-A gate cannot repair a wrong mode, ID, or guard; an incorrectly bound yet valid ID can pass.
-It only prevents a later actor from violating a correctly compiled contract and enforces action
-validity. Under schema transfer this sometimes converts grounding errors into rejection, shifting
-rather than eliminating risk and motivating clarification and executable selectors. In the new
-replication's SQLite replay, CTA/Gated produce no core TRI write after a correct binding, yet
-Qwen still makes 8/17 and GLM 14/7 total wrong writes, mainly from dynamic over-locking or
-selector errors. Enforcement is therefore conditional, not a general write-safety guarantee.
+A gate cannot repair a wrong mode, ID, or guard. It enforces a correct contract, sometimes turning
+grounding errors into rejection. CTA/Gated produce no core TRI write after correct binding but
+retain non-core selector errors; enforcement is not a general write-safety guarantee.
 
 \paragraph{Boundary results constrain the design claim.}
-The ToolSandbox and multi-referent results belong to the empirical finding, not merely to future
-work: a correctly designed gate cannot compensate for an incorrectly compiled contract or an
-upstream tool error, and a scalar contract does not compose automatically across referent roles.
-Within the supported scalar setting, gating reduces primary requests from 320 to 240 per model.
+ToolSandbox and multi-referent results show that gates cannot repair bad compilation and scalar
+contracts do not compose automatically across roles. In the supported setting, gating also reduces
+primary requests from 320 to 240 per model.
 
 \section{Limitations}
 
 \paragraph{Scope and construct validity.}
-TRI is a controlled diagnostic, not a prevalence estimate. It still simplifies ambiguity,
-repair, partial observability, and identity migration. Human validation covers 100 scalar
-original/rewrite items, not conditional, collection, or nested semantics; low agreement on
-invalid-target rejection limits fallback claims. Primary experiments use one target and one
-refresh, while a negative multi-referent stress test does not establish composition.
+TRI is a controlled diagnostic, not a prevalence estimate. It simplifies ambiguity, repair,
+partial observability, and identity migration. Human validation covers scalar semantics; low
+agreement on invalid-target rejection limits fallback claims. Composition remains open.
 
 \paragraph{Causal attribution and external validity.}
-The primary 20 template clusters and post-primary 40-state replication use temperature-zero calls
-and do not characterize execution variance or all model families. The replication was frozen
-after the mechanism hypothesis was selected and remains synthetic. We reproduced the 25
-deterministic offline assertions in the Binding Drift artifact after a filename adaptation, but
-have not rerun its Bedrock model sweep. Its deterministic re-verification reads a gold target and
-is therefore an oracle upper bound, while Entity Lock corresponds to our Always-Lock extreme.
-Compound-selector grounding remains a bottleneck. Fixed query-refresh order, local SQLite,
-ToolSandbox-style tasks, and a two-cluster custom AppWorld case study do not establish
-real-traffic prevalence. The public trace near-matches have no Stable/Flip contrast, the official
-$\tau^3$ inventory has no strict opportunity, and the external adaptations have null conditional
-TRI results; opportunity coverage and controller state
-representation materially affect whether the phenomenon is observable.
+Temperature-zero runs do not characterize execution variance or all model families. Replications
+remain synthetic. We reproduced Binding Drift's deterministic assertions, but not its LLM sweep;
+its oracle re-verifier reads gold and Entity Lock matches Always-Lock. The ToolSandbox-compatible
+positive audit is post-hoc and small, lower-intervention loops are null, and no external study
+estimates real-traffic prevalence. Opportunity coverage and controller state affect observability.
 
 \section{Conclusion}
 
-World updates need not rebind targets. In the controlled benchmark, minimal
-pre-refresh CTA has the highest or tied scalar point estimate, without a significant advantage
-over typed variants. Typed lifecycle state exposes richer
-policy but adds compilation errors; gates enforce only correct contracts. Composition and
-external validity remain open. The supported design principle is narrow: decide whether a
-description has become an identity commitment before incorporating later observations. The
-corrected Generic audit and 240-task new-state replication confirm post-binding drift when the
-initial ID is correct, while
-the external ToolSandbox-style and AppWorld-backed studies find no such drift in the tested
-full-history agents. Released AppWorld traces exhibit the underlying persistence structure, while
-the $\tau^3$ audit shows that even a large dual-control suite need not contain a strict same-role
-TRI opportunity. The result is
-therefore a controller- and model-conditional mechanism diagnosis, not a universal LLM failure or
-an autonomous-agent safety guarantee.
+World updates need not rebind targets. Controlled replications, matched full-history baselines,
+and SQLite writes support one narrow design principle: decide whether a description has become
+an identity commitment before incorporating later observations. CTA has the highest or tied
+scalar point estimate; typed state adds policy but also compilation errors, and gates enforce only
+correct contracts. External evidence is mixed, while public audits expose few native strict
+opportunities. TRI is therefore a controller- and model-conditional mechanism diagnosis,
+not a prevalence estimate, universal LLM failure, or autonomous-agent safety guarantee.
 
 \clearpage
 {\small

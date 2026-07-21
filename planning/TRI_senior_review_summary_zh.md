@@ -1,6 +1,8 @@
-# TRI 论文阶段总结与 AAAI-27 投稿评估材料
+# TRI 论文阶段总结与 AAAI-27 投稿分析材料
 
-更新时间：2026-07-20
+本文件汇总论文摘要草稿、研究设计、实验结果、贡献边界与投稿计划。正式研究进展报告见 `planning/TRI_paper_progress_report_zh.md`。
+
+更新时间：2026-07-21
 
 拟投稿：AAAI-27 Main Technical Track
 
@@ -14,11 +16,11 @@
 
 ## 2. 中文摘要
 
-工具型语言模型智能体在执行用户任务时会持续刷新外部状态，但新的观察并不自动授权智能体改变先前指称所对应的实体。本文将这一正确初始绑定之后的授权问题形式化为“时序指称完整性”：世界状态更新与指称目标变化是两个不同的控制决策。在一个冻结的 160 任务最小对诊断集上，保存指令、初始目标 ID、实体快照、选择条件和动作前置条件的普通结构化记录，在 Qwen3.5-122B 和 GLM-5.1 上分别达到 64.4% 和 71.9%；在刷新前显式编译目标绑定时间与身份的“目标承诺编译”方法达到 95.0% 和 96.2%。始终锁定旧目标和始终重新选择目标都只有 60%，且错误互补，说明问题不是单纯的记忆或锁定，而是判断用户是否授权目标转换。在另一个独立冻结的 240 任务复制实验中，当初始绑定正确时，普通结构化记录在 43/72 和 38/80 个机会中漂移到刷新后的选择器赢家，而目标承诺编译和带生命周期保护的方法均为 0；这 81 次漂移全部可以重放为对错误数据库实体的实际写入。三名盲标注者在 100 条原始或自然改写指令上获得 Fleiss kappa 0.708 和 86% 的多数票一致率。对 ToolSandbox、AppWorld 和 tau3-bench 的公开任务及轨迹审计发现，现有基准几乎没有严格覆盖这种“正确绑定后、状态变化、可替代同角色实体、可评分错误写入”的机会；外部 full-history Agent 实验中也未观察到条件 TRI。因此，本文提供的是一个受控、依赖模型和控制器的机制诊断与评测盲区分析，而不是现实流量发生率或通用安全保证。
+工具型语言模型智能体在执行用户任务时会持续刷新外部状态，但新的观察并不自动授权智能体改变先前指称所对应的实体。本文将这一正确初始绑定之后的授权问题形式化为“时序指称完整性”：世界状态更新与指称目标变化是两个不同的控制决策。在冻结的 160 任务诊断集上，普通结构化记录在 Qwen3.5-122B 和 GLM-5.1 上达到 64.4% 和 71.9%，刷新前“目标承诺编译”达到 95.0% 和 96.2%；始终锁定与始终重选均只有 60%，且错误互补。在独立冻结的 240 任务复制中，普通记录在正确初始绑定后的核心机会中漂移 43/72、38/80 和 59/79 次（Qwen、GLM、DeepSeek），目标承诺编译均为 0，全部 140 次漂移都可重放为错误数据库写入。三模型匹配强基线进一步表明：完整对话轨迹仅达到 63.3%/67.1%/68.8%，最终一步明确提醒“保持或重选”提高到 69.6%/80.8%/75.8%，但仍分别发生 56/38/42 次保持型目标替换；目标承诺编译为 70.8%/94.2%/91.2%，其中 Qwen 总准确率与提醒基线统计持平，GLM 和 DeepSeek 显著更高。三名盲标注者在 100 条原始或自然改写指令上获得 Fleiss kappa 0.708 和 86% 多数票一致率。公开 benchmark 原生严格机会接近零；但对冻结 ToolSandbox-compatible 干预 pilot 的 post-hoc 严格审计发现 GLM Generic 在 3/6 个机会中发生条件 TRI，而低干预外部闭环仍为 null。因此本文是因果隔离的机制诊断和评测盲区分析，不是现实发生率或通用安全保证。
 
 ## 3. English Abstract Draft
 
-Refreshing external state does not by itself authorize a tool-using agent to change the entity denoted by an earlier reference. We formalize this post-binding problem as temporal referent integrity (TRI), separating belief updates from referent transitions. On a frozen 160-task diagnostic, a Generic Structured Ledger reaches 64.4%/71.9% with Qwen3.5-122B/GLM-5.1, whereas pre-refresh Compile-then-act reaches 95.0%/96.2%. Always-Lock and Always-Reevaluate each reach 60.0% and fail opposite modes. In a separately frozen 240-task replication, conditional on correct initial binding, Generic drifts on 43/72 and 38/80 opportunities; Compile-then-act and Lifecycle-Gated drift on none, and all 81 Generic drifts replay as wrong-entity SQLite writes. A typed Lifecycle reaches 98.1%/100.0% on the primary set, but its gate adds only 1.2--1.9 points over a matched free actor. Three blind annotators obtain Fleiss' kappa=.708 and 86% majority-gold agreement on 100 original/rewrite items. Public ToolSandbox, AppWorld, and tau3 audits find almost no strict TRI opportunities, and external full-history studies observe zero conditional TRI. TRI is therefore a controlled, model- and controller-conditional mechanism diagnosis, not a prevalence or safety claim.
+Refreshing external state does not by itself authorize a tool-using agent to change the entity denoted by an earlier reference. We formalize this post-binding problem as temporal referent integrity (TRI), separating belief updates from referent transitions. On a frozen 160-task diagnostic, a Generic Structured Ledger reaches 64.4%/71.9% with Qwen3.5-122B/GLM-5.1, whereas pre-refresh Compile-then-act (CTA) reaches 95.0%/96.2%; Always-Lock and Always-Reevaluate each reach 60.0% and fail opposite modes. In a separately frozen 240-task replication, conditional on correct initial binding, Generic drifts on 43/72, 38/80, and 59/79 opportunities with Qwen, GLM, and DeepSeek, while CTA drifts on none; all 140 drifts replay as wrong-entity SQLite writes. Matched ordinary full-history baselines reach 63.3%/67.1%/68.8%, and a final TRI-aware reminder improves them to 69.6%/80.8%/75.8% but leaves 56/38/42 anchored substitutions. CTA reaches 70.8%/94.2%/91.2%, tying the aware Qwen baseline in overall accuracy. Three blind annotators obtain Fleiss' kappa=.708 and 86% majority-gold agreement on 100 original/rewrite items. Native public benchmark opportunities are rare; a post-hoc strict audit of a frozen ToolSandbox-compatible intervention finds 3/6 GLM Generic violations, while lower-intervention external loops are null. TRI is therefore a causally isolated, model- and controller-conditional diagnosis, not a prevalence or safety claim.
 
 ## 4. 引言思路
 
@@ -84,6 +86,9 @@ Refreshing external state does not by itself authorize a tool-using agent to cha
 | 独立英文改写 | 50 tasks | CTA 90/98%；Generic 60/74% | 效果不只存在于原始模板 |
 | v6 多指称组合 | 40 tasks | Qwen role-indexed 39/40，scalar 35/40；GLM 均为 40/40 | 角色索引有潜力，但优势未跨模型稳定 |
 | 第三模型完整复制 | 冻结 v7 全量 240 tasks，DeepSeek-V4-Pro | Generic 73.8%，CTA 91.2%，配对 +17.5 points [10.8,23.3]；conditional drift 59/79 对 0/70 | 第三个模型家族完整复现同方向机制；仍标为 post-primary robustness result |
+| 三模型匹配完整历史强基线 | v7 240 tasks x 3 models x 2 baselines | 普通完整历史 63.3/67.1/68.8%；语义提醒 69.6/80.8/75.8%；CTA 70.8/94.2/91.2% | 失败不是 Generic ledger 特有；事后提醒有帮助但不等于可执行的刷新前承诺 |
+| 完整历史 SQLite 重放 | 1,440 episodes | 普通历史 wrong writes 87/79/75；语义提醒 70/46/57（Qwen/GLM/DeepSeek） | 强基线错误同样会修改错误实体，不是标签误差 |
+| ToolSandbox-compatible 条件审计 | 冻结 24-task pilot，6 selector clusters | GLM Generic 3/6 conditional TRI、Stable 0/2；Qwen Lifecycle-free 2/6，gate replay 0/6 | TRI 可在原生数据库/API substrate 中出现；审计 post-hoc，不是官方分数或 prevalence |
 
 ## 7. 外部验证与边界
 
@@ -132,6 +137,22 @@ Refreshing external state does not by itself authorize a tool-using agent to cha
 
 ## 10. 当前论文质量与风险判断
 
+### “受控”到底意味着什么
+
+“受控”首先是研究问题本身要求的因果隔离，不是单纯因为实验没做够。若不固定初始状态、刷新事件、候选实体、动作有效性和用户话语，只观察最终 wrong write，就无法判断错误来自首次选择错误、先刷新后选择的工具顺序错误、selector grounding，还是正确绑定后的未授权换目标。条件 TRI 的分母必须要求“初始绑定正确、旧目标仍存在且可执行、刷新后出现同角色新赢家”，否则会把不同错误混在一起。
+
+实验不足主要影响外部有效性和模型覆盖，而不改变这种受控定义。三模型复制、自然改写、held-out schema、SQLite、ToolSandbox/AppWorld 和匹配 full-history 基线已经补强鲁棒性；但即使再扩更多合成任务，也不能推出真实流量发生率。公开数据中严格 opportunity 接近零，所以本稿最稳定位仍是“机制诊断 + benchmark blind spot + authorization principle”。
+
+### 最新强基线的公平解释
+
+| 模型 | 普通完整历史 | 最终语义提醒 | 目标承诺编译 | 编译减提醒（cluster 95% CI） | 提醒后的保持型替换 |
+|---|---:|---:|---:|---:|---:|
+| Qwen3.5 | 63.3% | 69.6% | 70.8% | +1.2 [-6.7, 9.2] | 56/80 |
+| GLM-5.1 | 67.1% | 80.8% | 94.2% | +13.3 [8.8, 17.9] | 38/80 |
+| DeepSeek | 68.8% | 75.8% | 91.2% | +15.4 [9.2, 21.7] | 42/80 |
+
+普通完整历史是两次调用、保留完整对话且不提示 TRI；语义提醒是一轮强上界提示，明确要求判断保持、重选或拒绝。它们都没有单独可评分的刷新前选择，因此替换数是无条件 anchored substitution，不能写成 conditional TRI。Qwen 上 CTA 与语义提醒总准确率持平，必须如实报告；CTA 更强的机制证据是：它暴露刷新前绑定，在绑定正确的机会中三模型 conditional drift 均为 0，而后置提示无法提供同样的可审计承诺。
+
 ### 优势
 
 - 问题直观，最小对反例容易解释；
@@ -151,7 +172,27 @@ Refreshing external state does not by itself authorize a tool-using agent to cha
 5. **组合能力**：role indexing 的提升只在 Qwen 明显，不能写成通用扩展成功。
 6. **相关工作可比性**：Binding Drift 的确定性 reverify 使用 gold target，不能作为 learned baseline；Entity Lock 与 Always-Lock 语义接近。
 
-## 11. 希望师姐重点评估的问题
+### 投稿可行性判断
+
+当前建议是**可以投稿，但应按机制发现型论文而不是通用安全控制器投稿**。问题定义、最小对、对称控制、三模型独立复制、强基线、真实写入后果、人类验证和公开 benchmark 审计已经形成完整证据链。决定分数的主要不再是“是否还有一个明显缺失的小消融”，而是审稿人是否认可 TRI 相对 Binding Drift/实体绑定的概念新颖性，以及是否接受受控诊断在外部正例稀少时仍有价值。
+
+投稿可行性可从问题新颖性、因果识别、基线完整度、外部有效性和稿件清晰度五个方面判断。当前前三项已具投稿基础；外部有效性是明确短板且不能靠临时扩充合成样本解决；稿件仍需完成最终数字溯源和一次独立 reviewer pass。若按 10 分投稿建议尺度，当前更接近“6-7，值得投稿但并非稳收”，不应描述为无懈可击或高把握接收。
+
+### 预期审稿攻击与正文内回答
+
+| 可能质疑 | 已有回答 | 投稿前动作 |
+|---|---|---|
+| Generic ledger 人为诱发失败 | 三模型普通完整历史与强语义提醒全量基线 | 已进入主文和 supplement |
+| CTA 只是多一次调用/提示更强 | interactive 两调用；untyped pre-refresh plan；one-shot TRI-aware reminder | 明确 Qwen 总准确率持平，不作普遍优越性主张 |
+| 条件分母挑选有利样本 | 同时报初始绑定、总体 accuracy、stable、dynamic、API failures | provenance 固化分母代码与任务覆盖 |
+| 错误只是字符串标签 | v3 model-facing SQLite、v7 预测重放、最新 1,440 次强基线重放 | 报 wrong writes 与 invalid attempts |
+| Preserve/Reject 金标准主观 | 三人盲标；Preserve/Reevaluate 高一致，Reject 低一致 | 缩窄核心主张，Reject 明确为规范性策略 |
+| 合成任务不能代表真实 Agent | 人工改写、held-out schema、ToolSandbox/AppWorld、公开轨迹审计 | 坚持 blind-spot 定位，不宣称 prevalence |
+| 与 Binding Drift 重复 | 动态重选对称控制；官方 lock/reverify 代码审计 | 相关工作写清 oracle 与任务定义差异 |
+| 方法太简单 | 强调问题定义、因果诊断和授权不变量；复杂 M1/M2 负结果 | 不包装复杂度，不把失败升级方法放主表 |
+| 温度 0 单次运行不稳定 | 三模型、40 cluster、原始输出和 retry 审计 | 40-task 重复稳定性列为最后可选补实验，而非主结论前提 |
+
+## 11. 仍需进一步论证的问题
 
 1. 这个问题定义和最小对是否足以支撑 AAAI 的 novelty？
 2. 论文应更偏“Agent memory/controller mechanism”，还是“diagnostic benchmark blind spot”？
@@ -163,4 +204,4 @@ Refreshing external state does not by itself authorize a tool-using agent to cha
 
 ## 12. 接下来八天
 
-详细计划见 `planning/TRI_AAAI27_eight_day_submission_plan_zh.md`。总体原则是：7 月 21 日根据师姐反馈锁定摘要和叙事；7 月 22 日完成摘要提交与数字溯源；7 月 23--25 日完成统计、补充材料、artifact 和 reviewer pass；7 月 26 日冻结实验；7 月 27 日冻结提交包，保留后续时区缓冲。
+详细计划见 `planning/TRI_AAAI27_eight_day_submission_plan_zh.md`。总体原则是：7 月 21 日锁定摘要和叙事；7 月 22 日完成摘要提交与数字溯源；7 月 23--25 日完成统计、补充材料、artifact 和 reviewer pass；7 月 26 日冻结实验；7 月 27 日冻结提交包，保留后续时区缓冲。

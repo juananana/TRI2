@@ -16,10 +16,33 @@ binding and a completed refresh. It excludes initial selector/grounding errors.
 | Qwen matched Generic Ledger | 96 | 64 | 0 | 5 | All wrong writes had incorrect compiler binding |
 | GLM matched Generic Ledger | 96 | 87 | 0 | 4 | Wrong writes were initial Reevaluate selector errors |
 
-The five external conditions therefore produce `0` post-binding TRI mechanism errors in their
-auditable denominators. This is negative evidence against a universal-LLM or universal-tool-loop
-claim. It does not invalidate the controlled TRI-v3 result, because the external full-history
-agent and matched controller often fail before the post-binding opportunity.
+These five conditions on the frozen 96-task extension produce `0` post-binding TRI mechanism
+errors in their auditable denominators. This is negative evidence against a universal-LLM or
+universal-tool-loop claim. It does not invalidate the controlled TRI-v3 result, because these
+agents and controllers often fail before the post-binding opportunity. It also does not subsume
+the earlier frozen 24-task ToolSandbox-compatible intervention, whose controller and transition
+protocol differ and whose strict conditional audit is reported below.
+
+## Earlier ToolSandbox-Compatible Intervention: Strict Post-Hoc Audit
+
+The earlier 24-task pilot uses ToolSandbox's native reminder database and search/modify tools with
+custom tasks and an injected transition. A later strict audit counts only Preserve/Flip rows with
+a correct compiled initial ID, a still-present old target, a different stable-ID refreshed winner,
+and no protocol error.
+
+| Model/controller | Conditional TRI | Eligible Stable wrong writes |
+|---|---:|---:|
+| GLM Generic | 3/6 | 0/2 |
+| GLM Lifecycle-free | 0/5 | 0/2 |
+| GLM deterministic gate replay | 0/5 | 0/2 |
+| Qwen Generic | 0/6 | 0/2 |
+| Qwen Lifecycle-free | 2/6 | 0/2 |
+| Qwen deterministic gate replay | 0/6 | 0/2 |
+
+This result is benchmark-compatible intervention evidence, not an official ToolSandbox score or
+prevalence estimate. The strict audit was specified after the outputs existed and covers only six
+selector clusters, so it is exploratory rather than confirmatory. Full task IDs and exclusions are
+in `toolsandbox_tri_pilot_conditional_audit_v1.md` and its JSON companion.
 
 ## Corrected Controlled-Benchmark Audit
 

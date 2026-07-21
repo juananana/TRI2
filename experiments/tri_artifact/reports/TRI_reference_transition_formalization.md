@@ -16,6 +16,8 @@ denotation of a discourse reference from the target that may legally be sent to 
   denotation `e` by `e'` at this transition. Authorization may be unconditional reevaluation or
   conditional on a compiled guard.
 - `pi_r`: fallback policy when the committed entity is not action-valid.
+- `C_t(r)`: referential control state, either `U(q_r)` for an unresolved query or `B(e)` for a
+  bound identity commitment.
 
 The executable lifecycle record `L(r) = (m, e, q, g, pi, V_a)` is one implementation of these
 semantics, not the definition itself.
@@ -27,6 +29,19 @@ TRI is a post-binding safety property:
 ```text
 d_{t+1}(r) != d_t(r)  =>  Gamma_{t+1}(r, d_t(r) -> d_{t+1}(r)).
 ```
+
+The corresponding control-state machine is:
+
+```text
+U(q) -- authorized evaluation in S_t --> B(q(S_t))
+B(e) -- preserve ---------------------> B(e)
+B(e) -- authorized reevaluation ------> B(q(S_{t+1}))
+B(e) -- invalid + reject -------------> B(e), emit bottom
+```
+
+The last branch separates discourse identity from execution: rejection suppresses an action but
+does not silently replace the referent. Returning from `B(e)` to executable query evaluation is a
+privileged transition and requires language-derived authorization.
 
 Equivalently, a world transition alone cannot change an established denotation. A selector
 changing winner, an entity losing a property, or a display-name collision is evidence about the
