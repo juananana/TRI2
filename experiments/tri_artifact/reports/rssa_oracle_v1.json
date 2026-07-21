@@ -1,0 +1,665 @@
+{
+  "adversarial_shadow_substitution": {
+    "eligible_cases": 7,
+    "enforced_correct": 7,
+    "free_wrong_writes": 7,
+    "rows": [
+      {
+        "actor_proposal": "ALT-1B",
+        "correct_target": "ALT-1A",
+        "enforced_correct": true,
+        "enforced_target": "ALT-1A",
+        "free_target": "ALT-1B",
+        "free_wrong_write": true,
+        "task_id": "tri-v7-core-alerts-s1-explicit_anchor-flip"
+      },
+      {
+        "actor_proposal": "ALT-3B",
+        "correct_target": "ALT-3A",
+        "enforced_correct": true,
+        "enforced_target": "ALT-3A",
+        "free_target": "ALT-3B",
+        "free_wrong_write": true,
+        "task_id": "tri-v7-core-alerts-s3-explicit_anchor-name_collision"
+      },
+      {
+        "actor_proposal": "ALT-4B",
+        "correct_target": "ALT-4A",
+        "enforced_correct": true,
+        "enforced_target": "ALT-4A",
+        "free_target": "ALT-4B",
+        "free_wrong_write": true,
+        "task_id": "tri-v7-core-alerts-s4-implicit_anchor-flip"
+      },
+      {
+        "actor_proposal": "APP-2B",
+        "correct_target": "APP-2A",
+        "enforced_correct": true,
+        "enforced_target": "APP-2A",
+        "free_target": "APP-2B",
+        "free_wrong_write": true,
+        "task_id": "tri-v7-core-applications-s2-implicit_anchor-name_collision"
+      },
+      {
+        "actor_proposal": "BAT-2B",
+        "correct_target": "BAT-2A",
+        "enforced_correct": true,
+        "enforced_target": "BAT-2A",
+        "free_target": "BAT-2B",
+        "free_wrong_write": true,
+        "task_id": "tri-v7-core-batches-s2-explicit_anchor-flip"
+      },
+      {
+        "actor_proposal": "BAT-4B",
+        "correct_target": "BAT-4A",
+        "enforced_correct": true,
+        "enforced_target": "BAT-4A",
+        "free_target": "BAT-4B",
+        "free_wrong_write": true,
+        "task_id": "tri-v7-core-batches-s4-explicit_anchor-flip"
+      },
+      {
+        "actor_proposal": "DEP-Z05",
+        "correct_target": "DEP-X12",
+        "enforced_correct": true,
+        "enforced_target": "DEP-X12",
+        "free_target": "DEP-Z05",
+        "free_wrong_write": true,
+        "task_id": "tri-v6-role-heldout-deployments-explicit_anchor-t1-flip"
+      }
+    ]
+  },
+  "binding_epochs": {
+    "S0": 12,
+    "S1": 10,
+    "S2": 2
+  },
+  "binding_roles": {
+    "action_target": 20,
+    "monitoring_reference": 4
+  },
+  "coverage": {
+    "composition_role_inventory_correct": 20,
+    "enforced_authorized_target_correct": 20,
+    "grounded_bindings": 24,
+    "payloads_without_forbidden_fields": 20,
+    "valid_programs": 20
+  },
+  "interpretation": "Implementation and oracle coverage only; this does not measure learned compiler, grounder, or actor performance.",
+  "kind": "rssa_zero_api_oracle_and_leakage_audit",
+  "manifest": "data/temporal_referent_method_upgrade_smoke_v1.jsonl",
+  "manifest_sha256": "e651f4db45275877ca09a5e70187baca6d5ee8901bf983bb1ecc3885ef879181",
+  "protocol": "reports/TRI_rssa_20task_protocol.md",
+  "protocol_sha256": "6d8ee0da432b6133e7cfabd4b65ec156939ff0ffa1dc8bf07143b67fd8dbfe93",
+  "rows": [
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "ALT-1A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "ALT-1A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 1,
+      "task_id": "tri-v7-core-alerts-s1-explicit_anchor-flip"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "ALT-2A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "ALT-2A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 2,
+      "task_id": "tri-v7-core-alerts-s2-explicit_anchor-stable"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "ALT-3A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "ALT-3A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 3,
+      "task_id": "tri-v7-core-alerts-s3-explicit_anchor-name_collision"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "ALT-4A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "ALT-4A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 4,
+      "task_id": "tri-v7-core-alerts-s4-implicit_anchor-flip"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "APP-1A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "APP-1A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 5,
+      "task_id": "tri-v7-core-applications-s1-implicit_anchor-stable"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "APP-2A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "APP-2A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 6,
+      "task_id": "tri-v7-core-applications-s2-implicit_anchor-name_collision"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "APP-4B",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "APP-4B"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S1",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 7,
+      "task_id": "tri-v7-core-applications-s4-explicit_dynamic-flip"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "APP-3A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "APP-3A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S1",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 8,
+      "task_id": "tri-v7-core-applications-s3-explicit_dynamic-stable"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "APT-1B",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "APT-1B"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S1",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 9,
+      "task_id": "tri-v7-core-appointments-s1-explicit_dynamic-name_collision"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "APT-2B",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "APT-2B"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S1",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 10,
+      "task_id": "tri-v7-core-appointments-s2-implicit_dynamic-flip"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "APT-3A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "APT-3A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S1",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 11,
+      "task_id": "tri-v7-core-appointments-s3-implicit_dynamic-stable"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "APT-4B",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "APT-4B"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S1",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 12,
+      "task_id": "tri-v7-core-appointments-s4-implicit_dynamic-name_collision"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "BAT-1A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "BAT-1A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 13,
+      "task_id": "tri-v7-core-batches-s1-explicit_anchor-stable"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "BAT-2A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "BAT-2A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 14,
+      "task_id": "tri-v7-core-batches-s2-explicit_anchor-flip"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "BAT-3A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "BAT-3A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 15,
+      "task_id": "tri-v7-core-batches-s3-explicit_anchor-stable"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "BAT-4A",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "BAT-4A"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 1
+      },
+      "smoke_index": 16,
+      "task_id": "tri-v7-core-batches-s4-explicit_anchor-flip"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "DEP-X12",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "DEP-X12",
+        "r_monitor@0": "DEP-Z05"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          },
+          {
+            "epoch": "S1",
+            "name": "r_monitor@0",
+            "role": "monitoring_reference"
+          }
+        ],
+        "refresh_count": 2
+      },
+      "smoke_index": 17,
+      "task_id": "tri-v6-role-heldout-deployments-explicit_anchor-t1-flip"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "INVALID_BOUND_ENTITY",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "DEP-X12",
+        "r_monitor@0": "DEP-Z05"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S0",
+            "name": "r_action@0",
+            "role": "action_target"
+          },
+          {
+            "epoch": "S1",
+            "name": "r_monitor@0",
+            "role": "monitoring_reference"
+          }
+        ],
+        "refresh_count": 2
+      },
+      "smoke_index": 18,
+      "task_id": "tri-v6-role-heldout-deployments-explicit_anchor-t3-remove"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "EXP-917",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "EXP-917",
+        "r_monitor@0": "EXP-804"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S1",
+            "name": "r_monitor@0",
+            "role": "monitoring_reference"
+          },
+          {
+            "epoch": "S2",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 2
+      },
+      "smoke_index": 19,
+      "task_id": "tri-v6-role-heldout-expenses-explicit_dynamic-t1-flip"
+    },
+    {
+      "compiler_payload_keys": [
+        "action",
+        "instruction"
+      ],
+      "correct": true,
+      "enforced_target": "EXP-917",
+      "forbidden_payload_fields": [],
+      "grounded_targets": {
+        "r_action@0": "EXP-917",
+        "r_monitor@0": "EXP-804"
+      },
+      "program": {
+        "act": {
+          "target_from": "r_action@0"
+        },
+        "bindings": [
+          {
+            "epoch": "S1",
+            "name": "r_monitor@0",
+            "role": "monitoring_reference"
+          },
+          {
+            "epoch": "S2",
+            "name": "r_action@0",
+            "role": "action_target"
+          }
+        ],
+        "refresh_count": 2
+      },
+      "smoke_index": 20,
+      "task_id": "tri-v6-role-heldout-expenses-explicit_dynamic-t3-remove"
+    }
+  ],
+  "task_composition": {
+    "multi_refresh_role": 4,
+    "scalar": 16
+  },
+  "tasks": 20
+}
