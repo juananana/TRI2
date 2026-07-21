@@ -16,6 +16,7 @@ from tri.rssa_smoke import (
     grounder_payload,
     request_field_leaks,
     run_rssa_task,
+    score_program_structure,
     strict_json_object,
 )
 
@@ -130,3 +131,35 @@ def test_compiler_failure_is_retained_as_itt_failure() -> None:
     assert not result["enforced"]["success"]
     assert result["request_attempts"] == {"compiler": 1, "grounder": 0, "actor": 0}
     assert result["errors"]
+
+
+def test_structure_scoring_is_invariant_to_ssa_alpha_renaming() -> None:
+    task = next(row for row in _tasks() if row["binding"] == "dynamic" and "final_state" not in row)
+    renamed = {
+        "refresh_count": 1,
+        "bindings": [{"name": "r_action@1", "role": "action_target", "epoch": "S1"}],
+        "act": {"target_from": "r_action@1"},
+    }
+    from tri.referential_ssa import parse_rssa_program
+
+    scores = score_program_structure(task, parse_rssa_program(renamed))
+    assert all(scores.values())
+
+
+def test_structure_scoring_detects_extra_referential_role() -> None:
+    task = next(row for row in _tasks() if row["binding"] == "anchored" and "final_state" not in row)
+    extra_monitor = {
+        "refresh_count": 1,
+        "bindings": [
+            {"name": "r_action@0", "role": "action_target", "epoch": "S0"},
+            {"name": "r_monitor@0", "role": "monitoring_reference", "epoch": "S1"},
+        ],
+        "act": {"target_from": "r_action@0"},
+    }
+    from tri.referential_ssa import parse_rssa_program
+
+    scores = score_program_structure(task, parse_rssa_program(extra_monitor))
+    assert scores["producer_edge_correct"]
+    assert scores["action_binding_epoch_correct"]
+    assert not scores["binding_inventory_correct"]
+    assert not scores["role_correct"]

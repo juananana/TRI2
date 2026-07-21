@@ -1,0 +1,301 @@
+{
+  "counts": {
+    "action_binding_epoch_correct": 20,
+    "binding_inventory_correct": 8,
+    "composition_role_correct": 4,
+    "fenced_outputs": 20,
+    "format_only_failures": 8,
+    "producer_edge_correct": 20,
+    "refresh_count_correct": 20,
+    "relaxed_schema_valid": 20,
+    "role_correct": 8,
+    "semantic_structure_failures": 12
+  },
+  "interpretation": "Only one outer Markdown fence is removed. No field, value, task, prompt, or model response is repaired. Grounder and actor performance remain unmeasured for GLM.",
+  "kind": "post_hoc_rssa_glm_markdown_fence_audit",
+  "rows": [
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": true,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": true
+      },
+      "smoke_index": 1,
+      "task_id": "tri-v7-core-alerts-s1-explicit_anchor-flip"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 2,
+      "task_id": "tri-v7-core-alerts-s2-explicit_anchor-stable"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 3,
+      "task_id": "tri-v7-core-alerts-s3-explicit_anchor-name_collision"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 4,
+      "task_id": "tri-v7-core-alerts-s4-implicit_anchor-flip"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 5,
+      "task_id": "tri-v7-core-applications-s1-implicit_anchor-stable"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 6,
+      "task_id": "tri-v7-core-applications-s2-implicit_anchor-name_collision"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": true,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": true
+      },
+      "smoke_index": 7,
+      "task_id": "tri-v7-core-applications-s4-explicit_dynamic-flip"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 8,
+      "task_id": "tri-v7-core-applications-s3-explicit_dynamic-stable"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 9,
+      "task_id": "tri-v7-core-appointments-s1-explicit_dynamic-name_collision"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": true,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": true
+      },
+      "smoke_index": 10,
+      "task_id": "tri-v7-core-appointments-s2-implicit_dynamic-flip"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": true,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": true
+      },
+      "smoke_index": 11,
+      "task_id": "tri-v7-core-appointments-s3-implicit_dynamic-stable"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 12,
+      "task_id": "tri-v7-core-appointments-s4-implicit_dynamic-name_collision"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 13,
+      "task_id": "tri-v7-core-batches-s1-explicit_anchor-stable"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 14,
+      "task_id": "tri-v7-core-batches-s2-explicit_anchor-flip"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 15,
+      "task_id": "tri-v7-core-batches-s3-explicit_anchor-stable"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": false,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": false
+      },
+      "smoke_index": 16,
+      "task_id": "tri-v7-core-batches-s4-explicit_anchor-flip"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": true,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": true
+      },
+      "smoke_index": 17,
+      "task_id": "tri-v6-role-heldout-deployments-explicit_anchor-t1-flip"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": true,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": true
+      },
+      "smoke_index": 18,
+      "task_id": "tri-v6-role-heldout-deployments-explicit_anchor-t3-remove"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": true,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": true
+      },
+      "smoke_index": 19,
+      "task_id": "tri-v6-role-heldout-expenses-explicit_dynamic-t1-flip"
+    },
+    {
+      "error": null,
+      "fenced": true,
+      "relaxed_schema_valid": true,
+      "scores": {
+        "action_binding_epoch_correct": true,
+        "binding_inventory_correct": true,
+        "producer_edge_correct": true,
+        "refresh_count_correct": true,
+        "role_correct": true
+      },
+      "smoke_index": 20,
+      "task_id": "tri-v6-role-heldout-expenses-explicit_dynamic-t3-remove"
+    }
+  ],
+  "run_file": "runs/rssa_smoke_glm_v1.jsonl",
+  "status": "post-hoc; does not replace prospective ITT",
+  "tasks": 20
+}

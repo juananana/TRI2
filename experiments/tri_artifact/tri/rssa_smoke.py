@@ -142,21 +142,20 @@ def _outcome(task: Mapping[str, Any], target: str | None) -> dict[str, Any]:
     }
 
 
-def _program_scores(task: Mapping[str, Any], program: RssaProgram) -> dict[str, bool]:
+def score_program_structure(task: Mapping[str, Any], program: RssaProgram) -> dict[str, bool]:
     oracle = compile_oracle_rssa(task)
-    inventory = {(item.name, item.role, item.epoch) for item in program.bindings}
-    oracle_inventory = {(item.name, item.role, item.epoch) for item in oracle.bindings}
+    inventory = sorted((item.role, item.epoch) for item in program.bindings)
+    oracle_inventory = sorted((item.role, item.epoch) for item in oracle.bindings)
+    roles = sorted(item.role for item in program.bindings)
+    oracle_roles = sorted(item.role for item in oracle.bindings)
     action_binding = next(item for item in program.bindings if item.role == "action_target")
     oracle_action = next(item for item in oracle.bindings if item.role == "action_target")
     return {
         "refresh_count_correct": program.refresh_count == oracle.refresh_count,
         "action_binding_epoch_correct": action_binding.epoch == oracle_action.epoch,
         "binding_inventory_correct": inventory == oracle_inventory,
-        "producer_edge_correct": program.act.target_from == oracle.act.target_from,
-        "role_correct": all(
-            (name, role) in {(item.name, item.role) for item in oracle.bindings}
-            for name, role, _ in inventory
-        ) and len(inventory) == len(oracle_inventory),
+        "producer_edge_correct": program.act.target_from == action_binding.name,
+        "role_correct": roles == oracle_roles,
     }
 
 
@@ -211,7 +210,7 @@ def run_rssa_task(
         compiled_obj = strict_json_object(raw_compiler)
         program = parse_rssa_program(compiled_obj)
         schema_valid = True
-        scores = _program_scores(task, program)
+        scores = score_program_structure(task, program)
     except Exception as exc:
         errors.append(f"compiler: {format_exception(exc)}")
 

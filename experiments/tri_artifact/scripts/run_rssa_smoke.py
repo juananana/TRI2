@@ -37,6 +37,10 @@ def main() -> None:
     )
     parser.add_argument("--timeout", type=int, default=180)
     parser.add_argument("--max-retries", type=int, default=3)
+    parser.add_argument(
+        "--resume", action="store_true",
+        help="append only the missing suffix after validating an existing manifest prefix",
+    )
     args = parser.parse_args()
     api_key = os.environ.get("LLM_API_KEY")
     if not api_key:
@@ -50,12 +54,42 @@ def main() -> None:
     if len(tasks) != 20 or len({task["id"] for task in tasks}) != 20:
         raise SystemExit("R-SSA smoke requires exactly 20 unique tasks")
 
+    existing: list[dict] = []
+    if args.resume:
+        if not args.output.exists():
+            raise SystemExit("--resume requires an existing output file")
+        existing = [
+            json.loads(line)
+            for line in args.output.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        if len(existing) > len(tasks):
+            raise SystemExit("resume output has more rows than the frozen manifest")
+        expected_prefix = [task["id"] for task in tasks[:len(existing)]]
+        observed_prefix = [row.get("task_id") for row in existing]
+        if observed_prefix != expected_prefix:
+            raise SystemExit("resume output is not the exact ordered manifest prefix")
+        if len(set(observed_prefix)) != len(observed_prefix):
+            raise SystemExit("resume output contains duplicate task IDs")
+        if {row.get("model") for row in existing} != {args.model}:
+            raise SystemExit("resume output model does not match --model")
+        if {row.get("dataset_sha256") for row in existing} != {dataset_sha256}:
+            raise SystemExit("resume output dataset hash does not match the frozen manifest")
+        if len(existing) == len(tasks):
+            print(json.dumps({
+                "output": str(args.output), "rows": len(existing), "status": "already_complete"
+            }, sort_keys=True))
+            return
+    elif args.output.exists():
+        raise SystemExit("output already exists; use --resume or choose a new path")
+
     compiler = _client(args, api_key, 500)
     grounder = _client(args, api_key, 300)
     actor = _client(args, api_key, 300)
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    with args.output.open("w", encoding="utf-8") as stream:
-        for task in tasks:
+    mode = "a" if args.resume else "w"
+    with args.output.open(mode, encoding="utf-8") as stream:
+        for task in tasks[len(existing):]:
             row = run_rssa_task(compiler, grounder, actor, task)
             row.update({
                 "model": args.model,
@@ -81,6 +115,8 @@ def main() -> None:
 
     print(json.dumps({
         "output": str(args.output),
+        "existing_rows": len(existing),
+        "new_rows": len(tasks) - len(existing),
         "rows": len(tasks),
         "dataset_sha256": dataset_sha256,
         "request_attempts": {

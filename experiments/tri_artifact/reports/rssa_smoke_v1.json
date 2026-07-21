@@ -1,0 +1,130 @@
+{
+  "decision": "NO-GO",
+  "enforced_minus_cta": {
+    "GLM": -20,
+    "Qwen": -7
+  },
+  "gates": {
+    "GLM_composition_roles_4_of_4": false,
+    "GLM_edge_at_least_19_of_20": false,
+    "GLM_enforced_within_one_of_cta": false,
+    "GLM_epoch_at_least_19_of_20": false,
+    "GLM_no_forbidden_fields": true,
+    "GLM_not_more_false_blocks_than_free": true,
+    "GLM_refresh_at_least_19_of_20": false,
+    "GLM_schema_at_least_19_of_20": false,
+    "Qwen_composition_roles_4_of_4": false,
+    "Qwen_edge_at_least_19_of_20": true,
+    "Qwen_enforced_within_one_of_cta": false,
+    "Qwen_epoch_at_least_19_of_20": false,
+    "Qwen_no_forbidden_fields": true,
+    "Qwen_not_more_false_blocks_than_free": true,
+    "Qwen_refresh_at_least_19_of_20": false,
+    "Qwen_schema_at_least_19_of_20": true,
+    "free_and_enforced_not_identical_both_models": true,
+    "no_cross_model_cta_direction_reversal": true,
+    "source_errors_improve_one_and_do_not_worsen_other": false
+  },
+  "groups": [
+    {
+      "composition_n": 4,
+      "counts": {
+        "action_binding_epoch_correct": 0,
+        "action_grounding_authorized_correct": 0,
+        "actor_handle_disagreement": 0,
+        "binding_inventory_correct": 0,
+        "composition_role_correct": 0,
+        "enforced_false_blocks": 0,
+        "enforced_source_errors": 0,
+        "enforced_success": 0,
+        "enforced_wrong_writes": 0,
+        "forbidden_field_errors": 0,
+        "free_false_blocks": 0,
+        "free_source_errors": 0,
+        "free_success": 0,
+        "free_wrong_writes": 0,
+        "grounding_complete": 0,
+        "grounding_correct_for_program": 0,
+        "pipeline_complete": 0,
+        "producer_edge_correct": 0,
+        "refresh_count_correct": 0,
+        "role_correct": 0,
+        "schema_valid": 0,
+        "tasks_with_errors": 20
+      },
+      "label": "GLM",
+      "model": "Pro/zai-org/GLM-5.1",
+      "n": 20,
+      "usage": {
+        "actor_request_attempts": 0,
+        "compiler_completion_tokens": 1876,
+        "compiler_prompt_tokens": 4549,
+        "compiler_request_attempts": 20,
+        "grounder_request_attempts": 0
+      }
+    },
+    {
+      "composition_n": 4,
+      "counts": {
+        "action_binding_epoch_correct": 11,
+        "action_grounding_authorized_correct": 6,
+        "actor_handle_disagreement": 12,
+        "binding_inventory_correct": 2,
+        "composition_role_correct": 0,
+        "enforced_false_blocks": 8,
+        "enforced_source_errors": 2,
+        "enforced_success": 6,
+        "enforced_wrong_writes": 2,
+        "forbidden_field_errors": 0,
+        "free_false_blocks": 11,
+        "free_source_errors": 0,
+        "free_success": 5,
+        "free_wrong_writes": 0,
+        "grounding_complete": 16,
+        "grounding_correct_for_program": 6,
+        "pipeline_complete": 16,
+        "producer_edge_correct": 20,
+        "refresh_count_correct": 16,
+        "role_correct": 5,
+        "schema_valid": 20,
+        "tasks_with_errors": 4
+      },
+      "label": "Qwen",
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "n": 20,
+      "usage": {
+        "actor_completion_tokens": 156,
+        "actor_prompt_tokens": 7978,
+        "actor_request_attempts": 16,
+        "compiler_completion_tokens": 1514,
+        "compiler_prompt_tokens": 4809,
+        "compiler_request_attempts": 20,
+        "grounder_completion_tokens": 377,
+        "grounder_prompt_tokens": 12498,
+        "grounder_request_attempts": 35
+      }
+    }
+  ],
+  "kind": "rssa_20task_prospective_smoke",
+  "manifest": "data/temporal_referent_method_upgrade_smoke_v1.jsonl",
+  "manifest_sha256": "e651f4db45275877ca09a5e70187baca6d5ee8901bf983bb1ecc3885ef879181",
+  "promote_to_expansion": false,
+  "reused_exact_cta": {
+    "GLM": {
+      "correct": 20,
+      "n": 20
+    },
+    "Qwen": {
+      "correct": 13,
+      "n": 20
+    }
+  },
+  "run_files": [
+    "runs/rssa_smoke_qwen_v1.jsonl",
+    "runs/rssa_smoke_glm_v1.jsonl"
+  ],
+  "source_error_reduction_enforced_vs_free": {
+    "GLM": 0,
+    "Qwen": -2
+  }
+}

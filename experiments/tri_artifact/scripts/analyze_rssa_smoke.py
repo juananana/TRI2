@@ -7,6 +7,9 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from tri.referential_ssa import parse_rssa_program
+from tri.rssa_smoke import score_program_structure
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "data/temporal_referent_method_upgrade_smoke_v1.jsonl"
@@ -67,9 +70,15 @@ def _cta_scores() -> dict[str, dict[str, int]]:
     return {model: dict(values) for model, values in totals.items()}
 
 
-def summarize(rows: list[dict[str, Any]], tasks: dict[str, dict[str, Any]]) -> dict[str, Any]:
+def summarize(
+    rows: list[dict[str, Any]], tasks: dict[str, dict[str, Any]], source: Path | None = None
+) -> dict[str, Any]:
     if len(rows) != 20 or len({row["task_id"] for row in rows}) != 20:
-        raise ValueError("each model run must contain exactly 20 unique task rows")
+        label = f"{source}: " if source is not None else ""
+        raise ValueError(
+            f"{label}expected 20 unique task rows; found {len(rows)} rows and "
+            f"{len({row['task_id'] for row in rows})} unique task IDs"
+        )
     if {row["task_id"] for row in rows} != set(tasks):
         raise ValueError("run task IDs do not match the frozen manifest")
     hashes = {row.get("dataset_sha256") for row in rows}
@@ -85,11 +94,24 @@ def summarize(rows: list[dict[str, Any]], tasks: dict[str, dict[str, Any]]) -> d
     counts: Counter[str] = Counter()
     for row in rows:
         task = tasks[row["task_id"]]
+        structural = {
+            "refresh_count_correct": False,
+            "action_binding_epoch_correct": False,
+            "binding_inventory_correct": False,
+            "producer_edge_correct": False,
+            "role_correct": False,
+        }
+        if row["schema_valid"] and row.get("compiled_ir") is not None:
+            structural = score_program_structure(
+                task, parse_rssa_program(row["compiled_ir"])
+            )
+        counts["schema_valid"] += bool(row["schema_valid"])
+        for field, value in structural.items():
+            counts[field] += bool(value)
         for field in (
-            "schema_valid", "refresh_count_correct", "action_binding_epoch_correct",
-            "binding_inventory_correct", "producer_edge_correct", "grounding_complete",
-            "grounding_correct_for_program", "action_grounding_authorized_correct",
-            "pipeline_complete", "actor_handle_disagreement",
+            "grounding_complete", "grounding_correct_for_program",
+            "action_grounding_authorized_correct", "pipeline_complete",
+            "actor_handle_disagreement",
         ):
             counts[field] += bool(row[field])
         counts["free_success"] += bool(row["pipeline_complete"] and row["free"]["success"])
@@ -106,7 +128,8 @@ def summarize(rows: list[dict[str, Any]], tasks: dict[str, dict[str, Any]]) -> d
         counts["forbidden_field_errors"] += any(
             "forbidden request fields" in error for error in row["errors"]
         )
-    counts["composition_role_correct"] = sum(bool(row["role_correct"]) for row in composition)
+        if row["smoke_source"] == "v6_role_heldout":
+            counts["composition_role_correct"] += bool(structural["role_correct"])
     return {
         "model": next(iter(model_values)),
         "label": _model_label(next(iter(model_values))),
@@ -118,11 +141,12 @@ def summarize(rows: list[dict[str, Any]], tasks: dict[str, dict[str, Any]]) -> d
 
 
 def analyze(paths: list[Path]) -> dict[str, Any]:
+    paths = [path.resolve() for path in paths]
     manifest_hash = hashlib.sha256(MANIFEST.read_bytes()).hexdigest()
     if manifest_hash != EXPECTED_SHA256:
         raise ValueError(f"frozen manifest hash changed: {manifest_hash}")
     tasks = {task["id"]: task for task in _load_jsonl(MANIFEST)}
-    groups = [summarize(_load_jsonl(path), tasks) for path in paths]
+    groups = [summarize(_load_jsonl(path), tasks, path) for path in paths]
     if {group["label"] for group in groups} != {"Qwen", "GLM"}:
         raise ValueError("analysis requires one Qwen and one GLM run")
     cta = _cta_scores()
