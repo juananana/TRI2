@@ -25,6 +25,7 @@
 - 强基线 anchored changed substitution：ordinary 为 77/74/68（每模型 80 个），aware 为 56/38/42；full-history 不暴露独立初始绑定，因此这些只能称 unconditional substitution。
 - 六组强基线共 1,440 次 SQLite replay：ordinary wrong writes 87/79/75，aware 为 70/46/57；证明错误具有真实写入后果，但不改变 conditional TRI 的严格分母。
 - 对既有冻结 24-task ToolSandbox-compatible pilot 完成 post-hoc 严格条件审计：GLM Generic 3/6 conditional TRI、匹配 Stable 0/2；Qwen Lifecycle-free 2/6，atomic gate replay 0/6。该结果使用原生 reminder 数据库和 search/modify 工具，但任务/transition 为 custom intervention，且严格审计 post-hoc。
+- 完成 v3/v7 簇级样本充分性审计：按完整模板簇或状态簇无放回子采样 10,000 次；10 簇时 v3 两模型正向比例均为 100%，v7 三模型为 100%/100%/99.8%，20 簇时全部为 100%。现有受控配对效应不缺同分布样本，不优先扩充同质合成行。
 - 统一报告：`reports/method_upgrade_closed_loop_v1.json` 与 `reports/method_upgrade_closed_loop_v1.md`。
 
 ## 1. 截止日期与当前判断

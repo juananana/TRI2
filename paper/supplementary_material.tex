@@ -541,6 +541,18 @@ template-family exclusions retain 20.4--26.3, 20.8--26.1, and 14.2--19.6 points.
 remains positive. This rules out dominance by one domain or template family, but does not make
 templated rows independent natural-world observations.
 
+\paragraph{Retrospective sample-sufficiency audit.}
+We additionally subsample complete matched clusters without replacement 10,000 times at
+increasing cluster counts. This is a precision and stability diagnostic, not post-hoc power.
+On v3, the full Lifecycle-Gated--Generic differences are +33.8 points [18.7,49.4] for Qwen
+and +28.1 [18.1,38.1] for GLM under template-cluster bootstrap. At only 10 of 20 template
+clusters (80 tasks), 100\% of subsamples retain a positive difference for both models. On v7,
+the full CTA--Generic differences are +23.3 [16.2,30.4], +24.2 [19.6,28.7], and +17.5
+[10.8,23.3] for Qwen, GLM, and DeepSeek. At 10 of 40 state clusters (60 tasks), positive
+differences occur in 100.0\%, 100.0\%, and 99.8\% of draws; at 20 clusters all three reach
+100\%. Thus the controlled paired effect is not sample-limited within the observed inventory.
+This does not increase the number of natural-world opportunities or justify a prevalence claim.
+
 \section{Request Cost}
 On the 160-task primary set, Generic uses 320 requests per model. Lifecycle-Gated uses 80
 Preserve compiler calls and 160 Reevaluate compiler/actor calls, totaling 240. Mean
