@@ -553,6 +553,18 @@ differences occur in 100.0\%, 100.0\%, and 99.8\% of draws; at 20 clusters all t
 100\%. Thus the controlled paired effect is not sample-limited within the observed inventory.
 This does not increase the number of natural-world opportunities or justify a prevalence claim.
 
+\paragraph{Temperature-zero repeat stability.}
+Before repeat calls, we froze one balanced task from each of the 40 v7 state clusters. The matching
+subset of the original run is repeat 1; two new complete passes give three measurements for Qwen
+and GLM Generic and CTA. CTA--Generic remains positive in every model-repeat cell: Qwen differences
+are +25.0, +12.5, and +22.5 points, while GLM differences are +30.0, +20.0, and +25.0. Generic
+conditional drift is 5/10, 5/11, and 7/11 for Qwen and 4/12, 5/12, and 6/12 for GLM; CTA is zero
+in every denominator. Exact target unanimity across all three passes is 70.0/72.5\% for Qwen
+Generic/CTA and 85.0/97.5\% for GLM. Under the frozen rule this is a \textsc{Mixed} result: the
+method direction and conditional mechanism are stable, but individual outputs are not fully
+deterministic. The 320 new task-controller executions use 640 requests, zero retries, and 313,692
+provider-reported tokens, with zero API/parse errors.
+
 \section{Request Cost}
 On the 160-task primary set, Generic uses 320 requests per model. Lifecycle-Gated uses 80
 Preserve compiler calls and 160 Reevaluate compiler/actor calls, totaling 240. Mean

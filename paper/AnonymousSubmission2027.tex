@@ -476,6 +476,12 @@ one of ten domains or any one of sixteen template families. Across Qwen, GLM, an
 domain-exclusion ranges are 18.5--25.5, 23.1--25.9, and 15.7--22.2 points; template-exclusion
 ranges are 20.4--26.3, 20.8--26.1, and 14.2--19.6. No single domain or template explains the gain.
 
+On a frozen 40-cluster subset, two additional temperature-zero passes preserve a positive
+CTA--Generic difference in all six model-repeat cells: +12.5 to +25.0 points for Qwen and
++20.0 to +30.0 for GLM. CTA conditional drift remains 0 in every pass. Exact target unanimity
+across three passes is only 70.0/72.5\% for Qwen Generic/CTA and 85.0/97.5\% for GLM, so the
+aggregate mechanism direction is repeatable while individual endpoint outputs are not deterministic.
+
 We keep four denominators distinct: E2E target accuracy covers all 240 rows; initial binding
 covers 120 anchored rows; conditional TRI covers only correct bindings with a valid old target and
 changed winner; wrong-write rate counts every executed mutation to a non-gold entity. The unified
@@ -579,8 +585,9 @@ partial observability, and identity migration. Human validation covers scalar se
 agreement on invalid-target rejection limits fallback claims. Composition remains open.
 
 \paragraph{Causal attribution and external validity.}
-Temperature-zero runs do not characterize execution variance or all model families. Replications
-remain synthetic. We reproduced Binding Drift's deterministic assertions, but not its LLM sweep;
+Temperature-zero repeat runs preserve the paired direction but expose incomplete task-level target
+agreement, especially for Qwen; they do not characterize all model families. Replications remain
+synthetic. We reproduced Binding Drift's deterministic assertions, but not its LLM sweep;
 its oracle re-verifier reads gold and Entity Lock matches Always-Lock. The ToolSandbox-compatible
 positive audit is post-hoc and small, lower-intervention loops are null, and no external study
 estimates real-traffic prevalence. Opportunity coverage and controller state affect observability.

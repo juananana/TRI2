@@ -26,6 +26,7 @@
 - 六组强基线共 1,440 次 SQLite replay：ordinary wrong writes 87/79/75，aware 为 70/46/57；证明错误具有真实写入后果，但不改变 conditional TRI 的严格分母。
 - 对既有冻结 24-task ToolSandbox-compatible pilot 完成 post-hoc 严格条件审计：GLM Generic 3/6 conditional TRI、匹配 Stable 0/2；Qwen Lifecycle-free 2/6，atomic gate replay 0/6。该结果使用原生 reminder 数据库和 search/modify 工具，但任务/transition 为 custom intervention，且严格审计 post-hoc。
 - 完成 v3/v7 簇级样本充分性审计：按完整模板簇或状态簇无放回子采样 10,000 次；10 簇时 v3 两模型正向比例均为 100%，v7 三模型为 100%/100%/99.8%，20 簇时全部为 100%。现有受控配对效应不缺同分布样本，不优先扩充同质合成行。
+- 完成 40-cluster 温度零重复稳定性实验：Qwen/GLM 的 CTA-minus-Generic 在三轮中均为正，CTA conditional drift 始终为 0；逐任务目标一致率低于冻结 90% 门槛，判定 MIXED。结果支持方向与机制重复性，但不支持把 temperature 0 视为确定性执行。
 - 统一报告：`reports/method_upgrade_closed_loop_v1.json` 与 `reports/method_upgrade_closed_loop_v1.md`。
 
 ## 1. 截止日期与当前判断
@@ -36,7 +37,7 @@
 - 从 2026-07-20 到全文标称截止日还剩 **8 个日历日**；按北京时间实际提交时刻计算，约有 9 天，但计划不得消耗这一天时区余量。
 - AAAI-27 主文最多 7 页正文、9 页总计；第 8 页起只能是参考文献。当前 `paper/AnonymousSubmission2027.pdf` 为 8 页，正文止于第 7 页，参考文献从第 8 页开始。
 
-结论：M1/M2 已按冻结门槛 No-Go，投稿主线锁定 Exact CTA。当前新增实验优先级从“再扩方法”转为“修复正文页数、完成强基线溯源、做独立 reviewer pass”；只有不影响这些 P0 工作时，才考虑 40-task 温度零重复稳定性检查。
+结论：M1/M2 已按冻结门槛 No-Go，投稿主线锁定 Exact CTA。40-task 温度零重复稳定性检查已完成并按冻结规则判定 MIXED；当前新增实验优先级从“再扩方法”转为“修复正文页数、完成强基线溯源、做独立 reviewer pass”。
 
 ## 2. 投稿主张与方法定位
 
