@@ -269,7 +269,7 @@ def main() -> None:
     summary = summarize(rows)
     combined = combined_upgrade(summary)
     report = {
-        "manifest": str(MANIFEST),
+        "manifest": MANIFEST.relative_to(ROOT).as_posix(),
         "rows": len(rows),
         "summary": summary,
         "combined_upgrade": combined,

@@ -237,3 +237,45 @@ python3 -m tri.analyze_reference_mode_ablation \
 Interpretation is conditional: a high result would show that explicit mode classification
 explains most of CTA's gain; a lower result would support additional value from the pre-refresh
 identity/provenance record. Neither outcome establishes Lifecycle-Gated superiority by itself.
+
+## Binding Drift author-adaptation full v7 audit
+
+This post-primary experiment tests a practical re-verification prompt on the complete 240-task v7
+inventory. It is an author adaptation on TRI tasks, not an official Binding Drift score. Read and
+freeze `reports/TRI_binding_drift_author_adaptation_v7_full_protocol.md` before running.
+The post-run information audit shows that this adaptation is not information-matched to CTA: it
+receives the instruction and refreshed candidates, but neither the initial state nor the resolved
+old ID. Retain it as interface evidence; use the matched full-history and Generic-ledger conditions
+for performance comparisons.
+
+Validate the inventory and prompt boundary without an API key:
+
+```bash
+PYTHONPATH=. ../../.venv-toolsandbox/bin/python \
+  scripts/run_binding_drift_tri_smoke.py \
+  --model Pro/zai-org/GLM-5.1 \
+  --verifier-label GLM-5.1 \
+  --data data/temporal_referent_v7_core_replication.jsonl \
+  --expected-rows 240 \
+  --dry-run
+```
+
+After exporting `LLM_API_KEY`, run or resume the frozen condition:
+
+```bash
+PYTHONPATH=. ../../.venv-toolsandbox/bin/python \
+  scripts/run_binding_drift_tri_smoke.py \
+  --model Pro/zai-org/GLM-5.1 \
+  --verifier-label GLM-5.1 \
+  --data data/temporal_referent_v7_core_replication.jsonl \
+  --expected-rows 240 \
+  --output runs/binding_drift_tri_glm_self_reverify_v7_full_v1.jsonl \
+  --resume
+```
+
+Generate the frozen report only after all 240 unique rows are present:
+
+```bash
+PYTHONPATH=. ../../.venv-toolsandbox/bin/python \
+  scripts/report_binding_drift_tri_v7_full.py
+```

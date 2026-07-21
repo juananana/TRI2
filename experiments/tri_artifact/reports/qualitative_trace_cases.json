@@ -1,0 +1,189 @@
+{
+  "v7_sqlite_conditional_tri": {
+    "task_id": "tri-v7-core-reminders-s1-explicit_anchor-name_collision",
+    "model": "Qwen/Qwen3.5-122B-A10B",
+    "controller": "generic_structured_ledger_then_act",
+    "instruction": "Choose the earliest incomplete reminder from the present view. Reload reminder_service; the action target remains that chosen reminder. Now postpone it.",
+    "update": "name_collision",
+    "initial_winner": "REM-1A",
+    "refreshed_winner": "REM-1B",
+    "old_present": true,
+    "old_action_valid": true,
+    "ledger_selected_id": "REM-1A",
+    "generic_final_target": "REM-1B",
+    "authorized_target": "REM-1A",
+    "sqlite_action_status": "wrong_entity_write",
+    "sqlite_acted_ids": [
+      "REM-1B"
+    ],
+    "cta_final_target": "REM-1A",
+    "trace": [
+      {
+        "tool": "query_entities"
+      },
+      {
+        "tool": "query_entities"
+      },
+      {
+        "tool": "refresh_database"
+      },
+      {
+        "tool": "mutate_entity",
+        "arguments": {
+          "target": "REM-1B"
+        },
+        "result": {
+          "target": "REM-1B",
+          "mutated": true,
+          "status": "wrong_entity_write"
+        }
+      }
+    ],
+    "sources": [
+      "runs/v7_qwen_generic_structured_ledger_then_act_full.jsonl",
+      "runs/v7_qwen_compile_then_act_full.jsonl",
+      "runs/v7_core_sqlite_replay.jsonl"
+    ]
+  },
+  "toolsandbox_compatible_positive": {
+    "status": "post-hoc selected custom benchmark-compatible intervention; not an official ToolSandbox result",
+    "scenario_id": "ts2-newest-created-preserve-flip",
+    "model": "Pro/zai-org/GLM-5.1",
+    "initial_binding": "REM-A",
+    "authorized_target": "REM-A",
+    "generic_written_target": [
+      "REM-B"
+    ],
+    "lifecycle_written_target": [
+      "REM-A"
+    ],
+    "generic_trace": [
+      {
+        "tool": "search_reminder",
+        "arguments": {
+          "reminder_timestamp_upperbound": 2524604400.0
+        },
+        "result_ids": [
+          "REM-C",
+          "REM-A"
+        ]
+      },
+      {
+        "tool": "sync_reminders",
+        "status": "ok",
+        "transition": "flip"
+      },
+      {
+        "tool": "search_reminder",
+        "arguments": {
+          "reminder_timestamp_upperbound": 2524604400.0
+        },
+        "result_ids": [
+          "REM-C",
+          "REM-A",
+          "REM-B"
+        ]
+      },
+      {
+        "tool": "postpone_reminder",
+        "status": "ok",
+        "arguments": {
+          "reminder_id": "REM-B",
+          "seconds": 86400.0
+        }
+      }
+    ],
+    "source": "runs/toolsandbox_tri_matched_glm_heldout_v1.jsonl"
+  },
+  "appworld_correct_opportunity": {
+    "status": "custom AppWorld-backed case; not a leaderboard result",
+    "scenario_id": "appworld-todoist-p1-preserve-flip",
+    "model": "Pro/zai-org/GLM-5.1",
+    "initial_target": "6334",
+    "refreshed_target": "6336",
+    "bound_target": "6334",
+    "written_target": "6334",
+    "conditional_tri": false,
+    "trace": [
+      {
+        "tool": "search_tasks",
+        "status": "ok",
+        "result_ids": [
+          "6334",
+          "6335"
+        ]
+      },
+      {
+        "tool": "record_binding",
+        "status": "ok",
+        "arguments": {
+          "task_id": "6334"
+        }
+      },
+      {
+        "tool": "sync_tasks",
+        "status": "ok",
+        "transition": "flip"
+      },
+      {
+        "tool": "postpone_task",
+        "status": "ok",
+        "arguments": {
+          "task_id": "6334"
+        }
+      }
+    ],
+    "source": "runs/appworld_tri_Pro_zai-org_GLM-5.1_full_history_full_v1.jsonl"
+  },
+  "appworld_prebinding_error": {
+    "status": "wrong write outside conditional TRI denominator",
+    "scenario_id": "appworld-simple-note-p1-preserve-flip",
+    "model": "Qwen/Qwen3.5-122B-A10B",
+    "initial_target": "3084",
+    "refreshed_target": "3086",
+    "late_bound_target": "3086",
+    "written_target": "3086",
+    "initial_binding_correct": false,
+    "binding_timing_correct": false,
+    "conditional_tri": false,
+    "trace": [
+      {
+        "tool": "search_notes",
+        "status": "ok",
+        "result_ids": [
+          "3084",
+          "3085"
+        ]
+      },
+      {
+        "tool": "sync_notes",
+        "status": "ok",
+        "transition": "flip"
+      },
+      {
+        "tool": "search_notes",
+        "status": "ok",
+        "result_ids": [
+          "3086",
+          "3084",
+          "3085"
+        ]
+      },
+      {
+        "tool": "record_binding",
+        "status": "ok",
+        "arguments": {
+          "note_id": "3086"
+        }
+      },
+      {
+        "tool": "append_to_note",
+        "status": "ok",
+        "arguments": {
+          "note_id": "3086"
+        }
+      }
+    ],
+    "source": "runs/appworld_tri_simple_note_Qwen_Qwen3.5-122B-A10B_full_history_full_v1.jsonl"
+  }
+}

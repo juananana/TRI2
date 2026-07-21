@@ -1,0 +1,194 @@
+{
+  "protocol": "reports/TRI_binding_drift_author_adaptation_v7_full_protocol.md",
+  "status": "post_primary_author_adaptation",
+  "dataset_sha256": "2504f4979f1b4bfad5357e0cf734cbe4881adcadbe4e3cb1ca4fca0620657891",
+  "n_tasks": 240,
+  "summaries": {
+    "entity_lock_analogue": {
+      "n": 240,
+      "correct": 160,
+      "accuracy": 0.6666666666666666,
+      "anchored": {
+        "n": 120,
+        "correct": 120,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 120,
+        "correct": 40,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 80
+      },
+      "clarify": 0,
+      "other_visible_target": 0,
+      "api_or_parse_errors": 0,
+      "by_update": {
+        "flip": {
+          "n": 80,
+          "correct": 40
+        },
+        "stable": {
+          "n": 80,
+          "correct": 80
+        },
+        "name_collision": {
+          "n": 80,
+          "correct": 40
+        }
+      },
+      "paired_authorization": {
+        "n": 120,
+        "both_correct": 40
+      }
+    },
+    "glm_self_reverify_author_adaptation": {
+      "n": 240,
+      "correct": 155,
+      "accuracy": 0.6458333333333334,
+      "anchored": {
+        "n": 120,
+        "correct": 39,
+        "drift_to_refreshed_winner": 80,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 120,
+        "correct": 116,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 2
+      },
+      "clarify": 0,
+      "other_visible_target": 3,
+      "api_or_parse_errors": 0,
+      "by_update": {
+        "flip": {
+          "n": 80,
+          "correct": 40
+        },
+        "stable": {
+          "n": 80,
+          "correct": 77
+        },
+        "name_collision": {
+          "n": 80,
+          "correct": 38
+        }
+      },
+      "paired_authorization": {
+        "n": 120,
+        "both_correct": 38
+      }
+    },
+    "exact_cta_frozen": {
+      "n": 240,
+      "correct": 226,
+      "accuracy": 0.9416666666666667,
+      "anchored": {
+        "n": 120,
+        "correct": 110,
+        "drift_to_refreshed_winner": 10,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 120,
+        "correct": 116,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 4
+      },
+      "clarify": 0,
+      "other_visible_target": 0,
+      "api_or_parse_errors": 0,
+      "by_update": {
+        "flip": {
+          "n": 80,
+          "correct": 70
+        },
+        "stable": {
+          "n": 80,
+          "correct": 80
+        },
+        "name_collision": {
+          "n": 80,
+          "correct": 76
+        }
+      },
+      "paired_authorization": {
+        "n": 120,
+        "both_correct": 106
+      }
+    },
+    "handcrafted_rule_v2_post_hoc": {
+      "n": 240,
+      "correct": 220,
+      "accuracy": 0.9166666666666666,
+      "anchored": {
+        "n": 120,
+        "correct": 110,
+        "drift_to_refreshed_winner": 10,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 120,
+        "correct": 110,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 10
+      },
+      "clarify": 0,
+      "other_visible_target": 0,
+      "api_or_parse_errors": 0,
+      "by_update": {
+        "flip": {
+          "n": 80,
+          "correct": 70
+        },
+        "stable": {
+          "n": 80,
+          "correct": 80
+        },
+        "name_collision": {
+          "n": 80,
+          "correct": 70
+        }
+      },
+      "paired_authorization": {
+        "n": 120,
+        "both_correct": 100
+      }
+    }
+  },
+  "paired_comparison": {
+    "estimand": "CTA minus GLM reverify exact-target accuracy",
+    "delta": 0.29583333333333334,
+    "cluster_bootstrap_ci95": [
+      0.2625,
+      0.325
+    ],
+    "clusters": 40,
+    "draws": 10000,
+    "seed": 20260721
+  },
+  "interpretation_gate": "complementary_policy_result",
+  "post_run_information_audit": {
+    "status": "not_information_matched_to_cta",
+    "verifier_inputs": [
+      "instruction",
+      "refreshed_state"
+    ],
+    "omitted_inputs": [
+      "initial_state",
+      "resolved_pre_refresh_id"
+    ],
+    "preserve_changed_winner_tasks": 80,
+    "performance_comparison_is_confirmatory": false,
+    "reason": "Unlike Binding Drift's uniquely identifying step1 referent, a TRI ranking selector does not recover its former winner from the refreshed state alone."
+  },
+  "run_audit": {
+    "rows": 240,
+    "sha256": "f3c7a69258cf6ea42841a726f63f8d29207bfe7d406d3059b786fb6c9e732877",
+    "request_attempts": 240,
+    "retries": 0,
+    "tokens": 89354,
+    "latency_s": 341.966
+  }
+}

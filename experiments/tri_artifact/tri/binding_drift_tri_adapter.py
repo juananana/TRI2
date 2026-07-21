@@ -93,7 +93,11 @@ def run_reverify(client: ChatClient, task: dict, temperature: float = 0.0) -> di
             and task["post_refresh_target"] != task["correct_target"]
             and target == task["post_refresh_target"]
         ),
-        "premature_lock": task["binding"] == "dynamic" and target == task["pre_refresh_target"],
+        "premature_lock": (
+            task["binding"] == "dynamic"
+            and task["pre_refresh_target"] != task["correct_target"]
+            and target == task["pre_refresh_target"]
+        ),
         "other_visible_target": target in {entity["id"] for entity in task["refreshed_state"]}
         and target not in {task["pre_refresh_target"], task["post_refresh_target"]},
         "errors": errors,
@@ -112,7 +116,11 @@ def score_target(task: dict, target: str | None) -> dict:
             and task["post_refresh_target"] != task["correct_target"]
             and target == task["post_refresh_target"]
         ),
-        "premature_lock": task["binding"] == "dynamic" and target == task["pre_refresh_target"],
+        "premature_lock": (
+            task["binding"] == "dynamic"
+            and task["pre_refresh_target"] != task["correct_target"]
+            and target == task["pre_refresh_target"]
+        ),
         "other_visible_target": target in {entity["id"] for entity in task["refreshed_state"]}
         and target not in {task["pre_refresh_target"], task["post_refresh_target"]},
         "errors": [],

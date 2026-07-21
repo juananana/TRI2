@@ -8,9 +8,6 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
-from openpyxl import load_workbook
-
-
 REJECT = "REJECT"
 CLARIFY = "CLARIFY"
 INVALID = "INVALID_BOUND_ENTITY"
@@ -52,6 +49,8 @@ def load_csv(path: Path) -> list[dict[str, str]]:
 
 
 def load_xlsx(path: Path) -> list[dict[str, str]]:
+    from openpyxl import load_workbook
+
     workbook = load_workbook(path, data_only=True, read_only=True)
     if len(workbook.sheetnames) != 1:
         raise ValueError(f"Expected one worksheet in {path}, found {workbook.sheetnames}")

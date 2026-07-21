@@ -67,7 +67,7 @@ def fit_centered(c: canvas.Canvas, x: float, y: float, value: str, max_width: fl
 
 def draw_mechanism(path: Path) -> None:
     width, height = 7.0 * inch, 2.52 * inch
-    c = canvas.Canvas(str(path), pagesize=(width, height))
+    c = canvas.Canvas(str(path), pagesize=(width, height), pageCompression=1)
     c.setTitle("Post-binding temporal authorization and TRI control")
 
     margin, gap = 8, 10
@@ -167,42 +167,48 @@ def draw_panel(c: canvas.Canvas, x: float, y: float, w: float, h: float, title: 
 
 
 def draw_results(path: Path) -> None:
-    width, height = 7.0 * inch, 2.42 * inch
-    c = canvas.Canvas(str(path), pagesize=(width, height))
-    c.setTitle("Full TRI controller ladder on the frozen scalar inventory")
-    text(c, 8, height - 13, "Full controller ladder: pre-refresh compilation accounts for most of the gain", 8.0, True)
+    width, height = 3.35 * inch, 2.55 * inch
+    c = canvas.Canvas(str(path), pagesize=(width, height), pageCompression=1)
+    c.setTitle("TRI component audit on the frozen v3 inventory")
+    c.setAuthor("anonymous")
+    c.setCreator("anonymous")
+    c.setSubject("Controller accuracy and transition-authorization component audit")
+    text(c, 5, height - 12, "v3 component audit: exact target accuracy (%)", 7.2, True)
 
-    labels = ["Generic", "Mode only", "Untyped plan", "Exact CTA", "Lifecycle free", "Lifecycle gate"]
-    qwen = [64.4, 75.0, 81.2, 95.0, 96.9, 98.1]
-    glm = [71.9, 75.0, 70.6, 96.2, 98.1, 100.0]
-    chart_x, chart_y = 30, 42
-    chart_w, chart_h = width - 40, height - 72
-    for value in (0, 50, 100):
-        yy = chart_y + chart_h * value / 100
+    labels = ["Generic", "+ mode", "+ validity gate", "Untyped plan", "Rule v2*", "Exact CTA", "Lifecycle free", "Lifecycle gate"]
+    qwen = [64.4, 75.0, 65.0, 81.2, 92.5, 95.0, 96.9, 98.1]
+    glm = [71.9, 75.0, 73.1, 70.6, 92.5, 96.2, 98.1, 100.0]
+    chart_x, chart_w = 78, width - 86
+    top_y, row_gap = height - 31, 16
+    for value in (50, 75, 100):
+        xx = chart_x + chart_w * (value - 50) / 50
         c.setStrokeColor(LINE)
         c.setLineWidth(0.5)
-        c.line(chart_x, yy, chart_x + chart_w, yy)
-        text(c, 8, yy - 2, str(value), 5.7, False, MUTED)
+        c.line(xx, 30, xx, top_y + 4)
+        centered(c, xx, 20, str(value), 5.3, False, MUTED)
 
-    group_w = chart_w / len(labels)
-    bar_w = min(20, group_w * 0.28)
     for index, label in enumerate(labels):
-        center_x = chart_x + group_w * (index + 0.5)
-        for model_index, (value, fill) in enumerate(((qwen[index], ACCENT), (glm[index], LIFECYCLE))):
-            bx = center_x + (model_index - 0.5) * bar_w * 1.12 - bar_w / 2
-            bh = chart_h * value / 100
-            c.setFillColor(fill)
-            c.rect(bx, chart_y, bar_w, bh, fill=1, stroke=0)
-            fit_centered(c, bx + bar_w / 2, chart_y + bh + 3, f"{value:.1f}", bar_w + 10, 5.4, True)
-        fit_centered(c, center_x, 27, label, group_w - 3, 5.8, index >= 3, MUTED)
+        yy = top_y - index * row_gap
+        text(c, 5, yy - 2, label, 5.5, index >= 5, MUTED)
+        qx = chart_x + chart_w * (qwen[index] - 50) / 50
+        gx = chart_x + chart_w * (glm[index] - 50) / 50
+        c.setStrokeColor(LINE)
+        c.setLineWidth(1.0)
+        c.line(qx, yy, gx, yy)
+        c.setFillColor(ACCENT)
+        c.circle(qx, yy, 2.5, fill=1, stroke=0)
+        centered(c, qx, yy + 5, f"{qwen[index]:.1f}", 4.8, True, ACCENT)
+        c.setFillColor(LIFECYCLE)
+        c.circle(gx, yy, 2.5, fill=1, stroke=0)
+        centered(c, gx, yy - 8, f"{glm[index]:.1f}", 4.8, True, LIFECYCLE)
 
     c.setFillColor(ACCENT)
-    c.rect(168, 7, 8, 8, fill=1, stroke=0)
-    text(c, 180, 8, "Qwen3.5-122B", 5.8, False, MUTED)
+    c.circle(8, 8, 2.5, fill=1, stroke=0)
+    text(c, 14, 6, "Qwen3.5-122B", 5.2, False, MUTED)
     c.setFillColor(LIFECYCLE)
-    c.rect(276, 7, 8, 8, fill=1, stroke=0)
-    text(c, 288, 8, "GLM-5.1", 5.8, False, MUTED)
-    text(c, width - 133, height - 25, "Gate over free actor: +1.2 / +1.9", 5.7, True, LIFECYCLE)
+    c.circle(82, 8, 2.5, fill=1, stroke=0)
+    text(c, 88, 6, "GLM-5.1", 5.2, False, MUTED)
+    text(c, 145, 6, "* post-hoc rule", 5.2, True, ACCENT)
     c.showPage()
     c.save()
 

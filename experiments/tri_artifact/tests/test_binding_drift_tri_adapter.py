@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from tri.binding_drift_tri_adapter import entity_lock_target, freeze_smoke, reverify_prompt, summarize
+from tri.binding_drift_tri_adapter import entity_lock_target, freeze_smoke, reverify_prompt, score_target, summarize
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,3 +41,20 @@ def test_summary_separates_modes() -> None:
     assert report["correct"] == 1
     assert report["anchored"]["correct"] == 1
     assert report["dynamic"]["premature_lock"] == 1
+
+
+def test_stable_dynamic_target_is_not_a_premature_lock() -> None:
+    task = next(
+        row
+        for row in json.loads(
+            "[" + ",".join(
+                (ROOT / "data" / "temporal_referent_v7_core_replication.jsonl")
+                .read_text()
+                .splitlines()
+            ) + "]"
+        )
+        if row["binding"] == "dynamic" and row["update"] == "stable"
+    )
+    result = score_target(task, task["pre_refresh_target"])
+    assert result["success"]
+    assert not result["premature_lock"]

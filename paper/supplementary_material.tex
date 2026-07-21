@@ -2,6 +2,9 @@
 \usepackage[letterpaper,margin=1in]{geometry}
 \usepackage{booktabs}
 \usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{float}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \setlength{\emergencystretch}{3em}
@@ -32,6 +35,80 @@ The task generator evaluates the selector in $S_0$, applies a controlled transit
 $S_1$, and computes the gold target from the instruction's reference mode and policy. Paired
 items share their schema, entities, transition, and action; only the temporal discourse
 varies. Gold targets and benchmark metadata are not passed to the model.
+
+\subsection{Diagnostic matrix and metric roles}
+The actionable referential core crosses authorization with whether the selector winner changes.
+This separates structural sensitivity from success caused by an unconditional policy.
+Remove and Invalidate are retained as a separate execution-policy slice because Preserve may
+correctly yield \textsc{Reject} rather than an entity ID.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llll}
+\toprule
+Authorization & Transition & Gold target & Diagnostic role \\
+\midrule
+Preserve & Stable & $q(S_0)=q(S_1)$ & Ordinary-execution control \\
+Reevaluate & Stable & $q(S_1)=q(S_0)$ & Detect refresh overreaction \\
+Preserve & Changed winner & $q(S_0)$ & Detect temporal rebinding \\
+Reevaluate & Changed winner & $q(S_1)$ & Detect unconditional locking \\
+Preserve & Remove/Invalidate & $\bot$ by policy & Validity/fallback compliance \\
+Reevaluate & Remove/Invalidate & $q(S_1)$ & Valid reselection control \\
+\bottomrule
+\end{tabular}
+\caption{Complementary condition design. ``Changed winner'' comprises Flip and name collision;
+paired rows keep both states, selector, action, schema, and update fixed.}
+\label{tab:supp-diagnostic-matrix}
+\end{table}
+
+Exact target accuracy measures end-to-end task success but can hide complementary errors.
+For $N$ complete pairs, we therefore report
+\[
+\mathrm{PairAcc}=\frac{1}{N}\sum_{i=1}^N
+\mathbf{1}[\hat y_i^P=y_i^P\;\wedge\;\hat y_i^R=y_i^R].
+\]
+Preserve and Reevaluate marginal accuracy expose which side fails; PairAcc requires both members
+to be correct. API, parse, protocol, and missing-output rows are incorrect under intention to
+treat. Conditional TRI then isolates a narrower mechanism: among changed-winner Preserve rows,
+the initial ID must be observably correct and remain present and action-valid before substitution
+to the distinct refreshed winner enters the numerator. Wrong writes, invalid attempts, and
+unnecessary rejection are separate execution outcomes, not aliases for target accuracy.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.72\textwidth]{Figures/tri_authorization_tradeoff.pdf}
+\caption{Preserve versus Reevaluate accuracy on the 32 frozen v3 changed-winner pairs. Each
+model/controller point is labeled with PairAcc (P). The unconditional controls occupy opposite
+corners, while high joint performance requires the upper-right region. Coincident Qwen/GLM
+Lifecycle-Gated points are combined. Rule v2 is post-hoc. Values are generated from the same raw
+runs as the matched-pair tables.}
+\label{fig:supp-authorization-tradeoff}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.29\textwidth}p{0.34\textwidth}p{0.29\textwidth}}
+\toprule
+Question & Evidence & Supported conclusion \\
+\midrule
+Stable Preserve/Reevaluate semantics & Blind labels and independent rewrites & Core scalar construct supported; reject fallback weaker \\
+Substitution after correct binding & v3/v7 conditional audits, three models & Occurs for tested controllers under controlled conditions \\
+Refreshed-winner direction & Flip, Stable, and name-collision controls & Supports a controller-level diagnosis, not random error \\
+Executed consequence & Deterministic SQLite replay & Can cause wrong-entity mutation \\
+Dependence on CTA & CTA, Lifecycle, and post-hoc Rule v2 & No uniquely necessary implementation \\
+External-style occurrence & Mixed ToolSandbox-compatible audits & Limited and controller-dependent \\
+Public benchmark coverage & ToolSandbox, AppWorld, and $\tau^3$ audits & Strict native opportunities are rare in audited suites \\
+Natural prevalence & No uncontrolled traffic evidence & Not estimated \\
+\bottomrule
+\end{tabular}
+\caption{Evidence boundary. Each row separates the completed evidence from the strongest
+conclusion it supports.}
+\label{tab:supp-evidence-boundary}
+\end{table}
+
+\FloatBarrier
 
 \section{Controller Records}
 The Generic pipeline passes the original instruction separately to its actor; its compiled
@@ -112,6 +189,30 @@ generated semantics only, not model performance, minimality, or natural-language
 \end{table}
 
 \section{Extended Component Audit}
+The intervention ladder is interpreted through alternatives it can rule out, not by assuming that
+every added component is necessary. The principal comparisons are:
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{p{0.25\textwidth}p{0.32\textwidth}p{0.34\textwidth}}
+\toprule
+Comparison & Alternative explanation tested & Result that would weaken the TRI interpretation \\
+\midrule
+Generic vs. full history & Missing task evidence & Full history removes changed-winner substitution \\
+Always-Lock vs. Always-Reevaluate & One fixed update policy suffices & Either extreme succeeds on both pair members \\
+Stable vs. changed winner & Generic refresh instability & Comparable errors without a winner change \\
+Validity gate vs. Generic & Action validity alone identifies the referent & Gate removes valid-target substitutions \\
+Untyped plan vs. typed lifecycle & Any extra pre-refresh computation suffices & Call-matched plan closes the lifecycle gap \\
+CTA/lifecycle vs. Rule v2 & A learned or complex method is necessary & Deterministic discourse rule matches them \\
+Target choice vs. SQLite replay & Errors are only representational & Substitutions do not change executed entities \\
+\bottomrule
+\end{tabular}
+\caption{Falsification role of completed controls. A failed alternative does not prove a unique
+internal mechanism; it narrows the controller-level behavioral explanation.}
+\label{tab:supp-intervention-logic}
+\end{table}
+
 \begin{table}[h]
 \centering
 \small
@@ -123,6 +224,7 @@ Generic free actor & 64.4 & 71.9\\
 Generic + reference mode & 75.0 & 75.0\\
 Generic + validity gate & 65.0 & 73.1\\
 Untyped pre-refresh plan & 81.2 & 70.6\\
+Handcrafted rule v2 (post-hoc) & 92.5 & 92.5\\
 Exact Compile-then-act & 95.0 & 96.2\\
 Lifecycle free actor & 96.9 & 98.1\\
 Lifecycle + gate & 98.1 & 100.0\\
@@ -130,6 +232,41 @@ Lifecycle + gate & 98.1 & 100.0\\
 \end{tabular}
 \caption{Exact target accuracy on the identical 160-task language set.}
 \end{table}
+
+\subsection{Handcrafted discourse-rule audit}
+The rule controller is intentionally non-neural. At prediction time it reads only the instruction,
+$S_0$, $S_1$, and action schema. It locates selection and refresh events in the instruction,
+uses event order to choose Preserve or Reevaluate, resolves the selector in the corresponding
+state, and applies action preconditions to a preserved ID. It cannot read the benchmark
+\texttt{binding}, \texttt{selector}, \texttt{update}, \texttt{style}, gold target, pre/post target,
+new leader, CTA record, or any model output.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Rule & v3 (160) & Human rewrites (50) & v7 (240)\\
+\midrule
+Naive v1, frozen & 60.6 & 74.0 & 77.5\\
+Strengthened v2, post-hoc & 92.5 & 96.0 & 91.7\\
+\bottomrule
+\end{tabular}
+\caption{Exact authorized-target accuracy (\%). Version 1 was frozen before complete-set
+execution. Version 2 was written after inspecting v1 failures across these inventories and is a
+strong benchmark-aware post-hoc baseline, not held-out generalization evidence.}
+\label{tab:supp-rule}
+\end{table}
+
+Version 1 leaves 52/160, 12/50, and 44/240 items unresolved. Version 2 adds the observed event
+vocabulary and handles a single action-valid candidate without requiring a ranking field. No
+further changes are made after v2. Its frozen source SHA-256 is
+\texttt{34cbbd39072b...1bbfb8}; the complete digest is in the artifact manifest. On v3,
+CTA-minus-rule-v2 is +2.5 points for Qwen and +3.8 for
+GLM, with both cluster intervals spanning zero. On v7, v2 exceeds Qwen CTA and is statistically
+tied with GLM and DeepSeek CTA. Thus the benchmark does not require a uniquely learned algorithm.
+The defensible commonality is an executable transition-authorization decision; the rule does not
+show that a fixed lexicon generalizes to unrestricted instructions.
 
 \begin{table}[h]
 \centering
@@ -156,10 +293,70 @@ explanation of CTA's gain. The audit separates three effects. A validity-only ga
 0.6 and 1.2 points. Lifecycle state with a free actor reaches 96.9 and 98.1\%, while the
 deterministic gate adds 1.2 and 1.9 points. Exact Compile-then-act reaches 95.0 and 96.2\%.
 The call-matched untyped plan reaches 81.2 and 70.6\%; Lifecycle-free exceeds it by 15.6 and
-27.5 points with cluster intervals excluding zero. The evidence therefore supports structured
-pre-refresh semantic compilation as the main accuracy
-mechanism, with typed lifecycle state providing an auditable interface and deterministic
-enforcement providing a smaller safety contribution.
+27.5 points with cluster intervals excluding zero. Together with the competitive handcrafted
+rule, the evidence associates the gain with operationalizing transition authorization rather than
+with pre-refresh timing, tuple serialization, or deterministic gating alone. Typed lifecycle state
+provides an auditable interface; deterministic enforcement contributes a smaller additional gain.
+
+\subsection{Matched-pair consistency}
+For a complete matched pair, Preserve and Reevaluate share $S_0,S_1,q,a$, action schema, and
+update. PairAcc is one only when both outcomes are correct. We pair
+\texttt{explicit\_anchor} with \texttt{implicit\_dynamic} and
+\texttt{implicit\_anchor} with \texttt{explicit\_dynamic}. Missing outputs and API, parse, or
+protocol failures count as incorrect under ITT; none occur in these source runs. Stable pairs are
+reported as controls, Flip and name collision as the changed-winner core, and remove/invalidate
+as a separate invalidity-policy slice. The source-derived report is
+\texttt{reports/matched\_pair\_consistency.json}.
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrr}
+\toprule
+Model & v3 controller & All (80) & Changed (32) & Stable (16) \\
+\midrule
+Qwen3.5 & Generic & 23 (28.7) & 3 (9.4) & 16 (100) \\
+GLM-5.1 & Generic & 38 (47.5) & 7 (21.9) & 16 (100) \\
+Qwen3.5 & Exact CTA & 72 (90.0) & 30 (93.8) & 16 (100) \\
+GLM-5.1 & Exact CTA & 74 (92.5) & 31 (96.9) & 16 (100) \\
+Qwen3.5 & Lifecycle-free & 75 (93.8) & 30 (93.8) & 16 (100) \\
+GLM-5.1 & Lifecycle-free & 77 (96.2) & 29 (90.6) & 16 (100) \\
+Qwen3.5 & Lifecycle-gated & 77 (96.2) & 32 (100) & 16 (100) \\
+GLM-5.1 & Lifecycle-gated & 80 (100) & 32 (100) & 16 (100) \\
+Independent & Always-Lock + validity & 16 (20.0) & 0 (0) & 16 (100) \\
+Independent & Always-Reevaluate & 16 (20.0) & 0 (0) & 16 (100) \\
+Independent & Rule v2 (post-hoc) & 68 (85.0) & 28 (87.5) & 16 (100) \\
+\bottomrule
+\end{tabular}
+\caption{v3 pairs correct (PairAcc \%). The 32 invalidity-policy pairs retained in ``All''
+are reported separately in the machine-readable table.}
+\end{table}
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrr}
+\toprule
+Model & v7 controller & All (120) & Changed (80) & Stable (40) \\
+\midrule
+Qwen3.5 & Generic & 34 (28.3) & 7 (8.8) & 27 (67.5) \\
+GLM-5.1 & Generic & 51 (42.5) & 15 (18.8) & 36 (90.0) \\
+DeepSeek-V4-Pro & Generic & 57 (47.5) & 17 (21.2) & 40 (100) \\
+Qwen3.5 & Exact CTA & 59 (49.2) & 31 (38.8) & 28 (70.0) \\
+GLM-5.1 & Exact CTA & 106 (88.3) & 66 (82.5) & 40 (100) \\
+DeepSeek-V4-Pro & Exact CTA & 103 (85.8) & 64 (80.0) & 39 (97.5) \\
+Qwen3.5 & Lifecycle-gated & 67 (55.8) & 40 (50.0) & 27 (67.5) \\
+GLM-5.1 & Lifecycle-gated & 113 (94.2) & 73 (91.2) & 40 (100) \\
+Independent & Always-Lock + validity & 40 (33.3) & 0 (0) & 40 (100) \\
+Independent & Always-Reevaluate & 40 (33.3) & 0 (0) & 40 (100) \\
+Independent & Rule v2 (post-hoc) & 100 (83.3) & 60 (75.0) & 40 (100) \\
+\bottomrule
+\end{tabular}
+\caption{v7 pairs correct (PairAcc \%). Lifecycle-gated was not run for DeepSeek, so no value
+is imputed. Low Qwen pair consistency limits any claim of universal CTA sufficiency.}
+\end{table}
 
 \subsection{Referential-core versus reject-policy sensitivity}
 The pre-specified aggregate includes 32 anchored remove/invalidate items whose gold execution
@@ -277,7 +474,7 @@ API/parse errors and zero retries.
 After the v7 and DeepSeek results were known, we froze a separate strong-baseline protocol on the
 unchanged 240 tasks. \texttt{interactive} is an ordinary two-call trajectory: the first response
 requests refresh and the second retains the complete conversation, without TRI or reference-mode
-terminology. \texttt{full\_history\_once} is a one-call semantic upper baseline that sees both
+terminology. \texttt{full\_history\_once} is a strong one-call late-authorization baseline that sees both
 states and is explicitly asked whether to preserve, reevaluate, or reject. Exact CTA uses the
 existing matched v7 run. Temperature is zero, thinking is disabled, and the output cap is 1,200.
 
@@ -305,7 +502,51 @@ scored pre-refresh selection, its substitution rate is unconditional and is not 
 SQLite replay converts the interactive errors into 87/79/75 wrong writes and the aware errors
 into 70/46/57 wrong writes for Qwen/GLM/DeepSeek, with four invalid attempts and one unnecessary
 rejection across all six runs. Thus complete history and a late semantic reminder do not remove
-wrong-entity consequences; the result does not establish universal overall CTA superiority.
+wrong-entity consequences consistently across controllers; Qwen's tie means the result does not
+establish universal CTA superiority or pre-refresh necessity.
+
+\section{Qualitative Trace Cases}
+\paragraph{Frozen v7/SQLite conditional TRI.}
+Task \path{tri-v7-core-reminders-s1-explicit_anchor-name_collision} asks Qwen3.5 Generic
+to choose the earliest incomplete reminder now, reload, and postpone that same reminder.
+In $S_0$, \texttt{REM-1A} (display ``Renewal,'' due 110) wins; the compiled ledger records
+\texttt{selected\_entity\_id=REM-1A}. In $S_1$, \texttt{REM-1A} remains present, incomplete,
+and actionable, while \texttt{REM-1B} changes to due 103 and the same display ``Renewal.'' The
+actor emits \texttt{target\_id=REM-1B}. Replay executes
+\texttt{mutate\_entity(target=REM-1B)} and records \texttt{wrong\_entity\_write}; CTA on the
+same task emits and writes \texttt{REM-1A}. There are no API, parse, or protocol errors.
+Sources are \path{runs/v7_qwen_generic_structured_ledger_then_act_full.jsonl},
+\path{runs/v7_qwen_compile_then_act_full.jsonl}, and
+\path{runs/v7_core_sqlite_replay.jsonl}.
+
+\paragraph{ToolSandbox-compatible positive intervention.}
+The post-hoc selected custom scenario ID is
+\begin{center}
+\path{ts2-newest-created-preserve-flip}.
+\end{center}
+GLM-5.1 Generic
+searches \texttt{[REM-C,REM-A]}, records \texttt{selected\_entity\_id=REM-A}, synchronizes,
+then searches \texttt{[REM-C,REM-A,REM-B]}. Although \texttt{REM-A} remains editable,
+it calls \texttt{postpone\_reminder(REM-B)} and the database diff records a wrong write.
+Matched Lifecycle writes \texttt{REM-A}. This uses ToolSandbox's reminder database and native
+tools, but it is a custom benchmark-compatible intervention, not an official score. Source:
+\path{runs/toolsandbox_tri_matched_glm_heldout_v1.jsonl}.
+
+\paragraph{Opportunity without violation.}
+In custom AppWorld task \texttt{appworld-todoist-p1-preserve-flip}, GLM binds task
+\texttt{6334} before synchronization; new task \texttt{6336} becomes earliest afterward, but
+the trace calls \texttt{postpone\_task(task\_id=6334)}. Thus a changed-winner opportunity need
+not produce a violation. Source:
+\path{runs/appworld_tri_Pro_zai-org_GLM-5.1_full_history_full_v1.jsonl}.
+
+\paragraph{Wrong write outside conditional TRI.}
+Qwen task \texttt{appworld-simple-note-p1-preserve-flip} first searches, synchronizes, searches
+again, and only then records refreshed note \texttt{3086} before writing it; the intended initial
+target is \texttt{3084}. Because no correct pre-refresh binding exists, this is a pre-binding
+tool-order error, not conditional TRI. Source:
+\path{runs/appworld_tri_simple_note_Qwen_Qwen3.5-122B-A10B_full_history_full_v1.jsonl}.
+The source-derived compact fields and traces for all four cases are in
+\path{reports/qualitative_trace_cases.json}.
 
 The Qwen 40-task SQLite run gives Generic Structured Ledger 27/40 final states and 13
 wrong-entity writes; the GLM run gives 26/40 and 8 wrong-entity writes. A conditional audit
@@ -377,6 +618,34 @@ near-matches: the Agent binds an overdue bill, the user pays it, and the Agent r
 associated line. Bill and line are different referential roles, so these are not TRI. The 26
 released result files contain 10,832 trajectories from GPT-4.1, GPT-4.1-mini, Claude 3.7, and
 o4-mini; 936 trajectory IDs match the payment family, but none supplies a strict TRI denominator.
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccc}
+\toprule
+Strict-opportunity feature & ToolSandbox & AppWorld & $\tau^3$ \\
+\midrule
+Stable entity ID & yes & yes & no \\
+Observable prior binding & yes & yes & partial \\
+Independent post-binding transition & no & no & yes \\
+Competing same-role entity & no & partial & no \\
+Changed selector winner & no & partial & no \\
+Old entity remains actionable & yes & yes & no \\
+Later target mutation & yes & yes & no \\
+Evaluable authorized target & yes & yes & partial \\
+\bottomrule
+\end{tabular}
+\caption{Coverage checklist for each public benchmark's closest natural near-match, not all
+tasks. ``Partial'' marks a related but non-strict structure. Every cell is justified in
+\texttt{reports/benchmark\_coverage\_checklist.json}. No suite contains all required features.}
+\label{tab:supp-coverage}
+\end{table}
+
+The missing conjunction can make these benchmarks unable to measure TRI; it does not show that
+TRI is frequent in deployed traffic. Conversely, a near-match is evidence of task structure, not
+of model violation.
 
 \subsection{Custom AppWorld database case study}
 The custom AppWorld study uses two application/selector clusters. The Todoist cluster was frozen
@@ -481,9 +750,9 @@ Correct & TRI-Preserve & TRI-Reevaluate \\
 Incorrect & Error propagation/repair & Repair plus authorized reselection \\
 \bottomrule
 \end{tabular}
-\caption{Problem map. Binding Drift primarily studies initial binding correctness and its
-propagation; TRI conditions on a correct binding and varies whether later reevaluation is
-authorized. The lower-right combination is outside the present TRI claim.}
+\caption{Problem map. Binding Drift studies persistence and repair of a step-1 referent; TRI
+conditions on a correct binding and varies whether later reevaluation is authorized. The
+lower-right combination is outside the present TRI claim.}
 \end{table}
 
 We audited the official Binding Drift repository at commit
@@ -492,10 +761,10 @@ two files deleted at that commit; exposing the current \texttt{workflows\_200.js
 legacy filename in a temporary directory yields 25/25 assertions with unmodified metric and
 defense code. Its deterministic re-verification reads a gold target and is an oracle upper bound,
 whereas Entity Lock corresponds to our Always-Lock extreme. We therefore do not place its oracle
-score in the learned-method main table. Our matched one-shot aware baseline sees the original
+score in the learned-method main table. Our information-matched one-shot baseline sees the original
 instruction and both state epochs and must resolve whether to preserve, reevaluate, or reject;
-it is a practical post-refresh re-resolution approximation, not the official self/cross method.
-The official learned re-verifiers have not been adapted to expose a separately scored
+it is a late-authorization TRI baseline, not the official self/cross method.
+The official LLM-based re-verifiers have not been adapted to expose a separately scored
 pre-refresh binding or a user-authorized deferred query, so we do not label that comparison as an
 official reproduction.
 
@@ -532,6 +801,59 @@ tokens total). Thus GLM cleanly exposes complementary lock/re-resolution errors,
 exposes an interface grounding failure. CTA is not perfect, but is the only tested policy with
 nonzero accuracy on both modes for both models. These results do not test initial-misbinding repair
 and cannot establish superiority on Binding Drift's original benchmark.
+
+Before extending GLM, we froze the complete v7 inventory, endpoint, prompt, ITT policy, metrics,
+cluster bootstrap, and interpretation gates. All 240 v7 items are actionable: 120 Preserve and 120
+Reevaluate across 40 complete state clusters, with 80 each of Flip, Stable, and name-collision.
+\begin{table}[h]
+\centering
+\scriptsize
+\begin{tabular}{lrrrrrr}
+\toprule
+Policy & Overall & Preserve & Reevaluate & Pair & Subst. & Prem. lock \\
+\midrule
+Lock analogue & 160/240 & 120/120 & 40/120 & 40/120 & 0 & 80 \\
+GLM reverify adaptation & 155/240 & 39/120 & 116/120 & 38/120 & 80 & 2 \\
+Frozen CTA & 226/240 & 110/120 & 116/120 & 106/120 & 10 & 4 \\
+Rule v2 (post-hoc) & 220/240 & 110/120 & 110/120 & 100/120 & 10 & 10 \\
+\bottomrule
+\end{tabular}
+\caption{Complete post-primary v7 author adaptation. Pair requires both Preserve and Reevaluate
+members under the same state transition to be correct. Subst. counts Preserve substitutions to
+the refreshed winner; Prem. lock counts Reevaluate retention only when the old target is wrong.}
+\label{tab:supp-binding-drift-full}
+\end{table}
+
+\begin{table}[h]
+\centering
+\scriptsize
+\begin{tabular}{lcccc}
+\toprule
+Condition & $S_0$ & $S_1$ & Old selected ID & Transition decision \\
+\midrule
+Reverify adaptation & no & yes & no & implicit from instruction \\
+Full-history aware & yes & yes & recomputed & late LLM decision \\
+Generic ledger & snapshot & yes & yes & implicit in ledger/history \\
+CTA & compiler input & yes & yes & precompiled \\
+Rule v2 (post-hoc) & yes & yes & derived & deterministic event order \\
+\bottomrule
+\end{tabular}
+\caption{Information audit. Only the full-history, Generic, CTA, and rule conditions contain enough
+information to reconstruct the old selector result after a changed-winner transition. This table
+does not imply that recomputation and an observed binding impose equal computational demands.}
+\label{tab:supp-information-audit}
+\end{table}
+
+GLM reverify completes 240/240 rows with 240 requests, zero retries, zero API/parse errors, and
+89,354 provider-reported tokens. The pre-frozen gate labels its observed asymmetry a
+\textsc{Complementary Policy Result}. A post-run information audit, however, identifies a decisive
+interface mismatch: the adapted verifier sees the complete instruction and $S_1$, but neither
+$S_0$ nor a resolved old ID. Binding Drift's original \texttt{step1\_referent} is intended to
+uniquely identify the step-1 target; TRI's ranking selector does not identify its former winner
+from $S_1$ after a Flip. Thus the 39/120 versus 116/120 mode split is expected under the available
+information and is not a fair CTA performance comparison. We retain the full result as an
+interface audit, not as evidence of superiority or an official Binding Drift score. The matched
+full-history and Generic-ledger controls above are the information-matched baselines.
 
 \paragraph{Leave-group-out sensitivity.}
 On the 240-task v7 replication, we recompute the matched CTA-minus-Generic difference after
@@ -687,7 +1009,8 @@ The accompanying anonymous artifact contains the frozen JSONL task files, raw mo
 SQLite traces, report scripts, controller implementations, protocol files, SHA-256 manifests,
 and tests. The directory \texttt{tri\_artifact/reports/} contains the primary
 cluster reports, component audits, SQLite replay reports, ToolSandbox pilot report, and
-claim-provenance records, official opportunity/trace audits, and the AppWorld custom protocol.
+claim-provenance records, matched-pair and qualitative-case reports, coverage checklists,
+official opportunity/trace audits, and the AppWorld custom protocol.
 Current submission runners receive credentials through environment
 variables; credentials are not embedded in or stored with the artifact.
 

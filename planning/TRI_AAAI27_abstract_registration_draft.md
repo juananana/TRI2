@@ -10,7 +10,7 @@ Temporal Referent Integrity in Tool-Using Agents
 
 ## Abstract
 
-Refreshing external state does not by itself authorize a tool-using agent to change the entity denoted by an earlier reference. We formalize this post-binding problem as temporal referent integrity (TRI), separating belief updates from referent transitions. On a frozen 160-task diagnostic, a Generic Structured Ledger reaches 64.4%/71.9% with Qwen3.5-122B/GLM-5.1, whereas pre-refresh Compile-then-act reaches 95.0%/96.2%. Always-Lock and Always-Reevaluate each reach 60.0% and fail opposite modes. In a separately frozen 240-task replication, conditional on correct initial binding, Generic drifts on 43/72 and 38/80 opportunities; Compile-then-act and Lifecycle-Gated drift on none, and all 81 Generic drifts replay as wrong-entity SQLite writes. A post-primary DeepSeek replication finds 59/79 versus 0/70 Generic/Compile-then-act drifts. A typed Lifecycle reaches 98.1%/100.0% on the primary set, but its gate adds only 1.2--1.9 points over a matched free actor. Three blind annotators obtain Fleiss' kappa=.708 and 86% majority-gold agreement on 100 original/rewrite items. Native public benchmark opportunities are rare; a post-hoc strict audit of a frozen ToolSandbox-compatible intervention finds 3/6 GLM Generic violations, while lower-intervention external loops are null. TRI is therefore a controlled, model- and controller-conditional mechanism diagnosis, not a prevalence or safety claim.
+Refreshing external state does not by itself authorize a tool-using agent to change the entity denoted by an earlier reference. We formalize this post-binding problem as temporal referent integrity (TRI), separating world-state updates from referent-transition authorization. We construct controlled Preserve/Reevaluate contrasts that hold the initial state, refreshed state, selector, and action fixed while varying when the target is resolved. On a frozen 160-task diagnostic, a Generic Structured Ledger reaches 64.4%/71.9% with Qwen3.5/GLM-5.1, whereas pre-refresh Compile-then-act reaches 95.0%/96.2%; unconditional locking and reevaluation each reach 60.0% and fail complementary cases. A disclosed post-hoc benchmark-aware rule reaches 92.5%, narrowing the algorithmic claim to executable authorization rather than method complexity. In a separately frozen 240-task replication, Generic frequently substitutes the refreshed selector winner after a correct initial binding, while an explicit pre-refresh commitment policy exhibits no such conditional drift; replay converts these substitutions into wrong-entity SQLite writes. Human judgments support the Preserve/Reevaluate distinction, while audits of public agent benchmarks find few native opportunities to measure it. These results establish TRI as a controlled, model- and controller-conditional diagnosis and support executable transition authorization as a simple design principle, not a prevalence or general-safety claim.
 
 ## Keywords
 
@@ -40,7 +40,7 @@ We show that a state refresh can make an LLM agent silently replace a correctly 
 1. Formal definition of post-binding referent-transition authorization.
 2. Frozen Stable/Flip and Preserve/Reevaluate diagnostics with cluster-aware statistics.
 3. Independent 240-task replication and wrong-entity SQLite consequences.
-4. Mechanism decomposition showing that pre-refresh commitment compilation, rather than gating alone, explains most of the gain.
+4. Component and deterministic-rule analyses showing that executable transition authorization, rather than gating alone or method complexity, explains most of the controlled gain.
 5. Human-language validation and public-benchmark opportunity audits that bound external validity.
 
 ## Registration Checklist
@@ -51,4 +51,5 @@ We show that a state refresh can make an LLM agent silently replace a correctly 
 - Do not mention Event Graph/M2 as the main method; the 20-task Go/No-Go rejected promotion.
 - Do not describe external null results as prevalence evidence.
 - Do not call Binding Drift deterministic reverify a learned baseline; it reads a gold target.
+- Do not claim CTA is uniquely necessary or an algorithmic contribution; the post-hoc strengthened deterministic rule is competitive and must be disclosed in the full paper.
 - Submit the abstract before 2026-07-22 19:59 Beijing time, preferably by noon.
