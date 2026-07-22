@@ -1,0 +1,50 @@
+{
+  "data": "data/temporal_referent_v3_unseen_domains.jsonl",
+  "n_expected": 80,
+  "files": [
+    {
+      "file": "runs/20260717T031033Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_unseen_domains_nothinking.jsonl",
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "mode": "generic_structured_ledger_then_act",
+      "n_rows": 80,
+      "n_expected": 80,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 80
+      },
+      "internal_error_counts": {},
+      "success_count": 37,
+      "accuracy_if_complete_rows": 0.4625,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "tri-v3-unseen-projects-explicit_anchor-t1-flip",
+      "last_task": "tri-v3-unseen-deployments-implicit_dynamic-t5-name_collision"
+    },
+    {
+      "file": "runs/20260717T031633Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v3_unseen_domains_nothinking.jsonl",
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "mode": "factorized_hybrid_compile_then_act",
+      "n_rows": 80,
+      "n_expected": 80,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 80
+      },
+      "internal_error_counts": {},
+      "success_count": 66,
+      "accuracy_if_complete_rows": 0.825,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "tri-v3-unseen-projects-explicit_anchor-t1-flip",
+      "last_task": "tri-v3-unseen-deployments-implicit_dynamic-t5-name_collision"
+    }
+  ]
+}

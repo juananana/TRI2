@@ -1,0 +1,371 @@
+{
+  "purpose": "Show which evaluation regimes identify selective authorization and which hide it.",
+  "definitions": {
+    "preserve_only": "All anchored rows, including stable and changed-winner rows.",
+    "reevaluate_only": "All dynamic rows, including stable and changed-winner rows.",
+    "stable_only": "State updates with an unchanged selector winner.",
+    "changed_winner_only": "Anchored, action-valid rows whose selector winner changes.",
+    "conditional_changed_winner": "Changed-winner rows with correct observable initial binding and an action-valid old target; the numerator counts substitution to the refreshed winner.",
+    "pairacc": "Both members of a matched Preserve/Reevaluate pair correct under the same state transition."
+  },
+  "task_inventory": {
+    "path": "data/temporal_referent_v7_core_replication.jsonl",
+    "n": 240
+  },
+  "runs": [
+    {
+      "dataset": "v7",
+      "controller": "Qwen-Generic",
+      "source": "runs/v7_qwen_generic_structured_ledger_then_act_full.jsonl",
+      "n": 240,
+      "regimes": {
+        "aggregate_e2e": {
+          "n": 240,
+          "correct": 114,
+          "accuracy": 0.475
+        },
+        "preserve_only": {
+          "n": 120,
+          "correct": 46,
+          "accuracy": 0.38333333333333336
+        },
+        "reevaluate_only": {
+          "n": 120,
+          "correct": 68,
+          "accuracy": 0.5666666666666667
+        },
+        "stable_only": {
+          "n": 80,
+          "correct": 63,
+          "accuracy": 0.7875
+        },
+        "changed_winner_only": {
+          "n": 80,
+          "correct": 10,
+          "accuracy": 0.125
+        }
+      },
+      "conditional_changed_winner": {
+        "eligible": 72,
+        "drift_to_refreshed_winner": 43,
+        "drift_rate": 0.5972222222222222
+      },
+      "changed_pairacc": {
+        "pairs": 80,
+        "both_correct": 7,
+        "pair_accuracy": 0.0875
+      }
+    },
+    {
+      "dataset": "v7",
+      "controller": "Qwen-CTA",
+      "source": "runs/v7_qwen_compile_then_act_full.jsonl",
+      "n": 240,
+      "regimes": {
+        "aggregate_e2e": {
+          "n": 240,
+          "correct": 170,
+          "accuracy": 0.7083333333333334
+        },
+        "preserve_only": {
+          "n": 120,
+          "correct": 104,
+          "accuracy": 0.8666666666666667
+        },
+        "reevaluate_only": {
+          "n": 120,
+          "correct": 66,
+          "accuracy": 0.55
+        },
+        "stable_only": {
+          "n": 80,
+          "correct": 65,
+          "accuracy": 0.8125
+        },
+        "changed_winner_only": {
+          "n": 80,
+          "correct": 70,
+          "accuracy": 0.875
+        }
+      },
+      "conditional_changed_winner": {
+        "eligible": 71,
+        "drift_to_refreshed_winner": 0,
+        "drift_rate": 0.0
+      },
+      "changed_pairacc": {
+        "pairs": 80,
+        "both_correct": 31,
+        "pair_accuracy": 0.3875
+      }
+    },
+    {
+      "dataset": "v7",
+      "controller": "GLM-Generic",
+      "source": "runs/v7_glm_generic_structured_ledger_then_act_full.jsonl",
+      "n": 240,
+      "regimes": {
+        "aggregate_e2e": {
+          "n": 240,
+          "correct": 168,
+          "accuracy": 0.7
+        },
+        "preserve_only": {
+          "n": 120,
+          "correct": 54,
+          "accuracy": 0.45
+        },
+        "reevaluate_only": {
+          "n": 120,
+          "correct": 114,
+          "accuracy": 0.95
+        },
+        "stable_only": {
+          "n": 80,
+          "correct": 76,
+          "accuracy": 0.95
+        },
+        "changed_winner_only": {
+          "n": 80,
+          "correct": 16,
+          "accuracy": 0.2
+        }
+      },
+      "conditional_changed_winner": {
+        "eligible": 80,
+        "drift_to_refreshed_winner": 38,
+        "drift_rate": 0.475
+      },
+      "changed_pairacc": {
+        "pairs": 80,
+        "both_correct": 15,
+        "pair_accuracy": 0.1875
+      }
+    },
+    {
+      "dataset": "v7",
+      "controller": "GLM-CTA",
+      "source": "runs/v7_glm_compile_then_act_full.jsonl",
+      "n": 240,
+      "regimes": {
+        "aggregate_e2e": {
+          "n": 240,
+          "correct": 226,
+          "accuracy": 0.9416666666666667
+        },
+        "preserve_only": {
+          "n": 120,
+          "correct": 110,
+          "accuracy": 0.9166666666666666
+        },
+        "reevaluate_only": {
+          "n": 120,
+          "correct": 116,
+          "accuracy": 0.9666666666666667
+        },
+        "stable_only": {
+          "n": 80,
+          "correct": 80,
+          "accuracy": 1.0
+        },
+        "changed_winner_only": {
+          "n": 80,
+          "correct": 70,
+          "accuracy": 0.875
+        }
+      },
+      "conditional_changed_winner": {
+        "eligible": 70,
+        "drift_to_refreshed_winner": 0,
+        "drift_rate": 0.0
+      },
+      "changed_pairacc": {
+        "pairs": 80,
+        "both_correct": 66,
+        "pair_accuracy": 0.825
+      }
+    },
+    {
+      "dataset": "v7",
+      "controller": "DeepSeek-Generic",
+      "source": "runs/v7_deepseek_generic_structured_ledger_then_act_full_v1.jsonl",
+      "n": 240,
+      "regimes": {
+        "aggregate_e2e": {
+          "n": 240,
+          "correct": 177,
+          "accuracy": 0.7375
+        },
+        "preserve_only": {
+          "n": 120,
+          "correct": 57,
+          "accuracy": 0.475
+        },
+        "reevaluate_only": {
+          "n": 120,
+          "correct": 120,
+          "accuracy": 1.0
+        },
+        "stable_only": {
+          "n": 80,
+          "correct": 80,
+          "accuracy": 1.0
+        },
+        "changed_winner_only": {
+          "n": 80,
+          "correct": 17,
+          "accuracy": 0.2125
+        }
+      },
+      "conditional_changed_winner": {
+        "eligible": 79,
+        "drift_to_refreshed_winner": 59,
+        "drift_rate": 0.7468354430379747
+      },
+      "changed_pairacc": {
+        "pairs": 80,
+        "both_correct": 17,
+        "pair_accuracy": 0.2125
+      }
+    },
+    {
+      "dataset": "v7",
+      "controller": "DeepSeek-CTA",
+      "source": "runs/v7_deepseek_compile_then_act_full_v1.jsonl",
+      "n": 240,
+      "regimes": {
+        "aggregate_e2e": {
+          "n": 240,
+          "correct": 219,
+          "accuracy": 0.9125
+        },
+        "preserve_only": {
+          "n": 120,
+          "correct": 109,
+          "accuracy": 0.9083333333333333
+        },
+        "reevaluate_only": {
+          "n": 120,
+          "correct": 110,
+          "accuracy": 0.9166666666666666
+        },
+        "stable_only": {
+          "n": 80,
+          "correct": 79,
+          "accuracy": 0.9875
+        },
+        "changed_winner_only": {
+          "n": 80,
+          "correct": 70,
+          "accuracy": 0.875
+        }
+      },
+      "conditional_changed_winner": {
+        "eligible": 70,
+        "drift_to_refreshed_winner": 0,
+        "drift_rate": 0.0
+      },
+      "changed_pairacc": {
+        "pairs": 80,
+        "both_correct": 64,
+        "pair_accuracy": 0.8
+      }
+    },
+    {
+      "dataset": "v7",
+      "controller": "Always-Lock+validity",
+      "source": "deterministic control",
+      "n": 240,
+      "regimes": {
+        "aggregate_e2e": {
+          "n": 240,
+          "correct": 160,
+          "accuracy": 0.6666666666666666
+        },
+        "preserve_only": {
+          "n": 120,
+          "correct": 120,
+          "accuracy": 1.0
+        },
+        "reevaluate_only": {
+          "n": 120,
+          "correct": 40,
+          "accuracy": 0.3333333333333333
+        },
+        "stable_only": {
+          "n": 80,
+          "correct": 80,
+          "accuracy": 1.0
+        },
+        "changed_winner_only": {
+          "n": 80,
+          "correct": 80,
+          "accuracy": 1.0
+        }
+      },
+      "conditional_changed_winner": {
+        "eligible": 0,
+        "drift_to_refreshed_winner": 0,
+        "drift_rate": null
+      },
+      "changed_pairacc": {
+        "pairs": 80,
+        "both_correct": 0,
+        "pair_accuracy": 0.0
+      },
+      "overall": {
+        "n": 240,
+        "correct": 160,
+        "accuracy": 0.6666666666666666
+      }
+    },
+    {
+      "dataset": "v7",
+      "controller": "Always-Reevaluate",
+      "source": "deterministic control",
+      "n": 240,
+      "regimes": {
+        "aggregate_e2e": {
+          "n": 240,
+          "correct": 160,
+          "accuracy": 0.6666666666666666
+        },
+        "preserve_only": {
+          "n": 120,
+          "correct": 40,
+          "accuracy": 0.3333333333333333
+        },
+        "reevaluate_only": {
+          "n": 120,
+          "correct": 120,
+          "accuracy": 1.0
+        },
+        "stable_only": {
+          "n": 80,
+          "correct": 80,
+          "accuracy": 1.0
+        },
+        "changed_winner_only": {
+          "n": 80,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      },
+      "conditional_changed_winner": {
+        "eligible": 0,
+        "drift_to_refreshed_winner": 0,
+        "drift_rate": null
+      },
+      "changed_pairacc": {
+        "pairs": 80,
+        "both_correct": 0,
+        "pair_accuracy": 0.0
+      },
+      "overall": {
+        "n": 240,
+        "correct": 160,
+        "accuracy": 0.6666666666666666
+      }
+    }
+  ]
+}

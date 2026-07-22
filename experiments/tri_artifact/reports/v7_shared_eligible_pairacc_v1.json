@@ -1,0 +1,338 @@
+{
+  "status": "post-primary zero-API audit of frozen outputs",
+  "protocol": "reports/TRI_v7_shared_eligible_pairacc_protocol.md",
+  "bootstrap": {
+    "sampling_unit": "complete state-instance cluster with replacement",
+    "clusters": 40,
+    "samples": 10000,
+    "seed": 20260722
+  },
+  "models": [
+    {
+      "model": "Qwen3.5",
+      "sources": {
+        "generic": "v7_qwen_generic_structured_ledger_then_act_full.jsonl",
+        "cta": "v7_qwen_compile_then_act_full.jsonl"
+      },
+      "shared_eligible": {
+        "eligible": 66,
+        "generic_substitutions": 41,
+        "cta_substitutions": 0,
+        "task_ids": [
+          "tri-v7-core-alerts-s1-explicit_anchor-flip",
+          "tri-v7-core-alerts-s1-explicit_anchor-name_collision",
+          "tri-v7-core-alerts-s2-implicit_anchor-flip",
+          "tri-v7-core-alerts-s2-implicit_anchor-name_collision",
+          "tri-v7-core-alerts-s3-explicit_anchor-flip",
+          "tri-v7-core-alerts-s3-explicit_anchor-name_collision",
+          "tri-v7-core-alerts-s4-implicit_anchor-flip",
+          "tri-v7-core-alerts-s4-implicit_anchor-name_collision",
+          "tri-v7-core-applications-s1-explicit_anchor-flip",
+          "tri-v7-core-applications-s1-explicit_anchor-name_collision",
+          "tri-v7-core-applications-s2-implicit_anchor-flip",
+          "tri-v7-core-applications-s2-implicit_anchor-name_collision",
+          "tri-v7-core-applications-s3-explicit_anchor-name_collision",
+          "tri-v7-core-applications-s4-implicit_anchor-flip",
+          "tri-v7-core-applications-s4-implicit_anchor-name_collision",
+          "tri-v7-core-appointments-s1-implicit_anchor-name_collision",
+          "tri-v7-core-appointments-s3-implicit_anchor-name_collision",
+          "tri-v7-core-batches-s1-implicit_anchor-flip",
+          "tri-v7-core-batches-s1-implicit_anchor-name_collision",
+          "tri-v7-core-batches-s2-explicit_anchor-flip",
+          "tri-v7-core-batches-s2-explicit_anchor-name_collision",
+          "tri-v7-core-batches-s3-implicit_anchor-flip",
+          "tri-v7-core-batches-s3-implicit_anchor-name_collision",
+          "tri-v7-core-batches-s4-explicit_anchor-flip",
+          "tri-v7-core-batches-s4-explicit_anchor-name_collision",
+          "tri-v7-core-bids-s1-explicit_anchor-flip",
+          "tri-v7-core-bids-s1-explicit_anchor-name_collision",
+          "tri-v7-core-bids-s2-implicit_anchor-flip",
+          "tri-v7-core-bids-s2-implicit_anchor-name_collision",
+          "tri-v7-core-bids-s3-explicit_anchor-flip",
+          "tri-v7-core-bids-s3-explicit_anchor-name_collision",
+          "tri-v7-core-bids-s4-implicit_anchor-flip",
+          "tri-v7-core-certificates-s1-implicit_anchor-flip",
+          "tri-v7-core-certificates-s1-implicit_anchor-name_collision",
+          "tri-v7-core-certificates-s2-explicit_anchor-flip",
+          "tri-v7-core-certificates-s2-explicit_anchor-name_collision",
+          "tri-v7-core-certificates-s3-implicit_anchor-flip",
+          "tri-v7-core-certificates-s3-implicit_anchor-name_collision",
+          "tri-v7-core-certificates-s4-explicit_anchor-flip",
+          "tri-v7-core-certificates-s4-explicit_anchor-name_collision",
+          "tri-v7-core-invoices-s1-implicit_anchor-flip",
+          "tri-v7-core-invoices-s1-implicit_anchor-name_collision",
+          "tri-v7-core-invoices-s2-explicit_anchor-flip",
+          "tri-v7-core-invoices-s2-explicit_anchor-name_collision",
+          "tri-v7-core-invoices-s3-implicit_anchor-flip",
+          "tri-v7-core-invoices-s3-implicit_anchor-name_collision",
+          "tri-v7-core-invoices-s4-explicit_anchor-flip",
+          "tri-v7-core-invoices-s4-explicit_anchor-name_collision",
+          "tri-v7-core-reminders-s1-explicit_anchor-flip",
+          "tri-v7-core-reminders-s1-explicit_anchor-name_collision",
+          "tri-v7-core-reminders-s2-implicit_anchor-flip",
+          "tri-v7-core-reminders-s2-implicit_anchor-name_collision",
+          "tri-v7-core-reminders-s3-explicit_anchor-flip",
+          "tri-v7-core-reminders-s3-explicit_anchor-name_collision",
+          "tri-v7-core-reminders-s4-implicit_anchor-flip",
+          "tri-v7-core-reminders-s4-implicit_anchor-name_collision",
+          "tri-v7-core-reservations-s2-explicit_anchor-name_collision",
+          "tri-v7-core-reservations-s3-implicit_anchor-flip",
+          "tri-v7-core-reservations-s4-explicit_anchor-name_collision",
+          "tri-v7-core-reviews-s1-explicit_anchor-flip",
+          "tri-v7-core-reviews-s1-explicit_anchor-name_collision",
+          "tri-v7-core-reviews-s2-implicit_anchor-flip",
+          "tri-v7-core-reviews-s2-implicit_anchor-name_collision",
+          "tri-v7-core-reviews-s3-explicit_anchor-name_collision",
+          "tri-v7-core-reviews-s4-implicit_anchor-flip",
+          "tri-v7-core-reviews-s4-implicit_anchor-name_collision"
+        ]
+      },
+      "generic_pairacc": {
+        "pairs": 80,
+        "both_correct": 7,
+        "estimate": 0.0875,
+        "cluster_bootstrap_ci95": [
+          0.025,
+          0.1625
+        ]
+      },
+      "cta_pairacc": {
+        "pairs": 80,
+        "both_correct": 31,
+        "estimate": 0.3875,
+        "cluster_bootstrap_ci95": [
+          0.2625,
+          0.5125
+        ]
+      },
+      "cta_minus_generic_pairacc": {
+        "pairs": 80,
+        "estimate": 0.3,
+        "cluster_bootstrap_ci95": [
+          0.1625,
+          0.4375
+        ]
+      }
+    },
+    {
+      "model": "GLM-5.1",
+      "sources": {
+        "generic": "v7_glm_generic_structured_ledger_then_act_full.jsonl",
+        "cta": "v7_glm_compile_then_act_full.jsonl"
+      },
+      "shared_eligible": {
+        "eligible": 70,
+        "generic_substitutions": 30,
+        "cta_substitutions": 0,
+        "task_ids": [
+          "tri-v7-core-alerts-s1-explicit_anchor-flip",
+          "tri-v7-core-alerts-s1-explicit_anchor-name_collision",
+          "tri-v7-core-alerts-s2-implicit_anchor-flip",
+          "tri-v7-core-alerts-s2-implicit_anchor-name_collision",
+          "tri-v7-core-alerts-s3-explicit_anchor-flip",
+          "tri-v7-core-alerts-s3-explicit_anchor-name_collision",
+          "tri-v7-core-alerts-s4-implicit_anchor-flip",
+          "tri-v7-core-alerts-s4-implicit_anchor-name_collision",
+          "tri-v7-core-applications-s1-explicit_anchor-flip",
+          "tri-v7-core-applications-s1-explicit_anchor-name_collision",
+          "tri-v7-core-applications-s2-implicit_anchor-flip",
+          "tri-v7-core-applications-s2-implicit_anchor-name_collision",
+          "tri-v7-core-applications-s3-explicit_anchor-flip",
+          "tri-v7-core-applications-s3-explicit_anchor-name_collision",
+          "tri-v7-core-applications-s4-implicit_anchor-flip",
+          "tri-v7-core-applications-s4-implicit_anchor-name_collision",
+          "tri-v7-core-appointments-s1-implicit_anchor-name_collision",
+          "tri-v7-core-appointments-s2-explicit_anchor-flip",
+          "tri-v7-core-appointments-s2-explicit_anchor-name_collision",
+          "tri-v7-core-appointments-s3-implicit_anchor-name_collision",
+          "tri-v7-core-appointments-s4-explicit_anchor-flip",
+          "tri-v7-core-appointments-s4-explicit_anchor-name_collision",
+          "tri-v7-core-batches-s1-implicit_anchor-name_collision",
+          "tri-v7-core-batches-s2-explicit_anchor-flip",
+          "tri-v7-core-batches-s2-explicit_anchor-name_collision",
+          "tri-v7-core-batches-s3-implicit_anchor-name_collision",
+          "tri-v7-core-batches-s4-explicit_anchor-flip",
+          "tri-v7-core-batches-s4-explicit_anchor-name_collision",
+          "tri-v7-core-bids-s1-explicit_anchor-flip",
+          "tri-v7-core-bids-s1-explicit_anchor-name_collision",
+          "tri-v7-core-bids-s2-implicit_anchor-flip",
+          "tri-v7-core-bids-s2-implicit_anchor-name_collision",
+          "tri-v7-core-bids-s3-explicit_anchor-flip",
+          "tri-v7-core-bids-s3-explicit_anchor-name_collision",
+          "tri-v7-core-bids-s4-implicit_anchor-flip",
+          "tri-v7-core-bids-s4-implicit_anchor-name_collision",
+          "tri-v7-core-certificates-s1-implicit_anchor-flip",
+          "tri-v7-core-certificates-s2-explicit_anchor-flip",
+          "tri-v7-core-certificates-s2-explicit_anchor-name_collision",
+          "tri-v7-core-certificates-s3-implicit_anchor-flip",
+          "tri-v7-core-certificates-s4-explicit_anchor-flip",
+          "tri-v7-core-certificates-s4-explicit_anchor-name_collision",
+          "tri-v7-core-invoices-s1-implicit_anchor-name_collision",
+          "tri-v7-core-invoices-s2-explicit_anchor-flip",
+          "tri-v7-core-invoices-s2-explicit_anchor-name_collision",
+          "tri-v7-core-invoices-s3-implicit_anchor-name_collision",
+          "tri-v7-core-invoices-s4-explicit_anchor-flip",
+          "tri-v7-core-invoices-s4-explicit_anchor-name_collision",
+          "tri-v7-core-reminders-s1-explicit_anchor-flip",
+          "tri-v7-core-reminders-s1-explicit_anchor-name_collision",
+          "tri-v7-core-reminders-s2-implicit_anchor-flip",
+          "tri-v7-core-reminders-s2-implicit_anchor-name_collision",
+          "tri-v7-core-reminders-s3-explicit_anchor-flip",
+          "tri-v7-core-reminders-s3-explicit_anchor-name_collision",
+          "tri-v7-core-reminders-s4-implicit_anchor-flip",
+          "tri-v7-core-reminders-s4-implicit_anchor-name_collision",
+          "tri-v7-core-reservations-s1-implicit_anchor-flip",
+          "tri-v7-core-reservations-s2-explicit_anchor-flip",
+          "tri-v7-core-reservations-s2-explicit_anchor-name_collision",
+          "tri-v7-core-reservations-s3-implicit_anchor-flip",
+          "tri-v7-core-reservations-s4-explicit_anchor-flip",
+          "tri-v7-core-reservations-s4-explicit_anchor-name_collision",
+          "tri-v7-core-reviews-s1-explicit_anchor-flip",
+          "tri-v7-core-reviews-s1-explicit_anchor-name_collision",
+          "tri-v7-core-reviews-s2-implicit_anchor-flip",
+          "tri-v7-core-reviews-s2-implicit_anchor-name_collision",
+          "tri-v7-core-reviews-s3-explicit_anchor-flip",
+          "tri-v7-core-reviews-s3-explicit_anchor-name_collision",
+          "tri-v7-core-reviews-s4-implicit_anchor-flip",
+          "tri-v7-core-reviews-s4-implicit_anchor-name_collision"
+        ]
+      },
+      "generic_pairacc": {
+        "pairs": 80,
+        "both_correct": 15,
+        "estimate": 0.1875,
+        "cluster_bootstrap_ci95": [
+          0.0875,
+          0.3
+        ]
+      },
+      "cta_pairacc": {
+        "pairs": 80,
+        "both_correct": 66,
+        "estimate": 0.825,
+        "cluster_bootstrap_ci95": [
+          0.7375,
+          0.9
+        ]
+      },
+      "cta_minus_generic_pairacc": {
+        "pairs": 80,
+        "estimate": 0.6375,
+        "cluster_bootstrap_ci95": [
+          0.525,
+          0.75
+        ]
+      }
+    },
+    {
+      "model": "DeepSeek",
+      "sources": {
+        "generic": "v7_deepseek_generic_structured_ledger_then_act_full_v1.jsonl",
+        "cta": "v7_deepseek_compile_then_act_full_v1.jsonl"
+      },
+      "shared_eligible": {
+        "eligible": 69,
+        "generic_substitutions": 50,
+        "cta_substitutions": 0,
+        "task_ids": [
+          "tri-v7-core-alerts-s1-explicit_anchor-flip",
+          "tri-v7-core-alerts-s1-explicit_anchor-name_collision",
+          "tri-v7-core-alerts-s2-implicit_anchor-flip",
+          "tri-v7-core-alerts-s3-explicit_anchor-flip",
+          "tri-v7-core-alerts-s3-explicit_anchor-name_collision",
+          "tri-v7-core-alerts-s4-implicit_anchor-flip",
+          "tri-v7-core-alerts-s4-implicit_anchor-name_collision",
+          "tri-v7-core-applications-s1-explicit_anchor-flip",
+          "tri-v7-core-applications-s1-explicit_anchor-name_collision",
+          "tri-v7-core-applications-s2-implicit_anchor-flip",
+          "tri-v7-core-applications-s2-implicit_anchor-name_collision",
+          "tri-v7-core-applications-s3-explicit_anchor-flip",
+          "tri-v7-core-applications-s3-explicit_anchor-name_collision",
+          "tri-v7-core-applications-s4-implicit_anchor-flip",
+          "tri-v7-core-applications-s4-implicit_anchor-name_collision",
+          "tri-v7-core-appointments-s1-implicit_anchor-flip",
+          "tri-v7-core-appointments-s1-implicit_anchor-name_collision",
+          "tri-v7-core-appointments-s2-explicit_anchor-flip",
+          "tri-v7-core-appointments-s2-explicit_anchor-name_collision",
+          "tri-v7-core-appointments-s3-implicit_anchor-flip",
+          "tri-v7-core-appointments-s3-implicit_anchor-name_collision",
+          "tri-v7-core-appointments-s4-explicit_anchor-flip",
+          "tri-v7-core-appointments-s4-explicit_anchor-name_collision",
+          "tri-v7-core-batches-s1-implicit_anchor-flip",
+          "tri-v7-core-batches-s1-implicit_anchor-name_collision",
+          "tri-v7-core-batches-s2-explicit_anchor-flip",
+          "tri-v7-core-batches-s4-explicit_anchor-flip",
+          "tri-v7-core-bids-s1-explicit_anchor-flip",
+          "tri-v7-core-bids-s1-explicit_anchor-name_collision",
+          "tri-v7-core-bids-s2-implicit_anchor-flip",
+          "tri-v7-core-bids-s2-implicit_anchor-name_collision",
+          "tri-v7-core-bids-s3-explicit_anchor-flip",
+          "tri-v7-core-bids-s3-explicit_anchor-name_collision",
+          "tri-v7-core-bids-s4-implicit_anchor-flip",
+          "tri-v7-core-bids-s4-implicit_anchor-name_collision",
+          "tri-v7-core-certificates-s1-implicit_anchor-name_collision",
+          "tri-v7-core-certificates-s2-explicit_anchor-flip",
+          "tri-v7-core-certificates-s2-explicit_anchor-name_collision",
+          "tri-v7-core-certificates-s3-implicit_anchor-name_collision",
+          "tri-v7-core-certificates-s4-explicit_anchor-flip",
+          "tri-v7-core-certificates-s4-explicit_anchor-name_collision",
+          "tri-v7-core-invoices-s1-implicit_anchor-name_collision",
+          "tri-v7-core-invoices-s2-explicit_anchor-flip",
+          "tri-v7-core-invoices-s3-implicit_anchor-name_collision",
+          "tri-v7-core-invoices-s4-explicit_anchor-flip",
+          "tri-v7-core-invoices-s4-explicit_anchor-name_collision",
+          "tri-v7-core-reminders-s1-explicit_anchor-flip",
+          "tri-v7-core-reminders-s1-explicit_anchor-name_collision",
+          "tri-v7-core-reminders-s2-implicit_anchor-flip",
+          "tri-v7-core-reminders-s2-implicit_anchor-name_collision",
+          "tri-v7-core-reminders-s3-explicit_anchor-flip",
+          "tri-v7-core-reminders-s3-explicit_anchor-name_collision",
+          "tri-v7-core-reminders-s4-implicit_anchor-flip",
+          "tri-v7-core-reminders-s4-implicit_anchor-name_collision",
+          "tri-v7-core-reservations-s1-implicit_anchor-name_collision",
+          "tri-v7-core-reservations-s2-explicit_anchor-flip",
+          "tri-v7-core-reservations-s2-explicit_anchor-name_collision",
+          "tri-v7-core-reservations-s3-implicit_anchor-flip",
+          "tri-v7-core-reservations-s3-implicit_anchor-name_collision",
+          "tri-v7-core-reservations-s4-explicit_anchor-flip",
+          "tri-v7-core-reservations-s4-explicit_anchor-name_collision",
+          "tri-v7-core-reviews-s1-explicit_anchor-flip",
+          "tri-v7-core-reviews-s1-explicit_anchor-name_collision",
+          "tri-v7-core-reviews-s2-implicit_anchor-flip",
+          "tri-v7-core-reviews-s2-implicit_anchor-name_collision",
+          "tri-v7-core-reviews-s3-explicit_anchor-flip",
+          "tri-v7-core-reviews-s3-explicit_anchor-name_collision",
+          "tri-v7-core-reviews-s4-implicit_anchor-flip",
+          "tri-v7-core-reviews-s4-implicit_anchor-name_collision"
+        ]
+      },
+      "generic_pairacc": {
+        "pairs": 80,
+        "both_correct": 17,
+        "estimate": 0.2125,
+        "cluster_bootstrap_ci95": [
+          0.1125,
+          0.325
+        ]
+      },
+      "cta_pairacc": {
+        "pairs": 80,
+        "both_correct": 64,
+        "estimate": 0.8,
+        "cluster_bootstrap_ci95": [
+          0.7,
+          0.8875
+        ]
+      },
+      "cta_minus_generic_pairacc": {
+        "pairs": 80,
+        "estimate": 0.5875,
+        "cluster_bootstrap_ci95": [
+          0.4375,
+          0.725
+        ]
+      }
+    }
+  ],
+  "interpretation_boundary": "Shared eligibility removes controller-specific initial-binding selection only. Zero observed CTA substitutions do not establish zero population risk."
+}

@@ -1,0 +1,127 @@
+{
+  "inventory": {
+    "rows": 96,
+    "duplicate_model_controller_task_keys": 0,
+    "models": [
+      "Qwen/Qwen3.5-122B-A10B"
+    ],
+    "controllers": [
+      "full_history"
+    ],
+    "tasks": 96
+  },
+  "cells": [
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "full_history",
+      "reference_mode": "preserve",
+      "transition": "flip",
+      "n": 24,
+      "api_or_protocol_errors": 0,
+      "binding_observed": 24,
+      "initial_binding_correct": 16,
+      "tri_opportunities": 16,
+      "final_state_success": 24,
+      "wrong_entity_writes": 0,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "selector_clusters": [
+        "alpha-first",
+        "alpha-last",
+        "due-earliest",
+        "due-latest",
+        "newest-created",
+        "oldest-created"
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "full_history",
+      "reference_mode": "preserve",
+      "transition": "stable",
+      "n": 24,
+      "api_or_protocol_errors": 0,
+      "binding_observed": 24,
+      "initial_binding_correct": 16,
+      "tri_opportunities": 16,
+      "final_state_success": 24,
+      "wrong_entity_writes": 0,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "selector_clusters": [
+        "alpha-first",
+        "alpha-last",
+        "due-earliest",
+        "due-latest",
+        "newest-created",
+        "oldest-created"
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "full_history",
+      "reference_mode": "reevaluate",
+      "transition": "flip",
+      "n": 24,
+      "api_or_protocol_errors": 0,
+      "binding_observed": 24,
+      "initial_binding_correct": 18,
+      "tri_opportunities": 18,
+      "final_state_success": 18,
+      "wrong_entity_writes": 6,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "selector_clusters": [
+        "alpha-first",
+        "alpha-last",
+        "due-earliest",
+        "due-latest",
+        "newest-created",
+        "oldest-created"
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "full_history",
+      "reference_mode": "reevaluate",
+      "transition": "stable",
+      "n": 24,
+      "api_or_protocol_errors": 0,
+      "binding_observed": 24,
+      "initial_binding_correct": 20,
+      "tri_opportunities": 20,
+      "final_state_success": 24,
+      "wrong_entity_writes": 0,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "selector_clusters": [
+        "alpha-first",
+        "alpha-last",
+        "due-earliest",
+        "due-latest",
+        "newest-created",
+        "oldest-created"
+      ]
+    }
+  ]
+}

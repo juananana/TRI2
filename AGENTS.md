@@ -78,6 +78,85 @@ Prefer deleting exploratory methods and secondary tables over weakening these it
 main paper within the AAAI page limit and keep the title, abstract, contributions, results,
 discussion, and conclusion at the same claim strength.
 
+## Paper Writing And Page Budget
+
+These rules apply to every edit of the main paper, supplement, abstract, figure, table, and
+rebuttal-facing explanation.
+
+### Scope and Closure
+
+- The main paper is a diagnostic/evaluation paper. Describe CTA, Lifecycle, gates, and rules as
+  controller probes or operational realizations, not as a general runtime architecture or the
+  paper's unique algorithmic contribution.
+- Keep one visible argument chain in the main text: authorization contrast and identifiability
+  requirement -> matched diagnostic -> controlled conditional behavior -> executed consequence
+  -> implementation and external boundaries. Do not require a reviewer to infer a missing link
+  from the supplement.
+- Every abstract claim, contribution bullet, table caption, discussion claim, and conclusion
+  sentence must have the same scope and an identifiable supporting result. Remove a claim when
+  its necessary evidence is only planned, only post-hoc, or only described informally.
+- State the closest-neighbor boundary early: TRI does not claim to discover post-binding drift;
+  it evaluates whether a re-resolution was authorized. Do not recover novelty through broader or
+  more dramatic wording.
+- Preserve unfavorable evidence in the main-text logic: Rule v2, full-history baseline, external
+  nulls, and negative composition results narrow the claim rather than becoming footnotes.
+
+### Page Budget and Main/Supplement Split
+
+- The AAAI main body is at most **7 pages excluding references**. The current target is a
+  9-page PDF with 7 body pages and 2 reference pages. Any edit that risks moving references past
+  page 8 must be offset by a deletion or compression in the body.
+- The main paper must retain the definition/minimal pair, closest-neighbor boundary, primary and
+  v7 evidence, identifiability controls, write consequence, strongest baseline and adverse
+  external result, and limitations. These are not supplement-only material.
+- Put exhaustive component matrices, full intervals, protocol mechanics, raw examples, secondary
+  transfer results, and exploratory method variants in the supplement. Do not move a result out
+  of the main text merely because it weakens the preferred interpretation.
+- Each main-text figure or table must answer one review-critical question. Prefer a compact
+  evidence-boundary table or explanatory figure to decorative architecture diagrams or repeated
+  metric tables. Captions must name both the result and its scope.
+
+### Experiment Selection and Reporting
+
+- Add an experiment only when it tests a named claim, excludes a concrete alternative
+  explanation, or repairs a review-critical validity risk. Do not add models, templates, schemas,
+  or ablations merely to increase count.
+- Before presenting a result, distinguish end-to-end success, initial binding, conditional TRI,
+  tool order, rejection, invalid attempt, wrong write, and API/parse failure. Do not merge their
+  denominators or relabel non-TRI errors as TRI.
+- Report the strongest fair baseline and the strongest negative result near the corresponding
+  positive result. A table must make the comparison and denominator clear without requiring a
+  reader to reconstruct it from prose.
+- Treat LLM-assisted authoring, reviewing, extraction, or paraphrasing as engineering assistance,
+  not independent human evidence. Anonymous reporting may omit contributor names, but it must
+  retain private provenance and must not conceal material assistance or invent independence.
+
+### Clear, Human Academic Prose
+
+- Write direct, concrete academic prose. Start with the claim or observation, then give the
+  evidence and boundary. Prefer short, specific sentences over stacked abstractions or long lists
+  of qualifications.
+- Avoid generic AI-style framing such as repeated ``we propose'', ``novel'', ``comprehensive'',
+  ``crucially'', or inflated claims of safety, generality, and first discovery. Do not manufacture
+  a personal voice, rhetorical suspense, or certainty unsupported by the data.
+- Use a concrete workflow example when introducing an abstract distinction; explain technical
+  terms at first use; use the same names for the same estimands throughout. Avoid synonym churn,
+  redundant restatement, dense percentage dumps in the abstract, and headings that merely restate
+  the section title.
+- Keep caveats adjacent to the claim they qualify. State limitations plainly once in the relevant
+  result/discussion and summarize them in Limitations; do not repeat defensive disclaimers in
+  every paragraph.
+- Before finalizing text, read it as a skeptical reviewer: it should sound like an accountable
+  research argument, not a generated sales pitch. Delete filler, unsupported intensifiers, and
+  sentences that do not advance the definition, evidence, comparison, or boundary.
+
+### Required Final Pass
+
+After a substantive paper edit: compile the main paper and supplement, confirm that the main PDF
+remains 7 body pages plus references, inspect figures/tables for legibility and non-overlap, run
+`git diff --check`, and verify that no title/abstract/contribution claim exceeds the evidence
+status recorded in claim provenance.
+
 ## Project Map
 
 - Main paper: `paper/AnonymousSubmission2027.tex`

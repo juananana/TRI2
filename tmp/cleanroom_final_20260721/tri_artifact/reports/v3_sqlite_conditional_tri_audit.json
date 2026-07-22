@@ -1,0 +1,71 @@
+{
+  "definition": {
+    "core_tri_write": "anchored instruction; flip or name-collision update; correct pre-refresh binding; bound entity remains present and actionable; final mutation writes the refreshed selector winner instead",
+    "policy_wrong_write": "correct pre-refresh anchored binding followed by remove or invalidate; a replacement is written despite the benchmark's reject policy"
+  },
+  "inventory": {
+    "rows": 160
+  },
+  "summary": [
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "controller": "sqlite_generic_structured_ledger",
+      "n": 40,
+      "anchored_initial_binding_correct": 20,
+      "anchored_n": 20,
+      "all_wrong_writes": 8,
+      "core_opportunities": 8,
+      "core_tri_writes": 6,
+      "policy_opportunities": 8,
+      "policy_wrong_writes": 2,
+      "stable_controls": 4,
+      "stable_wrong_writes": 0,
+      "unclassified_wrong_writes": 0
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "controller": "sqlite_lifecycle_gated",
+      "n": 40,
+      "anchored_initial_binding_correct": 20,
+      "anchored_n": 20,
+      "all_wrong_writes": 0,
+      "core_opportunities": 8,
+      "core_tri_writes": 0,
+      "policy_opportunities": 8,
+      "policy_wrong_writes": 0,
+      "stable_controls": 4,
+      "stable_wrong_writes": 0,
+      "unclassified_wrong_writes": 0
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "sqlite_generic_structured_ledger",
+      "n": 40,
+      "anchored_initial_binding_correct": 20,
+      "anchored_n": 20,
+      "all_wrong_writes": 13,
+      "core_opportunities": 8,
+      "core_tri_writes": 8,
+      "policy_opportunities": 8,
+      "policy_wrong_writes": 5,
+      "stable_controls": 4,
+      "stable_wrong_writes": 0,
+      "unclassified_wrong_writes": 0
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "sqlite_lifecycle_gated",
+      "n": 40,
+      "anchored_initial_binding_correct": 20,
+      "anchored_n": 20,
+      "all_wrong_writes": 0,
+      "core_opportunities": 8,
+      "core_tri_writes": 0,
+      "policy_opportunities": 8,
+      "policy_wrong_writes": 0,
+      "stable_controls": 4,
+      "stable_wrong_writes": 0,
+      "unclassified_wrong_writes": 0
+    }
+  ]
+}

@@ -11,12 +11,14 @@
     "old_action_valid": true,
     "ledger_selected_id": "REM-1A",
     "generic_final_target": "REM-1B",
+    "generic_actor_response": "{\"action\":\"process\",\"target_id\":\"REM-1B\"}",
     "authorized_target": "REM-1A",
     "sqlite_action_status": "wrong_entity_write",
     "sqlite_acted_ids": [
       "REM-1B"
     ],
     "cta_final_target": "REM-1A",
+    "cta_actor_response": "{\"action\":\"process\",\"target_id\":\"REM-1A\"}",
     "trace": [
       {
         "tool": "query_entities"
@@ -49,14 +51,17 @@
     "status": "post-hoc selected custom benchmark-compatible intervention; not an official ToolSandbox result",
     "scenario_id": "ts2-newest-created-preserve-flip",
     "model": "Pro/zai-org/GLM-5.1",
+    "instruction": "Before synchronizing, check which entry is the newest-created editable reminder. Once synchronization finishes, move that reminder one day later. If the entry disappeared or is read-only, stop instead of switching entries.",
     "initial_binding": "REM-A",
     "authorized_target": "REM-A",
     "generic_written_target": [
       "REM-B"
     ],
+    "generic_actor_response": "{\"tool\":\"postpone_reminder\",\"arguments\":{\"reminder_id\":\"REM-B\",\"seconds\":86400}}",
     "lifecycle_written_target": [
       "REM-A"
     ],
+    "lifecycle_actor_response": "{\"tool\": \"postpone_reminder\", \"arguments\": {\"reminder_id\": \"REM-A\", \"seconds\": 86400}}",
     "generic_trace": [
       {
         "tool": "search_reminder",
@@ -93,16 +98,21 @@
         }
       }
     ],
-    "source": "runs/toolsandbox_tri_matched_glm_heldout_v1.jsonl"
+    "sources": [
+      "data/toolsandbox_tri_matched_heldout_v1.jsonl",
+      "runs/toolsandbox_tri_matched_glm_heldout_v1.jsonl"
+    ]
   },
   "appworld_correct_opportunity": {
     "status": "custom AppWorld-backed case; not a leaderboard result",
     "scenario_id": "appworld-todoist-p1-preserve-flip",
     "model": "Pro/zai-org/GLM-5.1",
+    "instruction": "Find the incomplete Todoist task due earliest in the list as it is now. Synchronize Todoist, then postpone the task you found by one day.",
     "initial_target": "6334",
     "refreshed_target": "6336",
     "bound_target": "6334",
     "written_target": "6334",
+    "model_action": "{\"tool\":\"postpone_task\",\"arguments\":{\"task_id\":\"6334\"}}",
     "conditional_tri": false,
     "trace": [
       {
@@ -139,10 +149,12 @@
     "status": "wrong write outside conditional TRI denominator",
     "scenario_id": "appworld-simple-note-p1-preserve-flip",
     "model": "Qwen/Qwen3.5-122B-A10B",
+    "instruction": "Find the alphabetically first note tagged tri-experiment in Simple Note as the notes are now. Synchronize Simple Note, then append 'reviewed' to the note you found.",
     "initial_target": "3084",
     "refreshed_target": "3086",
     "late_bound_target": "3086",
     "written_target": "3086",
+    "model_action": "{\"tool\":\"append_to_note\",\"arguments\":{\"note_id\":\"3086\"}}",
     "initial_binding_correct": false,
     "binding_timing_correct": false,
     "conditional_tri": false,

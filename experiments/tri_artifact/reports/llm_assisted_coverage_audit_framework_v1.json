@@ -1,0 +1,11 @@
+{
+  "study": "LLM-assisted public-benchmark coverage reproducibility framework",
+  "status": "planned/unverified; zero-API framework validation",
+  "decision": "FRAMEWORK-ONLY / NOT EVIDENCE",
+  "rubric_version": "TRI-public-coverage-v1",
+  "record_count": 3,
+  "frozen_source_hashes_verified": true,
+  "llm_assistance_completed": 0,
+  "human_reviews_completed": 0,
+  "claim_boundary": "The template ships with no LLM output and no human review. Future LLM extraction is a fallible retrieval aid; it cannot count as an independent author, annotator, or reviewer and cannot change the public-coverage conclusion without separately recorded human review and adjudication."
+}

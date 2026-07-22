@@ -1,0 +1,103 @@
+{
+  "study": "source-derived public-suite TRI coverage funnel",
+  "status": "post-primary/descriptive; zero API; not an independent recall audit",
+  "scope": "This report summarizes existing official ToolSandbox, AppWorld, and tau3-bench audits. It makes their exclusion paths visible but does not establish candidate retrieval recall, inter-annotator agreement, or coverage outside the pinned versions.",
+  "suites": [
+    {
+      "benchmark": "ToolSandbox",
+      "source": "reports/official_toolsandbox_tri_prevalence_audit.json",
+      "unit": "semantic scenario families",
+      "funnel": [
+        {
+          "stage": "audited families",
+          "count": 129
+        },
+        {
+          "stage": "after entity-mutation exclusion",
+          "count": 43
+        },
+        {
+          "stage": "after independent-transition exclusion",
+          "count": 26
+        },
+        {
+          "stage": "after prior-selection exclusion",
+          "count": 18
+        },
+        {
+          "stage": "TRI-like after stable-ID exclusion",
+          "count": 1
+        },
+        {
+          "stage": "strict native opportunities",
+          "count": 0
+        }
+      ],
+      "near_match_count": 1,
+      "note": "These are sequential classification buckets from the source audit, not independently measured marginal feature prevalences."
+    },
+    {
+      "benchmark": "AppWorld",
+      "source": "reports/appworld_public_trace_tri_audit.json",
+      "unit": "generator families and released trajectories",
+      "funnel": [
+        {
+          "stage": "audited generator families",
+          "count": 244
+        },
+        {
+          "stage": "TRI-like generator families",
+          "count": 1
+        },
+        {
+          "stage": "strict exogenous opportunities",
+          "count": 0
+        },
+        {
+          "stage": "released trajectories in near-match family",
+          "count": 42
+        },
+        {
+          "stage": "observable post-binding operations",
+          "count": 16
+        },
+        {
+          "stage": "observed post-binding substitutions",
+          "count": 0
+        }
+      ],
+      "near_match_count": 1,
+      "note": "The released-trace rows describe an action-induced preservation near-match, not an exogenous selector-flip TRI denominator."
+    },
+    {
+      "benchmark": "tau3-bench",
+      "source": "reports/official_tau3_native_tri_audit.json",
+      "unit": "core task definitions",
+      "funnel": [
+        {
+          "stage": "audited tasks",
+          "count": 2449
+        },
+        {
+          "stage": "tasks with user-evaluation mutation",
+          "count": 2250
+        },
+        {
+          "stage": "tasks with stable ID in user mutation",
+          "count": 0
+        },
+        {
+          "stage": "metadata strict candidates",
+          "count": 0
+        },
+        {
+          "stage": "strict native opportunities",
+          "count": 0
+        }
+      ],
+      "near_match_count": 8,
+      "note": "The listed near-matches use different bill and line roles, so they do not provide a same-role target-transition comparison."
+    }
+  ],
+  "interpretation": "The funnel supports a scoped coverage statement for three pinned benchmark versions. It does not estimate deployed prevalence and does not replace the planned independent candidate-recall and double-review audit."
+}

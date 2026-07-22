@@ -1,0 +1,1375 @@
+                                                             The Imperfective Paradox in Large Language Models
+
+
+                                                                    Bolei Ma*                                         Yusuke Miyao
+                                                               LMU Munich & MCML                                  The University of Tokyo
+                                                                 bolei.ma@lmu.de                               yusuke@is.s.u-tokyo.ac.jp
+
+
+
+
+                                                                    Abstract                                Class Examples (Premise → Hypothesis)              Entail?
+
+                                                 Do Large Language Models (LLMs) genuinely                           P: The carpenter was building a gazebo.
+                                                                                                            Telic                                               ✗ No
+
+
+
+
+arXiv:2601.09373v2 [cs.CL] 22 Apr 2026
+                                                                                                                     H: The carpenter built a gazebo.
+                                                 grasp the compositional semantics of events,
+                                                 or do they rely on surface-level probabilistic                      P: The boy was running in the park.
+                                                                                                            Atelic                                             ✓ Yes
+                                                                                                                     H: The boy ran in the park.
+                                                 heuristics? We investigate the Imperfective
+                                                 Paradox, a logical phenomenon where the
+                                                 past progressive aspect entails event realiza-            Table 1: Examples for the Imperfective Paradox. Telic
+                                                 tion for activities (e.g., running → ran) but not         verbs do not entail completion in the progressive form.
+                                                 for accomplishments (e.g., building ↛ built).
+                                                 We introduce I MPERFECTIVE NLI, a diagnostic
+                                                                                                           distinction is critical when processing temporal
+                                                 dataset designed to probe this distinction across
+                                                 diverse semantic classes. Evaluating state-of-            events. A faithful reasoning agent must distinguish
+                                                 the-art open-weight models, we uncover a per-             between an action intended (or in progress) and an
+                                                 vasive Teleological Bias: models systemati-               action realized.
+                                                 cally hallucinate completion for goal-oriented               Consider the following sentence: “The carpen-
+                                                 events, even overriding explicit textual cancel-          ter was building a gazebo”, as shown in Table 1.
+                                                 lation. Prompting interventions partially reduce          Logically, this description of an ongoing process
+                                                 this bias but trigger a calibration crisis, causing
+                                                                                                           does not entail that the gazebo was ever finished.
+                                                 models to incorrectly reject valid entailments
+                                                 for atelic verbs. Representational analyses fur-          The construction could have been abandoned or
+                                                 ther show that while internal embeddings often            interrupted. This lack of entailment for telic (goal-
+                                                 distinguish progressive from simple past forms,           oriented) events is known in formal semantics as
+                                                 inference decisions are dominated by strong               the Imperfective Paradox (Dowty, 1977, 1979).
+                                                 priors about goal attainment. Taken together,             In contrast, for atelic verbs like “run”, the process
+                                                 our findings indicate that these current open-            itself constitutes the event (Vendler, 1957; Bennett
+                                                 weight LLMs operate as predictive narrative               and Partee, 1978; Smith, 1997): “The boy was run-
+                                                 engines rather than faithful logical reasoners,
+                                                 and that resolving aspectual inference requires
+                                                                                                           ning” entails “The boy ran”.
+                                                 moving beyond prompting toward structurally                  This phenomenon is grounded in the theory
+                                                 grounded alignment.1                                      of (Lexical) Aspect, which categorizes events by
+                                                                                                           their telicity (boundedness) (Vendler, 1957; Com-
+                                         1       Introduction                                              rie, 1976; Leiss, 1992). Unlike atelic activities
+                                         Large Language Models (LLMs) have demon-                          where the process implies the event (e.g., running),
+                                         strated remarkable proficiency in natural language                telic accomplishments possess a distinct culmina-
+                                         inference (NLI) and complex reasoning tasks                       tion point that separates the process from the result
+                                         (Brown et al., 2020; Touvron et al., 2023). Despite               (Moens and Steedman, 1988). Therefore, the pro-
+                                         these advancements, questions remain regarding                    gressive aspect acts as a logical filter: it entails
+                                         the robustness of their reasoning: do models gen-                 realization for activities but suspends it for accom-
+                                         uinely grasp the compositional semantics of events,               plishments. A robust reasoner must respect this
+                                         or do they rely on surface-level probabilistic heuris-            structural boundary, distinguishing between the oc-
+                                         tics (Bender et al., 2021; Dziri et al., 2023)? This              currence of a process and the attainment of a goal.
+                                             * Work done while visiting The University of Tokyo.
+                                                                                                              While humans intuitively navigate these aspec-
+                                             1
+                                             The data and code are available at: https://github.           tual distinctions, we hypothesize that LLMs exhibit
+                                         com/boleima/ImperfectiveParadox.                                  a Teleological Bias: a tendency to assume that
+
+                                                                                                       1
+goal-directed actions inevitably lead to their suc-            Ultimately, our findings underscore that current
+cessful completion. This bias likely stems from             LLMs struggle to resolve the Imperfective Para-
+the “reporting bias” in pre-training corpora (Gor-          dox, operating as probabilistic predictors of narra-
+don and Van Durme, 2013), where narratives typi-            tive outcomes rather than faithful logical reasoners.
+cally mention goals only when they are relevant to          Bridging this gap requires not just better prompting,
+the outcome, often implying success (Grice, 1975).          but a deeper alignment between model behavior
+Consequently, models may hallucinate event com-             and the formal logic of event semantics.
+pletion based on statistical likelihood rather than
+logical entailment, effectively conflating the intent       2     Background
+with the result (Farquhar et al., 2024).
+                                                            2.1    Vendler’s Aspectual Classes: Telicity
+   Prior work in NLP has largely focused on aspect
+classification or modeling, training models to la-          Vendler (1957) categorized verbs into four aspec-
+bel verbs as stative, dynamic, telic, or atelic (see        tual classes (activity, accomplishment, achieve-
+Friedrich et al., 2023). However, high classification       ment, state) based on their temporal properties. In
+accuracy does not guarantee robust inference. It            this study, we focus on the distinction between
+remains unexplored whether generative models can            Activities and Accomplishments, defined by the
+apply these aspectual properties to resist fallacious       property of telicity, whether an event involves an
+entailments in zero-shot reasoning scenarios.               inherent endpoint. Telicity often correlates with
+   To bridge this gap, we introduce I MPERFEC -             perfective interpretations, which present an eventu-
+TIVE NLI, a diagnostic dataset to probe the Imper-          ality from a holistic perspective (Filip, 2008).
+fective Paradox. We construct minimal pairs across
+                                                            • Activities (Atelic): Events with no inherent end-
+four logical conditions, contrasting interrupted and
+                                                              point (e.g., “run”, “swim”, “push a cart”). They
+ambiguous contexts for both telic and atelic verbs.
+                                                              are homogeneous; any part of the process counts
+We evaluate state-of-the-art open-weight models
+                                                              as an instance of the same event.
+and uncover following critical insights:
+
+1) Teleological Bias Dominates Model Inference:             • Accomplishments (Telic): Events that proceed
+   Models exhibit a pervasive tendency to halluci-            toward a specific terminus or goal (e.g., “build a
+   nate completion for goal-oriented events. Cru-             house”, “write a letter”). Such events are only
+   cially, this bias is robust enough to override ex-         completed and receive canonical perfective inter-
+   plicit textual negation (e.g., predicting comple-          pretations, when the endpoint is reached.
+   tion even when an action is interrupted), reveal-
+                                                            2.2    The Imperfective Paradox
+   ing a fundamental failure in contextual fidelity.
+                                                            Semantically, in English, the progressive form has
+2) Prompting Interventions Trigger a Calibra-               imperfective reading, while the simple past form
+   tion Crisis: Strategies like Chain-of-Thought or         has perfective reading (Comrie, 1976; Smith, 1997).
+   forced counterfactual non-endpoints can reduce           The Imperfective Paradox arises when we analyze
+   hallucinated completions, but often over-correct,        the logical entailment between the progressive form
+   causing models to incorrectly reject valid en-           (Imperfective) and the simple past form (Perfective)
+   tailments for atelic activities. Models struggle         of these verb classes. Let ϕ be an event predicate
+   to adapt reasoning dynamically based on event            and P ROG(ϕ) denote its progressive form.
+   type.                                                       For Atelic predicates (Activities), the entailment
+                                                            holds:
+3) Representation and Reasoning Are Dissoci-
+                                                                            P ROG(run) |= run
+   ated: We find that the bias is not representa-
+   tional; embeddings successfully distinguish pro-         If x was running, then it is true that x ran. This is
+   cess (progressive form) from result (simple past         often referred to as the Sub-interval Property: if an
+   form). Instead, inference is dominated by prior          activity holds true for an interval, it holds true for
+   expectations about goal completion. The fail-            any sub-interval (Bennett and Partee, 1978).
+   ure is likely driven by predictive priors during            For Telic predicates (Accomplishments), the en-
+   decoding, rather than an inherent inability of           tailment fails:
+   Transformer architectures to encode the aspec-
+   tual distinction.                                              P ROG(build a house) ̸|= build a house
+
+                                                        2
+If x was building a house, it is NOT necessarily            3   Dataset - I MPERFECTIVE NLI
+true that x built a house.
+                                                            To evaluate LLMs’ ability to reason about the im-
+   The paradox highlights that the progressive form         perfective paradox and teleological aspectual se-
+of an accomplishment describes a process lead-              mantics, we introduce I MPERFECTIVE NLI, a diag-
+ing to a result, but does not assert the result it-         nostic NLI dataset in English.
+self (Parsons, 1990). Dowty (1977) formalized
+this using possible worlds semantics, suggesting            Dataset Construction with Different Verbs.
+that P ROG(ϕ) is true if ϕ completes in all “in-            The construction of I MPERFECTIVE NLI employs
+ertia worlds” (worlds where the course of events            a template-based generation approach to ensure
+proceeds without interruption). However, the real           syntactic uniformity while isolating semantic rea-
+world is not necessarily an inertia world and inter-        soning. We curated a balanced lexicon of verbs
+ruptions occur.                                             based on Vendler’s aspectual classification:
+
+                                                            • 100 Telic Verbs (Accomplishments): Predicates
+                                                              involving a natural endpoint or result state, where
+2.3   Related Work: Interpreting and Modeling                 the process is distinct from the culmination (e.g.,
+      “Aspect” in NLP                                         build, write, fix, paint, bake).
+
+Computational modeling of aspect has evolved                • 100 Atelic Verbs (Activities): Predicates describ-
+from feature-engineering approaches to represen-              ing homogeneous processes without a necessary
+tation learning (Friedrich et al., 2023). Siegel and          endpoint, where the process itself constitutes the
+McKeown (2000) pioneered the use of supervised                event (e.g., run, swim, wander, play, vibrate).
+machine learning for aspectual classification. Sub-
+                                                               For each verb, we generated context-hypothesis
+sequent work extensively explored semi-supervised
+                                                            pairs using Gemini-assisted rewriting (Team et al.,
+approaches, combining linguistic and distributional
+                                                            2025), followed by strict human verification. The
+features to predict stativity, duration, and situa-
+                                                            dataset is structured as a controlled minimal-pair
+tion entity types, while also establishing essential
+                                                            experiment across four logical conditions, resulting
+annotated datasets (Friedrich and Palmer, 2014;
+                                                            in a total of N = 400 examples.
+Friedrich and Pinkal, 2015; Friedrich et al., 2016;
+                                                               To investigate whether teleological bias varies
+Friedrich and Gateva, 2017). Similar methodolo-
+                                                            across different types of goal-directedness, we fur-
+gies were applied to German verbs (Hermes et al.,
+                                                            ther annotated the 100 telic verbs into four fine-
+2015) and multilingual morphosyntactic annotation
+                                                            grained semantic classes (drawn on the theory of
+(Ramm et al., 2017).
+                                                            Levin, 1993): Change of State (44), Creation (39),
+   Moving toward compositional semantics, Kober             Consumption (9), and Motion to Goal (8).
+et al. (2020) introduced an NLI-based dataset to               We restricted this sub-classification to the telic
+model aspect in context. Later work showed that             group because, unlike homogeneous activities, telic
+transformer models capture some aspectual cues              predicates inherently encode a distinct resultant
+but rely heavily on surface features such as tense          state (Beavers and Koontz-Garboden, 2012). This
+and word order (Metheniti et al., 2022). More re-           classification categorizes the nature of that result:
+cently, Ma (2024) found that large-scale LLMs still         Change of State verbs denote a transformation
+struggle with lexical aspect identification. Closely        in the physical or abstract condition of an exist-
+related are two studies on the Imperfective Paradox         ing entity (e.g., melt, break); Creation verbs in-
+(Pruś et al., 2024, 2025), which focus primarily           volve bringing an object into existence (e.g., build,
+on modeling human judgments of progressive ver-             knit); Consumption verbs entail the destruction or
+sus simple past forms, treating LLM behavior as a           complete ingestion of an object (e.g., eat, burn)
+secondary comparison. As such, neither study pro-           (Beavers, 2010); and Motion to Goal verbs describe
+vides a systematic diagnostic evaluation of LLM             movement towards a specific spatial endpoint (e.g.,
+aspectual inference. Our work directly addresses            arrive, enter) (Talmy, 2000). This stratification
+this gap, offering the first controlled investigation       enables us to probe whether LLMs are more prone
+of whether LLMs respect the Imperfective Paradox            to hallucinating completion for artifact-creating
+or instead hallucinate event completion by conflat-         events, where the “teleological” purpose is most
+ing goal-directed processes with their result states.       salient, compared to simple state changes.
+
+                                                        3
+ Group      Condition                   Premise Example                              Hypothesis                       Gold Label
+
+ A          Interrupted Accomp.         The carpenter was building a gazebo,         The carpenter built a gazebo.    Contradiction
+            (Telic + Cancel)            but a storm destroyed the frame before                                          (✗ False)
+                                        the roof was on.
+
+ B          Interrupted Activity        The athletes were running on the track,      The athletes ran on the track.    Entailment
+            (Atelic + Stop)             but it started to hail.                                                         (✓ True)
+
+ C          Ambiguous Accomp.           The carpenter was building a gazebo.         The carpenter built a gazebo.       Neutral
+            (Telic + Process)                                                                                         (? Unknown)
+
+ D          Ambiguous Activity          The athletes were running on the track.      The athletes ran on the track.    Entailment
+            (Atelic + Process)                                                                                          (✓ True)
+
+Table 2: Examples from the I MPERFECTIVE NLI dataset. Group C is the critical probe, where the imperfective
+paradox implies a Neutral relation, but teleological bias may lead models to predict Entailment.
+
+
+Imperfective Logical Conditions. The core con-                        language truth values “True”, “False”, and “Un-
+tribution of I MPERFECTIVE NLI is its minimal-pair                    known” respectively for our experiments.
+design, which can be viewed as a 2 × 2 matrix
+                                                                      Quality Assurance. To ensure the validity and
+crossing Verb Telicity (Telic vs. Atelic) with Con-
+                                                                      naturalness of the generated data, we recruited
+textual Information (Interrupted vs. Ambiguous),
+                                                                      three native English speakers as evaluators via Pro-
+described in the following groups A-D. Table 2
+                                                                      lific2 . They assessed the sentences across three
+illustrates these conditions with examples.
+                                                                      linguistic dimensions, Grammar, Fluency, and Ad-
+ Group A: Interrupted Accomplishment.                                 equacy (details in Appendix C), and were com-
+ This group serves as a counterfactual check. The premise             pensated at a rate of £9/hour. Beyond quantitative
+ describes a telic action in progress but includes an ex-             ratings, evaluators provided corrections for any un-
+ plicit cancellation clause (e.g., “...but a storm destroyed
+ the frame before the roof was on.”). This tests whether
+                                                                      natural or unclear instances. Discrepancies and
+ models can attend to explicit interruption of action and the         conflicting revisions were resolved through manual
+ negation of the result. The logical relation is Contradic-           verification, ensuring quality in the final dataset.
+ tion.
+                                                                      4       Experimental Settings
+ Group B: Interrupted Activity.
+ This group controls for aspectual class properties. Due to           4.1      Models
+ the sub-interval property of atelic verbs, stopping an activ-
+ ity does not negate its occurrence (i.e., stopping running           We experimented with 7 instruction-tuned
+ implies one has run). Even with an explicit interruption,            open-weight models with their parameter around
+ the premise entails the hypothesis. The logical relation is          7-9B: Llama-3.1-8B-Instruct (Grattafiori
+ Entailment.
+                                                                      et al., 2024), Mistral-7B-Instruct-v0.3
+ Group C: Ambiguous Accomplishment.                                   (Jiang et al., 2023), Qwen2.5-7B-Instruct
+ This condition is the primary testbed for the Imperfective
+                                                                      (Qwen et al., 2025), deepseek-llm-7b-chat
+ Paradox. Structurally, Group C is an ablation of Group               (DeepSeek-AI, 2024), gemma-2-9b-it (Team
+ A, where the interruption clause is removed, leaving only            et al., 2024), glm-4-9b-chat-hf (GLM et al.,
+ the progressive form of a telic verb. Semantically, the
+ outcome is under-specified: the action was in progress, but          2024), Yi-1.5-9B-Chat (AI et al., 2025).
+ completion is not known. The logical relation is Neutral.
+ This group probes whether models hallucinate completion              4.2      Prompts
+ in the absence of explicit evidence.
+                                                                      To disentangle the model’s intrinsic biases from its
+ Group D: Ambiguous Activity.
+                                                                      instruction-following capabilities, we evaluate four
+                                                                      distinct prompting strategies. The detailed prompts
+ Analogous to Group C, this condition is an ablation of
+ Group B, retaining only the progressive form of an activity.         given to the models are presented in Appendix B.
+ Unlike Group C, the entailment holds here because the
+ atelic process itself validates the event. This baseline tests       (1) Strict Logic Prompt (Zero-Shot). Our pri-
+ whether models possess basic aspectual competence for                mary setting employs a simple zero-shot instruc-
+ atelic verbs. The logical relation is Entailment.
+                                                                      tion, framing the model as a “strict logician”. This
+                                                                      prompt explicitly prohibits common sense assump-
+   While standard NLI tasks utilize the labels En-
+                                                                      tions (e.g., the pragmatic inference that “building
+tailment, Contradiction, and Neutral (e.g., Bow-
+                                                                          2
+man et al., 2015), we map these to the natural                                https://www.prolific.com/
+
+
+                                                                  4
+usually implies a house”) and forces the model to            the logical implications of atelic processes (which
+rely solely on the provided text.                            imply realization) from telic processes (which do
+                                                             not). It is calculated as the difference between
+(2) Definition-Aware Prompt (DAP). To test                   the accuracy on the Ambiguous Activity baseline
+whether the failure stems from a lack of linguistic          (Group D) and the error rate on the Ambiguous
+knowledge or a failure of application, we explicitly         Accomplishment probe (Group C):
+inject the linguistic definition of the imperfective
+aspect for both Activity and Accomplishment into                          ∆AA = ACCD − TBRC                   (2)
+the system prompt. If the bias persists even when
+the rule is provided, it suggests that the teleolog-         where ACCD represents the correct entailment rate
+ical prior is robust enough to override in-context           for Activity verbs. A high gap indicates ideal as-
+instructions.                                                pectual reasoning: the model correctly infers en-
+                                                             tailment for activities while correctly suspending
+(3) Chain-of-Thought Prompt (CoT). We adapt
+                                                             judgment (low bias) for accomplishments. A low
+the standard “Let’s think step by step” paradigm
+                                                             gap suggests that the model treats all progressive
+(Wei et al., 2022b). This setting investigates
+                                                             verbs homogeneously, likely applying a shallow
+whether the Teleological Bias is a result of fast,
+                                                             heuristic (e.g., “mentioning an action implies its
+superficial processing. We hypothesize that by forc-
+                                                             completion”) regardless of lexical aspect.
+ing the model to articulate the temporal status of the
+event before predicting the label, it may self-correct          Note that ∆AA is most interpretable when
+the hallucination for Ambiguous Accomplishment.              ACCD is high; a low ∆AA driven by a low ACCD
+                                                             rather than a high TBRC reflects a distinct failure
+(4) Counterfactual Prompt (Counterfactual).                  mode, namely, an inability to recognize valid en-
+Drawing on Dowty (1977)’s theory that the progres-           tailments for atelic verbs, rather than teleological
+sive aspect presupposes an “inertia world” (where            overgeneralization.
+events proceed normally), this prompt attempts to
+explicitly break this assumption. We explicitly in-          5     Results and Analysis
+struct the model to first generate three plausible
+                                                             In this section, we present the evaluation results on
+real-world scenarios in which the event is inter-
+                                                             I MPERFECTIVE NLI. We aim to answer four key
+rupted and its endpoint is not reached, before mak-
+                                                             questions: whether LLMs exhibit teleological bias,
+ing a judgment.
+                                                             how prompting strategies mitigate this bias, how
+4.3   Metrics                                                the model scale affects the bias, and how these bi-
+                                                             ases manifest across different semantic categories.
+We report following metrics:
+                                                             5.1    The Dominance of Teleological Bias for
+(1) Group-wise Accuracy (ACC): We calculate
+                                                                   “If A Subject was V-ing, then the Subject
+classification accuracy separately for each logical
+                                                                    V-ed” in Zero-shot
+condition (Groups A–D).
+                                                             The first few rows of Table 3 present the perfor-
+(2) Teleological Bias Rate (TBR): This met-                  mance of seven open-weight models in the zero-
+ric specifically quantifies the “Hallucination of            shot setting. The results reveal a fundamental in-
+Completion” in Group C (Ambiguous Accomplish-                ability of current LLMs to decouple the description
+ment). Since the Gold Label for Group C is Un-               of a process from the assertion of its result.
+known, any prediction of True indicates that the
+model has hallucinated a result. We define TBR as:           P (Complete | Past Progressive) ≈ 1? – – The
+                    P                                        Illusion of Competence. At first glance, models
+                           I(ŷi = True)
+          TBRC = i∈C                          (1)            appear competent in aspectual reasoning, achiev-
+                             |C|                             ing near-perfect accuracy on Group D for ambigu-
+where C is the set of examples in Group C, and ŷi           ous Activity (atelic verbs) (e.g., Llama-3.1: 0.98,
+is the model’s prediction. A higher TBR indicates            Mistral: 1.00). However, this high performance is
+a stronger reliance on teleological priors.                  deceptive. When contrasted with the catastrophic
+                                                             failure on Group C for ambiguous Accomplish-
+(3) Aspectual Awareness Gap (∆AA ): This met-                ment (telic verbs) (e.g., Llama-3.1: 0.02), a differ-
+ric measures the model’s capability to distinguish           ent picture emerges. The near-zero ∆AA for most
+
+                                                         5
+ Prompt           Model                      Acc A (↑)   Acc B (↑)    Acc C (↑)   Acc D (↑)   TBRC (↓)   ∆AA (↑)
+                  Llama-3.1-8B-Instruct        0.47          0.85       0.02        0.98        0.98       0.00
+                  Mistral-7B-Instruct-v0.3     0.37          0.92       0.02        1.00        0.97       0.03
+                  Qwen2.5-7B-Instruct          0.20          0.98       0.47        0.97        0.53       0.44
+ Zero-shot        Yi-1.5-9B-Chat               0.35          0.94       0.02        1.00        0.98       0.02
+                  deepseek-llm-7b-chat         0.04          0.88       0.00        1.00        1.00       0.00
+                  gemma-2-9b-it                0.03          0.96       0.06        1.00        0.94       0.06
+                  glm-4-9b-chat-hf             0.14          0.98       0.03        1.00        0.97       0.03
+                  Llama-3.1-8B-Instruct        0.60          0.95       0.36        0.99        0.45       0.54
+                  Mistral-7B-Instruct-v0.3     0.55          0.96       0.06        1.00        0.94       0.06
+                  Qwen2.5-7B-Instruct          0.35          0.97       0.89        0.72        0.09       0.63
+                  Yi-1.5-9B-Chat               0.57          0.97       0.20        1.00        0.80       0.20
+ DAP
+                  deepseek-llm-7b-chat         0.12          0.92       0.00        1.00        1.00       0.00
+                  gemma-2-9b-it                0.08          0.90       0.60        0.88        0.40       0.48
+                  glm-4-9b-chat-hf             0.08          1.00       0.33        0.98        0.67       0.31
+                  Llama-3.1-8B-Instruct        0.15          0.39       0.67        0.65        0.33       0.32
+                  Mistral-7B-Instruct-v0.3     0.23          0.65       0.41        0.66        0.56       0.10
+                  Qwen2.5-7B-Instruct          0.30          0.80       0.97        0.37        0.03       0.34
+                  Yi-1.5-9B-Chat               0.56          0.81       0.85        0.44        0.13       0.31
+ CoT
+                  deepseek-llm-7b-chat         0.05          0.88       0.40        0.94        0.60       0.34
+                  gemma-2-9b-it                0.15          0.88       0.98        0.15        0.02       0.13
+                  glm-4-9b-chat-hf             0.24          0.95       0.38        0.97        0.62       0.35
+                  Llama-3.1-8B-Instruct        0.35          0.00       0.97        0.00        0.00        0.00
+                  Mistral-7B-Instruct-v0.3     0.28          0.39       0.87        0.19        0.11        0.08
+                  Qwen2.5-7B-Instruct          0.07          0.57       1.00        0.02        0.00        0.02
+                  Yi-1.5-9B-Chat               0.07          0.41       1.00        0.10        0.00        0.10
+ Counterfactual
+                  deepseek-llm-7b-chat         0.25          0.97       0.00        0.98        1.00       -0.02
+                  gemma-2-9b-it                0.03          0.00       1.00        0.00        0.00        0.00
+                  glm-4-9b-chat-hf             0.23          0.66       0.73        0.24        0.20        0.04
+
+Table 3: Model performance under Zero-shot, CoT, DAP, and Counterfactual prompting strategies with Acc for A-D
+Groups, Teleological Bias Rate (TBR), and Aspectual Awareness Gap (∆AA ).
+
+
+models indicates that they do not genuinely under-           than compositional logic (Ettinger, 2020; Kassner
+stand the Sub-interval Property of the atelic verbs          and Schütze, 2020). We hypothesize that the co-
+(Bennett and Partee, 1978). Instead, they likely             occurrence of an agent (e.g., carpenter) and a telic
+employ a shallow heuristic: “If Subject was V-ing,           verb (e.g., building) activates the “completed result”
+then Subject V-ed”, regardless of verbs in the Zero-         representation in the model’s high-dimensional
+shot setting. This aligns with findings by the NLI           space with such magnitude that it overrides the
+work McCoy et al. (2019), suggesting that the mod-           attention mechanism’s focus on the subsequent can-
+els might often rely on lexical overlap strategies           cellation clause. This phenomenon exemplifies a
+rather than deep semantic compositionality.                  failure of contextual fidelity, where static paramet-
+                                                             ric knowledge priors overpower the dynamic input
+Contextual Neglect via Semantic Priming. Per-                context (Mallen et al., 2023).
+haps the most alarming finding is the resistance
+to explicit negation in Group A (Interrupted Ac-             The Outlier: Qwen2.5 shows exceptional perfor-
+complishment). Despite the textually grounded                mance. Qwen2.5 stands as a notable exception,
+interruption (e.g., “...but a storm destroyed it”),          maintaining a balanced performance with a TBR of
+most models exhibit a stark performance degra-               0.53 and a healthy ∆AA of 0.44. Unlike its peers,
+dation. This stands in sharp contrast to Group               Qwen demonstrates an emerging ability to suspend
+B (Interrupted Activity), where models maintain              judgment in ambiguous contexts.
+high accuracy. This performance gap is semanti-
+cally revealing: for activities, an interruption does
+                                                             5.2    Trade-off: Bias Mitigation vs. Semantic
+not negate the event’s occurrence (the sub-interval
+                                                                    Calibration in Advanced Prompts
+property ensures that “stopped running” entails
+“ran”), whereas for accomplishments, interruption            Evaluating three advanced prompting strategies re-
+strictly precludes the result.                               veals a consistent trade-off between mitigating tele-
+   The failure in Group A suggests that the models’          ological bias and maintaining semantic calibration
+reasoning is driven by Semantic Priming rather               across aspectual classes.
+
+                                                         6
+DAP: The Knowledge-Application Gap. The                              the (a)telicity of verbs, resulting in a wholesale re-
+DAP which introduces expert linguistic definition                    jection of progressive entailments. This highlights
+for the aspectual classes yields mixed results, ex-                  a lack of (aspectual) calibration (Kadavath et al.,
+posing a critical gap between possessing linguis-                    2022; Kapoor et al., 2024): while the counterfac-
+tic knowledge and applying it. While supplying                       tual prompt successfully suppresses teleological
+the linguistic rule improves Llama-3.1’s accuracy                    bias for telic verbs, models fail to modulate this
+on Group C (0.02 → 0.36), it remains ineffec-                        skepticism based on verb class, applying it indis-
+tive for Mistral (0.06). This persistence of bias                    criminately to atelic verbs as well. Detailed analy-
+implies that the teleological prior is not a misunder-               ses and visualization for other models are provided
+standing of the task definition but a robust feature                 in Appendix E.
+of the model’s probability distribution. As noted
+                                                                                              Prompting Trade-offs (Llama-3.1-8B-Instruct)
+by Dziri et al. (2023), compositional reasoning in                              1.0           0.98             0.99                   0.97
+Transformers often degrades when it conflicts with
+                                                                                0.8
+high-frequency statistical patterns (i.e., the report-                                                                 0.67 0.65
+ing bias) seen during pre-training.                                             0.6
+                                                                     Accuracy
+                                                                                                                                             Group C
+                                                                                                                                             Group D
+CoT: Reasoning-Induced Uncertainty. CoT                                         0.4                     0.36
+
+prompting successfully reduces the TBR for most                                 0.2
+models, proving that allocating compute to inter-                                      0.02                                                   0.00
+                                                                                0.0
+mediate reasoning helps suppress System-1 heuris-                                      Zero-shot           DAP            CoT       Counterfactual
+tics (Wei et al., 2022b). However, this comes at a
+cost. We observe a significant degradation in Group                  Figure 1: The trade-off in prompting (Llama-3.1). As
+D (Activities), where accuracy drops substantially                   prompts become more aggressive in targeting bias (Zero-
+                                                                     shot → Counterfactual), accuracy on Group C improves
+(e.g., Llama-3.1 0.98 → 0.65). Qualitative analy-
+                                                                     significantly (Pearson r = 1.00, p = 0.00), while ac-
+sis reveals a phenomenon of “over-reasoning” or                      curacy on Group D declines, though less consistently
+unfaithful reasoning (Turpin et al., 2023). When                     (r = −0.91, p = 0.09). This trade-off illustrates the
+forced to analyze “step-by-step”, models often                       calibration bias.
+hallucinate hypothetical interruptions for simple
+activities.3 CoT appears to over-generalize the
+                                                                     Summary on Different Prompts. In summary,
+progressive-as-incomplete heuristic: when forced
+                                                                     current LLMs struggle to balance the Imperfective
+to reason step-by-step, models often impose hypo-
+                                                                     Paradox. They oscillate between two extremes:
+thetical interruptions even on atelic verbs, inadver-
+                                                                     naive teleology (Zero-shot) where everything is
+tently suppressing valid entailments.
+                                                                     completed, and paranoid skepticism (Counterfac-
+Counterfactuals: The Calibration Crisis. The                         tual) where nothing is ever certain (see the trends
+Counterfactual prompt represents the most aggres-                    in Figure 1). This inability to decouple telicity
+sive intervention for arbitrary interruption. While                  from entailment highlights a critical gap in the true
+highly effective at curing teleological bias (Group                  aspectual reasoning capabilities of LLMs.
+C Acc → 1.00), it induces an obvious calibra-
+                                                                     5.3              Impact of Model Scale
+tion bias. Accuracy on Group D collapses to near
+zero for Llama-3.1. We show the example of                           To understand whether aspectual reasoning is a
+Llama-3.1 in Figure 1. The models swing from                         capability that improves linearly with scale or
+being “naively optimistic” (Zero-shot) to “para-                     emerges as a distinct skill past a certain threshold,
+noidly skeptical” (Counterfactual). The Counter-                     we evaluate the Qwen2.5 family, which showed
+factual clearly over-instructed the models to fol-                   better performance in §5.1, across five distinct pa-
+low the imperfective patterns of the telic verbs                     rameter sizes: 1.5B, 7B, 14B, 32B, and 72B. The
+in Group C, resulting in misunderstanding for the                    results, detailed in Table 5 (Appendix) and visu-
+atelic verbs in Group D. The models failed to dy-                    alized in Figure 2, reveal that aspectual reasoning
+namically adjust their reasoning strategy based on                   follows a distinct trajectory of emergence.
+                                                                        We observe a clear monotonic relationship be-
+   3
+     See, e.g., the activity“running”, with model reasoning:         tween model scale and both evaluation metrics.
+“The premise describes a process in the present tense, indi-
+cating that the action of the athletes running on the track is       Model size is strongly negatively correlated with
+ongoing or at least not explicitly completed.”                       Teleological Bias Rate (TBR; r = −0.93, p =
+
+                                                                 7
+                                      Emergence of Aspectual Reasoning with Scale                                                                                    Impact of Semantic Class on Aspectual Reasoning
+                                                                                                                                                      Group A (Interrupted Accomp.)
+                                                                                                                                                                                                                       0.46
+                               1.0                                                    1.0                                                             Group C (Ambiguous Accomp.)
+
+
+
+
+                                                                                        Aspectual Awareness Gap ( AA)
+                                                                                                                                               0.4
+
+
+
+
+Teleological Bias Rate (TBR)
+                               0.8                                                    0.8
+                                                                                                                                                                             0.30
+
+
+                                                                                                                            Average Accuracy
+                                                                                                                                               0.3
+                               0.6                                                    0.6
+                                                                                                                                                      0.21
+                                                                                                                                               0.2                                              0.18
+                               0.4                                                    0.4                                                                                                                                     0.16
+
+                                                                                                                                               0.1                                    0.09             0.09
+                               0.2                                                    0.2                                                                     0.07
+
+                               0.0                                                    0.0                                                      0.0
+                                                                                                                                                     Change of State         Consumption          Creation         Motion to Goal
+                                     1.5B       7B           14B          32B   72B
+                                                     Model Size (Qwen2.5)
+                                                                                                                            Figure 3: Average accuracy across models by semantic
+Figure 2: The emergence of aspectual reasoning capabil-                                                                     verb classes in Zero-shot. Motion verbs are consistently
+ities across model scales. It shows a significant decrease                                                                  easier for models to reason about, while Creation verbs
+in TBR and a corresponding increase in ∆AA .                                                                                induce strong teleological bias (low accuracy in Group
+                                                                                                                            C) and resistance to contextual cancellation (lowest ac-
+                                                                                                                            curacy in Group A).
+0.02) and strongly positively correlated with the
+Aspectual Awareness Gap (∆AA ; r = 0.94, p =
+                                                                                                                            ter”) consistently yield the highest performance. In
+0.01), indicating that increased model capacity sys-
+                                                                                                                            Group A, the average accuracy for Motion to Goal
+tematically reduces teleological overgeneralization
+                                                                                                                            verbs is 46%, significantly outperforming Creation
+while enhancing aspect-sensitive reasoning.
+                                                                                                                            (18%) and Change of State (21%). The perfor-
+   The 1.5B model exhibits a complete inability to                                                                          mance gap is substantial: ∆M otion−Creation ≈
+handle the Imperfective Paradox. With a TBR of                                                                              +28% in Group A and ≈ +13% in Group C.4
+1.00 and a ∆AA of 0.00, it treats every progres-                                                                               We hypothesize that this stems from the nature
+sive verb as an entailed completion. As model                                                                               of the resultative state. For Creation verbs (e.g.,
+scale increases, a dramatic “phase shift” (Wei et al.,                                                                      “build”), the result involves the existential realiza-
+2022a) is observed, especially at the 32B level: Ac-                                                                        tion of an object. This explicit “coming into being”
+curacy on Group C surges to 0.91, and the ∆AA                                                                               appears to act as a stronger attractor in the lan-
+peaks at 0.83. This suggests that robust aspectual                                                                          guage model’s predictive distribution than a mere
+distinction, the ability to selectively inhibit the en-                                                                     change in spatial coordinates involved in Motion.
+tailment for telic verbs while maintaining it for                                                                           Consequently, models exhibit higher resistance to
+atelic ones, is an emergent ability. Although the                                                                           negation when an artifact’s existence is at stake.
+72B model maintains strong performance, ∆AA
+decreases slightly to 0.81, suggesting a potential                                                                          Representational Analysis: Encoding vs. In-
+saturation or optimization bottleneck rather than                                                                           ference. Does teleological bias reflect a failure
+further qualitative gains. Overall, these results in-                                                                       to distinguish process from result in the model’s
+dicate that aspectual understanding improves with                                                                           internal representations, or does it arise later, at
+scale and exhibits non-linear emergence character-                                                                          the point of inference? In order to probe this, we
+istics rather than linear scaling.                                                                                          measured the cosine similarity between contextual
+                                                                                                                            embeddings of progressive (e.g., “was building”)
+5.4                                  Fine-grained Analysis on Verb Semantics                                                and perfective (e.g., “built”) verb phrases using
+Do all telic verb classes trigger the same degree of                                                                        bert-base-uncased (Devlin et al., 2019), treating
+teleological bias? To answer this, we disaggregate                                                                          representational similarity as a proxy for how well
+the performance on Group A and Group C based                                                                                the model’s encoder separates the two aspectual
+on the four semantic sub-classes defined in §3: Cre-                                                                        forms.
+ation, Consumption, Change of State, and Motion                                                                                Figure 4 reveals a striking inverse relationship
+to Goal. Figure 3 visualizes the average accuracy                                                                           (Pearson r = −0.97, p = 0.03) between how simi-
+across all evaluated models in the zero-shot setting.                                                                       larly a model encodes the progressive and perfec-
+Detailed results for each model as well as for other                                                                            4
+                                                                                                                                  We additionally conducted a two-way repeated-measures
+prompt settings can be found in Appendix E.                                                                                 ANOVA for Group A and Group C across models and semantic
+                                                                                                                            verb classes. The results revealed a significant main effect
+The Resilience of Motion vs. The Creation                                                                                   of verb class (F (3, 18) = 6.98, p < 0.01). Crucially, we
+                                                                                                                            observed a significant interaction between group and verb
+Penalty. We observe a significant semantic diver-                                                                           class (F (3, 18) = 3.88, p < 0.05), indicating that the impact
+gence. Verbs of Motion to Goal (e.g., “arrive”, “en-                                                                        of ambiguity varies across semantic classes.
+
+
+                                                                                                                        8
+                                           Aspectual Collapse: Semantic Similarity between 'was V-ing' and 'V-ed'                                                       Correlation: Embedding Similarity vs. Teleological Bias
+                                                                                                                                                                                                                                                        critical calibration crisis, finding that while some
+                                                                                                                                                                                      (Pearson r=-0.97, p=0.03)
+
+                                                                                                                                                                                                                                                        strategies reduce overconfident or hallucinated pre-
+
+
+                                                                                                                     Teleological Bias Rate (Behavioral Error)
+ Cosine Similarity (Process vs. Result)
+                                                                                                                                                                 0.96
+                                          0.9
+
+
+
+                                          0.8
+                                                                                                                                                                 0.94
+
+
+                                                                                                                                                                 0.92
+                                                                                                                                                                            Change_of_State
+                                                                                                                                                                                                                                                        dictions, they can also make models overly cau-
+                                                                                                                                                                                              Creation Consumption
+                                          0.7
+                                                                                                                                                                 0.90                                                                                   tious, causing them to reject correct entailments.
+                                          0.6                                                                                                                    0.88
+
+
+
+                                          0.5
+                                                                                                                                                                 0.86
+                                                                                                                                                                                                                                                        Meanwhile, this aspectual understanding can im-
+                                                Motion_to_Goal    Creation    Change_of_State   Consumption
+                                                                                                                                                                 0.84
+
+                                                                                                                                                                         0.79   0.80   0.81    0.82   0.83   0.84    0.85   0.86
+                                                                                                                                                                                                                                   Motion_to_Goal
+
+
+                                                                                                                                                                                                                                   0.87
+                                                                                                                                                                                                                                                        prove with model scale unevenly. Furthermore, we
+                                                                         Verb Class                                                                               Process–Result Vector Similarity (Representational Collapse)
+
+                                                                                                                                                                                                                                                        demonstrate that this bias is not merely a represen-
+(a) Cosine similarity                                                                                               (b) Similarity vs. TBRC
+(Process vs. Result).                                                                                               (Zero-shot).
+                                                                                                                                                                                                                                                        tational deficit but a decision-time failure: while
+                                                                                                                                                                                                                                                        internal embeddings often distinguish between pro-
+Figure 4: Representational vs. Behavioral Divergence.                                                                                                                                                                                                   cess and result, strong probabilistic priors regarding
+                                                                                                                                                                                                                                                        goal attainment override these signals during infer-
+                                                                                                                                                                                                                                                        ence. We conclude that solving aspectual reasoning
+tive forms of a verb, and how strongly it hallu-
+                                                                                                                                                                                                                                                        requires moving beyond inference-time prompting
+cinates completion for that verb class. Crucially,
+                                                                                                                                                                                                                                                        toward aligning models to structurally respect the
+this relationship runs in the opposite direction from
+                                                                                                                                                                                                                                                        internal logical boundaries of event semantics. We
+what a simple confusion account would predict.
+                                                                                                                                                                                                                                                        hope that I MPERFECTIVE NLI provides a founda-
+Motion to Goal verbs show the highest represen-
+                                                                                                                                                                                                                                                        tion for future work on targeted alignment training,
+tational similarity (median ≈ 0.88), meaning the
+                                                                                                                                                                                                                                                        cross-lingual aspectual reasoning, and the broader
+model encodes “was flying” and “flew” as nearly
+                                                                                                                                                                                                                                                        challenge of teaching LLMs to respect formal se-
+identical; yet models reason about them most ac-
+                                                                                                                                                                                                                                                        mantic boundaries.
+curately (with TBRC being the lowest). Creation
+verbs show slightly lower similarity (median ≈                                                                                                                                                                                                          7   Limitations
+0.85), meaning the model’s encoder does distin-
+guish “was building” from “built”; yet these verbs                                                                                                                                                                                                      While our work offers important insights into the
+trigger higher hallucination rates (with TBRC be-                                                                                                                                                                                                       imperfective paradox with the teleological bias of
+ing higher).                                                                                                                                                                                                                                            LLMs, we acknowledge several limitations that
+   This dissociation has a clear implication: the bias                                                                                                                                                                                                  define the scope of our findings and point towards
+does not stem from the model failing to encode the                                                                                                                                                                                                      future research directions.
+aspectual distinction. If it did, we would expect
+high similarity to correlate with high error, but the                                                                                                                                                                                                   Ecological Validity and Syntactic Diversity. To
+opposite holds. Instead, even when the internal rep-                                                                                                                                                                                                    strictly isolate the variable of aspectual telicity, we
+resentation correctly separates process from result,                                                                                                                                                                                                    employed a template-based approach to construct
+the inference step is overridden by a strong prior                                                                                                                                                                                                      I MPERFECTIVE NLI. While this ensures high in-
+that Creation events reach their goal. The model                                                                                                                                                                                                        ternal validity and precise minimal-pair compar-
+“knows” the difference between “was building” and                                                                                                                                                                                                       isons, it sacrifices lexical and syntactic diversity.
+“built”, but still predicts completion, because its                                                                                                                                                                                                     Real-world language usage often includes complex
+training has instilled a robust expectation that con-                                                                                                                                                                                                   discourse markers, temporal adjuncts (e.g., “for
+struction projects succeed. Teleological Bias is                                                                                                                                                                                                        an hour” vs. “in an hour”), and pragmatic cues
+therefore not a failure of perception (encoding),                                                                                                                                                                                                       that constrain interpretation (Zhang, 1995). Conse-
+but a failure of reasoning (decoding): the model’s                                                                                                                                                                                                      quently, our controlled setup likely overestimates
+decoding process is captured by world-knowledge                                                                                                                                                                                                         model competence relative to naturalistic settings;
+priors rather than guided by the logical content of                                                                                                                                                                                                     handling the imperfective paradox in messier, more
+the input.                                                                                                                                                                                                                                              complex narratives may prove considerably more
+                                                                                                                                                                                                                                                        challenging.
+6                                                Conclusion
+                                                                                                                                                                                                                                                        Linguistic Specificity. Our study focuses exclu-
+In this work, we evaluated and discovered the Tele-                                                                                                                                                                                                     sively on English, a language that marks the pro-
+ological Bias in LLMs using our diagnostic dataset,                                                                                                                                                                                                     gressive aspect periphrastically (via auxiliary “be”
+I MPERFECTIVE NLI. Our findings indicate that cur-                                                                                                                                                                                                      + “-ing”). However, aspect is a typologically di-
+rent models fundamentally struggle to resolve the                                                                                                                                                                                                       verse category. For instance, Slavic languages mark
+Imperfective Paradox, frequently conflating the                                                                                                                                                                                                         aspect morphologically (aspect prefixes), while
+process of a telic event with its culmination. Our                                                                                                                                                                                                      Mandarin Chinese uses aspectual particles. Since
+investigation into prompting strategies reveals a                                                                                                                                                                                                       LLM tokenizers and representations vary across
+
+                                                                                                                                                                                                                                                    9
+languages, it remains an open question whether the           8   Ethical Considerations
+teleological bias is a universal cognitive artifact
+                                                             Human Subjects for Data Evaluation. For the
+of Transformers or an artifact of English-centric
+                                                             human evaluation of sentence quality, we recruited
+pre-training data. Meanwhile, in human cognitive
+                                                             external participants via the Prolific platform. Prior
+studies, research demonstrates that the conceptu-
+                                                             to the task, annotators were fully informed about
+alization of event semantics differs fundamentally
+                                                             the study’s scope and provided informed consent.
+between aspect languages (those with grammatical-
+                                                             We ensured that no personally identifiable informa-
+ized aspect markers, e.g., English, Chinese, Rus-
+                                                             tion (PII) was collected. Evaluators were compen-
+sian) and non-aspect languages (e.g., German) (von
+                                                             sated at an hourly rate of £9, exceeding the plat-
+Stutterheim et al., 2012; Flecken et al., 2014). Con-
+                                                             form’s recommended minimum and comparable to
+sequently, extending this investigation to a cross-
+                                                             the local living wage.
+lingual and typological framework represents a vi-
+tal direction for future research.                           Artifact Usage. Regarding the curated ar-
+                                                             tifacts, we release the I MPERFECTIVE NLI
+Theoretical Linguistics vs. Human Judgments.                 dataset under the Creative Commons Attribution-
+Since our paper focuses on the theoretical concepts          NonCommercial 4.0 International License (CC BY-
+of imperfective paradox, we note potential diver-            NC 4.0). This license explicitly permits the distri-
+gence between theoretical labels and empirical hu-           bution and use of the dataset for research purposes.
+man judgments. As the first study systematically             We confirm that our use of these existing artifacts
+investigating the Imperfective Paradox in LLMs,              is consistent with their intended academic use, and
+our primary objective was to characterize the tele-          our derivative dataset is released with the strict
+ological bias, the models’ tendency to hallucinate           specification that it be used solely within research
+completion, based on established theoretical se-             contexts, ensuring compatibility with the original
+mantics. While we focus here on establishing this            access conditions. The dataset contains no harmful
+bias in models, we wish to note that exploring the           or offensive content.
+fine-grained nuances of human perception in these
+contexts is a vital next step.                               Use of AI Assistants. As described in Section
+                                                             3, we used Gemini to assist in the initial genera-
+Inference-Only Interventions. Our mitigation                 tion and curation of the dataset. To ensure data
+strategies were limited to inference-time prompt-            quality and mitigate potential machine artifacts,
+ing (CoT, Counterfactuals). While we identified              all generated instances underwent rigorous manual
+the performance trade-offs as a side effect of these         verification and refinement by three native English
+prompts, we did not explore parameter-efficient              speakers (see validation details in Section 3 and
+fine-tuning (PEFT) or activation steering tech-              Appendix C).
+niques to permanently alter the model’s internal                Regarding the manuscript and experimental
+aspectual representations. Future work should in-            code, we acknowledge the use of ChatGPT solely
+vestigate whether the “dissociation” between rep-            for grammatical correction, stylistic polishing, and
+resentation and reasoning can be bridged through             assistance with preliminary coding routines. The
+targeted alignment training rather than transient            authors verified all AI-assisted outputs and bear
+prompting.                                                   full responsibility for the accuracy and originality
+                                                             of the content presented in this work.
+Scope of World Knowledge. Finally, our seman-
+                                                             Acknowledgments
+tic analysis focused on four broad classes of telic
+verbs. We did not model the granularity of “script           This publication was supported by LMUexcellent,
+knowledge” (Schank and Abelson, 1977; Lyu et al.,            funded by the Federal Ministry of Research, Tech-
+2021). For example, the probability of interrup-             nology and Space (BMFTR) and the Free State
+tion varies by event type (e.g., “building a house”          of Bavaria under the Excellence Strategy of the
+takes months and is prone to interruption, whereas           German Federal Government and the Länder.
+“drawing a circle” takes seconds). Current models               We also thank Max Müller-Eberstein for valu-
+may rely on these latent temporal priors, which              able discussions and insightful exchanges related
+our uniform evaluation setup does not explicitly             to this project.
+disentangle from grammatical aspect.
+
+                                                        10
+References                                                       deep bidirectional transformers for language under-
+                                                                 standing. In Proceedings of the 2019 Conference of
+01. AI, :, Alex Young, Bei Chen, Chao Li, Chengen                the North American Chapter of the Association for
+  Huang, Ge Zhang, Guanwei Zhang, Guoyin Wang,                   Computational Linguistics: Human Language Tech-
+  Heng Li, Jiangcheng Zhu, Jianqun Chen, Jing Chang,             nologies, Volume 1 (Long and Short Papers), pages
+  Kaidong Yu, Peng Liu, Qiang Liu, Shawn Yue,                    4171–4186, Minneapolis, Minnesota. Association for
+  Senbin Yang, Shiming Yang, and 14 others. 2025.                Computational Linguistics.
+  Yi: Open foundation models by 01.ai. Preprint,
+  arXiv:2403.04652.                                            David R. Dowty. 1977. Toward a semantic analysis of
+                                                                 verb aspect and the english ‘imperfective’ progres-
+John Beavers. 2010. The structure of lexical meaning:            sive. Linguistics and Philosophy, 1(1):45–77.
+  Why semantics really matters. Language, 86(4):821–
+  864.                                                         David R. Dowty. 1979. Word Meaning and Montague
+                                                                 Grammar, 1 edition. Studies in Linguistics and Phi-
+John Beavers and Andrew Koontz-Garboden. 2012.                   losophy. Springer Dordrecht.
+  Manner and result in the roots of verbal meaning.
+  Linguistic Inquiry, 43(3):331–369.                           Nouha Dziri, Ximing Lu, Melanie Sclar, Xiang (Lor-
+                                                                 raine) Li, Liwei Jiang, Bill Yuchen Lin, Sean Welleck,
+Emily M. Bender, Timnit Gebru, Angelina McMillan-                Peter West, Chandra Bhagavatula, Ronan Le Bras,
+  Major, and Shmargaret Shmitchell. 2021. On the                 Jena Hwang, Soumya Sanyal, Xiang Ren, Allyson Et-
+  dangers of stochastic parrots: Can language mod-               tinger, Zaid Harchaoui, and Yejin Choi. 2023. Faith
+  els be too big? In Proceedings of the 2021 ACM                 and fate: Limits of transformers on compositional-
+  Conference on Fairness, Accountability, and Trans-             ity. In Advances in Neural Information Processing
+  parency, FAccT ’21, page 610–623, New York, NY,                Systems, volume 36, pages 70293–70332. Curran As-
+  USA. Association for Computing Machinery.                      sociates, Inc.
+Michael Bennett and Barbara Hall Partee. 1978. Toward          Allyson Ettinger. 2020. What BERT is not: Lessons
+  the Logic of Tense and Aspect in English. IU Linguis-          from a new suite of psycholinguistic diagnostics for
+  tics Club. Indiana University Linguistics Club.                language models. Transactions of the Association for
+                                                                 Computational Linguistics, 8:34–48.
+Samuel R. Bowman, Gabor Angeli, Christopher Potts,
+  and Christopher D. Manning. 2015. A large anno-              Sebastian Farquhar, Jannik Kossen, Lorenz Kuhn, and
+  tated corpus for learning natural language inference.          Yarin Gal. 2024. Detecting hallucinations in large
+  In Proceedings of the 2015 Conference on Empiri-               language models using semantic entropy. Nature,
+  cal Methods in Natural Language Processing, pages              630(8017):625–630.
+  632–642, Lisbon, Portugal. Association for Compu-
+  tational Linguistics.                                        Alvan R. Feinstein and Domenic V. Cicchetti. 1990.
+                                                                 High agreement but low kappa: I. the problems of
+Tom Brown, Benjamin Mann, Nick Ryder, Melanie                    two paradoxes. Journal of Clinical Epidemiology,
+  Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind             43(6):543–549.
+  Neelakantan, Pranav Shyam, Girish Sastry, Amanda
+  Askell, Sandhini Agarwal, Ariel Herbert-Voss,                Hana Filip. 2008. Events and maximalization: The
+  Gretchen Krueger, Tom Henighan, Rewon Child,                   case of telicity and perfectivity. In Susan Deborah
+  Aditya Ramesh, Daniel Ziegler, Jeffrey Wu, Clemens             Rothstein, editor, Theoretical and Crosslinguistic Ap-
+  Winter, and 12 others. 2020. Language models are               proaches to the Semantics of Aspect, pages 110–217.
+  few-shot learners. In Advances in Neural Information           John Benjamins.
+  Processing Systems, volume 33, pages 1877–1901.
+  Curran Associates, Inc.                                      Monique Flecken, Christiane von Stutterheim, and Mary
+                                                                Carroll. 2014. Grammatical aspect influences motion
+Yiran Chen, Zhenqiao Song, Xianze Wu, Danqing                   event perception: findings from a cross- linguistic
+  Wang, Jingjing Xu, Jiaze Chen, Hao Zhou, and Lei              non-verbal recognition task. Language and Cogni-
+  Li. 2022. MTG: A benchmark suite for multilin-                tion, 6(1):45–78.
+  gual text generation. In Findings of the Association
+  for Computational Linguistics: NAACL 2022, pages             Annemarie Friedrich and Damyana Gateva. 2017. Clas-
+  2508–2527, Seattle, United States. Association for             sification of telicity using cross-linguistic annotation
+  Computational Linguistics.                                     projection. In Proceedings of the 2017 Conference on
+                                                                 Empirical Methods in Natural Language Processing,
+Bernard Comrie. 1976. Aspect. Cambridge Textbooks                pages 2559–2565, Copenhagen, Denmark. Associa-
+  in Linguistics. Cambridge University Press, Cam-               tion for Computational Linguistics.
+  bridge.
+                                                               Annemarie Friedrich and Alexis Palmer. 2014. Auto-
+DeepSeek-AI. 2024. Deepseek-v3 technical report.                 matic prediction of aspectual class of verbs in context.
+  Preprint, arXiv:2412.19437.                                    In Proceedings of the 52nd Annual Meeting of the
+                                                                 Association for Computational Linguistics (Volume 2:
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and                    Short Papers), pages 517–523, Baltimore, Maryland.
+   Kristina Toutanova. 2019. BERT: Pre-training of               Association for Computational Linguistics.
+
+
+                                                          11
+Annemarie Friedrich, Alexis Palmer, and Manfred                    de las Casas, Florian Bressand, Gianna Lengyel, Guil-
+  Pinkal. 2016. Situation entity types: automatic classi-          laume Lample, Lucile Saulnier, Lélio Renard Lavaud,
+  fication of clause-level aspect. In Proceedings of the           Marie-Anne Lachaux, Pierre Stock, Teven Le Scao,
+  54th Annual Meeting of the Association for Compu-                Thibaut Lavril, Thomas Wang, Timothée Lacroix,
+  tational Linguistics (Volume 1: Long Papers), pages              and William El Sayed. 2023. Mistral 7b. Preprint,
+  1757–1768, Berlin, Germany. Association for Com-                 arXiv:2310.06825.
+  putational Linguistics.
+                                                                 Saurav Kadavath, Tom Conerly, Amanda Askell, Tom
+Annemarie Friedrich and Manfred Pinkal. 2015. Au-                  Henighan, Dawn Drain, Ethan Perez, Nicholas
+  tomatic recognition of habituals: a three-way clas-              Schiefer, Zac Hatfield-Dodds, Nova DasSarma, Eli
+  sification of clausal aspect. In Proceedings of the              Tran-Johnson, Scott Johnston, Sheer El-Showk,
+  2015 Conference on Empirical Methods in Natural                  Andy Jones, Nelson Elhage, Tristan Hume, Anna
+  Language Processing, pages 2471–2481, Lisbon, Por-               Chen, Yuntao Bai, Sam Bowman, Stanislav Fort, and
+  tugal. Association for Computational Linguistics.                17 others. 2022. Language models (mostly) know
+                                                                   what they know. Preprint, arXiv:2207.05221.
+Annemarie Friedrich, Nianwen Xue, and Alexis Palmer.
+  2023. A kind introduction to lexical and grammatical           Sanyam Kapoor, Nate Gruver, Manley Roberts, Kather-
+  aspect, with a survey of computational approaches.               ine Collins, Arka Pal, Umang Bhatt, Adrian Weller,
+  In Proceedings of the 17th Conference of the Euro-               Samuel Dooley, Micah Goldblum, and Andrew Gor-
+  pean Chapter of the Association for Computational                don Wilson. 2024. Large language models must be
+  Linguistics, pages 599–622, Dubrovnik, Croatia. As-              taught to know what they don’t know. In Advances in
+  sociation for Computational Linguistics.                         Neural Information Processing Systems, volume 37,
+                                                                   pages 85932–85972. Curran Associates, Inc.
+Team GLM, :, Aohan Zeng, Bin Xu, Bowen Wang,
+  Chenhui Zhang, Da Yin, Dan Zhang, Diego Ro-                    Nora Kassner and Hinrich Schütze. 2020. Negated and
+  jas, Guanyu Feng, Hanlin Zhao, Hanyu Lai, Hao                    misprimed probes for pretrained language models:
+  Yu, Hongning Wang, Jiadai Sun, Jiajie Zhang,                     Birds can talk, but cannot fly. In Proceedings of the
+  Jiale Cheng, Jiayi Gui, Jie Tang, and 40 others.                 58th Annual Meeting of the Association for Compu-
+  2024. Chatglm: A family of large language mod-                   tational Linguistics, pages 7811–7818, Online. Asso-
+  els from glm-130b to glm-4 all tools. Preprint,                  ciation for Computational Linguistics.
+  arXiv:2406.12793.                                              Thomas Kober, Malihe Alikhani, Matthew Stone, and
+Jonathan Gordon and Benjamin Van Durme. 2013. Re-                  Mark Steedman. 2020. Aspectuality across genre: A
+  porting bias and knowledge acquisition. In Proceed-              distributional semantics approach. In Proceedings of
+  ings of the 2013 Workshop on Automated Knowledge                 the 28th International Conference on Computational
+  Base Construction, AKBC ’13, page 25–30, New                     Linguistics, pages 4546–4562, Barcelona, Spain (On-
+  York, NY, USA. Association for Computing Machin-                 line). International Committee on Computational Lin-
+  ery.                                                             guistics.
+                                                                 Elisabeth Leiss. 1992. Die Verbalkategorien des
+Aaron Grattafiori, Abhimanyu Dubey, Abhinav Jauhri,                 Deutschen. De Gruyter, Berlin, Boston.
+  Abhinav Pandey, Abhishek Kadian, Ahmad Al-
+  Dahle, Aiesha Letman, Akhil Mathur, Alan Schel-                Beth Levin. 1993. English Verb Classes and Alterna-
+  ten, Alex Vaughan, Amy Yang, Angela Fan, Anirudh                 tions: A Preliminary Investigation. University of
+  Goyal, Anthony Hartshorn, Aobo Yang, Archi Mi-                   Chicago Press.
+  tra, Archie Sravankumar, Artem Korenev, Arthur
+  Hinsvark, and 542 others. 2024. The llama 3 herd of            Qing Lyu, Li Zhang, and Chris Callison-Burch. 2021.
+  models. Preprint, arXiv:2407.21783.                              Goal-oriented script construction. In Proceedings of
+                                                                   the 14th International Conference on Natural Lan-
+H. Paul Grice. 1975. Logic and conversation. Syntax                guage Generation, pages 184–200, Aberdeen, Scot-
+  and Semantics, 3:41–58.                                          land, UK. Association for Computational Linguistics.
+Kilem Li Gwet. 2008. Computing inter-rater reliability           Bolei Ma. 2024. Evaluating lexical aspect with large
+  and its variance in the presence of high agreement.              language models. In Proceedings of the Workshop on
+  British Journal of Mathematical and Statistical Psy-             Cognitive Modeling and Computational Linguistics,
+  chology, 61(1):29–48.                                            pages 123–131, Bangkok, Thailand. Association for
+                                                                   Computational Linguistics.
+Jürgen Hermes, Michael Richter, and Claes Neuefind.
+   2015. Automatic induction of german aspectual verb            Alex Mallen, Akari Asai, Victor Zhong, Rajarshi Das,
+   classes in a distributional framework. In Proceedings           Daniel Khashabi, and Hannaneh Hajishirzi. 2023.
+   of the International Conference of the German So-               When not to trust language models: Investigating
+   ciety for Computational Linguistics and Language                effectiveness of parametric and non-parametric mem-
+  Technology (GSCL).                                               ories. In Proceedings of the 61st Annual Meeting of
+                                                                   the Association for Computational Linguistics (Vol-
+Albert Q. Jiang, Alexandre Sablayrolles, Arthur Men-               ume 1: Long Papers), pages 9802–9822, Toronto,
+  sch, Chris Bamford, Devendra Singh Chaplot, Diego                Canada. Association for Computational Linguistics.
+
+
+                                                            12
+R. Thomas McCoy, Ellie Pavlick, and Tal Linzen. 2019.            Steven E. Stemler. 2004. A comparison of consensus,
+   Right for the wrong reasons: Diagnosing syntactic                consistency, and measurement approaches to esti-
+   heuristics in natural language inference. In Proceed-            mating interrater reliability. Practical Assessment,
+   ings of the 57th Annual Meeting of the Association for          Research, and Evaluation, 9(1):4.
+   Computational Linguistics, pages 3428–3448, Flo-
+   rence, Italy. Association for Computational Linguis-          Leonard Talmy. 2000. Toward a Cognitive Semantics,
+   tics.                                                           Volume 1: Concept Structuring Systems. The MIT
+                                                                   Press.
+Eleni Metheniti, Tim Van De Cruys, and Nabil Hathout.
+   2022. About time: Do transformers learn temporal              Gemini Team, Rohan Anil, Sebastian Borgeaud, Jean-
+  verbal aspect? In Proceedings of the Workshop on                 Baptiste Alayrac, Jiahui Yu, Radu Soricut, Johan
+  Cognitive Modeling and Computational Linguistics,                Schalkwyk, Andrew M. Dai, Anja Hauth, Katie
+   pages 88–101, Dublin, Ireland. Association for Com-             Millican, David Silver, Melvin Johnson, Ioannis
+   putational Linguistics.                                         Antonoglou, Julian Schrittwieser, Amelia Glaese,
+                                                                   Jilin Chen, Emily Pitler, Timothy Lillicrap, Angeliki
+Marc Moens and Mark Steedman. 1988. Temporal                       Lazaridou, and 1332 others. 2025. Gemini: A fam-
+ ontology and temporal reference. Computational                    ily of highly capable multimodal models. Preprint,
+ Linguistics, 14(2):15–28.                                         arXiv:2312.11805.
+
+Terence Parsons. 1990. Events in the Semantics of En-            Gemma Team, Morgane Riviere, Shreya Pathak,
+  glish: A Study in Subatomic Semantics. MIT Press.                Pier Giuseppe Sessa, Cassidy Hardin, Surya Bhupati-
+                                                                   raju, Léonard Hussenot, Thomas Mesnard, Bobak
+Katarzyna Pruś, Mark Steedman, and Adam Lopez.                    Shahriari, Alexandre Ramé, Johan Ferret, Peter Liu,
+  2024. Human temporal inferences go beyond aspec-                 Pouya Tafti, Abe Friesen, Michelle Casbon, Sabela
+  tual class. In Proceedings of the 18th Conference of             Ramos, Ravin Kumar, Charline Le Lan, Sammy
+  the European Chapter of the Association for Compu-               Jerome, and 179 others. 2024. Gemma 2: Improving
+  tational Linguistics (Volume 1: Long Papers), pages              open language models at a practical size. Preprint,
+  1913–1923, St. Julian’s, Malta. Association for Com-             arXiv:2408.00118.
+  putational Linguistics.
+                                                                 Hugo Touvron, Louis Martin, Kevin Stone, Peter Al-
+Katarzyna Pruś, Mark Steedman, and Adam Lopez.                    bert, Amjad Almahairi, Yasmine Babaei, Nikolay
+  2025. World knowledge resolves some aspectual                    Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti
+  ambiguity. In Findings of the Association for Compu-             Bhosale, Dan Bikel, Lukas Blecher, Cristian Canton
+  tational Linguistics: ACL 2025, pages 13207–13220,               Ferrer, Moya Chen, Guillem Cucurull, David Esiobu,
+  Vienna, Austria. Association for Computational Lin-              Jude Fernandes, Jeremy Fu, Wenyin Fu, and 49 oth-
+  guistics.                                                        ers. 2023. Llama 2: Open foundation and fine-tuned
+                                                                   chat models. Preprint, arXiv:2307.09288.
+Qwen, :, An Yang, Baosong Yang, Beichen Zhang,
+ Binyuan Hui, Bo Zheng, Bowen Yu, Chengyuan                      Miles Turpin, Julian Michael, Ethan Perez, and Samuel
+ Li, Dayiheng Liu, Fei Huang, Haoran Wei, Huan                     Bowman. 2023. Language models don't always say
+ Lin, Jian Yang, Jianhong Tu, Jianwei Zhang, Jianxin               what they think: Unfaithful explanations in chain-of-
+ Yang, Jiaxi Yang, Jingren Zhou, and 25 oth-                       thought prompting. In Advances in Neural Informa-
+ ers. 2025. Qwen2.5 technical report. Preprint,                    tion Processing Systems, volume 36, pages 74952–
+ arXiv:2412.15115.                                                 74965. Curran Associates, Inc.
+Anita Ramm, Sharid Loáiciga, Annemarie Friedrich,                Zeno Vendler. 1957. Verbs and times. The Philosophi-
+  and Alexander Fraser. 2017. Annotating tense, mood               cal Review, 66(2):143–160.
+  and voice for English, French and German. In Pro-
+  ceedings of ACL 2017, System Demonstrations, pages             Christiane von Stutterheim, Martin Andermann, Mary
+  1–6, Vancouver, Canada. Association for Computa-                 Carroll, Monique Flecken, and Barbara Schmiedtová.
+  tional Linguistics.                                              2012. How grammaticized concepts shape event con-
+                                                                   ceptualization in language production: Insights from
+Roger C. Schank and Robert P. Abelson. 1977. Scripts,              linguistic analysis, eye tracking data, and memory
+  Plans, Goals, and Understanding: An Inquiry Into                 performance. Linguistics, 50(4):833–867.
+  Human Knowledge Structures, 1 edition. Psychology
+  Press, New York.                                               Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel,
+                                                                    Barret Zoph, Sebastian Borgeaud, Dani Yogatama,
+Eric V. Siegel and Kathleen R. McKeown. 2000.                       Maarten Bosma, Denny Zhou, Donald Metzler, Ed H.
+  Learning methods to combine linguistic indica-                    Chi, Tatsunori Hashimoto, Oriol Vinyals, Percy
+  tors:improving aspectual classification and reveal-               Liang, Jeff Dean, and William Fedus. 2022a. Emer-
+  ing linguistic insights. Computational Linguistics,               gent abilities of large language models. Transactions
+  26(4):595–627.                                                    on Machine Learning Research. Survey Certifica-
+                                                                    tion.
+Carlota S. Smith. 1997. The Parameter of Aspect, 2 edi-
+  tion. Studies in Linguistics and Philosophy. Springer          Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten
+  Dordrecht.                                                        Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc V Le,
+
+
+                                                            13
+    and Denny Zhou. 2022b. Chain-of-thought prompt-                Change of State: [’fix’, ’fill’, ’clean’, ’repair’,
+    ing elicits reasoning in large language models. In          ’empty’, ’dry’, ’wash’, ’iron’, ’sharpen’, ’inflate’,
+    Advances in Neural Information Processing Systems,
+                                                                ’freeze’, ’melt’, ’cure’, ’renovate’, ’demolish’,
+    volume 35, pages 24824–24837. Curran Associates,
+    Inc.                                                        ’dig’, ’pack’, ’unlock’, ’memorize’, ’learn’, ’or-
+                                                                ganize’, ’erase’, ’delete’, ’install’, ’wrap’, ’open’,
+David M. Williamson, Xiaoming Xi, and F. Jay Breyer.            ’close’, ’rescue’, ’save’, ’mow’, ’sweep’, ’mop’,
+  2012. A framework for evaluation and use of auto-
+  mated scoring. Educational Measurement: Issues                ’polish’, ’sand’, ’crack’, ’cut’, ’slice’, ’chop’, ’boil’,
+  and Practice, 31(1):2–13.                                     ’fry’, ’roast’, ’toast’, ’decorate’, ’furnish’]
+Thomas Wolf, Lysandre Debut, Victor Sanh, Julien                  Consumption: [’eat’, ’drink’, ’read’, ’burn’, ’de-
+  Chaumond, Clement Delangue, Anthony Moi, Pier-
+  ric Cistac, Tim Rault, Remi Louf, Morgan Funtowicz,           vour’, ’spend’, ’destroy’, ’solve’, ’peel’]
+  Joe Davison, Sam Shleifer, Patrick von Platen, Clara
+  Ma, Yacine Jernite, Julien Plu, Canwen Xu, Teven                 Creation: [’build’, ’paint’, ’bake’, ’write’, ’knit’,
+  Le Scao, Sylvain Gugger, and 3 others. 2020. Trans-           ’compose’, ’draw’, ’film’, ’code’, ’sew’, ’sculpt’,
+  formers: State-of-the-art natural language processing.        ’weave’, ’brew’, ’forge’, ’design’, ’prove’, ’trans-
+  In Proceedings of the 2020 Conference on Empirical
+  Methods in Natural Language Processing: System                late’, ’construct’, ’invent’, ’produce’, ’plan’, ’calcu-
+  Demonstrations, pages 38–45, Online. Association              late’, ’measure’, ’count’, ’transcribe’, ’download’,
+  for Computational Linguistics.                                ’upload’, ’print’, ’plant’, ’harvest’, ’mix’, ’equip’,
+ChengYan Wu, Bolei Ma, Yihong Liu, Zheyu Zhang,
+                                                                ’establish’, ’form’, ’shape’, ’assemble’, ’gather’,
+  Ningyuan Deng, Yanshu Li, Baolan Chen, Yi Zhang,              ’collect’, ’pick’]
+  Yun Xue, and Barbara Plank. 2025. M-ABSA: A mul-
+  tilingual dataset for aspect-based sentiment analysis.          Motion to Goal: [’climb’, ’cross’, ’hike’, ’fly’,
+  In Proceedings of the 2025 Conference on Empiri-              ’mail’, ’deliver’, ’catch’, ’locate’]
+  cal Methods in Natural Language Processing, pages
+  2530–2557, Suzhou, China. Association for Compu-
+  tational Linguistics.
+Lihua Zhang. 1995. A Contrastive Study of Aspectuality
+  in German, English, and Chinese. Peter Lang Verlag,           B    Prompts
+  New York, United States of America.
+
+A     Verbs
+We show here the telic verbs and atelic verbs                   In this section, we present the detailed prompt tem-
+probed in the I MPERFECTIVE NLI and in the main                 plates used across our four experimental conditions.
+experiment:                                                     The placeholders {premise} and {hypothesis}
+   Atelic verbs: [’run’, ’swim’, ’walk’, ’push’,                are dynamically replaced with the corresponding
+’chat’, ’dance’, ’sing’, ’laugh’, ’weep’, ’shout’,              instances from the dataset. The specific instruc-
+’play’, ’wander’, ’discuss’, ’wait’, ’study’, ’work’,           tions and output formatting constraints for each
+’exercise’, ’browse’, ’float’, ’glide’, ’slide’, ’roll’,        strategy are shown below.
+’snore’, ’dream’, ’meditate’, ’tremble’, ’sweat’,
+’bleed’, ’shine’, ’vibrate’, ’hum’, ’roar’, ’bark’,
+’stare’, ’listen’, ’watch’, ’cuddle’, ’fight’, ’ar-              P1: Strict Logic Prompt
+gue’, ’wrestle’, ’garden’, ’shop’, ’patrol’, ’chase’,            System Prompt: You are a strict logician. Your task is
+’jog’, ’march’, ’ski’, ’surf’, ’ride’, ’whistle’,                to determine if a Hypothesis is necessarily true given a
+                                                                 Premise.
+’smile’, ’frown’, ’scream’, ’yell’, ’whisper’, ’mum-             • If the Hypothesis MUST be true based only on the
+ble’, ’talk’, ’speak’, ’gossip’, ’tease’, ’help’,                   Premise, output "True".
+’serve’, ’rule’, ’live’, ’breathe’, ’cough’, ’yawn’,             • If the Hypothesis is contradicted by the Premise, output
+                                                                    "False".
+’blink’, ’nod’, ’clap’, ’shiver’, ’twitch’, ’ache’,              • If the Hypothesis might be true but is not explicitly guar-
+’itch’, ’glow’, ’sparkle’, ’fade’, ’rot’, ’bloom’,                  anteed by the Premise, output "Unknown".
+’grow’, ’shrink’, ’spin’, ’rotate’, ’travel’, ’com-              Do not use common sense assumptions. Only use the text
+                                                                 provided.
+mute’, ’roam’, ’drift’, ’flow’, ’rain’, ’snow’, ’blow’,          User Input: Premise: {premise} Hypothesis: {hypothe-
+’graze’, ’hunt’, ’fish’, ’cook’, ’smoke’, ’sip’,                 sis}
+’chew’, ’rub’, ’scratch’]                                        Please respond with ONLY one of the following options:
+                                                                 "True", "False", or "Unknown".
+   Telic verbs:
+
+                                                           14
+ P2: Definition-Aware Prompt                                         ency, and Adequacy. To ensure high-quality feed-
+ System Prompt: ... [Standard Logic Instructions] ...                back, evaluators were also encouraged to provide
+ Important Linguistic Rule: Note the distinction between             corrections for any sentence rated 3 or lower. The
+ activity and accomplishment verbs.
+ • For goal-oriented actions (e.g., "was building"), the
+                                                                     specific instructions provided to the annotators are
+    progressive form does NOT imply completion.                      detailed in the following box:
+ • For activities (e.g., "was running"), the process implies
+    the action occurred.                                              Instructions Provided to Prolific Evaluators
+ User Input: Premise: {premise} Hypothesis: {hypothe-
+ sis}                                                                 Task Overview: Please evaluate the English sentences
+ Please respond with ONLY one of the following options:               provided in the attached Excel file. For each sentence, se-
+ "True", "False", or "Unknown".                                       lect a score from 1 to 5 using the dropdown menu. Please
+                                                                      do not copy-paste values.
+ P3: Chain-of-Thought Prompt                                          Rating Criteria:
+                                                                      • Grammar: Is the sentence grammatically correct?
+ System Prompt: [Same as Strict Logic Prompt]                           (5 = Perfect, no errors; 1 = Major errors, grammatically
+ User Input: Premise: {premise} Hypothesis: {hypothe-                   broken)
+ sis}                                                                 • Fluency: Does the sentence sound natural to a native
+ Instruction: First, analyze the temporal status of the event           speaker?
+ in the premise. Does the action have a defined endpoint?               (5 = Very natural; 1 = Very awkward/unnatural)
+ Was it completed? Then, provide your final label.                    • Adequacy: Is the meaning clear and logical?
+ Output Requirement: You must output your response in                   (5 = Perfectly clear; 1 = Confusing or nonsensical)
+ strict JSON format containing exactly two keys:
+                                                                      Correction (Optional): If you assign a score of 3 or
+ • "reasoning": A string explaining your step-by-step
+                                                                      lower in any category, please rewrite the sentence in the
+    logic.
+                                                                      "Proposed Correction" column to improve its quality.
+ • "label": The final judgment ("True", "False", or "Un-
+    known").
+ Do not include markdown formatting (like “‘json). Return
+ ONLY the JSON object.
+                                                                      Metric       Mean Score       Std. Dev.    Agreement (%)
+ Example Format:
+ {"reasoning": "The premise describes a process...",                  Grammar          4.94           0.25            99.5%
+ "label": "True" / "False" / "Unknown" }
+                                                                      Fluency          4.79           0.51            95.5%
+                                                                      Adequacy         4.68           0.58            94.0%
+ P4: Counterfactual Simulation Prompt
+                                                                      Average          4.80             -             96.3%
+ System Prompt: [Same as Strict Logic Prompt]
+ User Input: Premise: {premise} Hypothesis: {hypothe-
+ sis}                                                                Table 4: Human evaluation results. “Agreement” de-
+ Instruction: 1. First, list 3 possible real-world scenarios         notes the percentage of instances where the scores from
+ where the action in the premise occurs but the result in the        the two evaluators differed by at most 1 point (on a 5-
+ hypothesis is NOT achieved (e.g., interruptions, failures).
+                                                                     point scale).
+ 2. Based on these possibilities, determine if the hypothesis
+ is necessarily true.
+ Output Requirement: You must output your response in                   The results of the human evaluation are summa-
+ strict JSON format containing exactly two keys:                     rized in Table 4. The generated dataset demon-
+ • "reasoning": A string explaining your step-by-step
+    logic.                                                           strated exceptional quality across all linguistic di-
+ • "label": The final judgment ("True", "False", or "Un-             mensions. Specifically, the Grammar score reached
+    known").                                                         a near-perfect mean of 4.94, while Fluency and Ad-
+ Do not include markdown formatting (like “‘json). Return
+ ONLY the JSON object.                                               equacy achieved 4.79 and 4.68, respectively. It is
+ Example Format:                                                     worth noting that due to the high concentration of
+ { "possible_interruptions": ["..."],                                scores at the top of the scale (ceiling effect), stan-
+ "label": "True" / "False" / "Unknown" }
+                                                                     dard correlation metrics (e.g., Pearson’s r or Fleiss’
+                                                                     κ) are not applicable as they require variance
+C    Human Evaluation and Results
+                                                                     to be meaningful (Feinstein and Cicchetti, 1990;
+To validate the quality of the constructed dataset,                  Gwet, 2008). Consequently, instead of relying on
+we conducted a human evaluation on the Prolific                      variance-dependent metrics, we report the inter-
+crowdsourcing platform. We recruited 3 native En-                    annotator agreement rate, specifically calculating
+glish speakers to evaluate the generated sentences.                  the percentage of sample pairs where the score dif-
+   Following established protocols in machine                        ference between evaluators is within a tolerance
+translation and text generation research (Chen et al.,               of 1 (i.e., Percent Adjacent Agreement). This ap-
+2022; Wu et al., 2025), evaluators were instructed                   proach provides a more robust measure of consen-
+to rate each sentence on a 5-point Likert scale                      sus for skewed data (Stemler, 2004; Williamson
+across three linguistic dimensions: Grammar, Flu-                    et al., 2012). The high agreement rates (averag-
+
+                                                                15
+ing 96.3%) confirm that the evaluators reached a               Prompt           Model                      “False” Rate
+strong consensus on the high quality of the data.                               Llama-3.1-8B-Instruct          0.00
+   In addition, for the few low-scoring or unnatural                            Mistral-7B-Instruct-v0.3       0.01
+                                                                                Qwen2.5-7B-Instruct            0.00
+sentences, evaluators provided corrections which               Zero-shot        Yi-1.5-9B-Chat                 0.00
+were adopted after manual verification.                                         deepseek-llm-7b-chat           0.00
+                                                                                gemma-2-9b-it                  0.00
+D      Implementation Details                                                   glm-4-9b-chat-hf               0.00
+                                                                                Llama-3.1-8B-Instruct          0.19
+All experiments were run on a single NVIDIA                                     Mistral-7B-Instruct-v0.3       0.00
+A100 (80GB) GPU. The models are open-weight                                     Qwen2.5-7B-Instruct            0.02
+                                                               DAP              Yi-1.5-9B-Chat                 0.00
+and directly downloaded from the Huggingface                                    deepseek-llm-7b-chat           0.00
+Transformers (Wolf et al., 2020). The models are                                gemma-2-9b-it                  0.00
+used solely for research purposes in accordance                                 glm-4-9b-chat-hf               0.00
+with their original terms, consistent with their in-                            Llama-3.1-8B-Instruct          0.00
+tended use. And we do not redistribute any third-                               Mistral-7B-Instruct-v0.3       0.00
+                                                                                Qwen2.5-7B-Instruct            0.00
+party model weights. We disable sampling and use               COT              Yi-1.5-9B-Chat                 0.00
+greedy decoding to ensure deterministic outputs for                             deepseek-llm-7b-chat           0.00
+all open LLMs by setting do_sample=False. All                                   gemma-2-9b-it                  0.00
+                                                                                glm-4-9b-chat-hf               0.00
+generations are capped at 512 tokens.
+                                                                                Llama-3.1-8B-Instruct          0.33
+                                                                                Mistral-7B-Instruct-v0.3       0.00
+E   Additional Results                                                          Qwen2.5-7B-Instruct            0.00
+                                                               Counterfactual   Yi-1.5-9B-Chat                 0.00
+Qwen2.5 with Different Scales. Table 5 presents                                 deepseek-llm-7b-chat           0.00
+detailed results of Qwen2.5 with different scales                               gemma-2-9b-it                  0.00
+in Zero-shot. A sharp phase transition is observed                              glm-4-9b-chat-hf               0.17
+between 14B and 32B, where the Aspectual Aware-
+                                                              Table 6: “False” rate (Group C) across different prompt
+ness Gap (∆AA ) surges by 124% (0.37 → 0.83),                 settings and models.
+significantly outperforming the linear scaling trend
+(r = 0.79).
+                                                              DeepSeek-LLM (Figure 10) presents an outlier be-
+ Size Acc A Acc B Acc C Acc D TBRC (↓) ∆AA (↑)                havior. It shows resistance to the intervention, with
+1.5B    0.21   0.96   0.00   1.00    1.00      0.00           no significant improvement on Group C (p = 0.74)
+ 7B     0.20   0.98   0.47   0.97    0.53      0.44
+14B     0.24   0.86   0.39   0.98    0.61      0.37           and consequently less degradation on Group D
+32B     0.53   0.90   0.91   0.92    0.09      0.83           compared to others. This suggests a form of “rea-
+72B     0.43   0.88   0.84   0.97    0.16      0.81
+                                                              soning rigidity” rather than the “over-correction”
+Table 5: Performance of the Qwen2.5 family across             seen in other models.
+different parameter scales (Zero-shot).
+                                                              The Predictions of “False” in Group C. Table
+                                                              6 additionally reports the rate of “False” predic-
+Trade-offs of the Prompts across Models. In                   tions across all experimental settings. It turns out
+this section, we extend the analysis of the trade-offs        that very few models in very few cases predicted
+in prompting to the remaining six models. As illus-           “False”. This is reasonable as in such cases of Im-
+trated in Figures 5–9, the trade-off is pervasive.            perfective Paradox, the models would either select
+Models such as Mistral-7B, Yi-1.5, Gemma-2,                   “Unsure” (the correct predictions for uncertainty)
+and GLM-4 exhibit strong, statistically significant           or “True” (the teleological bias). If models pre-
+inverse correlations. As the prompting strategy               dicted “False”, it could be interpreted as indicating
+becomes more aggressive (Zero-shot → Counter-                 that the models “saw” the past progressive for ac-
+factual), these models successfully correct the tele-         complishments as non-completion, which suggests
+ological bias in Group C (Pearson r > 0.90) but               over-prediction. However, based on our observa-
+suffer a catastrophic drop in performance on the              tion with the following table, this is not the case.
+atelic baseline in Group D (Pearson r < −0.79).
+This confirms that the calibration crisis is a gen-           Detailed Results by Semantic Verb Class. Ta-
+eral issue in current LLMs: they struggle to iso-             bles 7-18 provide the detailed accuracy breakdown
+late the intervention to only the target telic verbs.         (Accuracy results for Group A and C) and bias
+
+                                                         16
+breakdown (TBR results for Group C) for each
+model across the four semantic sub-classes of telic
+verbs.                                                                                                                 Prompting Trade-offs (Qwen2.5-7B-Instruct)
+                                                                                                                      0.97                        0.97              1.00
+                                                                                                         1.0
+                        Prompting Trade-offs (Mistral-7B-Instruct-v0.3)                                                            0.89
+
+                         1.00                1.00
+                                                                               Group C                   0.8
+           1.0                                                                 Group D                                                    0.72
+
+
+                                                                                              Accuracy
+                                                                        0.87                             0.6                                                               Group C
+           0.8                                                                                                 0.47                                                        Group D
+                                                            0.66                                         0.4                                             0.37
+
+Accuracy
+           0.6
+                                                     0.41                                                0.2
+           0.4
+                                                                                                                                                                            0.02
+                                                                                                         0.0
+           0.2                                                                  0.19                           Zero-shot              DAP            CoT        Counterfactual
+                                      0.06
+                 0.02
+           0.0
+                 Zero-shot               DAP            CoT        Counterfactual             Figure 8: The Trade-off in Prompting (Qwen2.5).
+                                                                                              (Group C: r = 0.88, p = 0.12; Group D: r =
+Figure 5: The Trade-off in Prompting (Mistral). The                                           −1.00, p = 0.00).
+model shows a clear skepticism trap with strong cor-
+relations. (Group C: r = 0.95, p = 0.05; Group D:
+r = −0.93, p = 0.07).
+
+
+                                Prompting Trade-offs (Yi-1.5-9B-Chat)                                                        Prompting Trade-offs (GLM-4-9B-Chat)
+                         1.00                1.00                       1.00                                          1.00
+                                                                                                                                                                           Group C
+           1.0                                                                                           1.0                              0.98           0.97              Group D
+                                                     0.85
+           0.8                                                                                           0.8                                                        0.73
+
+
+Accuracy                                                                                      Accuracy
+           0.6                                                                 Group C                   0.6
+                                                                               Group D
+                                                            0.44
+           0.4                                                                                           0.4                                      0.38
+                                                                                                                                   0.33
+                                      0.20                                                                                                                                  0.24
+           0.2                                                                                           0.2
+                                                                                0.10
+                 0.02                                                                                          0.03
+           0.0                                                                                           0.0
+                 Zero-shot               DAP            CoT        Counterfactual                              Zero-shot              DAP            CoT        Counterfactual
+
+
+Figure 6: The Trade-off in Prompting (Yi-1.5). Similar                                        Figure 9: The Trade-off in Prompting (GLM-4). (Group
+to Llama, Yi exhibits a sharp trade-off. (Group C: r =                                        C: r = 0.97, p = 0.03; Group D: r = −0.79, p =
+0.97, p = 0.03; Group D: r = −0.95, p = 0.05).                                                0.21).
+
+
+                             Prompting Trade-offs (Gemma-2-9B-IT)
+                         1.00                        0.98               1.00
+           1.0
+                                             0.88
+           0.8                                                                                                        Prompting Trade-offs (DeepSeek-LLM-7B-Chat)
+
+Accuracy
+                                      0.60                                     Group C                                1.00                1.00
+           0.6                                                                                           1.0                                             0.94
+                                                                                                                                                                            0.98
+                                                                               Group D
+           0.4                                                                                           0.8
+
+
+                                                                                              Accuracy
+           0.2                                              0.15                                         0.6                                                               Group C
+                 0.06                                                                                                                                                      Group D
+                                                                                0.00                                                              0.40
+           0.0                                                                                           0.4
+                 Zero-shot               DAP            CoT        Counterfactual
+                                                                                                         0.2
+Figure 7: The Trade-off in Prompting (Gemma-2). The                                                            0.00                0.00                             0.00
+                                                                                                         0.0
+model achieves perfect correction on Group C but col-                                                          Zero-shot              DAP            CoT        Counterfactual
+lapses to zero on Group D. (Group C: r = 0.94, p =
+0.06; Group D: r = −0.95, p = 0.05).                                                          Figure 10: Resistance to Prompting (DeepSeek). Un-
+                                                                                              like other models, DeepSeek shows weak correlation,
+                                                                                              indicating rigidity against the counterfactual prompts.
+                                                                                              (Group C: r = 0.26, p = 0.74; Group D: r =
+                                                                                              −0.55, p = 0.45).
+
+
+
+
+                                                                                         17
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           0.48                 0.56        0.38           0.75
+Mistral-7B-Instruct-v0.3        0.32                 0.44        0.31           0.88
+Qwen2.5-7B-Instruct             0.20                 0.11        0.15           0.50
+Yi-1.5-9B-Chat                  0.34                 0.67        0.23           0.62
+deepseek-llm-7b-chat            0.05                 0.00        0.05           0.00
+gemma-2-9b-it                   0.02                 0.00        0.05           0.00
+glm-4-9b-chat-hf                0.09                 0.33        0.08           0.50
+
+       Table 7: Accuracy Breakdown by Verb Class in Zero-shot (Group A)
+
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           0.02                 0.00        0.03           0.00
+Mistral-7B-Instruct-v0.3        0.00                 0.00        0.03           0.12
+Qwen2.5-7B-Instruct             0.43                 0.33        0.51           0.62
+Yi-1.5-9B-Chat                  0.02                 0.11        0.00           0.00
+deepseek-llm-7b-chat            0.00                 0.00        0.00           0.00
+gemma-2-9b-it                   0.02                 0.11        0.05           0.25
+glm-4-9b-chat-hf                0.00                 0.11        0.03           0.12
+
+       Table 8: Accuracy Breakdown by Verb Class in Zero-shot (Group C)
+
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           0.98                 1.00        0.97           1.00
+Mistral-7B-Instruct-v0.3        1.00                 1.00        0.95           0.88
+Qwen2.5-7B-Instruct             0.57                 0.67        0.49           0.38
+Yi-1.5-9B-Chat                  0.98                 0.89        1.00           1.00
+deepseek-llm-7b-chat            1.00                 1.00        1.00           1.00
+gemma-2-9b-it                   0.98                 0.89        0.95           0.75
+glm-4-9b-chat-hf                1.00                 0.89        0.97           0.88
+
+         Table 9: Bias Breakdown by Verb Class in Zero-shot (Group C)
+
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           0.66                 0.56        0.49           1.00
+Mistral-7B-Instruct-v0.3        0.55                 0.67        0.44           1.00
+Qwen2.5-7B-Instruct             0.34                 0.33        0.28           1.00
+Yi-1.5-9B-Chat                  0.61                 0.78        0.44           0.83
+deepseek-llm-7b-chat            0.11                 0.11        0.15           0.00
+gemma-2-9b-it                   0.09                 0.00        0.05           0.33
+glm-4-9b-chat-hf                0.02                 0.33        0.05           0.33
+
+         Table 10: Accuracy Breakdown by Verb Class in DAP (Group A)
+
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           0.30                 0.11        0.54           0.17
+Mistral-7B-Instruct-v0.3        0.07                 0.00        0.05           0.00
+Qwen2.5-7B-Instruct             0.84                 0.78        0.95           1.00
+Yi-1.5-9B-Chat                  0.20                 0.22        0.15           0.17
+deepseek-llm-7b-chat            0.00                 0.00        0.00           0.00
+gemma-2-9b-it                   0.61                 0.56        0.56           0.67
+glm-4-9b-chat-hf                0.34                 0.44        0.28           0.17
+
+         Table 11: Accuracy Breakdown by Verb Class in DAP (Group C)
+
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           0.48                 0.78        0.33           0.50
+Mistral-7B-Instruct-v0.3        0.93                 1.00        0.95           1.00
+Qwen2.5-7B-Instruct             0.14                 0.22        0.03           0.00
+Yi-1.5-9B-Chat                  0.80                 0.78        0.85           0.83
+deepseek-llm-7b-chat            1.00                 1.00        1.00           1.00
+gemma-2-9b-it                   0.39                 0.44        0.44           0.33
+glm-4-9b-chat-hf                0.66                 0.56        0.72           0.83
+
+           Table 12: Bias Breakdown by Verb Class in DAP (Group C)
+
+
+                                             18
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           0.14                 0.22        0.13           0.33
+Mistral-7B-Instruct-v0.3        0.18                 0.22        0.23           0.50
+Qwen2.5-7B-Instruct             0.30                 0.11        0.28           0.67
+Yi-1.5-9B-Chat                  0.64                 0.67        0.38           1.00
+deepseek-llm-7b-chat            0.09                 0.00        0.03           0.00
+gemma-2-9b-it                   0.18                 0.00        0.08           0.50
+glm-4-9b-chat-hf                0.20                 0.44        0.21           0.33
+
+         Table 13: Accuracy Breakdown by Verb Class in CoT (Group A)
+
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           0.64                 1.00        0.64           0.50
+Mistral-7B-Instruct-v0.3        0.36                 0.78        0.38           0.33
+Qwen2.5-7B-Instruct             0.93                 1.00        1.00           1.00
+Yi-1.5-9B-Chat                  0.89                 0.78        0.82           0.83
+deepseek-llm-7b-chat            0.23                 0.33        0.62           0.33
+gemma-2-9b-it                   1.00                 1.00        0.97           0.83
+glm-4-9b-chat-hf                0.30                 0.44        0.46           0.33
+
+         Table 14: Accuracy Breakdown by Verb Class in CoT (Group C)
+
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           0.36                 0.00        0.36           0.50
+Mistral-7B-Instruct-v0.3        0.61                 0.22        0.56           0.67
+Qwen2.5-7B-Instruct             0.07                 0.00        0.00           0.00
+Yi-1.5-9B-Chat                  0.09                 0.11        0.18           0.17
+deepseek-llm-7b-chat            0.77                 0.67        0.38           0.67
+gemma-2-9b-it                   0.00                 0.00        0.03           0.17
+glm-4-9b-chat-hf                0.70                 0.56        0.54           0.67
+
+            Table 15: Bias Breakdown by Verb Class in CoT (Group C)
+
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           0.27                 0.22        0.44           0.67
+Mistral-7B-Instruct-v0.3        0.30                 0.33        0.15           0.67
+Qwen2.5-7B-Instruct             0.07                 0.11        0.05           0.17
+Yi-1.5-9B-Chat                  0.05                 0.11        0.05           0.33
+deepseek-llm-7b-chat            0.23                 0.44        0.26           0.17
+gemma-2-9b-it                   0.02                 0.00        0.05           0.00
+glm-4-9b-chat-hf                0.25                 0.44        0.08           0.50
+
+   Table 16: Accuracy Breakdown by Verb Class in Counterfactual (Group A)
+
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           1.00                 0.89        1.00           0.67
+Mistral-7B-Instruct-v0.3        0.89                 0.67        0.90           0.83
+Qwen2.5-7B-Instruct             1.00                 1.00        1.00           1.00
+Yi-1.5-9B-Chat                  1.00                 1.00        1.00           1.00
+deepseek-llm-7b-chat            0.00                 0.00        0.00           0.00
+gemma-2-9b-it                   1.00                 1.00        1.00           1.00
+glm-4-9b-chat-hf                0.70                 0.67        0.79           0.67
+
+   Table 17: Accuracy Breakdown by Verb Class in Counterfactual (Group C)
+
+Models                     Change of State        Consumption   Creation   Motion to Goal
+Llama-3.1-8B-Instruct           0.00                 0.00        0.00           0.00
+Mistral-7B-Instruct-v0.3        0.11                 0.33        0.05           0.17
+Qwen2.5-7B-Instruct             0.00                 0.00        0.00           0.00
+Yi-1.5-9B-Chat                  0.00                 0.00        0.00           0.00
+deepseek-llm-7b-chat            1.00                 1.00        1.00           1.00
+gemma-2-9b-it                   0.00                 0.00        0.00           0.00
+glm-4-9b-chat-hf                0.20                 0.33        0.15           0.17
+
+      Table 18: Bias Breakdown by Verb Class in Counterfactual (Group C)
+
+
+                                             19
+

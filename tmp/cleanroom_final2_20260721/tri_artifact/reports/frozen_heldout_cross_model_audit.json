@@ -1,0 +1,226 @@
+{
+  "data": "data/temporal_referent_v2_heldout.jsonl",
+  "n_expected": 160,
+  "files": [
+    {
+      "file": "runs/20260716T171359Z_Pro_zai-org_GLM-5.1_state_overwrite_once_v2_heldout_frozen_nothinking.jsonl",
+      "model": "Pro/zai-org/GLM-5.1",
+      "mode": "state_overwrite_once",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 96,
+      "accuracy_if_complete_rows": 0.6,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2h-mail-explicit_anchor-flip",
+      "last_task": "v2h-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "runs/20260716T171722Z_Pro_zai-org_GLM-5.1_full_history_once_v2_heldout_frozen_nothinking.jsonl",
+      "model": "Pro/zai-org/GLM-5.1",
+      "mode": "full_history_once",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 113,
+      "accuracy_if_complete_rows": 0.70625,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2h-mail-explicit_anchor-flip",
+      "last_task": "v2h-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "runs/20260716T172041Z_Pro_zai-org_GLM-5.1_generic_plan_then_act_v2_heldout_frozen_nothinking.jsonl",
+      "model": "Pro/zai-org/GLM-5.1",
+      "mode": "generic_plan_then_act",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 129,
+      "accuracy_if_complete_rows": 0.80625,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2h-mail-explicit_anchor-flip",
+      "last_task": "v2h-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "runs/20260716T173301Z_Pro_zai-org_GLM-5.1_compile_then_act_v2_heldout_frozen_nothinking.jsonl",
+      "model": "Pro/zai-org/GLM-5.1",
+      "mode": "compile_then_act",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 156,
+      "accuracy_if_complete_rows": 0.975,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2h-mail-explicit_anchor-flip",
+      "last_task": "v2h-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "runs/20260716T174313Z_Pro_zai-org_GLM-5.1_factorized_hybrid_compile_then_act_v2_heldout_frozen_nothinking.jsonl",
+      "model": "Pro/zai-org/GLM-5.1",
+      "mode": "factorized_hybrid_compile_then_act",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 160,
+      "accuracy_if_complete_rows": 1.0,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2h-mail-explicit_anchor-flip",
+      "last_task": "v2h-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "runs/20260716T165006Z_Qwen_Qwen3.5-122B-A10B_state_overwrite_once_v2_heldout_frozen_nothinking.jsonl",
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "mode": "state_overwrite_once",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 97,
+      "accuracy_if_complete_rows": 0.60625,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2h-mail-explicit_anchor-flip",
+      "last_task": "v2h-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "runs/20260716T165119Z_Qwen_Qwen3.5-122B-A10B_full_history_once_v2_heldout_frozen_nothinking.jsonl",
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "mode": "full_history_once",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 97,
+      "accuracy_if_complete_rows": 0.60625,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2h-mail-explicit_anchor-flip",
+      "last_task": "v2h-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "runs/20260716T165230Z_Qwen_Qwen3.5-122B-A10B_generic_plan_then_act_v2_heldout_frozen_nothinking.jsonl",
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "mode": "generic_plan_then_act",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 125,
+      "accuracy_if_complete_rows": 0.78125,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2h-mail-explicit_anchor-flip",
+      "last_task": "v2h-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "runs/20260716T165820Z_Qwen_Qwen3.5-122B-A10B_compile_then_act_v2_heldout_frozen_nothinking.jsonl",
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "mode": "compile_then_act",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 154,
+      "accuracy_if_complete_rows": 0.9625,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2h-mail-explicit_anchor-flip",
+      "last_task": "v2h-shipping-implicit_dynamic-name_collision"
+    },
+    {
+      "file": "runs/20260716T164359Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v2_heldout_frozen_nothinking.jsonl",
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "mode": "factorized_hybrid_compile_then_act",
+      "n_rows": 160,
+      "n_expected": 160,
+      "complete": true,
+      "n_missing": 0,
+      "n_extra": 0,
+      "n_duplicates": 0,
+      "status_counts": {
+        "ok": 160
+      },
+      "internal_error_counts": {},
+      "success_count": 152,
+      "accuracy_if_complete_rows": 0.95,
+      "missing_first10": [],
+      "extra_first10": [],
+      "duplicates_first10": [],
+      "first_task": "v2h-mail-explicit_anchor-flip",
+      "last_task": "v2h-shipping-implicit_dynamic-name_collision"
+    }
+  ]
+}

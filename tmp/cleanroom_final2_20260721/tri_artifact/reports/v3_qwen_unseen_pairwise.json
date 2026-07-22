@@ -1,0 +1,21 @@
+[
+  {
+    "file_a": "runs/20260717T031033Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_unseen_domains_nothinking.jsonl",
+    "file_b": "runs/20260717T031633Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v3_unseen_domains_nothinking.jsonl",
+    "model_a": "Qwen3.5",
+    "model_b": "Qwen3.5",
+    "mode_a": "generic_structured_ledger_then_act",
+    "mode_b": "factorized_hybrid_compile_then_act",
+    "n_paired": 80,
+    "accuracy_a": 0.4625,
+    "accuracy_b": 0.825,
+    "delta_b_minus_a": 0.36249999999999993,
+    "both_correct": 37,
+    "a_only_correct": 0,
+    "b_only_correct": 29,
+    "both_wrong": 14,
+    "api_errors_a": 0,
+    "api_errors_b": 0,
+    "mcnemar_exact_p": 3.725290298461914e-09
+  }
+]

@@ -1,0 +1,2891 @@
+{
+  "n_tasks": 246,
+  "representations": [
+    "latest_state",
+    "bound_name_only",
+    "bound_id_only",
+    "binding_time_only",
+    "time_plus_id",
+    "schema_lifecycle"
+  ],
+  "overall": [
+    {
+      "representation": "binding_time_only",
+      "n": 246,
+      "correct": 143,
+      "accuracy": 0.5813008130081301,
+      "ci95_low": 0.5188627740495275,
+      "ci95_high": 0.6412386662230292
+    },
+    {
+      "representation": "bound_id_only",
+      "n": 246,
+      "correct": 103,
+      "accuracy": 0.4186991869918699,
+      "ci95_low": 0.3587613337769709,
+      "ci95_high": 0.48113722595047254
+    },
+    {
+      "representation": "bound_name_only",
+      "n": 246,
+      "correct": 145,
+      "accuracy": 0.5894308943089431,
+      "ci95_low": 0.5270398116936106,
+      "ci95_high": 0.6490717726062019
+    },
+    {
+      "representation": "latest_state",
+      "n": 246,
+      "correct": 159,
+      "accuracy": 0.6463414634146342,
+      "ci95_low": 0.5847633426589328,
+      "ci95_high": 0.7034192498316693
+    },
+    {
+      "representation": "schema_lifecycle",
+      "n": 246,
+      "correct": 246,
+      "accuracy": 1.0,
+      "ci95_low": 0.9846238576762238,
+      "ci95_high": 1.0000000000000002
+    },
+    {
+      "representation": "time_plus_id",
+      "n": 246,
+      "correct": 182,
+      "accuracy": 0.7398373983739838,
+      "ci95_low": 0.6816228498542307,
+      "ci95_high": 0.7906763989498116
+    }
+  ],
+  "by_type": [
+    {
+      "representation": "binding_time_only",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "representation": "binding_time_only",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 48,
+      "accuracy": 0.8571428571428571,
+      "ci95_low": 0.7426383257914846,
+      "ci95_high": 0.9257929995741472
+    },
+    {
+      "representation": "binding_time_only",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "representation": "binding_time_only",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.0458197362645751
+    },
+    {
+      "representation": "binding_time_only",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 80,
+      "accuracy": 1.0,
+      "ci95_low": 0.954180263735425,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_id_only",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_id_only",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "representation": "bound_id_only",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 24,
+      "accuracy": 0.42857142857142855,
+      "ci95_low": 0.3076876241309292,
+      "ci95_high": 0.5586261107959444
+    },
+    {
+      "representation": "bound_id_only",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_id_only",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "representation": "bound_id_only",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 48,
+      "accuracy": 0.6,
+      "ci95_low": 0.4904526454814999,
+      "ci95_high": 0.700383407265585
+    },
+    {
+      "representation": "bound_id_only",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 16,
+      "accuracy": 0.2,
+      "ci95_low": 0.1270273637929335,
+      "ci95_high": 0.3004644779658116
+    },
+    {
+      "representation": "bound_name_only",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "representation": "bound_name_only",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_name_only",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 48,
+      "accuracy": 0.8571428571428571,
+      "ci95_low": 0.7426383257914846,
+      "ci95_high": 0.9257929995741472
+    },
+    {
+      "representation": "bound_name_only",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "representation": "bound_name_only",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_name_only",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 30,
+      "accuracy": 0.375,
+      "ci95_low": 0.2769401625800477,
+      "ci95_high": 0.484514771486096
+    },
+    {
+      "representation": "bound_name_only",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 52,
+      "accuracy": 0.65,
+      "ci95_low": 0.5407980232189245,
+      "ci95_high": 0.7454560559017032
+    },
+    {
+      "representation": "latest_state",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "representation": "latest_state",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 48,
+      "accuracy": 0.8571428571428571,
+      "ci95_low": 0.7426383257914846,
+      "ci95_high": 0.9257929995741472
+    },
+    {
+      "representation": "latest_state",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "representation": "latest_state",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 16,
+      "accuracy": 0.2,
+      "ci95_low": 0.1270273637929335,
+      "ci95_high": 0.3004644779658116
+    },
+    {
+      "representation": "latest_state",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 80,
+      "accuracy": 1.0,
+      "ci95_low": 0.954180263735425,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 56,
+      "accuracy": 1.0,
+      "ci95_low": 0.9358038555118846,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 80,
+      "accuracy": 1.0,
+      "ci95_low": 0.954180263735425,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 80,
+      "accuracy": 1.0,
+      "ci95_low": 0.954180263735425,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 24,
+      "accuracy": 0.42857142857142855,
+      "ci95_low": 0.3076876241309292,
+      "ci95_high": 0.5586261107959444
+    },
+    {
+      "representation": "time_plus_id",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 48,
+      "accuracy": 0.6,
+      "ci95_low": 0.4904526454814999,
+      "ci95_high": 0.700383407265585
+    },
+    {
+      "representation": "time_plus_id",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 80,
+      "accuracy": 1.0,
+      "ci95_low": 0.954180263735425,
+      "ci95_high": 1.0
+    }
+  ],
+  "by_update": [
+    {
+      "representation": "binding_time_only",
+      "update": "flip",
+      "binding": "anchored",
+      "n": 31,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": -1.3877787807814457e-17,
+      "ci95_high": 0.11025900073475385
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "flip",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 8,
+      "accuracy": 0.5,
+      "ci95_low": 0.2799923761135083,
+      "ci95_high": 0.7200076238864916
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "flip",
+      "binding": "dynamic",
+      "n": 31,
+      "correct": 31,
+      "accuracy": 1.0,
+      "ci95_low": 0.889740999265246,
+      "ci95_high": 0.9999999999999999
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "invalidate",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "invalidate",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "invalidate",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "name_collision",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "name_collision",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "remove",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "remove",
+      "binding": "conditional",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "remove",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "stable",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "stable",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "update": "stable",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "flip",
+      "binding": "anchored",
+      "n": 31,
+      "correct": 31,
+      "accuracy": 1.0,
+      "ci95_low": 0.889740999265246,
+      "ci95_high": 0.9999999999999999
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "flip",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 8,
+      "accuracy": 0.5,
+      "ci95_low": 0.2799923761135083,
+      "ci95_high": 0.7200076238864916
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "flip",
+      "binding": "dynamic",
+      "n": 31,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": -1.3877787807814457e-17,
+      "ci95_high": 0.11025900073475385
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "invalidate",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "invalidate",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "invalidate",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "name_collision",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "name_collision",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "remove",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "remove",
+      "binding": "conditional",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "remove",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "stable",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "stable",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_id_only",
+      "update": "stable",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "flip",
+      "binding": "anchored",
+      "n": 31,
+      "correct": 14,
+      "accuracy": 0.45161290322580644,
+      "ci95_low": 0.29161482836586106,
+      "ci95_high": 0.6222812039633085
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "flip",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 8,
+      "accuracy": 0.5,
+      "ci95_low": 0.2799923761135083,
+      "ci95_high": 0.7200076238864916
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "flip",
+      "binding": "dynamic",
+      "n": 31,
+      "correct": 17,
+      "accuracy": 0.5483870967741935,
+      "ci95_low": 0.37771879603669134,
+      "ci95_high": 0.7083851716341388
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "invalidate",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "invalidate",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "invalidate",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 2,
+      "accuracy": 0.125,
+      "ci95_low": 0.034976749337057134,
+      "ci95_high": 0.3602333143674828
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "name_collision",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "name_collision",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "remove",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "remove",
+      "binding": "conditional",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "remove",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "stable",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "stable",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_name_only",
+      "update": "stable",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "update": "flip",
+      "binding": "anchored",
+      "n": 31,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": -1.3877787807814457e-17,
+      "ci95_high": 0.11025900073475385
+    },
+    {
+      "representation": "latest_state",
+      "update": "flip",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 8,
+      "accuracy": 0.5,
+      "ci95_low": 0.2799923761135083,
+      "ci95_high": 0.7200076238864916
+    },
+    {
+      "representation": "latest_state",
+      "update": "flip",
+      "binding": "dynamic",
+      "n": 31,
+      "correct": 31,
+      "accuracy": 1.0,
+      "ci95_low": 0.889740999265246,
+      "ci95_high": 0.9999999999999999
+    },
+    {
+      "representation": "latest_state",
+      "update": "invalidate",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "latest_state",
+      "update": "invalidate",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "update": "invalidate",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "update": "name_collision",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "latest_state",
+      "update": "name_collision",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "update": "remove",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "latest_state",
+      "update": "remove",
+      "binding": "conditional",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "update": "remove",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "update": "stable",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "update": "stable",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "update": "stable",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "flip",
+      "binding": "anchored",
+      "n": 31,
+      "correct": 31,
+      "accuracy": 1.0,
+      "ci95_low": 0.889740999265246,
+      "ci95_high": 0.9999999999999999
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "flip",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "flip",
+      "binding": "dynamic",
+      "n": 31,
+      "correct": 31,
+      "accuracy": 1.0,
+      "ci95_low": 0.889740999265246,
+      "ci95_high": 0.9999999999999999
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "invalidate",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "invalidate",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "invalidate",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "name_collision",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "name_collision",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "remove",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "remove",
+      "binding": "conditional",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "remove",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "stable",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "stable",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "update": "stable",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "flip",
+      "binding": "anchored",
+      "n": 31,
+      "correct": 31,
+      "accuracy": 1.0,
+      "ci95_low": 0.889740999265246,
+      "ci95_high": 0.9999999999999999
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "flip",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 8,
+      "accuracy": 0.5,
+      "ci95_low": 0.2799923761135083,
+      "ci95_high": 0.7200076238864916
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "flip",
+      "binding": "dynamic",
+      "n": 31,
+      "correct": 31,
+      "accuracy": 1.0,
+      "ci95_low": 0.889740999265246,
+      "ci95_high": 0.9999999999999999
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "invalidate",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "invalidate",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "invalidate",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "name_collision",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "name_collision",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "remove",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.19361341827271994
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "remove",
+      "binding": "conditional",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "remove",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "stable",
+      "binding": "anchored",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "stable",
+      "binding": "conditional",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "update": "stable",
+      "binding": "dynamic",
+      "n": 16,
+      "correct": 16,
+      "accuracy": 1.0,
+      "ci95_low": 0.8063865817272802,
+      "ci95_high": 1.0
+    }
+  ],
+  "by_phenomenon": [
+    {
+      "representation": "binding_time_only",
+      "phenomenon": "collection_reference",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "representation": "binding_time_only",
+      "phenomenon": "collection_reference",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "phenomenon": "conditional_rebinding",
+      "binding": "conditional",
+      "n": 24,
+      "correct": 24,
+      "accuracy": 1.0,
+      "ci95_low": 0.8620194241710247,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "phenomenon": "conditional_validity",
+      "binding": "conditional",
+      "n": 32,
+      "correct": 24,
+      "accuracy": 0.75,
+      "ci95_low": 0.5789310822975338,
+      "ci95_high": 0.8674775601737845
+    },
+    {
+      "representation": "binding_time_only",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.08762453925039232
+    },
+    {
+      "representation": "binding_time_only",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 40,
+      "accuracy": 1.0,
+      "ci95_low": 0.9123754607496077,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.08762453925039232
+    },
+    {
+      "representation": "binding_time_only",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 40,
+      "accuracy": 1.0,
+      "ci95_low": 0.9123754607496077,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "binding_time_only",
+      "phenomenon": "nested_reference",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "representation": "binding_time_only",
+      "phenomenon": "nested_reference",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_id_only",
+      "phenomenon": "collection_reference",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_id_only",
+      "phenomenon": "collection_reference",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "representation": "bound_id_only",
+      "phenomenon": "conditional_rebinding",
+      "binding": "conditional",
+      "n": 24,
+      "correct": 8,
+      "accuracy": 0.3333333333333333,
+      "ci95_low": 0.17971978688379642,
+      "ci95_high": 0.5329404050591954
+    },
+    {
+      "representation": "bound_id_only",
+      "phenomenon": "conditional_validity",
+      "binding": "conditional",
+      "n": 32,
+      "correct": 16,
+      "accuracy": 0.5,
+      "ci95_low": 0.33630614316859386,
+      "ci95_high": 0.6636938568314061
+    },
+    {
+      "representation": "bound_id_only",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 24,
+      "accuracy": 0.6,
+      "ci95_low": 0.44595619827393507,
+      "ci95_high": 0.7365188938759863
+    },
+    {
+      "representation": "bound_id_only",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 8,
+      "accuracy": 0.2,
+      "ci95_low": 0.10499864973166874,
+      "ci95_high": 0.34757607381856676
+    },
+    {
+      "representation": "bound_id_only",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 24,
+      "accuracy": 0.6,
+      "ci95_low": 0.44595619827393507,
+      "ci95_high": 0.7365188938759863
+    },
+    {
+      "representation": "bound_id_only",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 8,
+      "accuracy": 0.2,
+      "ci95_low": 0.10499864973166874,
+      "ci95_high": 0.34757607381856676
+    },
+    {
+      "representation": "bound_id_only",
+      "phenomenon": "nested_reference",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_id_only",
+      "phenomenon": "nested_reference",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "representation": "bound_name_only",
+      "phenomenon": "collection_reference",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "representation": "bound_name_only",
+      "phenomenon": "collection_reference",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_name_only",
+      "phenomenon": "conditional_rebinding",
+      "binding": "conditional",
+      "n": 24,
+      "correct": 24,
+      "accuracy": 1.0,
+      "ci95_low": 0.8620194241710247,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "bound_name_only",
+      "phenomenon": "conditional_validity",
+      "binding": "conditional",
+      "n": 32,
+      "correct": 24,
+      "accuracy": 0.75,
+      "ci95_low": 0.5789310822975338,
+      "ci95_high": 0.8674775601737845
+    },
+    {
+      "representation": "bound_name_only",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 15,
+      "accuracy": 0.375,
+      "ci95_low": 0.2422277353579172,
+      "ci95_high": 0.529678399454681
+    },
+    {
+      "representation": "bound_name_only",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 26,
+      "accuracy": 0.65,
+      "ci95_low": 0.4950559699353739,
+      "ci95_high": 0.7786566682895086
+    },
+    {
+      "representation": "bound_name_only",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 15,
+      "accuracy": 0.375,
+      "ci95_low": 0.2422277353579172,
+      "ci95_high": 0.529678399454681
+    },
+    {
+      "representation": "bound_name_only",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 26,
+      "accuracy": 0.65,
+      "ci95_low": 0.4950559699353739,
+      "ci95_high": 0.7786566682895086
+    },
+    {
+      "representation": "bound_name_only",
+      "phenomenon": "nested_reference",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "representation": "bound_name_only",
+      "phenomenon": "nested_reference",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "phenomenon": "collection_reference",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "representation": "latest_state",
+      "phenomenon": "collection_reference",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "phenomenon": "conditional_rebinding",
+      "binding": "conditional",
+      "n": 24,
+      "correct": 24,
+      "accuracy": 1.0,
+      "ci95_low": 0.8620194241710247,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "phenomenon": "conditional_validity",
+      "binding": "conditional",
+      "n": 32,
+      "correct": 24,
+      "accuracy": 0.75,
+      "ci95_low": 0.5789310822975338,
+      "ci95_high": 0.8674775601737845
+    },
+    {
+      "representation": "latest_state",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 8,
+      "accuracy": 0.2,
+      "ci95_low": 0.10499864973166874,
+      "ci95_high": 0.34757607381856676
+    },
+    {
+      "representation": "latest_state",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 40,
+      "accuracy": 1.0,
+      "ci95_low": 0.9123754607496077,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 8,
+      "accuracy": 0.2,
+      "ci95_low": 0.10499864973166874,
+      "ci95_high": 0.34757607381856676
+    },
+    {
+      "representation": "latest_state",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 40,
+      "accuracy": 1.0,
+      "ci95_low": 0.9123754607496077,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "latest_state",
+      "phenomenon": "nested_reference",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "representation": "latest_state",
+      "phenomenon": "nested_reference",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "phenomenon": "collection_reference",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "phenomenon": "collection_reference",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "phenomenon": "conditional_rebinding",
+      "binding": "conditional",
+      "n": 24,
+      "correct": 24,
+      "accuracy": 1.0,
+      "ci95_low": 0.8620194241710247,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "phenomenon": "conditional_validity",
+      "binding": "conditional",
+      "n": 32,
+      "correct": 32,
+      "accuracy": 1.0,
+      "ci95_low": 0.8928172849426366,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 40,
+      "accuracy": 1.0,
+      "ci95_low": 0.9123754607496077,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 40,
+      "accuracy": 1.0,
+      "ci95_low": 0.9123754607496077,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 40,
+      "accuracy": 1.0,
+      "ci95_low": 0.9123754607496077,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 40,
+      "accuracy": 1.0,
+      "ci95_low": 0.9123754607496077,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "phenomenon": "nested_reference",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "schema_lifecycle",
+      "phenomenon": "nested_reference",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "phenomenon": "collection_reference",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "phenomenon": "collection_reference",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "phenomenon": "conditional_rebinding",
+      "binding": "conditional",
+      "n": 24,
+      "correct": 8,
+      "accuracy": 0.3333333333333333,
+      "ci95_low": 0.17971978688379642,
+      "ci95_high": 0.5329404050591954
+    },
+    {
+      "representation": "time_plus_id",
+      "phenomenon": "conditional_validity",
+      "binding": "conditional",
+      "n": 32,
+      "correct": 16,
+      "accuracy": 0.5,
+      "ci95_low": 0.33630614316859386,
+      "ci95_high": 0.6636938568314061
+    },
+    {
+      "representation": "time_plus_id",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 24,
+      "accuracy": 0.6,
+      "ci95_low": 0.44595619827393507,
+      "ci95_high": 0.7365188938759863
+    },
+    {
+      "representation": "time_plus_id",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 40,
+      "accuracy": 1.0,
+      "ci95_low": 0.9123754607496077,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "n": 40,
+      "correct": 24,
+      "accuracy": 0.6,
+      "ci95_low": 0.44595619827393507,
+      "ci95_high": 0.7365188938759863
+    },
+    {
+      "representation": "time_plus_id",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "n": 40,
+      "correct": 40,
+      "accuracy": 1.0,
+      "ci95_low": 0.9123754607496077,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "phenomenon": "nested_reference",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "representation": "time_plus_id",
+      "phenomenon": "nested_reference",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    }
+  ],
+  "error_counts": [
+    {
+      "representation": "binding_time_only",
+      "error_type": "alias_collision",
+      "count": 16
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "collection_mismatch",
+      "count": 7
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "invalid_but_processed",
+      "count": 32
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "nested_mismatch",
+      "count": 8
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "other",
+      "count": 40
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "invalid_but_processed",
+      "count": 32
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "other",
+      "count": 32
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "premature_binding",
+      "count": 79
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "invalid_but_processed",
+      "count": 14
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "other",
+      "count": 8
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "premature_binding",
+      "count": 28
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "temporal_rebinding",
+      "count": 51
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "other",
+      "count": 8
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "count": 79
+    },
+    {
+      "representation": "time_plus_id",
+      "error_type": "invalid_but_processed",
+      "count": 32
+    },
+    {
+      "representation": "time_plus_id",
+      "error_type": "other",
+      "count": 32
+    }
+  ],
+  "error_examples": [
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-explicit_anchor-flip",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "flip",
+      "prediction": "EM-205",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "other",
+      "task_id": "v2-mail-explicit_anchor-flip",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "flip",
+      "prediction": "UNKNOWN",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "other",
+      "task_id": "v2-mail-explicit_anchor-stable",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "stable",
+      "prediction": "UNKNOWN",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-explicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "EM-205",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-explicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "EM-205",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-explicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "EM-104",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-explicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "UNKNOWN",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "time_plus_id",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-explicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "EM-104",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-explicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "EM-205",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-explicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "EM-104",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-explicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "EM-104",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-explicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "UNKNOWN",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "time_plus_id",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-explicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "EM-104",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-explicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "EM-205",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-explicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "EM-205",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "alias_collision",
+      "task_id": "v2-mail-explicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "UNKNOWN",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-implicit_anchor-flip",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "flip",
+      "prediction": "EM-205",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "other",
+      "task_id": "v2-mail-implicit_anchor-flip",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "flip",
+      "prediction": "UNKNOWN",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "other",
+      "task_id": "v2-mail-implicit_anchor-stable",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "stable",
+      "prediction": "UNKNOWN",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-implicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "EM-205",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-implicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "EM-205",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-implicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "EM-104",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-implicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "UNKNOWN",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "time_plus_id",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-implicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "EM-104",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-implicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "EM-205",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-implicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "EM-104",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-implicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "EM-104",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-implicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "UNKNOWN",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "time_plus_id",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-mail-implicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "EM-104",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-implicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "EM-205",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-mail-implicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "EM-205",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "alias_collision",
+      "task_id": "v2-mail-implicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "UNKNOWN",
+      "correct": "EM-104"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-explicit_dynamic-flip",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "update": "flip",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-explicit_dynamic-flip",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "update": "flip",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-explicit_dynamic-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "update": "remove",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-explicit_dynamic-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "update": "invalidate",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-explicit_dynamic-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "update": "invalidate",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-explicit_dynamic-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "update": "name_collision",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-implicit_dynamic-flip",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "update": "flip",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-implicit_dynamic-flip",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "update": "flip",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-implicit_dynamic-remove",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "update": "remove",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-implicit_dynamic-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "update": "invalidate",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-implicit_dynamic-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "update": "invalidate",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-mail-implicit_dynamic-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "dynamic",
+      "update": "name_collision",
+      "prediction": "EM-104",
+      "correct": "EM-205"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-explicit_anchor-flip",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "flip",
+      "prediction": "MTG-22",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "other",
+      "task_id": "v2-calendar-explicit_anchor-flip",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "flip",
+      "prediction": "UNKNOWN",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "other",
+      "task_id": "v2-calendar-explicit_anchor-stable",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "stable",
+      "prediction": "UNKNOWN",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-explicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "MTG-22",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-explicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "MTG-22",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-explicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "MTG-10",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-explicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "UNKNOWN",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "time_plus_id",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-explicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "MTG-10",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-explicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "MTG-22",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-explicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "MTG-10",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-explicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "MTG-10",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-explicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "UNKNOWN",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "time_plus_id",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-explicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "MTG-10",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-explicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "MTG-22",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-explicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "MTG-22",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "alias_collision",
+      "task_id": "v2-calendar-explicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "UNKNOWN",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-implicit_anchor-flip",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "flip",
+      "prediction": "MTG-22",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "other",
+      "task_id": "v2-calendar-implicit_anchor-flip",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "flip",
+      "prediction": "UNKNOWN",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "other",
+      "task_id": "v2-calendar-implicit_anchor-stable",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "stable",
+      "prediction": "UNKNOWN",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-implicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "MTG-22",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-implicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "MTG-22",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-implicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "MTG-10",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-implicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "UNKNOWN",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "time_plus_id",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-implicit_anchor-remove",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "remove",
+      "prediction": "MTG-10",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-implicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "MTG-22",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-implicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "MTG-10",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-implicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "MTG-10",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-implicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "UNKNOWN",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "time_plus_id",
+      "error_type": "invalid_but_processed",
+      "task_id": "v2-calendar-implicit_anchor-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "invalidate",
+      "prediction": "MTG-10",
+      "correct": "INVALID_BOUND_ENTITY"
+    },
+    {
+      "representation": "latest_state",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-implicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "MTG-22",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "temporal_rebinding",
+      "task_id": "v2-calendar-implicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "MTG-22",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "binding_time_only",
+      "error_type": "alias_collision",
+      "task_id": "v2-calendar-implicit_anchor-name_collision",
+      "task_type": "scalar",
+      "phenomenon": "implicit",
+      "binding": "anchored",
+      "update": "name_collision",
+      "prediction": "UNKNOWN",
+      "correct": "MTG-10"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-calendar-explicit_dynamic-flip",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "update": "flip",
+      "prediction": "MTG-10",
+      "correct": "MTG-22"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-calendar-explicit_dynamic-flip",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "update": "flip",
+      "prediction": "MTG-10",
+      "correct": "MTG-22"
+    },
+    {
+      "representation": "bound_id_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-calendar-explicit_dynamic-remove",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "update": "remove",
+      "prediction": "MTG-10",
+      "correct": "MTG-22"
+    },
+    {
+      "representation": "bound_name_only",
+      "error_type": "premature_binding",
+      "task_id": "v2-calendar-explicit_dynamic-invalidate",
+      "task_type": "scalar",
+      "phenomenon": "explicit",
+      "binding": "dynamic",
+      "update": "invalidate",
+      "prediction": "MTG-10",
+      "correct": "MTG-22"
+    }
+  ]
+}

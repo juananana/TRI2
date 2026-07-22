@@ -1,0 +1,43 @@
+{
+  "study": "TRI low-intervention external confirmation v2 inventory gate",
+  "status": "planned/unverified; zero-API gate",
+  "decision": "NO-GO",
+  "requirements": {
+    "min_apps": 4,
+    "min_clusters": 20,
+    "min_inventory_rows": 80,
+    "independent_writers_required": true
+  },
+  "available_inventory": {
+    "apps": [
+      "simple",
+      "todoist"
+    ],
+    "app_count": 2,
+    "clusters": [
+      "simple-note-alphabetical-first",
+      "todoist-earliest-due"
+    ],
+    "cluster_count": 2,
+    "inventory_rows": 16,
+    "matched_2x2_clusters": 2,
+    "independent_writers_verified": false
+  },
+  "completed_low_intervention_evidence": {
+    "trajectories": 32,
+    "binding_opportunities": 28,
+    "conditional_tri_errors": 0,
+    "preserve_flip_opportunities": 6,
+    "preserve_flip_tri_errors": 0,
+    "wrong_writes_without_correct_binding": 2
+  },
+  "checks": {
+    "at_least_four_apps": false,
+    "at_least_twenty_clusters": false,
+    "at_least_eighty_inventory_rows": false,
+    "independent_writers_verified": false,
+    "all_clusters_have_matched_2x2": true,
+    "existing_ordinary_loop_has_observable_bindings": true
+  },
+  "interpretation": "The existing ordinary full-history AppWorld study is a completed two-cluster null. It does not satisfy the prospective domain, cluster, or independent-writer gate. No new API run is authorized; author-written expansion would not exclude the template-construction alternative explanation."
+}

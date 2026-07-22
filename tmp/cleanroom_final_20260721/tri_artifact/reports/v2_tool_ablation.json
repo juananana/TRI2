@@ -1,0 +1,425 @@
+{
+  "n_episodes": 1476,
+  "table": [
+    {
+      "controller": "binding_time_only",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "controller": "binding_time_only",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "binding_time_only",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 48,
+      "accuracy": 0.8571428571428571,
+      "ci95_low": 0.7426383257914846,
+      "ci95_high": 0.9257929995741472
+    },
+    {
+      "controller": "binding_time_only",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "controller": "binding_time_only",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "binding_time_only",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.0458197362645751
+    },
+    {
+      "controller": "binding_time_only",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 80,
+      "accuracy": 1.0,
+      "ci95_low": 0.954180263735425,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "bound_id_only",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "bound_id_only",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "controller": "bound_id_only",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 24,
+      "accuracy": 0.42857142857142855,
+      "ci95_low": 0.3076876241309292,
+      "ci95_high": 0.5586261107959444
+    },
+    {
+      "controller": "bound_id_only",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "bound_id_only",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "controller": "bound_id_only",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 48,
+      "accuracy": 0.6,
+      "ci95_low": 0.4904526454814999,
+      "ci95_high": 0.700383407265585
+    },
+    {
+      "controller": "bound_id_only",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 16,
+      "accuracy": 0.2,
+      "ci95_low": 0.1270273637929335,
+      "ci95_high": 0.3004644779658116
+    },
+    {
+      "controller": "bound_name_only",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "controller": "bound_name_only",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "bound_name_only",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 48,
+      "accuracy": 0.8571428571428571,
+      "ci95_low": 0.7426383257914846,
+      "ci95_high": 0.9257929995741472
+    },
+    {
+      "controller": "bound_name_only",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "controller": "bound_name_only",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "bound_name_only",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 30,
+      "accuracy": 0.375,
+      "ci95_low": 0.2769401625800477,
+      "ci95_high": 0.484514771486096
+    },
+    {
+      "controller": "bound_name_only",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 52,
+      "accuracy": 0.65,
+      "ci95_low": 0.5407980232189245,
+      "ci95_high": 0.7454560559017032
+    },
+    {
+      "controller": "latest_state",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.35433884297520657
+    },
+    {
+      "controller": "latest_state",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "latest_state",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 48,
+      "accuracy": 0.8571428571428571,
+      "ci95_low": 0.7426383257914846,
+      "ci95_high": 0.9257929995741472
+    },
+    {
+      "controller": "latest_state",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 0,
+      "accuracy": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.3244156195108769
+    },
+    {
+      "controller": "latest_state",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "latest_state",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 16,
+      "accuracy": 0.2,
+      "ci95_low": 0.1270273637929335,
+      "ci95_high": 0.3004644779658116
+    },
+    {
+      "controller": "latest_state",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 80,
+      "accuracy": 1.0,
+      "ci95_low": 0.954180263735425,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "schema_lifecycle",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "schema_lifecycle",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "schema_lifecycle",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 56,
+      "accuracy": 1.0,
+      "ci95_low": 0.9358038555118846,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "schema_lifecycle",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "schema_lifecycle",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "schema_lifecycle",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 80,
+      "accuracy": 1.0,
+      "ci95_low": 0.954180263735425,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "schema_lifecycle",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 80,
+      "accuracy": 1.0,
+      "ci95_low": 0.954180263735425,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "time_plus_id",
+      "task_type": "collection",
+      "binding": "anchored",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "time_plus_id",
+      "task_type": "collection",
+      "binding": "dynamic",
+      "n": 7,
+      "correct": 7,
+      "accuracy": 1.0,
+      "ci95_low": 0.6456611570247934,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "time_plus_id",
+      "task_type": "conditional",
+      "binding": "conditional",
+      "n": 56,
+      "correct": 24,
+      "accuracy": 0.42857142857142855,
+      "ci95_low": 0.3076876241309292,
+      "ci95_high": 0.5586261107959444
+    },
+    {
+      "controller": "time_plus_id",
+      "task_type": "nested",
+      "binding": "anchored",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "time_plus_id",
+      "task_type": "nested",
+      "binding": "dynamic",
+      "n": 8,
+      "correct": 8,
+      "accuracy": 1.0,
+      "ci95_low": 0.6755843804891231,
+      "ci95_high": 1.0
+    },
+    {
+      "controller": "time_plus_id",
+      "task_type": "scalar",
+      "binding": "anchored",
+      "n": 80,
+      "correct": 48,
+      "accuracy": 0.6,
+      "ci95_low": 0.4904526454814999,
+      "ci95_high": 0.700383407265585
+    },
+    {
+      "controller": "time_plus_id",
+      "task_type": "scalar",
+      "binding": "dynamic",
+      "n": 80,
+      "correct": 80,
+      "accuracy": 1.0,
+      "ci95_low": 0.954180263735425,
+      "ci95_high": 1.0
+    }
+  ]
+}

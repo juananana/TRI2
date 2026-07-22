@@ -1,0 +1,40 @@
+[
+  {
+    "file_a": "$HOME/Desktop/TRI_AAAI_Paper_Project_20260716/temporal_referent_integrity/runs/20260716T071021Z_Pro_zai-org_GLM-5.1_state_overwrite_once_dev_all.jsonl",
+    "file_b": "$HOME/Desktop/TRI_AAAI_Paper_Project_20260716/temporal_referent_integrity/runs/20260716T072247Z_Pro_zai-org_GLM-5.1_compile_then_act_dev_all.jsonl",
+    "model_a": "GLM-5.1",
+    "model_b": "GLM-5.1",
+    "mode_a": "state_overwrite_once",
+    "mode_b": "compile_then_act",
+    "n_paired": 160,
+    "accuracy_a": 0.6125,
+    "accuracy_b": 0.89375,
+    "delta_b_minus_a": 0.28125,
+    "both_correct": 98,
+    "a_only_correct": 0,
+    "b_only_correct": 45,
+    "both_wrong": 17,
+    "api_errors_a": 0,
+    "api_errors_b": 0,
+    "mcnemar_exact_p": 5.684341886080802e-14
+  },
+  {
+    "file_a": "$HOME/Desktop/TRI_AAAI_Paper_Project_20260716/temporal_referent_integrity/runs/20260716T082503Z_Qwen_Qwen3.5-397B-A17B_state_overwrite_once_dev_all.jsonl",
+    "file_b": "$HOME/Desktop/TRI_AAAI_Paper_Project_20260716/temporal_referent_integrity/runs/20260716T083738Z_Qwen_Qwen3.5-397B-A17B_compile_then_act_dev_all.jsonl",
+    "model_a": "Qwen3.5",
+    "model_b": "Qwen3.5",
+    "mode_a": "state_overwrite_once",
+    "mode_b": "compile_then_act",
+    "n_paired": 160,
+    "accuracy_a": 0.6,
+    "accuracy_b": 0.5375,
+    "delta_b_minus_a": -0.0625,
+    "both_correct": 64,
+    "a_only_correct": 32,
+    "b_only_correct": 22,
+    "both_wrong": 42,
+    "api_errors_a": 0,
+    "api_errors_b": 52,
+    "mcnemar_exact_p": 0.22032849417661104
+  }
+]

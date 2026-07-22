@@ -1,0 +1,263 @@
+{
+  "dataset_sha256": [
+    "e651f4db45275877ca09a5e70187baca6d5ee8901bf983bb1ecc3885ef879181"
+  ],
+  "decision": {
+    "gates": {
+      "api_parse_failure_at_most_5pct": false,
+      "schema_valid_at_least_95pct": false,
+      "selector_equivalence_at_least_95pct": false,
+      "two_complete_models": false
+    },
+    "go_to_v7": false,
+    "preflight_closed_loop": true
+  },
+  "groups": [
+    {
+      "completion_tokens": 197,
+      "method": "event_graph",
+      "metrics": {
+        "authorized_target_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        },
+        "bound_id_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "mode_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "schema_valid": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "selector_final_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        },
+        "selector_initial_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        }
+      },
+      "model": "Pro/zai-org/GLM-5.1",
+      "prompt_tokens": 461,
+      "request_attempts": 1,
+      "tasks": 1,
+      "tasks_with_errors": 0
+    },
+    {
+      "completion_tokens": 291,
+      "method": "event_graph_selector",
+      "metrics": {
+        "authorized_target_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "bound_id_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "mode_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "schema_valid": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "selector_final_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "selector_initial_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        }
+      },
+      "model": "Pro/zai-org/GLM-5.1",
+      "prompt_tokens": 531,
+      "request_attempts": 1,
+      "tasks": 1,
+      "tasks_with_errors": 0
+    },
+    {
+      "completion_tokens": 50,
+      "method": "exact_cta",
+      "metrics": {
+        "authorized_target_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        },
+        "bound_id_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "mode_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "schema_valid": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "selector_final_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        },
+        "selector_initial_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        }
+      },
+      "model": "Pro/zai-org/GLM-5.1",
+      "prompt_tokens": 422,
+      "request_attempts": 1,
+      "tasks": 1,
+      "tasks_with_errors": 0
+    },
+    {
+      "completion_tokens": 212,
+      "method": "event_graph",
+      "metrics": {
+        "authorized_target_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        },
+        "bound_id_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "mode_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "schema_valid": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "selector_final_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        },
+        "selector_initial_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        }
+      },
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "prompt_tokens": 483,
+      "request_attempts": 1,
+      "tasks": 1,
+      "tasks_with_errors": 0
+    },
+    {
+      "completion_tokens": 324,
+      "method": "event_graph_selector",
+      "metrics": {
+        "authorized_target_correct": {
+          "correct": 0,
+          "eligible": 1,
+          "rate": 0.0
+        },
+        "bound_id_correct": {
+          "correct": 0,
+          "eligible": 1,
+          "rate": 0.0
+        },
+        "mode_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "schema_valid": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "selector_final_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "selector_initial_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        }
+      },
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "prompt_tokens": 553,
+      "request_attempts": 1,
+      "tasks": 1,
+      "tasks_with_errors": 0
+    },
+    {
+      "completion_tokens": 35,
+      "method": "exact_cta",
+      "metrics": {
+        "authorized_target_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        },
+        "bound_id_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "mode_correct": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "schema_valid": {
+          "correct": 1,
+          "eligible": 1,
+          "rate": 1.0
+        },
+        "selector_final_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        },
+        "selector_initial_correct": {
+          "correct": 0,
+          "eligible": 0,
+          "rate": null
+        }
+      },
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "prompt_tokens": 444,
+      "request_attempts": 1,
+      "tasks": 1,
+      "tasks_with_errors": 0
+    }
+  ]
+}

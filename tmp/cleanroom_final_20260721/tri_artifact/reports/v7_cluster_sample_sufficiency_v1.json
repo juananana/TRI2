@@ -1,0 +1,235 @@
+{
+  "estimand": "CTA minus Generic paired exact-target accuracy",
+  "seed": 20260721,
+  "subsample_draws": 10000,
+  "title": "TRI-v7 Replication Sample Sufficiency Audit",
+  "dataset": "TRI-v7 independent state replication",
+  "sampling_unit": "complete state cluster without replacement",
+  "models": [
+    {
+      "model": "Qwen3.5",
+      "matched_tasks": 240,
+      "state_clusters": 40,
+      "tasks_per_cluster": [
+        6
+      ],
+      "full_delta": 0.23333333333333334,
+      "cluster_bootstrap_ci95": [
+        0.1625,
+        0.30416666666666664
+      ],
+      "curve": [
+        {
+          "clusters": 5,
+          "tasks": 30,
+          "draws": 10000,
+          "median_delta": 0.23333333333333334,
+          "subsample_interval_95": [
+            0.06666666666666667,
+            0.43333333333333335
+          ],
+          "positive_fraction": 0.9919,
+          "at_least_10_points_fraction": 0.9426
+        },
+        {
+          "clusters": 10,
+          "tasks": 60,
+          "draws": 10000,
+          "median_delta": 0.23333333333333334,
+          "subsample_interval_95": [
+            0.11666666666666667,
+            0.35
+          ],
+          "positive_fraction": 0.9999,
+          "at_least_10_points_fraction": 0.99
+        },
+        {
+          "clusters": 20,
+          "tasks": 120,
+          "draws": 10000,
+          "median_delta": 0.23333333333333334,
+          "subsample_interval_95": [
+            0.16666666666666666,
+            0.30833333333333335
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        },
+        {
+          "clusters": 30,
+          "tasks": 180,
+          "draws": 10000,
+          "median_delta": 0.23333333333333334,
+          "subsample_interval_95": [
+            0.19444444444444445,
+            0.2722222222222222
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        },
+        {
+          "clusters": 40,
+          "tasks": 240,
+          "draws": 1,
+          "median_delta": 0.23333333333333334,
+          "subsample_interval_95": [
+            0.23333333333333334,
+            0.23333333333333334
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        }
+      ]
+    },
+    {
+      "model": "GLM-5.1",
+      "matched_tasks": 240,
+      "state_clusters": 40,
+      "tasks_per_cluster": [
+        6
+      ],
+      "full_delta": 0.24166666666666667,
+      "cluster_bootstrap_ci95": [
+        0.19583333333333333,
+        0.2875
+      ],
+      "curve": [
+        {
+          "clusters": 5,
+          "tasks": 30,
+          "draws": 10000,
+          "median_delta": 0.23333333333333334,
+          "subsample_interval_95": [
+            0.13333333333333333,
+            0.36666666666666664
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 0.9968
+        },
+        {
+          "clusters": 10,
+          "tasks": 60,
+          "draws": 10000,
+          "median_delta": 0.23333333333333334,
+          "subsample_interval_95": [
+            0.16666666666666666,
+            0.31666666666666665
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        },
+        {
+          "clusters": 20,
+          "tasks": 120,
+          "draws": 10000,
+          "median_delta": 0.24166666666666667,
+          "subsample_interval_95": [
+            0.19166666666666668,
+            0.2916666666666667
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        },
+        {
+          "clusters": 30,
+          "tasks": 180,
+          "draws": 10000,
+          "median_delta": 0.24444444444444444,
+          "subsample_interval_95": [
+            0.21666666666666667,
+            0.26666666666666666
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        },
+        {
+          "clusters": 40,
+          "tasks": 240,
+          "draws": 1,
+          "median_delta": 0.24166666666666667,
+          "subsample_interval_95": [
+            0.24166666666666667,
+            0.24166666666666667
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        }
+      ]
+    },
+    {
+      "model": "DeepSeek",
+      "matched_tasks": 240,
+      "state_clusters": 40,
+      "tasks_per_cluster": [
+        6
+      ],
+      "full_delta": 0.175,
+      "cluster_bootstrap_ci95": [
+        0.10833333333333334,
+        0.23333333333333334
+      ],
+      "curve": [
+        {
+          "clusters": 5,
+          "tasks": 30,
+          "draws": 10000,
+          "median_delta": 0.2,
+          "subsample_interval_95": [
+            0.0,
+            0.3
+          ],
+          "positive_fraction": 0.9545,
+          "at_least_10_points_fraction": 0.8498
+        },
+        {
+          "clusters": 10,
+          "tasks": 60,
+          "draws": 10000,
+          "median_delta": 0.18333333333333332,
+          "subsample_interval_95": [
+            0.06666666666666667,
+            0.26666666666666666
+          ],
+          "positive_fraction": 0.9977,
+          "at_least_10_points_fraction": 0.9199
+        },
+        {
+          "clusters": 20,
+          "tasks": 120,
+          "draws": 10000,
+          "median_delta": 0.175,
+          "subsample_interval_95": [
+            0.10833333333333334,
+            0.23333333333333334
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 0.994
+        },
+        {
+          "clusters": 30,
+          "tasks": 180,
+          "draws": 10000,
+          "median_delta": 0.17222222222222222,
+          "subsample_interval_95": [
+            0.14444444444444443,
+            0.21666666666666667
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        },
+        {
+          "clusters": 40,
+          "tasks": 240,
+          "draws": 1,
+          "median_delta": 0.175,
+          "subsample_interval_95": [
+            0.175,
+            0.175
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        }
+      ]
+    }
+  ]
+}

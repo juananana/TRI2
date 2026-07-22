@@ -7,6 +7,8 @@ from typing import Any
 
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import inch
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 
 
@@ -15,9 +17,18 @@ INK = colors.HexColor("#17212B")
 MUTED = colors.HexColor("#5B6570")
 LINE = colors.HexColor("#CBD2D9")
 IDEAL = colors.HexColor("#E8F3F1")
-QWEN = colors.HexColor("#C4572D")
-GLM = colors.HexColor("#167D73")
+QWEN = colors.HexColor("#B64926")
+GLM = colors.HexColor("#126F66")
 INDEPENDENT = colors.HexColor("#65717C")
+FONT_REGULAR = "TRIHelvetica"
+FONT_BOLD = "TRIHelvetica-Bold"
+
+pdfmetrics.registerFont(
+    TTFont(FONT_REGULAR, "/System/Library/Fonts/Helvetica.ttc", subfontIndex=0)
+)
+pdfmetrics.registerFont(
+    TTFont(FONT_BOLD, "/System/Library/Fonts/Helvetica.ttc", subfontIndex=1)
+)
 
 
 def load_points(report_path: Path) -> list[dict[str, Any]]:
@@ -55,7 +66,10 @@ def load_points(report_path: Path) -> list[dict[str, Any]]:
 
 def draw(path: Path, points: list[dict[str, Any]]) -> None:
     width, height = 4.8 * inch, 3.45 * inch
-    c = canvas.Canvas(str(path), pagesize=(width, height), pageCompression=1)
+    c = canvas.Canvas(
+        str(path), pagesize=(width, height), pageCompression=1,
+        initialFontName=FONT_REGULAR, initialFontSize=9.3,
+    )
     c.setTitle("Preserve-Reevaluate calibration on matched changed-winner pairs")
     c.setAuthor("anonymous")
     c.setCreator("anonymous")
@@ -76,11 +90,11 @@ def draw(path: Path, points: list[dict[str, Any]]) -> None:
         x = sx(tick)
         y = sy(tick)
         c.setStrokeColor(LINE)
-        c.setLineWidth(0.45)
+        c.setLineWidth(0.5)
         c.line(x, bottom, x, top)
         c.line(left, y, right, y)
         c.setFillColor(MUTED)
-        c.setFont("Helvetica", 6)
+        c.setFont(FONT_REGULAR, 9.3)
         c.drawCentredString(x, bottom - 10, str(tick))
         c.drawRightString(left - 5, y - 2, str(tick))
 
@@ -88,14 +102,14 @@ def draw(path: Path, points: list[dict[str, Any]]) -> None:
     c.setLineWidth(0.8)
     c.rect(left, bottom, chart_w, chart_h, fill=0, stroke=1)
     c.setFillColor(INK)
-    c.setFont("Helvetica-Bold", 7)
+    c.setFont(FONT_BOLD, 9.3)
     c.drawCentredString(left + chart_w / 2, 8, "Preserve accuracy (%)")
     c.saveState()
     c.translate(10, bottom + chart_h / 2)
     c.rotate(90)
     c.drawCentredString(0, 0, "Reevaluate accuracy (%)")
     c.restoreState()
-    c.setFont("Helvetica-Bold", 7.5)
+    c.setFont(FONT_BOLD, 9.5)
     c.drawString(left, height - 11, "Matched changed-winner calibration (v3)")
 
     offsets = {
@@ -103,10 +117,10 @@ def draw(path: Path, points: list[dict[str, Any]]) -> None:
         ("GLM-5.1", "Generic"): (5, 5),
         ("Qwen3.5", "CTA"): (-125, -26),
         ("GLM-5.1", "CTA"): (-125, -6),
-        ("Qwen3.5/GLM-5.1", "Lifecycle-gated"): (-80, -43),
+        ("Qwen3.5/GLM-5.1", "Lifecycle-gated"): (-105, -43),
         ("model-independent", "Always-Lock+validity"): (-73, 6),
         ("model-independent", "Always-Reevaluate"): (5, -5),
-        ("model-independent", "Rule v2 (post-hoc)"): (-18, -62),
+        ("model-independent", "Rule v2 (post-hoc)"): (-80, -62),
     }
     short = {
         "Lifecycle-gated": "Gated",
@@ -126,10 +140,10 @@ def draw(path: Path, points: list[dict[str, Any]]) -> None:
         dx, dy = offsets[(point["model"], point["controller"])]
         model_tag = "Q" if point["model"] == "Qwen3.5" else "G" if point["model"] == "GLM-5.1" else "Q/G " if point["model"] == "Qwen3.5/GLM-5.1" else ""
         label = f"{model_tag}{short.get(point['controller'], point['controller'])} P={point['pair']:.0f}"
-        c.setFont("Helvetica", 6.0)
+        c.setFont(FONT_REGULAR, 9.3)
         c.drawString(x + dx, y + dy, label)
 
-    c.setFont("Helvetica", 5.8)
+    c.setFont(FONT_REGULAR, 9.3)
     c.setFillColor(MUTED)
     c.drawRightString(right, height - 11, "P = PairAcc; * post-hoc")
     c.showPage()
@@ -137,13 +151,16 @@ def draw(path: Path, points: list[dict[str, Any]]) -> None:
 
 
 def draw_compact(path: Path, points: list[dict[str, Any]]) -> None:
-    width, height = 3.35 * inch, 2.62 * inch
-    c = canvas.Canvas(str(path), pagesize=(width, height), pageCompression=1)
+    width, height = 3.35 * inch, 2.65 * inch
+    c = canvas.Canvas(
+        str(path), pagesize=(width, height), pageCompression=1,
+        initialFontName=FONT_REGULAR, initialFontSize=9.2,
+    )
     c.setTitle("Compact Preserve-Reevaluate calibration on matched changed-winner pairs")
     c.setAuthor("anonymous")
     c.setCreator("anonymous")
 
-    left, bottom, right, top = 29, 25, width - 7, height - 18
+    left, bottom, right, top = 34, 31, width - 7, height - 47
     chart_w, chart_h = right - left, top - bottom
     axis_min, axis_max = -4, 104
 
@@ -158,11 +175,11 @@ def draw_compact(path: Path, points: list[dict[str, Any]]) -> None:
     for tick in (0, 50, 100):
         x, y = sx(tick), sy(tick)
         c.setStrokeColor(LINE)
-        c.setLineWidth(0.45)
+        c.setLineWidth(0.5)
         c.line(x, bottom, x, top)
         c.line(left, y, right, y)
         c.setFillColor(MUTED)
-        c.setFont("Helvetica", 5.2)
+        c.setFont(FONT_REGULAR, 9.2)
         c.drawCentredString(x, bottom - 9, str(tick))
         c.drawRightString(left - 4, y - 2, str(tick))
 
@@ -170,29 +187,30 @@ def draw_compact(path: Path, points: list[dict[str, Any]]) -> None:
     c.setLineWidth(0.8)
     c.rect(left, bottom, chart_w, chart_h, fill=0, stroke=1)
     c.setFillColor(INK)
-    c.setFont("Helvetica-Bold", 6.2)
+    c.setFont(FONT_BOLD, 9.4)
     c.drawString(left, height - 10, "Changed-winner calibration (v3)")
-    c.setFont("Helvetica", 5.0)
+    c.setFont(FONT_REGULAR, 9.2)
     c.setFillColor(MUTED)
-    c.drawRightString(right, height - 10, "label number = PairAcc; * post-hoc")
-    c.setFont("Helvetica-Bold", 5.6)
+    c.drawString(left, height - 23, "1 Q-Gen 0   2 G-Gen 22   3 Q-CTA 94")
+    c.drawString(left, height - 35, "4 G-CTA 97   5 Gate 100   6 Rule* 88")
+    c.setFont(FONT_BOLD, 9.2)
     c.setFillColor(INK)
-    c.drawCentredString(left + chart_w / 2, 7, "Preserve accuracy (%)")
+    c.drawCentredString(left + chart_w / 2, 8, "Preserve accuracy (%)")
     c.saveState()
-    c.translate(8, bottom + chart_h / 2)
+    c.translate(10, bottom + chart_h / 2)
     c.rotate(90)
     c.drawCentredString(0, 0, "Reevaluate accuracy (%)")
     c.restoreState()
 
     labels = {
-        ("Qwen3.5", "Generic"): ("Q-Gen", 4, -15),
-        ("GLM-5.1", "Generic"): ("G-Gen", 4, 4),
-        ("Qwen3.5", "CTA"): ("Q-CTA", -52, -9),
-        ("GLM-5.1", "CTA"): ("G-CTA", -81, -7),
-        ("Qwen3.5/GLM-5.1", "Lifecycle-gated"): ("Q/G-Gate", -59, -21),
-        ("model-independent", "Always-Lock+validity"): ("Lock", -43, 4),
-        ("model-independent", "Always-Reevaluate"): ("Reeval", 4, -4),
-        ("model-independent", "Rule v2 (post-hoc)"): ("Rule*", -34, -34),
+        ("Qwen3.5", "Generic"): ("1", 5, -14),
+        ("GLM-5.1", "Generic"): ("2", 5, 4),
+        ("Qwen3.5", "CTA"): ("3", -13, -18),
+        ("GLM-5.1", "CTA"): ("4", -20, -5),
+        ("Qwen3.5/GLM-5.1", "Lifecycle-gated"): ("5", -9, -31),
+        ("model-independent", "Always-Lock+validity"): ("Lock 0", -45, 6),
+        ("model-independent", "Always-Reevaluate"): ("Reeval 0", 5, -8),
+        ("model-independent", "Rule v2 (post-hoc)"): ("6", -14, -17),
     }
     for point in points:
         x, y = sx(point["preserve"]), sy(point["reevaluate"])
@@ -201,10 +219,13 @@ def draw_compact(path: Path, points: list[dict[str, Any]]) -> None:
         if point["model"] == "model-independent":
             c.rect(x - 2.3, y - 2.3, 4.6, 4.6, fill=1, stroke=0)
         else:
-            c.circle(x, y, 2.6, fill=1, stroke=0)
+            if point["model"] == "Qwen3.5":
+                c.circle(x, y, 3.0, fill=1, stroke=0)
+            else:
+                c.rect(x - 3, y - 3, 6, 6, fill=1, stroke=0)
         name, dx, dy = labels[(point["model"], point["controller"])]
-        c.setFont("Helvetica", 5.2)
-        c.drawString(x + dx, y + dy, f"{name} {point['pair']:.0f}")
+        c.setFont(FONT_REGULAR, 9.2)
+        c.drawString(x + dx, y + dy, name)
 
     c.showPage()
     c.save()

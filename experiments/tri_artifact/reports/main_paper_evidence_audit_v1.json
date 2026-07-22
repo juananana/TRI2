@@ -1,0 +1,262 @@
+{
+  "status": "zero-API audit rebuilt from frozen outputs and source reports",
+  "paper": "paper/AnonymousSubmission2027.tex",
+  "v7_table2": [
+    {
+      "model": "Qwen3.5",
+      "controller": "Generic",
+      "pairacc": [
+        7,
+        80
+      ],
+      "conditional_substitution": [
+        43,
+        72
+      ],
+      "core_substitution_writes": 43,
+      "all_wrong_writes": 44,
+      "shared_eligible": 66,
+      "shared_generic_substitutions": 41,
+      "shared_cta_substitutions": 0,
+      "latex_row": "Qwen / Gen. & 7/80 & 43/72 & 43/44 \\\\",
+      "latex_row_present": true
+    },
+    {
+      "model": "Qwen3.5",
+      "controller": "CTA",
+      "pairacc": [
+        31,
+        80
+      ],
+      "conditional_substitution": [
+        0,
+        71
+      ],
+      "core_substitution_writes": 0,
+      "all_wrong_writes": 8,
+      "shared_eligible": 66,
+      "shared_generic_substitutions": 41,
+      "shared_cta_substitutions": 0,
+      "latex_row": "Qwen / CTA & 31/80 & 0/71 & 0/8 \\\\",
+      "latex_row_present": true
+    },
+    {
+      "model": "GLM-5.1",
+      "controller": "Generic",
+      "pairacc": [
+        15,
+        80
+      ],
+      "conditional_substitution": [
+        38,
+        80
+      ],
+      "core_substitution_writes": 38,
+      "all_wrong_writes": 38,
+      "shared_eligible": 70,
+      "shared_generic_substitutions": 30,
+      "shared_cta_substitutions": 0,
+      "latex_row": "GLM / Gen. & 15/80 & 38/80 & 38/38 \\\\",
+      "latex_row_present": true
+    },
+    {
+      "model": "GLM-5.1",
+      "controller": "CTA",
+      "pairacc": [
+        66,
+        80
+      ],
+      "conditional_substitution": [
+        0,
+        70
+      ],
+      "core_substitution_writes": 0,
+      "all_wrong_writes": 14,
+      "shared_eligible": 70,
+      "shared_generic_substitutions": 30,
+      "shared_cta_substitutions": 0,
+      "latex_row": "GLM / CTA & 66/80 & 0/70 & 0/14 \\\\",
+      "latex_row_present": true
+    },
+    {
+      "model": "DeepSeek",
+      "controller": "Generic",
+      "pairacc": [
+        17,
+        80
+      ],
+      "conditional_substitution": [
+        59,
+        79
+      ],
+      "core_substitution_writes": 59,
+      "all_wrong_writes": 60,
+      "shared_eligible": 69,
+      "shared_generic_substitutions": 50,
+      "shared_cta_substitutions": 0,
+      "latex_row": "DeepSeek / Gen. & 17/80 & 59/79 & 59/60 \\\\",
+      "latex_row_present": true
+    },
+    {
+      "model": "DeepSeek",
+      "controller": "CTA",
+      "pairacc": [
+        64,
+        80
+      ],
+      "conditional_substitution": [
+        0,
+        70
+      ],
+      "core_substitution_writes": 0,
+      "all_wrong_writes": 17,
+      "shared_eligible": 69,
+      "shared_generic_substitutions": 50,
+      "shared_cta_substitutions": 0,
+      "latex_row": "DeepSeek / CTA & 64/80 & 0/70 & 0/17 \\\\",
+      "latex_row_present": true
+    }
+  ],
+  "v3_primary": {
+    "Qwen3.5": {
+      "generic_accuracy": 0.64375,
+      "gated_accuracy": 0.98125,
+      "delta": 0.3375,
+      "cluster_bootstrap_ci95": [
+        0.18125,
+        0.5
+      ]
+    },
+    "GLM-5.1": {
+      "generic_accuracy": 0.71875,
+      "gated_accuracy": 1.0,
+      "delta": 0.28125,
+      "cluster_bootstrap_ci95": [
+        0.18125,
+        0.38125
+      ]
+    }
+  },
+  "human_validation": {
+    "n": 100,
+    "fleiss_kappa": 0.7077585394211735,
+    "krippendorff_alpha": 0.7087326776231028,
+    "majority_gold_accuracy": 0.86,
+    "reject_majority_gold_accuracy": 0.55
+  },
+  "public_coverage": [
+    {
+      "benchmark": "ToolSandbox",
+      "source": "reports/official_toolsandbox_tri_prevalence_audit.json",
+      "unit": "semantic scenario families",
+      "funnel": [
+        {
+          "stage": "audited families",
+          "count": 129
+        },
+        {
+          "stage": "after entity-mutation exclusion",
+          "count": 43
+        },
+        {
+          "stage": "after independent-transition exclusion",
+          "count": 26
+        },
+        {
+          "stage": "after prior-selection exclusion",
+          "count": 18
+        },
+        {
+          "stage": "TRI-like after stable-ID exclusion",
+          "count": 1
+        },
+        {
+          "stage": "strict native opportunities",
+          "count": 0
+        }
+      ],
+      "near_match_count": 1,
+      "note": "These are sequential classification buckets from the source audit, not independently measured marginal feature prevalences."
+    },
+    {
+      "benchmark": "AppWorld",
+      "source": "reports/appworld_public_trace_tri_audit.json",
+      "unit": "generator families and released trajectories",
+      "funnel": [
+        {
+          "stage": "audited generator families",
+          "count": 244
+        },
+        {
+          "stage": "TRI-like generator families",
+          "count": 1
+        },
+        {
+          "stage": "strict exogenous opportunities",
+          "count": 0
+        },
+        {
+          "stage": "released trajectories in near-match family",
+          "count": 42
+        },
+        {
+          "stage": "observable post-binding operations",
+          "count": 16
+        },
+        {
+          "stage": "observed post-binding substitutions",
+          "count": 0
+        }
+      ],
+      "near_match_count": 1,
+      "note": "The released-trace rows describe an action-induced preservation near-match, not an exogenous selector-flip TRI denominator."
+    },
+    {
+      "benchmark": "tau3-bench",
+      "source": "reports/official_tau3_native_tri_audit.json",
+      "unit": "core task definitions",
+      "funnel": [
+        {
+          "stage": "audited tasks",
+          "count": 2449
+        },
+        {
+          "stage": "tasks with user-evaluation mutation",
+          "count": 2250
+        },
+        {
+          "stage": "tasks with stable ID in user mutation",
+          "count": 0
+        },
+        {
+          "stage": "metadata strict candidates",
+          "count": 0
+        },
+        {
+          "stage": "strict native opportunities",
+          "count": 0
+        }
+      ],
+      "near_match_count": 8,
+      "note": "The listed near-matches use different bill and line roles, so they do not provide a same-role target-transition comparison."
+    }
+  ],
+  "checks": {
+    "all_table2_rows_match_frozen_sources": true,
+    "shared_qwen_claim_present": true,
+    "shared_glm_claim_present": true,
+    "shared_deepseek_claim_present": true,
+    "qwen_primary_claim_present": true,
+    "glm_primary_claim_present": true,
+    "human_agreement_claim_present": true,
+    "coverage_scope_present": true,
+    "generic_core_writes_equal_conditional_substitutions": true,
+    "cta_core_writes_zero_but_all_wrong_reported": true
+  },
+  "all_checks_pass": true,
+  "boundaries": [
+    "The audit checks numerical and provenance consistency, not natural prevalence.",
+    "Human and public-suite classifications retain the limitations stated in the paper.",
+    "Provider inference cannot be reproduced exactly because immutable serving revisions are unavailable."
+  ]
+}

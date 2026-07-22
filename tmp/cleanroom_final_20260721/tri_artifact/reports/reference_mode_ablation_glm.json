@@ -1,0 +1,64 @@
+{
+  "protocol": "post_refresh_generic_representation_ablation",
+  "generic_run": "runs/20260717T032824Z_Pro_zai-org_GLM-5.1_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+  "reference_mode_run": "runs/20260719T053247Z_Pro_zai-org_GLM-5.1_generic_reference_mode_v3_language_clusters.jsonl",
+  "n_tasks": 160,
+  "generic": {
+    "n": 160,
+    "correct": 115,
+    "accuracy": 0.71875,
+    "api_errors": 0,
+    "statuses": [
+      "ok"
+    ],
+    "binding_slices": {
+      "anchored": {
+        "n": 80,
+        "correct": 45,
+        "accuracy": 0.5625
+      },
+      "dynamic": {
+        "n": 80,
+        "correct": 70,
+        "accuracy": 0.875
+      }
+    }
+  },
+  "reference_mode": {
+    "n": 160,
+    "correct": 120,
+    "accuracy": 0.75,
+    "api_errors": 0,
+    "statuses": [
+      "ok"
+    ],
+    "binding_slices": {
+      "anchored": {
+        "n": 80,
+        "correct": 42,
+        "accuracy": 0.525
+      },
+      "dynamic": {
+        "n": 80,
+        "correct": 78,
+        "accuracy": 0.975
+      }
+    }
+  },
+  "comparison": {
+    "file_a": "runs/20260717T032824Z_Pro_zai-org_GLM-5.1_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+    "file_b": "runs/20260719T053247Z_Pro_zai-org_GLM-5.1_generic_reference_mode_v3_language_clusters.jsonl",
+    "model_a": "GLM-5.1",
+    "model_b": "GLM-5.1",
+    "mode_a": "generic_structured_ledger_then_act",
+    "mode_b": "generic_reference_mode_ledger_then_act",
+    "n_tasks": 160,
+    "n_clusters": 20,
+    "delta_b_minus_a": 0.03125,
+    "cluster_bootstrap_ci95_low": -0.025,
+    "cluster_bootstrap_ci95_high": 0.09375,
+    "template_wins_b": 7,
+    "template_ties": 9,
+    "template_wins_a": 4
+  }
+}

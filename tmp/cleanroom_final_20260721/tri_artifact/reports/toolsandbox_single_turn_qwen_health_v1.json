@@ -1,0 +1,95 @@
+{
+  "inventory": {
+    "rows": 8,
+    "duplicate_model_controller_task_keys": 0,
+    "models": [
+      "Qwen/Qwen3.5-122B-A10B"
+    ],
+    "controllers": [
+      "full_history"
+    ],
+    "tasks": 8
+  },
+  "cells": [
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "full_history",
+      "reference_mode": "preserve",
+      "transition": "flip",
+      "n": 2,
+      "api_or_protocol_errors": 0,
+      "binding_observed": 2,
+      "initial_binding_correct": 1,
+      "tri_opportunities": 1,
+      "final_state_success": 2,
+      "wrong_entity_writes": 0,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": null,
+      "selector_clusters": [
+        "due-earliest"
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "full_history",
+      "reference_mode": "preserve",
+      "transition": "stable",
+      "n": 2,
+      "api_or_protocol_errors": 0,
+      "binding_observed": 2,
+      "initial_binding_correct": 1,
+      "tri_opportunities": 1,
+      "final_state_success": 2,
+      "wrong_entity_writes": 0,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": null,
+      "selector_clusters": [
+        "due-earliest"
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "full_history",
+      "reference_mode": "reevaluate",
+      "transition": "flip",
+      "n": 2,
+      "api_or_protocol_errors": 0,
+      "binding_observed": 2,
+      "initial_binding_correct": 1,
+      "tri_opportunities": 1,
+      "final_state_success": 1,
+      "wrong_entity_writes": 1,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": null,
+      "selector_clusters": [
+        "due-earliest"
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "full_history",
+      "reference_mode": "reevaluate",
+      "transition": "stable",
+      "n": 2,
+      "api_or_protocol_errors": 0,
+      "binding_observed": 2,
+      "initial_binding_correct": 2,
+      "tri_opportunities": 2,
+      "final_state_success": 2,
+      "wrong_entity_writes": 0,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": null,
+      "selector_clusters": [
+        "due-earliest"
+      ]
+    }
+  ]
+}

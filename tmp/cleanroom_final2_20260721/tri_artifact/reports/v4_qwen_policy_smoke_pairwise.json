@@ -1,0 +1,21 @@
+[
+  {
+    "file_a": "runs/20260717T040528Z_Qwen_Qwen3.5-122B-A10B_generic_v4_policy_smoke.jsonl",
+    "file_b": "runs/20260717T040625Z_Qwen_Qwen3.5-122B-A10B_guarded_lifecycle_v4_policy_smoke.jsonl",
+    "model_a": "Qwen3.5",
+    "model_b": "Qwen3.5",
+    "mode_a": "generic_structured_ledger_then_act",
+    "mode_b": "guarded_lifecycle_then_act",
+    "n_paired": 10,
+    "accuracy_a": 0.4,
+    "accuracy_b": 0.8,
+    "delta_b_minus_a": 0.4,
+    "both_correct": 3,
+    "a_only_correct": 1,
+    "b_only_correct": 5,
+    "both_wrong": 1,
+    "api_errors_a": 0,
+    "api_errors_b": 0,
+    "mcnemar_exact_p": 0.21875
+  }
+]

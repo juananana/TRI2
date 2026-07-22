@@ -5,6 +5,8 @@ from pathlib import Path
 
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import inch
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 
@@ -13,26 +15,35 @@ INK = colors.HexColor("#17212B")
 MUTED = colors.HexColor("#5B6570")
 LINE = colors.HexColor("#CBD2D9")
 GENERIC = colors.HexColor("#7A8793")
-LIFECYCLE = colors.HexColor("#167D73")
+LIFECYCLE = colors.HexColor("#126F66")
 GENERIC_FREE = colors.HexColor("#AAB2BA")
 GENERIC_GATE = colors.HexColor("#65717C")
 LIFECYCLE_FREE = colors.HexColor("#69B7AA")
-LIFECYCLE_GATE = colors.HexColor("#167D73")
-ACCENT = colors.HexColor("#C4572D")
+LIFECYCLE_GATE = colors.HexColor("#126F66")
+ACCENT = colors.HexColor("#B64926")
 PALE_GREEN = colors.HexColor("#E8F3F1")
 PALE_ORANGE = colors.HexColor("#F8ECE7")
 PALE_GRAY = colors.HexColor("#F1F3F5")
+FONT_REGULAR = "TRIHelvetica"
+FONT_BOLD = "TRIHelvetica-Bold"
+
+pdfmetrics.registerFont(
+    TTFont(FONT_REGULAR, "/System/Library/Fonts/Helvetica.ttc", subfontIndex=0)
+)
+pdfmetrics.registerFont(
+    TTFont(FONT_BOLD, "/System/Library/Fonts/Helvetica.ttc", subfontIndex=1)
+)
 
 
-def text(c: canvas.Canvas, x: float, y: float, value: str, size: float = 7.0, bold: bool = False, color=INK) -> None:
+def text(c: canvas.Canvas, x: float, y: float, value: str, size: float = 9.2, bold: bool = False, color=INK) -> None:
     c.setFillColor(color)
-    c.setFont("Helvetica-Bold" if bold else "Helvetica", size)
+    c.setFont(FONT_BOLD if bold else FONT_REGULAR, size)
     c.drawString(x, y, value)
 
 
-def centered(c: canvas.Canvas, x: float, y: float, value: str, size: float = 7.0, bold: bool = False, color=INK) -> None:
+def centered(c: canvas.Canvas, x: float, y: float, value: str, size: float = 9.2, bold: bool = False, color=INK) -> None:
     c.setFillColor(color)
-    c.setFont("Helvetica-Bold" if bold else "Helvetica", size)
+    c.setFont(FONT_BOLD if bold else FONT_REGULAR, size)
     c.drawCentredString(x, y, value)
 
 
@@ -58,79 +69,113 @@ def arrow(c: canvas.Canvas, x1: float, y1: float, x2: float, y2: float, color=MU
         c.line(x2, y2, x2 - 2.5, y2 - sign * angle)
 
 
-def fit_centered(c: canvas.Canvas, x: float, y: float, value: str, max_width: float, size: float = 7.0, bold: bool = False, color=INK) -> None:
-    font = "Helvetica-Bold" if bold else "Helvetica"
-    while size > 5.2 and stringWidth(value, font, size) > max_width:
+def fit_centered(c: canvas.Canvas, x: float, y: float, value: str, max_width: float, size: float = 9.2, bold: bool = False, color=INK) -> None:
+    font = FONT_BOLD if bold else FONT_REGULAR
+    while size > 9.0 and stringWidth(value, font, size) > max_width:
         size -= 0.2
     centered(c, x, y, value, size, bold, color)
 
 
+def draw_first_figure(path: Path) -> None:
+    """Draw the matched TRI contrast at AAAI's final nine-point minimum."""
+    width, height = 3.35 * inch, 2.05 * inch
+    c = canvas.Canvas(
+        str(path), pagesize=(width, height), pageCompression=1,
+        initialFontName=FONT_REGULAR, initialFontSize=9.2,
+    )
+    c.setTitle("Formal state-transition view of a TRI minimal pair")
+    c.setAuthor("anonymous")
+    c.setCreator("anonymous")
+
+    margin = 6
+    content_w = width - 2 * margin
+    text(c, margin, height - 13, "Same update, opposite authorized targets", 9.5, True)
+
+    state_y = height - 49
+    box(c, margin, state_y, content_w, 25, PALE_GRAY, radius=3)
+    centered(
+        c,
+        margin + content_w / 2,
+        state_y + 8,
+        "S0: q -> A     refresh     S1: q -> B; A stays valid",
+        9.2,
+        True,
+    )
+
+    label_w = 72
+    gap = 7
+    action_x = margin + label_w + gap
+    action_w = content_w - label_w - gap
+    for y, mode, timing, action, color, fill in (
+        (50, "PRESERVE", "bind now", "bind A  ->  refresh  ->  write A", LIFECYCLE, PALE_GREEN),
+        (8, "REEVALUATE", "refresh first", "refresh  ->  resolve q  ->  write B", ACCENT, PALE_ORANGE),
+    ):
+        box(c, margin, y, label_w, 34, fill, stroke=color, radius=3)
+        centered(c, margin + label_w / 2, y + 19, mode, 9.2, True, color)
+        centered(c, margin + label_w / 2, y + 7, timing, 9.2, False, INK)
+        box(c, action_x, y, action_w, 34, colors.white, stroke=color, radius=3)
+        centered(c, action_x + action_w / 2, y + 12, action, 9.2, True, color)
+
+    c.showPage()
+    c.save()
+
+
 def draw_mechanism(path: Path) -> None:
-    width, height = 7.0 * inch, 2.52 * inch
-    c = canvas.Canvas(str(path), pagesize=(width, height), pageCompression=1)
-    c.setTitle("Post-binding temporal authorization and TRI control")
+    # This panel is printed at a single-column width. Keep only the diagnostic
+    # contrast here; implementation details belong in the text and supplement.
+    width, height = 3.35 * inch, 2.55 * inch
+    c = canvas.Canvas(
+        str(path), pagesize=(width, height), pageCompression=1,
+        initialFontName=FONT_REGULAR, initialFontSize=9.2,
+    )
+    c.setTitle("Authorization contrast in temporal referent integrity")
 
-    margin, gap = 8, 10
-    left_w = 320
-    right_x = margin + left_w + gap
-    right_w = width - right_x - margin
+    margin = 7
+    content_w = width - 2 * margin
+    text(c, margin, height - 13, "Same refresh, opposite authorized targets", 8.2, True)
 
-    text(c, margin, height - 13, "A  Same world update, different authorization", 8.0, True)
-    text(c, right_x, height - 13, "B  Lifecycle representation", 8.0, True)
+    state_y = height - 37
+    box(c, margin, state_y, content_w, 18, PALE_GRAY, radius=3)
+    centered(c, margin + content_w / 2, state_y + 6.5,
+             "S0: A wins q  ->  refresh  ->  S1: B wins q; A remains valid", 6.2, True)
 
-    state_y = height - 40
-    box(c, margin, state_y, left_w, 20, PALE_GRAY, radius=3)
-    centered(c, margin + left_w / 2, state_y + 7, "S0: A wins selector q    |    refresh    |    S1: B wins q; A remains action-valid", 6.5, True)
+    label_w, decision_w, output_w = 57, 94, 58
+    gap = (content_w - label_w - decision_w - output_w) / 2
+    label_x = margin
+    decision_x = label_x + label_w + gap
+    output_x = decision_x + decision_w + gap
+    lane_h = 40
+    preserve_y = state_y - 49
+    reevaluate_y = preserve_y - 49
 
-    lane_x, instruction_w = margin, 126
-    mid_x, mid_w = lane_x + instruction_w + 12, 70
-    out_x, out_w = mid_x + mid_w + 38, 74
-    lane_h = 44
-    preserve_y = state_y - 52
-    reevaluate_y = preserve_y - 52
+    box(c, label_x, preserve_y, label_w, lane_h, PALE_GREEN, radius=4)
+    centered(c, label_x + label_w / 2, preserve_y + 25, "PRESERVE", 6.7, True, LIFECYCLE)
+    centered(c, label_x + label_w / 2, preserve_y + 13, "choose q now", 5.8, False)
+    centered(c, label_x + label_w / 2, preserve_y + 5, "then refresh", 5.8, False)
+    box(c, decision_x, preserve_y + 5, decision_w, 30, colors.white, stroke=LIFECYCLE, radius=3)
+    centered(c, decision_x + decision_w / 2, preserve_y + 23, "bind A before refresh", 6.2, True, LIFECYCLE)
+    centered(c, decision_x + decision_w / 2, preserve_y + 12, "keep the resolved ID", 5.5, False, MUTED)
+    box(c, output_x, preserve_y + 5, output_w, 30, PALE_GREEN, stroke=LIFECYCLE, radius=3)
+    centered(c, output_x + output_w / 2, preserve_y + 22, "write A", 8.8, True, LIFECYCLE)
+    centered(c, output_x + output_w / 2, preserve_y + 11, "old target", 5.4, False, MUTED)
+    arrow(c, label_x + label_w, preserve_y + lane_h / 2, decision_x, preserve_y + lane_h / 2)
+    arrow(c, decision_x + decision_w, preserve_y + lane_h / 2, output_x, preserve_y + lane_h / 2)
 
-    box(c, lane_x, preserve_y, instruction_w, lane_h, PALE_GREEN, radius=4)
-    text(c, lane_x + 7, preserve_y + 29, "PRESERVE", 7.1, True, LIFECYCLE)
-    text(c, lane_x + 7, preserve_y + 17, '"Choose q now; refresh;', 6.4)
-    text(c, lane_x + 7, preserve_y + 7, 'then act on it."', 6.4)
-    box(c, mid_x, preserve_y + 8, mid_w, 28, colors.white, stroke=LIFECYCLE, radius=3)
-    centered(c, mid_x + mid_w / 2, preserve_y + 24, "bind at S0", 6.2, True, LIFECYCLE)
-    centered(c, mid_x + mid_w / 2, preserve_y + 13, "d(r) = A", 7.0, True)
-    arrow(c, lane_x + instruction_w, preserve_y + lane_h / 2, mid_x, preserve_y + lane_h / 2)
-    arrow(c, mid_x + mid_w, preserve_y + lane_h / 2, out_x, preserve_y + lane_h / 2)
-    box(c, out_x, preserve_y + 8, out_w, 28, PALE_GREEN, stroke=LIFECYCLE, radius=3)
-    centered(c, out_x + out_w / 2, preserve_y + 24, "authorized target", 5.8, False, MUTED)
-    centered(c, out_x + out_w / 2, preserve_y + 12, "A", 10.0, True, LIFECYCLE)
+    box(c, label_x, reevaluate_y, label_w, lane_h, PALE_ORANGE, radius=4)
+    centered(c, label_x + label_w / 2, reevaluate_y + 25, "REEVALUATE", 6.7, True, ACCENT)
+    centered(c, label_x + label_w / 2, reevaluate_y + 13, "refresh first", 5.8, False)
+    centered(c, label_x + label_w / 2, reevaluate_y + 5, "then choose q", 5.8, False)
+    box(c, decision_x, reevaluate_y + 5, decision_w, 30, colors.white, stroke=ACCENT, radius=3)
+    centered(c, decision_x + decision_w / 2, reevaluate_y + 23, "evaluate q after refresh", 6.0, True, ACCENT)
+    centered(c, decision_x + decision_w / 2, reevaluate_y + 12, "no prior target commitment", 5.4, False, MUTED)
+    box(c, output_x, reevaluate_y + 5, output_w, 30, PALE_ORANGE, stroke=ACCENT, radius=3)
+    centered(c, output_x + output_w / 2, reevaluate_y + 22, "write B", 8.8, True, ACCENT)
+    centered(c, output_x + output_w / 2, reevaluate_y + 11, "new winner", 5.4, False, MUTED)
+    arrow(c, label_x + label_w, reevaluate_y + lane_h / 2, decision_x, reevaluate_y + lane_h / 2)
+    arrow(c, decision_x + decision_w, reevaluate_y + lane_h / 2, output_x, reevaluate_y + lane_h / 2)
 
-    box(c, lane_x, reevaluate_y, instruction_w, lane_h, PALE_ORANGE, radius=4)
-    text(c, lane_x + 7, reevaluate_y + 29, "REEVALUATE", 7.1, True, ACCENT)
-    text(c, lane_x + 7, reevaluate_y + 17, '"Refresh first; then choose q', 6.4)
-    text(c, lane_x + 7, reevaluate_y + 7, 'and act."', 6.4)
-    box(c, mid_x, reevaluate_y + 8, mid_w, 28, colors.white, stroke=ACCENT, radius=3)
-    centered(c, mid_x + mid_w / 2, reevaluate_y + 24, "defer to S1", 6.2, True, ACCENT)
-    centered(c, mid_x + mid_w / 2, reevaluate_y + 13, "d(r) unbound", 6.4, True)
-    arrow(c, lane_x + instruction_w, reevaluate_y + lane_h / 2, mid_x, reevaluate_y + lane_h / 2)
-    arrow(c, mid_x + mid_w, reevaluate_y + lane_h / 2, out_x, reevaluate_y + lane_h / 2)
-    box(c, out_x, reevaluate_y + 8, out_w, 28, PALE_ORANGE, stroke=ACCENT, radius=3)
-    centered(c, out_x + out_w / 2, reevaluate_y + 24, "authorized target", 5.8, False, MUTED)
-    centered(c, out_x + out_w / 2, reevaluate_y + 12, "B = q(S1)", 8.0, True, ACCENT)
-
-    # Right panel: compact implementation pipeline.
-    initial_y, compiler_y, record_y, mutation_y = state_y - 5, 98, 54, 10
-    box(c, right_x, initial_y, right_w, 25, PALE_GRAY, radius=3)
-    centered(c, right_x + right_w / 2, initial_y + 10, "instruction + initial state S0", 6.7, True)
-    arrow(c, right_x + right_w / 2, initial_y, right_x + right_w / 2, compiler_y + 30)
-    box(c, right_x + 20, compiler_y, right_w - 40, 30, colors.white, stroke=LIFECYCLE, radius=4)
-    centered(c, right_x + right_w / 2, compiler_y + 18, "Lifecycle compiler", 7.0, True, LIFECYCLE)
-    centered(c, right_x + right_w / 2, compiler_y + 7, "learn mode + bound identity", 5.9, False, MUTED)
-    arrow(c, right_x + right_w / 2, compiler_y, right_x + right_w / 2, record_y + 36)
-    box(c, right_x + 5, record_y, right_w - 10, 36, PALE_GREEN, stroke=LIFECYCLE, radius=4)
-    centered(c, right_x + right_w / 2, record_y + 21, "Reference contract L(r)", 7.0, True, LIFECYCLE)
-    centered(c, right_x + right_w / 2, record_y + 8, "mode | ID | selector | validity | fallback", 5.8)
-    arrow(c, right_x + right_w / 2, record_y, right_x + right_w / 2, mutation_y + 34)
-    box(c, right_x + 5, mutation_y, right_w - 10, 34, colors.white, stroke=GENERIC_GATE, radius=4)
-    centered(c, right_x + right_w / 2, mutation_y + 20, "Mutation boundary", 7.0, True)
-    centered(c, right_x + right_w / 2, mutation_y + 8, "actor or gate; enforce action validity", 5.8, False, MUTED)
+    centered(c, margin + content_w / 2, 7,
+             "Stable controls mask this difference; changed-winner pairs expose it.", 5.9, False, MUTED)
 
     c.showPage()
     c.save()
@@ -167,48 +212,49 @@ def draw_panel(c: canvas.Canvas, x: float, y: float, w: float, h: float, title: 
 
 
 def draw_results(path: Path) -> None:
-    width, height = 3.35 * inch, 2.55 * inch
-    c = canvas.Canvas(str(path), pagesize=(width, height), pageCompression=1)
+    width, height = 3.35 * inch, 2.65 * inch
+    c = canvas.Canvas(
+        str(path), pagesize=(width, height), pageCompression=1,
+        initialFontName=FONT_REGULAR, initialFontSize=9.2,
+    )
     c.setTitle("TRI component audit on the frozen v3 inventory")
     c.setAuthor("anonymous")
     c.setCreator("anonymous")
     c.setSubject("Controller accuracy and transition-authorization component audit")
-    text(c, 5, height - 12, "v3 component audit: exact target accuracy (%)", 7.2, True)
+    text(c, 5, height - 13, "v3 component audit: exact target accuracy (%)", 9.4, True)
 
     labels = ["Generic", "+ mode", "+ validity gate", "Untyped plan", "Rule v2*", "Exact CTA", "Lifecycle free", "Lifecycle gate"]
     qwen = [64.4, 75.0, 65.0, 81.2, 92.5, 95.0, 96.9, 98.1]
     glm = [71.9, 75.0, 73.1, 70.6, 92.5, 96.2, 98.1, 100.0]
-    chart_x, chart_w = 78, width - 86
-    top_y, row_gap = height - 31, 16
+    chart_x, chart_w = 91, width - 99
+    top_y, row_gap = height - 32, 17
     for value in (50, 75, 100):
         xx = chart_x + chart_w * (value - 50) / 50
         c.setStrokeColor(LINE)
         c.setLineWidth(0.5)
         c.line(xx, 30, xx, top_y + 4)
-        centered(c, xx, 20, str(value), 5.3, False, MUTED)
+        centered(c, xx, 24, str(value), 9.2, False, MUTED)
 
     for index, label in enumerate(labels):
         yy = top_y - index * row_gap
-        text(c, 5, yy - 2, label, 5.5, index >= 5, MUTED)
+        text(c, 5, yy - 3, label, 9.2, index >= 5, MUTED)
         qx = chart_x + chart_w * (qwen[index] - 50) / 50
         gx = chart_x + chart_w * (glm[index] - 50) / 50
         c.setStrokeColor(LINE)
         c.setLineWidth(1.0)
         c.line(qx, yy, gx, yy)
         c.setFillColor(ACCENT)
-        c.circle(qx, yy, 2.5, fill=1, stroke=0)
-        centered(c, qx, yy + 5, f"{qwen[index]:.1f}", 4.8, True, ACCENT)
+        c.circle(qx, yy, 3.0, fill=1, stroke=0)
         c.setFillColor(LIFECYCLE)
-        c.circle(gx, yy, 2.5, fill=1, stroke=0)
-        centered(c, gx, yy - 8, f"{glm[index]:.1f}", 4.8, True, LIFECYCLE)
+        c.rect(gx - 3, yy - 3, 6, 6, fill=1, stroke=0)
 
     c.setFillColor(ACCENT)
-    c.circle(8, 8, 2.5, fill=1, stroke=0)
-    text(c, 14, 6, "Qwen3.5-122B", 5.2, False, MUTED)
+    c.circle(8, 10, 3.0, fill=1, stroke=0)
+    text(c, 14, 7, "Qwen3.5-122B", 9.2, False, MUTED)
     c.setFillColor(LIFECYCLE)
-    c.circle(82, 8, 2.5, fill=1, stroke=0)
-    text(c, 88, 6, "GLM-5.1", 5.2, False, MUTED)
-    text(c, 145, 6, "* post-hoc rule", 5.2, True, ACCENT)
+    c.rect(100, 7, 6, 6, fill=1, stroke=0)
+    text(c, 111, 7, "GLM-5.1", 9.2, False, MUTED)
+    text(c, 166, 7, "* post-hoc", 9.2, True, ACCENT)
     c.showPage()
     c.save()
 
@@ -219,8 +265,10 @@ def main() -> None:
     args = ap.parse_args()
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
+    draw_first_figure(outdir / "tri_first_figure.pdf")
     draw_mechanism(outdir / "tri_v3_mechanism.pdf")
     draw_results(outdir / "tri_v3_results.pdf")
+    print(outdir / "tri_first_figure.pdf")
     print(outdir / "tri_v3_mechanism.pdf")
     print(outdir / "tri_v3_results.pdf")
 

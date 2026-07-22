@@ -1,0 +1,144 @@
+{
+  "original_items": 50,
+  "determinate_human_majority_items": 46,
+  "majority_supports_gold_items": 42,
+  "unanimous_supports_gold_items": 35,
+  "runs": {
+    "qwen_generic": {
+      "human_majority_n": 46,
+      "human_majority_correct": 32,
+      "human_majority_accuracy": 0.6956521739130435,
+      "human_majority_wilson_95": [
+        0.5519435355159235,
+        0.8092015919723277
+      ],
+      "majority_gold_subset_n": 42,
+      "majority_gold_subset_accuracy": 0.7619047619047619,
+      "unanimous_gold_subset_n": 35,
+      "unanimous_gold_subset_accuracy": 0.8571428571428571
+    },
+    "qwen_cta": {
+      "human_majority_n": 46,
+      "human_majority_correct": 42,
+      "human_majority_accuracy": 0.9130434782608695,
+      "human_majority_wilson_95": [
+        0.7967533592588116,
+        0.9656641321052741
+      ],
+      "majority_gold_subset_n": 42,
+      "majority_gold_subset_accuracy": 0.9761904761904762,
+      "unanimous_gold_subset_n": 35,
+      "unanimous_gold_subset_accuracy": 1.0
+    },
+    "qwen_free": {
+      "human_majority_n": 46,
+      "human_majority_correct": 40,
+      "human_majority_accuracy": 0.8695652173913043,
+      "human_majority_wilson_95": [
+        0.74334142220927,
+        0.9388215963796489
+      ],
+      "majority_gold_subset_n": 42,
+      "majority_gold_subset_accuracy": 0.9523809523809523,
+      "unanimous_gold_subset_n": 35,
+      "unanimous_gold_subset_accuracy": 0.9428571428571428
+    },
+    "qwen_gated": {
+      "human_majority_n": 46,
+      "human_majority_correct": 41,
+      "human_majority_accuracy": 0.8913043478260869,
+      "human_majority_wilson_95": [
+        0.7696217135574916,
+        0.9526685414190106
+      ],
+      "majority_gold_subset_n": 42,
+      "majority_gold_subset_accuracy": 0.9761904761904762,
+      "unanimous_gold_subset_n": 35,
+      "unanimous_gold_subset_accuracy": 0.9714285714285714
+    },
+    "glm_generic": {
+      "human_majority_n": 46,
+      "human_majority_correct": 34,
+      "human_majority_accuracy": 0.7391304347826086,
+      "human_majority_wilson_95": [
+        0.597408464719844,
+        0.843991135543574
+      ],
+      "majority_gold_subset_n": 42,
+      "majority_gold_subset_accuracy": 0.8095238095238095,
+      "unanimous_gold_subset_n": 35,
+      "unanimous_gold_subset_accuracy": 0.8857142857142857
+    },
+    "glm_cta": {
+      "human_majority_n": 46,
+      "human_majority_correct": 41,
+      "human_majority_accuracy": 0.8913043478260869,
+      "human_majority_wilson_95": [
+        0.7696217135574916,
+        0.9526685414190106
+      ],
+      "majority_gold_subset_n": 42,
+      "majority_gold_subset_accuracy": 0.9761904761904762,
+      "unanimous_gold_subset_n": 35,
+      "unanimous_gold_subset_accuracy": 0.9714285714285714
+    },
+    "glm_free": {
+      "human_majority_n": 46,
+      "human_majority_correct": 42,
+      "human_majority_accuracy": 0.9130434782608695,
+      "human_majority_wilson_95": [
+        0.7967533592588116,
+        0.9656641321052741
+      ],
+      "majority_gold_subset_n": 42,
+      "majority_gold_subset_accuracy": 1.0,
+      "unanimous_gold_subset_n": 35,
+      "unanimous_gold_subset_accuracy": 1.0
+    },
+    "glm_gated": {
+      "human_majority_n": 46,
+      "human_majority_correct": 42,
+      "human_majority_accuracy": 0.9130434782608695,
+      "human_majority_wilson_95": [
+        0.7967533592588116,
+        0.9656641321052741
+      ],
+      "majority_gold_subset_n": 42,
+      "majority_gold_subset_accuracy": 1.0,
+      "unanimous_gold_subset_n": 35,
+      "unanimous_gold_subset_accuracy": 1.0
+    }
+  },
+  "comparisons": {
+    "qwen_gated_vs_generic_human_majority": {
+      "difference": 0.1956521739130435,
+      "cluster_95_interval": [
+        0.05,
+        0.36363636363636365
+      ],
+      "n_clusters": 18,
+      "samples": 10000,
+      "seed": 20260718,
+      "secondary_task_level_mcnemar": {
+        "generic_only": 1,
+        "treatment_only": 10,
+        "exact_mcnemar_p": 0.01171875
+      }
+    },
+    "glm_gated_vs_generic_human_majority": {
+      "difference": 0.17391304347826086,
+      "cluster_95_interval": [
+        0.06818181818181818,
+        0.3157894736842105
+      ],
+      "n_clusters": 18,
+      "samples": 10000,
+      "seed": 20260718,
+      "secondary_task_level_mcnemar": {
+        "generic_only": 0,
+        "treatment_only": 8,
+        "exact_mcnemar_p": 0.0078125
+      }
+    }
+  }
+}

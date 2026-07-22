@@ -1,0 +1,128 @@
+{
+  "study": "custom AppWorld two-application TRI boundary case study",
+  "appworld_version": [
+    "0.1.3.post1"
+  ],
+  "base_appworld_task_ids": [
+    "82e2fac_1"
+  ],
+  "models": {
+    "Pro/zai-org/GLM-5.1": {
+      "rows": 16,
+      "strict_successes": 12,
+      "authorized_target_writes": 16,
+      "wrong_entity_writes": 0,
+      "stable_errors": 0,
+      "binding_opportunities": 12,
+      "conditional_tri_errors": 0,
+      "preserve_flip_opportunities": 2,
+      "preserve_flip_unauthorized_rebindings": 0,
+      "binding_or_tool_order_failures": 4,
+      "wrong_writes_without_prior_auditable_binding": 0,
+      "api_or_parse_error_rows": 0,
+      "api_request_attempts": 85
+    },
+    "Qwen/Qwen3.5-122B-A10B": {
+      "rows": 16,
+      "strict_successes": 12,
+      "authorized_target_writes": 15,
+      "wrong_entity_writes": 1,
+      "stable_errors": 0,
+      "binding_opportunities": 12,
+      "conditional_tri_errors": 0,
+      "preserve_flip_opportunities": 2,
+      "preserve_flip_unauthorized_rebindings": 0,
+      "binding_or_tool_order_failures": 4,
+      "wrong_writes_without_prior_auditable_binding": 1,
+      "api_or_parse_error_rows": 0,
+      "api_request_attempts": 84
+    }
+  },
+  "cluster_model_results": {
+    "simple-note-alphabetical-first": {
+      "Pro/zai-org/GLM-5.1": {
+        "rows": 8,
+        "strict_successes": 4,
+        "authorized_target_writes": 8,
+        "wrong_entity_writes": 0,
+        "stable_errors": 0,
+        "binding_opportunities": 4,
+        "conditional_tri_errors": 0,
+        "preserve_flip_opportunities": 0,
+        "preserve_flip_unauthorized_rebindings": 0,
+        "binding_or_tool_order_failures": 4,
+        "wrong_writes_without_prior_auditable_binding": 0,
+        "api_or_parse_error_rows": 0,
+        "api_request_attempts": 45
+      },
+      "Qwen/Qwen3.5-122B-A10B": {
+        "rows": 8,
+        "strict_successes": 6,
+        "authorized_target_writes": 7,
+        "wrong_entity_writes": 1,
+        "stable_errors": 0,
+        "binding_opportunities": 6,
+        "conditional_tri_errors": 0,
+        "preserve_flip_opportunities": 1,
+        "preserve_flip_unauthorized_rebindings": 0,
+        "binding_or_tool_order_failures": 2,
+        "wrong_writes_without_prior_auditable_binding": 1,
+        "api_or_parse_error_rows": 0,
+        "api_request_attempts": 42
+      }
+    },
+    "todoist-earliest-due": {
+      "Pro/zai-org/GLM-5.1": {
+        "rows": 8,
+        "strict_successes": 8,
+        "authorized_target_writes": 8,
+        "wrong_entity_writes": 0,
+        "stable_errors": 0,
+        "binding_opportunities": 8,
+        "conditional_tri_errors": 0,
+        "preserve_flip_opportunities": 2,
+        "preserve_flip_unauthorized_rebindings": 0,
+        "binding_or_tool_order_failures": 0,
+        "wrong_writes_without_prior_auditable_binding": 0,
+        "api_or_parse_error_rows": 0,
+        "api_request_attempts": 40
+      },
+      "Qwen/Qwen3.5-122B-A10B": {
+        "rows": 8,
+        "strict_successes": 6,
+        "authorized_target_writes": 8,
+        "wrong_entity_writes": 0,
+        "stable_errors": 0,
+        "binding_opportunities": 6,
+        "conditional_tri_errors": 0,
+        "preserve_flip_opportunities": 1,
+        "preserve_flip_unauthorized_rebindings": 0,
+        "binding_or_tool_order_failures": 2,
+        "wrong_writes_without_prior_auditable_binding": 0,
+        "api_or_parse_error_rows": 0,
+        "api_request_attempts": 42
+      }
+    }
+  },
+  "combined": {
+    "rows": 32,
+    "strict_successes": 24,
+    "authorized_target_writes": 31,
+    "wrong_entity_writes": 1,
+    "stable_errors": 0,
+    "binding_opportunities": 24,
+    "conditional_tri_errors": 0,
+    "preserve_flip_opportunities": 4,
+    "preserve_flip_unauthorized_rebindings": 0,
+    "binding_or_tool_order_failures": 8,
+    "wrong_writes_without_prior_auditable_binding": 1,
+    "api_or_parse_error_rows": 0,
+    "api_request_attempts": 169
+  },
+  "cluster_count": 2,
+  "clusters": [
+    "simple-note-alphabetical-first",
+    "todoist-earliest-due"
+  ],
+  "interpretation": "No post-binding TRI was observed after a correct, correctly timed binding. One Qwen Simple Note trajectory made a real wrong-entity write, but it refreshed and rebound before the sidecar recorded an initial commitment, so it is a delayed-binding/tool-order error outside the conditional TRI denominator. The study is a custom AppWorld-backed boundary case study, not a leaderboard or prevalence result."
+}

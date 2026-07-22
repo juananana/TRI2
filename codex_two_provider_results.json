@@ -1,0 +1,61 @@
+{
+  "started_at": "2026-07-20T21:19:12+0800",
+  "providers": [
+    {
+      "id": "zzz-1784015686698",
+      "kind": "codex",
+      "name": "zzz",
+      "base_url": "https://api.ej2075.com",
+      "configured_model": "gpt-5.5",
+      "success_rate": 0.0,
+      "quality_score": 0.0,
+      "median_first_token_ms": null,
+      "median_duration_ms": null,
+      "balance_before": {
+        "remaining": 12.66137297,
+        "balance": 12.66137297,
+        "unit": "USD",
+        "isValid": true
+      },
+      "balance_after": {
+        "remaining": 12.66137297,
+        "balance": 12.66137297,
+        "unit": "USD",
+        "isValid": true
+      },
+      "tasks": [
+        {
+          "task": "code_trace",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 503,
+            "error": "{\"error\":{\"message\":\"Service temporarily unavailable\",\"type\":\"api_error\"}}",
+            "duration_ms": 1881
+          }
+        },
+        {
+          "task": "debugging",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 503,
+            "error": "{\"error\":{\"message\":\"Service temporarily unavailable\",\"type\":\"api_error\"}}",
+            "duration_ms": 1240
+          }
+        },
+        {
+          "task": "constraint_reasoning",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 503,
+            "error": "{\"error\":{\"message\":\"Service temporarily unavailable\",\"type\":\"api_error\"}}",
+            "duration_ms": 1297
+          }
+        }
+      ]
+    }
+  ],
+  "finished_at": "2026-07-20T21:19:21+0800"
+}

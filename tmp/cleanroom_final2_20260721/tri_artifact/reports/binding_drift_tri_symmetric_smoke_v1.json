@@ -1,0 +1,201 @@
+{
+  "n_tasks": 20,
+  "conditions": [
+    {
+      "model": "Qwen3.5",
+      "method": "entity_lock_analogue",
+      "n": 20,
+      "correct": 10,
+      "accuracy": 0.5,
+      "anchored": {
+        "n": 10,
+        "correct": 10,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 10,
+        "correct": 0,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 10
+      },
+      "clarify": 0,
+      "other_visible_target": 0,
+      "api_or_parse_errors": 0
+    },
+    {
+      "model": "Qwen3.5",
+      "method": "self_reverify_author_adaptation",
+      "n": 20,
+      "correct": 3,
+      "accuracy": 0.15,
+      "anchored": {
+        "n": 10,
+        "correct": 0,
+        "drift_to_refreshed_winner": 3,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 10,
+        "correct": 3,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 0
+      },
+      "clarify": 0,
+      "other_visible_target": 14,
+      "api_or_parse_errors": 0
+    },
+    {
+      "model": "Qwen3.5",
+      "method": "cross_reverify_author_adaptation",
+      "n": 20,
+      "correct": 10,
+      "accuracy": 0.5,
+      "anchored": {
+        "n": 10,
+        "correct": 0,
+        "drift_to_refreshed_winner": 10,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 10,
+        "correct": 10,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 0
+      },
+      "clarify": 0,
+      "other_visible_target": 0,
+      "api_or_parse_errors": 0
+    },
+    {
+      "model": "Qwen3.5",
+      "method": "exact_cta_frozen",
+      "n": 20,
+      "correct": 12,
+      "accuracy": 0.6,
+      "anchored": {
+        "n": 10,
+        "correct": 8,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 10,
+        "correct": 4,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 2
+      },
+      "clarify": 1,
+      "other_visible_target": 5,
+      "api_or_parse_errors": 0
+    },
+    {
+      "model": "GLM-5.1",
+      "method": "entity_lock_analogue",
+      "n": 20,
+      "correct": 10,
+      "accuracy": 0.5,
+      "anchored": {
+        "n": 10,
+        "correct": 10,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 10,
+        "correct": 0,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 10
+      },
+      "clarify": 0,
+      "other_visible_target": 0,
+      "api_or_parse_errors": 0
+    },
+    {
+      "model": "GLM-5.1",
+      "method": "self_reverify_author_adaptation",
+      "n": 20,
+      "correct": 10,
+      "accuracy": 0.5,
+      "anchored": {
+        "n": 10,
+        "correct": 0,
+        "drift_to_refreshed_winner": 10,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 10,
+        "correct": 10,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 0
+      },
+      "clarify": 0,
+      "other_visible_target": 0,
+      "api_or_parse_errors": 0
+    },
+    {
+      "model": "GLM-5.1",
+      "method": "cross_reverify_author_adaptation",
+      "n": 20,
+      "correct": 3,
+      "accuracy": 0.15,
+      "anchored": {
+        "n": 10,
+        "correct": 0,
+        "drift_to_refreshed_winner": 3,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 10,
+        "correct": 3,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 0
+      },
+      "clarify": 0,
+      "other_visible_target": 14,
+      "api_or_parse_errors": 0
+    },
+    {
+      "model": "GLM-5.1",
+      "method": "exact_cta_frozen",
+      "n": 20,
+      "correct": 17,
+      "accuracy": 0.85,
+      "anchored": {
+        "n": 10,
+        "correct": 7,
+        "drift_to_refreshed_winner": 3,
+        "premature_lock": 0
+      },
+      "dynamic": {
+        "n": 10,
+        "correct": 10,
+        "drift_to_refreshed_winner": 0,
+        "premature_lock": 0
+      },
+      "clarify": 0,
+      "other_visible_target": 0,
+      "api_or_parse_errors": 0
+    }
+  ],
+  "run_audit": [
+    {
+      "model": "Qwen3.5",
+      "file": "binding_drift_tri_qwen_self_reverify_smoke_v1.jsonl",
+      "sha256": "7a6ad4b2c092de0f47b0355bf9d09327a308244984fd5657b2a1888956d69f5e",
+      "rows": 20,
+      "request_attempts": 20,
+      "retries": 0,
+      "tokens": 8644
+    },
+    {
+      "model": "GLM-5.1",
+      "file": "binding_drift_tri_glm_self_reverify_smoke_v1.jsonl",
+      "sha256": "dd62647f45dda15d87bfae5b7b378c2ef2bb11b4b346f2915409e30d19e0af13",
+      "rows": 20,
+      "request_attempts": 20,
+      "retries": 0,
+      "tokens": 7444
+    }
+  ]
+}

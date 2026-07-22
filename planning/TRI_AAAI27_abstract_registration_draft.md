@@ -1,8 +1,14 @@
 # AAAI-27 Abstract Registration Draft
 
+**Status:** current-manuscript candidate, not evidence that the OpenReview registration has been
+updated. If an abstract has already been registered, compare it with this text before changing
+anything: AAAI warns against substantial abstract changes after registration. Use the registered
+abstract as the submission-system source of truth and seek workflow-chair guidance for any
+material change.
+
 ## Title
 
-Updating the World Is Not Rebinding the Target: Temporal Referent Integrity in Tool-Using Agents
+Temporal Referent Integrity: A Controlled Diagnostic for Referential Re-resolution in Tool-Using Agents
 
 ## Short Title
 
@@ -10,7 +16,7 @@ Temporal Referent Integrity in Tool-Using Agents
 
 ## Abstract
 
-Refreshing external state does not by itself authorize a tool-using agent to change the entity denoted by an earlier reference. We formalize this post-binding problem as temporal referent integrity (TRI), separating world-state updates from referent-transition authorization. We construct controlled Preserve/Reevaluate contrasts that hold the initial state, refreshed state, selector, and action fixed while varying when the target is resolved. On a frozen 160-task diagnostic, a Generic Structured Ledger reaches 64.4%/71.9% with Qwen3.5/GLM-5.1, whereas pre-refresh Compile-then-act reaches 95.0%/96.2%; unconditional locking and reevaluation each reach 60.0% and fail complementary cases. A disclosed post-hoc benchmark-aware rule reaches 92.5%, narrowing the algorithmic claim to executable authorization rather than method complexity. In a separately frozen 240-task replication, Generic frequently substitutes the refreshed selector winner after a correct initial binding, while an explicit pre-refresh commitment policy exhibits no such conditional drift; replay converts these substitutions into wrong-entity SQLite writes. Human judgments support the Preserve/Reevaluate distinction, while audits of public agent benchmarks find few native opportunities to measure it. These results establish TRI as a controlled, model- and controller-conditional diagnosis and support executable transition authorization as a simple design principle, not a prevalence or general-safety claim.
+Refreshing external state does not by itself license a tool-using agent to change the entity denoted by an earlier reference. Post-binding target drift has been documented; our contribution is an instruction-timing-controlled evaluation variable that distinguishes legitimate deferred resolution from discourse-inconsistent substitution. We formalize this distinction as temporal referent integrity (TRI). Identifying it requires an eligible opportunity, an observable initial binding, and a Preserve/Reevaluate contrast; observing the executed mutation is additionally required to establish a wrong-entity consequence. On frozen v3/v7 diagnostics, Always-Lock and Always-Reevaluate both score 100% on Stable controls but zero changed-winner PairAcc, whereas Generic controllers selectively substitute the refreshed winner after correct binding. In replayed Qwen/GLM v7 outputs, all 43 and 38 eligible substitutions, respectively, become wrong-entity SQLite writes. CTA reduces this specific drift but does not solve all target errors and is not the unique implementation. Public audits find zero strict native opportunities in the three audited suites, and the controlled failure does not reproduce in our lower-intervention external agents. TRI is therefore a controlled, model- and controller-conditional diagnosis of an evaluation gap in these regimes, not a natural prevalence estimate or a universal controller claim. A workflow-grounded task grammar makes the required selector, refresh, and mutation opportunity explicit.
 
 ## Keywords
 
@@ -33,15 +39,13 @@ Use the closest available AAAI-27 categories, in this order:
 
 ## One-Sentence Summary
 
-We show that a state refresh can make an LLM agent silently replace a correctly bound action target, and that compiling the user's target commitment before refresh sharply reduces this error in controlled settings.
+We show that authorization contrasts are needed to distinguish a legitimate deferred selector evaluation from an unauthorized replacement of an already resolved action target.
 
 ## Contribution Summary
 
-1. Formal definition of post-binding referent-transition authorization.
-2. Frozen Stable/Flip and Preserve/Reevaluate diagnostics with cluster-aware statistics.
-3. Independent 240-task replication and wrong-entity SQLite consequences.
-4. Component and deterministic-rule analyses showing that executable transition authorization, rather than gating alone or method complexity, explains most of the controlled gain.
-5. Human-language validation and public-benchmark opportunity audits that bound external validity.
+1. Authorization-controlled evaluation requirements and a matched Preserve/Reevaluate diagnostic.
+2. Frozen v3/v7 controller-conditional substitutions and wrong-entity SQLite consequences.
+3. Identifiability controls, implementation probes, human validation, and public-suite coverage/null boundaries that constrain interpretation.
 
 ## Registration Checklist
 
@@ -52,4 +56,5 @@ We show that a state refresh can make an LLM agent silently replace a correctly 
 - Do not describe external null results as prevalence evidence.
 - Do not call Binding Drift deterministic reverify a learned baseline; it reads a gold target.
 - Do not claim CTA is uniquely necessary or an algorithmic contribution; the post-hoc strengthened deterministic rule is competitive and must be disclosed in the full paper.
-- Submit the abstract before 2026-07-22 19:59 Beijing time, preferably by noon.
+- Before final PDF submission, compare the registered OpenReview title and abstract with the
+  manuscript. Do not make a material abstract rewrite merely to match this candidate text.

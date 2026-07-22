@@ -1,0 +1,186 @@
+{
+  "controllers": [
+    {
+      "label": "Historical Compile-then-act",
+      "n": 40,
+      "success": 36,
+      "final_state_success": 37,
+      "action_status": {
+        "safe_rejection": 8,
+        "successful_write": 29,
+        "unnecessary_rejection": 3
+      },
+      "api_errors": 3,
+      "internal_errors": 4,
+      "error_rows": 4,
+      "requests": 80,
+      "retries": 4,
+      "slices": {
+        "binding": {
+          "anchored": [
+            18,
+            20
+          ],
+          "dynamic": [
+            18,
+            20
+          ]
+        },
+        "style": {
+          "explicit_anchor": [
+            10,
+            10
+          ],
+          "explicit_dynamic": [
+            8,
+            10
+          ],
+          "implicit_anchor": [
+            8,
+            10
+          ],
+          "implicit_dynamic": [
+            10,
+            10
+          ]
+        },
+        "update": {
+          "flip": [
+            8,
+            8
+          ],
+          "invalidate": [
+            7,
+            8
+          ],
+          "name_collision": [
+            7,
+            8
+          ],
+          "remove": [
+            7,
+            8
+          ],
+          "stable": [
+            7,
+            8
+          ]
+        },
+        "domain": {
+          "deployments": [
+            10,
+            10
+          ],
+          "expenses": [
+            10,
+            10
+          ],
+          "inventory": [
+            10,
+            10
+          ],
+          "projects": [
+            6,
+            10
+          ]
+        }
+      }
+    },
+    {
+      "label": "Role-indexed lifecycle",
+      "n": 40,
+      "success": 37,
+      "final_state_success": 37,
+      "action_status": {
+        "safe_rejection": 8,
+        "successful_write": 29,
+        "unnecessary_rejection": 3
+      },
+      "api_errors": 3,
+      "internal_errors": 3,
+      "error_rows": 3,
+      "requests": 60,
+      "retries": 3,
+      "slices": {
+        "binding": {
+          "anchored": [
+            20,
+            20
+          ],
+          "dynamic": [
+            17,
+            20
+          ]
+        },
+        "style": {
+          "explicit_anchor": [
+            10,
+            10
+          ],
+          "explicit_dynamic": [
+            10,
+            10
+          ],
+          "implicit_anchor": [
+            10,
+            10
+          ],
+          "implicit_dynamic": [
+            7,
+            10
+          ]
+        },
+        "update": {
+          "flip": [
+            7,
+            8
+          ],
+          "invalidate": [
+            8,
+            8
+          ],
+          "name_collision": [
+            7,
+            8
+          ],
+          "remove": [
+            7,
+            8
+          ],
+          "stable": [
+            8,
+            8
+          ]
+        },
+        "domain": {
+          "deployments": [
+            10,
+            10
+          ],
+          "expenses": [
+            10,
+            10
+          ],
+          "inventory": [
+            10,
+            10
+          ],
+          "projects": [
+            7,
+            10
+          ]
+        }
+      }
+    }
+  ],
+  "paired": {
+    "delta_percentage_points": 2.5,
+    "cluster_ci95": [
+      -10.0,
+      15.0
+    ],
+    "baseline_only": 3,
+    "role_only": 4,
+    "mcnemar_exact_p": 1.0
+  }
+}

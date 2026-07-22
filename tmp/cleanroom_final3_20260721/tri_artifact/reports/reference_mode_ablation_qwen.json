@@ -1,0 +1,64 @@
+{
+  "protocol": "post_refresh_generic_representation_ablation",
+  "generic_run": "runs/20260717T025047Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+  "reference_mode_run": "runs/20260719T052744Z_Qwen_Qwen3.5-122B-A10B_generic_reference_mode_v3_language_clusters.jsonl",
+  "n_tasks": 160,
+  "generic": {
+    "n": 160,
+    "correct": 103,
+    "accuracy": 0.64375,
+    "api_errors": 0,
+    "statuses": [
+      "ok"
+    ],
+    "binding_slices": {
+      "anchored": {
+        "n": 80,
+        "correct": 27,
+        "accuracy": 0.3375
+      },
+      "dynamic": {
+        "n": 80,
+        "correct": 76,
+        "accuracy": 0.95
+      }
+    }
+  },
+  "reference_mode": {
+    "n": 160,
+    "correct": 120,
+    "accuracy": 0.75,
+    "api_errors": 0,
+    "statuses": [
+      "ok"
+    ],
+    "binding_slices": {
+      "anchored": {
+        "n": 80,
+        "correct": 40,
+        "accuracy": 0.5
+      },
+      "dynamic": {
+        "n": 80,
+        "correct": 80,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "comparison": {
+    "file_a": "runs/20260717T025047Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+    "file_b": "runs/20260719T052744Z_Qwen_Qwen3.5-122B-A10B_generic_reference_mode_v3_language_clusters.jsonl",
+    "model_a": "Qwen3.5",
+    "model_b": "Qwen3.5",
+    "mode_a": "generic_structured_ledger_then_act",
+    "mode_b": "generic_reference_mode_ledger_then_act",
+    "n_tasks": 160,
+    "n_clusters": 20,
+    "delta_b_minus_a": 0.10625,
+    "cluster_bootstrap_ci95_low": 0.05,
+    "cluster_bootstrap_ci95_high": 0.16875,
+    "template_wins_b": 9,
+    "template_ties": 11,
+    "template_wins_a": 0
+  }
+}

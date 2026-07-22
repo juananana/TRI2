@@ -1,0 +1,118 @@
+{
+  "study": "AppWorld ordinary full-history selector-API addendum",
+  "controller": "ordinary_full_history_selector_api",
+  "models": {
+    "Pro/zai-org/GLM-5.1": {
+      "rows": 16,
+      "strict_successes": 16,
+      "authorized_writes": 16,
+      "wrong_writes": 0,
+      "binding_opportunities": 16,
+      "conditional_tri_errors": 0,
+      "preserve_flip_opportunities": 4,
+      "preserve_flip_tri_errors": 0,
+      "pre_binding_or_order_failures": 0,
+      "wrong_writes_without_correct_binding": 0,
+      "stable_wrong_writes": 0,
+      "api_or_parse_errors": 0,
+      "api_attempts": 64
+    },
+    "Qwen/Qwen3.5-122B-A10B": {
+      "rows": 16,
+      "strict_successes": 12,
+      "authorized_writes": 14,
+      "wrong_writes": 2,
+      "binding_opportunities": 12,
+      "conditional_tri_errors": 0,
+      "preserve_flip_opportunities": 2,
+      "preserve_flip_tri_errors": 0,
+      "pre_binding_or_order_failures": 4,
+      "wrong_writes_without_correct_binding": 2,
+      "stable_wrong_writes": 0,
+      "api_or_parse_errors": 0,
+      "api_attempts": 64
+    }
+  },
+  "app_model": {
+    "simple_note": {
+      "Pro/zai-org/GLM-5.1": {
+        "rows": 8,
+        "strict_successes": 8,
+        "authorized_writes": 8,
+        "wrong_writes": 0,
+        "binding_opportunities": 8,
+        "conditional_tri_errors": 0,
+        "preserve_flip_opportunities": 2,
+        "preserve_flip_tri_errors": 0,
+        "pre_binding_or_order_failures": 0,
+        "wrong_writes_without_correct_binding": 0,
+        "stable_wrong_writes": 0,
+        "api_or_parse_errors": 0,
+        "api_attempts": 32
+      },
+      "Qwen/Qwen3.5-122B-A10B": {
+        "rows": 8,
+        "strict_successes": 6,
+        "authorized_writes": 7,
+        "wrong_writes": 1,
+        "binding_opportunities": 6,
+        "conditional_tri_errors": 0,
+        "preserve_flip_opportunities": 1,
+        "preserve_flip_tri_errors": 0,
+        "pre_binding_or_order_failures": 2,
+        "wrong_writes_without_correct_binding": 1,
+        "stable_wrong_writes": 0,
+        "api_or_parse_errors": 0,
+        "api_attempts": 32
+      }
+    },
+    "todoist": {
+      "Pro/zai-org/GLM-5.1": {
+        "rows": 8,
+        "strict_successes": 8,
+        "authorized_writes": 8,
+        "wrong_writes": 0,
+        "binding_opportunities": 8,
+        "conditional_tri_errors": 0,
+        "preserve_flip_opportunities": 2,
+        "preserve_flip_tri_errors": 0,
+        "pre_binding_or_order_failures": 0,
+        "wrong_writes_without_correct_binding": 0,
+        "stable_wrong_writes": 0,
+        "api_or_parse_errors": 0,
+        "api_attempts": 32
+      },
+      "Qwen/Qwen3.5-122B-A10B": {
+        "rows": 8,
+        "strict_successes": 6,
+        "authorized_writes": 7,
+        "wrong_writes": 1,
+        "binding_opportunities": 6,
+        "conditional_tri_errors": 0,
+        "preserve_flip_opportunities": 1,
+        "preserve_flip_tri_errors": 0,
+        "pre_binding_or_order_failures": 2,
+        "wrong_writes_without_correct_binding": 1,
+        "stable_wrong_writes": 0,
+        "api_or_parse_errors": 0,
+        "api_attempts": 32
+      }
+    }
+  },
+  "combined": {
+    "rows": 32,
+    "strict_successes": 28,
+    "authorized_writes": 30,
+    "wrong_writes": 2,
+    "binding_opportunities": 28,
+    "conditional_tri_errors": 0,
+    "preserve_flip_opportunities": 6,
+    "preserve_flip_tri_errors": 0,
+    "pre_binding_or_order_failures": 4,
+    "wrong_writes_without_correct_binding": 2,
+    "stable_wrong_writes": 0,
+    "api_or_parse_errors": 0,
+    "api_attempts": 128
+  },
+  "interpretation": "No conditional post-binding TRI occurs in the 28 auditable opportunities. Qwen makes two real Preserve/Flip wrong writes because it synchronizes before the first selector call on one instruction template; matched Stable rows have the same ordering error but the unchanged winner masks the target consequence. These are pre-binding temporal-order errors, not referent drift after a correct binding."
+}

@@ -1,0 +1,370 @@
+{
+  "started_at": "2026-07-20T20:28:51+0800",
+  "providers": [
+    {
+      "id": "96398741-aa1d-46e2-a1ef-7441e937fcf9",
+      "kind": "claude",
+      "name": "claude code",
+      "base_url": "https://api.ebondai.com",
+      "configured_model": "claude-opus-4-7",
+      "success_rate": 1.0,
+      "quality_score": 0.6666666666666666,
+      "median_first_token_ms": 4476,
+      "median_duration_ms": 5422,
+      "balance_before": null,
+      "balance_after": null,
+      "tasks": [
+        {
+          "task": "code_trace",
+          "score": 1,
+          "result": {
+            "ok": true,
+            "status": 200,
+            "first_token_ms": 4476,
+            "duration_ms": 5422,
+            "text": "{\"output\":\"1 2 1 3\",\"reason\":\"Default mutable argument `a=[]` is shared across calls. f(1) appends to shared list → len 1. f(2) appends to same list → len 2. f(3, []) uses a fresh list → len 1. f(4) appends to the shared list (now [1,2,4]) → len 3.\"}",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "not_available",
+              "input_tokens": 6180,
+              "output_tokens": 80,
+              "service_tier": "standard"
+            },
+            "response_model": "claude-opus-4-7"
+          }
+        },
+        {
+          "task": "debugging",
+          "score": 1,
+          "result": {
+            "ok": true,
+            "status": 200,
+            "first_token_ms": 2826,
+            "duration_ms": 2958,
+            "text": "{\"bug\":\"lo=mid does not advance when hi=lo+1 and a[mid]<target, causing infinite loop\",\"corrected_update\":\"lo=mid+1\"}",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "not_available",
+              "input_tokens": 6128,
+              "output_tokens": 37,
+              "service_tier": "standard"
+            },
+            "response_model": "claude-opus-4-7"
+          }
+        },
+        {
+          "task": "constraint_reasoning",
+          "score": 0,
+          "result": {
+            "ok": true,
+            "status": 200,
+            "first_token_ms": 7446,
+            "duration_ms": 8654,
+            "text": "I'm working through the job sequencing constraints. Since B must come before A, D must be immediately after B, A must come before C, and E must come after C, the only valid arrangement with five jobs is B, D, A, C, E in that exact order.{\"order\":[\"B\",\"D\",\"A\",\"C\",\"E\"]}",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "not_available",
+              "input_tokens": 6416,
+              "output_tokens": 74,
+              "service_tier": "standard"
+            },
+            "response_model": "claude-opus-4-7"
+          }
+        }
+      ]
+    },
+    {
+      "id": "0f26a768-be6d-4ba9-9451-4e10cb01a60c",
+      "kind": "claude",
+      "name": "claude code copy",
+      "base_url": "https://api.bondai.cc",
+      "configured_model": "claude-opus-4-7",
+      "success_rate": 0.0,
+      "quality_score": 0.0,
+      "median_first_token_ms": null,
+      "median_duration_ms": null,
+      "balance_before": null,
+      "balance_after": null,
+      "tasks": [
+        {
+          "task": "code_trace",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 404,
+            "error": "404 page not found",
+            "duration_ms": 3696
+          }
+        },
+        {
+          "task": "debugging",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 404,
+            "error": "404 page not found",
+            "duration_ms": 2710
+          }
+        },
+        {
+          "task": "constraint_reasoning",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 404,
+            "error": "404 page not found",
+            "duration_ms": 2844
+          }
+        }
+      ]
+    },
+    {
+      "id": "453b2207-fa41-4177-8f52-c530df876eb9",
+      "kind": "claude",
+      "name": "luc o o",
+      "base_url": "https://apicc.lucoo.net",
+      "configured_model": "claude-opus-4-7",
+      "success_rate": 0.0,
+      "quality_score": 0.0,
+      "median_first_token_ms": null,
+      "median_duration_ms": null,
+      "balance_before": null,
+      "balance_after": null,
+      "tasks": [
+        {
+          "task": "code_trace",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 403,
+            "error": "<!doctype html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html class=\"no-js\" lang=\"en-US\">\n    <!--<![endif]-->\n    <head>\n        <title>Access denied | apicc.lucoo.net used Cloudflare to restrict access | apicc.lucoo.net | Cloudflare</title>\n        <meta charset=\"UTF-8\" />\n<meta http-equiv",
+            "duration_ms": 1259
+          }
+        },
+        {
+          "task": "debugging",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 403,
+            "error": "<!doctype html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html class=\"no-js\" lang=\"en-US\">\n    <!--<![endif]-->\n    <head>\n        <title>Access denied | apicc.lucoo.net used Cloudflare to restrict access | apicc.lucoo.net | Cloudflare</title>\n        <meta charset=\"UTF-8\" />\n<meta http-equiv",
+            "duration_ms": 1044
+          }
+        },
+        {
+          "task": "constraint_reasoning",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 403,
+            "error": "<!doctype html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html class=\"no-js\" lang=\"en-US\">\n    <!--<![endif]-->\n    <head>\n        <title>Access denied | apicc.lucoo.net used Cloudflare to restrict access | apicc.lucoo.net | Cloudflare</title>\n        <meta charset=\"UTF-8\" />\n<meta http-equiv",
+            "duration_ms": 1038
+          }
+        }
+      ]
+    },
+    {
+      "id": "e0c6c35b-287e-4724-a8e1-83589f62128e",
+      "kind": "codex",
+      "name": "lucoo",
+      "base_url": "https://apicc.lucoo.net/v1",
+      "configured_model": "gpt-5.6-sol",
+      "success_rate": 0.0,
+      "quality_score": 0.0,
+      "median_first_token_ms": null,
+      "median_duration_ms": null,
+      "balance_before": null,
+      "balance_after": null,
+      "tasks": [
+        {
+          "task": "code_trace",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 403,
+            "error": "<!doctype html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html class=\"no-js\" lang=\"en-US\">\n    <!--<![endif]-->\n    <head>\n        <title>Access denied | apicc.lucoo.net used Cloudflare to restrict access | apicc.lucoo.net | Cloudflare</title>\n        <meta charset=\"UTF-8\" />\n<meta http-equiv",
+            "duration_ms": 1287
+          }
+        },
+        {
+          "task": "debugging",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 403,
+            "error": "<!doctype html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html class=\"no-js\" lang=\"en-US\">\n    <!--<![endif]-->\n    <head>\n        <title>Access denied | apicc.lucoo.net used Cloudflare to restrict access | apicc.lucoo.net | Cloudflare</title>\n        <meta charset=\"UTF-8\" />\n<meta http-equiv",
+            "duration_ms": 1084
+          }
+        },
+        {
+          "task": "constraint_reasoning",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 403,
+            "error": "<!doctype html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html class=\"no-js\" lang=\"en-US\">\n    <!--<![endif]-->\n    <head>\n        <title>Access denied | apicc.lucoo.net used Cloudflare to restrict access | apicc.lucoo.net | Cloudflare</title>\n        <meta charset=\"UTF-8\" />\n<meta http-equiv",
+            "duration_ms": 1343
+          }
+        }
+      ]
+    },
+    {
+      "id": "0896071a-9ce7-4c3a-87a7-ece77aae7b23",
+      "kind": "codex",
+      "name": "bondai",
+      "base_url": "https://api.ebondai.com",
+      "configured_model": "gpt-5.5",
+      "success_rate": 1.0,
+      "quality_score": 1.0,
+      "median_first_token_ms": 4584,
+      "median_duration_ms": 5471,
+      "balance_before": {
+        "remaining": 6.80316344,
+        "balance": 6.80316344,
+        "unit": "USD",
+        "isValid": true
+      },
+      "balance_after": {
+        "remaining": 6.79945469,
+        "balance": 6.79945469,
+        "unit": "USD",
+        "isValid": true
+      },
+      "tasks": [
+        {
+          "task": "code_trace",
+          "score": 1,
+          "result": {
+            "ok": true,
+            "status": 200,
+            "first_token_ms": 4729,
+            "duration_ms": 5749,
+            "text": "{\"output\":\"1 2 1 3\",\"reason\":\"The default list is shared across calls without an explicit third argument, while f(3, []) uses a fresh list.\"}",
+            "usage": {
+              "input_tokens": 4462,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 3840
+              },
+              "output_tokens": 120,
+              "output_tokens_details": {
+                "reasoning_tokens": 76
+              },
+              "total_tokens": 4582
+            },
+            "response_model": "gpt-5.5"
+          }
+        },
+        {
+          "task": "debugging",
+          "score": 1,
+          "result": {
+            "ok": true,
+            "status": 200,
+            "first_token_ms": 3369,
+            "duration_ms": 5471,
+            "text": "{\"bug\":\"lo can remain equal to mid when hi=lo+1 and a[mid]<target, so the interval does not shrink\",\"corrected_update\":\"lo=mid+1\"}",
+            "usage": {
+              "input_tokens": 4455,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 3840
+              },
+              "output_tokens": 69,
+              "output_tokens_details": {
+                "reasoning_tokens": 25
+              },
+              "total_tokens": 4524
+            },
+            "response_model": "gpt-5.5"
+          }
+        },
+        {
+          "task": "constraint_reasoning",
+          "score": 1,
+          "result": {
+            "ok": true,
+            "status": 200,
+            "first_token_ms": 4584,
+            "duration_ms": 5093,
+            "text": "{\"order\":[\"B\",\"D\",\"A\",\"C\",\"E\"]}",
+            "usage": {
+              "input_tokens": 4440,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 3840
+              },
+              "output_tokens": 137,
+              "output_tokens_details": {
+                "reasoning_tokens": 117
+              },
+              "total_tokens": 4577
+            },
+            "response_model": "gpt-5.5"
+          }
+        }
+      ]
+    },
+    {
+      "id": "b53650bf-57bc-4155-a4ee-d6075204c230",
+      "kind": "codex",
+      "name": "CUN.AI",
+      "base_url": "https://www.cun.ai/v1",
+      "configured_model": "gpt-5.5",
+      "success_rate": 0.0,
+      "quality_score": 0.0,
+      "median_first_token_ms": null,
+      "median_duration_ms": null,
+      "balance_before": null,
+      "balance_after": null,
+      "tasks": [
+        {
+          "task": "code_trace",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 403,
+            "error": "<!doctype html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html class=\"no-js\" lang=\"en-US\">\n    <!--<![endif]-->\n    <head>\n        <title>Access denied | www.cun.ai used Cloudflare to restrict access | www.cun.ai | Cloudflare</title>\n        <meta charset=\"UTF-8\" />\n<meta http-equiv=\"Content-",
+            "duration_ms": 1319
+          }
+        },
+        {
+          "task": "debugging",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 403,
+            "error": "<!doctype html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html class=\"no-js\" lang=\"en-US\">\n    <!--<![endif]-->\n    <head>\n        <title>Access denied | www.cun.ai used Cloudflare to restrict access | www.cun.ai | Cloudflare</title>\n        <meta charset=\"UTF-8\" />\n<meta http-equiv=\"Content-",
+            "duration_ms": 1166
+          }
+        },
+        {
+          "task": "constraint_reasoning",
+          "score": 0,
+          "result": {
+            "ok": false,
+            "status": 403,
+            "error": "<!doctype html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html class=\"no-js\" lang=\"en-US\">\n    <!--<![endif]-->\n    <head>\n        <title>Access denied | www.cun.ai used Cloudflare to restrict access | www.cun.ai | Cloudflare</title>\n        <meta charset=\"UTF-8\" />\n<meta http-equiv=\"Content-",
+            "duration_ms": 2405
+          }
+        }
+      ]
+    }
+  ],
+  "finished_at": "2026-07-20T20:29:59+0800"
+}

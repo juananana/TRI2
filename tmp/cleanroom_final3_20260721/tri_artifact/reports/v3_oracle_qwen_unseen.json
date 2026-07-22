@@ -1,0 +1,25 @@
+{
+  "gated_source": "runs/20260717T031633Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v3_unseen_domains_nothinking.jsonl",
+  "free_source": "runs/v3_factorial_qwen_unseen_lifecycle_free.jsonl",
+  "counts": {
+    "n": 80,
+    "mode_correct": 80,
+    "bound_id_correct_on_preserve": 21,
+    "n_preserve": 40,
+    "learned_free_correct": 70,
+    "learned_gated_correct": 66,
+    "oracle_mode_learned_id_correct": 66,
+    "learned_mode_oracle_id_correct": 78,
+    "oracle_mode_oracle_id_correct": 78
+  },
+  "rates": {
+    "mode_accuracy": 1.0,
+    "learned_free_accuracy": 0.875,
+    "learned_gated_accuracy": 0.825,
+    "oracle_mode_learned_id_accuracy": 0.825,
+    "learned_mode_oracle_id_accuracy": 0.975,
+    "oracle_mode_oracle_id_accuracy": 0.975,
+    "bound_id_accuracy_on_preserve": 0.525
+  },
+  "interpretation_note": "Oracle interventions replace only mode and/or pre-refresh bound ID. Reevaluate branches retain the observed lifecycle-free actor output."
+}

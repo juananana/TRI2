@@ -1,0 +1,14 @@
+# TRI-v2 Run Audit
+
+| File | Model | Mode | Rows | Complete | Missing | Extra | Duplicates | Status |
+|---|---|---|---:|---|---:|---:|---:|---|
+| 20260716T171359Z_Pro_zai-org_GLM-5.1_state_overwrite_once_v2_heldout_frozen_nothinking.jsonl | Pro/zai-org/GLM-5.1 | state_overwrite_once | 160/160 | True | 0 | 0 | 0 | {'ok': 160} |
+| 20260716T171722Z_Pro_zai-org_GLM-5.1_full_history_once_v2_heldout_frozen_nothinking.jsonl | Pro/zai-org/GLM-5.1 | full_history_once | 160/160 | True | 0 | 0 | 0 | {'ok': 160} |
+| 20260716T172041Z_Pro_zai-org_GLM-5.1_generic_plan_then_act_v2_heldout_frozen_nothinking.jsonl | Pro/zai-org/GLM-5.1 | generic_plan_then_act | 160/160 | True | 0 | 0 | 0 | {'ok': 160} |
+| 20260716T173301Z_Pro_zai-org_GLM-5.1_compile_then_act_v2_heldout_frozen_nothinking.jsonl | Pro/zai-org/GLM-5.1 | compile_then_act | 160/160 | True | 0 | 0 | 0 | {'ok': 160} |
+| 20260716T174313Z_Pro_zai-org_GLM-5.1_factorized_hybrid_compile_then_act_v2_heldout_frozen_nothinking.jsonl | Pro/zai-org/GLM-5.1 | factorized_hybrid_compile_then_act | 160/160 | True | 0 | 0 | 0 | {'ok': 160} |
+| 20260716T165006Z_Qwen_Qwen3.5-122B-A10B_state_overwrite_once_v2_heldout_frozen_nothinking.jsonl | Qwen/Qwen3.5-122B-A10B | state_overwrite_once | 160/160 | True | 0 | 0 | 0 | {'ok': 160} |
+| 20260716T165119Z_Qwen_Qwen3.5-122B-A10B_full_history_once_v2_heldout_frozen_nothinking.jsonl | Qwen/Qwen3.5-122B-A10B | full_history_once | 160/160 | True | 0 | 0 | 0 | {'ok': 160} |
+| 20260716T165230Z_Qwen_Qwen3.5-122B-A10B_generic_plan_then_act_v2_heldout_frozen_nothinking.jsonl | Qwen/Qwen3.5-122B-A10B | generic_plan_then_act | 160/160 | True | 0 | 0 | 0 | {'ok': 160} |
+| 20260716T165820Z_Qwen_Qwen3.5-122B-A10B_compile_then_act_v2_heldout_frozen_nothinking.jsonl | Qwen/Qwen3.5-122B-A10B | compile_then_act | 160/160 | True | 0 | 0 | 0 | {'ok': 160} |
+| 20260716T164359Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v2_heldout_frozen_nothinking.jsonl | Qwen/Qwen3.5-122B-A10B | factorized_hybrid_compile_then_act | 160/160 | True | 0 | 0 | 0 | {'ok': 160} |

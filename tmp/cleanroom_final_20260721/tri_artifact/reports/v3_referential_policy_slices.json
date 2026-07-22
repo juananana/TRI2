@@ -1,0 +1,243 @@
+{
+  "status": "post_primary_sensitivity",
+  "definition": {
+    "actionable_referential_core": "correct_target != INVALID_BOUND_ENTITY",
+    "author_specified_reject_policy": "correct_target == INVALID_BOUND_ENTITY"
+  },
+  "runs": {
+    "Qwen Generic": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 95,
+        "accuracy": 0.7421875
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 8,
+        "accuracy": 0.25
+      }
+    },
+    "Qwen Generic + validity gate": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 95,
+        "accuracy": 0.7421875
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 9,
+        "accuracy": 0.28125
+      }
+    },
+    "Qwen Untyped plan": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 106,
+        "accuracy": 0.828125
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 24,
+        "accuracy": 0.75
+      }
+    },
+    "Qwen Historical CTA": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 126,
+        "accuracy": 0.984375
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 26,
+        "accuracy": 0.8125
+      }
+    },
+    "Qwen Lifecycle-free": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 123,
+        "accuracy": 0.9609375
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 32,
+        "accuracy": 1.0
+      }
+    },
+    "Qwen Lifecycle-Gated": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 125,
+        "accuracy": 0.9765625
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 32,
+        "accuracy": 1.0
+      }
+    },
+    "GLM Generic": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 93,
+        "accuracy": 0.7265625
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 22,
+        "accuracy": 0.6875
+      }
+    },
+    "GLM Generic + validity gate": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 93,
+        "accuracy": 0.7265625
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 24,
+        "accuracy": 0.75
+      }
+    },
+    "GLM Untyped plan": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 107,
+        "accuracy": 0.8359375
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 6,
+        "accuracy": 0.1875
+      }
+    },
+    "GLM Historical CTA": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 127,
+        "accuracy": 0.9921875
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 27,
+        "accuracy": 0.84375
+      }
+    },
+    "GLM Lifecycle-free": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 125,
+        "accuracy": 0.9765625
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 32,
+        "accuracy": 1.0
+      }
+    },
+    "GLM Lifecycle-Gated": {
+      "actionable_referential_core": {
+        "n": 128,
+        "correct": 128,
+        "accuracy": 1.0
+      },
+      "author_specified_reject_policy": {
+        "n": 32,
+        "correct": 32,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "comparisons": {
+    "Qwen_Gated_minus_Generic_actionable_core": {
+      "difference": 0.234375,
+      "cluster_95_interval": [
+        0.11267605633802817,
+        0.38392857142857145
+      ],
+      "n": 128,
+      "n_clusters": 20,
+      "samples": 10000,
+      "seed": 20260718
+    },
+    "Qwen_Gated_minus_Generic_reject_policy": {
+      "difference": 0.75,
+      "cluster_95_interval": [
+        0.5757575757575758,
+        0.9259259259259259
+      ],
+      "n": 32,
+      "n_clusters": 10,
+      "samples": 10000,
+      "seed": 20260718
+    },
+    "Qwen_Gated_minus_Historical_CTA_actionable_core": {
+      "difference": -0.0078125,
+      "cluster_95_interval": [
+        -0.04929577464788732,
+        0.03076923076923077
+      ],
+      "n": 128,
+      "n_clusters": 20,
+      "samples": 10000,
+      "seed": 20260718
+    },
+    "Qwen_Gated_minus_Historical_CTA_reject_policy": {
+      "difference": 0.1875,
+      "cluster_95_interval": [
+        0.038461538461538464,
+        0.3235294117647059
+      ],
+      "n": 32,
+      "n_clusters": 10,
+      "samples": 10000,
+      "seed": 20260718
+    },
+    "GLM_Gated_minus_Generic_actionable_core": {
+      "difference": 0.2734375,
+      "cluster_95_interval": [
+        0.1693548387096774,
+        0.3983739837398374
+      ],
+      "n": 128,
+      "n_clusters": 20,
+      "samples": 10000,
+      "seed": 20260718
+    },
+    "GLM_Gated_minus_Generic_reject_policy": {
+      "difference": 0.3125,
+      "cluster_95_interval": [
+        0.13333333333333333,
+        0.4838709677419355
+      ],
+      "n": 32,
+      "n_clusters": 10,
+      "samples": 10000,
+      "seed": 20260718
+    },
+    "GLM_Gated_minus_Historical_CTA_actionable_core": {
+      "difference": 0.0078125,
+      "cluster_95_interval": [
+        0.0,
+        0.02564102564102564
+      ],
+      "n": 128,
+      "n_clusters": 20,
+      "samples": 10000,
+      "seed": 20260718
+    },
+    "GLM_Gated_minus_Historical_CTA_reject_policy": {
+      "difference": 0.15625,
+      "cluster_95_interval": [
+        0.03333333333333333,
+        0.29411764705882354
+      ],
+      "n": 32,
+      "n_clusters": 10,
+      "samples": 10000,
+      "seed": 20260718
+    }
+  }
+}

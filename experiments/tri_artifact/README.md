@@ -132,15 +132,27 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error AnonymousSubmission2027.tex
 ```
 
 The verified target is seven pages of main content plus references, within the
-AAAI-27 nine-page total limit. The current full build is eight pages total. From the
+AAAI-27 nine-page total limit. The current full build is nine pages total: seven pages of
+main content followed by two reference-only pages. From the
 artifact root, run:
 
 ```bash
 PYTHONPATH=. ../../.venv-toolsandbox/bin/pytest -q tests
 ```
 
+Audit the main paper's critical counts and headline claims against frozen raw outputs and
+source-derived reports with:
+
+```bash
+PYTHONPATH=. python scripts/audit_main_paper_evidence.py
+```
+
+The command fails if a Table 2 row, shared-eligible count, primary comparison, human-agreement
+summary, or public-coverage total is out of sync with the manuscript. Evidence chronology and
+claim boundaries are serialized in `reports/claims_to_evidence.csv`.
+
 The validated local environment is Python 3.12.13 with pytest 9.1.1; the current working
-tree has 126 passing tests. Most TRI generators, deterministic evaluators, SQLite replays,
+tree has 191 passing tests. Most TRI generators, deterministic evaluators, SQLite replays,
 and report scripts use only the Python standard library. External-pilot tests additionally
 depend on their pinned ToolSandbox/AppWorld environments and are documented separately.
 

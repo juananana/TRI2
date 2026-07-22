@@ -1,0 +1,56 @@
+{
+  "groups": [
+    {
+      "model": "Qwen3.5",
+      "mode": "sqlite_generic_structured_ledger",
+      "binding": "anchored",
+      "n": 20,
+      "mean_api_requests": 2.0,
+      "total_api_requests": 40,
+      "mean_latency_s": 6.4285499999999995,
+      "median_latency_s": 7.4785,
+      "total_latency_s": 128.571,
+      "api_retries": 0,
+      "api_errors": 0
+    },
+    {
+      "model": "Qwen3.5",
+      "mode": "sqlite_generic_structured_ledger",
+      "binding": "dynamic",
+      "n": 20,
+      "mean_api_requests": 2.0,
+      "total_api_requests": 40,
+      "mean_latency_s": 5.388199999999999,
+      "median_latency_s": 5.9625,
+      "total_latency_s": 107.764,
+      "api_retries": 0,
+      "api_errors": 0
+    },
+    {
+      "model": "Qwen3.5",
+      "mode": "sqlite_lifecycle_gated",
+      "binding": "anchored",
+      "n": 20,
+      "mean_api_requests": 1.0,
+      "total_api_requests": 20,
+      "mean_latency_s": 3.89255,
+      "median_latency_s": 3.686,
+      "total_latency_s": 77.851,
+      "api_retries": 0,
+      "api_errors": 0
+    },
+    {
+      "model": "Qwen3.5",
+      "mode": "sqlite_lifecycle_gated",
+      "binding": "dynamic",
+      "n": 20,
+      "mean_api_requests": 2.0,
+      "total_api_requests": 40,
+      "mean_latency_s": 3.30225,
+      "median_latency_s": 3.2859999999999996,
+      "total_latency_s": 66.045,
+      "api_retries": 0,
+      "api_errors": 0
+    }
+  ]
+}

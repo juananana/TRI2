@@ -1,0 +1,125 @@
+{
+  "manifest": "data/toolsandbox_tri_matched_heldout_v1.jsonl",
+  "run_files": [
+    "runs/toolsandbox_tri_matched_qwen_heldout_v1.jsonl",
+    "runs/toolsandbox_tri_matched_glm_heldout_v1.jsonl",
+    "runs/toolsandbox_tri_matched_qwen_gate_replay_v1.jsonl",
+    "runs/toolsandbox_tri_matched_glm_gate_replay_v1.jsonl"
+  ],
+  "manifest_tasks": 24,
+  "missing_manifest_tasks": [],
+  "definition": "Preserve+Flip; compiled initial ID equals manifest initial/gold ID; old ID remains present; refreshed winner is a different stable ID; no protocol error. A violation writes the refreshed winner. Untyped plans have no auditable compiled ID and are excluded from the conditional denominator.",
+  "summary": [
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "controller": "matched_generic",
+      "n": 24,
+      "auditable_initial_bindings": 14,
+      "auditable_initial_binding_rows": 23,
+      "strict_opportunities": 6,
+      "conditional_tri_violations": 3,
+      "violation_task_ids": [
+        "ts2-newest-created-preserve-flip",
+        "ts2-oldest-created-preserve-flip",
+        "ts2-alpha-last-preserve-flip"
+      ],
+      "stable_controls": 2,
+      "stable_wrong_writes": 0,
+      "all_wrong_writes": 3
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "controller": "matched_lifecycle",
+      "n": 24,
+      "auditable_initial_bindings": 10,
+      "auditable_initial_binding_rows": 11,
+      "strict_opportunities": 5,
+      "conditional_tri_violations": 0,
+      "violation_task_ids": [],
+      "stable_controls": 2,
+      "stable_wrong_writes": 0,
+      "all_wrong_writes": 1
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "controller": "matched_lifecycle_gate_replay",
+      "n": 24,
+      "auditable_initial_bindings": 10,
+      "auditable_initial_binding_rows": 11,
+      "strict_opportunities": 5,
+      "conditional_tri_violations": 0,
+      "violation_task_ids": [],
+      "stable_controls": 2,
+      "stable_wrong_writes": 0,
+      "all_wrong_writes": 1
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "controller": "matched_untyped",
+      "n": 24,
+      "auditable_initial_bindings": 0,
+      "auditable_initial_binding_rows": 0,
+      "strict_opportunities": 0,
+      "conditional_tri_violations": 0,
+      "violation_task_ids": [],
+      "stable_controls": 0,
+      "stable_wrong_writes": 0,
+      "all_wrong_writes": 1
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "matched_generic",
+      "n": 24,
+      "auditable_initial_bindings": 15,
+      "auditable_initial_binding_rows": 24,
+      "strict_opportunities": 6,
+      "conditional_tri_violations": 0,
+      "violation_task_ids": [],
+      "stable_controls": 2,
+      "stable_wrong_writes": 0,
+      "all_wrong_writes": 1
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "matched_lifecycle",
+      "n": 24,
+      "auditable_initial_bindings": 11,
+      "auditable_initial_binding_rows": 17,
+      "strict_opportunities": 6,
+      "conditional_tri_violations": 2,
+      "violation_task_ids": [
+        "ts2-due-latest-preserve-flip",
+        "ts2-newest-created-preserve-flip"
+      ],
+      "stable_controls": 2,
+      "stable_wrong_writes": 0,
+      "all_wrong_writes": 4
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "matched_lifecycle_gate_replay",
+      "n": 24,
+      "auditable_initial_bindings": 11,
+      "auditable_initial_binding_rows": 17,
+      "strict_opportunities": 6,
+      "conditional_tri_violations": 0,
+      "violation_task_ids": [],
+      "stable_controls": 2,
+      "stable_wrong_writes": 0,
+      "all_wrong_writes": 2
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "matched_untyped",
+      "n": 24,
+      "auditable_initial_bindings": 0,
+      "auditable_initial_binding_rows": 0,
+      "strict_opportunities": 0,
+      "conditional_tri_violations": 0,
+      "violation_task_ids": [],
+      "stable_controls": 0,
+      "stable_wrong_writes": 0,
+      "all_wrong_writes": 5
+    }
+  ]
+}

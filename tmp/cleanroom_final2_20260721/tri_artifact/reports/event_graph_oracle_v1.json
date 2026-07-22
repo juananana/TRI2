@@ -1,0 +1,54 @@
+{
+  "concurrency": {
+    "false_blocks": 0,
+    "legal_writes": 40,
+    "mutations": [
+      "legal",
+      "unrelated_update",
+      "target_version",
+      "invalidate",
+      "delete",
+      "id_alias"
+    ],
+    "sequences": 120,
+    "statuses": {
+      "missing_target": 40,
+      "stale_version": 40,
+      "written": 40
+    },
+    "wrong_writes": 0
+  },
+  "datasets": [
+    {
+      "authorized_target_correct": 160,
+      "capability_binding_correct": 160,
+      "dataset": "temporal_referent_v3_language_clusters.jsonl",
+      "mode_correct": 160,
+      "selector_final_correct": 160,
+      "selector_initial_correct": 160,
+      "sha256": "bea0b48c5092e64fd3860069a5a81f09982940ca0b964b297d2e8a8f7f5970d6",
+      "tasks": 160
+    },
+    {
+      "authorized_target_correct": 240,
+      "capability_binding_correct": 240,
+      "dataset": "temporal_referent_v7_core_replication.jsonl",
+      "mode_correct": 240,
+      "selector_final_correct": 240,
+      "selector_initial_correct": 240,
+      "sha256": "2504f4979f1b4bfad5357e0cf734cbe4881adcadbe4e3cb1ca4fca0620657891",
+      "tasks": 240
+    },
+    {
+      "authorized_target_correct": 40,
+      "capability_binding_correct": 40,
+      "dataset": "temporal_referent_v6_role_heldout.jsonl",
+      "mode_correct": 40,
+      "selector_final_correct": 40,
+      "selector_initial_correct": 40,
+      "sha256": "ecf8f19a55ebfa31b9c8414a14ade7a19f264149923819643936aff071613105",
+      "tasks": 40
+    }
+  ],
+  "kind": "zero_api_oracle_and_atomic_gate"
+}

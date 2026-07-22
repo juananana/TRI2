@@ -1,0 +1,56 @@
+{
+  "groups": [
+    {
+      "model": "GLM-5.1",
+      "mode": "factorized_hybrid_compile_then_act",
+      "binding": "anchored",
+      "n": 80,
+      "mean_api_requests": 1.0,
+      "total_api_requests": 80,
+      "mean_latency_s": 3.4660375,
+      "median_latency_s": 3.426,
+      "total_latency_s": 277.283,
+      "api_retries": 0,
+      "api_errors": 0
+    },
+    {
+      "model": "GLM-5.1",
+      "mode": "factorized_hybrid_compile_then_act",
+      "binding": "dynamic",
+      "n": 80,
+      "mean_api_requests": 2.0,
+      "total_api_requests": 160,
+      "mean_latency_s": 4.27915,
+      "median_latency_s": 4.1535,
+      "total_latency_s": 342.332,
+      "api_retries": 0,
+      "api_errors": 0
+    },
+    {
+      "model": "GLM-5.1",
+      "mode": "generic_structured_ledger_then_act",
+      "binding": "anchored",
+      "n": 80,
+      "mean_api_requests": 2.0,
+      "total_api_requests": 160,
+      "mean_latency_s": 5.1819749999999996,
+      "median_latency_s": 4.931,
+      "total_latency_s": 414.558,
+      "api_retries": 0,
+      "api_errors": 0
+    },
+    {
+      "model": "GLM-5.1",
+      "mode": "generic_structured_ledger_then_act",
+      "binding": "dynamic",
+      "n": 80,
+      "mean_api_requests": 2.0,
+      "total_api_requests": 160,
+      "mean_latency_s": 5.023,
+      "median_latency_s": 4.8835,
+      "total_latency_s": 401.84,
+      "api_retries": 0,
+      "api_errors": 0
+    }
+  ]
+}

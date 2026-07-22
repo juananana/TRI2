@@ -1,0 +1,34 @@
+{
+  "runs": [
+    {
+      "file": "runs/v7_deepseek_generic_structured_ledger_then_act_full_v1.jsonl",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "controller": "generic_structured_ledger_then_act",
+      "tasks": 240,
+      "successful_tasks": 177,
+      "api_errors": 0,
+      "api_request_attempts": 480,
+      "api_retries": 0,
+      "latency_s": 1651.738,
+      "usage_records": 480,
+      "prompt_tokens": 223630,
+      "completion_tokens": 40729,
+      "total_tokens": 264359
+    },
+    {
+      "file": "runs/v7_deepseek_compile_then_act_full_v1.jsonl",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "controller": "compile_then_act",
+      "tasks": 240,
+      "successful_tasks": 219,
+      "api_errors": 0,
+      "api_request_attempts": 480,
+      "api_retries": 0,
+      "latency_s": 1355.773,
+      "usage_records": 480,
+      "prompt_tokens": 188303,
+      "completion_tokens": 28143,
+      "total_tokens": 216446
+    }
+  ]
+}

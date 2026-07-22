@@ -1,0 +1,239 @@
+{
+  "seed": 20260721,
+  "bootstrap_samples": 10000,
+  "runs": [
+    {
+      "file": "runs/v7_qwen_interactive_matched_smoke_v1.jsonl",
+      "model": "Qwen3.5",
+      "controller": "interactive",
+      "n": 16,
+      "unique_state_clusters": 16,
+      "correct": 9,
+      "accuracy_ci95_state_cluster": [
+        0.3125,
+        0.8125
+      ],
+      "anchored_changed_n": 6,
+      "anchored_substitutions": 6,
+      "dynamic_changed_n": 4,
+      "dynamic_old_targets": 0,
+      "stable_n": 4,
+      "stable_errors": 0,
+      "binding_slices": {
+        "anchored": {
+          "n": 10,
+          "correct": 4
+        },
+        "dynamic": {
+          "n": 6,
+          "correct": 5
+        }
+      },
+      "api_errors": 0,
+      "parse_or_internal_errors": 0,
+      "api_request_attempts": 32,
+      "api_retries": 0
+    },
+    {
+      "file": "runs/v7_qwen_full_history_once_matched_smoke_v1.jsonl",
+      "model": "Qwen3.5",
+      "controller": "full_history_once",
+      "n": 16,
+      "unique_state_clusters": 16,
+      "correct": 12,
+      "accuracy_ci95_state_cluster": [
+        0.5,
+        0.9375
+      ],
+      "anchored_changed_n": 6,
+      "anchored_substitutions": 4,
+      "dynamic_changed_n": 4,
+      "dynamic_old_targets": 0,
+      "stable_n": 4,
+      "stable_errors": 0,
+      "binding_slices": {
+        "anchored": {
+          "n": 10,
+          "correct": 6
+        },
+        "dynamic": {
+          "n": 6,
+          "correct": 6
+        }
+      },
+      "api_errors": 0,
+      "parse_or_internal_errors": 0,
+      "api_request_attempts": 16,
+      "api_retries": 0
+    },
+    {
+      "file": "runs/v7_glm_interactive_matched_smoke_v1.jsonl",
+      "model": "GLM-5.1",
+      "controller": "interactive",
+      "n": 16,
+      "unique_state_clusters": 16,
+      "correct": 12,
+      "accuracy_ci95_state_cluster": [
+        0.5,
+        0.9375
+      ],
+      "anchored_changed_n": 6,
+      "anchored_substitutions": 4,
+      "dynamic_changed_n": 4,
+      "dynamic_old_targets": 0,
+      "stable_n": 4,
+      "stable_errors": 0,
+      "binding_slices": {
+        "anchored": {
+          "n": 10,
+          "correct": 6
+        },
+        "dynamic": {
+          "n": 6,
+          "correct": 6
+        }
+      },
+      "api_errors": 0,
+      "parse_or_internal_errors": 0,
+      "api_request_attempts": 32,
+      "api_retries": 0
+    },
+    {
+      "file": "runs/v7_glm_full_history_once_matched_smoke_v1.jsonl",
+      "model": "GLM-5.1",
+      "controller": "full_history_once",
+      "n": 16,
+      "unique_state_clusters": 16,
+      "correct": 14,
+      "accuracy_ci95_state_cluster": [
+        0.6875,
+        1.0
+      ],
+      "anchored_changed_n": 6,
+      "anchored_substitutions": 2,
+      "dynamic_changed_n": 4,
+      "dynamic_old_targets": 0,
+      "stable_n": 4,
+      "stable_errors": 0,
+      "binding_slices": {
+        "anchored": {
+          "n": 10,
+          "correct": 8
+        },
+        "dynamic": {
+          "n": 6,
+          "correct": 6
+        }
+      },
+      "api_errors": 0,
+      "parse_or_internal_errors": 0,
+      "api_request_attempts": 16,
+      "api_retries": 0
+    },
+    {
+      "file": "runs/v7_deepseek_interactive_matched_smoke_v1.jsonl",
+      "model": "DeepSeek",
+      "controller": "interactive",
+      "n": 16,
+      "unique_state_clusters": 16,
+      "correct": 11,
+      "accuracy_ci95_state_cluster": [
+        0.4375,
+        0.875
+      ],
+      "anchored_changed_n": 6,
+      "anchored_substitutions": 4,
+      "dynamic_changed_n": 4,
+      "dynamic_old_targets": 0,
+      "stable_n": 4,
+      "stable_errors": 0,
+      "binding_slices": {
+        "anchored": {
+          "n": 10,
+          "correct": 6
+        },
+        "dynamic": {
+          "n": 6,
+          "correct": 5
+        }
+      },
+      "api_errors": 0,
+      "parse_or_internal_errors": 0,
+      "api_request_attempts": 32,
+      "api_retries": 0
+    },
+    {
+      "file": "runs/v7_deepseek_full_history_once_matched_smoke_v1.jsonl",
+      "model": "DeepSeek",
+      "controller": "full_history_once",
+      "n": 16,
+      "unique_state_clusters": 16,
+      "correct": 12,
+      "accuracy_ci95_state_cluster": [
+        0.5,
+        0.9375
+      ],
+      "anchored_changed_n": 6,
+      "anchored_substitutions": 3,
+      "dynamic_changed_n": 4,
+      "dynamic_old_targets": 0,
+      "stable_n": 4,
+      "stable_errors": 0,
+      "binding_slices": {
+        "anchored": {
+          "n": 10,
+          "correct": 7
+        },
+        "dynamic": {
+          "n": 6,
+          "correct": 5
+        }
+      },
+      "api_errors": 0,
+      "parse_or_internal_errors": 0,
+      "api_request_attempts": 16,
+      "api_retries": 0
+    }
+  ],
+  "pairs": [
+    {
+      "a": "runs/v7_qwen_interactive_matched_smoke_v1.jsonl",
+      "b": "runs/v7_qwen_full_history_once_matched_smoke_v1.jsonl",
+      "model": "Qwen3.5",
+      "controller_a": "interactive",
+      "controller_b": "full_history_once",
+      "n": 16,
+      "delta_b_minus_a": 0.1875,
+      "ci95_state_cluster": [
+        0.0,
+        0.375
+      ]
+    },
+    {
+      "a": "runs/v7_glm_interactive_matched_smoke_v1.jsonl",
+      "b": "runs/v7_glm_full_history_once_matched_smoke_v1.jsonl",
+      "model": "GLM-5.1",
+      "controller_a": "interactive",
+      "controller_b": "full_history_once",
+      "n": 16,
+      "delta_b_minus_a": 0.125,
+      "ci95_state_cluster": [
+        0.0,
+        0.3125
+      ]
+    },
+    {
+      "a": "runs/v7_deepseek_interactive_matched_smoke_v1.jsonl",
+      "b": "runs/v7_deepseek_full_history_once_matched_smoke_v1.jsonl",
+      "model": "DeepSeek",
+      "controller_a": "interactive",
+      "controller_b": "full_history_once",
+      "n": 16,
+      "delta_b_minus_a": 0.0625,
+      "ci95_state_cluster": [
+        0.0,
+        0.1875
+      ]
+    }
+  ]
+}

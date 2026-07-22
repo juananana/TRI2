@@ -1,0 +1,30 @@
+{
+  "groups": [
+    {
+      "model": "Qwen3.5",
+      "mode": "generic_structured_ledger_then_act",
+      "binding": "conditional",
+      "n": 10,
+      "mean_api_requests": 2.0,
+      "total_api_requests": 20,
+      "mean_latency_s": 5.6203,
+      "median_latency_s": 4.429,
+      "total_latency_s": 56.203,
+      "api_retries": 0,
+      "api_errors": 0
+    },
+    {
+      "model": "Qwen3.5",
+      "mode": "guarded_lifecycle_then_act",
+      "binding": "conditional",
+      "n": 10,
+      "mean_api_requests": 1.8,
+      "total_api_requests": 18,
+      "mean_latency_s": 4.9434,
+      "median_latency_s": 4.775,
+      "total_latency_s": 49.434,
+      "api_retries": 0,
+      "api_errors": 0
+    }
+  ]
+}

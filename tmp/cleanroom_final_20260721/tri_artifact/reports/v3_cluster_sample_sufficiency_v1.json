@@ -1,0 +1,136 @@
+{
+  "estimand": "Lifecycle-Gated minus Generic paired exact-target accuracy",
+  "seed": 20260721,
+  "subsample_draws": 10000,
+  "title": "TRI-v3 Primary Sample Sufficiency Audit",
+  "dataset": "TRI-v3 primary language-template inventory",
+  "sampling_unit": "complete language-template cluster without replacement",
+  "models": [
+    {
+      "model": "Qwen3.5",
+      "matched_tasks": 160,
+      "state_clusters": 20,
+      "tasks_per_cluster": [
+        8
+      ],
+      "full_delta": 0.3375,
+      "cluster_bootstrap_ci95": [
+        0.18734375000000014,
+        0.49375
+      ],
+      "curve": [
+        {
+          "clusters": 5,
+          "tasks": 40,
+          "draws": 10000,
+          "median_delta": 0.325,
+          "subsample_interval_95": [
+            0.05,
+            0.625
+          ],
+          "positive_fraction": 0.9885,
+          "at_least_10_points_fraction": 0.9683
+        },
+        {
+          "clusters": 10,
+          "tasks": 80,
+          "draws": 10000,
+          "median_delta": 0.3375,
+          "subsample_interval_95": [
+            0.175,
+            0.5
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 0.9986
+        },
+        {
+          "clusters": 15,
+          "tasks": 120,
+          "draws": 10000,
+          "median_delta": 0.3416666666666667,
+          "subsample_interval_95": [
+            0.24166666666666667,
+            0.43333333333333335
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        },
+        {
+          "clusters": 20,
+          "tasks": 160,
+          "draws": 1,
+          "median_delta": 0.3375,
+          "subsample_interval_95": [
+            0.3375,
+            0.3375
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        }
+      ]
+    },
+    {
+      "model": "GLM-5.1",
+      "matched_tasks": 160,
+      "state_clusters": 20,
+      "tasks_per_cluster": [
+        8
+      ],
+      "full_delta": 0.28125,
+      "cluster_bootstrap_ci95": [
+        0.18125,
+        0.38125
+      ],
+      "curve": [
+        {
+          "clusters": 5,
+          "tasks": 40,
+          "draws": 10000,
+          "median_delta": 0.275,
+          "subsample_interval_95": [
+            0.1,
+            0.45
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 0.9897
+        },
+        {
+          "clusters": 10,
+          "tasks": 80,
+          "draws": 10000,
+          "median_delta": 0.275,
+          "subsample_interval_95": [
+            0.175,
+            0.3875
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 0.9998
+        },
+        {
+          "clusters": 15,
+          "tasks": 120,
+          "draws": 10000,
+          "median_delta": 0.2833333333333333,
+          "subsample_interval_95": [
+            0.225,
+            0.3416666666666667
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        },
+        {
+          "clusters": 20,
+          "tasks": 160,
+          "draws": 1,
+          "median_delta": 0.28125,
+          "subsample_interval_95": [
+            0.28125,
+            0.28125
+          ],
+          "positive_fraction": 1.0,
+          "at_least_10_points_fraction": 1.0
+        }
+      ]
+    }
+  ]
+}

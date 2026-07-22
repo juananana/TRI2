@@ -1,0 +1,466 @@
+{
+  "manifest": "data/temporal_referent_v7_repeat_stability_v1.jsonl",
+  "expected_tasks": 40,
+  "models": [
+    {
+      "model": "Qwen3.5",
+      "controllers": {
+        "generic": {
+          "runs": [
+            {
+              "repeat": 1,
+              "file": "v7_qwen_generic_structured_ledger_then_act_full.jsonl",
+              "n": 40,
+              "correct": 22,
+              "accuracy": 0.55,
+              "anchored_initial_correct": 16,
+              "anchored_n": 20,
+              "core_opportunities": 10,
+              "core_drifts": 5,
+              "stable_n": 8,
+              "stable_errors": 1,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": false,
+              "total_tokens": null,
+              "latency_seconds": 132.343
+            },
+            {
+              "repeat": 2,
+              "file": "v7_repeat_qwen_generic_r2_v1.jsonl",
+              "n": 40,
+              "correct": 23,
+              "accuracy": 0.575,
+              "anchored_initial_correct": 17,
+              "anchored_n": 20,
+              "core_opportunities": 11,
+              "core_drifts": 5,
+              "stable_n": 8,
+              "stable_errors": 1,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": true,
+              "total_tokens": 43567,
+              "latency_seconds": 182.09
+            },
+            {
+              "repeat": 3,
+              "file": "v7_repeat_qwen_generic_r3_v1.jsonl",
+              "n": 40,
+              "correct": 22,
+              "accuracy": 0.55,
+              "anchored_initial_correct": 18,
+              "anchored_n": 20,
+              "core_opportunities": 11,
+              "core_drifts": 7,
+              "stable_n": 8,
+              "stable_errors": 1,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": true,
+              "total_tokens": 43552,
+              "latency_seconds": 145.515
+            }
+          ],
+          "accuracy_range": [
+            0.55,
+            0.575
+          ],
+          "target_agreement": {
+            "unanimous_targets": 28,
+            "n": 40,
+            "unanimity": 0.7,
+            "pairwise": [
+              {
+                "repeats": [
+                  1,
+                  2
+                ],
+                "matches": 30,
+                "n": 40,
+                "agreement": 0.75
+              },
+              {
+                "repeats": [
+                  1,
+                  3
+                ],
+                "matches": 29,
+                "n": 40,
+                "agreement": 0.725
+              },
+              {
+                "repeats": [
+                  2,
+                  3
+                ],
+                "matches": 35,
+                "n": 40,
+                "agreement": 0.875
+              }
+            ]
+          }
+        },
+        "cta": {
+          "runs": [
+            {
+              "repeat": 1,
+              "file": "v7_qwen_compile_then_act_full.jsonl",
+              "n": 40,
+              "correct": 32,
+              "accuracy": 0.8,
+              "anchored_initial_correct": 16,
+              "anchored_n": 20,
+              "core_opportunities": 10,
+              "core_drifts": 0,
+              "stable_n": 8,
+              "stable_errors": 2,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": false,
+              "total_tokens": null,
+              "latency_seconds": 109.24
+            },
+            {
+              "repeat": 2,
+              "file": "v7_repeat_qwen_cta_r2_v1.jsonl",
+              "n": 40,
+              "correct": 28,
+              "accuracy": 0.7,
+              "anchored_initial_correct": 15,
+              "anchored_n": 20,
+              "core_opportunities": 9,
+              "core_drifts": 0,
+              "stable_n": 8,
+              "stable_errors": 2,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": true,
+              "total_tokens": 37526,
+              "latency_seconds": 143.712
+            },
+            {
+              "repeat": 3,
+              "file": "v7_repeat_qwen_cta_r3_v1.jsonl",
+              "n": 40,
+              "correct": 31,
+              "accuracy": 0.775,
+              "anchored_initial_correct": 16,
+              "anchored_n": 20,
+              "core_opportunities": 10,
+              "core_drifts": 0,
+              "stable_n": 8,
+              "stable_errors": 2,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": true,
+              "total_tokens": 37544,
+              "latency_seconds": 120.295
+            }
+          ],
+          "accuracy_range": [
+            0.7,
+            0.8
+          ],
+          "target_agreement": {
+            "unanimous_targets": 29,
+            "n": 40,
+            "unanimity": 0.725,
+            "pairwise": [
+              {
+                "repeats": [
+                  1,
+                  2
+                ],
+                "matches": 34,
+                "n": 40,
+                "agreement": 0.85
+              },
+              {
+                "repeats": [
+                  1,
+                  3
+                ],
+                "matches": 32,
+                "n": 40,
+                "agreement": 0.8
+              },
+              {
+                "repeats": [
+                  2,
+                  3
+                ],
+                "matches": 31,
+                "n": 40,
+                "agreement": 0.775
+              }
+            ]
+          }
+        }
+      },
+      "paired": [
+        {
+          "repeat": 1,
+          "cta_minus_generic": 0.25
+        },
+        {
+          "repeat": 2,
+          "cta_minus_generic": 0.125
+        },
+        {
+          "repeat": 3,
+          "cta_minus_generic": 0.225
+        }
+      ]
+    },
+    {
+      "model": "GLM-5.1",
+      "controllers": {
+        "generic": {
+          "runs": [
+            {
+              "repeat": 1,
+              "file": "v7_glm_generic_structured_ledger_then_act_full.jsonl",
+              "n": 40,
+              "correct": 28,
+              "accuracy": 0.7,
+              "anchored_initial_correct": 20,
+              "anchored_n": 20,
+              "core_opportunities": 12,
+              "core_drifts": 4,
+              "stable_n": 8,
+              "stable_errors": 1,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": false,
+              "total_tokens": null,
+              "latency_seconds": 285.645
+            },
+            {
+              "repeat": 2,
+              "file": "v7_repeat_glm_generic_r2_v1.jsonl",
+              "n": 40,
+              "correct": 31,
+              "accuracy": 0.775,
+              "anchored_initial_correct": 20,
+              "anchored_n": 20,
+              "core_opportunities": 12,
+              "core_drifts": 5,
+              "stable_n": 8,
+              "stable_errors": 0,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": true,
+              "total_tokens": 42012,
+              "latency_seconds": 230.62199999999999
+            },
+            {
+              "repeat": 3,
+              "file": "v7_repeat_glm_generic_r3_v1.jsonl",
+              "n": 40,
+              "correct": 30,
+              "accuracy": 0.75,
+              "anchored_initial_correct": 20,
+              "anchored_n": 20,
+              "core_opportunities": 12,
+              "core_drifts": 6,
+              "stable_n": 8,
+              "stable_errors": 1,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": true,
+              "total_tokens": 41952,
+              "latency_seconds": 232.735
+            }
+          ],
+          "accuracy_range": [
+            0.7,
+            0.775
+          ],
+          "target_agreement": {
+            "unanimous_targets": 34,
+            "n": 40,
+            "unanimity": 0.85,
+            "pairwise": [
+              {
+                "repeats": [
+                  1,
+                  2
+                ],
+                "matches": 34,
+                "n": 40,
+                "agreement": 0.85
+              },
+              {
+                "repeats": [
+                  1,
+                  3
+                ],
+                "matches": 36,
+                "n": 40,
+                "agreement": 0.9
+              },
+              {
+                "repeats": [
+                  2,
+                  3
+                ],
+                "matches": 37,
+                "n": 40,
+                "agreement": 0.925
+              }
+            ]
+          }
+        },
+        "cta": {
+          "runs": [
+            {
+              "repeat": 1,
+              "file": "v7_glm_compile_then_act_full.jsonl",
+              "n": 40,
+              "correct": 40,
+              "accuracy": 1.0,
+              "anchored_initial_correct": 20,
+              "anchored_n": 20,
+              "core_opportunities": 12,
+              "core_drifts": 0,
+              "stable_n": 8,
+              "stable_errors": 0,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": false,
+              "total_tokens": null,
+              "latency_seconds": 155.064
+            },
+            {
+              "repeat": 2,
+              "file": "v7_repeat_glm_cta_r2_v1.jsonl",
+              "n": 40,
+              "correct": 39,
+              "accuracy": 0.975,
+              "anchored_initial_correct": 20,
+              "anchored_n": 20,
+              "core_opportunities": 12,
+              "core_drifts": 0,
+              "stable_n": 8,
+              "stable_errors": 0,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": true,
+              "total_tokens": 33721,
+              "latency_seconds": 173.632
+            },
+            {
+              "repeat": 3,
+              "file": "v7_repeat_glm_cta_r3_v1.jsonl",
+              "n": 40,
+              "correct": 40,
+              "accuracy": 1.0,
+              "anchored_initial_correct": 20,
+              "anchored_n": 20,
+              "core_opportunities": 12,
+              "core_drifts": 0,
+              "stable_n": 8,
+              "stable_errors": 0,
+              "api_errors": 0,
+              "parse_or_internal_errors": 0,
+              "request_attempts": 80,
+              "retries": 0,
+              "token_usage_captured": true,
+              "total_tokens": 33818,
+              "latency_seconds": 174.723
+            }
+          ],
+          "accuracy_range": [
+            0.975,
+            1.0
+          ],
+          "target_agreement": {
+            "unanimous_targets": 39,
+            "n": 40,
+            "unanimity": 0.975,
+            "pairwise": [
+              {
+                "repeats": [
+                  1,
+                  2
+                ],
+                "matches": 39,
+                "n": 40,
+                "agreement": 0.975
+              },
+              {
+                "repeats": [
+                  1,
+                  3
+                ],
+                "matches": 40,
+                "n": 40,
+                "agreement": 1.0
+              },
+              {
+                "repeats": [
+                  2,
+                  3
+                ],
+                "matches": 39,
+                "n": 40,
+                "agreement": 0.975
+              }
+            ]
+          }
+        }
+      },
+      "paired": [
+        {
+          "repeat": 1,
+          "cta_minus_generic": 0.3
+        },
+        {
+          "repeat": 2,
+          "cta_minus_generic": 0.2
+        },
+        {
+          "repeat": 3,
+          "cta_minus_generic": 0.25
+        }
+      ]
+    }
+  ],
+  "decision": "mixed",
+  "decision_flags": {
+    "any_nonpositive_cta_delta": false,
+    "any_cta_conditional_drift": false,
+    "accuracy_range_over_10_points": false,
+    "target_unanimity_below_90_percent": true
+  },
+  "new_call_totals": {
+    "task_controller_executions": 320,
+    "request_attempts": 640,
+    "retries": 0,
+    "total_tokens": 313692,
+    "latency_seconds": 1403.324
+  }
+}

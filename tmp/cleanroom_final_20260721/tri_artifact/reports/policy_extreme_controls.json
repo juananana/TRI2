@@ -1,0 +1,115 @@
+{
+  "definitions": {
+    "always_lock_with_validity": "Retain the pre-refresh bound ID; reject only when that ID is no longer action-valid in the refreshed state.",
+    "always_reevaluate": "Discard the pre-refresh binding decision and apply the selector to the refreshed state."
+  },
+  "scope_note": "These are deterministic policy extremes, not reproductions of any named prompting method or agent architecture.",
+  "overall": {
+    "n": 160,
+    "methods": {
+      "always_lock_with_validity": {
+        "correct": 96,
+        "accuracy": 60.0
+      },
+      "always_reevaluate": {
+        "correct": 96,
+        "accuracy": 60.0
+      }
+    }
+  },
+  "by_binding": {
+    "anchored": {
+      "n": 80,
+      "methods": {
+        "always_lock_with_validity": {
+          "correct": 80,
+          "accuracy": 100.0
+        },
+        "always_reevaluate": {
+          "correct": 16,
+          "accuracy": 20.0
+        }
+      }
+    },
+    "dynamic": {
+      "n": 80,
+      "methods": {
+        "always_lock_with_validity": {
+          "correct": 16,
+          "accuracy": 20.0
+        },
+        "always_reevaluate": {
+          "correct": 80,
+          "accuracy": 100.0
+        }
+      }
+    }
+  },
+  "by_update": {
+    "flip": {
+      "n": 32,
+      "methods": {
+        "always_lock_with_validity": {
+          "correct": 16,
+          "accuracy": 50.0
+        },
+        "always_reevaluate": {
+          "correct": 16,
+          "accuracy": 50.0
+        }
+      }
+    },
+    "invalidate": {
+      "n": 32,
+      "methods": {
+        "always_lock_with_validity": {
+          "correct": 16,
+          "accuracy": 50.0
+        },
+        "always_reevaluate": {
+          "correct": 16,
+          "accuracy": 50.0
+        }
+      }
+    },
+    "name_collision": {
+      "n": 32,
+      "methods": {
+        "always_lock_with_validity": {
+          "correct": 16,
+          "accuracy": 50.0
+        },
+        "always_reevaluate": {
+          "correct": 16,
+          "accuracy": 50.0
+        }
+      }
+    },
+    "remove": {
+      "n": 32,
+      "methods": {
+        "always_lock_with_validity": {
+          "correct": 16,
+          "accuracy": 50.0
+        },
+        "always_reevaluate": {
+          "correct": 16,
+          "accuracy": 50.0
+        }
+      }
+    },
+    "stable": {
+      "n": 32,
+      "methods": {
+        "always_lock_with_validity": {
+          "correct": 32,
+          "accuracy": 100.0
+        },
+        "always_reevaluate": {
+          "correct": 32,
+          "accuracy": 100.0
+        }
+      }
+    }
+  }
+}

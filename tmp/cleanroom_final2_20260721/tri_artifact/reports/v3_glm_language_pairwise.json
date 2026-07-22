@@ -1,0 +1,21 @@
+[
+  {
+    "file_a": "runs/20260717T032824Z_Pro_zai-org_GLM-5.1_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+    "file_b": "runs/20260717T034201Z_Pro_zai-org_GLM-5.1_factorized_hybrid_compile_then_act_v3_language_clusters_nothinking.jsonl",
+    "model_a": "GLM-5.1",
+    "model_b": "GLM-5.1",
+    "mode_a": "generic_structured_ledger_then_act",
+    "mode_b": "factorized_hybrid_compile_then_act",
+    "n_paired": 160,
+    "accuracy_a": 0.71875,
+    "accuracy_b": 1.0,
+    "delta_b_minus_a": 0.28125,
+    "both_correct": 115,
+    "a_only_correct": 0,
+    "b_only_correct": 45,
+    "both_wrong": 0,
+    "api_errors_a": 0,
+    "api_errors_b": 0,
+    "mcnemar_exact_p": 5.684341886080802e-14
+  }
+]

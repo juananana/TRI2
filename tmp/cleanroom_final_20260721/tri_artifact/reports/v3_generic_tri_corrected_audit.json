@@ -1,0 +1,124 @@
+{
+  "inventory": {
+    "rows": 320,
+    "models": [
+      "Pro/zai-org/GLM-5.1",
+      "Qwen/Qwen3.5-122B-A10B"
+    ],
+    "core_opportunities": 64
+  },
+  "summary": [
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "update": "flip",
+      "n": 32,
+      "initial_binding_correct": 31,
+      "opportunities": 16,
+      "drift_to_new_leader": 3,
+      "final_wrong_target": 13,
+      "drift_rate_ci95_cluster": [
+        0.0,
+        0.4376736111111086
+      ]
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "update": "invalidate",
+      "n": 32,
+      "initial_binding_correct": 32,
+      "opportunities": 0,
+      "drift_to_new_leader": 0,
+      "final_wrong_target": 0,
+      "drift_rate_ci95_cluster": null
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "update": "name_collision",
+      "n": 32,
+      "initial_binding_correct": 32,
+      "opportunities": 16,
+      "drift_to_new_leader": 7,
+      "final_wrong_target": 12,
+      "drift_rate_ci95_cluster": [
+        0.17647058823529413,
+        0.7058823529411765
+      ]
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "update": "remove",
+      "n": 32,
+      "initial_binding_correct": 32,
+      "opportunities": 0,
+      "drift_to_new_leader": 0,
+      "final_wrong_target": 0,
+      "drift_rate_ci95_cluster": null
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "update": "stable",
+      "n": 32,
+      "initial_binding_correct": 32,
+      "opportunities": 0,
+      "drift_to_new_leader": 0,
+      "final_wrong_target": 0,
+      "drift_rate_ci95_cluster": null
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "update": "flip",
+      "n": 32,
+      "initial_binding_correct": 31,
+      "opportunities": 16,
+      "drift_to_new_leader": 15,
+      "final_wrong_target": 15,
+      "drift_rate_ci95_cluster": [
+        0.7857142857142857,
+        1.0
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "update": "invalidate",
+      "n": 32,
+      "initial_binding_correct": 32,
+      "opportunities": 0,
+      "drift_to_new_leader": 0,
+      "final_wrong_target": 0,
+      "drift_rate_ci95_cluster": null
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "update": "name_collision",
+      "n": 32,
+      "initial_binding_correct": 32,
+      "opportunities": 16,
+      "drift_to_new_leader": 14,
+      "final_wrong_target": 14,
+      "drift_rate_ci95_cluster": [
+        0.6923076923076923,
+        1.0
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "update": "remove",
+      "n": 32,
+      "initial_binding_correct": 32,
+      "opportunities": 0,
+      "drift_to_new_leader": 0,
+      "final_wrong_target": 0,
+      "drift_rate_ci95_cluster": null
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "update": "stable",
+      "n": 32,
+      "initial_binding_correct": 32,
+      "opportunities": 0,
+      "drift_to_new_leader": 0,
+      "final_wrong_target": 0,
+      "drift_rate_ci95_cluster": null
+    }
+  ]
+}
