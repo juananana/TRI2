@@ -6,22 +6,33 @@ The frozen ToolSandbox-based 96-task inventory was evaluated with one-user-turn,
 trajectories. The primary mechanism estimand is conditional on a correct, auditable initial
 binding and a completed refresh. It excludes initial selector/grounding errors.
 
-## Results
+## Four Paper-Facing Conditions
 
 | Model/controller | Rows | Opportunities | TRI mechanism errors | Wrong writes | Interpretation |
 |---|---:|---:|---:|---:|---|
 | Qwen full-history | 96 | 70 | 0 | 6 | All wrong writes were initial Reevaluate/selector errors |
 | GLM full-history | 96 | 73 | 0 | 13 | Initial grounding plus four tool-name errors |
-| Qwen generic state observed | 96 | 73 | 0 | 6 | 13 prohibited-schema/process errors; exploratory only |
 | Qwen matched Generic Ledger | 96 | 64 | 0 | 5 | All wrong writes had incorrect compiler binding |
 | GLM matched Generic Ledger | 96 | 87 | 0 | 4 | Wrong writes were initial Reevaluate selector errors |
 
-These five conditions on the frozen 96-task extension produce `0` post-binding TRI mechanism
-errors in their auditable denominators. This is negative evidence against a universal-LLM or
+These four paper-facing conditions on the frozen 96-task extension produce `0` post-binding TRI
+mechanism errors in their auditable denominators. This is negative evidence against a universal-LLM or
 universal-tool-loop claim. It does not invalidate the controlled TRI-v3 result, because these
 agents and controllers often fail before the post-binding opportunity. It also does not subsume
 the earlier frozen 24-task ToolSandbox-compatible intervention, whose controller and transition
 protocol differ and whose strict conditional audit is reported below.
+
+## Additional Exploratory Qwen Condition
+
+| Model/controller | Rows | Opportunities | TRI mechanism errors | Wrong writes | Protocol/process errors |
+|---|---:|---:|---:|---:|---:|
+| Qwen generic state observed | 96 | 73 | 0 | 6 | 13 |
+
+This Qwen-only condition is retained for transparency but is not one of the four paper-facing
+conditions. Its controller interface is unmatched, it has no GLM counterpart, and 13 rows violate
+the permitted schema/process contract. It is exploratory sensitivity evidence rather than a
+matched external result; its zero numerator is neither pooled with nor used to strengthen the
+four-condition manuscript claim.
 
 ## Earlier ToolSandbox-Compatible Intervention: Strict Post-Hoc Audit
 

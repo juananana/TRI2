@@ -191,8 +191,24 @@ def draw_compact(path: Path, points: list[dict[str, Any]]) -> None:
     c.drawString(left, height - 10, "Changed-winner calibration (v3)")
     c.setFont(FONT_REGULAR, 9.2)
     c.setFillColor(MUTED)
-    c.drawString(left, height - 23, "1 Q-Gen 0   2 G-Gen 22   3 Q-CTA 94")
-    c.drawString(left, height - 35, "4 G-CTA 97   5 Gate 100   6 Rule* 88")
+    pair = {
+        (point["model"], point["controller"]): round(point["pair"])
+        for point in points
+    }
+    c.drawString(
+        left,
+        height - 23,
+        f"1 Q-Gen {pair[('Qwen3.5', 'Generic')]}   "
+        f"2 G-Gen {pair[('GLM-5.1', 'Generic')]}   "
+        f"3 Q-CTA {pair[('Qwen3.5', 'CTA')]}",
+    )
+    c.drawString(
+        left,
+        height - 35,
+        f"4 G-CTA {pair[('GLM-5.1', 'CTA')]}   "
+        f"5 Gate {pair[('Qwen3.5/GLM-5.1', 'Lifecycle-gated')]}   "
+        f"6 Rule* {pair[('model-independent', 'Rule v2 (post-hoc)')]}",
+    )
     c.setFont(FONT_BOLD, 9.2)
     c.setFillColor(INK)
     c.drawCentredString(left + chart_w / 2, 8, "Preserve accuracy (%)")

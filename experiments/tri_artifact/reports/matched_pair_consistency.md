@@ -6,7 +6,7 @@ explicit_anchor is paired with implicit_dynamic; implicit_anchor is paired with 
 
 | Dataset | Model | Controller | All pairs | Changed PairAcc | Changed Preserve | Changed Reevaluate | Stable | Invalidity policy | Missing | API/status | Parse/protocol |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| v3 | Qwen3.5 | Generic | 23/80 (28.7%) | 3/32 (9.4%) | 3/32 (9.4%) | 32/32 (100.0%) | 16/16 (100.0%) | 4/32 (12.5%) | 0 | 0 | 0 |
+| v3 | Qwen3.5 | Generic | 23/80 (28.8%) | 3/32 (9.4%) | 3/32 (9.4%) | 32/32 (100.0%) | 16/16 (100.0%) | 4/32 (12.5%) | 0 | 0 | 0 |
 | v3 | GLM-5.1 | Generic | 38/80 (47.5%) | 7/32 (21.9%) | 7/32 (21.9%) | 29/32 (90.6%) | 16/16 (100.0%) | 15/32 (46.9%) | 0 | 0 | 0 |
 | v3 | Qwen3.5 | CTA | 72/80 (90.0%) | 30/32 (93.8%) | 31/32 (96.9%) | 31/32 (96.9%) | 16/16 (100.0%) | 26/32 (81.2%) | 0 | 0 | 0 |
 | v3 | GLM-5.1 | CTA | 74/80 (92.5%) | 31/32 (96.9%) | 31/32 (96.9%) | 32/32 (100.0%) | 16/16 (100.0%) | 27/32 (84.4%) | 0 | 0 | 0 |

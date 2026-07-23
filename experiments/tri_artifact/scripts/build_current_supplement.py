@@ -152,9 +152,10 @@ and final figure PDFs. It also contains de-identified normalized human responses
 analysis, while API credentials, private answer mappings, workbooks, coordination forms, and
 participant-identifying materials are excluded.
 
-Run `PYTHONPATH=. python3 -m unittest discover -s tests` from `tri_artifact/` for the
-included dependency-free scientific tests. The archive-packaging test is intentionally excluded
-because it requires the parent submission tree. ToolSandbox tests require the pinned environment documented in
+The validated test environment is Python 3.12 with pytest 9.1.1. From `tri_artifact/`, run
+`PYTHONPATH=. python3 -m pytest -q tests`. Most analysis code uses only the Python standard
+library, but the shipped test suite itself requires pytest. The archive-packaging test is
+intentionally excluded because it requires the parent submission tree. ToolSandbox tests require the pinned environment documented in
 `external_pilots/toolsandbox_tri/README.md`. The downloaded AppWorld package, databases, and
 released public trajectories are excluded; setup is documented in
 `external_pilots/appworld_tri/README.md`. See `reports/` for frozen protocols and

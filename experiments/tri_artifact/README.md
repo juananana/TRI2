@@ -147,12 +147,19 @@ source-derived reports with:
 PYTHONPATH=. python scripts/audit_main_paper_evidence.py
 ```
 
-The command fails if a Table 2 row, shared-eligible count, primary comparison, human-agreement
+The command fails if a main diagnostic-table row, shared-eligible count, primary comparison, human-agreement
 summary, or public-coverage total is out of sync with the manuscript. Evidence chronology and
 claim boundaries are serialized in `reports/claims_to_evidence.csv`.
 
+Audit first-use expansions, citation keys, cross-references, table terminology, and scope
+boundaries with:
+
+```bash
+PYTHONPATH=. python scripts/audit_manuscript_consistency.py
+```
+
 The validated local environment is Python 3.12.13 with pytest 9.1.1; the current working
-tree has 191 passing tests. Most TRI generators, deterministic evaluators, SQLite replays,
+tree has 197 passing tests. Most TRI generators, deterministic evaluators, SQLite replays,
 and report scripts use only the Python standard library. External-pilot tests additionally
 depend on their pinned ToolSandbox/AppWorld environments and are documented separately.
 

@@ -4,7 +4,7 @@ import copy
 import json
 from pathlib import Path
 
-from tri.matched_pair_consistency import build_pairs, result_success, summarize_pairs
+from tri.matched_pair_consistency import build_pairs, percentage, result_success, summarize_pairs
 
 
 def task(task_id: str, style: str, binding: str, correct: str = "A") -> dict:
@@ -58,3 +58,8 @@ def test_api_and_parse_failures_are_incorrect() -> None:
     parse = copy.deepcopy(base)
     parse["result"]["errors"] = ["parse failure"]
     assert not result_success(parse)
+
+
+def test_percentage_uses_exact_decimal_rounding() -> None:
+    assert percentage(23, 80) == "28.8"
+    assert percentage(77, 80) == "96.2"

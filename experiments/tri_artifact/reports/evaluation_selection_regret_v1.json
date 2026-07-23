@@ -1,0 +1,535 @@
+{
+  "status": "post-primary zero-API audit over frozen identifiability reports",
+  "protocol": "reports/TRI_evaluation_selection_regret_protocol.md",
+  "target_metric": "changed-winner matched PairAcc",
+  "inputs": {
+    "v3": {
+      "path": "reports/v3_identifiability_regimes_v1.json",
+      "sha256": "f9acb0c9e7ba9028f1402dff31e7239f937e9267f73bd125653d2e9e845e67d7"
+    },
+    "v7": {
+      "path": "reports/v7_identifiability_regimes_v1.json",
+      "sha256": "8aac36f5c4d18c3ed1d119d20886ee7c42c3ff1d584a7d2f76b34a1512e61ed4"
+    }
+  },
+  "rows": [
+    {
+      "dataset": "v3",
+      "model_family": "GLM",
+      "proxy_regime": "aggregate_e2e",
+      "proxy_label": "Aggregate E2E",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "GLM-CTA",
+        "GLM-Generic",
+        "GLM-Lifecycle-free"
+      ],
+      "proxy_maximum": 0.98125,
+      "proxy_maximizers": [
+        "GLM-Lifecycle-free"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.90625,
+        "maximum": 0.90625
+      },
+      "best_pairacc_in_candidate_set": 0.96875,
+      "worst_case_selection_regret": 0.0625,
+      "optimistic_selection_regret": 0.0625,
+      "zero_pairacc_maximizer_exists": false
+    },
+    {
+      "dataset": "v3",
+      "model_family": "GLM",
+      "proxy_regime": "preserve_only",
+      "proxy_label": "Preserve only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "GLM-CTA",
+        "GLM-Generic",
+        "GLM-Lifecycle-free"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Lock+validity"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "best_pairacc_in_candidate_set": 0.96875,
+      "worst_case_selection_regret": 0.96875,
+      "optimistic_selection_regret": 0.96875,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v3",
+      "model_family": "GLM",
+      "proxy_regime": "reevaluate_only",
+      "proxy_label": "Reevaluate only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "GLM-CTA",
+        "GLM-Generic",
+        "GLM-Lifecycle-free"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Reevaluate",
+        "GLM-CTA",
+        "GLM-Lifecycle-free"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.96875
+      },
+      "best_pairacc_in_candidate_set": 0.96875,
+      "worst_case_selection_regret": 0.96875,
+      "optimistic_selection_regret": 0.0,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v3",
+      "model_family": "GLM",
+      "proxy_regime": "stable_only",
+      "proxy_label": "Stable only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "GLM-CTA",
+        "GLM-Generic",
+        "GLM-Lifecycle-free"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "GLM-CTA",
+        "GLM-Generic",
+        "GLM-Lifecycle-free"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.96875
+      },
+      "best_pairacc_in_candidate_set": 0.96875,
+      "worst_case_selection_regret": 0.96875,
+      "optimistic_selection_regret": 0.0,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v3",
+      "model_family": "Qwen",
+      "proxy_regime": "aggregate_e2e",
+      "proxy_label": "Aggregate E2E",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "Qwen-CTA",
+        "Qwen-Generic",
+        "Qwen-Lifecycle-free"
+      ],
+      "proxy_maximum": 0.96875,
+      "proxy_maximizers": [
+        "Qwen-Lifecycle-free"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.9375,
+        "maximum": 0.9375
+      },
+      "best_pairacc_in_candidate_set": 0.9375,
+      "worst_case_selection_regret": 0.0,
+      "optimistic_selection_regret": 0.0,
+      "zero_pairacc_maximizer_exists": false
+    },
+    {
+      "dataset": "v3",
+      "model_family": "Qwen",
+      "proxy_regime": "preserve_only",
+      "proxy_label": "Preserve only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "Qwen-CTA",
+        "Qwen-Generic",
+        "Qwen-Lifecycle-free"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Lock+validity"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "best_pairacc_in_candidate_set": 0.9375,
+      "worst_case_selection_regret": 0.9375,
+      "optimistic_selection_regret": 0.9375,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v3",
+      "model_family": "Qwen",
+      "proxy_regime": "reevaluate_only",
+      "proxy_label": "Reevaluate only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "Qwen-CTA",
+        "Qwen-Generic",
+        "Qwen-Lifecycle-free"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Reevaluate"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "best_pairacc_in_candidate_set": 0.9375,
+      "worst_case_selection_regret": 0.9375,
+      "optimistic_selection_regret": 0.9375,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v3",
+      "model_family": "Qwen",
+      "proxy_regime": "stable_only",
+      "proxy_label": "Stable only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "Qwen-CTA",
+        "Qwen-Generic",
+        "Qwen-Lifecycle-free"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "Qwen-CTA",
+        "Qwen-Generic",
+        "Qwen-Lifecycle-free"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.9375
+      },
+      "best_pairacc_in_candidate_set": 0.9375,
+      "worst_case_selection_regret": 0.9375,
+      "optimistic_selection_regret": 0.0,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v7",
+      "model_family": "DeepSeek",
+      "proxy_regime": "aggregate_e2e",
+      "proxy_label": "Aggregate E2E",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "DeepSeek-CTA",
+        "DeepSeek-Generic"
+      ],
+      "proxy_maximum": 0.9125,
+      "proxy_maximizers": [
+        "DeepSeek-CTA"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.8,
+        "maximum": 0.8
+      },
+      "best_pairacc_in_candidate_set": 0.8,
+      "worst_case_selection_regret": 0.0,
+      "optimistic_selection_regret": 0.0,
+      "zero_pairacc_maximizer_exists": false
+    },
+    {
+      "dataset": "v7",
+      "model_family": "DeepSeek",
+      "proxy_regime": "preserve_only",
+      "proxy_label": "Preserve only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "DeepSeek-CTA",
+        "DeepSeek-Generic"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Lock+validity"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "best_pairacc_in_candidate_set": 0.8,
+      "worst_case_selection_regret": 0.8,
+      "optimistic_selection_regret": 0.8,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v7",
+      "model_family": "DeepSeek",
+      "proxy_regime": "reevaluate_only",
+      "proxy_label": "Reevaluate only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "DeepSeek-CTA",
+        "DeepSeek-Generic"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Reevaluate",
+        "DeepSeek-Generic"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.2125
+      },
+      "best_pairacc_in_candidate_set": 0.8,
+      "worst_case_selection_regret": 0.8,
+      "optimistic_selection_regret": 0.5875,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v7",
+      "model_family": "DeepSeek",
+      "proxy_regime": "stable_only",
+      "proxy_label": "Stable only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "DeepSeek-CTA",
+        "DeepSeek-Generic"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "DeepSeek-Generic"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.2125
+      },
+      "best_pairacc_in_candidate_set": 0.8,
+      "worst_case_selection_regret": 0.8,
+      "optimistic_selection_regret": 0.5875,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v7",
+      "model_family": "GLM",
+      "proxy_regime": "aggregate_e2e",
+      "proxy_label": "Aggregate E2E",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "GLM-CTA",
+        "GLM-Generic"
+      ],
+      "proxy_maximum": 0.9416666666666667,
+      "proxy_maximizers": [
+        "GLM-CTA"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.825,
+        "maximum": 0.825
+      },
+      "best_pairacc_in_candidate_set": 0.825,
+      "worst_case_selection_regret": 0.0,
+      "optimistic_selection_regret": 0.0,
+      "zero_pairacc_maximizer_exists": false
+    },
+    {
+      "dataset": "v7",
+      "model_family": "GLM",
+      "proxy_regime": "preserve_only",
+      "proxy_label": "Preserve only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "GLM-CTA",
+        "GLM-Generic"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Lock+validity"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "best_pairacc_in_candidate_set": 0.825,
+      "worst_case_selection_regret": 0.825,
+      "optimistic_selection_regret": 0.825,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v7",
+      "model_family": "GLM",
+      "proxy_regime": "reevaluate_only",
+      "proxy_label": "Reevaluate only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "GLM-CTA",
+        "GLM-Generic"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Reevaluate"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "best_pairacc_in_candidate_set": 0.825,
+      "worst_case_selection_regret": 0.825,
+      "optimistic_selection_regret": 0.825,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v7",
+      "model_family": "GLM",
+      "proxy_regime": "stable_only",
+      "proxy_label": "Stable only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "GLM-CTA",
+        "GLM-Generic"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "GLM-CTA"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.825
+      },
+      "best_pairacc_in_candidate_set": 0.825,
+      "worst_case_selection_regret": 0.825,
+      "optimistic_selection_regret": 0.0,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v7",
+      "model_family": "Qwen",
+      "proxy_regime": "aggregate_e2e",
+      "proxy_label": "Aggregate E2E",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "Qwen-CTA",
+        "Qwen-Generic"
+      ],
+      "proxy_maximum": 0.7083333333333334,
+      "proxy_maximizers": [
+        "Qwen-CTA"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.3875,
+        "maximum": 0.3875
+      },
+      "best_pairacc_in_candidate_set": 0.3875,
+      "worst_case_selection_regret": 0.0,
+      "optimistic_selection_regret": 0.0,
+      "zero_pairacc_maximizer_exists": false
+    },
+    {
+      "dataset": "v7",
+      "model_family": "Qwen",
+      "proxy_regime": "preserve_only",
+      "proxy_label": "Preserve only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "Qwen-CTA",
+        "Qwen-Generic"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Lock+validity"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "best_pairacc_in_candidate_set": 0.3875,
+      "worst_case_selection_regret": 0.3875,
+      "optimistic_selection_regret": 0.3875,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v7",
+      "model_family": "Qwen",
+      "proxy_regime": "reevaluate_only",
+      "proxy_label": "Reevaluate only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "Qwen-CTA",
+        "Qwen-Generic"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Reevaluate"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "best_pairacc_in_candidate_set": 0.3875,
+      "worst_case_selection_regret": 0.3875,
+      "optimistic_selection_regret": 0.3875,
+      "zero_pairacc_maximizer_exists": true
+    },
+    {
+      "dataset": "v7",
+      "model_family": "Qwen",
+      "proxy_regime": "stable_only",
+      "proxy_label": "Stable only",
+      "candidate_controllers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate",
+        "Qwen-CTA",
+        "Qwen-Generic"
+      ],
+      "proxy_maximum": 1.0,
+      "proxy_maximizers": [
+        "Always-Lock+validity",
+        "Always-Reevaluate"
+      ],
+      "pairacc_among_maximizers": {
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "best_pairacc_in_candidate_set": 0.3875,
+      "worst_case_selection_regret": 0.3875,
+      "optimistic_selection_regret": 0.3875,
+      "zero_pairacc_maximizer_exists": true
+    }
+  ],
+  "summary": {
+    "candidate_sets": 5,
+    "proxy_evaluations": 20,
+    "zero_pairacc_maximizer_rows": 15,
+    "one_sided_or_stable_evaluations": 15,
+    "one_sided_or_stable_zero_pairacc_rows": 15,
+    "aggregate_suboptimal_rows": 1,
+    "maximum_worst_case_selection_regret": 0.96875
+  },
+  "boundaries": [
+    "The candidate sets are concrete tested alternatives, not an exhaustive policy class.",
+    "Worst-case tie handling means the proxy score licenses a poor policy; it does not claim users always choose it.",
+    "PairAcc measures the balanced changed-winner authorization contrast, not general task utility or prevalence."
+  ]
+}

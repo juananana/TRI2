@@ -2,15 +2,36 @@ from __future__ import annotations
 
 import csv
 
-from tri.main_paper_evidence_audit import ROOT, build_report, validate
+from tri.main_paper_evidence_audit import (
+    PAPER,
+    ROOT,
+    build_report,
+    default_paper_path,
+    validate,
+)
 
 
 def test_main_paper_evidence_audit_matches_frozen_sources() -> None:
+    assert PAPER.is_file()
     report = build_report()
     validate(report)
     assert report["all_checks_pass"] is True
-    assert len(report["v7_table2"]) == 6
-    assert report["v7_table2"][0]["latex_row"] == "Qwen / Gen. & 7/80 & 43/72 & 43/44 \\\\"
+    assert len(report["v7_diagnostic_table"]) == 6
+    assert report["v7_diagnostic_table"][0]["latex_row"] == "Qwen / Generic & 7/80 & 43/72 & 43/44 \\\\"
+    assert report["selection_regret"]["proxy_evaluations"] == 20
+    assert report["selection_regret"]["zero_pairacc_maximizer_rows"] == 15
+    assert report["selection_regret"]["maximum_worst_case_selection_regret"] == 0.96875
+    assert [row["opportunities"] for row in report["external_extension"]] == [70, 73, 64, 87]
+    assert [row["wrong_writes"] for row in report["external_extension"]] == [6, 13, 5, 4]
+    assert all(row["mechanism_errors"] == 0 for row in report["external_extension"])
+
+
+def test_default_paper_path_prefers_archive_layout(tmp_path) -> None:
+    artifact_root = tmp_path / "tri_artifact"
+    paper = artifact_root / "paper" / "AnonymousSubmission2027.tex"
+    paper.parent.mkdir(parents=True)
+    paper.write_text("archive paper", encoding="utf-8")
+    assert default_paper_path(artifact_root) == paper
 
 
 def test_claims_to_evidence_has_valid_status_and_sources() -> None:

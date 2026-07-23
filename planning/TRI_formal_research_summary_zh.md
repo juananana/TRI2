@@ -1,5 +1,10 @@
 # 更新世界状态不等于重新绑定操作目标
 
+> **历史草稿提示（2026-07-23）：** 本文件保留早期研究叙事，不再作为当前论文的
+> 实验数字、标题、证据时间线或主张边界依据。请以
+> [`TRI_AAAI27_experiment_design_results_summary_zh.md`](TRI_AAAI27_experiment_design_results_summary_zh.md)
+> 和 `experiments/tri_artifact/reports/current_claim_provenance.md` 为准。
+
 ## 工具型智能体中的时序指称完整性研究总结
 
 英文题目：*Updating the World Is Not Rebinding the Target: Temporal Referent Integrity in Tool-Using Agents*

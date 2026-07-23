@@ -1,7 +1,7 @@
 {
   "status": "zero-API audit rebuilt from frozen outputs and source reports",
   "paper": "paper/AnonymousSubmission2027.tex",
-  "v7_table2": [
+  "v7_diagnostic_table": [
     {
       "model": "Qwen3.5",
       "controller": "Generic",
@@ -18,7 +18,7 @@
       "shared_eligible": 66,
       "shared_generic_substitutions": 41,
       "shared_cta_substitutions": 0,
-      "latex_row": "Qwen / Gen. & 7/80 & 43/72 & 43/44 \\\\",
+      "latex_row": "Qwen / Generic & 7/80 & 43/72 & 43/44 \\\\",
       "latex_row_present": true
     },
     {
@@ -56,7 +56,7 @@
       "shared_eligible": 70,
       "shared_generic_substitutions": 30,
       "shared_cta_substitutions": 0,
-      "latex_row": "GLM / Gen. & 15/80 & 38/80 & 38/38 \\\\",
+      "latex_row": "GLM / Generic & 15/80 & 38/80 & 38/38 \\\\",
       "latex_row_present": true
     },
     {
@@ -94,7 +94,7 @@
       "shared_eligible": 69,
       "shared_generic_substitutions": 50,
       "shared_cta_substitutions": 0,
-      "latex_row": "DeepSeek / Gen. & 17/80 & 59/79 & 59/60 \\\\",
+      "latex_row": "DeepSeek / Generic & 17/80 & 59/79 & 59/60 \\\\",
       "latex_row_present": true
     },
     {
@@ -241,6 +241,45 @@
       "note": "The listed near-matches use different bill and line roles, so they do not provide a same-role target-transition comparison."
     }
   ],
+  "external_extension": [
+    {
+      "report": "toolsandbox_single_turn_qwen_full_history_full_v1.json",
+      "rows": 96,
+      "opportunities": 70,
+      "mechanism_errors": 0,
+      "wrong_writes": 6
+    },
+    {
+      "report": "toolsandbox_single_turn_glm_full_history_full_v1.json",
+      "rows": 96,
+      "opportunities": 73,
+      "mechanism_errors": 0,
+      "wrong_writes": 13
+    },
+    {
+      "report": "toolsandbox_single_turn_matched_generic_qwen_full_v1.json",
+      "rows": 96,
+      "opportunities": 64,
+      "mechanism_errors": 0,
+      "wrong_writes": 5
+    },
+    {
+      "report": "toolsandbox_single_turn_matched_generic_glm_full_v1.json",
+      "rows": 96,
+      "opportunities": 87,
+      "mechanism_errors": 0,
+      "wrong_writes": 4
+    }
+  ],
+  "selection_regret": {
+    "candidate_sets": 5,
+    "proxy_evaluations": 20,
+    "zero_pairacc_maximizer_rows": 15,
+    "one_sided_or_stable_evaluations": 15,
+    "one_sided_or_stable_zero_pairacc_rows": 15,
+    "aggregate_suboptimal_rows": 1,
+    "maximum_worst_case_selection_regret": 0.96875
+  },
   "checks": {
     "all_table2_rows_match_frozen_sources": true,
     "shared_qwen_claim_present": true,
@@ -250,6 +289,8 @@
     "glm_primary_claim_present": true,
     "human_agreement_claim_present": true,
     "coverage_scope_present": true,
+    "external_extension_four_condition_scope_matches_sources": true,
+    "selection_regret_claim_matches_report": true,
     "generic_core_writes_equal_conditional_substitutions": true,
     "cta_core_writes_zero_but_all_wrong_reported": true
   },

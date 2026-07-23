@@ -9,7 +9,7 @@
 \usepackage{enumitem}
 \setlength{\emergencystretch}{3em}
 \title{Supplementary Material\\[2pt]
-\large Temporal Referent Integrity: A Controlled Diagnostic for Referential Re-resolution in Tool-Using Agents}
+\large Temporal Referent Integrity: A Controlled Diagnostic of Referential Resolution Timing in Tool-Using Agents}
 \author{Anonymous Submission}
 \date{}
 
@@ -18,9 +18,10 @@
 
 \paragraph{Review note.}
 This document supports the main submission with implementation, protocol, and extended-result
-details. The main paper is self-contained. No result reported here changes the primary
-estimand, and all files are included in the accompanying anonymous artifact rather than
-referenced through an external webpage.
+details. The main paper contains the complete argument; this document supplies extended results.
+No result reported here changes the primary estimand. Literal prompts, complete runner interfaces,
+inventories, raw outputs, and executable reports are in the separately uploaded anonymous Code and
+Data Supplement rather than on an external webpage.
 
 \section{Benchmark and Frozen Protocol}
 The TRI-v3 primary evaluation contains 160 tasks in 20 frozen language-template clusters.
@@ -28,29 +29,41 @@ Tasks are balanced across anchored and dynamic references and across flip, stabl
 invalidate, and name-collision transitions. The transfer evaluation contains 80 tasks over
 four unseen schemas (projects, expenses, inventory, and cloud deployments). The guarded
 TRI-v4 extension contains 40 conditional tasks and distinguishes action-validity and
-selector-match guards. The model-facing SQLite replay uses a frozen 40-task subset and
+selector-match guards. The model-facing SQLite trajectory experiment uses a frozen 40-task subset and
 records every query, refresh, target proposal, mutation attempt, and final database diff.
 
 The task generator evaluates the selector in $S_0$, applies a controlled transition to obtain
-$S_1$, and computes the gold target from the instruction's reference mode and policy. Paired
-items share their schema, entities, transition, and action; only the temporal discourse
-varies. Gold targets and benchmark metadata are not passed to the model.
+$S_1$, and computes the target from the instruction-conditioned resolution status. Each
+task-specified resolver maps a state to one entity or $\bot$; the frozen generators construct a
+unique eligible winner, and unresolved ranking ties are outside the inventory. At the refresh
+boundary, Preserve induces a bound commitment $B(q(S_0))$, whereas Reevaluate retains an unresolved
+query $U(q)$ for evaluation in $S_1$. This semantic status need not be serialized as an explicit
+field. Paired items share their schema, entities, transition, and action; only temporal discourse
+varies. Every controller receives the instruction's natural-language selector. Gold targets,
+generator-normalized selector fields, and pre-/post-refresh winner IDs are not passed to the model.
 
 \subsection{Evidence chronology and status}
 The manuscript distinguishes the original primary comparison from later replication and audit
 analyses. The chronology below prevents post-primary reanalyses from being read as preregistered
 primary estimands.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \small
 \begin{tabular}{p{0.22\textwidth}p{0.24\textwidth}p{0.42\textwidth}}
 \toprule
 Stage & Frozen status & Role in the manuscript \\
 \midrule
-v3 language clusters & Primary/frozen before calls & Qwen Generic vs. Lifecycle-Gated estimand; GLM replication \\
-v7 core replication & Post-primary replication, frozen before calls & New schemas and states; tests directional substitution \\
-Identifiability regimes & Post-primary, zero API & Reuses frozen v3/v7 outputs to compare aggregate and one-sided scoring \\
+v3 language clusters & Primary/frozen before calls & Package-level Qwen Generic vs. Lifecycle-Gated estimand; GLM replication \\
+v3 component addenda & Post-primary; frozen before their own calls & Free actor, validity gate, mode-only, untyped-plan, and exact-CTA audits \\
+v7 core replication & Post-primary replication; frozen before calls & New schemas and states; tests directional substitution \\
+Matched full-history baselines & Post-primary strong baseline; frozen before own calls & Ordinary and final-step-aware history across three model families \\
+Human construct labels & Post-primary construct validation & Three blind labels per 100 original/rewrite items \\
+Human-rewrite model runs & Post-primary replication; frozen before own calls & Unchanged controllers on 50 volunteer rewrites \\
+40-task model-facing SQLite & Secondary/frozen execution test; GLM later replication & Model-issued mutations and final database states \\
+v7 deterministic replay & Post-primary, zero API & Consequence verification over frozen target outputs, not a new behavioral replication \\
+PairAcc and identifiability & Post-primary, zero API & Matched, marginal, and shared-eligible reanalyses of frozen outputs \\
+Selection regret & Post-primary, zero API & Proxy maximizers and changed-PairAcc regret in frozen candidate sets \\
 Rule v2 & Post-hoc & Benchmark-aware deterministic audit after v1 failure inspection \\
 Public-suite audits & Post-primary/descriptive & Coverage checklist for audited ToolSandbox, AppWorld, and $\tau^3$ versions \\
 \bottomrule
@@ -66,7 +79,7 @@ This separates structural sensitivity from success caused by an unconditional po
 Remove and Invalidate are retained as a separate execution-policy slice because Preserve may
 correctly yield \textsc{Reject} rather than an entity ID.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \small
 \begin{tabular}{llll}
@@ -136,7 +149,7 @@ conclusion it supports.}
 \FloatBarrier
 
 \section{Controller Records}
-Executable transition authorization is the design principle. Historical CTA is the minimal scalar
+Executable resolution status and transition authorization are the design principle. Historical CTA is the minimal scalar
 pre-refresh commitment implementation and has no deterministic gate. Lifecycle adds a typed,
 auditable validity/fallback record; Lifecycle-Gated enforces that record at mutation time.
 The Generic pipeline passes the original instruction separately to its actor; its compiled
@@ -150,8 +163,16 @@ separate TRI-v4 conditional extension adds \texttt{guard\_type} and
 \texttt{fallback\_policy}; these fields are not part of the scalar v3 record. The exact
 historical Compile-then-act baseline is retained unchanged as a neighboring audit.
 
+The v4 guards are deterministic. Under \texttt{action\_validity}, the controller retains the
+old ID iff all action preconditions $V_a(e_0,S_1)$ hold; otherwise it reevaluates $q(S_1)$.
+Under \texttt{selector\_match}, it retains the old ID iff it is action-valid and remains
+$q(S_1)$; otherwise it reevaluates. The frozen 40-task inventory crosses two guard types, five
+instruction templates per guard, four unseen schemas, and scheduled transition types. Qwen Generic
+scores 21/40 (52.5\%) and Lifecycle-Gated 34/40 (85.0\%); this secondary extension is not part of
+the primary comparison. Complete task rows and the source-derived report are in the Code and Data Supplement.
+
 \subsection{Lifecycle-Gated procedure}
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \small
 \setlength{\tabcolsep}{4pt}
@@ -167,8 +188,8 @@ historical Compile-then-act baseline is retained unchanged as a neighboring audi
 6 & For \textsc{Reevaluate} or unresolved conditional branches, invoke the actor on $L(r)$ and $S_1$. \\
 \bottomrule
 \end{tabular}
-\caption{Controller procedure. Gold targets and benchmark selector fields are never provided to
-the compiler or actor.}
+\caption{Controller procedure. The instruction supplies the natural-language selector; gold,
+generator-normalized selector fields, and winner IDs are never provided to the compiler or actor.}
 \label{tab:supp-procedure}
 \end{table}
 
@@ -344,7 +365,7 @@ as a separate invalidity-policy slice. The source-derived report is
 \toprule
 Model & v3 controller & All (80) & Changed (32) & Stable (16) \\
 \midrule
-Qwen3.5 & Generic & 23 (28.7) & 3 (9.4) & 16 (100) \\
+Qwen3.5 & Generic & 23 (28.8) & 3 (9.4) & 16 (100) \\
 GLM-5.1 & Generic & 38 (47.5) & 7 (21.9) & 16 (100) \\
 Qwen3.5 & Exact CTA & 72 (90.0) & 30 (93.8) & 16 (100) \\
 GLM-5.1 & Exact CTA & 74 (92.5) & 31 (96.9) & 16 (100) \\
@@ -402,6 +423,18 @@ winner substitution is 43/72, 38/80, and 59/79. CTA removes this observed substi
 but retains other errors, so the conditional metric is not a general success score. These results
 support a bounded non-identifiability claim for the controlled diagnostics, not for all public
 benchmarks or natural traffic.
+
+We then freeze a policy-selection consequence audit over these two reports. Within each
+dataset/model family, the candidate set contains that model's reported controllers plus
+Always-Lock and Always-Reevaluate. For aggregate, Preserve-only, Reevaluate-only, and Stable-only
+scoring, we enumerate every exact score maximizer and measure regret against the best changed
+PairAcc in the same candidate set. Fifteen of 20 proxy-maximizer sets include a zero-PairAcc
+extreme; equivalently, all 15 Stable-only or one-sided maximizer sets contain such an extreme.
+Maximum worst-case regret is 96.9 points. Aggregate E2E is usually aligned with the best
+PairAcc candidate, but on v3 GLM it selects Lifecycle-free with 6.2 points less PairAcc than CTA.
+Worst-case tie handling means that the proxy licenses a poor policy, not that users necessarily
+choose it. The complete post-primary, zero-API table and frozen input hashes are in
+\texttt{reports/evaluation\_selection\_regret\_v1.md}.
 
 \subsection{Post-primary parser--binding--executor decomposition}
 We reuse frozen v3 Lifecycle-free and Lifecycle-Gated outputs to separate three stages without
@@ -523,7 +556,8 @@ Generic conditional substitution is 59.7\% for Qwen, state-cluster 95\% CI [46.5
 47.5\% for GLM [35.0,61.3]. CTA-minus-Generic overall differences are +23.3 points
 [16.2,30.4] and +24.2 [19.6,28.7]. SQLite replay turns all 43 and 38 Generic core substitutions
 into wrong-entity writes. CTA/Gated produce zero core substitution writes after a correct binding, but
-still produce 8/17 Qwen and 14/7 GLM wrong writes from opposite-mode or selector errors. Thus
+still produce 8 and 17 Qwen wrong writes, respectively, and 14 and 7 GLM wrong writes,
+respectively, from opposite-mode or selector errors. Thus
 the replication supports the conditional phenomenon and commitment compilation, not general
 write safety. The original six Qwen/GLM 240-row runs contain zero API, parse, or internal errors.
 GLM CTA records one successful transport retry; the other five runs record none.
@@ -577,7 +611,7 @@ DeepSeek & 68.8 & 75.8 & 91.2 & 68/80 & 42/80 & +15.4 [9.2,21.7] \\
 \bottomrule
 \end{tabular}
 \caption{Matched v7 exact-target accuracy (\%) and anchored changed-winner substitutions.
-Intervals resample 40 state clusters. CTA ties the aware Qwen baseline in overall accuracy.}
+Intervals resample 40 state clusters. For Qwen, the CTA--Aware interval includes zero.}
 \end{table}
 
 All six files contain 240 rows and zero final API/parse failures. Qwen aware uses 269 request
@@ -588,7 +622,8 @@ substitution estimate.
 SQLite replay converts the interactive errors into 87/79/75 wrong writes and the aware errors
 into 70/46/57 wrong writes for Qwen/GLM/DeepSeek, with four invalid attempts and one unnecessary
 rejection across all six runs. Thus complete history and a late semantic reminder do not remove
-wrong-entity consequences consistently across controllers; Qwen's tie means the result does not
+wrong-entity consequences consistently across controllers; Qwen's statistically indistinguishable
+comparison means the result does not
 establish universal CTA superiority or pre-refresh necessity.
 
 \section{Qualitative Trace Cases}
@@ -699,7 +734,10 @@ opportunities; matched Qwen and GLM Generic Ledgers had zero in 64 and 87 opport
 runs still produced 6, 13, 5, and 4 wrong-entity writes, respectively, but all were initial selector or tool
 ordering errors and therefore excluded from the post-binding numerator. This negative external
 result is retained as a boundary check rather than merged with the 24-task pilot or interpreted as
-a prevalence estimate.
+a prevalence estimate. A separate Qwen-only \texttt{generic\_state\_observed} condition is retained
+in the artifact as exploratory sensitivity evidence (0/73 substitutions, six wrong writes, and
+13 prohibited-schema/process errors). Its unmatched interface and protocol failures exclude it
+from these four paper-facing conditions; it is not hidden or pooled with them.
 
 \subsection{Official opportunity and released-trace audit}
 We separately audited the unmodified public task inventories rather than multiplying semantic
@@ -982,16 +1020,17 @@ template-family exclusions retain 20.4--26.3, 20.8--26.1, and 14.2--19.6 points.
 remains positive. This rules out dominance by one domain or template family, but does not make
 templated rows independent natural-world observations.
 
-\paragraph{Retrospective sample-sufficiency audit.}
+\paragraph{Within-inventory subsampling stability audit.}
 We additionally subsample complete matched clusters without replacement 10,000 times at
 increasing cluster counts. This is a precision and stability diagnostic, not post-hoc power.
-On v3, the full Lifecycle-Gated--Generic differences are +33.8 points [18.7,49.4] for Qwen
-and +28.1 [18.1,38.1] for GLM under template-cluster bootstrap. At only 10 of 20 template
-clusters (80 tasks), 100\% of subsamples retain a positive difference for both models. On v7,
+On v3, the audit reproduces the full Lifecycle-Gated--Generic point differences of +33.8 points
+for Qwen and +28.1 for GLM; the pre-specified seed-20260717 intervals are reported in the
+statistical section above. At only 10 of 20 template clusters (80 tasks), 100\% of subsamples
+retain a positive difference for both models. On v7,
 the full CTA--Generic differences are +23.3 [16.2,30.4], +24.2 [19.6,28.7], and +17.5
 [10.8,23.3] for Qwen, GLM, and DeepSeek. At 10 of 40 state clusters (60 tasks), positive
 differences occur in 100.0\%, 100.0\%, and 99.8\% of draws; at 20 clusters all three reach
-100\%. Thus the controlled paired effect is not sample-limited within the observed inventory.
+100\%. Thus the direction is stable under cluster subsampling within the observed inventory.
 This does not increase the number of natural-world opportunities or justify a prevalence claim.
 
 \paragraph{Temperature-zero repeat stability.}
@@ -1021,7 +1060,7 @@ usage is 264,359 tokens for Generic and 216,446 for CTA; client-observed cumulat
 not as a cross-provider systems claim.
 
 \section{Blind Human Construct Validation}
-One volunteer uninvolved in TRI design naturally rewrote 50 sampled scalar instructions.
+One volunteer uninvolved in TRI design produced natural-language rewrites of 50 sampled scalar instructions.
 Three other volunteers independently labeled 100 differently randomized original/rewrite
 items. Forms used opaque IDs and concealed source task, binding mode, update, variant, and
 gold. Responses were an entity ID, \textsc{Reject}, or \textsc{Clarify}; confidence was
@@ -1031,11 +1070,11 @@ All four participants were adults and provided informed consent. The collection 
 described voluntary participation and discouraged names or unnecessary personal data. Two
 participants received modest one-time honoraria and two were unpaid; compensation was arranged
 individually and was not contingent on response content or agreement with benchmark gold.
-No formal institutional ethics review or exemption determination was obtained. The public
-artifact contains only de-identified responses; private consent and study-administration records
+No sensitive personal data were collected, and the anonymous Code and Data Supplement contains
+only de-identified responses; private consent and study-administration records
 are not included.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \small
 \begin{tabular}{lrrrrr}
@@ -1063,13 +1102,13 @@ degrade agreement, and explicit/implicit slices are similar. The main weakness i
 fallback: participants often preserve an invalid entity as the discourse referent while
 disagreeing whether the action answer should be \textsc{Reject}. We therefore interpret the
 study as support for the Preserve/Reevaluate core, not as validation of reject or conditional
-policy. Complete disagreement rows and the auditable analysis script accompany the artifact.
+policy. Complete disagreement rows and the auditable analysis script accompany the Code and Data Supplement.
 
 \paragraph{Human-majority model sensitivity.}
 Of the 50 original items, 46 have a determinate human majority, 42 majorities match benchmark
 gold, and 35 are unanimously gold-aligned. Re-scoring frozen model outputs against the human
 majority gives:
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \small
 \begin{tabular}{lrrr}
@@ -1094,7 +1133,7 @@ After the human study and before model calls, we froze 50 instructions rewritten
 independent volunteer
 and reran the unchanged four controllers. All eight files contain exactly 50 unique expected
 IDs, all 400 rows have \texttt{status=ok}, and no request retry occurred.
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \small
 \begin{tabular}{lrrrr}
@@ -1129,9 +1168,9 @@ compilation on this volunteer-authored rewrite set, not
 Lifecycle-Gated superiority. The execution log discloses two pre-call empty-run failures and
 the non-balanced health-smoke deviation.
 
-\section{Artifact Map}
+\section{Code and Data Supplement Map}
 \enlargethispage{2\baselineskip}
-The accompanying anonymous artifact contains the frozen JSONL task files, raw model outputs,
+The separately uploaded anonymous Code and Data Supplement contains the frozen JSONL task files, raw model outputs,
 SQLite traces, report scripts, controller implementations, protocol files, SHA-256 manifests,
 and tests. The directory \texttt{tri\_artifact/reports/} contains the primary
 cluster reports, component audits, SQLite replay reports, ToolSandbox pilot report, and
@@ -1139,9 +1178,14 @@ claim-provenance records, \texttt{claims\_to\_evidence.csv}, matched-pair and qu
 official opportunity/trace audits, and the AppWorld custom protocol.
 Running \texttt{PYTHONPATH=. python scripts/audit\_main\_paper\_evidence.py} rebuilds the
 paper-facing evidence audit from frozen raw outputs and source reports and checks the critical
-Table~2 rows and headline claims against the manuscript source.
+diagnostic-table rows and headline claims against the manuscript source.
 Current submission runners receive credentials through environment
 variables; credentials are not embedded in or stored with the artifact.
+
+\paragraph{AI-assisted engineering disclosure.}
+Generative AI systems were used for language editing, code assistance, and internal review. They
+were not treated as authors, citable sources, independent annotators, or independent human
+evidence. The authors verified the manuscript claims, references, code, and reported results.
 
 \paragraph{Model and environment provenance.}
 The paper-facing API runs use SiliconFlow's OpenAI-compatible

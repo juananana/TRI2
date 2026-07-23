@@ -21,20 +21,24 @@ Let `S0` and `S1` be the pre-refresh and post-refresh states, `q` a selector, `a
 target-specific action, and `H` the instruction and dialogue history. Suppose `e0 = q(S0)` and
 `e1 = q(S1)`. A referent state is either a bound entity `B(e0)` or an unresolved query `U(q)`.
 
-The instruction induces a resolution-timing value:
+At the refresh boundary, the instruction induces a referential control state:
 
 ```text
-Gamma(H) = Preserve   if the action refers to the entity resolved before refresh
-Gamma(H) = Reevaluate if the action asks to resolve q after refresh
+C_H^-(r) = B(e0) if the action refers to the entity resolved before refresh
+C_H^-(r) = U(q)  if the instruction intentionally defers resolution until after refresh
 ```
 
 For the actionable referential core, all candidate entities relevant to the comparison remain
 present and action-valid in `S1`. The authorized target is therefore:
 
 ```text
-target(H, S0, S1, q) = e0  when Gamma(H) = Preserve
-target(H, S0, S1, q) = e1  when Gamma(H) = Reevaluate
+target(H, S0, S1, q) = e0  when C_H^-(r) = B(e0)
+target(H, S0, S1, q) = e1  when C_H^-(r) = U(q)
 ```
+
+The Reevaluate member is deferred resolution, not a transition away from an earlier bound target.
+For a genuine transition from an existing `B(e)` to a distinct `B(e')`, discourse or history must
+supply an executable transition decision `Gamma_H(r, e -> e')`; the world update alone does not.
 
 Action validity is a separate question. If a preserved target is invalid, the executor may
 reject, clarify, or follow another explicit action policy. That response is not part of the
@@ -43,7 +47,7 @@ core referential target claim and must be scored separately.
 ## Identifiability Observation
 
 Consider a changed-winner matched pair with identical `S0`, `S1`, `q`, and `a`, where
-`e0 != e1`. The two members differ only in `Gamma(H)`. A mode-blind post-refresh policy
+`e0 != e1`. The two members differ only in refresh-boundary status. A mode-blind post-refresh policy
 `f(e0, q, S1, a)` receives the same inputs for both members and must emit the same output. It
 cannot equal both `e0` and `e1`.
 

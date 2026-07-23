@@ -1,22 +1,37 @@
 # AAAI-27 Abstract Registration Draft
 
-**Status:** current-manuscript candidate, not evidence that the OpenReview registration has been
-updated. If an abstract has already been registered, compare it with this text before changing
-anything: AAAI warns against substantial abstract changes after registration. Use the registered
-abstract as the submission-system source of truth and seek workflow-chair guidance for any
-material change.
+**Status:** submitted to OpenReview on 2026-07-22 (Asia/Shanghai). This record is a decision log,
+not empirical evidence. The registered title and abstract are the submission-system source of
+truth; do not make a material change before the full-paper deadline.
 
 ## Title
 
-Temporal Referent Integrity: A Controlled Diagnostic for Referential Re-resolution in Tool-Using Agents
+Temporal Referent Integrity: A Controlled Diagnostic of Referential Resolution Timing in Tool-Using Agents
 
 ## Short Title
 
 Temporal Referent Integrity in Tool-Using Agents
 
+## Registered TL;DR
+
+Matched Preserve/Reevaluate pairs distinguish legitimate deferred resolution from discourse-inconsistent post-binding substitution, exposing a controlled evaluation gap in tool-using agents.
+
 ## Abstract
 
-Refreshing external state does not by itself license a tool-using agent to change the entity denoted by an earlier reference. Post-binding target drift has been documented; our contribution is an instruction-timing-controlled evaluation variable that distinguishes legitimate deferred resolution from discourse-inconsistent substitution. We formalize this distinction as temporal referent integrity (TRI). Identifying it requires an eligible opportunity, an observable initial binding, and a Preserve/Reevaluate contrast; observing the executed mutation is additionally required to establish a wrong-entity consequence. On frozen v3/v7 diagnostics, Always-Lock and Always-Reevaluate both score 100% on Stable controls but zero changed-winner PairAcc, whereas Generic controllers selectively substitute the refreshed winner after correct binding. In replayed Qwen/GLM v7 outputs, all 43 and 38 eligible substitutions, respectively, become wrong-entity SQLite writes. CTA reduces this specific drift but does not solve all target errors and is not the unique implementation. Public audits find zero strict native opportunities in the three audited suites, and the controlled failure does not reproduce in our lower-intervention external agents. TRI is therefore a controlled, model- and controller-conditional diagnosis of an evaluation gap in these regimes, not a natural prevalence estimate or a universal controller claim. A workflow-grounded task grammar makes the required selector, refresh, and mutation opportunity explicit.
+Refreshing external state does not by itself authorize a tool-using agent to change the entity denoted by an earlier reference. Prior work documents post-binding target drift, but evaluations that do not control resolution timing cannot distinguish cases in which a target is resolved before an update and should be preserved from cases in which its resolution is intentionally deferred until afterward. We formalize this instruction-conditioned distinction as temporal referent integrity (TRI) and introduce matched Preserve/Reevaluate tasks that hold the states, selector, action, and transition fixed while requiring opposite targets. Identifying discourse-inconsistent substitution requires an observable correct initial binding; establishing its consequence additionally requires a target-level mutation outcome. In a frozen primary diagnostic and frozen post-primary replications covering three model families, Always-Lock and Always-Reevaluate both pass Stable controls but fail changed-winner pairs, while Generic controllers often replace a correctly bound, still-valid target with the refreshed selector winner. Deterministic SQLite replay turns these observed substitutions into wrong-entity writes. Compile-then-act reduces this specific behavior, but the evidence does not identify a unique implementation. Audits of three pinned public agent benchmarks find no strict native opportunities under our checklist, and lower-intervention external agents do not reproduce the controlled failure. TRI therefore identifies a controlled benchmark-identifiability gap and controller-conditional behavior, not natural prevalence or universal agent failure.
+
+## Full-Paper Chronology Clarification
+
+The registered abstract above remains the submission-system record. The manuscript makes one
+non-material chronology clarification, replacing ``a frozen primary diagnostic and frozen
+post-primary replications'' with:
+
+> In a pre-specified v3 controller comparison, followed by a post-primary diagnostic reanalysis
+> and frozen v7 replications across three model families, ...
+
+This does not change the paper's problem, methods, results, or scope. It prevents the registered
+wording from being read as a claim that PairAcc, identifiability, or selection regret was the
+original v3 primary estimand.
 
 ## Keywords
 
@@ -30,12 +45,12 @@ Refreshing external state does not by itself license a tool-using agent to chang
 
 ## Suggested Subject Areas
 
-Use the closest available AAAI-27 categories, in this order:
+Registered topics:
 
-1. Natural Language Processing: language models / agents.
-2. AI and the Web or intelligent agents: tool-using and interactive agents.
-3. Evaluation and analysis of AI systems.
-4. AI safety, reliability, or trustworthy AI, only as a secondary area; the paper is not a broad safety guarantee.
+1. Primary: `ML: Evaluation, Benchmarking, Datasets & Analysis`.
+2. Secondary: `MAS: LLM-based Agents & Agentic Systems`.
+3. Secondary: `MAS: Tool Use, Orchestration & Multi-Agent Coordination for LLMs`.
+4. Secondary: `NLP: Semantics, Textual Inference & Discourse`.
 
 ## One-Sentence Summary
 

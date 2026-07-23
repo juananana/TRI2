@@ -12,7 +12,23 @@ from .v7_shared_eligible_pairacc import shared_eligible
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PAPER = ROOT.parents[1] / "paper" / "AnonymousSubmission2027.tex"
+
+
+def default_paper_path(root: Path = ROOT) -> Path:
+    """Locate the manuscript in either the archive or development layout."""
+    archive_path = root / "paper" / "AnonymousSubmission2027.tex"
+    repository_path = root.parents[1] / "paper" / "AnonymousSubmission2027.tex"
+    return archive_path if archive_path.is_file() else repository_path
+
+
+PAPER = default_paper_path()
+
+EXTERNAL_EXTENSION_REPORTS = (
+    "toolsandbox_single_turn_qwen_full_history_full_v1.json",
+    "toolsandbox_single_turn_glm_full_history_full_v1.json",
+    "toolsandbox_single_turn_matched_generic_qwen_full_v1.json",
+    "toolsandbox_single_turn_matched_generic_glm_full_v1.json",
+)
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -47,7 +63,7 @@ def v7_rows(root: Path, paper_text: str) -> list[dict[str, Any]]:
             conditional = summary["conditional_changed_winner"]
             write = writes[(model, write_controller)]
             paper_model = {"Qwen3.5": "Qwen", "GLM-5.1": "GLM"}.get(model, model)
-            paper_controller = "Gen." if label == "Generic" else label
+            paper_controller = label
             latex_row = (
                 f"{paper_model} / {paper_controller} & {pair['both_correct']}/{pair['pairs']} & "
                 f"{conditional['drift_to_refreshed_winner']}/{conditional['eligible']} & "
@@ -96,12 +112,34 @@ def primary_summary(root: Path) -> dict[str, Any]:
     return output
 
 
+def external_extension_summary(root: Path) -> list[dict[str, Any]]:
+    output = []
+    for name in EXTERNAL_EXTENSION_REPORTS:
+        report = load_json(root / "reports" / name)
+        output.append(
+            {
+                "report": name,
+                "rows": report["inventory"]["rows"],
+                "opportunities": sum(cell["tri_opportunities"] for cell in report["cells"]),
+                "mechanism_errors": sum(
+                    cell["unauthorized_rebindings"] + cell["premature_locks"]
+                    for cell in report["cells"]
+                ),
+                "wrong_writes": sum(cell["wrong_entity_writes"] for cell in report["cells"]),
+            }
+        )
+    return output
+
+
 def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
     paper_text = paper_path.read_text(encoding="utf-8")
     rows = v7_rows(root, paper_text)
     primary = primary_summary(root)
     human = load_json(root / "human_validation/analysis.json")["groups"]
     coverage = load_json(root / "reports/public_suite_coverage_funnel_v1.json")
+    external_extension = external_extension_summary(root)
+    selection_regret = load_json(root / "reports/evaluation_selection_regret_v1.json")
+    selection_summary = selection_regret["summary"]
 
     checks = {
         "all_table2_rows_match_frozen_sources": (
@@ -111,8 +149,12 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
         "shared_qwen_claim_present": "41/66 versus 0/66" in paper_text,
         "shared_glm_claim_present": "30/70 versus 0/70" in paper_text,
         "shared_deepseek_claim_present": "50/69 versus\n0/69" in paper_text,
-        "qwen_primary_claim_present": "98.1\\% versus 64.4\\%" in paper_text,
-        "glm_primary_claim_present": "100.0\\% versus 71.9\\%" in paper_text,
+        "qwen_primary_claim_present": all(
+            token in paper_text for token in ("157/160", "103/160", "98.1\\% vs. 64.4\\%")
+        ),
+        "glm_primary_claim_present": all(
+            token in paper_text for token in ("160/160", "115/160", "100.0\\% vs. 71.9\\%")
+        ),
         "human_agreement_claim_present": (
             "Fleiss' $\\kappa=.708$" in paper_text
             and "Krippendorff's $\\alpha=.709$" in paper_text
@@ -121,6 +163,25 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
             "ToolSandbox (129 families)" in paper_text
             and "AppWorld (244 families)" in paper_text
             and "$\\tau^3$ (2,449 tasks" in paper_text
+        ),
+        "external_extension_four_condition_scope_matches_sources": (
+            len(external_extension) == 4
+            and [row["rows"] for row in external_extension] == [96, 96, 96, 96]
+            and [row["opportunities"] for row in external_extension] == [70, 73, 64, 87]
+            and [row["mechanism_errors"] for row in external_extension] == [0, 0, 0, 0]
+            and [row["wrong_writes"] for row in external_extension] == [6, 13, 5, 4]
+            and "Four conditions in a frozen 96-task extension" in paper_text
+            and "64--87 eligible opportunities" in paper_text
+        ),
+        "selection_regret_claim_matches_report": (
+            selection_summary["proxy_evaluations"] == 20
+            and selection_summary["one_sided_or_stable_evaluations"] == 15
+            and selection_summary["one_sided_or_stable_zero_pairacc_rows"] == 15
+            and selection_summary["aggregate_suboptimal_rows"] == 1
+            and abs(selection_summary["maximum_worst_case_selection_regret"] - 0.96875) < 1e-12
+            and "all 15 Stable-only or one-sided maximizer sets include a zero-PairAcc extreme" in paper_text
+            and "loses 6.2 points in the fifth" in paper_text
+            and "regret reaches 96.9 points" in paper_text
         ),
         "generic_core_writes_equal_conditional_substitutions": all(
             row["core_substitution_writes"] == row["conditional_substitution"][0]
@@ -133,10 +194,14 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
             if row["controller"] == "CTA"
         ),
     }
+    try:
+        displayed_paper_path = paper_path.relative_to(root)
+    except ValueError:
+        displayed_paper_path = paper_path.relative_to(root.parents[1])
     return {
         "status": "zero-API audit rebuilt from frozen outputs and source reports",
-        "paper": str(paper_path.relative_to(root.parents[1])),
-        "v7_table2": rows,
+        "paper": str(displayed_paper_path),
+        "v7_diagnostic_table": rows,
         "v3_primary": primary,
         "human_validation": {
             "n": human["all"]["n_items"],
@@ -146,6 +211,8 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
             "reject_majority_gold_accuracy": human["anchored_reject"]["majority_gold_accuracy"],
         },
         "public_coverage": coverage["suites"],
+        "external_extension": external_extension,
+        "selection_regret": selection_summary,
         "checks": checks,
         "all_checks_pass": all(checks.values()),
         "boundaries": [
@@ -176,7 +243,7 @@ def markdown(report: dict[str, Any]) -> str:
             "|---|---:|---:|---:|---:|---:|",
         ]
     )
-    for row in report["v7_table2"]:
+    for row in report["v7_diagnostic_table"]:
         pair = row["pairacc"]
         conditional = row["conditional_substitution"]
         lines.append(
@@ -184,6 +251,18 @@ def markdown(report: dict[str, Any]) -> str:
             f"{conditional[0]}/{conditional[1]} | {row['core_substitution_writes']} | "
             f"{row['all_wrong_writes']} | {row['shared_generic_substitutions']}/"
             f"{row['shared_cta_substitutions']} of {row['shared_eligible']} |"
+        )
+    lines.extend(
+        [
+            "",
+            "| 96-task paper-facing condition | Rows | Opportunities | Mechanism errors | Wrong writes |",
+            "|---|---:|---:|---:|---:|",
+        ]
+    )
+    for row in report["external_extension"]:
+        lines.append(
+            f"| {row['report']} | {row['rows']} | {row['opportunities']} | "
+            f"{row['mechanism_errors']} | {row['wrong_writes']} |"
         )
     lines.extend(["", *[f"- {item}" for item in report["boundaries"]], ""])
     return "\n".join(lines)

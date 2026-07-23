@@ -1,0 +1,69 @@
+{
+  "status": "zero-API static manuscript audit",
+  "paper": "paper/AnonymousSubmission2027.tex",
+  "bibliography": "paper/aaai2027.bib",
+  "checks": {
+    "TRI_expanded_at_first_use": true,
+    "LLM_expanded_at_first_use": true,
+    "CTA_expanded_at_first_use": true,
+    "ID_expanded_at_first_use": true,
+    "APIs_expanded_at_first_use": true,
+    "NLI_expanded_at_first_use": true,
+    "PairAcc_expanded_at_first_use": true,
+    "E2E_expanded_at_first_use": true,
+    "ITT_expanded_at_first_use": true,
+    "all_citations_have_bibliography_entries": true,
+    "all_cross_references_have_labels": true,
+    "no_legacy_table_abbreviations": true,
+    "abstract_retains_scope_boundary": true,
+    "abstract_chronology_is_explicit": true,
+    "body_chronology_is_explicit": true,
+    "primary_is_explicitly_package_level": true,
+    "selector_visibility_boundary_is_explicit": true,
+    "code_data_supplement_routing_is_explicit": true,
+    "figure_two_evidence_status_is_explicit": true,
+    "no_overstated_tie_or_sample_sufficiency_language": true,
+    "external_extension_has_four_paper_facing_conditions": true,
+    "conclusion_retains_scope_boundary": true
+  },
+  "first_use": {
+    "TRI": {
+      "first": 527,
+      "definition": 497
+    },
+    "LLM": {
+      "first": 2546,
+      "definition": 2524
+    },
+    "CTA": {
+      "first": 1324,
+      "definition": 1306
+    },
+    "ID": {
+      "first": 2859,
+      "definition": 2840
+    },
+    "APIs": {
+      "first": 9400,
+      "definition": 9364
+    },
+    "NLI": {
+      "first": 11150,
+      "definition": 11122
+    },
+    "PairAcc": {
+      "first": 16112,
+      "definition": 16097
+    },
+    "E2E": {
+      "first": 28945,
+      "definition": 28933
+    },
+    "ITT": {
+      "first": 35682,
+      "definition": 35662
+    }
+  },
+  "missing_bibliography_entries": [],
+  "missing_labels": []
+}

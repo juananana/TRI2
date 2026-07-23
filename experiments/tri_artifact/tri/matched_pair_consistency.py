@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from collections import defaultdict
+from decimal import Decimal, ROUND_HALF_EVEN
 from pathlib import Path
 from typing import Any, Callable
 
@@ -259,18 +260,27 @@ def build_report(root: Path = ROOT) -> dict[str, Any]:
     }
 
 
+def percentage(correct: int, total: int) -> str:
+    value = (Decimal(correct * 100) / Decimal(total)).quantize(
+        Decimal("0.1"), rounding=ROUND_HALF_EVEN
+    )
+    return f"{value:.1f}"
+
+
 def pct(block: dict[str, Any]) -> str:
     if not block["pairs"]:
         return "NA"
-    return f"{block['both_correct']}/{block['pairs']} ({100 * block['pair_accuracy']:.1f}%)"
+    correct = block["both_correct"]
+    total = block["pairs"]
+    return f"{correct}/{total} ({percentage(correct, total)}%)"
 
 
 def marginal_pct(block: dict[str, Any], mode: str) -> str:
     if not block["pairs"]:
         return "NA"
     correct = block[f"{mode}_correct"]
-    accuracy = block[f"{mode}_accuracy"]
-    return f"{correct}/{block['pairs']} ({100 * accuracy:.1f}%)"
+    total = block["pairs"]
+    return f"{correct}/{total} ({percentage(correct, total)}%)"
 
 
 def markdown(report: dict[str, Any]) -> str:

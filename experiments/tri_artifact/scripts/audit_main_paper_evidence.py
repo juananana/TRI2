@@ -4,7 +4,13 @@ import argparse
 import json
 from pathlib import Path
 
-from tri.main_paper_evidence_audit import ROOT, build_report, markdown, validate
+from tri.main_paper_evidence_audit import (
+    ROOT,
+    build_report,
+    default_paper_path,
+    markdown,
+    validate,
+)
 
 
 def main() -> None:
@@ -22,7 +28,7 @@ def main() -> None:
         default=ROOT / "reports/main_paper_evidence_audit_v1.md",
     )
     args = parser.parse_args()
-    paper = args.paper or args.artifact_root.parents[1] / "paper/AnonymousSubmission2027.tex"
+    paper = args.paper or default_paper_path(args.artifact_root)
     report = build_report(args.artifact_root, paper)
     args.json_output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     args.markdown_output.write_text(markdown(report), encoding="utf-8")
