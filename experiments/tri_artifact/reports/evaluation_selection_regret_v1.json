@@ -5,11 +5,11 @@
   "inputs": {
     "v3": {
       "path": "reports/v3_identifiability_regimes_v1.json",
-      "sha256": "f9acb0c9e7ba9028f1402dff31e7239f937e9267f73bd125653d2e9e845e67d7"
+      "sha256": "8de7ca1bb52eb13e6f3ff7fd184ea1468463a48308cd6d5d8b876c51f9d22332"
     },
     "v7": {
       "path": "reports/v7_identifiability_regimes_v1.json",
-      "sha256": "8aac36f5c4d18c3ed1d119d20886ee7c42c3ff1d584a7d2f76b34a1512e61ed4"
+      "sha256": "f6cfc95206ecf7c0ba9b3131ad7907144b8558a80db48ee1bd07003322b2b305"
     }
   },
   "rows": [
@@ -23,19 +23,20 @@
         "Always-Reevaluate",
         "GLM-CTA",
         "GLM-Generic",
+        "GLM-Lifecycle-Gated",
         "GLM-Lifecycle-free"
       ],
-      "proxy_maximum": 0.98125,
+      "proxy_maximum": 1.0,
       "proxy_maximizers": [
-        "GLM-Lifecycle-free"
+        "GLM-Lifecycle-Gated"
       ],
       "pairacc_among_maximizers": {
-        "minimum": 0.90625,
-        "maximum": 0.90625
+        "minimum": 1.0,
+        "maximum": 1.0
       },
-      "best_pairacc_in_candidate_set": 0.96875,
-      "worst_case_selection_regret": 0.0625,
-      "optimistic_selection_regret": 0.0625,
+      "best_pairacc_in_candidate_set": 1.0,
+      "worst_case_selection_regret": 0.0,
+      "optimistic_selection_regret": 0.0,
       "zero_pairacc_maximizer_exists": false
     },
     {
@@ -48,19 +49,21 @@
         "Always-Reevaluate",
         "GLM-CTA",
         "GLM-Generic",
+        "GLM-Lifecycle-Gated",
         "GLM-Lifecycle-free"
       ],
       "proxy_maximum": 1.0,
       "proxy_maximizers": [
-        "Always-Lock+validity"
+        "Always-Lock+validity",
+        "GLM-Lifecycle-Gated"
       ],
       "pairacc_among_maximizers": {
         "minimum": 0.0,
-        "maximum": 0.0
+        "maximum": 1.0
       },
-      "best_pairacc_in_candidate_set": 0.96875,
-      "worst_case_selection_regret": 0.96875,
-      "optimistic_selection_regret": 0.96875,
+      "best_pairacc_in_candidate_set": 1.0,
+      "worst_case_selection_regret": 1.0,
+      "optimistic_selection_regret": 0.0,
       "zero_pairacc_maximizer_exists": true
     },
     {
@@ -73,20 +76,22 @@
         "Always-Reevaluate",
         "GLM-CTA",
         "GLM-Generic",
+        "GLM-Lifecycle-Gated",
         "GLM-Lifecycle-free"
       ],
       "proxy_maximum": 1.0,
       "proxy_maximizers": [
         "Always-Reevaluate",
         "GLM-CTA",
+        "GLM-Lifecycle-Gated",
         "GLM-Lifecycle-free"
       ],
       "pairacc_among_maximizers": {
         "minimum": 0.0,
-        "maximum": 0.96875
+        "maximum": 1.0
       },
-      "best_pairacc_in_candidate_set": 0.96875,
-      "worst_case_selection_regret": 0.96875,
+      "best_pairacc_in_candidate_set": 1.0,
+      "worst_case_selection_regret": 1.0,
       "optimistic_selection_regret": 0.0,
       "zero_pairacc_maximizer_exists": true
     },
@@ -100,6 +105,7 @@
         "Always-Reevaluate",
         "GLM-CTA",
         "GLM-Generic",
+        "GLM-Lifecycle-Gated",
         "GLM-Lifecycle-free"
       ],
       "proxy_maximum": 1.0,
@@ -108,14 +114,15 @@
         "Always-Reevaluate",
         "GLM-CTA",
         "GLM-Generic",
+        "GLM-Lifecycle-Gated",
         "GLM-Lifecycle-free"
       ],
       "pairacc_among_maximizers": {
         "minimum": 0.0,
-        "maximum": 0.96875
+        "maximum": 1.0
       },
-      "best_pairacc_in_candidate_set": 0.96875,
-      "worst_case_selection_regret": 0.96875,
+      "best_pairacc_in_candidate_set": 1.0,
+      "worst_case_selection_regret": 1.0,
       "optimistic_selection_regret": 0.0,
       "zero_pairacc_maximizer_exists": true
     },
@@ -129,17 +136,18 @@
         "Always-Reevaluate",
         "Qwen-CTA",
         "Qwen-Generic",
+        "Qwen-Lifecycle-Gated",
         "Qwen-Lifecycle-free"
       ],
-      "proxy_maximum": 0.96875,
+      "proxy_maximum": 0.98125,
       "proxy_maximizers": [
-        "Qwen-Lifecycle-free"
+        "Qwen-Lifecycle-Gated"
       ],
       "pairacc_among_maximizers": {
-        "minimum": 0.9375,
-        "maximum": 0.9375
+        "minimum": 1.0,
+        "maximum": 1.0
       },
-      "best_pairacc_in_candidate_set": 0.9375,
+      "best_pairacc_in_candidate_set": 1.0,
       "worst_case_selection_regret": 0.0,
       "optimistic_selection_regret": 0.0,
       "zero_pairacc_maximizer_exists": false
@@ -154,19 +162,21 @@
         "Always-Reevaluate",
         "Qwen-CTA",
         "Qwen-Generic",
+        "Qwen-Lifecycle-Gated",
         "Qwen-Lifecycle-free"
       ],
       "proxy_maximum": 1.0,
       "proxy_maximizers": [
-        "Always-Lock+validity"
+        "Always-Lock+validity",
+        "Qwen-Lifecycle-Gated"
       ],
       "pairacc_among_maximizers": {
         "minimum": 0.0,
-        "maximum": 0.0
+        "maximum": 1.0
       },
-      "best_pairacc_in_candidate_set": 0.9375,
-      "worst_case_selection_regret": 0.9375,
-      "optimistic_selection_regret": 0.9375,
+      "best_pairacc_in_candidate_set": 1.0,
+      "worst_case_selection_regret": 1.0,
+      "optimistic_selection_regret": 0.0,
       "zero_pairacc_maximizer_exists": true
     },
     {
@@ -179,6 +189,7 @@
         "Always-Reevaluate",
         "Qwen-CTA",
         "Qwen-Generic",
+        "Qwen-Lifecycle-Gated",
         "Qwen-Lifecycle-free"
       ],
       "proxy_maximum": 1.0,
@@ -189,9 +200,9 @@
         "minimum": 0.0,
         "maximum": 0.0
       },
-      "best_pairacc_in_candidate_set": 0.9375,
-      "worst_case_selection_regret": 0.9375,
-      "optimistic_selection_regret": 0.9375,
+      "best_pairacc_in_candidate_set": 1.0,
+      "worst_case_selection_regret": 1.0,
+      "optimistic_selection_regret": 1.0,
       "zero_pairacc_maximizer_exists": true
     },
     {
@@ -204,6 +215,7 @@
         "Always-Reevaluate",
         "Qwen-CTA",
         "Qwen-Generic",
+        "Qwen-Lifecycle-Gated",
         "Qwen-Lifecycle-free"
       ],
       "proxy_maximum": 1.0,
@@ -212,14 +224,15 @@
         "Always-Reevaluate",
         "Qwen-CTA",
         "Qwen-Generic",
+        "Qwen-Lifecycle-Gated",
         "Qwen-Lifecycle-free"
       ],
       "pairacc_among_maximizers": {
         "minimum": 0.0,
-        "maximum": 0.9375
+        "maximum": 1.0
       },
-      "best_pairacc_in_candidate_set": 0.9375,
-      "worst_case_selection_regret": 0.9375,
+      "best_pairacc_in_candidate_set": 1.0,
+      "worst_case_selection_regret": 1.0,
       "optimistic_selection_regret": 0.0,
       "zero_pairacc_maximizer_exists": true
     },
@@ -331,17 +344,18 @@
         "Always-Lock+validity",
         "Always-Reevaluate",
         "GLM-CTA",
-        "GLM-Generic"
+        "GLM-Generic",
+        "GLM-Lifecycle-Gated"
       ],
-      "proxy_maximum": 0.9416666666666667,
+      "proxy_maximum": 0.9708333333333333,
       "proxy_maximizers": [
-        "GLM-CTA"
+        "GLM-Lifecycle-Gated"
       ],
       "pairacc_among_maximizers": {
-        "minimum": 0.825,
-        "maximum": 0.825
+        "minimum": 0.9125,
+        "maximum": 0.9125
       },
-      "best_pairacc_in_candidate_set": 0.825,
+      "best_pairacc_in_candidate_set": 0.9125,
       "worst_case_selection_regret": 0.0,
       "optimistic_selection_regret": 0.0,
       "zero_pairacc_maximizer_exists": false
@@ -355,7 +369,8 @@
         "Always-Lock+validity",
         "Always-Reevaluate",
         "GLM-CTA",
-        "GLM-Generic"
+        "GLM-Generic",
+        "GLM-Lifecycle-Gated"
       ],
       "proxy_maximum": 1.0,
       "proxy_maximizers": [
@@ -365,9 +380,9 @@
         "minimum": 0.0,
         "maximum": 0.0
       },
-      "best_pairacc_in_candidate_set": 0.825,
-      "worst_case_selection_regret": 0.825,
-      "optimistic_selection_regret": 0.825,
+      "best_pairacc_in_candidate_set": 0.9125,
+      "worst_case_selection_regret": 0.9125,
+      "optimistic_selection_regret": 0.9125,
       "zero_pairacc_maximizer_exists": true
     },
     {
@@ -379,7 +394,8 @@
         "Always-Lock+validity",
         "Always-Reevaluate",
         "GLM-CTA",
-        "GLM-Generic"
+        "GLM-Generic",
+        "GLM-Lifecycle-Gated"
       ],
       "proxy_maximum": 1.0,
       "proxy_maximizers": [
@@ -389,9 +405,9 @@
         "minimum": 0.0,
         "maximum": 0.0
       },
-      "best_pairacc_in_candidate_set": 0.825,
-      "worst_case_selection_regret": 0.825,
-      "optimistic_selection_regret": 0.825,
+      "best_pairacc_in_candidate_set": 0.9125,
+      "worst_case_selection_regret": 0.9125,
+      "optimistic_selection_regret": 0.9125,
       "zero_pairacc_maximizer_exists": true
     },
     {
@@ -403,20 +419,22 @@
         "Always-Lock+validity",
         "Always-Reevaluate",
         "GLM-CTA",
-        "GLM-Generic"
+        "GLM-Generic",
+        "GLM-Lifecycle-Gated"
       ],
       "proxy_maximum": 1.0,
       "proxy_maximizers": [
         "Always-Lock+validity",
         "Always-Reevaluate",
-        "GLM-CTA"
+        "GLM-CTA",
+        "GLM-Lifecycle-Gated"
       ],
       "pairacc_among_maximizers": {
         "minimum": 0.0,
-        "maximum": 0.825
+        "maximum": 0.9125
       },
-      "best_pairacc_in_candidate_set": 0.825,
-      "worst_case_selection_regret": 0.825,
+      "best_pairacc_in_candidate_set": 0.9125,
+      "worst_case_selection_regret": 0.9125,
       "optimistic_selection_regret": 0.0,
       "zero_pairacc_maximizer_exists": true
     },
@@ -429,17 +447,18 @@
         "Always-Lock+validity",
         "Always-Reevaluate",
         "Qwen-CTA",
-        "Qwen-Generic"
+        "Qwen-Generic",
+        "Qwen-Lifecycle-Gated"
       ],
-      "proxy_maximum": 0.7083333333333334,
+      "proxy_maximum": 0.7125,
       "proxy_maximizers": [
-        "Qwen-CTA"
+        "Qwen-Lifecycle-Gated"
       ],
       "pairacc_among_maximizers": {
-        "minimum": 0.3875,
-        "maximum": 0.3875
+        "minimum": 0.5,
+        "maximum": 0.5
       },
-      "best_pairacc_in_candidate_set": 0.3875,
+      "best_pairacc_in_candidate_set": 0.5,
       "worst_case_selection_regret": 0.0,
       "optimistic_selection_regret": 0.0,
       "zero_pairacc_maximizer_exists": false
@@ -453,7 +472,8 @@
         "Always-Lock+validity",
         "Always-Reevaluate",
         "Qwen-CTA",
-        "Qwen-Generic"
+        "Qwen-Generic",
+        "Qwen-Lifecycle-Gated"
       ],
       "proxy_maximum": 1.0,
       "proxy_maximizers": [
@@ -463,9 +483,9 @@
         "minimum": 0.0,
         "maximum": 0.0
       },
-      "best_pairacc_in_candidate_set": 0.3875,
-      "worst_case_selection_regret": 0.3875,
-      "optimistic_selection_regret": 0.3875,
+      "best_pairacc_in_candidate_set": 0.5,
+      "worst_case_selection_regret": 0.5,
+      "optimistic_selection_regret": 0.5,
       "zero_pairacc_maximizer_exists": true
     },
     {
@@ -477,7 +497,8 @@
         "Always-Lock+validity",
         "Always-Reevaluate",
         "Qwen-CTA",
-        "Qwen-Generic"
+        "Qwen-Generic",
+        "Qwen-Lifecycle-Gated"
       ],
       "proxy_maximum": 1.0,
       "proxy_maximizers": [
@@ -487,9 +508,9 @@
         "minimum": 0.0,
         "maximum": 0.0
       },
-      "best_pairacc_in_candidate_set": 0.3875,
-      "worst_case_selection_regret": 0.3875,
-      "optimistic_selection_regret": 0.3875,
+      "best_pairacc_in_candidate_set": 0.5,
+      "worst_case_selection_regret": 0.5,
+      "optimistic_selection_regret": 0.5,
       "zero_pairacc_maximizer_exists": true
     },
     {
@@ -501,7 +522,8 @@
         "Always-Lock+validity",
         "Always-Reevaluate",
         "Qwen-CTA",
-        "Qwen-Generic"
+        "Qwen-Generic",
+        "Qwen-Lifecycle-Gated"
       ],
       "proxy_maximum": 1.0,
       "proxy_maximizers": [
@@ -512,9 +534,9 @@
         "minimum": 0.0,
         "maximum": 0.0
       },
-      "best_pairacc_in_candidate_set": 0.3875,
-      "worst_case_selection_regret": 0.3875,
-      "optimistic_selection_regret": 0.3875,
+      "best_pairacc_in_candidate_set": 0.5,
+      "worst_case_selection_regret": 0.5,
+      "optimistic_selection_regret": 0.5,
       "zero_pairacc_maximizer_exists": true
     }
   ],
@@ -524,8 +546,9 @@
     "zero_pairacc_maximizer_rows": 15,
     "one_sided_or_stable_evaluations": 15,
     "one_sided_or_stable_zero_pairacc_rows": 15,
-    "aggregate_suboptimal_rows": 1,
-    "maximum_worst_case_selection_regret": 0.96875
+    "aggregate_suboptimal_rows": 0,
+    "aggregate_pairacc_optimal_rows": 5,
+    "maximum_worst_case_selection_regret": 1.0
   },
   "boundaries": [
     "The candidate sets are concrete tested alternatives, not an exhaustive policy class.",

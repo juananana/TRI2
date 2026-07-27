@@ -9,6 +9,11 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 \frenchspacing
+\setlength{\titlebox}{2.60in}
+
+\newcommand{\PrimaryDiagnostic}{Matched Timing Diagnostic}
+\newcommand{\NewSchemaReplication}{Cross-Schema Replication}
+\newcommand{\GuardedExtension}{Action-Validity Stress Test}
 
 \pdfinfo{
 /TemplateVersion (2027.1)
@@ -25,25 +30,22 @@ A Controlled Diagnostic of Referential Resolution Timing in Tool-Using Agents}
 \maketitle
 
 \begin{abstract}
-Refreshing external state does not by itself authorize a tool-using agent to change the entity
-denoted by an earlier reference. Prior work documents post-binding target drift, but evaluations
-that do not control resolution timing cannot distinguish cases in which a target is resolved before
-an update and should be preserved from cases in which its resolution is intentionally deferred
-until afterward. We formalize this instruction-conditioned distinction as \emph{temporal referent
-integrity} (TRI) and introduce matched Preserve/Reevaluate tasks that hold the states, selector,
-action, and transition fixed while requiring opposite targets. Identifying discourse-inconsistent
-substitution requires an observable correct initial binding; establishing its consequence additionally
-requires a target-level mutation outcome. In a pre-specified v3 controller comparison, followed by
-a post-primary diagnostic reanalysis and frozen v7 replications across three model families,
-Always-Lock and Always-Reevaluate both pass Stable
-controls but fail changed-winner pairs, while Generic ledger controllers often replace a correctly bound,
-still-valid target with the refreshed selector winner. Deterministic SQLite replay turns these
-observed substitutions into wrong-entity writes. Compile-then-act (CTA) reduces this specific behavior,
-but the evidence does not identify a unique implementation. Audits of three pinned public agent
-benchmarks find no strict native opportunities under our checklist, and lower-intervention external
-agents do not reproduce the controlled failure. These results establish an identifiability
-requirement and controller-conditional behavior in our controlled diagnostic, not natural
-prevalence, universal agent failure, or comprehensive benchmark coverage.
+Stable-only and one-sided evaluations can conflate a referent already committed to an entity with
+a selector deliberately deferred to a later world state. We introduce \emph{temporal referent integrity}
+(TRI), a controlled diagnostic for selective referent re-resolution in tool-using agents.
+Matched Preserve/Reevaluate pairs hold states, selector, action, and transition fixed while
+assigning opposite gold targets; changed-winner pair accuracy (PairAcc) therefore rejects both
+Always-Lock and Always-Reevaluate policies. Across a 240-task cross-schema replication, Generic
+controllers replace a correctly bound, still-actionable target with the refreshed selector winner
+in 43/72, 38/80, and 59/79 eligible cases for Qwen, GLM, and DeepSeek. A fixed-executor consistency
+check maps every such substitution to a wrong-entity write, whereas matched Compile-then-act
+records none. Under equal calls and actor payloads, exposing a resolution-timing decision raises
+changed-winner PairAcc for Qwen and GLM on the authored diagnostic. Transfer is model-dependent,
+with a clear end-to-end gain only for GLM on source-derived pairs. Author-built public-suite
+retrieval finds no strict native opportunity, but recall is uncalibrated. A post-hoc event-order rule
+performs strongly on authored inventories but transfers poorly. TRI currently covers controlled,
+single-refresh scalar workflows; native-workflow prevalence and open-language coverage remain
+unresolved.
 \end{abstract}
 
 \section{Introduction}
@@ -59,133 +61,122 @@ Consider two requests issued before the same mailbox refresh:
 Suppose email A is highest priority before refresh and email B afterward. The environment
 transition is identical, but the correct target differs. Request (1) establishes A as an
 identity commitment; request (2) deliberately leaves a description to be evaluated in the
-new state. Acting on B in (1) is not stale-state correction. It is a wrong-entity action.
-
-This distinction is easy to lose in large language model (LLM) agent controllers. A controller may preserve the
-entire transcript, append the latest observation, and ask a downstream model to act. All
-task-relevant observations may remain in context, yet the model can still apply the old selector to the new state.
-Conversely, always retaining an old entity identifier (ID) breaks genuinely dynamic references. Reliable tool
-use therefore needs selective referential control: world facts should update while some target
-denotations remain fixed, others are reevaluated, and invalid commitments follow an explicit
-fallback policy.
+new state. Acting on B in request (1) replaces a committed referent and produces a wrong-entity
+action.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{Figures/tri_first_figure.pdf}
-\caption{Matched TRI minimal pair. Both rows share $q$, $S_0$, $S_1$, and the mutation, but
-discourse changes resolution time. $U(q)$ is unresolved and $B(e)$ is bound: Preserve must write
-$A$, whereas Reevaluate writes refreshed winner $B$.}
-\label{fig:tri-minimal-pair}
+\includegraphics[width=0.98\columnwidth]{Figures/tri_first_figure.pdf}
+\caption{Matched opposite-gold logic and an observed \NewSchemaReplication{} consequence. The same
+$S_0\!\rightarrow\!S_1$ transition requires the old target under Preserve and the refreshed winner
+under Reevaluate, so either unconditional policy fails one member. In the shown Preserve run,
+Qwen Generic stored the old entity identifier but wrote to the refreshed winner.}
+\label{fig:qualitative-wrong-write}
 \end{figure}
 
-We call this property \emph{temporal referent integrity} (TRI). Here ``authorization'' means
-instruction-conditioned resolution timing---whether discourse resolves the target before or after
-the refresh---not access control or user permissions. TRI is not ordinary entity
-memory. Remembering an ID does not say whether that ID is a committed referent or merely the
-previous output of a dynamic selector. Nor does existence imply action validity: an email may
-remain present but cease to be replyable. Finally, the selector that established identity is
-not necessarily a persistent validity predicate. A branch chosen because it was default can
-stop being default while remaining the correct branch on which to run checks.
+A transcript can contain both the original target and the refreshed state, yet the final actor may
+apply the old selector again in the new state. Unconditionally retaining the old entity identifier
+(ID) causes the complementary error on Reevaluate requests. Correct behavior depends on when the
+instruction commits the action referent.
 
-The central evaluation question is not whether an agent can retain an ID or select a new winner,
-but whether the benchmark can distinguish the two policies when discourse changes the intended
-resolution time. We treat TRI primarily as an evaluation-identifiability problem rather than a
-new general-purpose agent architecture.
+TRI separates three variables at the refresh boundary: world evidence and the current selector
+winner; referential control state, which records a committed entity or a deferred selector; and
+action validity, which checks whether a candidate supports the operation. A refresh can change
+evidence without rewriting a commitment. Validity can reject a candidate but cannot select a
+discourse-licensed replacement. Here ``authorization'' refers only to resolution timing.
 
-Our contributions are threefold:
+Evaluations built from Stable or one-sided cases can conflate a referent already committed to an
+entity with a selector deliberately deferred to a later world state. TRI makes this distinction observable through
+matched opposite-gold pairs that separate selective re-resolution from unconditional retention
+and recomputation.
+
+The paper makes three contributions:
+\nopagebreak[4]
 \begin{itemize}
-    \item We isolate refresh-boundary resolution status---a bound commitment versus a deliberately
-    unresolved query---as an evaluation variable distinct from initial binding, memory, and action
-    validity, and state what must be observable to identify substitution and its consequence.
-    \item We give a workflow-grounded Preserve/Reevaluate diagnostic whose matched members share
-    states, selector, action, and transition. Its changed-winner pairs expose why aggregate,
-    Stable-only, and one-sided scores can reward opposite unconditional policies.
-    \item Frozen controlled runs show controller-conditional substitution after correct observable
-    binding, and deterministic replay closes the link to wrong-entity writes. Non-unique executable
-    probes, public-suite coverage audits, and lower-intervention nulls delimit the claim.
+    \item We formalize bound and deferred resolution as distinct referential control states,
+    separate from world evidence and action validity, and define the observations needed to
+    attribute post-refresh target substitution.
+    \item We construct matched Preserve/Reevaluate tasks with identical states, selectors,
+    actions, and transitions. Changed-winner PairAcc distinguishes selective re-resolution from
+    Always-Lock and Always-Reevaluate within this controlled policy class.
+    \item We trace correctly bound targets through substitution, deterministic target-to-write
+    checks, and model-facing database mutations.
+    Equal-call interventions and transfer tests compare several operationalizations of an explicit
+    resolution-timing decision, with model-dependent results.
 \end{itemize}
 
-\paragraph{Novelty boundary.}
-Prior work established that a bound target can drift. Our contribution is the orthogonal
-instruction-timing contrast and the evaluation conditions needed to distinguish legitimate deferred
-resolution from discourse-inconsistent substitution; we do not claim the first observation of drift or a
-new general runtime architecture.
+The experiments follow four questions: whether the diagnostic separates referential policies,
+whether substitution occurs after correct binding, whether it changes the executed entity, and
+whether an explicit timing decision helps under matched calls and new expressions.
 
 \section{Related Work}
 
 \paragraph{Reference, binding, and memory.}
 Discourse theories distinguish referents from changing descriptions and salience
 \cite{kamp1993discourse,grosz1995centering}; coreference work recovers textual identity links
-\cite{lee2017coreference,joshi2020spanbert,dasigi2019quoref}. Entity Binding Failures studies
-wrong initial tool arguments \cite{babu2026entitybinding}; TRI instead conditions on correct
-$bind(r,S_0)$ and asks whether $S_1$ licenses a transition. Agent memory and entity tracking retain
-facts or traces \cite{tang2026entitytracking,zhang2024memorysurvey,packer2023memgpt,
-sumers2024coala,yao2023react};
-correctly tracking the new selector winner still does not authorize acting on it. Temporal
-Blindness asks when time should trigger a new observation \cite{cheng2026temporalblindness}; TRI
-asks what that observation may revise. Prospective-memory evaluation instead asks whether a
-delayed intention fires at a future cue \cite{liu2026pmbench}. Evolving-environment benchmarks study belief and memory
-adaptation \cite{ji2026clawarena,xu2026evoarena}; TRI studies the propagation boundary from
-belief updates to an already resolved action referent.
+\cite{lee2017coreference,joshi2020spanbert,dasigi2019quoref}. Babu and Indukuri
+\citeyearpar{babu2026entitybinding} study failures in initial tool-argument binding; TRI conditions
+on correct $bind(r,S_0)$ and observes later target use. Agent memory and entity tracking retain
+facts, IDs, and traces \cite{tang2026entitytracking,packer2023memgpt,sumers2024coala}.
+TRI adds the control-state question of whether a retained selector output denotes a committed
+referent. Temporal Blindness studies when time should trigger a new observation
+\cite{cheng2026temporalblindness}, prospective-memory evaluation tests delayed intentions
+\cite{liu2026pmbench}, and evolving-environment benchmarks measure belief and memory adaptation
+\cite{ji2026clawarena,xu2026evoarena}. Our diagnostic isolates the propagation boundary between
+updated world evidence and an action referent.
 
-\paragraph{Binding Drift.}
-The closest neighbor already studies a correct initial binding being silently replaced later in a
-workflow, and evaluates locking and re-verification
-\cite{indukuri2026bindingdrift}; post-binding drift itself is therefore not our discovery. TRI's
-increment is a complementary evaluation variable: whether the user authorized resolution before the
-update or deferred it until afterward. Its symmetric Preserve/Reevaluate pairs hold the state
-transition and action fixed while requiring opposite targets, so a preserve-only evaluation cannot
-identify this variable. A persistence-only benchmark detects replacement but cannot label it
-discourse-consistent because it omits opposite-gold re-resolution cases; TRI adds that test. We
-reproduce Binding Drift's deterministic offline harness, but its oracle
-re-verifier reads a gold target and its Entity Lock corresponds to our Always-Lock extreme. Its
-LLM-based self/cross re-verifiers resolve the original step-1 referent and do not expose a separate
-user-specified deferred query. Initial-binding correctness and transition authorization are thus
-orthogonal axes; TRI conditions on the former to isolate the latter. Our author adaptation supplies
-the complete temporal instruction rather than Binding Drift's short referent interface; it is not
-an official LLM-sweep reproduction. Because it sees $S_1$ but neither $S_0$ nor the resolved old ID,
-we treat it as an interface audit rather than an information-matched performance baseline.
+\paragraph{Post-binding persistence and resolution timing.}
+Concurrent Binding Drift work studies whether a correctly bound primary carry slot remains stable,
+how an initially wrong binding propagates, and whether entity locks or large language model (LLM)
+re-verification reduce these errors \cite{babu2026bindingdrift}. Its workflows may also contain
+derived roles; the defining endpoint is persistence of an already committed primary referent.
+TRI varies the control state of the same action-target description under the same transition. The
+Preserve member commits to $e=bind(r,S_0)$ before refresh, while the Reevaluate member defers the
+referent and assigns gold $q(S_1)\ne q(S_0)$. Binding Drift characterizes stability after
+commitment. TRI identifies whether commitment preceded the transition. These are complementary
+axes, summarized in Table~\ref{tab:closest-boundary}.
 
 \begin{table}[t]
 \centering
-\small
-\begin{tabular}{@{}p{0.18\columnwidth}p{0.32\columnwidth}p{0.36\columnwidth}@{}}
+\footnotesize
+\begin{tabular}{@{}p{0.22\columnwidth}p{0.30\columnwidth}p{0.34\columnwidth}@{}}
 \toprule
-Axis & Binding Drift & TRI \\
+Problem axis & What it establishes & What remains unresolved \\
 \midrule
-Refresh boundary & Bound step-1 target & Bound commitment or deferred query \\
-Gold contrast & Preserve target & Matched opposite targets \\
-Required evidence & Initial and later target & Initial ID, timing contrast, and later target \\
-Core verdict & Persistence/repair & Matched-pair accuracy \\
+Initial binding & Correct target in $S_0$ & Whether later replacement is licensed \\
+Entity memory & Old and new IDs/states retained & Which identity the action should consume \\
+Temporal reasoning & Event and update order recovered & Whether the reference was already resolved \\
+Binding drift & A carry-slot target changed later & Whether a description was deliberately deferred \\
+TRI matched pair & Bound versus deferred status & Selective re-resolution under one transition \\
 \bottomrule
 \end{tabular}
-\caption{Closest-neighbor boundary. Binding Drift covers replacement of an existing binding; TRI
-adds the matched bound-versus-deferred timing contrast needed to identify when replacement is
-discourse-inconsistent.}
-\label{tab:binding-drift-boundary}
+\caption{Problem boundary. Binding Drift evaluates persistence of a committed primary carry slot
+\cite{babu2026bindingdrift}; TRI varies whether the action referent is committed or deferred and
+scores opposite targets under one transition.}
+\label{tab:closest-boundary}
 \end{table}
 
 \paragraph{Tool agents and executable constraints.}
 Tool-use benchmarks cover application programming interfaces (APIs), web environments, and stateful interaction
 \cite{schick2023toolformer,li2023apibank,qin2024toolllm,patil2023gorilla,
-liu2024agentbench,zhou2024webarena,lu2025toolsandbox,trivedi2024appworld,
+liu2024agentbench,lu2025toolsandbox,trivedi2024appworld,
 yao2024taubench,barres2025tau2,sierra2026tau3,ruan2024toolemu}.
 Process-aware graphical-interface evaluation likewise shows that final-state success can hide a
-critical intermediate error \cite{yang2026probench}. The three suites audited here do not expose gold labels for strict post-binding
-Preserve/Reevaluate opportunities; broader tool-use benchmarks commonly emphasize task completion
-instead of this contrast. LedgerAgent and Bounded Autonomy add typed state or action
-contracts \cite{uddin2026ledgeragent,sohail2026bounded}; action validity still cannot determine
-which valid entity discourse licensed. AgentSpec and policy autoformalization compile or enforce
+critical intermediate error \cite{yang2026probench}. The pinned suites audited here lack gold
+labels for strict post-binding Preserve/Reevaluate opportunities; broader tool-use benchmarks
+commonly emphasize task completion. LedgerAgent and Bounded Autonomy add typed state or action
+contracts \cite{uddin2026ledgeragent,sohail2026bounded}. Such validity constraints filter
+candidates, while discourse supplies the intended identity. AgentSpec and policy autoformalization compile or enforce
 rules, VIGIL monitors temporal and value-flow constraints, and Cordon stages multi-step effects
 before commit \cite{wang2025agentspec,mondl2026autoformalization,li2026vigil,chen2026cordon}.
-These systems enforce known rules but do not explicitly evaluate the matched bound-versus-deferred
-resolution contrast studied here.
+These systems address executable constraints; our matched design evaluates the bound-versus-deferred
+resolution contrast.
 Structured generation can enforce syntax
 \cite{beurer2023lmql,willard2023guided,khattab2024dspy}, while our clustered minimal pairs
 follow diagnostic and contrast-set methodology \cite{ribeiro2020checklist,gardner2020contrast}.
 Meta-evaluation studies discrimination across model capabilities \cite{wang2026metaeval}; TRI asks
 whether a regime discriminates referential policies that can obtain the same score.
-Complementary semantic conditions have similarly exposed one-sided LLM heuristics and correction
+Complementary semantic conditions have similarly exposed one-sided large language model (LLM) heuristics and correction
 trade-offs in aspectual natural-language inference (NLI) \cite{ma2026imperfective}; TRI applies the diagnostic logic to
 post-binding control and executed actions, not lexical aspect or static entailment.
 
@@ -193,40 +184,38 @@ post-binding control and executed actions, not lexical aspect or static entailme
 
 Let $H$ be the instruction and interaction history before a refresh, $S_0$ and $S_1$ the states
 before and after it, $r$ an action-target reference, and
-$q_r:S\rightarrow E\cup\{\bot\}$ its deterministic task resolver. Each frozen task has one
-eligible winner; no eligible entity maps to $\bot$, and unresolved ties are excluded. Let $C_H^-(r)$ and
-$C_H^+(r)$ denote control state immediately before and after refresh. History induces one of two
-pre-refresh states:
+$q_r:S\rightarrow E\cup\{\bot\}$ its deterministic task resolver. For each frozen task,
+$q_r(S)$ returns one eligible entity, or $\bot$ when none is eligible; unresolved ties are excluded.
+The formalization keeps three variables distinct: $S$ and $q_r(S)$ represent world evidence,
+$C_H(r)$ represents referential commitment, and $V_a(e,S)$ represents action validity. Let
+$C_H^-(r)$ and $C_H^+(r)$ denote control state immediately before and after refresh. History
+induces one of two pre-refresh states:
 \begin{equation}
 C_H^-(r)\in\{B(e_0),U(q_r)\},\qquad e_0=q_r(S_0).
 \end{equation}
 $B(e_0)$ is an identity commitment resolved before refresh; $U(q_r)$ is a query intentionally
-left unresolved until afterward. A world update changes available evidence but does not by itself
-change a bound commitment:
+left unresolved until afterward. Updating world evidence can change $q_r(S)$ without changing a
+bound commitment:
 \begin{equation}
 S_0\ne S_1\;\not\Rightarrow\;C_H^+(r)\ne C_H^-(r).
 \end{equation}
-Under Preserve, $C_H^+(r)=B(e_0)$; under Reevaluate, resolving the pending $U(q_r)$ in $S_1$
-yields $B(q_r(S_1))$. Thus the Reevaluate member is deferred resolution, not a licensed transition
-away from an earlier bound referent. More generally, changing an existing $B(e)$ to a distinct
-$B(e')$ requires a discourse-sensitive transition decision $\Gamma_H(r,e\!\rightarrow\!e')$;
-the refreshed winner is world evidence, not that decision.
+Under Preserve, $C_H^+(r)=B(e_0)$. Under Reevaluate, the unresolved query $U(q_r)$ is evaluated
+only in $S_1$, yielding $B(q_r(S_1))$. Replacing an existing $B(e)$ with a distinct $B(e')$
+requires the additional discourse-sensitive decision $\Gamma_H(r,e\!\rightarrow\!e')$.
 
-We audit workflows through an \textsc{Observe}--\textsc{Bind}--\textsc{Refresh}--\textsc{Write}
-grammar: the target is resolved from an observed collection, an intervening state transition
-occurs, and a later entity-directed mutation consumes the target. Public-benchmark coverage is
-reported by which of these slots, and which authorization contrast, is actually observable.
+We represent each workflow with four observable events: \textsc{Observe}, \textsc{Bind},
+\textsc{Refresh}, and \textsc{Write}. The target is resolved from an observed collection, a state
+transition occurs, and a later entity-directed mutation consumes the target. Public-benchmark
+coverage records which events and resolution-time contrasts are observable.
 
-\paragraph{Requirements for an identifying evaluation.}
-Opportunity coverage requires a binding, an update, a changed selector winner, a still-valid old
-target, and a later entity-directed action. The trace must expose the initial ID so binding errors
-are not confused with substitution, and matched Preserve/Reevaluate cases must share the transition
-so neither unconditional policy can pass. These conditions identify discourse-inconsistent
-substitution; a state diff or equivalent target-level outcome additionally supports a wrong-write
-claim. This claim ladder distinguishes policies, attributions, and consequences, but does not
-estimate their frequency in natural traffic.
+An identifying trace requires a binding, an update, a changed selector winner, a still-valid old
+target, and a later entity-directed action. The initial ID separates binding errors from later
+substitution. Matched Preserve/Reevaluate cases share one transition and require opposite targets,
+which tests both unconditional policies. A state diff or target-level execution record then connects
+the selected target to the resulting write. This yields three evidence levels: policy behavior,
+error attribution, and executed consequence.
 
-\paragraph{State--authorization separation.}
+\paragraph{Resolution timing and action validity.}
 For execution, $V_a(e,S)$ conjoins the action-schema preconditions, and invalid-target policy
 $\pi:E\times S\rightarrow E\cup\{\bot\}$ returns $\bot$ or, when authorized, $q_r(S_1)$.
 The authorized target is
@@ -237,31 +226,27 @@ q_r(S_1), & C_H^-(r)=U(q_r),\\
 \pi(e_0,S_1), & C_H^-(r)=B(e_0)\ \land\ \neg V_a(e_0,S_1).
 \end{cases}
 \end{equation}
-History may contain enough evidence to infer this decision, but information availability does not
-imply that a model-mediated controller will operationalize it reliably. Explicit authorization
-state is one implementation; the formal requirement is access to a discourse-sensitive executable
-decision, not a particular field or serialization. Action validity never by itself authorizes
-substituting a different valid entity. Our lifecycle record $L=(m,e,q,V_a,\pi)$ is one realization,
-not the definition of TRI; TRI-v3 is the original paired diagnostic and v7 its larger new-schema,
-new-state post-primary replication; the conditional-policy v4 extension is supplementary.
+The first two branches define the actionable TRI core. The third is a separate execution policy:
+when the committed target is invalid, a system may reject, clarify, or reselect if the instruction
+permits it. Referential identity and fallback choice are therefore scored separately. Controllers
+operationalize the timing decision in different ways; one representation used below is
+$L=(m,e,q,V_a,\pi)$. Action validity accepts or rejects a candidate but supplies no replacement
+identity.
 
-\paragraph{Identifiability observation.}
+\paragraph{Benchmark-design observation.}
 Consider a Preserve/Reevaluate minimal pair with identical $S_0$, $S_1$, $q$, and $a$, where
 $e=q(S_0)$, $e'=q(S_1)$, and $e\ne e'$. The authorized targets are $e$ and $e'$, respectively.
-Suppose both rows expose the same pre-refresh selector output $e$. Any deterministic post-refresh
-policy of the form $f(e,q,S_1,a)$, containing neither the original history nor its compiled
-resolution status, is wrong on at least one member.
-Both provide $f$ the same tuple, hence the same output, which cannot equal both
-distinct authorized targets. Always-Lock and
-Always-Reevaluate instantiate the two complementary extremes measured in our policy controls.
-This elementary distinguishability observation motivates the diagnostic and the need for a
-discourse-sensitive executable decision; it is not a theoretical lower bound or evidence for our
-particular serialization.
+For exact-target observations within the policy class \{Always-Lock, Always-Reevaluate,
+Selective\}, discrimination requires one changed Preserve case and one changed Reevaluate case.
+Either row alone leaves Selective observationally equivalent to one unconditional policy. The
+opposite-gold pair separates all three and is the smallest such set in this restricted class. This
+is a benchmark-design condition, not a general result for arbitrary stochastic controllers; the
+short argument is supplementary.
 
 More generally, an evaluation can identify a policy only when its scored tasks separate that
 policy from relevant alternatives. Stable tasks make lock and reevaluation observationally
 equivalent, while a one-sided changed-winner test can reward one unconditional extreme. The
-crossed matched regime breaks both equivalences. For a matched pair, pair accuracy (PairAcc) is one
+crossed matched regime breaks both equivalences. For a matched pair, PairAcc is one
 only when both members are correct (Table~\ref{tab:policy-identifiability}).
 
 \begin{table}[t]
@@ -278,49 +263,40 @@ Matched changed PairAcc & zero & zero & Yes \\
 \bottomrule
 \end{tabular}
 \caption{Policy identifiability. Stable or one-sided evaluation can favor unconditional policies;
-matched changed-winner PairAcc rejects both extremes. This is diagnostic logic, not prevalence.}
+matched changed-winner PairAcc rejects both extremes within the three-policy class.}
 \label{tab:policy-identifiability}
 \end{table}
 
-\paragraph{Outcomes.}
 We separately report exact target/final state, wrong-entity writes, invalid attempts, and
 unnecessary rejection; always rejecting avoids writes but fails every actionable task.
 
-\section{Policy Identifiability and Controller Probes}
+\section{Diagnostic Policies and Controller Probes}
 
-We use three probes to test whether an evaluation rewards the correct discourse-conditioned
-transition. The historical compile-then-act (CTA) baseline is a minimal scalar realization: it
-emits binding time, selector, and a bound ID before refresh, without a deterministic gate.
-Lifecycle is a typed, auditable realization that adds a validity/fallback contract. Lifecycle-free
-lets the actor interpret that record, whereas Lifecycle-Gated enforces it at mutation time. The
-typed record emits
-\begin{quote}
-\ttfamily
-reference\_mode; bound\_target\_id; selector; invalidity\_policy.
-\end{quote}
-Both compilers use discourse order: ``identify, refresh, act on it'' preserves identity even
-without words such as ``same,'' while ``refresh before deciding'' reevaluates. It resolves a
-concrete bound ID only for preserved references.
-
-The executor then refreshes the environment. If the compiled mode is \textsc{Preserve}, a
-deterministic gate checks the bound entity against action preconditions. The gate emits the
-bound ID when valid, returns $\bot$ under a reject policy, or invokes selector resolution only
-when the compiled fallback authorizes it. If the mode is \textsc{Reevaluate}, the LLM actor
-selects from $S_1$. Thus a preserved commitment is a controller constraint, not advice that a
-second model may reinterpret. The gated Preserve branch needs one model call rather than two.
+The Generic Structured Ledger controller (Generic) retains the instruction and selected ID without
+encoding resolution mode. The comparison controllers are mechanism probes for explicit
+resolution-timing decisions. Compile-then-act (CTA) emits binding time, selector, and a bound ID
+before refresh without a deterministic gate. Lifecycle records the same timing decision together
+with validity and fallback fields; its actor-mediated and gated variants test soft and hard use of
+that record. Both compilers use discourse order: ``identify, refresh, act on it'' preserves a
+resolved identity, while ``refresh before deciding'' evaluates the selector in $S_1$. The complete
+record schema and gate branches are supplementary.
 
 The anonymous Code and Data Supplement contains prompts, runner interfaces, inventories, raw
-outputs, and executable reports. Controllers see the instruction's
-natural-language selector, but not gold, generator-normalized selector fields, or pre-/post-refresh winner IDs.
+outputs, and executable reports. Controllers receive the instruction's natural-language selector.
+Gold targets, normalized selector fields, and pre-/post-refresh winner IDs are withheld.
 
-\paragraph{Information fairness.}
-Compilers see the instruction, $S_0$, action schema, and planned refresh. Generic retains the
+For information parity, compilers see the instruction, $S_0$, action schema, and planned refresh. Generic retains the
 instruction, selected ID, snapshot, natural-language selector,
-action, and preconditions for its second-call actor. CTA, Lifecycle-free, and Generic each use
-two calls; Lifecycle-Gated skips the actor for a valid Preserve branch. Complete settings are in
-the Code and Data Supplement; the Supplementary Document summarizes executor-level oracle checks.
+action, and preconditions for its second-call actor. CTA, Lifecycle-Actor, and Generic each use
+two calls; Lifecycle-Gated skips the actor for a valid Preserve branch, making the primary package
+comparison call-asymmetric. Complete settings are in the Code and Data Supplement.
+These probes test operationalizations of the same timing variable. The evidence supports no unique
+requirement for lifecycle typing, pre-refresh compilation, or hard gating.
 
 \section{Experimental Setup}
+
+We evaluate the resolution-time distinction using the \PrimaryDiagnostic{},
+\NewSchemaReplication{}, and supplementary \GuardedExtension{}.
 
 \paragraph{Controlled task construction.}
 Each domain specification defines an entity table, a natural-language selector, its ranking or
@@ -331,20 +307,20 @@ $e_1$, $\bot$, or a conditionally guarded choice. Paired tasks share the domain,
 selector, action, and schema; only discourse order and anaphoric language change. This prevents
 domain difficulty or target frequency from explaining the preserve/reevaluate contrast.
 
-\paragraph{Workflow-grounded synthesis.}
-The generator is organized as a four-event workflow grammar rather than isolated selector
-questions: \textsc{Observe} a user-visible collection, \textsc{Bind} one stable ID, apply an
+\paragraph{Workflow task generation.}
+The generator organizes selector questions into a four-event workflow: \textsc{Observe} a
+user-visible collection, \textsc{Bind} one stable ID, apply an
 exogenous or synchronization-style \textsc{Refresh}, and execute a target-specific \textsc{Write}.
 Domain templates fill these slots with ordinary operations (reply to a message, comment on a
 reminder, update a project or expense, change an inventory record, or deploy a selected artifact).
-The same-role replacement requirement is added only when the application exposes both a stable ID
+The same-role replacement requirement is added when the application exposes both a stable ID
 and a ranking or eligibility selector. This yields a crossed factorial 2$\times$2 core
-(Preserve/Reevaluate $\times$ Stable/Flip), while Remove, Invalidate, and name collision are
-orthogonal stressors. We report task-structure coverage in the controlled inventory and audited
-public suites as design diagnostics, not as estimates of how often TRI occurs in deployment.
+(Preserve/Reevaluate $\times$ Stable/changed-winner), while Remove, Invalidate, and name collision are
+orthogonal stressors. The coverage audit records which parts of this structure appear in public
+suites; deployment frequency requires natural workflow data.
 
 The crossed core combines Preserve/Reevaluate with an unchanged or changed selector winner.
-\emph{Stable} controls expose overreaction to refresh; \emph{Flip} and \emph{name collision} create
+\emph{Stable} controls expose overreaction to refresh; \emph{changed-winner} and \emph{name collision} create
 opposite-target pairs while retaining valid stable IDs. \emph{Remove} and \emph{Invalidate} form a
 separate fallback-policy slice; the complete transition taxonomy is supplementary.
 
@@ -352,279 +328,312 @@ separate fallback-policy slice; the complete transition taxonomy is supplementar
 One adult volunteer produced natural-language rewrites of 50 sampled scalar instructions; three other adults,
 uninvolved in TRI design, independently labeled 100 randomized original/rewrite items using
 opaque IDs without condition metadata or gold. All four volunteers provided informed consent; no
-sensitive personal information was collected, released responses were de-identified, and compensation,
-where provided, was non-contingent. We report
+sensitive personal information was collected, released responses were de-identified, compensation,
+where provided, was non-contingent, and no formal IRB or exemption determination was obtained. We report
 agreement, majority--gold alignment, and consensus sensitivity only for the single-target scalar core.
+Referent identity is the TRI construct; whether an invalid action should Reject, Clarify, or select
+another entity is a separate execution-policy judgment.
 
 The frozen error taxonomy separates temporal rebinding, premature binding, invalid processing,
 unnecessary rejection, and selector grounding; definitions are supplementary.
 
-\paragraph{Symmetric evaluation and component audit.}
-Figure~\ref{fig:diagnostic-evidence}(a) visualizes the frozen v3 changed-winner core. The primary estimand is
-the pre-specified package-level Generic-versus-Lifecycle-Gated comparison; validity gates, untyped plans,
-Lifecycle-free execution, exact historical CTA, and the handcrafted rule are secondary audits.
-The v3 method comparison was the original primary and was frozen before calls; PairAcc,
-identifiability, and selection regret are post-primary zero-API reanalyses; v7 is a post-primary
-replication frozen before its calls; and Rule v2 is post-hoc.
-Their full component table and protocol chronology are in Supplementary Material.
-
-\paragraph{TRI-v3 language clusters.}
-The primary test contains 160 tasks in 20 frozen language-template clusters, balanced across
-reference styles and transition types. Data, runner, hashes, inference settings, and the
-cluster-bootstrap estimand were frozen before model calls; the complete matrix and chronology are
-provided in Supplementary Material.
-
-\paragraph{Schema transfer under shared language templates and guarded policies.}
-The 80-task transfer set crosses the same templates with four unseen schemas; a separate 40-task
-TRI-v4 extension tests action-validity versus selector-match guards. Both are secondary extensions,
-with guard definitions in the Supplementary Document and inventories in the Code and Data Supplement.
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabular}{@{}p{0.25\columnwidth}p{0.20\columnwidth}p{0.45\columnwidth}@{}}
+\toprule
+Evidence unit (status) & Denominator & Measured scope \\
+\midrule
+Package runs: Qwen primary/frozen; GLM post-primary & 160 tasks/model; 20 clusters: 128 actionable + 32 Reject & End-to-end package contrast; components analyzed separately \\
+Changed pairs (post-primary audit) & Matched Timing Diagnostic: 32 pairs; expanded audit: 80 pairs & Selective PairAcc in controlled pairs \\
+\NewSchemaReplication{} (post-primary) & 240 rows = 120 pairs; shared eligible 66/70/69 & Schema/state transfer with authored language \\
+Full matched-call confirmation (post-primary) & 160 rows = 80 pairs/model; 32 actionable changed pairs & Decision visibility under equal calls and base payloads \\
+Volunteer-rewrite transfer (post-primary) & 50 rows/model; 40 actionable; 48 determinate labels; 3 changed pairs & One-volunteer rewrites of authored tasks; not open-language validation \\
+Source-derived matched-call contrast (post-primary) & 60 rows/model = 30 changed pairs; 10 pairs/source & Controlled interventions over source states and schemas \\
+External audits (post-primary/descriptive) & Six public suites; 320 source-transfer attempts & Coverage, retrieval, and lower-intervention behavior \\
+Post-hoc event-order rule & Three authored inventories & Simple event-order extraction on authored language \\
+\bottomrule
+\end{tabular}
+\caption{Evidence map and denominators. Full chronology, controller-specific eligible counts,
+intervals, and failure accounting are supplementary. Planned or unverified analyses are not results.}
+\label{tab:evidence-map}
+\end{table}
 
 \paragraph{Direct-neighbor baseline.}
 Generic Structured Ledger stores the initial ID, entity snapshot, selector, action, and
 preconditions but omits reference mode and fallback semantics; its actor still receives the
-original instruction and refreshed state. Historical CTA is rerun unchanged as a neighboring
+original instruction and refreshed state. Frozen CTA is rerun unchanged as a neighboring
 pre-refresh commitment baseline. The full component comparison, including the untyped planner,
-appears in Supplementary Material and prevents us from claiming that the full typed tuple is
-necessary for scalar tasks.
+appears in Supplementary Material and compares implementations of the timing decision on scalar tasks.
 
 For a direct policy contrast, we also evaluate two deterministic extremes without model calls.
-Always-Lock + validity retains the $S_0$ ID and rejects it only when the refreshed action
+Always-Lock + validity retains the $S_0$ ID and rejects it when the refreshed action
 preconditions fail; Always-Reevaluate discards the binding and applies $q$ to $S_1$. These are
-conceptual controls rather than implementations of the Binding Drift baselines. On the frozen
+deterministic realizations of the two unconditional extremes. On the frozen
 160-task inventory both reach 96/160 (60.0\%), but their mode slices are complementary:
 Always-Lock reaches 80/80 anchored and 16/80 dynamic, whereas Always-Reevaluate reaches
-16/80 anchored and 80/80 dynamic. The contrast is a diagnostic of selective re-resolution,
-not evidence that either unconditional policy is a competitive agent controller.
+16/80 anchored and 80/80 dynamic. Their complementary slices expose the selective re-resolution
+requirement.
 
 \paragraph{Model-facing SQLite trajectories.}
 The 40-task SQLite subset covers all templates, domains, modes, and updates. An action-validating
-mutation tool records final state, wrong writes, invalid attempts, and collateral changes. This is
-a controller-orchestrated consequence test, not an autonomous external benchmark.
+mutation tool records final state, wrong writes, invalid attempts, and collateral changes. This
+controlled execution test connects selected targets to database mutations.
 
 \paragraph{Models, inference, and auditing.}
 Qwen3.5-122B-A10B (Qwen) and GLM-5.1 (GLM) share a temperature-zero OpenAI-compatible protocol; a
 post-primary DeepSeek-V4-Pro (DeepSeek) run adds a third family. Smoke and failure accounting are supplementary.
+Task accuracy is intention-to-treat (ITT). Conditional substitution additionally requires a correct
+observable initial ID, completed refresh, surviving/action-valid old target, and distinct refreshed
+winner. The anonymous artifact includes complete metric definitions, frozen data, protocols,
+raw outputs, traces, hashes, and source-derived reports.
 
-\paragraph{Statistical estimands.}
-The primary estimand is the complete Lifecycle-Gated package minus Generic accuracy on the Qwen v3 language clusters,
-with cluster bootstrap rather than row-level independence. We report task accuracy, matched-pair
-accuracy, and conditional substitution separately; the latter requires a correct observable initial ID,
-a completed refresh, a surviving/action-valid old target, and a distinct refreshed winner.
-Metric definitions, intervals, and secondary tests are in Supplementary Material.
-
-\paragraph{Reproducible run discipline.}
-The anonymous artifact includes frozen data, protocols, runners, hashes, raw outputs, traces, and
-source-derived reports; post-primary/post-hoc analyses are labeled and private returns excluded.
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{Figures/fig_resolution_policy_phase_space_singlecolumn.pdf}
+\caption{Policy marginals and matched discrimination on the \PrimaryDiagnostic{}. Each path joins Preserve and Reevaluate
+accuracy over 80 pairs to changed-winner PairAcc over 32 matched pairs; segments connect metrics,
+not time. Circles and squares identify Qwen and GLM. The two unconditional fixed policies each
+reach 100\% on one marginal but 0/32 PairAcc; Generic obtains 3--7/32, CTA 30--31/32, and the
+post-hoc Rule* 28/32. Package runs mix Qwen primary/frozen and GLM post-primary evidence; changed-pair
+metrics are post-primary audits.}
+\label{fig:resolution-policy-phase-space}
+\end{figure}
 
 \section{Results}
 
-\begin{figure*}[t]
+\subsection{Diagnostic Discrimination}
+Always-Lock and Always-Reevaluate pass Stable cases and opposite one-sided changed-winner slices,
+yet both obtain zero PairAcc on complete changed pairs. A zero-API policy audit confirms the
+selection problem: all 15 maximizer sets under Stable-only or one-sided scoring contain a
+zero-PairAcc policy, with worst-case PairAcc regret of 100 points. Aggregate end-to-end (E2E)
+scoring selects a PairAcc-optimal candidate in all five candidate sets. Figure~\ref{fig:resolution-policy-phase-space}
+shows how the matched score separates the unconditional policies from selective re-resolution.
+Thus PairAcc reveals joint policy behavior and symmetric errors in the current study; we do not
+observe a controller-ranking reversal under aggregate E2E scoring.
+
+The actionable referential core contains 128 tasks. Generic reaches 95/128 (74.2\%) for Qwen and
+93/128 (72.7\%) for GLM; CTA reaches 126/128 (98.4\%) and 127/128 (99.2\%), and Lifecycle-Gated
+reaches 125/128 (97.7\%) and 128/128 (100.0\%). The remaining 32 anchored remove/invalidate rows
+use an author-specified \textsc{Reject} gold and form a separate fallback-policy slice. Generic,
+CTA, and Gated obtain 8/32 and 22/32, 26/32 and 27/32, and 32/32 for Qwen and GLM, respectively.
+
+The construct check supports the same separation. Across 100 blinded original and rewritten items,
+Fleiss' $\kappa=.708$, Krippendorff's $\alpha=.709$, and majority--gold agreement is 86\%
+(91.5\% among 94 determinate items). Agreement falls to 55\% majority--gold and 25\% unanimity for
+action-invalid \textsc{Reject}. Against 46 determinate original-item majorities, Generic/CTA reach
+69.6/91.3\% for Qwen and 73.9/89.1\% for GLM. We base the referential claim on the
+actionable core and treat rejection, clarification, and authorized reselection as execution policy.
+
+\subsection{Substitution After Correct Binding}
+We next condition on a correct observable initial ID, a completed refresh, a distinct new selector
+winner, and an old target that remains present and action-valid. In the primary diagnostic, Qwen
+Generic substitutes on 15/16 anchored flips and 14/16 name collisions; GLM substitutes on 3/16 and
+7/16. Stable controls show no such concentration.
+
+The 240-task \NewSchemaReplication{} extends this test to ten schemas. Generic selects the refreshed
+winner in 43/72 Qwen, 38/80 GLM, and 59/79 DeepSeek opportunities. CTA records zero substitutions
+among 71, 70, and 70 eligible cases. On shared-eligible rows, where both controllers bind correctly,
+the comparisons are 41/66 versus 0/66, 30/70 versus 0/70, and 50/69 versus 0/69
+(Figure~\ref{fig:shared-eligible-target-flow}). The conditioning isolates replacement of a correct
+commitment from initial binding and target-validity errors.
+
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.48\textwidth]{Figures/tri_authorization_tradeoff_compact.pdf}\hfill
-\includegraphics[width=0.48\textwidth]{Figures/tri_v3_results.pdf}
-\caption{Evidence on frozen v3 outputs. (a) Post-primary, zero-API matched-pair reanalysis.
-(b) Post-primary component audits frozen before their own calls. The primary was the Qwen
-Generic-versus-Lifecycle-Gated package comparison; Rule v2 followed post-hoc failure inspection.}
-\label{fig:diagnostic-evidence}
-\end{figure*}
+\includegraphics[width=\columnwidth]{Figures/fig_controller_transition.pdf}
+\caption{Cross-schema paired controller transitions on shared-eligible Preserve rows. The horizontal axis is
+conditional refreshed-winner substitution with Wilson 95\% intervals; the vertical axis is PairAcc
+with cluster-bootstrap 95\% intervals. Arrows connect each model's Generic and CTA endpoints, not
+time, and labels report substitutions over the shared-eligible denominator. All three models move
+toward lower substitution and higher PairAcc. These conditional endpoints are not prevalence or an
+overall controller-safety estimate.}
+\label{fig:shared-eligible-target-flow}
+\end{figure}
 
-\subsection{Diagnostic Results}
+\subsection{Target-to-Write Verification}
+A deterministic fixed-executor consistency check turns all 43, 38, and 59 Generic substitutions
+into wrong-entity writes.
+Their cluster-bootstrap intervals are [46.5,72.4], [35.0,61.3], and [62.5,86.1] percent. Initial-ID,
+missing-ID, action-invalid, API, and parse failures are excluded from this conditional denominator;
+Stable errors and non-core writes remain separate. Figure~\ref{fig:wrong-write-decomposition}
+reports the complete decomposition.
 
-\paragraph{Identifiability.}
-Figure~\ref{fig:tri-minimal-pair} defines the task contrast, while
-Figure~\ref{fig:diagnostic-evidence} shows why favorable one-sided verdicts can be false. Always-Lock and Always-Reevaluate
-pass Stable and each wins its favorable one-sided slice, yet both have zero changed PairAcc. A
-post-primary, zero-API selection audit makes the consequence explicit: in five dataset/model
-candidate sets, all 15 Stable-only or one-sided maximizer sets include a zero-PairAcc extreme;
-worst-case PairAcc regret reaches 96.9 points. Aggregate scoring agrees with the best matched
-policy in four sets, but loses 6.2 points in the fifth (Supplement). Thus omitting the crossed
-contrast can change which policy an evaluation licenses. Across Qwen, GLM, and DeepSeek, CTA has
-zero eligible substitutions, although binding, grounding, and execution errors keep PairAcc below
-perfect. Table~\ref{tab:v7-diagnostic} summarizes the frozen v7 outcomes.
+The model-facing 40-task SQLite subset supplies separate tool-loop evidence. Generic reaches 27/40
+final states with 13 wrong writes for Qwen and 26/40 with eight wrong writes for GLM. Under the
+strict actionable-core conditions, refreshed-winner writes occur in 8/8 Qwen and 6/8 GLM
+opportunities, versus 0/4 Stable controls for each model. In one trace, Qwen records
+\texttt{REM-1A} before refresh and then sends \texttt{REM-1B} to the mutation tool. The remaining
+five Qwen and two GLM wrong writes arise in the fallback-policy slice. These trajectories locate
+the failure between binding and action; the fixed replay only verifies target-to-write consistency.
 
-\begin{table}[t]
+\begin{figure}[t]
 \centering
-\small
-\begin{tabular}{@{}lrrr@{}}
-\toprule
-Model / probe & PairAcc & Conditional $\downarrow$ & Core/all writes \\
-\midrule
-Qwen / Generic & 7/80 & 43/72 & 43/44 \\
-Qwen / CTA & 31/80 & 0/71 & 0/8 \\
-GLM / Generic & 15/80 & 38/80 & 38/38 \\
-GLM / CTA & 66/80 & 0/70 & 0/14 \\
-DeepSeek / Generic & 17/80 & 59/79 & 59/60 \\
-DeepSeek / CTA & 64/80 & 0/70 & 0/17 \\
-\bottomrule
-\end{tabular}
-\caption{Frozen v7 diagnostic outcomes. PairAcc uses 80 matched changed-winner pairs per row.
-Conditional substitution requires correct observable initial binding, completed refresh, a
-surviving action-valid old target, and a distinct refreshed winner. The last column reports
-strict-core substitution writes / all wrong writes in the 240-task deterministic SQLite replay,
-so CTA's non-core errors remain visible.}
-\label{tab:v7-diagnostic}
-\end{table}
+\includegraphics[width=\columnwidth]{Figures/fig_wrong_write_decomposition_compact.pdf}
+\caption{Wrong-target writes under fixed-executor replay of the 240-task
+\NewSchemaReplication{}. Generic is shown left and CTA right; coral segments are conditional TRI
+substitution writes and hatched segments are other wrong writes. Generic produces 43/38/59 TRI
+writes plus two non-core errors. CTA records zero TRI writes; its 8/14/17 errors arise from binding,
+grounding, or execution failures.}
+\label{fig:wrong-write-decomposition}
+\end{figure}
 
-The information-matched full-history audit shows that the finding is not confined to Generic's
-ledger serialization. For Qwen, GLM, and DeepSeek, respectively, ordinary full history reaches
-63.3/67.1/68.8\%; a strong final-step reminder reaches 69.6/80.8/75.8\%; and CTA reaches
-70.8/94.2/91.2\%. CTA is statistically indistinguishable from the aware Qwen baseline in overall accuracy
-while exceeding it for GLM and DeepSeek. The history baselines do not expose a separately scorable
-pre-refresh binding, so their anchored substitutions are not relabeled as conditional TRI.
+\subsection{Decision Visibility and Transfer}
+The Evidence Map records experimental chronology; this section uses the shorter dataset names.
+The full-diagnostic matched-call test compares History-only and Decision-visible actors with equal
+calls, base payloads, states, and tool schemas. The actor-visible decision block is the manipulated
+field under matched calls and base payloads; the compiler representation remains part of the probe.
 
-\paragraph{Actionable referential core and reject policy.}
-The pre-specified v3 end-to-end (E2E) total mixes 128 tasks with an actionable entity target and 32 anchored
-remove/invalidate tasks whose gold is the author-specified \textsc{Reject} outcome. On the
-actionable core, Generic reaches 95/128 (74.2\%) for Qwen and 93/128 (72.7\%) for GLM; Historical
-CTA reaches 126/128 (98.4\%) and 127/128 (99.2\%), while Lifecycle-Gated reaches 125/128 (97.7\%)
-and 128/128 (100.0\%). The separate reject-policy slice is 8/32 and 22/32 for Generic, 26/32 and
-27/32 for CTA, and 32/32 for Gated. Because human agreement is weaker on rejection, these policy
-scores are not treated as equally supported referential judgments; full intervals are supplementary.
+\paragraph{Authored diagnostic.}
+On 32 actionable changed pairs, PairAcc rises from 5/32 to 13/32 for Qwen (+25.0 points
+[6.3,46.2]) and from 8/32 to 25/32 for GLM (+53.1 [28.6,77.8]). Actionable E2E changes from
+100/128 to 106/128 and from 102/128 to 120/128. Substitution among correctly bound actionable
+Preserve cases falls from 22/28 to 13/28 and from 16/25 to 0/25. All 320 task-model rows complete,
+comprising 640 actor outputs and 320 compiler outputs, without API or parse failure.
 
-\paragraph{Conditional substitution and write consequences.}
-Generic fails most when a valid bound entity no longer wins the selector. Conditioning on its
-stored \texttt{selected\_entity\_id} being correct, Qwen drifts on 15/16 anchored flips and 14/16
-name collisions; GLM drifts on 3/16 and 7/16, while Stable controls show none. This directionality
-rules out random target error as a complete explanation.
+Offline Decision-enforced raises Qwen PairAcc to 24/32, with 18 repairs and eight row-level harms.
+GLM remains at 25/32; enforcement repairs four Reject rows and harms none. The visibility result is
+consistent across the two authored models, while hard enforcement has mixed effects.
 
-The separately frozen v7 replication contains 240 core tasks over ten unseen schemas and 40
-state instances; every old target remains present and action-valid. Generic initial binding is
-correct on 107/120 Qwen, 120/120 GLM, and 119/120 DeepSeek anchored rows. Among strict
-opportunities after a correct initial binding, Generic selects exactly the distinct refreshed winner on
-43/72 Qwen and 38/80 GLM tasks, versus zero for matched CTA/Lifecycle-Gated. For DeepSeek, the
-corresponding result is 59/79 versus 0/70. On the same tasks where both controllers bind correctly,
-Generic versus CTA substitutions are 41/66 versus 0/66, 30/70 versus 0/70, and 50/69 versus
-0/69. This post-primary shared-eligible audit excludes controller-specific denominator selection;
-zero observed CTA substitutions do not establish zero population risk. A deterministic in-memory SQLite replay of all frozen v7
-model outputs turns every one of these 43, 38, and 59 substitutions into a wrong-entity write;
-this replay is distinct from the separate 40-task model-facing SQLite experiment in
-the supplement. The conditional denominator excludes initial-ID, missing-ID,
-action-invalid, API, and parse failures; Stable errors and all non-core writes remain separate.
-Conditional-substitution intervals are [46.5,72.4], [35.0,61.3], and [62.5,86.1] percent.
+\paragraph{Human rewrites.}
+Against 48 determinate rewrite majorities, CTA reaches 89.6\% for Qwen and 93.8\% for GLM. In the
+matched-call transfer, Qwen actionable E2E remains 30/40 and majority accuracy changes from 34/48
+to 35/48. GLM improves from 31/40 to 39/40 and from 33/48 to 41/48. Only three actionable changed
+pairs are complete: Qwen changes from 0/3 to 1/3 and GLM from 1/3 to 3/3, with wide cluster
+intervals. These one-volunteer rewrites test authored task semantics, not open-language validation.
 
-The frozen write trace makes the consequence concrete: in a Qwen name-collision task, Generic
-records \texttt{REM-1A} before refresh but writes to refreshed winner \texttt{REM-1B}; the SQLite
-trace labels this \texttt{wrong\_entity\_write}, while CTA writes the discourse-resolved bound identifier.
+\paragraph{Source-derived pairs.}
+The three-source contrast contains 30 changed-winner pairs grounded in STATE-Bench, AgentDojo, and
+ToolSandbox states and tool schemas. PairAcc changes from 12/30 to 13/30 for Qwen, 11/30 to 20/30
+for GLM, and 19/30 to 22/30 for DeepSeek. Actionable E2E changes from 39/60 to 39/60, 37/60 to
+48/60, and 45/60 to 47/60. Only GLM has an E2E interval excluding zero (+18.3 points [8.3,30.0]);
+Qwen is null and the DeepSeek interval crosses zero. Preserve substitution is unchanged at 7/26
+for Qwen, but falls from 10/30 to 1/30 for GLM and from 6/27 to 2/27 for DeepSeek. All wrong-target
+writes change from 16 to 17, 16 to 5, and 11 to 9. Source-specific slices are supplementary; their
+heterogeneity is retained rather than pooled into a universal transfer claim. These controlled
+interventions over source-derived states and schemas connect the controlled diagnostic to source
+interfaces; the public-suite audit below examines native opportunity coverage separately.
 
-\paragraph{Historical primary comparison.}
-The original primary is the package-level Lifecycle-Gated--Generic difference. Qwen E2E is
-157/160 versus 103/160 (98.1\% vs. 64.4\%), +33.8 points [+18.1,+50.0]; GLM is 160/160 versus
-115/160 (100.0\% vs. 71.9\%), +28.1 [+18.1,+38.1]. Historical CTA reaches 95.0\% and 96.2\%.
-These aggregate totals mix
-the actionable core and author-specified reject policy and therefore follow, rather than replace,
-the identifying PairAcc, conditional-substitution, and write-consequence results. The Supplementary
-Document summarizes E2E results; full derived tables are in the Code and Data Supplement.
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{Figures/fig_decision_visibility_effect_sizes_compact.pdf}
+\caption{Decision-visible minus History-only effects under equal calls and matched base payloads.
+Diamonds show changed-winner PairAcc and circles show actionable E2E differences; bars are
+cluster-bootstrap 95\% intervals. The branching labels organize authored, human-rewrite, and
+source-derived evidence; human-rewrite PairAcc contains only three complete actionable pairs.
+Authored effects favor visibility for both models, whereas only the GLM source-derived E2E interval
+excludes zero.}
+\label{fig:decision-visibility-effects}
+\end{figure}
 
-Leave-domain/template-out analyses and temperature-zero repeats retain the CTA--Generic direction,
-but incomplete task-level unanimity keeps the claim aggregate and controller-conditional. We
-distinguish E2E, initial binding, conditional substitution, and executed wrong-write denominators throughout.
+Figure~\ref{fig:decision-visibility-effects} summarizes the matched-call effects across authored,
+rewritten, and source-derived tasks. The contrast helps both models on the authored PairAcc
+endpoint, but transfer is model-dependent.
 
-\subsection{Executable realizations and robustness}
+\paragraph{Alternative operationalizations.}
+The primary Qwen package comparison and GLM replication are call-asymmetric mechanism probes.
+Lifecycle-Gated improves over Generic on both, while CTA and a full-history timing reminder show
+that lifecycle typing and hard gating are not unique implementations. Full results and intervals
+are supplementary.
 
-\paragraph{Which interventions operationalize the distinction?}
-The matched component audit separates candidate explanations. Mode-only reaches 75.0/75.0\%; a
-validity gate changes Generic by only +0.6/+1.2 points; an untyped pre-refresh plan reaches
-81.2/70.6\%. CTA reaches 95.0/96.2\%, near Lifecycle-free at 96.9/98.1\%; deterministic
-gating adds only +1.2/+1.9 points. An early ID alone is Always-Lock and fails changed-winner
-Reevaluate. Thus the evidence supports operationalizing an explicit,
-discourse-sensitive transition decision, not the unique necessity of CTA, typed
-serialization, pre-refresh timing, or gating alone. Typed state adds auditability and fallback.
+The initial no-LLM event-order rule scores 60.6\% on \PrimaryDiagnostic{}. Rule*, written after
+error inspection, reaches 92.5\% on \PrimaryDiagnostic{}, 96.0\% on rewrites, and 91.7\% on
+\NewSchemaReplication{}. This strong authored-inventory result shows that the diagnostic contains
+usable event-order cues. On the source-derived pairs, the frozen rule reaches 15/60 exact targets
+and 2/30 PairAcc; timestamps, extra numeric fields, and unfamiliar ranking expressions expose
+parser and selector-grounding errors. The residual and component analyses are supplementary.
+Together they characterize typing, compilation, reminders, rules, and gates as alternative
+implementations of the same timing decision.
 
-Secondary transfer and execution checks are consistent with this interpretation: Lifecycle-Gated
-improves Qwen schema transfer from 46.2\% to 82.5\%, while Generic still produces 13 Qwen and 8 GLM
-wrong writes in the 40-task SQLite run and gating reaches 40/40 final states. These rows
-remain secondary because selector grounding and invalid-target handling are not TRI itself.
+\paragraph{Persistence-policy adaptations.}
+We author-adapt the Binding Drift entity-lock semantics and self-reverification prompt to all 240
+actionable cross-schema tasks \cite{babu2026bindingdrift}. Entity lock favors Preserve and
+self-reverification favors Reevaluate, characterizing the two persistence policies. The adapted
+verifier receives the instruction and refreshed candidates without $S_0$ or the pre-refresh bound
+ID, so this is not an official reproduction or an information-matched performance comparison.
+Detailed mode and pair counts are supplementary.
 
-\paragraph{A simple post-hoc rule limits method novelty.}
-After the model-mediated analyses, we froze a naive no-LLM event-order rule; unresolved language
-limits it to 60.6\% on v3. After inspecting failures, post-hoc benchmark-aware v2 adds observed
-event vocabulary and reaches 92.5\% on v3, 96.0\% on rewrites, and 91.7\% on v7. Its v3
-intervals overlap the CTA interval. This is not open-language generalization evidence; it shows that an
-executable discourse-conditioned transition decision, rather than a uniquely learned algorithm,
-explains success.
-Together with the information-matched history audit above, this prevents us from attributing the
-effect uniquely to pre-refresh compilation.
+\paragraph{Boundary analyses.}
+External evidence is mixed. A 24-task ToolSandbox-style pilot finds GLM substitution in 3/6
+eligible changed-winner cases versus 0/2 Stable cases, while Qwen is 0/6. Its four-condition,
+96-task extension finds zero conditional substitutions in 64--87 eligible opportunities. Across 20 STATE-Bench and
+AgentDojo clusters \cite{microsoft2026statebench,debenedetti2024agentdojo}, Qwen ordinary history
+substitutes in 2/7 eligible AgentDojo Preserve/Changed rows versus 0/7 matched Stable rows; the other
+repository-model cells are zero and execution accuracy has no consistent winner.
 
-\subsection{Human validation and external boundaries}
+Under an author-built checklist and retrieval procedure, the public-suite audit identifies no
+strict native opportunity in pinned ToolSandbox (129 families), AppWorld (244 families), or
+$\tau^3$-Bench (2,449 tasks; 10,832 trajectories). A
+structural scan of API-Bank, BFCL, and ToolTalk also finds zero. The checklist accepts all 30
+injected strict positives and excludes all 30 one-condition-missing hard negatives, but natural
+retrieval recall has not been independently calibrated.
 
-\paragraph{Human validation.}
-Across 100 blinded items, Fleiss' $\kappa=.708$, Krippendorff's $\alpha=.709$, and majority--gold
-agreement is 86\% (91.5\% among 94 determinate items). The controller contrast survives
-human-majority and high-consensus scoring and 50 volunteer rewrites. Action-invalid
-\textsc{Reject} obtains only 55\% majority--gold and 25\% unanimity, so human evidence supports
-the Preserve/Reevaluate core more strongly than the normative fallback policy.
-Against 46 determinate original-item majorities, Generic/CTA reach 69.6/91.3\% for Qwen and
-73.9/89.1\% for GLM; against 48 rewrite majorities, CTA reaches 89.6/93.8\%.
+Structural stress tests remain mixed. A two-refresh Qwen test favors Generic over scalar Lifecycle
+(32/40 vs. 28/40), while held-out role indexing improves 35/40 to 39/40. GLM role ITT is 37/40
+versus 40/40 scalar because of three transport failures and ties after recovery. These results set
+the current scope at single-refresh scalar mutations.
 
-\paragraph{External and compositional boundaries.}
-External evaluations do not show a stable controller advantage. In a 24-task ToolSandbox-style
-pilot, rankings reverse across Qwen and GLM and gated runs still make wrong writes. A post-hoc
-strict audit finds GLM Generic rebinding in 3/6 eligible Flip opportunities versus 0/2 Stable
-controls, but Qwen Generic is 0/6. Four conditions in a frozen 96-task extension yield zero conditional
-substitution in 64--87 eligible opportunities. Thus lower-intervention protocols do not reproduce
-the diagnosis; these are custom, not official or prevalence evidence.
-
-Audits of pinned ToolSandbox (129 families), AppWorld (244 families), and $\tau^3$ (2,449 tasks;
-10,832 trajectories) find zero strict native opportunities under our checklist and a few near-matches.
-In AppWorld, all 16 auditable comments in one near-match family retain the stable ID; other failures
-are omissions or upstream/non-gold selection. These descriptive audits do not cover other benchmarks.
-A custom two-app study gives 0/24 conditional substitutions after timely binding and 0/28 without
-explicit binding language; its two wrong writes occur before binding and are tool-order errors.
-
-Composition remains open: a two-refresh Qwen stress test favors Generic over scalar Lifecycle
-(32/40 vs. 28/40), while a held-out addendum favors role indexing (39/40 vs. 35/40). GLM
-intention-to-treat (ITT) accuracy is
-37/40 versus 40/40 scalar because of three transport failures; recovered runs tie at 40/40. We
-therefore limit the claim to controller-orchestrated, single-refresh, scalar mutations.
-
+\FloatBarrier
 \section{Discussion}
 
-\paragraph{Evaluation must separate world evidence from referential control.}
-Generic carries the relevant evidence but does not stably distinguish an executable selector from
-provenance for a committed identifier. It may lose the dependency from a discourse-resolved
-binding to the mutation argument and reapply the selector in a newer state. This controller-level
-interpretation is neither a unique internal mechanism nor an established sole cause.
+The evidence chain starts with a correct observable binding and ends with a target-level state
+change. Generic often carries the initial ID through refresh, recomputes its selector on $S_1$, and
+sends the new winner to the mutation tool. PairAcc exposes this selective-policy failure, while
+conditional substitution distinguishes it from initial binding and grounding errors. Fixed replay
+checks whether the selected target produces the corresponding write; SQLite trajectories provide
+the model-facing execution evidence.
 
-\paragraph{The principle is implementation-independent within the diagnostic.}
-CTA, typed lifecycle state, and the post-hoc rule operationalize the same discourse-sensitive
-decision. The rule weakens algorithmic novelty and the experiment does not establish that CTA
-generalizes better in open language. A gate cannot repair a wrong mode, ID, or guard; zero core
-substitution writes after correct binding are therefore not a general safety guarantee.
+CTA, lifecycle records, timing reminders, and deterministic rules all operationalize a
+resolution-timing decision. Their relative performance supports no unique controller design.
+Rule* is especially informative: event order plus benchmark-aware lexical coverage is sufficient
+for high accuracy on the authored inventories, while source-derived ranking expressions introduce
+parser and selector-grounding failures. The benchmark can therefore be solved by a simple
+executable rule when the expression inventory is covered; open wording adds a separate
+implementation challenge.
 
-\paragraph{Temporal parsing is a live alternative explanation.}
-Temporal parsing is an upstream requirement, not an alternative to the evaluation claim: after a
-rule or model infers timing, Stable or one-sided scoring still cannot distinguish selective updating
-from an unconditional policy. The strong post-hoc rule and mode-only gains nevertheless show that
-this diagnostic may substantially measure parsing followed by controlled execution. Authored scalar
-templates make timing recoverable when explicitly extracted; we do not establish the dominant
-bottleneck beyond them. External nulls and non-composition further limit the design claim to the
-controlled interface and scalar regime.
+\paragraph{Evidence scope.}
+The Evidence Map separates the primary Qwen package run from replications, matched-call tests,
+audits, and post-hoc analyses. The primary package comparison measures an end-to-end controller
+contrast. The equal-call experiments isolate visibility of the timing decision, and the rule and
+component studies examine alternative implementations. This organization supports a diagnostic
+claim about selective re-resolution, with architecture ranking outside its scope.
+
+External evidence is mixed. Eligible low-intervention runs show no conditional substitutions, the
+audited suites contain no strict native cases, and retrieval recall has not been independently
+calibrated. The source-derived matched pairs supply controlled transfer evidence, with a clear E2E
+gain only for GLM. A broader benchmark will need observable initial bindings, opposite-gold
+transitions, and target-level execution records in naturally occurring workflows.
 
 \section{Limitations}
 
-\paragraph{Scope and construct validity.}
-TRI is a controlled diagnostic, not a prevalence estimate. It simplifies ambiguity, repair,
-partial observability, and identity migration. Volunteer rewrites adapt authored tasks rather
-than independently eliciting requests. Human validation covers scalar semantics, with weak support
-for invalid-target rejection. The tailored post-hoc rule and negative composition result preclude
-claims of open-language or compositional generalization.
+The controlled diagnostic uses single-refresh scalar tasks and simplifies ambiguity, repair,
+partial observability, identity migration, and composition. \NewSchemaReplication{} varies schemas
+and states while retaining authored language templates. Volunteer rewrites preserve authored task
+semantics, and only three actionable changed pairs are complete. A model-authored language audit
+fails its semantic gate because two judges accept no complete pair. Open-language generalization
+therefore remains unresolved.
 
-\paragraph{Causal attribution and external validity.}
-Temperature-zero repeats preserve the paired direction but not complete task-level agreement, and
-the synthetic replications cover only three model families. We reproduced Binding Drift's
-deterministic assertions, not its LLM sweep; its oracle reads gold and Entity Lock matches
-Always-Lock. The ToolSandbox-compatible positive audit is post-hoc and small, lower-intervention
-loops are null, and no external study estimates prevalence. These nulls cannot distinguish true
-undercoverage from a controlled-interface effect or opportunities missed by our checklist.
+Referent identity is better supported than fallback policy: agreement is weak when the old target
+is action-invalid, and Reject, Clarify, and authorized reselection may all be reasonable execution
+choices. Multiple refreshes and referent roles also require richer control state; the two-refresh
+results show that the scalar record does not compose automatically.
+
+The public-suite and low-intervention results may reflect low prevalence, benchmark coverage, or
+retrieval misses. Current evidence cannot separate these explanations. The primary package
+comparison is call-asymmetric, whereas the equal-call studies supply the initial ID and isolate
+decision visibility. Temperature-zero repeats vary at task level, and provider weights lack
+immutable revision identifiers.
 
 \section{Conclusion}
 
-TRI treats post-refresh targeting as policy identification: world evidence does not authorize
-changing an already resolved referent. Matched pairs, observable binding, and replay separate
-commitment, deferred resolution, substitution, and wrong writes. Non-unique realizations, the
-post-hoc rule, and external nulls leave undercoverage versus interface amplification unresolved.
-TRI is an evaluation diagnostic and design principle, not a general runtime architecture,
-prevalence estimate, or universal safety claim.
+TRI makes selective referent re-resolution identifiable by pairing the same transition with bound
+and deferred action references. Changed-winner PairAcc rejects both unconditional target policies,
+and the execution trace connects substitution after correct binding to wrong-entity writes.
+Exposing an explicit timing decision helps Qwen and GLM on the authored matched-call test; transfer
+is model-dependent, with a clear source-derived E2E gain only for GLM. Rule*, hard enforcement, and
+composition results show that the same control decision can be represented in several ways and
+limit the algorithmic novelty claim. The current evidence covers controlled single-refresh scalar workflows.
+Native-workflow frequency and general runtime behavior remain unmeasured; open-language coverage remains open.
 
 {\small
 \bibliography{aaai2027}

@@ -1,0 +1,42 @@
+{
+  "expected_rows": 32,
+  "groups": {
+    "Pro/zai-org/GLM-5.1 | execution_record": {
+      "exact_target_success": 0,
+      "initial_binding_correct": 4,
+      "rows": 8,
+      "valid": 0,
+      "wrong_entity_write": 0
+    },
+    "Pro/zai-org/GLM-5.1 | ordinary_full_history": {
+      "exact_target_success": 0,
+      "initial_binding_correct": 4,
+      "rows": 8,
+      "valid": 0,
+      "wrong_entity_write": 0
+    },
+    "Qwen/Qwen3.5-122B-A10B | execution_record": {
+      "exact_target_success": 0,
+      "initial_binding_correct": 8,
+      "rows": 8,
+      "valid": 0,
+      "wrong_entity_write": 0
+    },
+    "Qwen/Qwen3.5-122B-A10B | ordinary_full_history": {
+      "exact_target_success": 0,
+      "initial_binding_correct": 8,
+      "rows": 8,
+      "valid": 0,
+      "wrong_entity_write": 0
+    }
+  },
+  "mode": "smoke",
+  "parse_or_schema_failures": 1,
+  "raw_rows": 32,
+  "smoke_gate": "NO-GO",
+  "source_execution_failures": 31,
+  "transport_failures": 0,
+  "unique_rows": 32,
+  "valid_rate": 0.0,
+  "valid_rows": 0
+}

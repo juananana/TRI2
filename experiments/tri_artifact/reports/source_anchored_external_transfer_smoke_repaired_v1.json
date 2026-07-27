@@ -1,0 +1,351 @@
+{
+  "by_domain": {
+    "shopping_assistant | Pro/zai-org/GLM-5.1 | execution_record": {
+      "exact_target_success": 1,
+      "initial_binding_correct": 0,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 3
+    },
+    "shopping_assistant | Pro/zai-org/GLM-5.1 | ordinary_full_history": {
+      "exact_target_success": 2,
+      "initial_binding_correct": 0,
+      "missing_or_rejected_write": 1,
+      "parse_or_schema_failure": 1,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 3,
+      "write_executed": 3,
+      "wrong_entity_write": 1
+    },
+    "shopping_assistant | Qwen/Qwen3.5-122B-A10B | execution_record": {
+      "exact_target_success": 4,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 0
+    },
+    "shopping_assistant | Qwen/Qwen3.5-122B-A10B | ordinary_full_history": {
+      "exact_target_success": 4,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 0
+    },
+    "workspace_calendar | Pro/zai-org/GLM-5.1 | execution_record": {
+      "exact_target_success": 4,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 0
+    },
+    "workspace_calendar | Pro/zai-org/GLM-5.1 | ordinary_full_history": {
+      "exact_target_success": 4,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 0
+    },
+    "workspace_calendar | Qwen/Qwen3.5-122B-A10B | execution_record": {
+      "exact_target_success": 3,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 1
+    },
+    "workspace_calendar | Qwen/Qwen3.5-122B-A10B | ordinary_full_history": {
+      "exact_target_success": 4,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 0
+    }
+  },
+  "by_repository": {
+    "AgentDojo | Pro/zai-org/GLM-5.1 | execution_record": {
+      "exact_target_success": 4,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 0
+    },
+    "AgentDojo | Pro/zai-org/GLM-5.1 | ordinary_full_history": {
+      "exact_target_success": 4,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 0
+    },
+    "AgentDojo | Qwen/Qwen3.5-122B-A10B | execution_record": {
+      "exact_target_success": 3,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 1
+    },
+    "AgentDojo | Qwen/Qwen3.5-122B-A10B | ordinary_full_history": {
+      "exact_target_success": 4,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 0
+    },
+    "STATE-Bench | Pro/zai-org/GLM-5.1 | execution_record": {
+      "exact_target_success": 1,
+      "initial_binding_correct": 0,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 3
+    },
+    "STATE-Bench | Pro/zai-org/GLM-5.1 | ordinary_full_history": {
+      "exact_target_success": 2,
+      "initial_binding_correct": 0,
+      "missing_or_rejected_write": 1,
+      "parse_or_schema_failure": 1,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 3,
+      "write_executed": 3,
+      "wrong_entity_write": 1
+    },
+    "STATE-Bench | Qwen/Qwen3.5-122B-A10B | execution_record": {
+      "exact_target_success": 4,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 0
+    },
+    "STATE-Bench | Qwen/Qwen3.5-122B-A10B | ordinary_full_history": {
+      "exact_target_success": 4,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 8,
+      "rows": 4,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 4,
+      "write_executed": 4,
+      "wrong_entity_write": 0
+    }
+  },
+  "changed_condition": {
+    "changed_exact_target_itt": 13,
+    "changed_rows_itt": 16,
+    "conditional_exact_target": 11,
+    "conditional_rows": 12,
+    "preserve_changed_rows": 6,
+    "preserve_unauthorized_substitutions": 0,
+    "reevaluate_changed_rows": 6,
+    "reevaluate_failed_substitutions": 1
+  },
+  "changed_pairs": {
+    "both_exact": 5,
+    "conditional_both_exact": 5,
+    "conditional_pairs": 6,
+    "pairs": 8
+  },
+  "claim_boundary": "Author-adapted matched evaluation on external source states and tools; not native benchmark prevalence, natural traffic, or an official benchmark score.",
+  "controller_effect_cluster_bootstrap": {
+    "Pro/zai-org/GLM-5.1": {
+      "cluster_bootstrap_95_ci_percentage_points": [
+        -25.0,
+        0.0
+      ],
+      "clusters": 2,
+      "estimand": "execution_record minus ordinary exact-target accuracy",
+      "estimate_percentage_points": -12.5,
+      "samples": 10000,
+      "seed": 20270724
+    },
+    "Qwen/Qwen3.5-122B-A10B": {
+      "cluster_bootstrap_95_ci_percentage_points": [
+        -25.0,
+        0.0
+      ],
+      "clusters": 2,
+      "estimand": "execution_record minus ordinary exact-target accuracy",
+      "estimate_percentage_points": -12.5,
+      "samples": 10000,
+      "seed": 20270724
+    }
+  },
+  "evidence_label": "source-anchored external transfer",
+  "execution_repair_rows": 32,
+  "expected_rows": 32,
+  "groups": {
+    "Pro/zai-org/GLM-5.1 | execution_record": {
+      "exact_target_success": 5,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 16,
+      "rows": 8,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 8,
+      "write_executed": 8,
+      "wrong_entity_write": 3
+    },
+    "Pro/zai-org/GLM-5.1 | ordinary_full_history": {
+      "exact_target_success": 6,
+      "initial_binding_correct": 4,
+      "missing_or_rejected_write": 1,
+      "parse_or_schema_failure": 1,
+      "request_attempts": 16,
+      "rows": 8,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 7,
+      "write_executed": 7,
+      "wrong_entity_write": 1
+    },
+    "Qwen/Qwen3.5-122B-A10B | execution_record": {
+      "exact_target_success": 7,
+      "initial_binding_correct": 8,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 16,
+      "rows": 8,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 8,
+      "write_executed": 8,
+      "wrong_entity_write": 1
+    },
+    "Qwen/Qwen3.5-122B-A10B | ordinary_full_history": {
+      "exact_target_success": 8,
+      "initial_binding_correct": 8,
+      "missing_or_rejected_write": 0,
+      "parse_or_schema_failure": 0,
+      "request_attempts": 16,
+      "rows": 8,
+      "source_execution_failure": 0,
+      "transport_failure": 0,
+      "valid": 8,
+      "write_executed": 8,
+      "wrong_entity_write": 0
+    }
+  },
+  "mode": "smoke",
+  "model_requests_added_by_repairs": 0,
+  "parse_or_schema_failures": 1,
+  "raw_serialized_rows": 32,
+  "shared_initial_binding_comparison": {
+    "Pro/zai-org/GLM-5.1": {
+      "execution_record_exact": 4,
+      "ordinary_better": 0,
+      "ordinary_exact": 4,
+      "record_better": 0,
+      "rows": 4
+    },
+    "Qwen/Qwen3.5-122B-A10B": {
+      "execution_record_exact": 7,
+      "ordinary_better": 1,
+      "ordinary_exact": 8,
+      "record_better": 0,
+      "rows": 8
+    }
+  },
+  "smoke_gate": "GO",
+  "source_execution_failures": 0,
+  "totals": {
+    "exact_target_success": 26,
+    "initial_binding_correct": 24,
+    "missing_or_rejected_write": 1,
+    "parse_or_schema_failure": 1,
+    "request_attempts": 64,
+    "rows": 32,
+    "source_execution_failure": 0,
+    "transport_failure": 0,
+    "valid": 31,
+    "write_executed": 31,
+    "wrong_entity_write": 5
+  },
+  "transport_failures": 0,
+  "unique_rows": 32,
+  "valid_rate": 0.96875,
+  "valid_rows": 31
+}

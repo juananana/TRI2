@@ -1,0 +1,73 @@
+{
+  "audit_version": "TRI-source-anchored-external-transfer-v1",
+  "sources": {
+    "AgentDojo": {
+      "actual_commit": "089ed468cf3ed0322acc66b0211f26d9d90dbf60",
+      "commit_matches": true,
+      "expected_commit": "089ed468cf3ed0322acc66b0211f26d9d90dbf60",
+      "files": [
+        {
+          "path": "src/agentdojo/data/suites/workspace/include/calendar.yaml",
+          "sha256": "69b0ae96804e986b5a0dba694ad6ca34cf01c8c6b57bb8ceb618d9ed8640b803"
+        },
+        {
+          "path": "src/agentdojo/data/suites/workspace/include/cloud_drive.yaml",
+          "sha256": "a9731cd49fe7eb726e43c1727c40eff0d6ca2d85d53728aa744860a8c4214130"
+        },
+        {
+          "path": "src/agentdojo/data/suites/workspace/include/inbox.yaml",
+          "sha256": "e6fac364bfb0e89d3d0251ef8079ffa2791504673a426029034356b8228f2082"
+        }
+      ],
+      "remote": "https://github.com/ethz-spylab/agentdojo.git"
+    },
+    "STATE-Bench": {
+      "actual_commit": "0962c71af0e52fcf7c7de1f33e5095165d23183e",
+      "commit_matches": true,
+      "expected_commit": "0962c71af0e52fcf7c7de1f33e5095165d23183e",
+      "files": [
+        {
+          "path": "state_bench/domains/shopping_assistant/task_envs/1-recommend_college_laptop.json",
+          "sha256": "9f147e60d1df427d749937f1ed9e8bb06ed7b38284c90b0b2dd22ceb602da87f"
+        },
+        {
+          "path": "state_bench/domains/shopping_assistant/task_envs/10-loyalty_points_on_discount.json",
+          "sha256": "5e634bde62538f1919169965c6e8550df5f0534bf684765533b3c7eb953ec624"
+        },
+        {
+          "path": "state_bench/domains/shopping_assistant/task_envs/100-goodwill_exception_fabrication_decline.json",
+          "sha256": "485730163c6310a1c0da2491194c41c2ddb49a10b540850a08d2b88403a251e4"
+        },
+        {
+          "path": "state_bench/domains/shopping_assistant/task_envs/101-hard_variant_pixel_case_misread.json",
+          "sha256": "a880059ab9584aa9d2703b97cafff426fc711cdd35714682c4126abfbbab101c"
+        },
+        {
+          "path": "state_bench/domains/shopping_assistant/task_envs/110-hard_four_to_five_items_shipping_refresh.json",
+          "sha256": "a39094e27f7c6a67e7cf9d66c1ac785dda0cbb73c8de9788243aecfe1c9c7066"
+        },
+        {
+          "path": "state_bench/domains/shopping_assistant/task_envs/115-hard_shipping_remove_breaks_free_standard.json",
+          "sha256": "2d4b259a02d10a60b34dd2cd91cc892ffdf50ba556e4f81f56d208e508eae4fb"
+        },
+        {
+          "path": "state_bench/domains/shopping_assistant/task_envs/117-hard_loyalty_cancel_redemption_before_change.json",
+          "sha256": "4a7e0795470e225a309c6f5af3758a6286bfd8deb6f58238c817ce729cd8e996"
+        },
+        {
+          "path": "state_bench/domains/shopping_assistant/task_envs/120-hard_loyalty_trim_after_remove_disclose.json",
+          "sha256": "28fed289592a86e32f7b22e78e637b9360f5b4ac1ec86e39f853369aa014ea90"
+        },
+        {
+          "path": "state_bench/domains/shopping_assistant/task_envs/127-hard_promo_invalidation_replace_after_remove.json",
+          "sha256": "6ec4eb26295ba5019f2a5decc629da47cb83c2af1a7cbf841429948072e91201"
+        },
+        {
+          "path": "state_bench/domains/shopping_assistant/task_envs/128-hard_remove_desk_then_readd_after_promo_warning.json",
+          "sha256": "6ec4eb26295ba5019f2a5decc629da47cb83c2af1a7cbf841429948072e91201"
+        }
+      ],
+      "remote": "https://github.com/microsoft/STATE-Bench.git"
+    }
+  }
+}

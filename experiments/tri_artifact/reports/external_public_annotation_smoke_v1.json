@@ -1,0 +1,47 @@
+{
+  "attempted_latest_rows": 8,
+  "candidate_count": 4,
+  "claim_boundary": "These are fallible model candidate labels. A strict-yes label nominates a case for source verification; it is not itself a native opportunity, independent review, behavioral result, or prevalence estimate.",
+  "complete_two_model_candidates": 4,
+  "expected_rows": 8,
+  "failed_latest_rows": 0,
+  "missing_pairs": [],
+  "observed_unique_rows": 8,
+  "per_model": {
+    "Pro/zai-org/GLM-5.1": {
+      "valid": 4
+    },
+    "Qwen/Qwen3.5-122B-A10B": {
+      "valid": 4
+    }
+  },
+  "raw_failed_rows": 8,
+  "repeated_attempt_pairs": [
+    "Pro/zai-org/GLM-5.1::BFCL:bfcl-multi-turn-100",
+    "Pro/zai-org/GLM-5.1::BFCL:bfcl-multi-turn-101",
+    "Pro/zai-org/GLM-5.1::ToolTalk:AccountTools-Alarm-Messages-FindAlarm-0",
+    "Pro/zai-org/GLM-5.1::ToolTalk:Alarm-Messages-Reminder-GetReminder-2",
+    "Qwen/Qwen3.5-122B-A10B::BFCL:bfcl-multi-turn-100",
+    "Qwen/Qwen3.5-122B-A10B::BFCL:bfcl-multi-turn-101",
+    "Qwen/Qwen3.5-122B-A10B::ToolTalk:AccountTools-Alarm-Messages-FindAlarm-0",
+    "Qwen/Qwen3.5-122B-A10B::ToolTalk:Alarm-Messages-Reminder-GetReminder-2"
+  ],
+  "smoke_mode": true,
+  "smoke_pass": true,
+  "source_eligible_yes_intersection": [],
+  "source_eligible_yes_union": [
+    "ToolTalk:Alarm-Messages-Reminder-GetReminder-2"
+  ],
+  "status": "post-primary model-assisted annotation; candidate labels only",
+  "strict_yes_intersection": [],
+  "strict_yes_union": [],
+  "study": "SiliconFlow external public-dataset candidate annotation",
+  "total_raw_rows_supplied": 16,
+  "two_model_disagreement_candidates": 1,
+  "valid_by_model_dataset": {
+    "Pro/zai-org/GLM-5.1::BFCL": 2,
+    "Pro/zai-org/GLM-5.1::ToolTalk": 2,
+    "Qwen/Qwen3.5-122B-A10B::BFCL": 2,
+    "Qwen/Qwen3.5-122B-A10B::ToolTalk": 2
+  }
+}

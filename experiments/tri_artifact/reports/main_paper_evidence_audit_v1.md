@@ -4,7 +4,7 @@
 
 | Check | Pass |
 |---|---:|
-| all table2 rows match frozen sources | yes |
+| split result figures match frozen sources | yes |
 | shared qwen claim present | yes |
 | shared glm claim present | yes |
 | shared deepseek claim present | yes |
@@ -13,7 +13,12 @@
 | human agreement claim present | yes |
 | coverage scope present | yes |
 | external extension four condition scope matches sources | yes |
+| source anchored transfer claim matches report | yes |
 | selection regret claim matches report | yes |
+| call matched claim matches report | yes |
+| source grounded matched claim matches report | yes |
+| binding drift author adaptation matches report | yes |
+| rule hard residual matches report | yes |
 | generic core writes equal conditional substitutions | yes |
 | cta core writes zero but all wrong reported | yes |
 

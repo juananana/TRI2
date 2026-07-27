@@ -132,8 +132,8 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error AnonymousSubmission2027.tex
 ```
 
 The verified target is seven pages of main content plus references, within the
-AAAI-27 nine-page total limit. The current full build is nine pages total: seven pages of
-main content followed by two reference-only pages. From the
+AAAI-27 page limit. The current full build is eight pages total: seven pages of
+main content with references beginning on page seven and continuing through page eight. From the
 artifact root, run:
 
 ```bash
@@ -159,7 +159,7 @@ PYTHONPATH=. python scripts/audit_manuscript_consistency.py
 ```
 
 The validated local environment is Python 3.12.13 with pytest 9.1.1; the current working
-tree has 197 passing tests. Most TRI generators, deterministic evaluators, SQLite replays,
+tree has 232 passing tests. Most TRI generators, deterministic evaluators, SQLite replays,
 and report scripts use only the Python standard library. External-pilot tests additionally
 depend on their pinned ToolSandbox/AppWorld environments and are documented separately.
 
@@ -233,6 +233,35 @@ This analysis must read Generic Ledger's `selected_entity_id`, not Lifecycle's
 `bound_target_id`. The external-validation claim boundary and all negative results are retained in
 `reports/TRI_external_validation_v1_summary.md`.
 
+## Source-anchored external transfer
+
+The post-primary external transfer uses 20 author-adapted workflow clusters from pinned
+STATE-Bench and AgentDojo source states and tools. The frozen inventory contains 80 matched tasks
+and the completed two-model/two-condition run contains 320 rows. Regenerate the final report and
+paper table from the shipped raw rows without an API key:
+
+```bash
+PYTHONPATH=. python3 scripts/report_source_anchored_external_transfer.py \
+  --input runs/source_anchored_external_transfer_siliconflow_repaired_v1.jsonl \
+  --latex-table-out paper/source_anchored_external_transfer_table.tex
+```
+
+The external repositories are intentionally excluded from the anonymous archive. To replay source
+writes, clone them into a sibling `external_sources/` directory and check out the commits recorded
+in `reports/source_anchored_external_transfer_source_manifest_v1.json`; install
+`email-validator==2.2.0` and `docstring-parser==0.16` into
+`external_sources/agentdojo-deps`. Then run:
+
+```bash
+PYTHONPATH=. python3 scripts/build_source_anchored_external_transfer.py
+```
+
+The first smoke report is retained as infrastructure provenance: temporary source checkouts had
+disappeared after model return. The repaired 32-row seed replays the already serialized targets
+with zero additional model requests. Use `reports/source_anchored_external_transfer_v1.{json,md}`
+for the final 320-row result. It is limited source-anchored bridge evidence, not a native benchmark
+score or prevalence estimate.
+
 ## Current P0 ablation
 
 `generic_reference_mode_ledger_then_act` is the minimal diagnostic for the remaining mechanism
@@ -257,44 +286,69 @@ Interpretation is conditional: a high result would show that explicit mode class
 explains most of CTA's gain; a lower result would support additional value from the pre-refresh
 identity/provenance record. Neither outcome establishes Lifecycle-Gated superiority by itself.
 
-## Binding Drift author-adaptation full v7 audit
+## Model-authored linguistic stress test
 
-This post-primary experiment tests a practical re-verification prompt on the complete 240-task v7
-inventory. It is an author adaptation on TRI tasks, not an official Binding Drift score. Read and
-freeze `reports/TRI_binding_drift_author_adaptation_v7_full_protocol.md` before running.
-The post-run information audit shows that this adaptation is not information-matched to CTA: it
-receives the instruction and refreshed candidates, but neither the initial state nor the resolved
-old ID. Retain it as interface evidence; use the matched full-history and Generic-ledger conditions
-for performance comparisons.
+This post-primary addendum is intentionally weaker than independent human or native-workflow
+evidence. It freezes 24 workflow semantics before a separate model writes 48 opposite-gold
+instructions. Gold targets come only from the structured states and event order. Two model judges
+provide a clearly labeled model-assisted validity sensitivity; all generated rows remain in ITT.
 
-Validate the inventory and prompt boundary without an API key:
+Build and test the zero-API inventory first:
 
 ```bash
 PYTHONPATH=. ../../.venv-toolsandbox/bin/python \
-  scripts/run_binding_drift_tri_smoke.py \
-  --model Pro/zai-org/GLM-5.1 \
-  --verifier-label GLM-5.1 \
-  --data data/temporal_referent_v7_core_replication.jsonl \
-  --expected-rows 240 \
-  --dry-run
+  scripts/build_model_authored_linguistic_stress.py --stage semantics
+PYTHONPATH=. ../../.venv-toolsandbox/bin/pytest -q \
+  tests/test_model_authored_linguistic_stress.py
 ```
 
-After exporting `LLM_API_KEY`, run or resume the frozen condition:
+The frozen staged commands are listed in
+`reports/TRI_model_authored_linguistic_stress_protocol.md`. Every full stage requires its matching
+smoke output. After full authoring, build the derived task file and second-stage hash manifest
+before any judge or controller request:
 
 ```bash
 PYTHONPATH=. ../../.venv-toolsandbox/bin/python \
-  scripts/run_binding_drift_tri_smoke.py \
-  --model Pro/zai-org/GLM-5.1 \
-  --verifier-label GLM-5.1 \
-  --data data/temporal_referent_v7_core_replication.jsonl \
-  --expected-rows 240 \
-  --output runs/binding_drift_tri_glm_self_reverify_v7_full_v1.jsonl \
-  --resume
+  scripts/build_model_authored_linguistic_stress.py --stage tasks
 ```
 
-Generate the frozen report only after all 240 unique rows are present:
+After both judges and all four model/controller conditions complete, regenerate the reports with:
 
 ```bash
 PYTHONPATH=. ../../.venv-toolsandbox/bin/python \
-  scripts/report_binding_drift_tri_v7_full.py
+  scripts/report_model_authored_linguistic_stress.py
 ```
+
+## Revision matched audits
+
+The 2026-07-26 revision protocol freezes three equal-call audits before their own model calls:
+the complete 160-row diagnostic, all 50 existing volunteer rewrites, and 30 changed pairs balanced
+across STATE-Bench, AgentDojo, and ToolSandbox source-grounded substrates. Build and verify the
+immutable inventories with:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. ../../.venv-toolsandbox/bin/python \
+  scripts/build_revision_matched_audits.py --check
+```
+
+Each task uses one compiler and two matched actor calls. The actor payloads differ only by the
+shared `compiler_decision`; deterministic enforcement adds no model call. Exact ID matching is
+mandatory. Run the complete smoke/full matrix after exporting `LLM_API_KEY` or
+`SILICONFLOW_API_KEY`:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. ../../.venv-toolsandbox/bin/python \
+  scripts/run_revision_matrix.py
+```
+
+The matrix is append-only resumable and never overwrites raw output. A partial file is resumed only
+after its complete rows are validated as the exact frozen prefix, including model, stage, task,
+protocol, and task-file hashes. Protocol, manifest, execution log, pre-call amendment,
+source-grounded Rule* transfer, and the
+known-label public-audit implementation check are under `reports/`.
+
+All three source-grounded full runs are complete at 60/60 rows and 180/180 logical calls per model.
+Use `reports/revision_source_grounded_v2.{json,md}` for paper-facing denominators; v1 is retained
+because its Preserve-substitution denominator included non-actionable rows in audits that contain a
+Reject slice. The source-grounded inventory itself is entirely actionable, so its raw metrics are
+unchanged by that reporter amendment.

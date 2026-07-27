@@ -55,8 +55,9 @@ matters scientifically.
 
 The completed audit sharpens this consequence. Across five dataset/model-family candidate sets,
 all 15 Stable-only or one-sided maximizer sets contain a zero-PairAcc unconditional policy;
-worst-case regret is 96.9 points. Aggregate accuracy agrees with the best matched policy in four
-sets but selects a policy 6.2 points below the PairAcc optimum in the fifth. These are descriptive
+worst-case regret is 100 points. A 2026-07-23 correction added reported Lifecycle-Gated rows that
+the first implementation had omitted; Aggregate accuracy is PairAcc-optimal in all five complete
+sets. These are descriptive
 candidate-set results, not a claim about how benchmark users break ties or deployment prevalence.
 
 ## Experiment decision ladder

@@ -1,0 +1,59 @@
+{
+  "boundary": "The rule is post-hoc to authored TRI analyses but byte-frozen before this source-grounded application.",
+  "by_source": {
+    "AgentDojo": {
+      "errors": {
+        "ambiguous_numeric_selector:": 20
+      },
+      "pairacc": [
+        0,
+        10
+      ],
+      "row_accuracy": [
+        0,
+        20
+      ]
+    },
+    "STATE-Bench": {
+      "errors": {
+        "ambiguous_numeric_selector:price,quantity": 2,
+        "wrong_target": 9
+      },
+      "pairacc": [
+        0,
+        10
+      ],
+      "row_accuracy": [
+        9,
+        20
+      ]
+    },
+    "ToolSandbox": {
+      "errors": {
+        "ambiguous_ranking_direction": 10,
+        "wrong_target": 4
+      },
+      "pairacc": [
+        2,
+        10
+      ],
+      "row_accuracy": [
+        6,
+        20
+      ]
+    }
+  },
+  "evidence_status": "post-hoc Rule* frozen before this source-grounded application",
+  "pairacc": [
+    2,
+    30
+  ],
+  "report_version": "TRI-frozen-rule-source-grounded-report-v1",
+  "row_accuracy": [
+    15,
+    60
+  ],
+  "rows": 60,
+  "rule_sha256": "34cbbd39072bd5d473768666bad684c9d5e491b830df6a6b6ebcb98abd1bbfb8",
+  "task_file_sha256": "1af6360a37f03d078c18c4b83b8419166bcbb119b9b448ebdcb1b745dce914ce"
+}

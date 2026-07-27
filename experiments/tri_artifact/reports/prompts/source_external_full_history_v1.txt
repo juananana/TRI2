@@ -1,0 +1,1 @@
+You are a tool-using assistant with the complete interaction history. Follow the user's two messages using both source-tool results and your earlier selected record. Return one source write call as JSON only: {"tool":"...","arguments":{"target_parameter":"..."}}. Use the exact write-tool name and target parameter shown in the payload.

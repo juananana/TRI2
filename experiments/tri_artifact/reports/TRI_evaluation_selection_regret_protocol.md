@@ -18,10 +18,10 @@ irrelevant to benchmark-based policy selection in the frozen candidate sets.
 
 No model calls and no new task rows are permitted. The only inputs are:
 
-- `reports/v3_identifiability_regimes_v1.json`, SHA-256
-  `f9acb0c9e7ba9028f1402dff31e7239f937e9267f73bd125653d2e9e845e67d7`;
-- `reports/v7_identifiability_regimes_v1.json`, SHA-256
-  `8aac36f5c4d18c3ed1d119d20886ee7c42c3ff1d584a7d2f76b34a1512e61ed4`.
+- `reports/v3_identifiability_regimes_v1.json`, corrected SHA-256
+  `8de7ca1bb52eb13e6f3ff7fd184ea1468463a48308cd6d5d8b876c51f9d22332`;
+- `reports/v7_identifiability_regimes_v1.json`, corrected SHA-256
+  `f6cfc95206ecf7c0ba9b3131ad7907144b8558a80db48ee1bd07003322b2b305`.
 
 The reports already count missing/API/parse failures under their frozen ITT rules.
 
@@ -31,6 +31,17 @@ Analyses are separated by dataset and model family. Each candidate set contains 
 available Generic, CTA, and other reported lifecycle configuration plus the two deterministic
 model-independent extremes, `Always-Lock+validity` and `Always-Reevaluate`. No cross-model ranking
 is reported.
+
+### Corrective amendment (2026-07-23, Asia/Shanghai)
+
+The first implementation used identifiability reports that omitted the reported
+Lifecycle-Gated rows, contrary to the frozen candidate-set definition above. This made the v3 GLM
+aggregate candidate set incomplete and produced a spurious 6.25-point regret. The correction adds
+the already frozen Qwen/GLM Lifecycle-Gated outputs to the v3 and v7 identifiability reports; no
+task, metric, tie rule, controller output, or API call changes. The original input hashes were
+`f9acb0...e67d7` and `8aac36...61ed4`. The corrected audit retains the unfavorable result that
+aggregate E2E is PairAcc-optimal in all five complete candidate sets. Stable-only and one-sided
+maximizer sets still license a zero-PairAcc extreme in all 15 cases.
 
 ## Frozen metrics
 
@@ -76,4 +87,3 @@ maximizer enumeration, and regret arithmetic. Retain all dataset/model/proxy row
 the metric, candidate sets, tie handling, or interpretation thresholds after report inspection.
 Write machine-readable JSON and Markdown reports and add the result to
 `reports/current_claim_provenance.md` as post-primary zero-API evidence.
-

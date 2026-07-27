@@ -1,0 +1,326 @@
+{
+  "evidence_status": "post-primary model-authored linguistic stress test; post-primary transport-repaired",
+  "claim_boundary": "frozen model-authored linguistic distribution; not independent human or native-workflow evidence",
+  "transport_repair": {
+    "reason": "two-hyphen generated IDs were truncated by the pre-existing normalizer",
+    "method": "exact actor target and compiled-ID match against serialized state IDs",
+    "new_api_calls": 0,
+    "invalid_report_retained": "reports/model_authored_linguistic_stress_v1.json",
+    "addendum": "reports/TRI_model_authored_linguistic_stress_transport_repair_addendum.md",
+    "addendum_sha256": "acb84df0540c2a6aec46ebd7f2a89f68ab5ae44d7067c3493d96ff489478a7cc",
+    "source": "tri/model_authored_linguistic_stress.py",
+    "source_sha256": "ab3d707a6cd0c6c83d0c20e24ae0ce111e5d46aa634ff337000442b4f8a1c7c3"
+  },
+  "inventory": {
+    "tasks": 48,
+    "pairs": 24,
+    "domains": 24,
+    "generation_valid_rows": 48,
+    "generation_failed_rows": 0,
+    "task_sha256": "58343e4ea530957ac85731685ef502a3ce48d604ef71ba4bf4cb7864663b959b",
+    "manifest_sha256": "6633539e14e7e7ae83bb862031562be21f83f35b1eebe0d2b0a88393f484bbf0"
+  },
+  "model_assisted_validation": {
+    "judges": {
+      "qwen": {
+        "model_id": "Qwen/Qwen3.5-122B-A10B",
+        "accepted": 25,
+        "statuses": {
+          "ok": 48
+        },
+        "path": "runs/model_authored_linguistic_judge_qwen_full_v1.jsonl",
+        "sha256": "7a4de89d8449f1b20632110e022490b3cd27a32377b21e838bd16ec48da281a6"
+      },
+      "glm": {
+        "model_id": "Pro/zai-org/GLM-5.1",
+        "accepted": 33,
+        "statuses": {
+          "ok": 48
+        },
+        "path": "runs/model_authored_linguistic_judge_glm_full_v1.jsonl",
+        "sha256": "ca1ac640c9520c50db75efbf78ce6dcaa795be7be6c8110d0b898405fc26f898"
+      }
+    },
+    "dual_valid_rows": 11,
+    "dual_valid_complete_pairs": 0
+  },
+  "runs": {
+    "qwen_generic": {
+      "model_id": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "generic",
+      "all_generated_itt": {
+        "n_rows": 48,
+        "correct_rows": 24,
+        "accuracy": 0.5,
+        "n_complete_pairs": 24,
+        "correct_pairs": 0,
+        "pair_accuracy": 0.0
+      },
+      "dual_judge_valid": {
+        "n_rows": 11,
+        "correct_rows": 1,
+        "accuracy": 0.09090909090909091,
+        "n_complete_pairs": 0,
+        "correct_pairs": 0,
+        "pair_accuracy": null
+      },
+      "by_mode": {
+        "preserve": {
+          "n": 24,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "reevaluate": {
+          "n": 24,
+          "correct": 24,
+          "accuracy": 1.0
+        }
+      },
+      "conditional_substitution": {
+        "eligible": 24,
+        "substitutions": 24,
+        "rate": 1.0
+      },
+      "statuses": {
+        "ok": 48
+      },
+      "http_attempts": 96,
+      "retries": 0,
+      "transport_recovered_targets": 48,
+      "transport_unresolved_targets": 0,
+      "transport_recovered_initial_bindings": 48,
+      "path": "runs/model_authored_linguistic_evaluate_qwen_generic_full_v1.jsonl",
+      "sha256": "952f91819c8ea169da956e66211d18400ca344834730624bd768b27af14941f8"
+    },
+    "qwen_cta": {
+      "model_id": "Qwen/Qwen3.5-122B-A10B",
+      "controller": "cta",
+      "all_generated_itt": {
+        "n_rows": 48,
+        "correct_rows": 36,
+        "accuracy": 0.75,
+        "n_complete_pairs": 24,
+        "correct_pairs": 12,
+        "pair_accuracy": 0.5
+      },
+      "dual_judge_valid": {
+        "n_rows": 11,
+        "correct_rows": 10,
+        "accuracy": 0.9090909090909091,
+        "n_complete_pairs": 0,
+        "correct_pairs": 0,
+        "pair_accuracy": null
+      },
+      "by_mode": {
+        "preserve": {
+          "n": 24,
+          "correct": 12,
+          "accuracy": 0.5
+        },
+        "reevaluate": {
+          "n": 24,
+          "correct": 24,
+          "accuracy": 1.0
+        }
+      },
+      "conditional_substitution": {
+        "eligible": 12,
+        "substitutions": 0,
+        "rate": 0.0
+      },
+      "statuses": {
+        "ok": 48
+      },
+      "http_attempts": 96,
+      "retries": 0,
+      "transport_recovered_targets": 48,
+      "transport_unresolved_targets": 0,
+      "transport_recovered_initial_bindings": 12,
+      "path": "runs/model_authored_linguistic_evaluate_qwen_cta_full_v1.jsonl",
+      "sha256": "dffe1c12479fbc83b3d4432062377a02aa7b2966d4589ee1c72d2a52474ee6b8"
+    },
+    "glm_generic": {
+      "model_id": "Pro/zai-org/GLM-5.1",
+      "controller": "generic",
+      "all_generated_itt": {
+        "n_rows": 48,
+        "correct_rows": 24,
+        "accuracy": 0.5,
+        "n_complete_pairs": 24,
+        "correct_pairs": 0,
+        "pair_accuracy": 0.0
+      },
+      "dual_judge_valid": {
+        "n_rows": 11,
+        "correct_rows": 1,
+        "accuracy": 0.09090909090909091,
+        "n_complete_pairs": 0,
+        "correct_pairs": 0,
+        "pair_accuracy": null
+      },
+      "by_mode": {
+        "preserve": {
+          "n": 24,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "reevaluate": {
+          "n": 24,
+          "correct": 24,
+          "accuracy": 1.0
+        }
+      },
+      "conditional_substitution": {
+        "eligible": 24,
+        "substitutions": 20,
+        "rate": 0.8333333333333334
+      },
+      "statuses": {
+        "ok": 48
+      },
+      "http_attempts": 96,
+      "retries": 0,
+      "transport_recovered_targets": 48,
+      "transport_unresolved_targets": 0,
+      "transport_recovered_initial_bindings": 48,
+      "path": "runs/model_authored_linguistic_evaluate_glm_generic_full_v1.jsonl",
+      "sha256": "b5f81af17b8d6b60b48301bc218f873136eb5002f213a0f949348248a4d30de4"
+    },
+    "glm_cta": {
+      "model_id": "Pro/zai-org/GLM-5.1",
+      "controller": "cta",
+      "all_generated_itt": {
+        "n_rows": 48,
+        "correct_rows": 36,
+        "accuracy": 0.75,
+        "n_complete_pairs": 24,
+        "correct_pairs": 12,
+        "pair_accuracy": 0.5
+      },
+      "dual_judge_valid": {
+        "n_rows": 11,
+        "correct_rows": 9,
+        "accuracy": 0.8181818181818182,
+        "n_complete_pairs": 0,
+        "correct_pairs": 0,
+        "pair_accuracy": null
+      },
+      "by_mode": {
+        "preserve": {
+          "n": 24,
+          "correct": 12,
+          "accuracy": 0.5
+        },
+        "reevaluate": {
+          "n": 24,
+          "correct": 24,
+          "accuracy": 1.0
+        }
+      },
+      "conditional_substitution": {
+        "eligible": 12,
+        "substitutions": 0,
+        "rate": 0.0
+      },
+      "statuses": {
+        "ok": 48
+      },
+      "http_attempts": 96,
+      "retries": 0,
+      "transport_recovered_targets": 48,
+      "transport_unresolved_targets": 0,
+      "transport_recovered_initial_bindings": 12,
+      "path": "runs/model_authored_linguistic_evaluate_glm_cta_full_v1.jsonl",
+      "sha256": "05726ab3409653ab9ad174e109aea8ecab7000eda56a9ef1674f36aaffabb644"
+    }
+  },
+  "comparisons": {
+    "qwen": {
+      "all_generated_pairacc_difference": {
+        "difference": 0.5,
+        "interval": [
+          0.2916666666666667,
+          0.7083333333333334
+        ],
+        "n_pairs": 24,
+        "samples": 10000,
+        "seed": 20260726
+      },
+      "dual_judge_valid_pairacc_difference": {
+        "difference": null,
+        "interval": [
+          null,
+          null
+        ],
+        "n_pairs": 0
+      },
+      "row_exact_mcnemar": {
+        "baseline_only": 0,
+        "treatment_only": 12,
+        "exact_p": 0.00048828125
+      }
+    },
+    "glm": {
+      "all_generated_pairacc_difference": {
+        "difference": 0.5,
+        "interval": [
+          0.2916666666666667,
+          0.7083333333333334
+        ],
+        "n_pairs": 24,
+        "samples": 10000,
+        "seed": 20260726
+      },
+      "dual_judge_valid_pairacc_difference": {
+        "difference": null,
+        "interval": [
+          null,
+          null
+        ],
+        "n_pairs": 0
+      },
+      "row_exact_mcnemar": {
+        "baseline_only": 0,
+        "treatment_only": 12,
+        "exact_p": 0.00048828125
+      }
+    }
+  },
+  "rule_star": {
+    "status": "post-hoc benchmark-aware frozen rule",
+    "all_generated_itt": {
+      "n_rows": 48,
+      "correct_rows": 15,
+      "accuracy": 0.3125,
+      "n_complete_pairs": 24,
+      "correct_pairs": 5,
+      "pair_accuracy": 0.20833333333333334
+    },
+    "dual_judge_valid": {
+      "n_rows": 11,
+      "correct_rows": 2,
+      "accuracy": 0.18181818181818182,
+      "n_complete_pairs": 0,
+      "correct_pairs": 0,
+      "pair_accuracy": null
+    },
+    "by_mode": {
+      "preserve": {
+        "n": 24,
+        "correct": 5,
+        "accuracy": 0.20833333333333334
+      },
+      "reevaluate": {
+        "n": 24,
+        "correct": 10,
+        "accuracy": 0.4166666666666667
+      }
+    },
+    "conditional_substitution": {
+      "eligible": 0,
+      "substitutions": 0,
+      "rate": null
+    },
+    "unresolved": 28
+  }
+}

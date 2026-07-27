@@ -19,49 +19,51 @@
     "abstract_chronology_is_explicit": true,
     "body_chronology_is_explicit": true,
     "primary_is_explicitly_package_level": true,
+    "binding_drift_boundary_and_citation_are_explicit": true,
     "selector_visibility_boundary_is_explicit": true,
     "code_data_supplement_routing_is_explicit": true,
     "figure_two_evidence_status_is_explicit": true,
     "no_overstated_tie_or_sample_sufficiency_language": true,
     "external_extension_has_four_paper_facing_conditions": true,
+    "source_anchored_transfer_retains_boundary": true,
     "conclusion_retains_scope_boundary": true
   },
   "first_use": {
     "TRI": {
-      "first": 527,
-      "definition": 497
+      "first": 229,
+      "definition": 199
     },
     "LLM": {
-      "first": 2546,
-      "definition": 2524
+      "first": 6591,
+      "definition": 6569
     },
     "CTA": {
-      "first": 1324,
-      "definition": 1306
+      "first": 811,
+      "definition": 793
     },
     "ID": {
-      "first": 2859,
-      "definition": 2840
+      "first": 3019,
+      "definition": 3000
     },
     "APIs": {
-      "first": 9400,
-      "definition": 9364
+      "first": 8370,
+      "definition": 8334
     },
     "NLI": {
-      "first": 11150,
-      "definition": 11122
+      "first": 10149,
+      "definition": 10121
     },
     "PairAcc": {
-      "first": 16112,
-      "definition": 16097
+      "first": 1056,
+      "definition": 1041
     },
     "E2E": {
-      "first": 28945,
-      "definition": 28933
+      "first": 25549,
+      "definition": 25537
     },
     "ITT": {
-      "first": 35682,
-      "definition": 35662
+      "first": 40651,
+      "definition": 40631
     }
   },
   "missing_bibliography_entries": [],

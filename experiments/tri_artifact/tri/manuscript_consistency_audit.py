@@ -20,10 +20,10 @@ BIB = REPOSITORY / "paper/aaai2027.bib"
 
 
 FIRST_USE_EXPANSIONS = {
-    "TRI": "temporal referent\nintegrity} (TRI)",
+    "TRI": "temporal referent integrity}\n(TRI)",
     "LLM": "large language model (LLM)",
     "CTA": "Compile-then-act (CTA)",
-    "ID": "entity identifier (ID)",
+    "ID": "entity identifier\n(ID)",
     "APIs": "application programming interfaces (APIs)",
     "NLI": "natural-language inference (NLI)",
     "PairAcc": "pair accuracy (PairAcc)",
@@ -33,7 +33,7 @@ FIRST_USE_EXPANSIONS = {
 
 
 def _without_comments(text: str) -> str:
-    return "\n".join(line.split("%", 1)[0] for line in text.splitlines())
+    return "\n".join(re.split(r"(?<!\\)%", line, maxsplit=1)[0] for line in text.splitlines())
 
 
 def _citation_keys(text: str) -> set[str]:
@@ -51,6 +51,7 @@ def build_report(paper: Path = PAPER, bib: Path = BIB) -> dict[str, Any]:
     paper_text = _without_comments(paper.read_text(encoding="utf-8"))
     supplement_text = _without_comments(SUPPLEMENT.read_text(encoding="utf-8"))
     normalized_paper = re.sub(r"\s+", " ", paper_text)
+    normalized_supplement = re.sub(r"\s+", " ", supplement_text)
     bib_text = _without_comments(bib.read_text(encoding="utf-8"))
     body = paper_text.split("\\begin{document}", 1)[-1]
     checks: dict[str, bool] = {}
@@ -72,48 +73,62 @@ def build_report(paper: Path = PAPER, bib: Path = BIB) -> dict[str, Any]:
         token in paper_text for token in ("Model / ctl.", " / Gen. &", "CTA/Gated")
     )
     checks["abstract_retains_scope_boundary"] = all(
-        phrase in paper_text
+        phrase in normalized_paper
         for phrase in (
-            "not natural\nprevalence, universal agent failure, or comprehensive benchmark coverage",
-            "evidence does not identify a unique implementation",
+            "controlled diagnostic for selective referent re-resolution",
+            "Author-built public-suite retrieval finds no strict native opportunity, but recall is uncalibrated",
+            "native-workflow prevalence and open-language coverage remain unresolved",
+            "A post-hoc event-order rule performs strongly on authored inventories but transfers poorly",
         )
     )
     checks["abstract_chronology_is_explicit"] = all(
-        phrase in paper_text
+        phrase in normalized_paper
         for phrase in (
-            "pre-specified v3 controller comparison",
-            "post-primary diagnostic reanalysis",
-            "frozen v7 replications",
+            "Across a 240-task cross-schema replication",
+            "Under equal calls and actor payloads",
+            "A post-hoc event-order rule",
         )
     )
     checks["body_chronology_is_explicit"] = all(
-        phrase in paper_text
+        phrase in normalized_paper
         for phrase in (
-            "v3 method comparison was the original primary",
-            "selection regret are post-primary zero-API reanalyses",
-            "Rule v2 is post-hoc",
+            "Package runs: Qwen primary/frozen; GLM post-primary",
+            "Full matched-call confirmation (post-primary)",
+            "Source-derived matched-call contrast (post-primary)",
+            "Post-hoc event-order rule",
+            "Planned or unverified analyses are not results",
         )
     )
     checks["primary_is_explicitly_package_level"] = all(
-        phrase in paper_text
+        phrase in normalized_paper
         for phrase in (
-            "pre-specified package-level Generic-versus-Lifecycle-Gated comparison",
-            "complete Lifecycle-Gated package minus Generic accuracy",
+            "primary Qwen package comparison and GLM replication are call-asymmetric mechanism probes",
+            "Lifecycle-Gated improves over Generic",
+            "primary package comparison call-asymmetric",
+        )
+    )
+    checks["binding_drift_boundary_and_citation_are_explicit"] = all(
+        phrase in normalized_paper
+        for phrase in (
+            "Concurrent Binding Drift work studies whether a correctly bound primary carry slot remains stable",
+            "TRI varies the control state of the same action-target description under the same transition",
+            "\\cite{babu2026bindingdrift}",
+            "Persistence-policy adaptations",
         )
     )
     checks["selector_visibility_boundary_is_explicit"] = all(
         phrase in normalized_paper
         for phrase in (
-            "instruction's natural-language selector, but not gold",
-            "generator-normalized selector fields",
-            "pre-/post-refresh winner IDs",
+            "Controllers receive the instruction's natural-language selector",
+            "Gold targets, normalized selector fields",
+            "pre-/post-refresh winner IDs are withheld",
         )
     )
     checks["code_data_supplement_routing_is_explicit"] = all(
         phrase in paper_text
         for phrase in (
             "anonymous Code and Data Supplement contains prompts, runner interfaces",
-            "full derived tables are in the Code and Data Supplement",
+            "Complete settings are in the Code and Data Supplement",
         )
     ) and all(
         phrase not in paper_text
@@ -122,13 +137,20 @@ def build_report(paper: Path = PAPER, bib: Path = BIB) -> dict[str, Any]:
             "Complete E2E,\nmode-slice, schema-transfer, and model-facing SQLite tables are supplementary",
         )
     )
-    checks["figure_two_evidence_status_is_explicit"] = all(
-        phrase in normalized_paper
-        for phrase in (
-            "Post-primary, zero-API matched-pair",
-            "Post-primary component audits frozen before their own calls",
-            "The primary was the Qwen Generic-versus-Lifecycle-Gated package comparison",
-            "Rule v2 followed post-hoc failure inspection",
+    checks["figure_two_evidence_status_is_explicit"] = (
+        "Post-primary audits from frozen \\PrimaryDiagnostic{} and \\NewSchemaReplication{} outputs"
+        in normalized_supplement
+        and all(
+            phrase in normalized_paper
+            for phrase in (
+                "Policy marginals and matched discrimination on the \\PrimaryDiagnostic{}",
+                "Cross-schema paired controller transitions on shared-eligible Preserve rows",
+                "Wrong-target writes under fixed-executor replay",
+                "Decision-visible minus History-only effects under equal calls",
+                "Package runs: Qwen primary/frozen; GLM post-primary",
+                "Changed pairs (post-primary audit)",
+                "Post-hoc event-order rule",
+            )
         )
     )
     checks["no_overstated_tie_or_sample_sufficiency_language"] = not any(
@@ -141,14 +163,22 @@ def build_report(paper: Path = PAPER, bib: Path = BIB) -> dict[str, Any]:
         )
     )
     checks["external_extension_has_four_paper_facing_conditions"] = (
-        "Four conditions in a frozen 96-task extension" in paper_text
-        and "Five conditions in a frozen 96-task extension" not in paper_text
+        "four-condition, 96-task extension" in normalized_paper
+        and "five-condition, 96-task extension" not in paper_text.lower()
+    )
+    checks["source_anchored_transfer_retains_boundary"] = all(
+        phrase in normalized_paper
+        for phrase in (
+            "connect the controlled diagnostic to source interfaces",
+            "public-suite audit below examines native opportunity coverage separately",
+            "execution accuracy has no consistent winner",
+        )
     )
     checks["conclusion_retains_scope_boundary"] = all(
-        phrase in paper_text
+        phrase in normalized_paper
         for phrase in (
-            "not a general runtime architecture",
-            "prevalence estimate, or universal safety claim",
+            "The current evidence covers controlled single-refresh scalar workflows",
+            "Native-workflow frequency and general runtime behavior remain unmeasured",
         )
     )
     return {

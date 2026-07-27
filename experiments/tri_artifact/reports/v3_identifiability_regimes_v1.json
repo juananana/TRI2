@@ -144,6 +144,49 @@
     },
     {
       "dataset": "v3",
+      "controller": "Qwen-Lifecycle-Gated",
+      "source": "runs/20260717T030034Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v3_language_clusters_nothinking.jsonl",
+      "n": 160,
+      "regimes": {
+        "aggregate_e2e": {
+          "n": 160,
+          "correct": 157,
+          "accuracy": 0.98125
+        },
+        "preserve_only": {
+          "n": 80,
+          "correct": 80,
+          "accuracy": 1.0
+        },
+        "reevaluate_only": {
+          "n": 80,
+          "correct": 77,
+          "accuracy": 0.9625
+        },
+        "stable_only": {
+          "n": 32,
+          "correct": 32,
+          "accuracy": 1.0
+        },
+        "changed_winner_only": {
+          "n": 32,
+          "correct": 32,
+          "accuracy": 1.0
+        }
+      },
+      "conditional_changed_winner": {
+        "eligible": 32,
+        "drift_to_refreshed_winner": 0,
+        "drift_rate": 0.0
+      },
+      "changed_pairacc": {
+        "pairs": 32,
+        "both_correct": 32,
+        "pair_accuracy": 1.0
+      }
+    },
+    {
+      "dataset": "v3",
       "controller": "GLM-Generic",
       "source": "runs/20260717T032824Z_Pro_zai-org_GLM-5.1_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
       "n": 160,
@@ -269,6 +312,49 @@
         "pairs": 32,
         "both_correct": 29,
         "pair_accuracy": 0.90625
+      }
+    },
+    {
+      "dataset": "v3",
+      "controller": "GLM-Lifecycle-Gated",
+      "source": "runs/20260717T034201Z_Pro_zai-org_GLM-5.1_factorized_hybrid_compile_then_act_v3_language_clusters_nothinking.jsonl",
+      "n": 160,
+      "regimes": {
+        "aggregate_e2e": {
+          "n": 160,
+          "correct": 160,
+          "accuracy": 1.0
+        },
+        "preserve_only": {
+          "n": 80,
+          "correct": 80,
+          "accuracy": 1.0
+        },
+        "reevaluate_only": {
+          "n": 80,
+          "correct": 80,
+          "accuracy": 1.0
+        },
+        "stable_only": {
+          "n": 32,
+          "correct": 32,
+          "accuracy": 1.0
+        },
+        "changed_winner_only": {
+          "n": 32,
+          "correct": 32,
+          "accuracy": 1.0
+        }
+      },
+      "conditional_changed_winner": {
+        "eligible": 32,
+        "drift_to_refreshed_winner": 0,
+        "drift_rate": 0.0
+      },
+      "changed_pairacc": {
+        "pairs": 32,
+        "both_correct": 32,
+        "pair_accuracy": 1.0
       }
     },
     {

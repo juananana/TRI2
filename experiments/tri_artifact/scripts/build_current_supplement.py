@@ -33,7 +33,9 @@ PAPER_FILES = (
     "aaai2027.sty",
     "ReproducibilityChecklist.tex",
     "supplementary_material.tex",
+    "source_anchored_external_transfer_table.tex",
 )
+PAPER_FIGURE_PATTERNS = ("*.pdf",)
 
 HUMAN_PUBLIC_FILES = {
     Path("human_validation/analysis.json"),
@@ -122,8 +124,9 @@ def source_files() -> list[tuple[Path, Path]]:
     for name in PAPER_FILES:
         source = PAPER / name
         files.append((source, Path("tri_artifact") / "paper" / name))
-    for source in sorted((PAPER / "Figures").glob("*.pdf")):
-        files.append((source, Path("tri_artifact") / "paper" / "Figures" / source.name))
+    for pattern in PAPER_FIGURE_PATTERNS:
+        for source in sorted((PAPER / "Figures").glob(pattern)):
+            files.append((source, Path("tri_artifact") / "paper" / "Figures" / source.name))
     return files
 
 
@@ -148,7 +151,7 @@ def build(output: Path) -> None:
 
 This archive corresponds to the current TRI AAAI manuscript. It contains frozen datasets,
 raw model outputs, protocols, report generators, tests, external-pilot code, paper source,
-and final figure PDFs. It also contains de-identified normalized human responses and aggregate
+and final figure PDFs/PNGs. It also contains de-identified normalized human responses and aggregate
 analysis, while API credentials, private answer mappings, workbooks, coordination forms, and
 participant-identifying materials are excluded.
 
@@ -181,9 +184,41 @@ every archived source file.
                 raise ValueError(f"corrupt archive member: {bad}")
             names = set(archive.namelist())
             required = {
+                "tri_artifact/data/external_public_annotation_candidates_v1.jsonl",
                 "tri_artifact/data/temporal_referent_v3_language_clusters.jsonl",
+                "tri_artifact/reports/TRI_external_public_siliconflow_annotation_addendum.md",
+                "tri_artifact/reports/external_public_annotation_v1.json",
+                "tri_artifact/runs/external_public_annotation_siliconflow_v1.jsonl",
+                "tri_artifact/data/source_anchored_external_transfer_tasks_v1.jsonl",
+                "tri_artifact/reports/TRI_source_anchored_external_transfer_model_addendum.md",
+                "tri_artifact/reports/source_anchored_external_transfer_v1.json",
+                "tri_artifact/runs/source_anchored_external_transfer_siliconflow_repaired_v1.jsonl",
+                "tri_artifact/scripts/report_source_anchored_external_transfer.py",
+                "tri_artifact/data/model_authored_linguistic_semantics_v1.jsonl",
+                "tri_artifact/data/model_authored_linguistic_stress_v1.jsonl",
+                "tri_artifact/reports/TRI_model_authored_linguistic_stress_protocol.md",
+                "tri_artifact/reports/TRI_model_authored_linguistic_stress_transport_repair_addendum.md",
+                "tri_artifact/reports/model_authored_linguistic_stress_transport_repaired_v2.json",
+                "tri_artifact/runs/model_authored_linguistic_author_full_v1.jsonl",
+                "tri_artifact/runs/model_authored_linguistic_judge_qwen_full_v1.jsonl",
+                "tri_artifact/runs/model_authored_linguistic_judge_glm_full_v1.jsonl",
+                "tri_artifact/runs/model_authored_linguistic_evaluate_qwen_generic_full_v1.jsonl",
+                "tri_artifact/runs/model_authored_linguistic_evaluate_qwen_cta_full_v1.jsonl",
+                "tri_artifact/runs/model_authored_linguistic_evaluate_glm_generic_full_v1.jsonl",
+                "tri_artifact/runs/model_authored_linguistic_evaluate_glm_cta_full_v1.jsonl",
+                "tri_artifact/reports/TRI_binding_drift_author_adaptation_v7_full_protocol.md",
+                "tri_artifact/reports/binding_drift_tri_glm_v7_full_v1.json",
+                "tri_artifact/runs/binding_drift_tri_glm_self_reverify_v7_full_v1.jsonl",
+                "tri_artifact/tri/binding_drift_tri_adapter.py",
                 "tri_artifact/tri/run_models.py",
                 "tri_artifact/paper/AnonymousSubmission2027.tex",
+                "tri_artifact/paper/source_anchored_external_transfer_table.tex",
+                "tri_artifact/paper/Figures/fig_resolution_policy_phase_space_compact.pdf",
+                "tri_artifact/paper/Figures/fig_shared_eligible_target_flow_compact.pdf",
+                "tri_artifact/paper/Figures/fig_wrong_write_decomposition_compact.pdf",
+                "tri_artifact/paper/Figures/fig_source_model_transfer_fingerprints_compact.pdf",
+                "tri_artifact/paper/Figures/fig_decision_visibility_effect_sizes_compact.pdf",
+                "tri_artifact/paper/Figures/fig_enforcement_repairs_harms_compact.pdf",
                 "tri_artifact/SOURCE_MANIFEST.tsv",
             }
             missing = required - names

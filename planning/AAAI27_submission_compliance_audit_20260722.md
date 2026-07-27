@@ -1,6 +1,6 @@
 # AAAI-27 Submission Compliance Audit
 
-**Audit date:** 2026-07-23 (Asia/Shanghai)
+**Audit date:** 2026-07-24 (Asia/Shanghai)
 
 **Scope:** current anonymous main PDF, source, supplement, and reproducibility checklist.
 
@@ -33,23 +33,31 @@ for the final anonymous-archive audit.
 | Forbidden main-paper commands/packages | Pass | No `clearpage`, `setlength`, `resizebox`, `trim`, `clip`, negative spacing, `hyperref`, or geometry package appears in the main source. |
 | Undefined references/citations | Pass | No undefined citation/reference or overfull-box warning found in the compiled logs. |
 | Supplement and reproducibility checklist build | Pass | Both built successfully in the current workspace. |
-| Critical evidence in main text | Pass | Main text includes the closest-neighbor boundary, policy-identifiability table, controls, v3/v7 results, full-history baseline, external nulls, and limitations. |
+| Critical evidence in main text | Pass | Main text includes the closest-neighbor boundary, policy-identifiability table, controls, v3/v7 results, full-history baseline, mixed external evidence, and limitations. |
 | Terminology, chronology, and cross-reference consistency | Pass | Static audit checks first-use expansions for nine abbreviations, all citation keys, all cross-references, table terminology, primary/post-primary chronology, and abstract/conclusion scope boundaries. |
 | AI-assistance disclosure | Pass | The supplement discloses language editing, code assistance, and internal review; it excludes authorship, citation, annotation, and independent-human-evidence roles. |
 
 ## Current Clean-Room Artifact Status
 
 - Rebuilt `submission/tri_anonymous_artifact_current.zip` from the revised paper and artifact
-  sources: 1011 payload files, 3,805,333 bytes.
-- Extracted the exact ZIP into a fresh temporary directory and ran the documented pytest command:
-  196 archived tests passed. The development tree has one additional packaging-only test, for 197
-  local tests total.
+  sources: 1,066 payload files, 4,129,751 bytes; SHA-256
+  `866a3368e4a535c58d2d3baa64a828a8427ed7765cb9c2b7f7c34897917267ee`.
+- Extracted the exact ZIP into a fresh temporary directory and ran the documented pytest suite in
+  the validated Python 3.12/pytest 9.1.1 environment: 216 archived tests passed. The development
+  tree has one additional packaging-only test, for 217 local tests total. The machine's bare
+  Homebrew Python 3.14 lacks pytest, consistent with the README's stated pytest prerequisite.
 - Verified every `SOURCE_MANIFEST.tsv` SHA-256 entry and the ZIP CRC for every member.
 - Scanned extracted content for author names, API-key patterns, and `/Users/` paths; no match was
   found.
+- Verified that the completed external public-candidate annotation inventory, protocol, raw JSONL,
+  and final report are required archive members; the final report has 160/160 pairs and zero
+  strict-positive union/intersection.
 - Verified the four paper-facing 96-task conditions directly from the archived reports
   (70/73/64/87 opportunities; 6/13/5/4 wrong writes; zero conditional mechanism errors). The
   unmatched Qwen-only sensitivity remains disclosed in the artifact and is not pooled with them.
+- Verified the 320-row source-anchored transfer report and raw run are required archive members:
+  306 rows are valid, 14 retained GLM parse/schema failures are reported, and the strict
+  Preserve/Changed signal is limited to 2/7 Qwen ordinary-history AgentDojo rows versus 0/7 Stable.
 - The clean-room pass exposed and repaired two packaging defects before this recorded pass: the
   generated README previously claimed a standard-library-only unittest command despite pytest
   imports, and the main-paper evidence audit assumed the development repository's paper path.

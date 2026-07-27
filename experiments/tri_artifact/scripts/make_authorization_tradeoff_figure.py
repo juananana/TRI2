@@ -110,7 +110,7 @@ def draw(path: Path, points: list[dict[str, Any]]) -> None:
     c.drawCentredString(0, 0, "Reevaluate accuracy (%)")
     c.restoreState()
     c.setFont(FONT_BOLD, 9.5)
-    c.drawString(left, height - 11, "Matched changed-winner calibration (v3)")
+    c.drawString(left, height - 11, "Matched changed-winner calibration")
 
     offsets = {
         ("Qwen3.5", "Generic"): (5, -20),
@@ -126,7 +126,7 @@ def draw(path: Path, points: list[dict[str, Any]]) -> None:
         "Lifecycle-gated": "Gated",
         "Always-Lock+validity": "Always-Lock",
         "Always-Reevaluate": "Always-Reeval",
-        "Rule v2 (post-hoc)": "Rule v2*",
+        "Rule v2 (post-hoc)": "Rule*",
     }
     for point in points:
         x = sx(point["preserve"])
@@ -160,7 +160,7 @@ def draw_compact(path: Path, points: list[dict[str, Any]]) -> None:
     c.setAuthor("anonymous")
     c.setCreator("anonymous")
 
-    left, bottom, right, top = 34, 31, width - 7, height - 47
+    left, bottom, right, top = 34, 31, width - 7, height - 24
     chart_w, chart_h = right - left, top - bottom
     axis_min, axis_max = -4, 104
 
@@ -188,27 +188,7 @@ def draw_compact(path: Path, points: list[dict[str, Any]]) -> None:
     c.rect(left, bottom, chart_w, chart_h, fill=0, stroke=1)
     c.setFillColor(INK)
     c.setFont(FONT_BOLD, 9.4)
-    c.drawString(left, height - 10, "Changed-winner calibration (v3)")
-    c.setFont(FONT_REGULAR, 9.2)
-    c.setFillColor(MUTED)
-    pair = {
-        (point["model"], point["controller"]): round(point["pair"])
-        for point in points
-    }
-    c.drawString(
-        left,
-        height - 23,
-        f"1 Q-Gen {pair[('Qwen3.5', 'Generic')]}   "
-        f"2 G-Gen {pair[('GLM-5.1', 'Generic')]}   "
-        f"3 Q-CTA {pair[('Qwen3.5', 'CTA')]}",
-    )
-    c.drawString(
-        left,
-        height - 35,
-        f"4 G-CTA {pair[('GLM-5.1', 'CTA')]}   "
-        f"5 Gate {pair[('Qwen3.5/GLM-5.1', 'Lifecycle-gated')]}   "
-        f"6 Rule* {pair[('model-independent', 'Rule v2 (post-hoc)')]}",
-    )
+    c.drawString(left, height - 10, "Changed-winner calibration")
     c.setFont(FONT_BOLD, 9.2)
     c.setFillColor(INK)
     c.drawCentredString(left + chart_w / 2, 8, "Preserve accuracy (%)")
@@ -219,28 +199,41 @@ def draw_compact(path: Path, points: list[dict[str, Any]]) -> None:
     c.restoreState()
 
     labels = {
-        ("Qwen3.5", "Generic"): ("1", 5, -14),
-        ("GLM-5.1", "Generic"): ("2", 5, 4),
-        ("Qwen3.5", "CTA"): ("3", -13, -18),
-        ("GLM-5.1", "CTA"): ("4", -20, -5),
-        ("Qwen3.5/GLM-5.1", "Lifecycle-gated"): ("5", -9, -31),
-        ("model-independent", "Always-Lock+validity"): ("Lock 0", -45, 6),
-        ("model-independent", "Always-Reevaluate"): ("Reeval 0", 5, -8),
-        ("model-independent", "Rule v2 (post-hoc)"): ("6", -14, -17),
+        ("Qwen3.5", "Generic"): ("Q-Gen", 5, -18, False),
+        ("GLM-5.1", "Generic"): ("G-Gen", 5, -3, False),
+        ("Qwen3.5", "CTA"): ("Q-CTA", -58, -29, True),
+        ("GLM-5.1", "CTA"): ("G-CTA", -58, 7, True),
+        ("Qwen3.5/GLM-5.1", "Lifecycle-gated"): ("Gated Q/G", -43, -15, True),
+        ("model-independent", "Always-Lock+validity"): ("Lock", -24, 6, False),
+        ("model-independent", "Always-Reevaluate"): ("Reeval", 4, -5, False),
+        ("model-independent", "Rule v2 (post-hoc)"): ("Rule*", -58, -45, True),
     }
+
+    # Draw compact markers first. Several upper-right results differ by only 3.125
+    # percentage points, so smaller glyphs preserve their true coordinates without jitter.
     for point in points:
         x, y = sx(point["preserve"]), sy(point["reevaluate"])
         color = QWEN if point["model"] == "Qwen3.5" else GLM if point["model"] in {"GLM-5.1", "Qwen3.5/GLM-5.1"} else INDEPENDENT
         c.setFillColor(color)
         if point["model"] == "model-independent":
-            c.rect(x - 2.3, y - 2.3, 4.6, 4.6, fill=1, stroke=0)
+            c.rect(x - 1.8, y - 1.8, 3.6, 3.6, fill=1, stroke=0)
         else:
             if point["model"] == "Qwen3.5":
-                c.circle(x, y, 3.0, fill=1, stroke=0)
+                c.circle(x, y, 2.1, fill=1, stroke=0)
             else:
-                c.rect(x - 3, y - 3, 6, 6, fill=1, stroke=0)
-        name, dx, dy = labels[(point["model"], point["controller"])]
-        c.setFont(FONT_REGULAR, 9.2)
+                c.rect(x - 2.1, y - 2.1, 4.2, 4.2, fill=1, stroke=0)
+
+    # Offset the dense upper-right labels and connect them to the unjittered markers.
+    for point in points:
+        x, y = sx(point["preserve"]), sy(point["reevaluate"])
+        color = QWEN if point["model"] == "Qwen3.5" else GLM if point["model"] in {"GLM-5.1", "Qwen3.5/GLM-5.1"} else INDEPENDENT
+        name, dx, dy, leader = labels[(point["model"], point["controller"])]
+        if leader:
+            c.setStrokeColor(color)
+            c.setLineWidth(0.45)
+            c.line(x, y, x + dx + 4, y + dy + 4)
+        c.setFillColor(color)
+        c.setFont(FONT_REGULAR, 8.2)
         c.drawString(x + dx, y + dy, name)
 
     c.showPage()

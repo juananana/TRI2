@@ -20,10 +20,12 @@ def test_main_paper_evidence_audit_matches_frozen_sources() -> None:
     assert report["v7_diagnostic_table"][0]["latex_row"] == "Qwen / Generic & 7/80 & 43/72 & 43/44 \\\\"
     assert report["selection_regret"]["proxy_evaluations"] == 20
     assert report["selection_regret"]["zero_pairacc_maximizer_rows"] == 15
-    assert report["selection_regret"]["maximum_worst_case_selection_regret"] == 0.96875
+    assert report["selection_regret"]["maximum_worst_case_selection_regret"] == 1.0
     assert [row["opportunities"] for row in report["external_extension"]] == [70, 73, 64, 87]
     assert [row["wrong_writes"] for row in report["external_extension"]] == [6, 13, 5, 4]
     assert all(row["mechanism_errors"] == 0 for row in report["external_extension"])
+    assert report["source_anchored_external_transfer"]["preserve_changed_substitutions"] == [2, 64]
+    assert report["source_anchored_external_transfer"]["state_bench_substitutions"] == [0, 34]
 
 
 def test_default_paper_path_prefers_archive_layout(tmp_path) -> None:

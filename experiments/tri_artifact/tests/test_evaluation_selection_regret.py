@@ -17,16 +17,20 @@ def test_selection_regret_report_is_complete_and_valid() -> None:
     assert report["summary"]["proxy_evaluations"] == 20
     assert report["summary"]["one_sided_or_stable_evaluations"] == 15
     assert report["summary"]["one_sided_or_stable_zero_pairacc_rows"] == 15
-    assert report["summary"]["aggregate_suboptimal_rows"] == 1
+    assert report["summary"]["aggregate_suboptimal_rows"] == 0
+    assert report["summary"]["aggregate_pairacc_optimal_rows"] == 5
 
 
 def test_preserve_only_selects_always_lock_with_large_regret() -> None:
     rows = by_key(build_report())
     qwen = rows[("v3", "Qwen", "preserve_only")]
-    assert qwen["proxy_maximizers"] == ["Always-Lock+validity"]
+    assert qwen["proxy_maximizers"] == [
+        "Always-Lock+validity",
+        "Qwen-Lifecycle-Gated",
+    ]
     assert qwen["zero_pairacc_maximizer_exists"] is True
-    assert qwen["best_pairacc_in_candidate_set"] == 0.9375
-    assert qwen["worst_case_selection_regret"] == 0.9375
+    assert qwen["best_pairacc_in_candidate_set"] == 1.0
+    assert qwen["worst_case_selection_regret"] == 1.0
 
 
 def test_reevaluate_only_can_leave_good_and_bad_policies_tied() -> None:
@@ -35,16 +39,17 @@ def test_reevaluate_only_can_leave_good_and_bad_policies_tied() -> None:
     assert glm["proxy_maximizers"] == [
         "Always-Reevaluate",
         "GLM-CTA",
+        "GLM-Lifecycle-Gated",
         "GLM-Lifecycle-free",
     ]
-    assert glm["pairacc_among_maximizers"] == {"minimum": 0.0, "maximum": 0.96875}
-    assert glm["worst_case_selection_regret"] == 0.96875
+    assert glm["pairacc_among_maximizers"] == {"minimum": 0.0, "maximum": 1.0}
+    assert glm["worst_case_selection_regret"] == 1.0
     assert glm["optimistic_selection_regret"] == 0.0
 
 
-def test_aggregate_can_choose_lower_pairacc_configuration() -> None:
+def test_aggregate_selects_pairacc_optimal_gated_configuration() -> None:
     rows = by_key(build_report())
     glm = rows[("v3", "GLM", "aggregate_e2e")]
-    assert glm["proxy_maximizers"] == ["GLM-Lifecycle-free"]
-    assert glm["best_pairacc_in_candidate_set"] == 0.96875
-    assert glm["worst_case_selection_regret"] == 0.0625
+    assert glm["proxy_maximizers"] == ["GLM-Lifecycle-Gated"]
+    assert glm["best_pairacc_in_candidate_set"] == 1.0
+    assert glm["worst_case_selection_regret"] == 0.0

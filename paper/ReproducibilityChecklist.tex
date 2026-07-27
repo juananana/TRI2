@@ -110,31 +110,31 @@ yes
 \begin{itemize}
 
 \question{Does this paper make theoretical contributions?}{(yes/no)}
-no
+yes---a restricted policy-identifiability proposition, not a general lower bound
 
 	\ifyespoints{\vspace{1.2em}If yes, please address the following points:}
         \begin{itemize}
 	
 	\question{All assumptions and restrictions are stated clearly and formally}{(yes/partial/no)}
-	NA
+	yes---the policy class, exact-target observation, deterministic setting, and changed-winner assumptions are explicit
 
 	\question{All novel claims are stated formally (e.g., in theorem statements)}{(yes/partial/no)}
-	NA
+	yes
 
 	\question{Proofs of all novel claims are included}{(yes/partial/no)}
-	NA
+	yes---the complete proof is in the Supplementary Material
 
 	\question{Proof sketches or intuitions are given for complex and/or novel results}{(yes/partial/no)}
-	NA
+	yes
 
 	\question{Appropriate citations to theoretical tools used are given}{(yes/partial/no)}
-	NA
+	NA---the proof is elementary and uses no external theoretical tool
 
 	\question{All theoretical claims are demonstrated empirically to hold}{(yes/partial/no/NA)}
-	NA
+	yes---the Always-Lock and Always-Reevaluate controls instantiate the two alternatives
 
 	\question{All experimental code used to eliminate or disprove claims is included}{(yes/no/NA)}
-	NA
+	yes---in the separately uploaded anonymous Code and Data Supplement
 	
 	\end{itemize}
 \end{itemize}
@@ -152,7 +152,7 @@ yes
 	yes
 
 	\question{All novel datasets introduced in this paper are included in a data appendix}{(yes/partial/no/NA)}
-	yes
+	yes---in the separately uploaded anonymous Code and Data Supplement
 
 	\question{All novel datasets introduced in this paper will be made publicly available upon publication of the paper with a license that allows free usage for research purposes}{(yes/partial/no/NA)}
 	yes
@@ -163,8 +163,8 @@ yes
 	\question{All datasets drawn from the existing literature (potentially including authors' own previously published work) are publicly available}{(yes/partial/no/NA)}
 	yes
 
-	\question{All datasets that are not publicly available are described in detail, with explanation why publicly available alternatives are not scientifically satisficing}{(yes/partial/no/NA)}
-	NA
+		\question{All datasets that are not publicly available are described in detail, with explanation why publicly available alternatives are not scientifically satisficing}{(yes/partial/no/NA)}
+		partial---private volunteer returns are withheld under the consent procedure; de-identified normalized responses and aggregate analyses are included
 
 \end{itemize}
 \end{itemize}
@@ -178,26 +178,26 @@ yes
 \ifyespoints{If yes, please address the following points:}
 \begin{itemize}
 
-	\question{This paper states the number and range of values tried per (hyper-) parameter during development of the paper, along with the criterion used for selecting the final parameter setting}{(yes/partial/no/NA)}
-	partial
+		\question{This paper states the number and range of values tried per (hyper-) parameter during development of the paper, along with the criterion used for selecting the final parameter setting}{(yes/partial/no/NA)}
+		partial---all final and frozen settings are reported; only exploratory prompt and post-hoc rule development lacked an exhaustive parameter sweep
 
 	\question{Any code required for pre-processing data is included in the appendix}{(yes/partial/no)}
-	yes
+	yes---in the separately uploaded anonymous Code and Data Supplement
 
 	\question{All source code required for conducting and analyzing the experiments is included in a code appendix}{(yes/partial/no)}
-	yes
+	yes---in the separately uploaded anonymous Code and Data Supplement
 
 	\question{All source code required for conducting and analyzing the experiments will be made publicly available upon publication of the paper with a license that allows free usage for research purposes}{(yes/partial/no)}
 	yes
         
-	\question{All source code implementing new methods have comments detailing the implementation, with references to the paper where each step comes from}{(yes/partial/no)}
-	partial
+		\question{All source code implementing new methods have comments detailing the implementation, with references to the paper where each step comes from}{(yes/partial/no)}
+		partial---runners, reports, protocols, and tests are documented, but not every helper function contains a manuscript cross-reference
 
 \question{If an algorithm depends on randomness, then the method used for setting seeds is described in a way sufficient to allow replication of results}{(yes/partial/no/NA)}
-partial
+partial---offline seeds and resampling procedures are fixed and recorded; exact provider inference replay is limited because the API exposes neither an inference seed nor an immutable serving revision
 
-	\question{This paper specifies the computing infrastructure used for running experiments (hardware and software), including GPU/CPU models; amount of memory; operating system; names and versions of relevant software libraries and frameworks}{(yes/partial/no)}
-	partial
+		\question{This paper specifies the computing infrastructure used for running experiments (hardware and software), including GPU/CPU models; amount of memory; operating system; names and versions of relevant software libraries and frameworks}{(yes/partial/no)}
+		partial---the client OS, Python, pytest, endpoint, and model IDs are reported; provider hardware and memory are not exposed
 
 	\question{This paper formally describes evaluation metrics used and explains the motivation for choosing these metrics}{(yes/partial/no)}
 	yes
@@ -209,10 +209,10 @@ yes
 yes
 
 \question{The significance of any improvement or decrease in performance is judged using appropriate statistical tests (e.g., Wilcoxon signed-rank)}{(yes/partial/no)}
-partial
+partial---the primary contrast uses clustered bootstrap intervals and matched audits use paired intervals; exploratory comparisons have no global multiplicity correction
 
 \question{This paper lists all final (hyper-)parameters used for each model/algorithm in the paper’s experiments}{(yes/partial/no/NA)}
-partial
+yes---literal prompts, model IDs, temperature, thinking mode, token caps, timeout, retry, stopping, and analysis settings are included in the supplement and anonymous artifact
 
 
 \end{itemize}

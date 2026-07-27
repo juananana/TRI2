@@ -1,0 +1,121 @@
+{
+  "title": "TRI-v3 Crossed-Dependence Statistical Sensitivity Audit",
+  "evidence_status": "post-primary replication/audit",
+  "designed_after_primary_result": true,
+  "zero_api": true,
+  "estimand": "Lifecycle-Gated minus Generic paired end-to-end exact-target accuracy",
+  "seed": 20260725,
+  "draws": 10000,
+  "interval": "95% percentile bootstrap interval",
+  "primary_ci_replaced": false,
+  "confirmatory_multiplicity_adjusted_inference": false,
+  "models": [
+    {
+      "model": "Qwen3.5",
+      "source_run_evidence_status": "primary/frozen",
+      "generic_file": "runs/20260717T025047Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+      "lifecycle_gated_file": "runs/20260717T030034Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v3_language_clusters_nothinking.jsonl",
+      "task_inventory_sha256": "632b3c5c28fcd75e359b35bd85c436b751a08930a4791c00de4552d4211bb39d",
+      "matched_tasks": 160,
+      "domains": 8,
+      "language_template_clusters": 20,
+      "cross_cells": 160,
+      "generic_successes": 103,
+      "lifecycle_gated_successes": 157,
+      "point_estimate": 0.3375,
+      "methods": {
+        "language_template": {
+          "point_estimate": 0.3375,
+          "ci95": [
+            0.18125,
+            0.49375
+          ],
+          "width": 0.3125,
+          "resampling_unit": "20 language-template clusters with replacement"
+        },
+        "domain": {
+          "point_estimate": 0.3375,
+          "ci95": [
+            0.30625,
+            0.36875
+          ],
+          "width": 0.0625,
+          "resampling_unit": "8 domains with replacement"
+        },
+        "two_way_pigeonhole": {
+          "point_estimate": 0.3375,
+          "ci95": [
+            0.1625,
+            0.50625
+          ],
+          "width": 0.34375,
+          "resampling_unit": "independent domain and language-template resampling with product weights"
+        }
+      },
+      "widest_interval_method": "two_way_pigeonhole",
+      "widest_ci95": [
+        0.1625,
+        0.50625
+      ],
+      "widest_width": 0.34375
+    },
+    {
+      "model": "GLM-5.1",
+      "source_run_evidence_status": "post-primary replication/audit",
+      "generic_file": "runs/20260717T032824Z_Pro_zai-org_GLM-5.1_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+      "lifecycle_gated_file": "runs/20260717T034201Z_Pro_zai-org_GLM-5.1_factorized_hybrid_compile_then_act_v3_language_clusters_nothinking.jsonl",
+      "task_inventory_sha256": "632b3c5c28fcd75e359b35bd85c436b751a08930a4791c00de4552d4211bb39d",
+      "matched_tasks": 160,
+      "domains": 8,
+      "language_template_clusters": 20,
+      "cross_cells": 160,
+      "generic_successes": 115,
+      "lifecycle_gated_successes": 160,
+      "point_estimate": 0.28125,
+      "methods": {
+        "language_template": {
+          "point_estimate": 0.28125,
+          "ci95": [
+            0.18125,
+            0.38125
+          ],
+          "width": 0.19999999999999998,
+          "resampling_unit": "20 language-template clusters with replacement"
+        },
+        "domain": {
+          "point_estimate": 0.28125,
+          "ci95": [
+            0.24375,
+            0.325
+          ],
+          "width": 0.08125000000000002,
+          "resampling_unit": "8 domains with replacement"
+        },
+        "two_way_pigeonhole": {
+          "point_estimate": 0.28125,
+          "ci95": [
+            0.1625,
+            0.4
+          ],
+          "width": 0.23750000000000002,
+          "resampling_unit": "independent domain and language-template resampling with product weights"
+        }
+      },
+      "widest_interval_method": "two_way_pigeonhole",
+      "widest_ci95": [
+        0.1625,
+        0.4
+      ],
+      "widest_width": 0.23750000000000002
+    }
+  ],
+  "overall_widest_interval": {
+    "model": "Qwen3.5",
+    "method": "two_way_pigeonhole",
+    "ci95": [
+      0.1625,
+      0.50625
+    ],
+    "width": 0.34375
+  }
+}

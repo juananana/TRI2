@@ -1,0 +1,634 @@
+{
+  "report_version": "TRI-call-matched-authorization-ablation-report-v2",
+  "evidence_status": "post-primary",
+  "causal_scope": "Call/information-matched actor ablation; deterministic enforcement reuses the visible actor call and is not a complete component causal estimate.",
+  "bootstrap": {
+    "unit": "state_cluster_id",
+    "samples": 10000,
+    "seed": 20260725
+  },
+  "models": [
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "rows": 80,
+      "state_clusters": 40,
+      "metrics": {
+        "history_only": {
+          "changed_pairacc": {
+            "count": 12,
+            "numerator": 12,
+            "denominator": 40,
+            "rate": 0.3,
+            "ci95_state_cluster": [
+              0.175,
+              0.45
+            ]
+          },
+          "e2e": {
+            "count": 52,
+            "numerator": 52,
+            "denominator": 80,
+            "rate": 0.65,
+            "ci95_state_cluster": [
+              0.5875,
+              0.725
+            ]
+          },
+          "preserve_e2e": {
+            "count": 12,
+            "numerator": 12,
+            "denominator": 40,
+            "rate": 0.3,
+            "ci95_state_cluster": [
+              0.175,
+              0.45
+            ]
+          },
+          "reevaluate_e2e": {
+            "count": 40,
+            "numerator": 40,
+            "denominator": 40,
+            "rate": 1.0,
+            "ci95_state_cluster": [
+              1.0,
+              1.0
+            ]
+          },
+          "preserve_conditional_substitution": {
+            "count": 12,
+            "numerator": 12,
+            "denominator": 24,
+            "rate": 0.5,
+            "ci95_state_cluster": [
+              0.3,
+              0.7058823529411765
+            ]
+          }
+        },
+        "decision_visible": {
+          "changed_pairacc": {
+            "count": 24,
+            "numerator": 24,
+            "denominator": 40,
+            "rate": 0.6,
+            "ci95_state_cluster": [
+              0.45,
+              0.75
+            ]
+          },
+          "e2e": {
+            "count": 64,
+            "numerator": 64,
+            "denominator": 80,
+            "rate": 0.8,
+            "ci95_state_cluster": [
+              0.725,
+              0.875
+            ]
+          },
+          "preserve_e2e": {
+            "count": 24,
+            "numerator": 24,
+            "denominator": 40,
+            "rate": 0.6,
+            "ci95_state_cluster": [
+              0.45,
+              0.75
+            ]
+          },
+          "reevaluate_e2e": {
+            "count": 40,
+            "numerator": 40,
+            "denominator": 40,
+            "rate": 1.0,
+            "ci95_state_cluster": [
+              1.0,
+              1.0
+            ]
+          },
+          "preserve_conditional_substitution": {
+            "count": 0,
+            "numerator": 0,
+            "denominator": 24,
+            "rate": 0.0,
+            "ci95_state_cluster": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "decision_enforced": {
+          "changed_pairacc": {
+            "count": 24,
+            "numerator": 24,
+            "denominator": 40,
+            "rate": 0.6,
+            "ci95_state_cluster": [
+              0.45,
+              0.75
+            ]
+          },
+          "e2e": {
+            "count": 64,
+            "numerator": 64,
+            "denominator": 80,
+            "rate": 0.8,
+            "ci95_state_cluster": [
+              0.725,
+              0.875
+            ]
+          },
+          "preserve_e2e": {
+            "count": 24,
+            "numerator": 24,
+            "denominator": 40,
+            "rate": 0.6,
+            "ci95_state_cluster": [
+              0.45,
+              0.75
+            ]
+          },
+          "reevaluate_e2e": {
+            "count": 40,
+            "numerator": 40,
+            "denominator": 40,
+            "rate": 1.0,
+            "ci95_state_cluster": [
+              1.0,
+              1.0
+            ]
+          },
+          "preserve_conditional_substitution": {
+            "count": 0,
+            "numerator": 0,
+            "denominator": 24,
+            "rate": 0.0,
+            "ci95_state_cluster": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "paired_differences": [
+        {
+          "left": "history_only",
+          "right": "decision_visible",
+          "metric": "changed_pairacc",
+          "difference_right_minus_left": 0.3,
+          "ci95_state_cluster": [
+            0.17499999999999993,
+            0.45
+          ]
+        },
+        {
+          "left": "history_only",
+          "right": "decision_visible",
+          "metric": "preserve_conditional_substitution",
+          "difference_right_minus_left": -0.5,
+          "ci95_state_cluster": [
+            -0.7058823529411765,
+            -0.3
+          ]
+        },
+        {
+          "left": "history_only",
+          "right": "decision_visible",
+          "metric": "e2e",
+          "difference_right_minus_left": 0.15000000000000002,
+          "ci95_state_cluster": [
+            0.08749999999999991,
+            0.22499999999999998
+          ]
+        },
+        {
+          "left": "decision_visible",
+          "right": "decision_enforced",
+          "metric": "changed_pairacc",
+          "difference_right_minus_left": 0.0,
+          "ci95_state_cluster": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "left": "decision_visible",
+          "right": "decision_enforced",
+          "metric": "preserve_conditional_substitution",
+          "difference_right_minus_left": 0.0,
+          "ci95_state_cluster": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "left": "decision_visible",
+          "right": "decision_enforced",
+          "metric": "e2e",
+          "difference_right_minus_left": 0.0,
+          "ci95_state_cluster": [
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "compiler": {
+        "mode_accuracy": {
+          "count": 64,
+          "numerator": 64,
+          "denominator": 80,
+          "rate": 0.8,
+          "ci95_state_cluster": [
+            0.725,
+            0.875
+          ]
+        },
+        "preserve_binding_accuracy": {
+          "count": 24,
+          "numerator": 24,
+          "denominator": 40,
+          "rate": 0.6,
+          "ci95_state_cluster": [
+            0.45,
+            0.75
+          ]
+        },
+        "joint_mode_binding_accuracy": {
+          "count": 64,
+          "numerator": 64,
+          "denominator": 80,
+          "rate": 0.8,
+          "ci95_state_cluster": [
+            0.725,
+            0.875
+          ]
+        }
+      },
+      "shadow_actor": {
+        "disagreements": 12,
+        "denominator_both_parsed": 80,
+        "unavailable": 0,
+        "disagreement_rate": {
+          "count": 12,
+          "numerator": 12,
+          "denominator": 80,
+          "rate": 0.15,
+          "ci95_state_cluster": [
+            0.0875,
+            0.225
+          ]
+        }
+      },
+      "enforcement": {
+        "changed": 0,
+        "repairs": 0,
+        "harms": 0,
+        "repair_rate": {
+          "count": 0,
+          "numerator": 0,
+          "denominator": 80,
+          "rate": 0.0,
+          "ci95_state_cluster": [
+            0.0,
+            0.0
+          ]
+        },
+        "harm_rate": {
+          "count": 0,
+          "numerator": 0,
+          "denominator": 80,
+          "rate": 0.0,
+          "ci95_state_cluster": [
+            0.0,
+            0.0
+          ]
+        },
+        "other_changed": 0
+      },
+      "failures": {
+        "api": 0,
+        "parse_or_schema": 0,
+        "incomplete_tasks": 0
+      },
+      "calls": {
+        "logical_planned": 240,
+        "logical_completed": 240,
+        "http_attempts": 240,
+        "retries": 0,
+        "prompt_tokens": 136360,
+        "completion_tokens": 6734
+      }
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "rows": 80,
+      "state_clusters": 40,
+      "metrics": {
+        "history_only": {
+          "changed_pairacc": {
+            "count": 12,
+            "numerator": 12,
+            "denominator": 40,
+            "rate": 0.3,
+            "ci95_state_cluster": [
+              0.15,
+              0.45
+            ]
+          },
+          "e2e": {
+            "count": 52,
+            "numerator": 52,
+            "denominator": 80,
+            "rate": 0.65,
+            "ci95_state_cluster": [
+              0.575,
+              0.725
+            ]
+          },
+          "preserve_e2e": {
+            "count": 15,
+            "numerator": 15,
+            "denominator": 40,
+            "rate": 0.375,
+            "ci95_state_cluster": [
+              0.225,
+              0.525
+            ]
+          },
+          "reevaluate_e2e": {
+            "count": 37,
+            "numerator": 37,
+            "denominator": 40,
+            "rate": 0.925,
+            "ci95_state_cluster": [
+              0.825,
+              1.0
+            ]
+          },
+          "preserve_conditional_substitution": {
+            "count": 16,
+            "numerator": 16,
+            "denominator": 28,
+            "rate": 0.5714285714285714,
+            "ci95_state_cluster": [
+              0.38461538461538464,
+              0.75
+            ]
+          }
+        },
+        "decision_visible": {
+          "changed_pairacc": {
+            "count": 20,
+            "numerator": 20,
+            "denominator": 40,
+            "rate": 0.5,
+            "ci95_state_cluster": [
+              0.35,
+              0.65
+            ]
+          },
+          "e2e": {
+            "count": 59,
+            "numerator": 59,
+            "denominator": 80,
+            "rate": 0.7375,
+            "ci95_state_cluster": [
+              0.65,
+              0.825
+            ]
+          },
+          "preserve_e2e": {
+            "count": 26,
+            "numerator": 26,
+            "denominator": 40,
+            "rate": 0.65,
+            "ci95_state_cluster": [
+              0.5,
+              0.8
+            ]
+          },
+          "reevaluate_e2e": {
+            "count": 33,
+            "numerator": 33,
+            "denominator": 40,
+            "rate": 0.825,
+            "ci95_state_cluster": [
+              0.7,
+              0.925
+            ]
+          },
+          "preserve_conditional_substitution": {
+            "count": 4,
+            "numerator": 4,
+            "denominator": 28,
+            "rate": 0.14285714285714285,
+            "ci95_state_cluster": [
+              0.03333333333333333,
+              0.2857142857142857
+            ]
+          }
+        },
+        "decision_enforced": {
+          "changed_pairacc": {
+            "count": 17,
+            "numerator": 17,
+            "denominator": 40,
+            "rate": 0.425,
+            "ci95_state_cluster": [
+              0.275,
+              0.575
+            ]
+          },
+          "e2e": {
+            "count": 55,
+            "numerator": 55,
+            "denominator": 80,
+            "rate": 0.6875,
+            "ci95_state_cluster": [
+              0.6,
+              0.775
+            ]
+          },
+          "preserve_e2e": {
+            "count": 28,
+            "numerator": 28,
+            "denominator": 40,
+            "rate": 0.7,
+            "ci95_state_cluster": [
+              0.55,
+              0.85
+            ]
+          },
+          "reevaluate_e2e": {
+            "count": 27,
+            "numerator": 27,
+            "denominator": 40,
+            "rate": 0.675,
+            "ci95_state_cluster": [
+              0.525,
+              0.825
+            ]
+          },
+          "preserve_conditional_substitution": {
+            "count": 0,
+            "numerator": 0,
+            "denominator": 28,
+            "rate": 0.0,
+            "ci95_state_cluster": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "paired_differences": [
+        {
+          "left": "history_only",
+          "right": "decision_visible",
+          "metric": "changed_pairacc",
+          "difference_right_minus_left": 0.2,
+          "ci95_state_cluster": [
+            0.025000000000000022,
+            0.375
+          ]
+        },
+        {
+          "left": "history_only",
+          "right": "decision_visible",
+          "metric": "preserve_conditional_substitution",
+          "difference_right_minus_left": -0.42857142857142855,
+          "ci95_state_cluster": [
+            -0.6153846153846154,
+            -0.24239811912225742
+          ]
+        },
+        {
+          "left": "history_only",
+          "right": "decision_visible",
+          "metric": "e2e",
+          "difference_right_minus_left": 0.08750000000000002,
+          "ci95_state_cluster": [
+            0.0,
+            0.17500000000000004
+          ]
+        },
+        {
+          "left": "decision_visible",
+          "right": "decision_enforced",
+          "metric": "changed_pairacc",
+          "difference_right_minus_left": -0.07500000000000001,
+          "ci95_state_cluster": [
+            -0.22499999999999998,
+            0.07499999999999996
+          ]
+        },
+        {
+          "left": "decision_visible",
+          "right": "decision_enforced",
+          "metric": "preserve_conditional_substitution",
+          "difference_right_minus_left": -0.14285714285714285,
+          "ci95_state_cluster": [
+            -0.2857142857142857,
+            -0.03333333333333333
+          ]
+        },
+        {
+          "left": "decision_visible",
+          "right": "decision_enforced",
+          "metric": "e2e",
+          "difference_right_minus_left": -0.050000000000000044,
+          "ci95_state_cluster": [
+            -0.13749999999999996,
+            0.03749999999999998
+          ]
+        }
+      ],
+      "compiler": {
+        "mode_accuracy": {
+          "count": 61,
+          "numerator": 61,
+          "denominator": 80,
+          "rate": 0.7625,
+          "ci95_state_cluster": [
+            0.6875,
+            0.8375
+          ]
+        },
+        "preserve_binding_accuracy": {
+          "count": 28,
+          "numerator": 28,
+          "denominator": 40,
+          "rate": 0.7,
+          "ci95_state_cluster": [
+            0.55,
+            0.85
+          ]
+        },
+        "joint_mode_binding_accuracy": {
+          "count": 56,
+          "numerator": 56,
+          "denominator": 80,
+          "rate": 0.7,
+          "ci95_state_cluster": [
+            0.6125,
+            0.7875
+          ]
+        }
+      },
+      "shadow_actor": {
+        "disagreements": 21,
+        "denominator_both_parsed": 80,
+        "unavailable": 0,
+        "disagreement_rate": {
+          "count": 21,
+          "numerator": 21,
+          "denominator": 80,
+          "rate": 0.2625,
+          "ci95_state_cluster": [
+            0.1625,
+            0.3625
+          ]
+        }
+      },
+      "enforcement": {
+        "changed": 16,
+        "repairs": 4,
+        "harms": 8,
+        "repair_rate": {
+          "count": 4,
+          "numerator": 4,
+          "denominator": 80,
+          "rate": 0.05,
+          "ci95_state_cluster": [
+            0.0125,
+            0.1
+          ]
+        },
+        "harm_rate": {
+          "count": 8,
+          "numerator": 8,
+          "denominator": 80,
+          "rate": 0.1,
+          "ci95_state_cluster": [
+            0.0375,
+            0.1625
+          ]
+        },
+        "other_changed": 4
+      },
+      "failures": {
+        "api": 0,
+        "parse_or_schema": 0,
+        "incomplete_tasks": 0
+      },
+      "calls": {
+        "logical_planned": 240,
+        "logical_completed": 240,
+        "http_attempts": 240,
+        "retries": 0,
+        "prompt_tokens": 142629,
+        "completion_tokens": 6541
+      }
+    }
+  ]
+}

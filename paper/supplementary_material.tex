@@ -23,12 +23,17 @@ No result reported here changes the primary estimand. Literal prompts, complete 
 inventories, raw outputs, and executable reports are in the separately uploaded anonymous Code and
 Data Supplement rather than on an external webpage.
 
+\newcommand{\PrimaryDiagnostic}{Matched Timing Diagnostic}
+\newcommand{\NewSchemaReplication}{Cross-Schema Replication}
+\newcommand{\GuardedExtension}{Action-Validity Stress Test}
+\newcommand{\RuleStar}{Deterministic Rule*}
+
 \section{Benchmark and Frozen Protocol}
-The TRI-v3 primary evaluation contains 160 tasks in 20 frozen language-template clusters.
+The \PrimaryDiagnostic{} evaluation (internal inventory ID: TRI-v3) contains 160 tasks in 20 frozen language-template clusters.
 Tasks are balanced across anchored and dynamic references and across flip, stable, remove,
 invalidate, and name-collision transitions. The transfer evaluation contains 80 tasks over
-four unseen schemas (projects, expenses, inventory, and cloud deployments). The guarded
-TRI-v4 extension contains 40 conditional tasks and distinguishes action-validity and
+four unseen schemas (projects, expenses, inventory, and cloud deployments). The
+\GuardedExtension{} (internal inventory ID: TRI-v4) contains 40 conditional tasks and distinguishes action-validity and
 selector-match guards. The model-facing SQLite trajectory experiment uses a frozen 40-task subset and
 records every query, refresh, target proposal, mutation attempt, and final database diff.
 
@@ -54,24 +59,45 @@ primary estimands.
 \toprule
 Stage & Frozen status & Role in the manuscript \\
 \midrule
-v3 language clusters & Primary/frozen before calls & Package-level Qwen Generic vs. Lifecycle-Gated estimand; GLM replication \\
-v3 component addenda & Post-primary; frozen before their own calls & Free actor, validity gate, mode-only, untyped-plan, and exact-CTA audits \\
-v7 core replication & Post-primary replication; frozen before calls & New schemas and states; tests directional substitution \\
+\PrimaryDiagnostic{} & Primary/frozen before calls & Package-level Qwen Generic vs. Lifecycle-Gated estimand; GLM replication \\
+\PrimaryDiagnostic{} component addenda & Post-primary; frozen before their own calls & Free actor, validity gate, mode-only, untyped-plan, and exact-CTA audits \\
+\NewSchemaReplication{} & Post-primary replication; frozen before calls & New schemas and states; tests directional substitution \\
 Matched full-history baselines & Post-primary strong baseline; frozen before own calls & Ordinary and final-step-aware history across three model families \\
-Human construct labels & Post-primary construct validation & Three blind labels per 100 original/rewrite items \\
+Human construct labels & Post-primary construct validation & Three independent labels for each of 100 original/rewrite items \\
 Human-rewrite model runs & Post-primary replication; frozen before own calls & Unchanged controllers on 50 volunteer rewrites \\
+Full-diagnostic matched-call confirmation & Post-primary; frozen before own calls; complete & Equal calls and base actor payloads on all 160 diagnostic rows \\
+Human-rewrite matched-call confirmation & Post-primary; frozen before own calls; complete & Equal-call transfer on 50 existing volunteer rewrites; model-dependent result \\
+Source-derived matched-call contrast & Post-primary; frozen before own calls; complete & 30 changed pairs across three source-derived substrates and model families \\
 40-task model-facing SQLite & Secondary/frozen execution test; GLM later replication & Model-issued mutations and final database states \\
-v7 deterministic replay & Post-primary, zero API & Consequence verification over frozen target outputs, not a new behavioral replication \\
+\NewSchemaReplication{} deterministic replay & Post-primary, zero API & Consequence verification over frozen target outputs, not a new behavioral replication \\
 PairAcc and identifiability & Post-primary, zero API & Matched, marginal, and shared-eligible reanalyses of frozen outputs \\
+Crossed-dependence sensitivity & Post-primary, zero API & Domain, template, and two-way resampling of the primary package contrast \\
+Call/information-matched ablation & Post-primary; both models complete & Shared compiler call and matched actor payloads; explicit-decision and enforcement contrasts \\
 Selection regret & Post-primary, zero API & Proxy maximizers and changed-PairAcc regret in frozen candidate sets \\
-Rule v2 & Post-hoc & Benchmark-aware deterministic audit after v1 failure inspection \\
-Public-suite audits & Post-primary/descriptive & Coverage checklist for audited ToolSandbox, AppWorld, and $\tau^3$ versions \\
+Model-authored linguistic audit & Post-primary; transport-repaired & 24 generated pairs; two model judges jointly validate no complete pair \\
+Strengthened deterministic rule & Post-hoc & Benchmark-aware deterministic audit after first-rule failure inspection \\
+Public-suite audits & Post-primary/descriptive & Coverage checklist for audited ToolSandbox, AppWorld, and $\tau^3$-Bench versions \\
+Injected audit sensitivity & Post-primary, zero API & Known-positive and one-feature-missing controls; implementation check only \\
+Model-assisted recall triage & Post-primary, zero API & Candidate-label queue over six public suites; not independent recall calibration \\
+Source-anchored external transfer & Post-primary; frozen before calls & Author-adapted matched contrast on pinned STATE-Bench and AgentDojo states and source tools \\
 \bottomrule
 \end{tabular}
 \caption{Evidence status used throughout the paper. Planned or unverified analyses are not
 reported as results.}
 \label{tab:supp-chronology}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\textwidth]{Figures/tri_comprehensive_results.pdf}
+\caption{Post-primary audits from frozen \PrimaryDiagnostic{} and \NewSchemaReplication{} outputs.
+\textbf{(A)} Changed-winner PairAcc for Generic and historical CTA on 32 v3 and 80 v7 pairs.
+\textbf{(B)} V7 one-sided mode accuracies and complete-pair accuracy (G/C: Generic/CTA).
+\textbf{(C)} V3 actionable-core accuracy versus the author-specified Reject-policy slice; human
+support is weaker for Reject. \textbf{(D)} Worst changed-PairAcc selection regret across five
+model-family candidate sets; ``zero'' counts regimes whose maximizers include a zero-PairAcc policy.}
+\label{fig:supp-comprehensive-results}
+\end{figure}
 
 \subsection{Diagnostic matrix and metric roles}
 The actionable referential core crosses authorization with whether the selector winner changes.
@@ -99,6 +125,26 @@ paired rows keep both states, selector, action, schema, and update fixed.}
 \label{tab:supp-diagnostic-matrix}
 \end{table}
 
+\subsection{Restricted policy-identifiability result}
+Let $L$, $R$, and $S$ denote Always-Lock, Always-Reevaluate, and Selective policies. Consider
+changed-winner contexts with shared $(S_0,S_1,q,a)$, old winner $e=q(S_0)$, refreshed winner
+$e'=q(S_1)$, and $e\neq e'$. A Preserve row has gold $e$ and a Reevaluate row has gold $e'$.
+
+\paragraph{Observation.}
+For the policy class $\{L,R,S\}$, an exact-target evaluation identifies $S$ against both $L$ and
+$R$ only if it contains at least one changed Preserve row and at least one changed Reevaluate row.
+A matched opposite-gold pair is sufficient and has minimum cardinality two.
+
+\paragraph{Argument.}
+If the evaluation contains no changed Preserve row, $R$ and $S$ agree on every Reevaluate row and
+on every Stable row, so they are observationally equivalent. If it contains no changed Reevaluate
+row, the same argument makes $L$ and $S$ observationally equivalent. Thus both authorization
+directions are necessary. On a matched changed pair, $L$ outputs $e$ twice and fails Reevaluate;
+$R$ outputs $e'$ twice and fails Preserve; $S$ outputs $(e,e')$ and can pass both. One row cannot
+contain both authorization directions, so two rows are minimal. The statement is restricted to
+these policy alternatives and exact-target observations; it is not a lower bound for arbitrary
+stochastic controllers.
+
 Exact target accuracy measures end-to-end task success but can hide complementary errors.
 For $N$ complete pairs, we therefore report
 \[
@@ -116,10 +162,10 @@ unnecessary rejection are separate execution outcomes, not aliases for target ac
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.72\textwidth]{Figures/tri_authorization_tradeoff.pdf}
-\caption{Preserve versus Reevaluate accuracy on the 32 frozen v3 changed-winner pairs. Each
+\caption{Preserve versus Reevaluate accuracy on the 32 frozen \PrimaryDiagnostic{} changed-winner pairs. Each
 model/controller point is labeled with PairAcc (P). The unconditional controls occupy opposite
 corners, while high joint performance requires the upper-right region. Coincident Qwen/GLM
-Lifecycle-Gated points are combined. Rule v2 is post-hoc. Values are generated from the same raw
+Lifecycle-Gated points are combined. \RuleStar{} is post-hoc. Values are generated from the same raw
 runs as the matched-pair tables.}
 \label{fig:supp-authorization-tradeoff}
 \end{figure}
@@ -132,12 +178,12 @@ runs as the matched-pair tables.}
 Question & Evidence & Supported conclusion \\
 \midrule
 Stable Preserve/Reevaluate semantics & Blind labels and independent rewrites & Core scalar construct supported; reject fallback weaker \\
-Substitution after correct binding & v3/v7 conditional audits, three models & Occurs for tested controllers under controlled conditions \\
+Substitution after correct binding & \PrimaryDiagnostic{}/\NewSchemaReplication{} conditional audits, three models & Occurs for tested controllers under controlled conditions \\
 Refreshed-winner direction & Flip, Stable, and name-collision controls & Supports a controller-level diagnosis, not random error \\
 Executed consequence & Deterministic SQLite replay & Can cause wrong-entity mutation \\
-Dependence on CTA & CTA, Lifecycle, and post-hoc Rule v2 & No uniquely necessary implementation \\
+Dependence on CTA & CTA, Lifecycle, and post-hoc \RuleStar{} & No uniquely necessary implementation \\
 External-style occurrence & Mixed ToolSandbox-compatible audits & Limited and not reproduced at lower intervention \\
-Public benchmark coverage & ToolSandbox, AppWorld, and $\tau^3$ audits & Zero strict native opportunities in audited versions \\
+Public benchmark coverage & ToolSandbox, AppWorld, and $\tau^3$-Bench audits & Zero strict native opportunities in audited versions \\
 Natural prevalence & No uncontrolled traffic evidence & Not estimated \\
 \bottomrule
 \end{tabular}
@@ -159,11 +205,11 @@ reference mode and invalidity/fallback semantics. The scalar Lifecycle compiler 
 emits \texttt{reference\_mode}, \texttt{bound\_target\_id}, \texttt{selector}, and
 \texttt{invalidity\_policy}. A deterministic executor checks action validity for preserved
 identities and delegates only explicitly dynamic or unresolved branches to the actor. The
-separate TRI-v4 conditional extension adds \texttt{guard\_type} and
-\texttt{fallback\_policy}; these fields are not part of the scalar v3 record. The exact
+separate \GuardedExtension{} adds \texttt{guard\_type} and
+\texttt{fallback\_policy}; these fields are not part of the scalar \PrimaryDiagnostic{} record. The exact
 historical Compile-then-act baseline is retained unchanged as a neighboring audit.
 
-The v4 guards are deterministic. Under \texttt{action\_validity}, the controller retains the
+The \GuardedExtension{} guards are deterministic. Under \texttt{action\_validity}, the controller retains the
 old ID iff all action preconditions $V_a(e_0,S_1)$ hold; otherwise it reevaluates $q(S_1)$.
 Under \texttt{selector\_match}, it retains the old ID iff it is action-valid and remains
 $q(S_1)$; otherwise it reevaluates. The frozen 40-task inventory crosses two guard types, five
@@ -205,7 +251,7 @@ Generic ledger & ID, snapshot, selector, action, preconditions & 2 & no\\
 Untyped plan & free-form plan & 2 & no\\
 Historical CTA & binding time, ID, selector, reason & 2 & no\\
 Lifecycle free & mode, ID, selector, policy & 2 & no\\
-Lifecycle gated & same typed record & 1 or 2 & yes\\
+Lifecycle-Gated & same typed record & 1 or 2 & yes\\
 \bottomrule
 \end{tabular}
 \caption{The gated Preserve branch omits the actor call. Generic retains all task-relevant
@@ -241,6 +287,15 @@ generated semantics only, not model performance, minimality, or natural-language
 The intervention ladder is interpreted through alternatives it can rule out, not by assuming that
 every added component is necessary. The principal comparisons are:
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.78\textwidth]{Figures/tri_component_audit_dotline.pdf}
+\caption{Component audit on \PrimaryDiagnostic{} exact-target accuracy. The dot-line format
+shows the same controller sequence for Qwen and GLM without implying that any single component is
+a causal estimate of the full package.}
+\label{fig:supp-component-audit}
+\end{figure}
+
 \begin{table}[h]
 \centering
 \small
@@ -253,7 +308,7 @@ Always-Lock vs. Always-Reevaluate & One fixed update policy suffices & Either ex
 Stable vs. changed winner & Generic refresh instability & Comparable errors without a winner change \\
 Validity gate vs. Generic & Action validity alone identifies the referent & Gate removes valid-target substitutions \\
 Untyped plan vs. typed lifecycle & Any extra pre-refresh computation suffices & Call-matched plan closes the lifecycle gap \\
-CTA/lifecycle vs. Rule v2 & A learned or complex method is necessary & Deterministic discourse rule matches them \\
+CTA/lifecycle vs. \RuleStar{} & A learned or complex method is necessary & Deterministic discourse rule matches them \\
 Target choice vs. SQLite replay & Errors are only representational & Substitutions do not change executed entities \\
 \bottomrule
 \end{tabular}
@@ -273,10 +328,10 @@ Generic free actor & 64.4 & 71.9\\
 Generic + reference mode & 75.0 & 75.0\\
 Generic + validity gate & 65.0 & 73.1\\
 Untyped pre-refresh plan & 81.2 & 70.6\\
-Handcrafted rule v2 (post-hoc) & 92.5 & 92.5\\
-Exact Compile-then-act & 95.0 & 96.2\\
+\RuleStar{} (post-hoc) & 92.5 & 92.5\\
+Historical CTA & 95.0 & 96.2\\
 Lifecycle free actor & 96.9 & 98.1\\
-Lifecycle + gate & 98.1 & 100.0\\
+Lifecycle-Gated & 98.1 & 100.0\\
 \bottomrule
 \end{tabular}
 \caption{Exact target accuracy on the identical 160-task language set.}
@@ -293,29 +348,123 @@ new leader, CTA record, or any model output.
 \begin{table}[h]
 \centering
 \small
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lrrr}
 \toprule
-Rule version & v3 tasks (160) & Human rewrites (50) & v7 tasks (240)\\
+Rule & Timing diagnostic (160) & Human rewrites (50) & Schema replication (240)\\
 \midrule
-Naive v1, frozen & 60.6 & 74.0 & 77.5\\
-Strengthened v2, post-hoc & 92.5 & 96.0 & 91.7\\
+Naive rule, frozen & 60.6 & 74.0 & 77.5\\
+\RuleStar{}, post-hoc & 92.5 & 96.0 & 91.7\\
 \bottomrule
 \end{tabular}
-\caption{Exact authorized-target accuracy (\%). Version 1 was frozen before complete-set
-execution. Version 2 was written after inspecting v1 failures across these inventories and is a
+\caption{Exact authorized-target accuracy (\%). The naive rule was frozen before complete-set
+execution. \RuleStar{} was written after inspecting its failures across these inventories and is a
 strong benchmark-aware post-hoc baseline, not held-out generalization evidence.}
 \label{tab:supp-rule}
 \end{table}
 
-Version 1 leaves 52/160, 12/50, and 44/240 items unresolved. Version 2 adds the observed event
+The naive rule leaves 52/160, 12/50, and 44/240 items unresolved. \RuleStar{} adds the observed event
 vocabulary and handles a single action-valid candidate without requiring a ranking field. No
-further changes are made after v2. Its frozen source SHA-256 is
-\texttt{34cbbd39072b...1bbfb8}; the complete digest is in the artifact manifest. On v3,
-CTA-minus-rule-v2 is +2.5 points for Qwen and +3.8 for
-GLM, with both cluster intervals spanning zero. On v7, v2 exceeds Qwen CTA and is statistically
+further changes are made after this post-hoc revision. Its frozen source SHA-256 is
+\texttt{34cbbd39072b...1bbfb8}; the complete digest is in the artifact manifest. On
+\PrimaryDiagnostic{}, CTA minus \RuleStar{} is +2.5 points for Qwen and +3.8 for
+GLM, with both cluster intervals spanning zero. On \NewSchemaReplication{}, \RuleStar{} exceeds Qwen CTA and is statistically
 tied with GLM and DeepSeek CTA. Thus the benchmark does not require a uniquely learned algorithm.
 The defensible commonality is an executable transition-authorization decision; the rule does not
 show that a fixed lexicon generalizes to unrestricted instructions.
+
+After recording source SHA-256 \texttt{34cbbd39072b...1bbfb8}, we applied the unchanged rule to
+the 30-pair source-derived inventory frozen on STATE-Bench, AgentDojo, and ToolSandbox states and
+schemas. It reaches 15/60 row accuracy and 2/30 PairAcc. Table~\ref{tab:supp-rule-source} keeps the
+source failures visible; this application is held out from Rule* development but remains a
+post-hoc rule evaluated on author-adapted controlled contrasts.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrl}
+\toprule
+Source & Rows correct & PairAcc & Dominant failure \\
+\midrule
+STATE-Bench & 9/20 & 0/10 & extra numeric field / wrong target \\
+AgentDojo & 0/20 & 0/10 & unsupported timestamp selector \\
+ToolSandbox & 6/20 & 2/10 & ranking cue absent / wrong target \\
+\midrule
+All & 15/60 & 2/30 & -- \\
+\bottomrule
+\end{tabular}
+\caption{Frozen Rule* transfer to three source-derived controlled contrasts. The rule source and
+task inventory are hash-locked before this zero-API application. These are not native benchmark
+tasks or a learned-versus-rule causal comparison.}
+\label{tab:supp-rule-source}
+\end{table}
+
+The benchmark-aware Rule* misses 20/240 \NewSchemaReplication{} rows, evenly split between
+Preserve and Reevaluate. A post-hoc zero-API residual audit evaluates frozen full-history and CTA
+outputs only on those rows.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Model & History-only & Timing-reminder & CTA \\
+\midrule
+Qwen & 10/20 & 13/20 & 13/20 \\
+GLM & 10/20 & 20/20 & 20/20 \\
+DeepSeek & 15/20 & 18/20 & 16/20 \\
+\bottomrule
+\end{tabular}
+\caption{Exact-target accuracy on rows missed by post-hoc Rule*. Selection uses observed Rule*
+errors and leaves zero complete Preserve/Reevaluate pairs, so PairAcc is undefined and these row
+accuracies are descriptive. The audit provides no residual CTA advantage over Timing-reminder.}
+\label{tab:supp-rule-hard-residual}
+\end{table}
+
+\subsection{Concurrent Binding Drift baseline adaptation}
+Binding Drift (Babu and Indukuri 2026, arXiv:2607.18316) studies a primary carry slot whose gold
+entity remains constant across later workflow steps, together with entity-lock and LLM
+re-verification defenses. We audited public commit
+\texttt{0e040e0954b18d4621a6f9b16f6e6e9591c822e1}. Its deterministic offline harness passes
+25/25 assertions after mapping the current 200-workflow file to the legacy filename expected by the
+test script; the clean checkout otherwise raises \texttt{FileNotFoundError}. This path repair and
+the adaptation below are recorded separately.
+
+The post-primary author adaptation applies entity-lock semantics and the public LLM
+self-reverification prompt frame to all 240 actionable \NewSchemaReplication{} rows. The verifier
+receives the complete temporal instruction and refreshed candidates. A short step-1 noun phrase,
+as used in the source benchmark, would remove TRI's timing variable. The adaptation omits $S_0$ and
+the resolved pre-refresh ID, so it is an interface audit rather than an information-matched CTA
+comparison or an official reproduction. The protocol was frozen before the full GLM calls.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Method & Overall & Preserve & Reevaluate & PairAcc \\
+\midrule
+Entity Lock analogue & 160/240 & 120/120 & 40/120 & 40/120 \\
+GLM self-reverify adaptation & 155/240 & 39/120 & 116/120 & 38/120 \\
+Frozen GLM CTA & 226/240 & 110/120 & 116/120 & 106/120 \\
+Rule* (post-hoc) & 220/240 & 110/120 & 110/120 & 100/120 \\
+\bottomrule
+\end{tabular}
+\caption{Post-primary author adaptation of concurrent persistence and re-verification baselines.
+Entity Lock retains the pre-refresh ID; self-reverification resolves against refreshed candidates.
+The complementary mode marginals show why either unconditional policy is insufficient for matched
+opposite-gold evaluation.}
+\label{tab:supp-binding-drift-adaptation}
+\end{table}
+
+The GLM verifier completes 240/240 rows with 240 requests, no retries or parse failures, and
+89,354 recorded tokens. It substitutes the refreshed winner on 80 Preserve rows and prematurely
+retains the old target on two Reevaluate rows. CTA has 10 and four corresponding errors. The frozen
+interpretation gate classifies re-verification as a complementary-policy result. Qwen's earlier
+20-task smoke selects a third, selector-ineligible visible entity on 14/20 rows, so we did not
+expand that grounding-confounded condition. Reports and raw outputs are
+\texttt{reports/binding\_drift\_tri\_glm\_v7\_full\_v1.*} and
+\texttt{runs/binding\_drift\_tri\_glm\_self\_reverify\_v7\_full\_v1.jsonl}.
 
 \begin{table}[h]
 \centering
@@ -337,15 +486,13 @@ is \texttt{reports/policy\_extreme\_controls.md}.}
 The post-freeze Generic+reference-mode ablation adds only the explicit mode field and reaches
 75.0\% for both models. Its paired cluster gains over Generic are +10.6
 $[+5.0,+16.9]$ for Qwen and +3.1 $[-2.5,+9.4]$ for GLM; the latter includes zero. The
-ablation therefore supports explicit mode classification as a component, but not as a complete
-explanation of CTA's gain. The audit separates three effects. A validity-only gate changes Generic accuracy by only
+mode field accounts for part of CTA's gain. The audit separates three further effects. A validity-only gate changes Generic accuracy by only
 0.6 and 1.2 points. Lifecycle state with a free actor reaches 96.9 and 98.1\%, while the
-deterministic gate adds 1.2 and 1.9 points. Exact Compile-then-act reaches 95.0 and 96.2\%.
+deterministic gate adds 1.2 and 1.9 points. Historical CTA reaches 95.0 and 96.2\%.
 The call-matched untyped plan reaches 81.2 and 70.6\%; Lifecycle-free exceeds it by 15.6 and
-27.5 points with cluster intervals excluding zero. Together with the competitive handcrafted
-rule, the evidence associates the gain with operationalizing transition authorization rather than
-with pre-refresh timing, tuple serialization, or deterministic gating alone. Typed lifecycle state
-provides an auditable interface; deterministic enforcement contributes a smaller additional gain.
+27.5 points with cluster intervals excluding zero. All high-scoring variants operationalize an
+executable resolution-timing decision. Typed lifecycle state provides an auditable interface, and
+deterministic enforcement contributes a smaller additional gain on these scalar tasks.
 
 \subsection{Matched-pair consistency}
 For a complete matched pair, Preserve and Reevaluate share $S_0,S_1,q,a$, action schema, and
@@ -363,22 +510,22 @@ as a separate invalidity-policy slice. The source-derived report is
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{llrrr}
 \toprule
-Model & v3 controller & All (80) & Changed (32) & Stable (16) \\
+Model & \PrimaryDiagnostic{} controller & All (80) & Changed (32) & Stable (16) \\
 \midrule
 Qwen3.5 & Generic & 23 (28.8) & 3 (9.4) & 16 (100) \\
 GLM-5.1 & Generic & 38 (47.5) & 7 (21.9) & 16 (100) \\
-Qwen3.5 & Exact CTA & 72 (90.0) & 30 (93.8) & 16 (100) \\
-GLM-5.1 & Exact CTA & 74 (92.5) & 31 (96.9) & 16 (100) \\
+Qwen3.5 & Historical CTA & 72 (90.0) & 30 (93.8) & 16 (100) \\
+GLM-5.1 & Historical CTA & 74 (92.5) & 31 (96.9) & 16 (100) \\
 Qwen3.5 & Lifecycle-free & 75 (93.8) & 30 (93.8) & 16 (100) \\
 GLM-5.1 & Lifecycle-free & 77 (96.2) & 29 (90.6) & 16 (100) \\
-Qwen3.5 & Lifecycle-gated & 77 (96.2) & 32 (100) & 16 (100) \\
-GLM-5.1 & Lifecycle-gated & 80 (100) & 32 (100) & 16 (100) \\
+Qwen3.5 & Lifecycle-Gated & 77 (96.2) & 32 (100) & 16 (100) \\
+GLM-5.1 & Lifecycle-Gated & 80 (100) & 32 (100) & 16 (100) \\
 Independent & Always-Lock + validity & 16 (20.0) & 0 (0) & 16 (100) \\
 Independent & Always-Reevaluate & 16 (20.0) & 0 (0) & 16 (100) \\
-Independent & Rule v2 (post-hoc) & 68 (85.0) & 28 (87.5) & 16 (100) \\
+Independent & \RuleStar{} (post-hoc) & 68 (85.0) & 28 (87.5) & 16 (100) \\
 \bottomrule
 \end{tabular}
-\caption{v3 pairs correct (PairAcc \%). The 32 invalidity-policy pairs retained in ``All''
+\caption{\PrimaryDiagnostic{} pairs correct (PairAcc \%). The 32 invalidity-policy pairs retained in ``All''
 are reported separately in the machine-readable table.}
 \end{table}
 
@@ -388,22 +535,22 @@ are reported separately in the machine-readable table.}
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{llrrr}
 \toprule
-Model & v7 controller & All (120) & Changed (80) & Stable (40) \\
+Model & \NewSchemaReplication{} controller & All (120) & Changed (80) & Stable (40) \\
 \midrule
 Qwen3.5 & Generic & 34 (28.3) & 7 (8.8) & 27 (67.5) \\
 GLM-5.1 & Generic & 51 (42.5) & 15 (18.8) & 36 (90.0) \\
 DeepSeek-V4-Pro & Generic & 57 (47.5) & 17 (21.2) & 40 (100) \\
-Qwen3.5 & Exact CTA & 59 (49.2) & 31 (38.8) & 28 (70.0) \\
-GLM-5.1 & Exact CTA & 106 (88.3) & 66 (82.5) & 40 (100) \\
-DeepSeek-V4-Pro & Exact CTA & 103 (85.8) & 64 (80.0) & 39 (97.5) \\
-Qwen3.5 & Lifecycle-gated & 67 (55.8) & 40 (50.0) & 27 (67.5) \\
-GLM-5.1 & Lifecycle-gated & 113 (94.2) & 73 (91.2) & 40 (100) \\
+Qwen3.5 & Historical CTA & 59 (49.2) & 31 (38.8) & 28 (70.0) \\
+GLM-5.1 & Historical CTA & 106 (88.3) & 66 (82.5) & 40 (100) \\
+DeepSeek-V4-Pro & Historical CTA & 103 (85.8) & 64 (80.0) & 39 (97.5) \\
+Qwen3.5 & Lifecycle-Gated & 67 (55.8) & 40 (50.0) & 27 (67.5) \\
+GLM-5.1 & Lifecycle-Gated & 113 (94.2) & 73 (91.2) & 40 (100) \\
 Independent & Always-Lock + validity & 40 (33.3) & 0 (0) & 40 (100) \\
 Independent & Always-Reevaluate & 40 (33.3) & 0 (0) & 40 (100) \\
-Independent & Rule v2 (post-hoc) & 100 (83.3) & 60 (75.0) & 40 (100) \\
+Independent & \RuleStar{} (post-hoc) & 100 (83.3) & 60 (75.0) & 40 (100) \\
 \bottomrule
 \end{tabular}
-\caption{v7 pairs correct (PairAcc \%). Lifecycle-gated was not run for DeepSeek, so no value
+\caption{\NewSchemaReplication{} pairs correct (PairAcc \%). Lifecycle-Gated was not run for DeepSeek, so no value
 is imputed. Low Qwen pair consistency limits any claim of universal CTA sufficiency.}
 \end{table}
 
@@ -416,7 +563,7 @@ pre-refresh target. Failed or malformed rows are incorrect under ITT. The comple
 reports are \texttt{reports/v3\_identifiability\_regimes\_v1.md} and
 \texttt{reports/v7\_identifiability\_regimes\_v1.md}; no model calls were added.
 
-On v7, Always-Lock and Always-Reevaluate both score 66.7\% overall and 100\% on Stable, while
+On \NewSchemaReplication{}, Always-Lock and Always-Reevaluate both score 66.7\% overall and 100\% on Stable, while
 both obtain 0/80 changed PairAcc. Generic Reevaluate-only scores are 56.7\%, 95.0\%, and 100.0\%
 for Qwen/GLM/DeepSeek, but changed PairAcc is 7/80, 15/80, and 17/80. Conditional refreshed-
 winner substitution is 43/72, 38/80, and 59/79. CTA removes this observed substitution (0/71, 0/70, 0/70)
@@ -424,20 +571,43 @@ but retains other errors, so the conditional metric is not a general success sco
 support a bounded non-identifiability claim for the controlled diagnostics, not for all public
 benchmarks or natural traffic.
 
-We then freeze a policy-selection consequence audit over these two reports. Within each
-dataset/model family, the candidate set contains that model's reported controllers plus
-Always-Lock and Always-Reevaluate. For aggregate, Preserve-only, Reevaluate-only, and Stable-only
-scoring, we enumerate every exact score maximizer and measure regret against the best changed
-PairAcc in the same candidate set. Fifteen of 20 proxy-maximizer sets include a zero-PairAcc
-extreme; equivalently, all 15 Stable-only or one-sided maximizer sets contain such an extreme.
-Maximum worst-case regret is 96.9 points. Aggregate E2E is usually aligned with the best
-PairAcc candidate, but on v3 GLM it selects Lifecycle-free with 6.2 points less PairAcc than CTA.
+We then audit policy-selection consequences over these reports. The \PrimaryDiagnostic{} Qwen and GLM candidate
+sets each contain Generic, Historical CTA, Lifecycle-free, Lifecycle-Gated, Always-Lock, and
+Always-Reevaluate. The \NewSchemaReplication{} Qwen and GLM sets omit Lifecycle-free; its DeepSeek set contains
+Generic, Historical CTA, and the two extremes because Lifecycle-Gated was not run. An initial
+implementation inadvertently omitted the reported Lifecycle-Gated rows and produced a spurious
+6.25-point aggregate regret; the dated protocol amendment and corrected report retain this
+unfavorable correction. For each proxy, we enumerate every exact maximizer and measure regret
+against the best changed PairAcc in the same set.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Candidate set & Aggregate & Preserve & Reevaluate & Stable \\
+\midrule
+Timing / Qwen & 0.0 & 100.0 & 100.0 & 100.0 \\
+Timing / GLM & 0.0 & 100.0 & 100.0 & 100.0 \\
+Schema / Qwen & 0.0 & 50.0 & 50.0 & 50.0 \\
+Schema / GLM & 0.0 & 91.2 & 91.2 & 91.2 \\
+Schema / DeepSeek & 0.0 & 80.0 & 80.0 & 80.0 \\
+\bottomrule
+\end{tabular}
+\caption{Worst-case changed-PairAcc regret (percentage points) among exact proxy-score
+maximizers. All 15 one-sided or Stable maximizer sets include a zero-PairAcc extreme; Aggregate
+E2E selects a PairAcc-optimal candidate in all five complete sets. The full report lists every
+maximizer and optimistic regret.}
+\label{tab:supp-selection-regret}
+\end{table}
+
 Worst-case tie handling means that the proxy licenses a poor policy, not that users necessarily
-choose it. The complete post-primary, zero-API table and frozen input hashes are in
-\texttt{reports/evaluation\_selection\_regret\_v1.md}.
+choose it. Maximum worst-case regret is 100 points, and the corrected audit shows no aggregate
+selection failure in these candidate sets. The complete post-primary, zero-API table and corrected
+input hashes are in \texttt{reports/evaluation\_selection\_regret\_v1.md}.
 
 \subsection{Post-primary parser--binding--executor decomposition}
-We reuse frozen v3 Lifecycle-free and Lifecycle-Gated outputs to separate three stages without
+We reuse frozen \PrimaryDiagnostic{} Lifecycle-free and Lifecycle-Gated outputs to separate three stages without
 new model calls. The learned condition uses the compiler's predicted mode and bound ID; oracle
 interventions replace only the mode, the pre-refresh bound ID, or both. The deterministic gate is
 then compared with the observed free actor. Reevaluate branches retain the observed actor output,
@@ -519,13 +689,147 @@ primary Qwen difference is +33.8 points with a cluster interval of [+18.1,+50.0]
 replication difference is +28.1 points with [+18.1,+38.1]. Exact paired McNemar tests are
 secondary: Qwen has 3 Generic-only versus 57 Lifecycle-only wins, $p=6.25\times10^{-14}$;
 GLM has 0 versus 45, $p=5.68\times10^{-14}$. API errors and missing rows are counted as
-failures in the audit, although the reported v3/v4 complete runs contain zero API errors
-and zero retries.
+failures in the audit, although the reported \PrimaryDiagnostic{} and \GuardedExtension{} runs contain zero API errors
+and zero retries. The \PrimaryDiagnostic{} language-template cluster is the nearest repeated construction unit
+because its eight rows reuse one wording template across domains; \NewSchemaReplication{} analogously resamples the
+six rows generated from each state instance. These single-axis bootstraps do not capture every
+crossed dependence induced by domain, selector schema, and generator. Leave-domain and
+leave-template-family-out results are therefore reported as sensitivity checks below. Secondary
+tests and slice comparisons are not globally multiplicity-adjusted and are interpreted as
+exploratory rather than confirmatory evidence.
 
-\subsection{TRI-v7 Core Replication}
+\subsection{Crossed-dependence sensitivity}
+Because the primary inventory is a complete $8\times20$ crossing of domains and language-template
+clusters, a post-primary zero-API audit resamples each axis separately and then resamples both axes
+independently with multiplicative pigeonhole weights. Each method uses 10,000 draws with seed
+20260725. This analysis was designed after the primary outcome; it tests sensitivity to the chosen
+clustering axis and does not replace the primary interval.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llcc}
+\toprule
+Model & Resampling unit & Difference (points) & 95\% interval \\
+\midrule
+Qwen3.5 & Language template & +33.8 & [18.1,49.4] \\
+Qwen3.5 & Domain & +33.8 & [30.6,36.9] \\
+Qwen3.5 & Two-way pigeonhole & +33.8 & [16.2,50.6] \\
+GLM-5.1 & Language template & +28.1 & [18.1,38.1] \\
+GLM-5.1 & Domain & +28.1 & [24.4,32.5] \\
+GLM-5.1 & Two-way pigeonhole & +28.1 & [16.2,40.0] \\
+\bottomrule
+\end{tabular}
+\caption{Post-primary dependence sensitivity for Lifecycle-Gated minus Generic E2E accuracy.
+The widest interval for each model comes from independent resampling of both crossed axes and
+remains above zero. This does not address authored-language or component-attribution limits.}
+\label{tab:supp-crossed-bootstrap}
+\end{table}
+
+\FloatBarrier
+
+\subsection{Full-diagnostic matched-call confirmation}
+This post-primary experiment was frozen before its own calls and covers all 160 rows of the
+Matched Timing Diagnostic. Each row makes one compiler call and two actor calls. History-only and
+Decision-visible receive identical base payloads, state, tool schema, and actor prompts; only
+Decision-visible receives the parsed resolution-timing decision. Decision-enforced is computed
+offline from the visible output and makes no additional model call. All conditions are scored by
+intention to treat. The 32 author-specified Reject rows are reported separately and excluded from
+actionable substitution denominators.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Model & Outcome & Changed PairAcc & Actionable E2E & Reject & Preserve subst. \\
+\midrule
+Qwen & History-only & 5/32 & 100/128 & 21/32 & 22/28 \\
+Qwen & Decision-visible & 13/32 & 106/128 & 25/32 & 13/28 \\
+Qwen & Decision-enforced & 24/32 & 113/128 & 28/32 & 0/28 \\
+GLM & History-only & 8/32 & 102/128 & 11/32 & 16/25 \\
+GLM & Decision-visible & 25/32 & 120/128 & 21/32 & 0/25 \\
+GLM & Decision-enforced & 25/32 & 120/128 & 25/32 & 0/25 \\
+\bottomrule
+\end{tabular}
+\caption{Post-primary full-diagnostic matched-call results. ``Preserve subst.'' conditions on a
+correct observable initial binding, a surviving and actionable old target, and a distinct refreshed
+winner, and is restricted to the actionable core.}
+\label{tab:supp-full-matched-confirmation}
+\end{table}
+
+Decision-visible minus History-only changed PairAcc is $+25.0$ points [6.3,46.2] for Qwen and
+$+53.1$ [28.6,77.8] for GLM. The actionable E2E differences are $+4.7$ [0.0,9.4] and
+$+14.1$ [8.4,20.0]. Offline enforcement produces 18 repairs and eight harms for Qwen, and four
+repairs with no harms for GLM. All 960 planned logical calls complete without retry, transport,
+or parse failure. These results estimate decision visibility under matched calls and base payloads.
+The tested compilers, representations, and gates remain observationally non-unique.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{Figures/fig_enforcement_repairs_harms_compact.pdf}
+\caption{Row-level repairs and harms from the zero-call Decision-enforced transformation of
+Decision-visible outputs. Counts are separated for the authored diagnostic, human rewrites, and
+source-derived contrast. Enforcement repairs more rows than it harms for Qwen on the authored and
+rewrite sets, has balanced 4/4 effects for DeepSeek source transfer, and produces no harms for GLM
+in any setting.}
+\label{fig:supp-enforcement-repairs-harms}
+\end{figure}
+
+\subsection{Cross-schema matched-call ablation}
+This earlier post-primary ablation uses the 40 changed-winner pairs from \NewSchemaReplication{}.
+Each task makes one shared compiler call and two actor calls. Both actors receive the instruction,
+$S_0$, the observable initial selection, $S_1$, selector, action, and action schema; the
+Decision-visible actor alone receives the parsed compiler decision. A deterministic
+Decision-enforced outcome reuses the visible actor call and adds no request. The first Qwen smoke
+returned empty content because provider reasoning exhausted the 500-token cap. Those four failed
+rows are retained as infrastructure provenance. The corrected run explicitly disables thinking
+and changes no task, prompt, outcome, metric, or denominator.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llccc}
+\toprule
+Model & Outcome & Changed PairAcc & E2E & Preserve substitution \\
+\midrule
+Qwen & History-only & 12/40 (30.0) & 52/80 (65.0) & 16/28 (57.1) \\
+Qwen & Decision-visible & 20/40 (50.0) & 59/80 (73.8) & 4/28 (14.3) \\
+Qwen & Decision-enforced & 17/40 (42.5) & 55/80 (68.8) & 0/28 (0.0) \\
+GLM & History-only & 12/40 (30.0) & 52/80 (65.0) & 12/24 (50.0) \\
+GLM & Decision-visible & 24/40 (60.0) & 64/80 (80.0) & 0/24 (0.0) \\
+GLM & Decision-enforced & 24/40 (60.0) & 64/80 (80.0) & 0/24 (0.0) \\
+\bottomrule
+\end{tabular}
+\caption{Completed call/information-matched ablation (post-primary). Values in parentheses are
+percentages. Decision-visible minus History-only changed PairAcc is $+20.0$ points [2.5,37.5]
+for Qwen and $+30.0$ [17.5,45.0] for GLM; substitution differences are $-42.9$ points
+[$-61.5,-24.2$] and $-50.0$ [$-70.6,-30.0$].}
+\label{tab:supp-call-matched}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.96\textwidth]{Figures/tri_call_matched_ablation.pdf}
+\caption{Matched-actor outcomes with state-cluster 95\% intervals. The decision block improves
+joint pair accuracy and reduces Preserve substitution for both models. Enforcement introduces
+Qwen harms and repairs but does not change GLM targets.}
+\label{fig:supp-call-matched}
+\end{figure}
+
+The compiler predicts the correct mode on 61/80 Qwen and 64/80 GLM rows; correct Preserve binding
+is 28/40 and 24/40. Qwen enforcement changes 16 outcomes, with four repairs and eight harms; its
+PairAcc contrast against Decision-visible is $-7.5$ points [$-22.5,7.5$]. GLM enforcement changes
+no outcome. All 480 logical calls complete without retry or parse failure. This result removes
+call-count and base actor-payload asymmetry for the explicit-decision contrast, not every
+difference in compiler prompting or representation.
+
+\FloatBarrier
+
+\subsection{Cross-Schema Replication (internal inventory: TRI-v7)}
 The post-primary replication was frozen before its model calls with SHA-256 prefix
 \texttt{2504f4979f1b}; the artifact manifest records the complete hash.
-It contains 240 tasks over ten schemas unused in v3 primary or transfer, four independently
+It contains 240 tasks over ten schemas unused in the primary diagnostic or transfer set, four independently
 parameterized state instances per schema, and balanced binding, update, and explicitness factors.
 All old targets remain present and action-valid. We resample the 40 state-instance clusters.
 
@@ -537,13 +841,13 @@ All old targets remain present and action-valid. We resample the 40 state-instan
 Model & Controller & E2E target & Initial bind & Cond. subst. & Wrong writes & Stable err. \\
 \midrule
 Qwen3.5 & Generic & 47.5 & 107/120 & 43/72 & 44/240 & 4/40 \\
-Qwen3.5 & Exact CTA & 70.8 & 103/120 & 0/71 & 8/240 & 6/40 \\
+Qwen3.5 & Historical CTA & 70.8 & 103/120 & 0/71 & 8/240 & 6/40 \\
 Qwen3.5 & Gated & 71.2 & 95/120 & 0/64 & 17/240 & 9/40 \\
 GLM-5.1 & Generic & 70.0 & 120/120 & 38/80 & 38/240 & 2/40 \\
-GLM-5.1 & Exact CTA & 94.2 & 104/120 & 0/70 & 14/240 & 0/40 \\
+GLM-5.1 & Historical CTA & 94.2 & 104/120 & 0/70 & 14/240 & 0/40 \\
 GLM-5.1 & Gated & 97.1 & 119/120 & 0/79 & 7/240 & 0/40 \\
 DeepSeek-V4-Pro & Generic & 73.8 & 119/120 & 59/79 & 60/240 & 0/40 \\
-DeepSeek-V4-Pro & Exact CTA & 91.2 & 107/120 & 0/70 & 17/240 & 1/40 \\
+DeepSeek-V4-Pro & Historical CTA & 91.2 & 107/120 & 0/70 & 17/240 & 1/40 \\
 \bottomrule
 \end{tabular}
 \caption{Frozen new-state replication with distinct denominators. E2E target uses all 240 rows;
@@ -554,8 +858,8 @@ winner, and a still-valid old entity; wrong writes count all non-gold mutations;
 
 Generic conditional substitution is 59.7\% for Qwen, state-cluster 95\% CI [46.5,72.4], and
 47.5\% for GLM [35.0,61.3]. CTA-minus-Generic overall differences are +23.3 points
-[16.2,30.4] and +24.2 [19.6,28.7]. SQLite replay turns all 43 and 38 Generic core substitutions
-into wrong-entity writes. CTA/Gated produce zero core substitution writes after a correct binding, but
+[16.2,30.4] and +24.2 [19.6,28.7]. Fixed-executor replay instantiates all 43 and 38 Generic core
+substitutions as wrong-entity writes. CTA/Gated produce zero core substitution writes after a correct binding, but
 still produce 8 and 17 Qwen wrong writes, respectively, and 14 and 7 GLM wrong writes,
 respectively, from opposite-mode or selector errors. Thus
 the replication supports the conditional phenomenon and commitment compilation, not general
@@ -564,8 +868,8 @@ GLM CTA records one successful transport retry; the other five runs record none.
 
 The later DeepSeek run uses the same frozen 240 tasks and inference settings. Generic substitutes
 on 59/79 opportunities, 74.7\% with state-cluster interval [62.5,86.1], while CTA substitutes on 0/70.
-CTA-minus-Generic accuracy is +17.5 points [10.8,23.3]. All 59 Generic core substitutions become
-wrong-entity SQLite writes. Across all errors, Generic and CTA produce 60 and 17 wrong writes;
+CTA-minus-Generic accuracy is +17.5 points [10.8,23.3]. Fixed-executor replay instantiates all 59
+Generic core substitutions as wrong-entity SQLite writes. Across all errors, Generic and CTA produce 60 and 17 wrong writes;
 CTA's remaining errors are outside the conditional-substitution definition. Both 240-row files have zero
 API/parse errors and zero retries.
 
@@ -582,7 +886,7 @@ GLM-5.1 & 30/70; 0/70 & 15/80 [8.8,30.0] & 66/80 [73.8,90.0] & +63.7 [52.5,75.0]
 DeepSeek & 50/69; 0/69 & 17/80 [11.2,32.5] & 64/80 [70.0,88.8] & +58.8 [43.8,72.5] \\
 \bottomrule
 \end{tabular}
-\caption{Post-primary zero-API v7 audit. Shared substitution uses only tasks where Generic and CTA
+\caption{Post-primary zero-API \NewSchemaReplication{} audit. Shared substitution uses only tasks where Generic and CTA
 both expose the correct initial ID; G/C denotes Generic/CTA. PairAcc entries give counts and
 state-cluster bootstrap 95\% intervals in percent; the final column is the paired percentage-point
 difference. Zero observed CTA substitutions do not establish zero population risk.}
@@ -590,12 +894,12 @@ difference. Zero observed CTA substitutions do not establish zero population ris
 \end{table}
 
 \subsection{Matched Full-History Baselines}
-After the v7 and DeepSeek results were known, we froze a separate strong-baseline protocol on the
+After the \NewSchemaReplication{} and DeepSeek results were known, we froze a separate strong-baseline protocol on the
 unchanged 240 tasks. \texttt{interactive} is an ordinary two-call trajectory: the first response
 requests refresh and the second retains the complete conversation, without TRI or reference-mode
 terminology. \texttt{full\_history\_once} is a strong one-call late-authorization baseline that sees both
-states and is explicitly asked whether to preserve, reevaluate, or reject. Exact CTA uses the
-existing matched v7 run. Temperature is zero, thinking is disabled, and the output cap is 1,200.
+states and is explicitly asked whether to preserve, reevaluate, or reject. Historical CTA uses the
+existing matched replication run. Temperature is zero, thinking is disabled, and the output cap is 1,200.
 
 \begin{table}[h]
 \centering
@@ -610,7 +914,7 @@ GLM-5.1 & 67.1 & 80.8 & 94.2 & 74/80 & 38/80 & +13.3 [8.8,17.9] \\
 DeepSeek & 68.8 & 75.8 & 91.2 & 68/80 & 42/80 & +15.4 [9.2,21.7] \\
 \bottomrule
 \end{tabular}
-\caption{Matched v7 exact-target accuracy (\%) and anchored changed-winner substitutions.
+\caption{Matched \NewSchemaReplication{} exact-target accuracy (\%) and anchored changed-winner substitutions.
 Intervals resample 40 state clusters. For Qwen, the CTA--Aware interval includes zero.}
 \end{table}
 
@@ -640,7 +944,7 @@ tested model--tool loops; they are not a random sample or evidence of natural pr
 \toprule
 Case & User instruction (abridged only for layout) & Observable model/tool trace & Classification \\
 \midrule
-v7 / Qwen & Choose the earliest incomplete reminder from the present view; reload; keep that chosen reminder as the action target. & bind \texttt{REM-1A} $\rightarrow$ target/write \texttt{REM-1B} & Post-binding substitution; controlled SQLite \\
+Schema / Qwen & Choose the earliest incomplete reminder from the present view; reload; keep that chosen reminder as the action target. & bind \texttt{REM-1A} $\rightarrow$ target/write \texttt{REM-1B} & Post-binding substitution; controlled SQLite \\
 TS / GLM & Before synchronizing, find the newest-created editable reminder; afterward move that reminder, without switching entries. & bind \texttt{REM-A} $\rightarrow$ \texttt{postpone(REM-B)} & Post-binding substitution; custom, post-hoc case \\
 AW / GLM & Find the earliest task in the list as it is now; synchronize, then postpone the task found. & bind \texttt{6334} $\rightarrow$ \texttt{postpone(6334)} & Eligible opportunity; no violation \\
 AW / Qwen & Find the alphabetically first note as the notes are now; synchronize, then append to the note found. & sync $\rightarrow$ late bind/write \texttt{3086} & Tool-order error; not TRI \\
@@ -653,7 +957,7 @@ official benchmark results.}
 \label{tab:qualitative-cases}
 \end{table}
 
-\paragraph{Frozen v7/SQLite conditional substitution.}
+\paragraph{Frozen cross-schema write trace.}
 Task \path{tri-v7-core-reminders-s1-explicit_anchor-name_collision} asks Qwen3.5 Generic
 to choose the earliest incomplete reminder now, reload, and postpone that same reminder.
 In $S_0$, \texttt{REM-1A} (display ``Renewal,'' due 110) wins; the compiled ledger records
@@ -704,17 +1008,100 @@ stable controls for each model. The remaining 5 and 2 wrong writes follow remova
 and are reported separately as reject-policy errors. On Qwen, Generic
 plus a validity-only gate remains 27/40, while Lifecycle-free and Lifecycle-Gated reach 40/40.
 The separately run GLM Lifecycle-Gated replay also reaches 40/40; GLM Lifecycle-free was not
-run on SQLite. All reported 40/40 cells have zero wrong writes and collateral modifications.
-These are controlled mutation results, not a claim about arbitrary
-unconstrained agents: they assume the lifecycle record was compiled correctly.
+run on SQLite. All reported 40/40 cells have zero wrong writes and collateral modifications. These
+controlled mutation results condition on correct compilation of the lifecycle record.
 
 \section{External Boundary Check}
+\subsection{Source-derived matched-call contrast}
+This post-primary protocol was frozen before its own calls. It contains 30 changed-winner pairs,
+ten each grounded in STATE-Bench, AgentDojo, and ToolSandbox states and tool schemas. The refresh
+and opposite-gold instructions are author-supplied controlled interventions over those source
+substrates. Each model--task record uses one shared compiler call and two actors with
+equal base payloads and call counts. Decision-enforced is computed offline.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Model & Outcome & PairAcc & E2E & Preserve subst. & Wrong writes \\
+\midrule
+Qwen & History-only & 12/30 & 39/60 & 7/26 & 16/60 \\
+Qwen & Decision-visible & 13/30 & 39/60 & 7/26 & 17/60 \\
+Qwen & Decision-enforced & 17/30 & 43/60 & 0/26 & 15/60 \\
+GLM & History-only & 11/30 & 37/60 & 10/30 & 16/60 \\
+GLM & Decision-visible & 20/30 & 48/60 & 1/30 & 5/60 \\
+GLM & Decision-enforced & 22/30 & 52/60 & 0/30 & 4/60 \\
+DeepSeek & History-only & 19/30 & 45/60 & 6/27 & 11/60 \\
+DeepSeek & Decision-visible & 22/30 & 47/60 & 2/27 & 9/60 \\
+DeepSeek & Decision-enforced & 20/30 & 47/60 & 0/27 & 13/60 \\
+\bottomrule
+\end{tabular}
+\caption{Source-derived matched-call results. Preserve substitution conditions on correct
+observable initial binding, a surviving actionable old target, and a distinct refreshed winner.
+``Wrong writes'' counts all fixed-executor wrong-target writes, not only conditional TRI errors.}
+\label{tab:supp-source-matched}
+\end{table}
+
+Decision-visible minus History-only PairAcc is +3.3 points [$-11.1$,20.0] for Qwen, +30.0
+[0.0,55.6] for GLM, and +10.0 [$-10.0$,30.0] for DeepSeek. Corresponding E2E differences are
+0.0 [$-6.7$,6.7], +18.3 [8.3,30.0], and +3.3 [$-5.0$,11.7]. Thus only the GLM E2E interval
+excludes zero. Offline enforcement records 9/5, 4/0, and 4/4 repairs/harms for Qwen, GLM, and
+DeepSeek. The complete 540 logical calls have no retry, transport failure, or parse failure.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Source & Qwen & GLM & DeepSeek \\
+\midrule
+STATE-Bench & 8/10 $\rightarrow$ 8/10 & 5/10 $\rightarrow$ 10/10 & 10/10 $\rightarrow$ 9/10 \\
+AgentDojo & 4/10 $\rightarrow$ 5/10 & 4/10 $\rightarrow$ 4/10 & 6/10 $\rightarrow$ 7/10 \\
+ToolSandbox & 0/10 $\rightarrow$ 0/10 & 2/10 $\rightarrow$ 6/10 & 3/10 $\rightarrow$ 6/10 \\
+\bottomrule
+\end{tabular}
+\caption{PairAcc by source, shown as History-only $\rightarrow$ Decision-visible. Null and adverse
+changes are reported separately for each source.}
+\label{tab:supp-source-slices}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.68\textwidth]{Figures/fig_source_model_transfer_fingerprints_compact.pdf}
+\caption{Source-derived controlled-contrast fingerprints. Open and filled points show History-only
+and Decision-visible PairAcc; the text below each cell gives actionable E2E. The source--model
+slices preserve the null and adverse transfers hidden by a pooled summary.}
+\label{fig:supp-source-transfer-fingerprints}
+\end{figure}
+
+The event-order rule was hash-frozen before this application and reaches 15/60 exact targets and
+2/30 PairAcc. The model-dependent actor results also vary across sources. Neither the fixed rule nor
+timing visibility transfers uniformly across the three source-derived substrates.
+
+\subsection{Earlier external pilots and audits}
 The ToolSandbox-based 24-task pilot is exploratory and is not an official benchmark score.
 For Generic, Lifecycle, Gated, and Untyped, respectively, accuracies are
 79.2/87.5/91.7/91.7\% for GLM and 91.7/83.3/91.7/79.2\% for Qwen. Gated includes one GLM
 and two Qwen wrong writes. It therefore demonstrates that the target-integrity diagnosis can be
 instantiated in a stateful external-style tool loop, but does not establish a stable method
 advantage outside the controlled TRI setting.
+
+\paragraph{Injected checklist sensitivity.}
+We tested the deterministic public-suite audit implementation using schema-shaped controls for six
+suites. For each suite, five strict positives satisfy every checklist condition and five hard
+negatives omit exactly one required condition. After the generator and checker were frozen, the
+implementation retrieves all 30/30 positives and excludes all 30/30 hard negatives. This verifies
+the code path on known labels. It does not estimate recall for naturally phrased workflows,
+validate semantic candidate retrieval, or show systematic undercoverage in the public suites.
+
+\paragraph{Model-assisted recall triage.}
+A zero-API, model-assisted triage pass re-read 72 natural candidate records from ToolSandbox,
+AppWorld, $\tau^3$-Bench, API-Bank, BFCL, and ToolTalk, together with 60 injected controls. It
+labels 0/72 natural records as strict native opportunities while recovering all 30 strict-positive
+controls and excluding all 30 hard-negative controls. We use this only as an engineering check on
+candidate labeling and promptable documentation; it is not an independent recall calibration and is
+not treated as additional behavioral evidence.
 
 A post-hoc strict audit joins each trace to the frozen manifest and counts only Preserve/Flip rows
 where the compiled initial ID is correct, the old entity remains present, and the refreshed winner
@@ -739,9 +1126,19 @@ in the artifact as exploratory sensitivity evidence (0/73 substitutions, six wro
 13 prohibited-schema/process errors). Its unmatched interface and protocol failures exclude it
 from these four paper-facing conditions; it is not hidden or pooled with them.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/tri_external_validity.pdf}
+\caption{External validity boundary and human evidence slices.
+\textbf{(A)} Public benchmark coverage audit: zero strict native opportunities under the checklist across six suites.
+\textbf{(B)} Source-anchored transfer: positive evidence in one Qwen AgentDojo slice (2/7); remaining slices null.
+\textbf{(C)} Human agreement by construct slice: strong support for referent core (86--98\%), weak for reject policy (55\%).
+\textbf{(D)} Evidence boundary summary: the controlled diagnostic is supported; open-language generalization and natural prevalence remain unmeasured.}
+\label{fig:external-validity}
+\end{figure}
+
 \subsection{Official opportunity and released-trace audit}
-We separately audited the unmodified public task inventories rather than multiplying semantic
-tasks by tool-description augmentations. At ToolSandbox commit \texttt{165848b}, 129 semantic
+We audited the unmodified public inventories at the semantic-task level. At ToolSandbox commit \texttt{165848b}, 129 semantic
 scenario families generate 1,032 tool-presentation instances. None contains the strict sequence
 correct binding, independent external transition, and later substitutable entity mutation. One
 multiple-user-turn task is TRI-like: after finding all friends and changing those stable person
@@ -759,7 +1156,7 @@ target. There are 152 omitted gold targets, two assignments to non-gold IDs, and
 on non-gold IDs; only two trajectories pass every official test. These are upstream selection and
 coverage failures, not post-binding substitutions after a correct target operation.
 
-At current $\tau^3$-bench commit \texttt{cf71a80}, we further audit 2,449 core tasks: 50
+At current $\tau^3$-Bench commit \texttt{cf71a80}, we further audit 2,449 core tasks: 50
 airline, 114 retail, and 2,285 telecom. Airline and retail expose no user-side mutation during
 conversation. Telecom has 2,250 tasks with user mutation actions, but none carries a customer,
 line, or bill stable ID, and its single-device/app actions create no competing same-role selector
@@ -775,7 +1172,7 @@ o4-mini; 936 trajectory IDs match the payment family, but none supplies a strict
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{lccc}
 \toprule
-Strict-opportunity feature & ToolSandbox & AppWorld & $\tau^3$ \\
+Strict-opportunity feature & ToolSandbox & AppWorld & $\tau^3$-Bench \\
 \midrule
 Stable entity ID & yes & yes & no \\
 Observable prior binding & yes & yes & partial \\
@@ -799,10 +1196,67 @@ of model violation. The source-derived funnel makes attrition explicit: ToolSand
 129 families to 43 after entity-mutation filtering, then 26/18/1/0 after transition, prior-selection,
 stable-ID, and strict-opportunity checks. AppWorld narrows from 244 families to one near-match and
 zero strict exogenous opportunities; its 42 released trajectories expose 16 auditable post-binding
-operations and zero substitutions. In $\tau^3$, 2,250/2,449 tasks contain a user-side mutation but
+operations and zero substitutions. In $\tau^3$-Bench, 2,250/2,449 tasks contain a user-side mutation but
 none exposes a stable ID in that mutation. These are sequential author classifications, not an
 independent recall audit or a marginal feature-prevalence estimate. Full counts are generated in
 \texttt{reports/public\_suite\_coverage\_funnel\_v1.json}.
+
+A separate post-primary, zero-API structural scan parses three additional pinned test inventories:
+API-Bank (528 units), BFCL multi-turn (800 variants in 200 clusters), and ToolTalk (50 dialogues).
+Author-built retrieval retains 0, 57, and 23 source-anchored candidate clusters, respectively, but
+finds zero strict native opportunities in each corpus. No released unit jointly exposes an observable
+pre-update binding, independent refresh, surviving action-valid old target, distinct refreshed winner,
+timing authorization, and target-level mutation. These are counts under the retrieval procedure,
+without independent recall calibration or prevalence meaning. The 80 BFCL/ToolTalk candidates support
+only further source inspection, not a native TRI positive or behavioral transfer result; the protocol,
+manifest, inventory, parser, and report are included in the Code and Data Supplement.
+
+A frozen post-primary annotation then sends each of these 80 candidates to Qwen3.5 and GLM-5.1.
+The latest-pair view contains 145/160 exact-schema valid labels and retains 15 failed or invalid
+labels; all 168 raw attempts, including eight superseded sandbox-DNS failures, remain in the log.
+Among 65 candidates with two valid labels, 24 have a model disagreement. The strict-positive union
+and intersection are both zero, while the broader source-eligible union and intersection contain
+25 and one candidates. Thus no strict-positive source verification is triggered. These are fallible
+model candidate labels, not independent review, recall calibration, a verified native opportunity,
+a behavioral result, or a prevalence estimate.
+
+\subsection{Frozen source-anchored external transfer}
+
+We separately constructed a matched behavioral transfer from pinned STATE-Bench
+and AgentDojo sources. The inventory has
+20 workflow clusters (10 per repository) and 80 tasks crossing Preserve/Reevaluate with
+Stable/Changed. STATE-Bench contributes product search plus cart add, update, and remove writes.
+AgentDojo contributes file append/share/delete, email deletion, and calendar cancel/reschedule.
+Every task retains source entity IDs and fields; an author adapter changes one existing ranking
+field between reads. The old target remains present and action-valid. Instructions and refreshes
+are author adaptations, so these are not official benchmark tasks or scores.
+
+Two models run ordinary full history and a matched execution-record probe, yielding 320 rows.
+The frozen zero-API gate passes 80/80 source-tool final-state checks. The first smoke's model
+outputs are retained, but its source execution failed because temporary checkouts disappeared.
+Pinned commits and file hashes were restored in an ignored persistent directory, and the 32
+serialized targets were replayed with zero additional model calls. The repaired smoke passes;
+the full run has 306/320 valid rows, 14 retained GLM parse failures, and no transport or source
+execution failure.
+
+\input{source_anchored_external_transfer_table.tex}
+
+Across all four model/condition cells, 126 Changed rows have a correct observable initial
+selection and a surviving action-valid old target. Exact-target success is 118/126. Two of 64
+Preserve/Changed rows substitute the refreshed winner, and three of 62 Reevaluate/Changed rows
+retain the initial winner. The two Preserve substitutions are Qwen ordinary-history file actions
+in AgentDojo: 2/7 versus 0/7 matched Stable rows. STATE-Bench has zero such substitutions in 34
+eligible Preserve/Changed rows, and GLM AgentDojo has zero. Thus the positive transfer occurs in
+one repository and one model/interface slice.
+
+The execution record does not provide a stable method gain. On shared correct-initial-selection
+rows, ordinary history versus execution record scores 57/59 versus 52/59 for GLM and 62/65 versus
+63/65 for Qwen. Cluster bootstrap estimates execution-record minus ordinary exact-target accuracy
+at $-8.75$ points (95\% CI $[-16.25,-2.5]$) for GLM and $-1.25$ points
+($[-6.25,3.75]$) for Qwen. This result supplies limited source-anchored bridge evidence for the
+diagnostic while narrowing any claim that an explicit record is generally superior. It does not
+establish native benchmark prevalence, natural traffic, independent human evidence, or an official
+STATE-Bench or AgentDojo score.
 
 \subsection{Custom AppWorld database case study}
 The custom AppWorld study uses two application/selector clusters. The Todoist cluster was frozen
@@ -846,7 +1300,7 @@ pre-binding temporal-order failure and illustrates why Stable controls and a con
 denominator are both necessary.
 
 \section{Negative Compositional Stress Tests}
-The frozen Qwen TRI-v5 stress test contains 40 SQLite tasks with two refreshes, a monitoring
+The frozen Qwen two-refresh multi-referent stress test contains 40 SQLite tasks with two refreshes, a monitoring
 referent, an unrelated tool call, and a final mutation. Generic obtains 32/40 final states,
 one wrong write, and four unnecessary rejections. Scalar Lifecycle obtains 28/40, six wrong
 writes, six unnecessary rejections, and one parse/internal error. The difference is $-10.0$
@@ -863,8 +1317,8 @@ stable superiority over simpler compilation.
 
 \section{Post-Primary Method-Upgrade Go/No-Go}
 After the scalar and compositional results above were known, we froze a 20-task decision set:
-16 v7 core tasks over 16 state clusters and four v6 multi-refresh/role tasks. We reused the
-matching frozen Generic, Exact CTA, Lifecycle, and role-indexed outputs and newly ran an Event
+16 \NewSchemaReplication{} tasks over 16 state clusters and four multi-refresh/role tasks. We reused the
+matching frozen Generic, Historical CTA, Lifecycle, and role-indexed outputs and newly ran an Event
 Graph compiler (M1) and Event Graph plus Executable Selector (M2) with both models. This is an
 exploratory method-selection smoke, not a powered confirmatory comparison.
 
@@ -885,135 +1339,17 @@ GLM-5.1 & Executable Selector & 18/20 & 18/20 & 18/20 & 19/20 \\
 and final states. Parse/schema failures count as incorrect under intention-to-treat.}
 \end{table}
 
-On the same combined tasks, Exact CTA obtains 13/20 for Qwen and 20/20 for GLM. M2 therefore
+On the same combined tasks, Historical CTA obtains 13/20 for Qwen and 20/20 for GLM. M2 therefore
 changes accuracy by +2 and $-2$ tasks, respectively, and fails the predeclared requirements that
 both models reach at least 95\% schema/selector equivalence and show a consistent direction.
-We do not promote M1 or M2 to the main method. Exact CTA remains the minimal scalar realization, while the
-independently frozen v6 evidence above motivates role indexing as a limited compositional
-extension. The zero-API oracle executor is 440/440 on v3/v7/v6 and blocks all stale/wrong writes
+We do not promote M1 or M2 to the main method. Historical CTA remains the minimal scalar realization, while the
+independently frozen role-indexing evidence above motivates role indexing as a limited compositional
+extension. The zero-API oracle executor is 440/440 across the primary, cross-schema, and compositional inventories and blocks all stale/wrong writes
 in 120 deterministic concurrency sequences; this establishes implementation sufficiency only,
 not learned compiler performance.
 
-\paragraph{Binding Drift audit.}
-The two projects can be located on two independent decision axes:
-\begin{table}[h]
-\centering
-\small
-\begin{tabular}{lll}
-\toprule
-Initial binding & Preserve after update & Reevaluate after update \\
-\midrule
-Correct & TRI-Preserve & TRI-Reevaluate \\
-Incorrect & Error propagation/repair & Repair plus authorized reselection \\
-\bottomrule
-\end{tabular}
-\caption{Problem map. Binding Drift studies persistence and repair of a step-1 referent; TRI
-conditions on a correct binding and varies whether later reevaluation is authorized. The
-lower-right combination is outside the present TRI claim.}
-\end{table}
-
-We audited the official Binding Drift repository at commit
-\texttt{0e040e0954b1}. Its documented offline command references
-two files deleted at that commit; exposing the current \texttt{workflows\_200.jsonl} under the
-legacy filename in a temporary directory yields 25/25 assertions with unmodified metric and
-defense code. Its deterministic re-verification reads a gold target and is an oracle upper bound,
-whereas Entity Lock corresponds to our Always-Lock extreme. We therefore do not place its oracle
-score in the learned-method main table. Our information-matched one-shot baseline sees the original
-instruction and both state epochs and must resolve whether to preserve, reevaluate, or reject;
-it is a late-authorization TRI baseline, not the official self/cross method.
-The official LLM-based re-verifiers have not been adapted to expose a separately scored
-pre-refresh binding or a user-authorized deferred query, so we do not label that comparison as an
-official reproduction.
-
-After freezing a 20-task symmetric smoke (ten v7 domains, one identical-state
-Preserve/Reevaluate Flip pair per domain), we ran an explicit author adaptation. The official
-re-verifier normally receives a short \texttt{step1\_referent}; using only TRI's selector would
-delete the temporal authorization variable, so the official prompt frame receives the complete
-TRI instruction and refreshed candidates. Gold, mode labels, and CTA state are hidden.
-\begin{table}[h]
-\centering
-\scriptsize
-\begin{tabular}{llrrr}
-\toprule
-Model & Policy & Overall & Preserve & Reevaluate \\
-\midrule
-Qwen & Lock analogue & 10/20 & 10/10 & 0/10 \\
-Qwen & Self reverify & 3/20 & 0/10 & 3/10 \\
-Qwen & Cross (GLM) & 10/20 & 0/10 & 10/10 \\
-Qwen & Frozen CTA & 12/20 & 8/10 & 4/10 \\
-GLM & Lock analogue & 10/20 & 10/10 & 0/10 \\
-GLM & Self reverify & 10/20 & 0/10 & 10/10 \\
-GLM & Cross (Qwen) & 3/20 & 0/10 & 3/10 \\
-GLM & Frozen CTA & 17/20 & 7/10 & 10/10 \\
-\bottomrule
-\end{tabular}
-\caption{Post-primary Binding Drift author-adaptation smoke. Cross rows reuse the other model's
-independent verifier output on the same input, avoiding duplicate calls. This is not an official
-Binding Drift score. Qwen reverify selects another visible but selector-ineligible entity on
-14/20 tasks; GLM selects the refreshed winner on all 20.}
-\end{table}
-
-Both verifier runs contain 20/20 expected rows, zero API/parse errors, and zero retries (16,088
-tokens total). Thus GLM cleanly exposes complementary lock/re-resolution errors, while Qwen mainly
-exposes an interface grounding failure. CTA is not perfect, but is the only tested policy with
-nonzero accuracy on both modes for both models. These results do not test initial-misbinding repair
-and cannot establish superiority on Binding Drift's original benchmark.
-
-Before extending GLM, we froze the complete v7 inventory, endpoint, prompt, ITT policy, metrics,
-cluster bootstrap, and interpretation gates. All 240 v7 items are actionable: 120 Preserve and 120
-Reevaluate across 40 complete state clusters, with 80 each of Flip, Stable, and name-collision.
-\begin{table}[h]
-\centering
-\scriptsize
-\begin{tabular}{lrrrrrr}
-\toprule
-Policy & Overall & Preserve & Reevaluate & Pair & Subst. & Prem. lock \\
-\midrule
-Lock analogue & 160/240 & 120/120 & 40/120 & 40/120 & 0 & 80 \\
-GLM reverify adaptation & 155/240 & 39/120 & 116/120 & 38/120 & 80 & 2 \\
-Frozen CTA & 226/240 & 110/120 & 116/120 & 106/120 & 10 & 4 \\
-Rule v2 (post-hoc) & 220/240 & 110/120 & 110/120 & 100/120 & 10 & 10 \\
-\bottomrule
-\end{tabular}
-\caption{Complete post-primary v7 author adaptation. Pair requires both Preserve and Reevaluate
-members under the same state transition to be correct. Subst. counts Preserve substitutions to
-the refreshed winner; Prem. lock counts Reevaluate retention only when the old target is wrong.}
-\label{tab:supp-binding-drift-full}
-\end{table}
-
-\begin{table}[h]
-\centering
-\scriptsize
-\begin{tabular}{lcccc}
-\toprule
-Condition & $S_0$ & $S_1$ & Old selected ID & Transition decision \\
-\midrule
-Reverify adaptation & no & yes & no & implicit from instruction \\
-Full-history aware & yes & yes & recomputed & late LLM decision \\
-Generic ledger & snapshot & yes & yes & implicit in ledger/history \\
-CTA & compiler input & yes & yes & precompiled \\
-Rule v2 (post-hoc) & yes & yes & derived & deterministic event order \\
-\bottomrule
-\end{tabular}
-\caption{Information audit. Only the full-history, Generic, CTA, and rule conditions contain enough
-information to reconstruct the old selector result after a changed-winner transition. This table
-does not imply that recomputation and an observed binding impose equal computational demands.}
-\label{tab:supp-information-audit}
-\end{table}
-
-GLM reverify completes 240/240 rows with 240 requests, zero retries, zero API/parse errors, and
-89,354 provider-reported tokens. The pre-frozen gate labels its observed asymmetry a
-\textsc{Complementary Policy Result}. A post-run information audit, however, identifies a decisive
-interface mismatch: the adapted verifier sees the complete instruction and $S_1$, but neither
-$S_0$ nor a resolved old ID. Binding Drift's original \texttt{step1\_referent} is intended to
-uniquely identify the step-1 target; TRI's ranking selector does not identify its former winner
-from $S_1$ after a Flip. Thus the 39/120 versus 116/120 mode split is expected under the available
-information and is not a fair CTA performance comparison. We retain the full result as an
-interface audit, not as evidence of superiority or an official Binding Drift score. The matched
-full-history and Generic-ledger controls above are the information-matched baselines.
-
 \paragraph{Leave-group-out sensitivity.}
-On the 240-task v7 replication, we recompute the matched CTA-minus-Generic difference after
+On the 240-task \NewSchemaReplication{}, we recompute the matched CTA-minus-Generic difference after
 excluding one complete domain or one complete template family. The ten domain exclusions retain
 ranges of 18.5--25.5, 23.1--25.9, and 15.7--22.2 points for Qwen, GLM, and DeepSeek; the sixteen
 template-family exclusions retain 20.4--26.3, 20.8--26.1, and 14.2--19.6 points. Every exclusion
@@ -1023,10 +1359,10 @@ templated rows independent natural-world observations.
 \paragraph{Within-inventory subsampling stability audit.}
 We additionally subsample complete matched clusters without replacement 10,000 times at
 increasing cluster counts. This is a precision and stability diagnostic, not post-hoc power.
-On v3, the audit reproduces the full Lifecycle-Gated--Generic point differences of +33.8 points
+On \PrimaryDiagnostic{}, the audit reproduces the full Lifecycle-Gated--Generic point differences of +33.8 points
 for Qwen and +28.1 for GLM; the pre-specified seed-20260717 intervals are reported in the
 statistical section above. At only 10 of 20 template clusters (80 tasks), 100\% of subsamples
-retain a positive difference for both models. On v7,
+retain a positive difference for both models. On \NewSchemaReplication{},
 the full CTA--Generic differences are +23.3 [16.2,30.4], +24.2 [19.6,28.7], and +17.5
 [10.8,23.3] for Qwen, GLM, and DeepSeek. At 10 of 40 state clusters (60 tasks), positive
 differences occur in 100.0\%, 100.0\%, and 99.8\% of draws; at 20 clusters all three reach
@@ -1034,7 +1370,7 @@ differences occur in 100.0\%, 100.0\%, and 99.8\% of draws; at 20 clusters all t
 This does not increase the number of natural-world opportunities or justify a prevalence claim.
 
 \paragraph{Temperature-zero repeat stability.}
-Before repeat calls, we froze one balanced task from each of the 40 v7 state clusters. The matching
+Before repeat calls, we froze one balanced task from each of the 40 \NewSchemaReplication{} state clusters. The matching
 subset of the original run is repeat 1; two new complete passes give three measurements for Qwen
 and GLM Generic and CTA. CTA--Generic remains positive in every model-repeat cell: Qwen differences
 are +25.0, +12.5, and +22.5 points, while GLM differences are +30.0, +20.0, and +25.0. Generic
@@ -1054,13 +1390,15 @@ set, Generic uses 80 requests and Gated uses 60. Token usage was not captured an
 network-dependent, so these are request-efficiency observations rather than a controlled
 systems benchmark.
 
-For the post-primary DeepSeek v7 run, both Generic and CTA use 480 requests. Provider-reported
+For the post-primary DeepSeek \NewSchemaReplication{} run, both Generic and CTA use 480 requests. Provider-reported
 usage is 264,359 tokens for Generic and 216,446 for CTA; client-observed cumulative latency is
 1,651.7 and 1,355.8 seconds. These matched-endpoint observations are reported for provenance,
 not as a cross-provider systems claim.
 
 \section{Blind Human Construct Validation}
 One volunteer uninvolved in TRI design produced natural-language rewrites of 50 sampled scalar instructions.
+The source script uses seed 20260717 and stratifies the 160-task inventory by the 20
+style--update cells, selecting two or three tasks from every cell for a fixed total of 50.
 Three other volunteers independently labeled 100 differently randomized original/rewrite
 items. Forms used opaque IDs and concealed source task, binding mode, update, variant, and
 gold. Responses were an entity ID, \textsc{Reject}, or \textsc{Clarify}; confidence was
@@ -1070,9 +1408,14 @@ All four participants were adults and provided informed consent. The collection 
 described voluntary participation and discouraged names or unnecessary personal data. Two
 participants received modest one-time honoraria and two were unpaid; compensation was arranged
 individually and was not contingent on response content or agreement with benchmark gold.
-No sensitive personal data were collected, and the anonymous Code and Data Supplement contains
-only de-identified responses; private consent and study-administration records
-are not included.
+The instructions required sufficient English to complete the English-language task, but language
+background was not independently tested or retained. Recruitment channel, prior relationship to
+the research team, exact honorarium amounts, and actual completion times were not recorded in the
+research dataset; the administration guide estimated 45--75 minutes for rewriting and 60--90
+minutes per annotator. This convenience-sample limitation precludes demographic generalization.
+No formal institutional review or exemption determination was obtained. No sensitive personal
+data were collected, and the anonymous Code and Data Supplement contains only de-identified
+responses; private consent and study-administration records are not included.
 
 \begin{table}[H]
 \centering
@@ -1168,6 +1511,81 @@ compilation on this volunteer-authored rewrite set, not
 Lifecycle-Gated superiority. The execution log discloses two pre-call empty-run failures and
 the non-balanced health-smoke deviation.
 
+\paragraph{Matched-call transfer.}
+A separate post-primary run applies the full-diagnostic History-only and Decision-visible actors to
+the same 50 frozen rewrites. The 50 rows form 43 clusters; only seven clusters contain both timing
+modes, and only three are actionable changed-winner pairs. PairAcc is therefore a small-sample
+sensitivity rather than the main endpoint.
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Model & Outcome & Actionable E2E & Human majority & Changed PairAcc & Preserve subst. \\
+\midrule
+Qwen & History-only & 30/40 & 34/48 & 0/3 & 9/10 \\
+Qwen & Decision-visible & 30/40 & 35/48 & 1/3 & 8/10 \\
+Qwen & Decision-enforced & 33/40 & 39/48 & 2/3 & 0/10 \\
+GLM & History-only & 31/40 & 33/48 & 1/3 & 9/10 \\
+GLM & Decision-visible & 39/40 & 41/48 & 3/3 & 0/10 \\
+GLM & Decision-enforced & 40/40 & 43/48 & 3/3 & 0/10 \\
+\bottomrule
+\end{tabular}
+\caption{Matched-call results on one-volunteer rewrites of authored tasks. Human-majority
+accuracy uses 48 determinate labels; actionable E2E excludes ten author-specified Reject rows.}
+\label{tab:supp-human-rewrite-matched}
+\end{table}
+Decision-visible minus History-only actionable E2E is 0.0 points [$-10.0$,9.5] for Qwen and
+$+20.0$ [8.6,32.5] for GLM. All 300 planned logical calls complete without transport or
+parse failure. The mixed Qwen result and the three-pair changed subset are retained. This test uses
+one-volunteer wording of authored semantics and is not an open-language benchmark.
+
+\section{Model-Authored Linguistic Stress Audit}
+This post-primary audit tests dependence on the authors' surface templates without treating model
+output as independent human language. Before calls, we froze 24 actionable changed-winner workflow
+specifications over 24 new schemas. DeepSeek-V4-Pro then wrote one Preserve and one Reevaluate
+instruction per specification without seeing the original instructions, Rule* cues, controller
+outputs, or entity IDs. Gold follows only from the frozen event order and states. All 48 generated
+rows remain in ITT. Qwen3.5 and GLM-5.1 separately classified timing and checked selector, action,
+and ambiguity; these labels are a model-assisted sensitivity, not independent annotation.
+
+All 24 authoring calls, 96 judge calls, and 384 full controller calls completed without retry or
+parse failure. Qwen accepted 25/48 instructions and GLM accepted 33/48, but their intersection
+contains only 11 rows and no complete opposite-gold pair. Qwen classified 23/24 Reevaluate rows as
+Preserve, while GLM classified 14/24 Preserve rows as Reevaluate. Both marked selector and action
+fidelity and unambiguity true on all rows. This disagreement prevents a jointly validated PairAcc
+sensitivity and is itself a construct-validity failure for model-only replacement of independent
+writers and annotators.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Model & Controller & Row acc. & PairAcc & Preserve substitution & Failures \\
+\midrule
+Qwen3.5 & Generic & 24/48 & 0/24 & 24/24 & 0 \\
+Qwen3.5 & CTA & 36/48 & 12/24 & 0/12 & 0 \\
+GLM-5.1 & Generic & 24/48 & 0/24 & 20/24 & 0 \\
+GLM-5.1 & CTA & 36/48 & 12/24 & 0/12 & 0 \\
+Rule* & post-hoc & 15/48 & 5/24 & -- & 28 unresolved \\
+\bottomrule
+\end{tabular}
+\caption{Post-primary model-authored stress audit. CTA--Generic PairAcc is +50.0 points with
+state-pair bootstrap interval $[+29.2,+70.8]$ for each model. Conditional substitution requires
+an exact correct initial ID. No complete pair passes both model judges, so these results do not
+establish open-language transfer.}
+\end{table}
+
+The first aggregate report incorrectly scored every model row as wrong because the new
+\texttt{MAS-01-A}-style IDs contain two hyphens, whereas the pre-existing normalizer retained only
+\texttt{MAS-01}. The invalid all-zero report and raw rows are preserved. Before complete-set
+reparsing, we froze a zero-request transport repair that accepts only a final actor
+\texttt{target\_id} or compiled ID exactly equal to a serialized state ID; it uses no fuzzy,
+display-name, or semantic matching. The table reports that repaired audit and is labeled
+post-primary transport-repaired. The ITT direction is consistent with the controlled diagnosis,
+but model-authoring and judge disagreement leave the intended open-language objection unresolved.
+
 \section{Code and Data Supplement Map}
 \enlargethispage{2\baselineskip}
 The separately uploaded anonymous Code and Data Supplement contains the frozen JSONL task files, raw model outputs,
@@ -1176,6 +1594,9 @@ and tests. The directory \texttt{tri\_artifact/reports/} contains the primary
 cluster reports, component audits, SQLite replay reports, ToolSandbox pilot report, and
 claim-provenance records, \texttt{claims\_to\_evidence.csv}, matched-pair and qualitative-case reports, coverage checklists,
 official opportunity/trace audits, and the AppWorld custom protocol.
+The revision matched-call inventories, append-only execution log, raw outputs, v2 reports, and
+figure generator are stored under the same \texttt{data/}, \texttt{runs/}, \texttt{reports/}, and
+\texttt{scripts/} directories.
 Running \texttt{PYTHONPATH=. python scripts/audit\_main\_paper\_evidence.py} rebuilds the
 paper-facing evidence audit from frozen raw outputs and source reports and checks the critical
 diagnostic-table rows and headline claims against the manuscript source.
@@ -1183,7 +1604,8 @@ Current submission runners receive credentials through environment
 variables; credentials are not embedded in or stored with the artifact.
 
 \paragraph{AI-assisted engineering disclosure.}
-Generative AI systems were used for language editing, code assistance, and internal review. They
+Generative AI systems were used for language editing, code assistance, internal review, and the
+disclosed model-authored linguistic stress audit. They
 were not treated as authors, citable sources, independent annotators, or independent human
 evidence. The authors verified the manuscript claims, references, code, and reported results.
 
@@ -1192,11 +1614,12 @@ The paper-facing API runs use SiliconFlow's OpenAI-compatible
 \texttt{https://api.siliconflow.cn/v1/chat/completions} endpoint and the exact provider model IDs
 \texttt{Qwen/Qwen3.5-122B-A10B}, \texttt{Pro/zai-org/GLM-5.1}, and
 \texttt{deepseek-ai/DeepSeek-V4-Pro}. The provider did not expose immutable weight revisions or
-serving hardware, which limits exact API replay. Frozen v3/v7 calls use temperature zero,
+serving hardware, which limits exact API replay. Frozen primary and cross-schema calls use temperature zero,
 thinking disabled, and a 1,200-token output cap; per-row timestamps, request attempts, retries,
 latency, and configuration are stored in raw JSONL. Protocol files record timeout, retry, smoke,
 and stopping rules for each extension, while prompts are literal strings in the versioned
-runners. Offline reports and tests were verified on macOS 26.5.1 arm64 with Python 3.12.13 and
+runners. Paper-facing primary and replication calls span July 17--26, 2026 (UTC). Offline reports
+and tests were verified on macOS 26.5.1 arm64 with Python 3.12.13 and
 pytest 9.1.1; core generation, scoring, bootstrap, and SQLite replay use the Python standard
 library. These local details reproduce analysis from frozen outputs, not provider inference.
 

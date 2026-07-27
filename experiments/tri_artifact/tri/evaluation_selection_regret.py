@@ -14,8 +14,8 @@ INPUTS = {
     "v7": ROOT / "reports/v7_identifiability_regimes_v1.json",
 }
 EXPECTED_SHA256 = {
-    "v3": "f9acb0c9e7ba9028f1402dff31e7239f937e9267f73bd125653d2e9e845e67d7",
-    "v7": "8aac36f5c4d18c3ed1d119d20886ee7c42c3ff1d584a7d2f76b34a1512e61ed4",
+    "v3": "8de7ca1bb52eb13e6f3ff7fd184ea1468463a48308cd6d5d8b876c51f9d22332",
+    "v7": "f6cfc95206ecf7c0ba9b3131ad7907144b8558a80db48ee1bd07003322b2b305",
 }
 PROXY_REGIMES = {
     "aggregate_e2e": "Aggregate E2E",
@@ -149,6 +149,11 @@ def build_report(inputs: dict[str, Path] = INPUTS) -> dict[str, Any]:
                 and row["worst_case_selection_regret"] > 1e-12
                 for row in rows
             ),
+            "aggregate_pairacc_optimal_rows": sum(
+                row["proxy_regime"] == "aggregate_e2e"
+                and row["worst_case_selection_regret"] <= 1e-12
+                for row in rows
+            ),
             "maximum_worst_case_selection_regret": max(
                 row["worst_case_selection_regret"] for row in rows
             ),
@@ -194,6 +199,8 @@ def markdown(report: dict[str, Any]) -> str:
             "maximizer sets include a zero-PairAcc unconditional policy.",
             f"The maximum worst-case selection regret is "
             f"{100 * summary['maximum_worst_case_selection_regret']:.1f} points.",
+            "Aggregate E2E selects a changed-PairAcc-optimal candidate in all five corrected "
+            "candidate sets; the selection failure is specific to Stable-only and one-sided proxies.",
             "",
             *[f"- {boundary}" for boundary in report["boundaries"]],
             "",

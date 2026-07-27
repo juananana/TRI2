@@ -19,7 +19,7 @@
       "shared_generic_substitutions": 41,
       "shared_cta_substitutions": 0,
       "latex_row": "Qwen / Generic & 7/80 & 43/72 & 43/44 \\\\",
-      "latex_row_present": true
+      "latex_row_present": false
     },
     {
       "model": "Qwen3.5",
@@ -38,7 +38,7 @@
       "shared_generic_substitutions": 41,
       "shared_cta_substitutions": 0,
       "latex_row": "Qwen / CTA & 31/80 & 0/71 & 0/8 \\\\",
-      "latex_row_present": true
+      "latex_row_present": false
     },
     {
       "model": "GLM-5.1",
@@ -57,7 +57,7 @@
       "shared_generic_substitutions": 30,
       "shared_cta_substitutions": 0,
       "latex_row": "GLM / Generic & 15/80 & 38/80 & 38/38 \\\\",
-      "latex_row_present": true
+      "latex_row_present": false
     },
     {
       "model": "GLM-5.1",
@@ -76,7 +76,7 @@
       "shared_generic_substitutions": 30,
       "shared_cta_substitutions": 0,
       "latex_row": "GLM / CTA & 66/80 & 0/70 & 0/14 \\\\",
-      "latex_row_present": true
+      "latex_row_present": false
     },
     {
       "model": "DeepSeek",
@@ -95,7 +95,7 @@
       "shared_generic_substitutions": 50,
       "shared_cta_substitutions": 0,
       "latex_row": "DeepSeek / Generic & 17/80 & 59/79 & 59/60 \\\\",
-      "latex_row_present": true
+      "latex_row_present": false
     },
     {
       "model": "DeepSeek",
@@ -114,7 +114,7 @@
       "shared_generic_substitutions": 50,
       "shared_cta_substitutions": 0,
       "latex_row": "DeepSeek / CTA & 64/80 & 0/70 & 0/17 \\\\",
-      "latex_row_present": true
+      "latex_row_present": false
     }
   ],
   "v3_primary": {
@@ -271,17 +271,30 @@
       "wrong_writes": 4
     }
   ],
+  "source_anchored_external_transfer": {
+    "rows": 320,
+    "valid": 306,
+    "preserve_changed_substitutions": [
+      2,
+      64
+    ],
+    "state_bench_substitutions": [
+      0,
+      34
+    ]
+  },
   "selection_regret": {
     "candidate_sets": 5,
     "proxy_evaluations": 20,
     "zero_pairacc_maximizer_rows": 15,
     "one_sided_or_stable_evaluations": 15,
     "one_sided_or_stable_zero_pairacc_rows": 15,
-    "aggregate_suboptimal_rows": 1,
-    "maximum_worst_case_selection_regret": 0.96875
+    "aggregate_suboptimal_rows": 0,
+    "aggregate_pairacc_optimal_rows": 5,
+    "maximum_worst_case_selection_regret": 1.0
   },
   "checks": {
-    "all_table2_rows_match_frozen_sources": true,
+    "split_result_figures_match_frozen_sources": true,
     "shared_qwen_claim_present": true,
     "shared_glm_claim_present": true,
     "shared_deepseek_claim_present": true,
@@ -290,7 +303,12 @@
     "human_agreement_claim_present": true,
     "coverage_scope_present": true,
     "external_extension_four_condition_scope_matches_sources": true,
+    "source_anchored_transfer_claim_matches_report": true,
     "selection_regret_claim_matches_report": true,
+    "call_matched_claim_matches_report": true,
+    "source_grounded_matched_claim_matches_report": true,
+    "binding_drift_author_adaptation_matches_report": true,
+    "rule_hard_residual_matches_report": true,
     "generic_core_writes_equal_conditional_substitutions": true,
     "cta_core_writes_zero_but_all_wrong_reported": true
   },

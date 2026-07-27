@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from reportlab.lib import colors
@@ -47,6 +48,12 @@ def centered(c: canvas.Canvas, x: float, y: float, value: str, size: float = 9.2
     c.drawCentredString(x, y, value)
 
 
+def right(c: canvas.Canvas, x: float, y: float, value: str, size: float = 9.2, bold: bool = False, color=INK) -> None:
+    c.setFillColor(color)
+    c.setFont(FONT_BOLD if bold else FONT_REGULAR, size)
+    c.drawRightString(x, y, value)
+
+
 def box(c: canvas.Canvas, x: float, y: float, w: float, h: float, fill, stroke=LINE, radius: float = 5) -> None:
     c.setFillColor(fill)
     c.setStrokeColor(stroke)
@@ -71,50 +78,80 @@ def arrow(c: canvas.Canvas, x1: float, y1: float, x2: float, y2: float, color=MU
 
 def fit_centered(c: canvas.Canvas, x: float, y: float, value: str, max_width: float, size: float = 9.2, bold: bool = False, color=INK) -> None:
     font = FONT_BOLD if bold else FONT_REGULAR
-    while size > 9.0 and stringWidth(value, font, size) > max_width:
+    while size > 6.8 and stringWidth(value, font, size) > max_width:
         size -= 0.2
     centered(c, x, y, value, size, bold, color)
 
 
-def draw_first_figure(path: Path) -> None:
-    """Draw the matched TRI contrast at AAAI's final nine-point minimum."""
-    width, height = 3.35 * inch, 2.05 * inch
+def draw_first_figure(path: Path, case_path: Path) -> None:
+    """Draw the matched diagnostic logic with a source-validated execution consequence."""
+    case = json.loads(case_path.read_text(encoding="utf-8"))["v7_sqlite_conditional_tri"]
+    width, height = 3.35 * inch, 1.72 * inch
     c = canvas.Canvas(
         str(path), pagesize=(width, height), pageCompression=1,
-        initialFontName=FONT_REGULAR, initialFontSize=9.2,
+        initialFontName=FONT_REGULAR, initialFontSize=10.0,
     )
-    c.setTitle("Formal state-transition view of a TRI minimal pair")
+    c.setTitle("Matched opposite-gold diagnostic and observed wrong-entity write")
     c.setAuthor("anonymous")
     c.setCreator("anonymous")
 
-    margin = 6
+    margin = 7
     content_w = width - 2 * margin
-    text(c, margin, height - 13, "Same update, opposite authorized targets", 9.5, True)
-
-    state_y = height - 49
-    box(c, margin, state_y, content_w, 25, PALE_GRAY, radius=3)
-    centered(
+    text(c, margin, height - 14, "Matched opposite-gold diagnostic", 10.2, True)
+    fit_centered(
         c,
         margin + content_w / 2,
-        state_y + 8,
-        "S0: q -> A     refresh     S1: q -> B; A stays valid",
-        9.2,
+        height - 34,
+        f"same transition:  S0 {case['initial_winner']} wins  ->  refresh  ->  S1 {case['refreshed_winner']} wins",
+        content_w - 4,
+        10.0,
         True,
     )
 
-    label_w = 72
     gap = 7
-    action_x = margin + label_w + gap
-    action_w = content_w - label_w - gap
-    for y, mode, timing, action, color, fill in (
-        (50, "PRESERVE", "bind now", "bind A  ->  refresh  ->  write A", LIFECYCLE, PALE_GREEN),
-        (8, "REEVALUATE", "refresh first", "refresh  ->  resolve q  ->  write B", ACCENT, PALE_ORANGE),
+    panel_w = (content_w - gap) / 2
+    panel_y = 38
+    panel_h = 46
+    for x, title, subtitle, gold, lock, reeval, fill in (
+        (
+            margin,
+            "PRESERVE",
+            "resolve before refresh",
+            case["initial_winner"],
+            "Lock correct",
+            "Reeval wrong",
+            PALE_GREEN,
+        ),
+        (
+            margin + panel_w + gap,
+            "REEVALUATE",
+            "resolve after refresh",
+            case["refreshed_winner"],
+            "Lock wrong",
+            "Reeval correct",
+            PALE_ORANGE,
+        ),
     ):
-        box(c, margin, y, label_w, 34, fill, stroke=color, radius=3)
-        centered(c, margin + label_w / 2, y + 19, mode, 9.2, True, color)
-        centered(c, margin + label_w / 2, y + 7, timing, 9.2, False, INK)
-        box(c, action_x, y, action_w, 34, colors.white, stroke=color, radius=3)
-        centered(c, action_x + action_w / 2, y + 12, action, 9.2, True, color)
+        box(c, x, panel_y, panel_w, panel_h, fill, radius=3)
+        centered(c, x + panel_w / 2, panel_y + 33, title, 9.5, True)
+        centered(c, x + panel_w / 2, panel_y + 22, subtitle, 9.0, False, MUTED)
+        centered(c, x + panel_w / 2, panel_y + 11, f"gold: {gold}", 8.8, True)
+        centered(c, x + panel_w / 2, panel_y + 2, f"{lock}  |  {reeval}", 8.1, False, MUTED)
+
+    c.setFillColor(PALE_ORANGE)
+    c.setStrokeColor(LINE)
+    c.roundRect(margin, 6, content_w, 25, 3, fill=1, stroke=1)
+    text(c, margin + 6, 21, "Observed Qwen Preserve run", 8.8, True, ACCENT)
+    fit_centered(
+        c,
+        margin + content_w / 2,
+        10,
+        f"stored {case['ledger_selected_id']}  ->  wrote {case['generic_final_target']}  ->  WRONG-ENTITY WRITE",
+        content_w - 12,
+        9.1,
+        True,
+        ACCENT,
+    )
 
     c.showPage()
     c.save()
@@ -217,13 +254,13 @@ def draw_results(path: Path) -> None:
         str(path), pagesize=(width, height), pageCompression=1,
         initialFontName=FONT_REGULAR, initialFontSize=9.2,
     )
-    c.setTitle("TRI component audit on the frozen v3 inventory")
+    c.setTitle("TRI component audit on the Scalar-Template Primary inventory")
     c.setAuthor("anonymous")
     c.setCreator("anonymous")
     c.setSubject("Controller accuracy and transition-authorization component audit")
-    text(c, 5, height - 13, "v3 component audit: exact target accuracy (%)", 9.4, True)
+    text(c, 5, height - 13, "Primary component audit: exact target accuracy (%)", 9.2, True)
 
-    labels = ["Generic", "+ mode", "+ validity gate", "Untyped plan", "Rule v2*", "Exact CTA", "Lifecycle free", "Lifecycle gate"]
+    labels = ["Generic", "+ mode", "+ validity gate", "Untyped plan", "Strengthened rule*", "Historical CTA", "Lifecycle free", "Lifecycle gate"]
     qwen = [64.4, 75.0, 65.0, 81.2, 92.5, 95.0, 96.9, 98.1]
     glm = [71.9, 75.0, 73.1, 70.6, 92.5, 96.2, 98.1, 100.0]
     chart_x, chart_w = 91, width - 99
@@ -265,7 +302,10 @@ def main() -> None:
     args = ap.parse_args()
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
-    draw_first_figure(outdir / "tri_first_figure.pdf")
+    draw_first_figure(
+        outdir / "tri_first_figure.pdf",
+        Path("reports/qualitative_trace_cases.json"),
+    )
     draw_mechanism(outdir / "tri_v3_mechanism.pdf")
     draw_results(outdir / "tri_v3_results.pdf")
     print(outdir / "tri_first_figure.pdf")

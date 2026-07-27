@@ -1,0 +1,1232 @@
+{
+  "boundary": "This checks the deterministic checklist implementation on known-label injected controls. It does not estimate recall on natural benchmark opportunities, validate semantic retrieval, or establish systematic benchmark undercoverage.",
+  "by_suite": {
+    "API-Bank": {
+      "errors": [],
+      "hard_negative_exclusion": 1.0,
+      "positive_recall": 1.0
+    },
+    "AppWorld": {
+      "errors": [],
+      "hard_negative_exclusion": 1.0,
+      "positive_recall": 1.0
+    },
+    "BFCL": {
+      "errors": [],
+      "hard_negative_exclusion": 1.0,
+      "positive_recall": 1.0
+    },
+    "ToolSandbox": {
+      "errors": [],
+      "hard_negative_exclusion": 1.0,
+      "positive_recall": 1.0
+    },
+    "ToolTalk": {
+      "errors": [],
+      "hard_negative_exclusion": 1.0,
+      "positive_recall": 1.0
+    },
+    "tau3-bench": {
+      "errors": [],
+      "hard_negative_exclusion": 1.0,
+      "positive_recall": 1.0
+    }
+  },
+  "controls_sha256": "c13b317d79f20c88ae382ae88c9bfe199975182c8d0df75e0d247e9f61c8fc9e",
+  "evidence_status": "post-primary zero-API implementation sensitivity check",
+  "hard_negative_exclusion": {
+    "denominator": 30,
+    "numerator": 30
+  },
+  "inputs": {
+    "benchmark_coverage_checklist_sha256": "3267b98219a6ba8de05302e91d4cc5f19c365ca46198c50581e9f66ea543a25f",
+    "external_public_opportunity_audit_sha256": "0e7ae45cb071b4300b16f4041ae9159d081377fd876a25baa02ecff71cdf867d"
+  },
+  "missing_feature_counts": {
+    "changed_selector_winner": 5,
+    "competing_same_role_entity": 4,
+    "evaluable_authorized_target": 3,
+    "independent_post_binding_transition": 3,
+    "later_target_mutation": 4,
+    "observable_pre_refresh_binding": 3,
+    "old_entity_remains_actionable": 5,
+    "stable_entity_id": 3
+  },
+  "report_version": "TRI-public-audit-injected-sensitivity-v1",
+  "rows": [
+    {
+      "control_id": "ToolSandbox-strict-positive-1",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "ToolSandbox"
+    },
+    {
+      "control_id": "ToolSandbox-hard-negative-1",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": false
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "stable_entity_id",
+      "observed_strict": false,
+      "suite": "ToolSandbox"
+    },
+    {
+      "control_id": "ToolSandbox-strict-positive-2",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "ToolSandbox"
+    },
+    {
+      "control_id": "ToolSandbox-hard-negative-2",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": false,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "observable_pre_refresh_binding",
+      "observed_strict": false,
+      "suite": "ToolSandbox"
+    },
+    {
+      "control_id": "ToolSandbox-strict-positive-3",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "ToolSandbox"
+    },
+    {
+      "control_id": "ToolSandbox-hard-negative-3",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": false,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "independent_post_binding_transition",
+      "observed_strict": false,
+      "suite": "ToolSandbox"
+    },
+    {
+      "control_id": "ToolSandbox-strict-positive-4",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "ToolSandbox"
+    },
+    {
+      "control_id": "ToolSandbox-hard-negative-4",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": false,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "competing_same_role_entity",
+      "observed_strict": false,
+      "suite": "ToolSandbox"
+    },
+    {
+      "control_id": "ToolSandbox-strict-positive-5",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "ToolSandbox"
+    },
+    {
+      "control_id": "ToolSandbox-hard-negative-5",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": false,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "changed_selector_winner",
+      "observed_strict": false,
+      "suite": "ToolSandbox"
+    },
+    {
+      "control_id": "AppWorld-strict-positive-1",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "AppWorld"
+    },
+    {
+      "control_id": "AppWorld-hard-negative-1",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": false,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "observable_pre_refresh_binding",
+      "observed_strict": false,
+      "suite": "AppWorld"
+    },
+    {
+      "control_id": "AppWorld-strict-positive-2",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "AppWorld"
+    },
+    {
+      "control_id": "AppWorld-hard-negative-2",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": false,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "independent_post_binding_transition",
+      "observed_strict": false,
+      "suite": "AppWorld"
+    },
+    {
+      "control_id": "AppWorld-strict-positive-3",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "AppWorld"
+    },
+    {
+      "control_id": "AppWorld-hard-negative-3",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": false,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "competing_same_role_entity",
+      "observed_strict": false,
+      "suite": "AppWorld"
+    },
+    {
+      "control_id": "AppWorld-strict-positive-4",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "AppWorld"
+    },
+    {
+      "control_id": "AppWorld-hard-negative-4",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": false,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "changed_selector_winner",
+      "observed_strict": false,
+      "suite": "AppWorld"
+    },
+    {
+      "control_id": "AppWorld-strict-positive-5",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "AppWorld"
+    },
+    {
+      "control_id": "AppWorld-hard-negative-5",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": false,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "old_entity_remains_actionable",
+      "observed_strict": false,
+      "suite": "AppWorld"
+    },
+    {
+      "control_id": "tau3-bench-strict-positive-1",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "tau3-bench"
+    },
+    {
+      "control_id": "tau3-bench-hard-negative-1",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": false,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "independent_post_binding_transition",
+      "observed_strict": false,
+      "suite": "tau3-bench"
+    },
+    {
+      "control_id": "tau3-bench-strict-positive-2",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "tau3-bench"
+    },
+    {
+      "control_id": "tau3-bench-hard-negative-2",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": false,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "competing_same_role_entity",
+      "observed_strict": false,
+      "suite": "tau3-bench"
+    },
+    {
+      "control_id": "tau3-bench-strict-positive-3",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "tau3-bench"
+    },
+    {
+      "control_id": "tau3-bench-hard-negative-3",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": false,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "changed_selector_winner",
+      "observed_strict": false,
+      "suite": "tau3-bench"
+    },
+    {
+      "control_id": "tau3-bench-strict-positive-4",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "tau3-bench"
+    },
+    {
+      "control_id": "tau3-bench-hard-negative-4",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": false,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "old_entity_remains_actionable",
+      "observed_strict": false,
+      "suite": "tau3-bench"
+    },
+    {
+      "control_id": "tau3-bench-strict-positive-5",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "tau3-bench"
+    },
+    {
+      "control_id": "tau3-bench-hard-negative-5",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": false,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "later_target_mutation",
+      "observed_strict": false,
+      "suite": "tau3-bench"
+    },
+    {
+      "control_id": "API-Bank-strict-positive-1",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "API-Bank"
+    },
+    {
+      "control_id": "API-Bank-hard-negative-1",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": false,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "competing_same_role_entity",
+      "observed_strict": false,
+      "suite": "API-Bank"
+    },
+    {
+      "control_id": "API-Bank-strict-positive-2",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "API-Bank"
+    },
+    {
+      "control_id": "API-Bank-hard-negative-2",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": false,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "changed_selector_winner",
+      "observed_strict": false,
+      "suite": "API-Bank"
+    },
+    {
+      "control_id": "API-Bank-strict-positive-3",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "API-Bank"
+    },
+    {
+      "control_id": "API-Bank-hard-negative-3",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": false,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "old_entity_remains_actionable",
+      "observed_strict": false,
+      "suite": "API-Bank"
+    },
+    {
+      "control_id": "API-Bank-strict-positive-4",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "API-Bank"
+    },
+    {
+      "control_id": "API-Bank-hard-negative-4",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": false,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "later_target_mutation",
+      "observed_strict": false,
+      "suite": "API-Bank"
+    },
+    {
+      "control_id": "API-Bank-strict-positive-5",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "API-Bank"
+    },
+    {
+      "control_id": "API-Bank-hard-negative-5",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": false,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "evaluable_authorized_target",
+      "observed_strict": false,
+      "suite": "API-Bank"
+    },
+    {
+      "control_id": "BFCL-strict-positive-1",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "BFCL"
+    },
+    {
+      "control_id": "BFCL-hard-negative-1",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": false,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "changed_selector_winner",
+      "observed_strict": false,
+      "suite": "BFCL"
+    },
+    {
+      "control_id": "BFCL-strict-positive-2",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "BFCL"
+    },
+    {
+      "control_id": "BFCL-hard-negative-2",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": false,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "old_entity_remains_actionable",
+      "observed_strict": false,
+      "suite": "BFCL"
+    },
+    {
+      "control_id": "BFCL-strict-positive-3",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "BFCL"
+    },
+    {
+      "control_id": "BFCL-hard-negative-3",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": false,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "later_target_mutation",
+      "observed_strict": false,
+      "suite": "BFCL"
+    },
+    {
+      "control_id": "BFCL-strict-positive-4",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "BFCL"
+    },
+    {
+      "control_id": "BFCL-hard-negative-4",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": false,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "evaluable_authorized_target",
+      "observed_strict": false,
+      "suite": "BFCL"
+    },
+    {
+      "control_id": "BFCL-strict-positive-5",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "BFCL"
+    },
+    {
+      "control_id": "BFCL-hard-negative-5",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": false
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "stable_entity_id",
+      "observed_strict": false,
+      "suite": "BFCL"
+    },
+    {
+      "control_id": "ToolTalk-strict-positive-1",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "ToolTalk"
+    },
+    {
+      "control_id": "ToolTalk-hard-negative-1",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": false,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "old_entity_remains_actionable",
+      "observed_strict": false,
+      "suite": "ToolTalk"
+    },
+    {
+      "control_id": "ToolTalk-strict-positive-2",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "ToolTalk"
+    },
+    {
+      "control_id": "ToolTalk-hard-negative-2",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": false,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "later_target_mutation",
+      "observed_strict": false,
+      "suite": "ToolTalk"
+    },
+    {
+      "control_id": "ToolTalk-strict-positive-3",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "ToolTalk"
+    },
+    {
+      "control_id": "ToolTalk-hard-negative-3",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": false,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "evaluable_authorized_target",
+      "observed_strict": false,
+      "suite": "ToolTalk"
+    },
+    {
+      "control_id": "ToolTalk-strict-positive-4",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "ToolTalk"
+    },
+    {
+      "control_id": "ToolTalk-hard-negative-4",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": false
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "stable_entity_id",
+      "observed_strict": false,
+      "suite": "ToolTalk"
+    },
+    {
+      "control_id": "ToolTalk-strict-positive-5",
+      "control_kind": "strict_positive",
+      "correct": true,
+      "expected_strict": true,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": true,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "observed_strict": true,
+      "suite": "ToolTalk"
+    },
+    {
+      "control_id": "ToolTalk-hard-negative-5",
+      "control_kind": "one-feature-missing",
+      "correct": true,
+      "expected_strict": false,
+      "features": {
+        "changed_selector_winner": true,
+        "competing_same_role_entity": true,
+        "evaluable_authorized_target": true,
+        "independent_post_binding_transition": true,
+        "later_target_mutation": true,
+        "observable_pre_refresh_binding": false,
+        "old_entity_remains_actionable": true,
+        "stable_entity_id": true
+      },
+      "injection_note": "Known-label schema-shaped control; not an upstream benchmark unit.",
+      "missing_feature": "observable_pre_refresh_binding",
+      "observed_strict": false,
+      "suite": "ToolTalk"
+    }
+  ],
+  "strict_positive_recall": {
+    "denominator": 30,
+    "numerator": 30
+  }
+}

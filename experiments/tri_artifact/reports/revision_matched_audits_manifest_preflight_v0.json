@@ -1,0 +1,99 @@
+{
+  "boundaries": [
+    "not primary evidence",
+    "human rewrites retain authored task semantics",
+    "source-grounded rows are controlled interventions, not native benchmark tasks",
+    "no independent public-suite recall calibration"
+  ],
+  "evidence_status": "post-primary; protocol frozen before own calls",
+  "frozen_date": "2026-07-26",
+  "frozen_rule_star_sha256": "34cbbd39072bd5d473768666bad684c9d5e491b830df6a6b6ebcb98abd1bbfb8",
+  "inventories": {
+    "full_diagnostic": {
+      "audit_id": "full_diagnostic",
+      "changed_pairs": 32,
+      "cluster_sizes": {
+        "2": 80
+      },
+      "clusters": 80,
+      "complete_pairs": 80,
+      "path": "data/revision_full_diagnostic_v1.jsonl",
+      "rows": 160,
+      "sha256": "1035865eb08f7da3bf389a7e336e8a43dafc5bde67224d6e2863f3128b5b734e",
+      "source_rows": {
+        "Matched Timing Diagnostic": 160
+      }
+    },
+    "human_rewrite": {
+      "audit_id": "human_rewrite",
+      "changed_pairs": 3,
+      "cluster_sizes": {
+        "1": 36,
+        "2": 7
+      },
+      "clusters": 43,
+      "complete_pairs": 7,
+      "path": "data/revision_human_rewrite_v1.jsonl",
+      "rows": 50,
+      "sha256": "9f785b6179b334ccca5401ca5071b6ae58a91cd3f6fcd5a7521fa93328e92d3f",
+      "source_rows": {
+        "independent human rewrite of authored task": 50
+      }
+    },
+    "source_grounded": {
+      "audit_id": "source_grounded",
+      "changed_pairs": 30,
+      "cluster_sizes": {
+        "2": 30
+      },
+      "clusters": 30,
+      "complete_pairs": 30,
+      "path": "data/revision_source_grounded_v1.jsonl",
+      "rows": 60,
+      "sha256": "1af6360a37f03d078c18c4b83b8419166bcbb119b9b448ebdcb1b745dce914ce",
+      "source_rows": {
+        "AgentDojo": 20,
+        "STATE-Bench": 20,
+        "ToolSandbox": 20
+      }
+    }
+  },
+  "manifest_version": "TRI-revision-matched-audits-manifest-v1",
+  "parser_sha256": "ca0113c346bc1262997db9849b7798d20c659f13a76cf8b7f36cbb03946640fd",
+  "protocol": "reports/TRI_revision_matched_audits_protocol.md",
+  "protocol_sha256": "c8f8a02730df5940b5dfda9b7d6c05797c4f0d225ac7f13792a52eace65ebb20",
+  "sources": {
+    "human": {
+      "path": "data/temporal_referent_human_rewrites_v1.jsonl",
+      "sha256": "9cd91c908fb9e76938277459a5ec8a78e7c406d91c77034e203084d719697e39"
+    },
+    "human_annotator_1": {
+      "path": "human_validation/normalized_returns/annotator_1.csv",
+      "sha256": "5562fc3cf91857ff7ecedac79c45a5c1c54c158664d7017f58be51fbe42df6fe"
+    },
+    "human_annotator_2": {
+      "path": "human_validation/normalized_returns/annotator_2.csv",
+      "sha256": "b1591a12463b2dff74dc66b0be45a53063b9aaa5b6f46058cccff087d7bdee2d"
+    },
+    "human_annotator_3": {
+      "path": "human_validation/normalized_returns/annotator_3.csv",
+      "sha256": "f7c3b69f3d2d6e457e39b4b07f5a15fea5e3f67943ecf7ece822b364077cf585"
+    },
+    "human_key": {
+      "path": "human_validation/annotation_key_private.csv",
+      "sha256": "73fb616fbaa5fc1bf5496557c54c38c6b1fb28842ec94530cd028ca16b332723"
+    },
+    "primary": {
+      "path": "data/temporal_referent_v3_language_clusters.jsonl",
+      "sha256": "bea0b48c5092e64fd3860069a5a81f09982940ca0b964b297d2e8a8f7f5970d6"
+    },
+    "source_anchored": {
+      "path": "data/source_anchored_external_transfer_tasks_v1.jsonl",
+      "sha256": "73e30875928b60c49fad286d667795643c6a2369bdbdac6dfa2062de862b7907"
+    },
+    "toolsandbox": {
+      "path": "data/toolsandbox_tri_single_turn_2x2_v1.jsonl",
+      "sha256": "f795031bba66d9a018b94d351930a9ed2beaaae23285925cc3a514e17f7f189d"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "all_source_commits_match": true,
+  "audit_version": "TRI-source-anchored-external-transfer-v1",
+  "claim_boundary": "Author-adapted matched tasks on external source states and tools; not native benchmark prevalence, natural traffic, an official benchmark score, or independent human evidence.",
+  "cluster_count": 20,
+  "eligible_cluster_count": 20,
+  "eligible_clusters_by_repository": {
+    "AgentDojo": 10,
+    "STATE-Bench": 10
+  },
+  "evidence_label": "source-anchored external transfer",
+  "forbidden_prompt_term_tasks": [],
+  "gate": "GO",
+  "source_tool_check_failures": [],
+  "source_tool_checks": 80,
+  "task_count": 80,
+  "task_inventory_sha256": "73e30875928b60c49fad286d667795643c6a2369bdbdac6dfa2062de862b7907",
+  "workflow_actions": {
+    "add": 4,
+    "append": 2,
+    "cancel_event": 1,
+    "delete": 1,
+    "delete_email": 3,
+    "remove": 3,
+    "reschedule": 2,
+    "share": 1,
+    "update": 3
+  }
+}
