@@ -1,0 +1,78 @@
+\subsection{Submission-critical convention and model-coverage audit}
+The following post-primary matrices were frozen in the submission-critical addendum. They retain authored gold and do not constitute independent-language evidence.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Model & Plain PairAcc & Convention PairAcc & Difference (95\% CI) \\
+\midrule
+Qwen & 4/40 & 2/40 & -5.0 [-12.5,0.0] \\
+GLM & 6/40 & 10/40 & +10.0 [2.5,20.0] \\
+DeepSeek & 2/40 & 5/40 & +7.5 [-5.0,20.0] \\
+MiniMax & 15/40 & 25/40 & +25.0 [12.5,37.5] \\
+\bottomrule
+\end{tabular}
+\caption{Convention-told natural-history control on 40 authored changed pairs. Both conditions make one actor call with byte-matched user payloads and receive no structured ID record, reference mode, compiler output, or gold. Differences are Convention minus Plain.}
+\label{tab:supp-convention-told}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Model & History PairAcc & Visible PairAcc & Difference (95\% CI) \\
+\midrule
+Qwen & 5/32 & 13/32 & +25.0 [6.2,46.2] \\
+GLM & 8/32 & 25/32 & +53.1 [28.6,77.8] \\
+DeepSeek & 11/32 & 25/32 & +43.8 [16.7,71.4] \\
+MiniMax & 14/32 & 25/32 & +34.4 [11.1,58.3] \\
+\bottomrule
+\end{tabular}
+\caption{Four-model full-diagnostic matched-call audit on 32 actionable changed pairs. Decision-visible jointly exposes the compiler mode, bound ID, and selector restatement; the contrast is not an individual-field effect.}
+\label{tab:supp-four-model-matched}
+\end{table}
+
+\paragraph{Source-derived repeat stability.}
+Temperature-zero repeats use the same 30 source-derived pairs and therefore measure endpoint repeatability rather than additional independent sample size.
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llrrr}
+\toprule
+Model & Pass & History & Visible & Difference \\
+\midrule
+Qwen & historical & 12/30 & 13/30 & 3.3 pp \\
+GLM & historical & 11/30 & 20/30 & 30.0 pp \\
+DeepSeek & historical & 19/30 & 22/30 & 10.0 pp \\
+Qwen & repeat2 & 10/30 & 15/30 & 16.7 pp \\
+GLM & repeat2 & 12/30 & 19/30 & 23.3 pp \\
+DeepSeek & repeat2 & 18/30 & 20/30 & 6.7 pp \\
+MiniMax & first-pass & 19/30 & 20/30 & 3.3 pp \\
+\bottomrule
+\end{tabular}
+\caption{Source-derived matched-call passes. Repeated passes do not increase the 30-pair denominator; MiniMax is a first pass rather than a repeat.}
+\label{tab:supp-source-repeat}
+\end{table}
+
+\paragraph{ToolSandbox-style null repeat.}
+The four versioned repeat cells preserve the original conditional denominator and keep upstream/process errors and wrong writes separate.
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Model & Interface & Rows & Opportunities & Mechanism errors & Wrong writes \\
+\midrule
+GLM & full history & 96 & 73 & 0 & 14 \\
+GLM & matched generic state observed & 96 & 86 & 0 & 3 \\
+Qwen & full history & 96 & 67 & 0 & 6 \\
+Qwen & matched generic state observed & 96 & 41 & 0 & 6 \\
+\bottomrule
+\end{tabular}
+\caption{Repeat of the four paper-facing ToolSandbox-style cells. These are controlled external-style trajectories, not official ToolSandbox tasks or prevalence estimates.}
+\label{tab:supp-toolsandbox-null-repeat}
+\end{table}
+

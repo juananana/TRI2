@@ -1,0 +1,33 @@
+{
+  "status": "Option C selected for Figure 3; preview not integrated into the paper",
+  "selected": "option_c",
+  "source": "./paper/tri_final_figures/data/summary_csv/matched_pairacc_and_marginals.csv",
+  "source_sha256": "7ac145be8a950367d65573e6431749b1771c7fc6fa6a6651cccad4509a7d990c",
+  "slice": "v3 changed_winner_core",
+  "common_denominator": 32,
+  "minimum_text_pt": 7.0,
+  "png_dpi": 400,
+  "pdf_fonttype": 42,
+  "palette": {
+    "preserve": "#D97863",
+    "reevaluate": "#4F9189",
+    "pairacc": "#9B7088",
+    "neither": "#D8D4CF"
+  },
+  "outputs": {
+    "option_c": {
+      "stem": "./paper/tri_final_figures/outputs/figure3_option_c_v4_selected/figure3_option_c_pair_outcomes",
+      "size_inches": [
+        3.35,
+        2.48
+      ]
+    },
+    "option_d": {
+      "stem": "./paper/tri_final_figures/outputs/figure3_option_c_v4_selected/figure3_option_d_grouped_endpoints",
+      "size_inches": [
+        3.35,
+        2.62
+      ]
+    }
+  }
+}

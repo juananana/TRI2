@@ -1,0 +1,15 @@
+audit_id,audit_label,model,metric,left_condition,right_condition,difference_pp,ci95_low_pp,ci95_high_pp,rows,clusters
+revision_full_diagnostic,authored full diagnostic,GLM-5.1,actionable_e2e,history_only,decision_visible,14.062,8.397,20.0,160,80
+revision_full_diagnostic,authored full diagnostic,GLM-5.1,changed_pairacc,history_only,decision_visible,53.125,28.571,77.778,160,80
+revision_full_diagnostic,authored full diagnostic,Qwen3.5,actionable_e2e,history_only,decision_visible,4.688,0.0,9.375,160,80
+revision_full_diagnostic,authored full diagnostic,Qwen3.5,changed_pairacc,history_only,decision_visible,25.0,6.25,46.154,160,80
+revision_human_rewrite,human rewrite,GLM-5.1,actionable_e2e,history_only,decision_visible,20.0,8.571,32.5,50,43
+revision_human_rewrite,human rewrite,GLM-5.1,changed_pairacc,history_only,decision_visible,66.667,0.0,100.0,50,43
+revision_human_rewrite,human rewrite,Qwen3.5,actionable_e2e,history_only,decision_visible,0.0,-10.0,9.524,50,43
+revision_human_rewrite,human rewrite,Qwen3.5,changed_pairacc,history_only,decision_visible,33.333,0.0,100.0,50,43
+revision_source_grounded,source-grounded controlled contrast,GLM-5.1,actionable_e2e,history_only,decision_visible,18.333,8.333,30.0,60,30
+revision_source_grounded,source-grounded controlled contrast,GLM-5.1,changed_pairacc,history_only,decision_visible,30.0,0.0,55.556,60,30
+revision_source_grounded,source-grounded controlled contrast,Qwen3.5,actionable_e2e,history_only,decision_visible,0.0,-6.667,6.667,60,30
+revision_source_grounded,source-grounded controlled contrast,Qwen3.5,changed_pairacc,history_only,decision_visible,3.333,-11.111,20.0,60,30
+revision_source_grounded,source-grounded controlled contrast,DeepSeek,actionable_e2e,history_only,decision_visible,3.333,-5.0,11.667,60,30
+revision_source_grounded,source-grounded controlled contrast,DeepSeek,changed_pairacc,history_only,decision_visible,10.0,-10.0,30.0,60,30

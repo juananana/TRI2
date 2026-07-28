@@ -19,12 +19,12 @@ PALE_GREEN = colors.HexColor("#E8F3F1")
 PALE_RED = colors.HexColor("#F8ECE7")
 PALE_BLUE = colors.HexColor("#EAF0F7")
 PALE_GRAY = colors.HexColor("#F1F3F5")
-QWEN = colors.HexColor("#B64926")
-GLM = colors.HexColor("#126F66")
-DEEPSEEK = colors.HexColor("#5D6FA3")
-GRAY = colors.HexColor("#65717C")
-GREEN = colors.HexColor("#126F66")
-RED = colors.HexColor("#B64926")
+QWEN = colors.HexColor("#407A7F")
+GLM = colors.HexColor("#E56D4E")
+DEEPSEEK = colors.HexColor("#60AA84")
+GRAY = colors.HexColor("#5F6B70")
+GREEN = colors.HexColor("#60AA84")
+RED = colors.HexColor("#E56D4E")
 FONT_REGULAR = "TRIHelvetica"
 FONT_BOLD = "TRIHelvetica-Bold"
 
@@ -326,7 +326,9 @@ def draw_boundary(c: canvas.Canvas, x: float, y: float, w: float, h: float) -> N
 
 def draw(path: Path) -> None:
     width, height = 6.85 * inch, 3.18 * inch
-    c = canvas.Canvas(str(path), pagesize=(width, height), pageCompression=1)
+    c = canvas.Canvas(
+        str(path), pagesize=(width, height), pageCompression=1, initialFontName=FONT_REGULAR
+    )
     c.setTitle("TRI diagnostic evidence dashboard")
     c.setAuthor("anonymous")
     c.setCreator("anonymous")
@@ -352,7 +354,9 @@ def draw_split(output_dir: Path) -> None:
     ]
     for filename, width, height, drawer in specs:
         path = output_dir / filename
-        c = canvas.Canvas(str(path), pagesize=(width, height), pageCompression=1)
+        c = canvas.Canvas(
+            str(path), pagesize=(width, height), pageCompression=1, initialFontName=FONT_REGULAR
+        )
         c.setTitle(filename.replace("_", " ").replace(".pdf", ""))
         c.setAuthor("anonymous")
         c.setCreator("anonymous")

@@ -1,0 +1,569 @@
+{
+  "sections": [
+    {
+      "label": "Qwen matched held-out",
+      "controllers": [
+        {
+          "label": "Scalar lifecycle",
+          "n": 40,
+          "success": 35,
+          "final_state_success": 35,
+          "action_status": {
+            "safe_rejection": 8,
+            "successful_write": 27,
+            "unnecessary_rejection": 2,
+            "wrong_entity_write": 3
+          },
+          "collateral_modifications": 3,
+          "api_errors": 0,
+          "internal_errors": 0,
+          "error_rows": 0,
+          "requests": 54,
+          "retries": 0,
+          "slices": {
+            "binding": {
+              "anchored": [
+                20,
+                20
+              ],
+              "dynamic": [
+                15,
+                20
+              ]
+            },
+            "style": {
+              "explicit_anchor": [
+                10,
+                10
+              ],
+              "explicit_dynamic": [
+                7,
+                10
+              ],
+              "implicit_anchor": [
+                10,
+                10
+              ],
+              "implicit_dynamic": [
+                8,
+                10
+              ]
+            },
+            "update": {
+              "flip": [
+                6,
+                8
+              ],
+              "invalidate": [
+                7,
+                8
+              ],
+              "name_collision": [
+                7,
+                8
+              ],
+              "remove": [
+                7,
+                8
+              ],
+              "stable": [
+                8,
+                8
+              ]
+            },
+            "domain": {
+              "deployments": [
+                9,
+                10
+              ],
+              "expenses": [
+                6,
+                10
+              ],
+              "inventory": [
+                10,
+                10
+              ],
+              "projects": [
+                10,
+                10
+              ]
+            }
+          }
+        },
+        {
+          "label": "Role-indexed lifecycle",
+          "n": 40,
+          "success": 39,
+          "final_state_success": 39,
+          "action_status": {
+            "safe_rejection": 8,
+            "successful_write": 31,
+            "unnecessary_rejection": 1
+          },
+          "collateral_modifications": 0,
+          "api_errors": 0,
+          "internal_errors": 0,
+          "error_rows": 0,
+          "requests": 60,
+          "retries": 0,
+          "slices": {
+            "binding": {
+              "anchored": [
+                20,
+                20
+              ],
+              "dynamic": [
+                19,
+                20
+              ]
+            },
+            "style": {
+              "explicit_anchor": [
+                10,
+                10
+              ],
+              "explicit_dynamic": [
+                10,
+                10
+              ],
+              "implicit_anchor": [
+                10,
+                10
+              ],
+              "implicit_dynamic": [
+                9,
+                10
+              ]
+            },
+            "update": {
+              "flip": [
+                8,
+                8
+              ],
+              "invalidate": [
+                7,
+                8
+              ],
+              "name_collision": [
+                8,
+                8
+              ],
+              "remove": [
+                8,
+                8
+              ],
+              "stable": [
+                8,
+                8
+              ]
+            },
+            "domain": {
+              "deployments": [
+                10,
+                10
+              ],
+              "expenses": [
+                10,
+                10
+              ],
+              "inventory": [
+                9,
+                10
+              ],
+              "projects": [
+                10,
+                10
+              ]
+            }
+          }
+        }
+      ],
+      "paired": {
+        "delta_percentage_points": 10.0,
+        "cluster_ci95": [
+          2.5,
+          20.0
+        ],
+        "scalar_only": 1,
+        "role_only": 5,
+        "mcnemar_exact_p": 0.21875
+      }
+    },
+    {
+      "label": "GLM matched held-out, conservative ITT",
+      "controllers": [
+        {
+          "label": "Scalar lifecycle",
+          "n": 40,
+          "success": 40,
+          "final_state_success": 40,
+          "action_status": {
+            "safe_rejection": 8,
+            "successful_write": 32
+          },
+          "collateral_modifications": 0,
+          "api_errors": 0,
+          "internal_errors": 0,
+          "error_rows": 0,
+          "requests": 61,
+          "retries": 1,
+          "slices": {
+            "binding": {
+              "anchored": [
+                20,
+                20
+              ],
+              "dynamic": [
+                20,
+                20
+              ]
+            },
+            "style": {
+              "explicit_anchor": [
+                10,
+                10
+              ],
+              "explicit_dynamic": [
+                10,
+                10
+              ],
+              "implicit_anchor": [
+                10,
+                10
+              ],
+              "implicit_dynamic": [
+                10,
+                10
+              ]
+            },
+            "update": {
+              "flip": [
+                8,
+                8
+              ],
+              "invalidate": [
+                8,
+                8
+              ],
+              "name_collision": [
+                8,
+                8
+              ],
+              "remove": [
+                8,
+                8
+              ],
+              "stable": [
+                8,
+                8
+              ]
+            },
+            "domain": {
+              "deployments": [
+                10,
+                10
+              ],
+              "expenses": [
+                10,
+                10
+              ],
+              "inventory": [
+                10,
+                10
+              ],
+              "projects": [
+                10,
+                10
+              ]
+            }
+          }
+        },
+        {
+          "label": "Role-indexed lifecycle",
+          "n": 40,
+          "success": 37,
+          "final_state_success": 37,
+          "action_status": {
+            "safe_rejection": 8,
+            "successful_write": 29,
+            "unnecessary_rejection": 3
+          },
+          "collateral_modifications": 0,
+          "api_errors": 3,
+          "internal_errors": 3,
+          "error_rows": 3,
+          "requests": 60,
+          "retries": 3,
+          "slices": {
+            "binding": {
+              "anchored": [
+                20,
+                20
+              ],
+              "dynamic": [
+                17,
+                20
+              ]
+            },
+            "style": {
+              "explicit_anchor": [
+                10,
+                10
+              ],
+              "explicit_dynamic": [
+                10,
+                10
+              ],
+              "implicit_anchor": [
+                10,
+                10
+              ],
+              "implicit_dynamic": [
+                7,
+                10
+              ]
+            },
+            "update": {
+              "flip": [
+                7,
+                8
+              ],
+              "invalidate": [
+                8,
+                8
+              ],
+              "name_collision": [
+                7,
+                8
+              ],
+              "remove": [
+                7,
+                8
+              ],
+              "stable": [
+                8,
+                8
+              ]
+            },
+            "domain": {
+              "deployments": [
+                10,
+                10
+              ],
+              "expenses": [
+                10,
+                10
+              ],
+              "inventory": [
+                10,
+                10
+              ],
+              "projects": [
+                7,
+                10
+              ]
+            }
+          }
+        }
+      ],
+      "paired": {
+        "delta_percentage_points": -7.5,
+        "cluster_ci95": [
+          -15.0,
+          0.0
+        ],
+        "scalar_only": 3,
+        "role_only": 0,
+        "mcnemar_exact_p": 0.25
+      }
+    },
+    {
+      "label": "GLM matched held-out, transport-recovered sensitivity",
+      "controllers": [
+        {
+          "label": "Scalar lifecycle",
+          "n": 40,
+          "success": 40,
+          "final_state_success": 40,
+          "action_status": {
+            "safe_rejection": 8,
+            "successful_write": 32
+          },
+          "collateral_modifications": 0,
+          "api_errors": 0,
+          "internal_errors": 0,
+          "error_rows": 0,
+          "requests": 61,
+          "retries": 1,
+          "slices": {
+            "binding": {
+              "anchored": [
+                20,
+                20
+              ],
+              "dynamic": [
+                20,
+                20
+              ]
+            },
+            "style": {
+              "explicit_anchor": [
+                10,
+                10
+              ],
+              "explicit_dynamic": [
+                10,
+                10
+              ],
+              "implicit_anchor": [
+                10,
+                10
+              ],
+              "implicit_dynamic": [
+                10,
+                10
+              ]
+            },
+            "update": {
+              "flip": [
+                8,
+                8
+              ],
+              "invalidate": [
+                8,
+                8
+              ],
+              "name_collision": [
+                8,
+                8
+              ],
+              "remove": [
+                8,
+                8
+              ],
+              "stable": [
+                8,
+                8
+              ]
+            },
+            "domain": {
+              "deployments": [
+                10,
+                10
+              ],
+              "expenses": [
+                10,
+                10
+              ],
+              "inventory": [
+                10,
+                10
+              ],
+              "projects": [
+                10,
+                10
+              ]
+            }
+          }
+        },
+        {
+          "label": "Role-indexed lifecycle",
+          "n": 40,
+          "success": 40,
+          "final_state_success": 40,
+          "action_status": {
+            "safe_rejection": 8,
+            "successful_write": 32
+          },
+          "collateral_modifications": 0,
+          "api_errors": 0,
+          "internal_errors": 0,
+          "error_rows": 0,
+          "requests": 60,
+          "retries": 0,
+          "slices": {
+            "binding": {
+              "anchored": [
+                20,
+                20
+              ],
+              "dynamic": [
+                20,
+                20
+              ]
+            },
+            "style": {
+              "explicit_anchor": [
+                10,
+                10
+              ],
+              "explicit_dynamic": [
+                10,
+                10
+              ],
+              "implicit_anchor": [
+                10,
+                10
+              ],
+              "implicit_dynamic": [
+                10,
+                10
+              ]
+            },
+            "update": {
+              "flip": [
+                8,
+                8
+              ],
+              "invalidate": [
+                8,
+                8
+              ],
+              "name_collision": [
+                8,
+                8
+              ],
+              "remove": [
+                8,
+                8
+              ],
+              "stable": [
+                8,
+                8
+              ]
+            },
+            "domain": {
+              "deployments": [
+                10,
+                10
+              ],
+              "expenses": [
+                10,
+                10
+              ],
+              "inventory": [
+                10,
+                10
+              ],
+              "projects": [
+                10,
+                10
+              ]
+            }
+          }
+        }
+      ],
+      "paired": {
+        "delta_percentage_points": 0.0,
+        "cluster_ci95": [
+          0.0,
+          0.0
+        ],
+        "scalar_only": 0,
+        "role_only": 0,
+        "mcnemar_exact_p": 1.0
+      }
+    }
+  ]
+}

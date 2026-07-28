@@ -1,0 +1,4166 @@
+[
+  {
+    "public_item_id": "Q-50EB9ABAC7",
+    "source_task_id": "tri-v3-language-shipping-implicit_anchor-t3-name_collision",
+    "form": "A",
+    "position": "1",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "name_collision",
+    "candidate_order": "SHP-91 | SHP-94 | SHP-88",
+    "referent_gold": "SHP-88",
+    "execution_gold": "SHP-88",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "SHP-88": 1
+      },
+      "execution_counts": {
+        "SHP-94": 1
+      },
+      "confidence_counts": {
+        "1": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "SHP-88": 2
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "SHP-94": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "SHP-88": 4,
+        "SHP-91": 1
+      },
+      "execution_counts": {
+        "REJECT": 3,
+        "SHP-88": 1,
+        "SHP-94": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-062A5163E5",
+    "source_task_id": "tri-v3-language-crm-implicit_dynamic-t2-stable",
+    "form": "A",
+    "position": "2",
+    "category": "stable",
+    "binding": "dynamic",
+    "update": "stable",
+    "candidate_order": "LEAD-31 | LEAD-22 | LEAD-17",
+    "referent_gold": "LEAD-17",
+    "execution_gold": "LEAD-17",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "AMBIGUOUS": 1
+      },
+      "execution_counts": {
+        "LEAD-17": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "AMBIGUOUS": 2
+      },
+      "execution_counts": {
+        "LEAD-17": 2
+      },
+      "confidence_counts": {
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 3,
+        "LEAD-17": 1,
+        "LEAD-22": 1
+      },
+      "execution_counts": {
+        "LEAD-17": 3,
+        "LEAD-31": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "4": 2,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-1E11BBFD89",
+    "source_task_id": "tri-v3-language-mail-implicit_anchor-t3-remove",
+    "form": "A",
+    "position": "3",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "remove",
+    "candidate_order": "EM-319 | EM-205 | EM-104",
+    "referent_gold": "EM-104",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "EM-104": 1
+      },
+      "execution_counts": {
+        "EM-104": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "EM-104": 1,
+        "EM-319": 1
+      },
+      "execution_counts": {
+        "EM-104": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "EM-104": 3,
+        "EM-319": 2
+      },
+      "execution_counts": {
+        "EM-104": 1,
+        "REJECT": 4
+      },
+      "confidence_counts": {
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-B86B1FDC32",
+    "source_task_id": "tri-v3-language-docs-implicit_anchor-t2-flip",
+    "form": "A",
+    "position": "4",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "flip",
+    "candidate_order": "DOC-7 | DOC-9 | DOC-8",
+    "referent_gold": "DOC-7",
+    "execution_gold": "DOC-7",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "DOC-7": 1
+      },
+      "execution_counts": {
+        "DOC-7": 1
+      },
+      "confidence_counts": {
+        "4": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "DOC-7": 2
+      },
+      "execution_counts": {
+        "DOC-7": 2
+      },
+      "confidence_counts": {
+        "4": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "DOC-7": 3,
+        "DOC-8": 1
+      },
+      "execution_counts": {
+        "DOC-7": 5
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 2,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-249AC01772",
+    "source_task_id": "tri-v3-language-crm-explicit_anchor-t5-name_collision",
+    "form": "A",
+    "position": "5",
+    "category": "rewrite",
+    "binding": "anchored",
+    "update": "name_collision",
+    "candidate_order": "LEAD-17 | LEAD-22 | LEAD-31",
+    "referent_gold": "LEAD-17",
+    "execution_gold": "LEAD-17",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "LEAD-17": 1
+      },
+      "execution_counts": {
+        "LEAD-17": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "LEAD-17": 1,
+        "LEAD-22": 1
+      },
+      "execution_counts": {
+        "LEAD-17": 2
+      },
+      "confidence_counts": {
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "LEAD-17": 4,
+        "LEAD-22": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "LEAD-17": 4
+      },
+      "confidence_counts": {
+        "5": 5
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-5CDC022FA5",
+    "source_task_id": "tri-v3-language-support-explicit_dynamic-t2-name_collision",
+    "form": "A",
+    "position": "6",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "name_collision",
+    "candidate_order": "TCK-41 | TCK-63 | TCK-52",
+    "referent_gold": "TCK-52",
+    "execution_gold": "TCK-52",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "TCK-52": 1
+      },
+      "execution_counts": {
+        "TCK-52": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "TCK-52": 2
+      },
+      "execution_counts": {
+        "TCK-41": 1,
+        "TCK-52": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "TCK-41": 1,
+        "TCK-52": 3,
+        "TCK-63": 1
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "TCK-41": 1,
+        "TCK-52": 3
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-E21514B99D",
+    "source_task_id": "tri-v3-language-support-implicit_dynamic-t2-name_collision",
+    "form": "A",
+    "position": "7",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "name_collision",
+    "candidate_order": "TCK-52 | TCK-63 | TCK-41",
+    "referent_gold": "TCK-52",
+    "execution_gold": "TCK-52",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "TCK-52": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "TCK-52": 2
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "TCK-52": 1
+      },
+      "confidence_counts": {
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "TCK-52": 3,
+        "TCK-63": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 2,
+        "TCK-41": 1,
+        "TCK-52": 1,
+        "TCK-63": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-7FE4D11056",
+    "source_task_id": "tri-v3-language-calendar-explicit_anchor-t5-flip",
+    "form": "A",
+    "position": "8",
+    "category": "rewrite",
+    "binding": "anchored",
+    "update": "flip",
+    "candidate_order": "MTG-10 | MTG-22 | MTG-37",
+    "referent_gold": "MTG-10",
+    "execution_gold": "MTG-10",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "MTG-10": 1
+      },
+      "execution_counts": {
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "MTG-10": 2
+      },
+      "execution_counts": {
+        "MTG-37": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "MTG-10": 3,
+        "MTG-22": 2
+      },
+      "execution_counts": {
+        "MTG-10": 1,
+        "MTG-22": 1,
+        "MTG-37": 1,
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-2E01D94FD9",
+    "source_task_id": "tri-v3-language-mail-implicit_anchor-t4-invalidate",
+    "form": "A",
+    "position": "9",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "invalidate",
+    "candidate_order": "EM-104 | EM-319 | EM-205",
+    "referent_gold": "EM-104",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "EM-205": 1
+      },
+      "execution_counts": {
+        "EM-104": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "EM-205": 2
+      },
+      "execution_counts": {
+        "EM-104": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "EM-104": 1,
+        "EM-205": 4
+      },
+      "execution_counts": {
+        "EM-104": 1,
+        "EM-205": 1,
+        "REJECT": 3
+      },
+      "confidence_counts": {
+        "4": 2,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-2C1ACD8609",
+    "source_task_id": "tri-v3-language-calendar-explicit_anchor-t1-stable",
+    "form": "A",
+    "position": "10",
+    "category": "stable",
+    "binding": "anchored",
+    "update": "stable",
+    "candidate_order": "MTG-22 | MTG-37 | MTG-10",
+    "referent_gold": "MTG-10",
+    "execution_gold": "MTG-10",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "MTG-10": 1
+      },
+      "execution_counts": {
+        "MTG-10": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "MTG-10": 2
+      },
+      "execution_counts": {
+        "MTG-10": 2
+      },
+      "confidence_counts": {
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "MTG-10": 5
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "MTG-10": 4
+      },
+      "confidence_counts": {
+        "5": 5
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-07F5147F99",
+    "source_task_id": "tri-v3-language-support-implicit_anchor-t3-flip",
+    "form": "A",
+    "position": "11",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "flip",
+    "candidate_order": "TCK-52 | TCK-41 | TCK-63",
+    "referent_gold": "TCK-41",
+    "execution_gold": "TCK-41",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "TCK-41": 1
+      },
+      "execution_counts": {
+        "TCK-41": 1
+      },
+      "confidence_counts": {
+        "4": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "TCK-41": 2
+      },
+      "execution_counts": {
+        "TCK-41": 2
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "TCK-41": 4
+      },
+      "execution_counts": {
+        "TCK-41": 4,
+        "TCK-63": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-4D29304926",
+    "source_task_id": "tri-v3-language-commerce-explicit_dynamic-t3-name_collision",
+    "form": "A",
+    "position": "12",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "name_collision",
+    "candidate_order": "SKU-29 | SKU-11 | SKU-43",
+    "referent_gold": "SKU-29",
+    "execution_gold": "SKU-29",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "AMBIGUOUS": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1
+      },
+      "confidence_counts": {
+        "4": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "SKU-43": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "SKU-29": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "SKU-11": 1,
+        "SKU-29": 2,
+        "SKU-43": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "SKU-29": 4
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-57CF71D729",
+    "source_task_id": "tri-v3-language-support-implicit_dynamic-t3-flip",
+    "form": "B",
+    "position": "1",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "flip",
+    "candidate_order": "TCK-63 | TCK-41 | TCK-52",
+    "referent_gold": "TCK-52",
+    "execution_gold": "TCK-52",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "TCK-41": 1,
+        "TCK-52": 1
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "TCK-63": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "4": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "TCK-41": 1,
+        "TCK-52": 3
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 1,
+        "TCK-63": 2
+      },
+      "confidence_counts": {
+        "2": 1,
+        "4": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "TCK-41": 1,
+        "TCK-52": 4
+      },
+      "execution_counts": {
+        "CLARIFY": 2,
+        "REJECT": 1,
+        "TCK-63": 2
+      },
+      "confidence_counts": {
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-36D4CBCFF7",
+    "source_task_id": "tri-v3-language-calendar-implicit_dynamic-t1-stable",
+    "form": "B",
+    "position": "2",
+    "category": "stable",
+    "binding": "dynamic",
+    "update": "stable",
+    "candidate_order": "MTG-22 | MTG-10 | MTG-37",
+    "referent_gold": "MTG-10",
+    "execution_gold": "MTG-10",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "MTG-10": 1
+      },
+      "execution_counts": {
+        "MTG-37": 2
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 3,
+        "MTG-10": 1
+      },
+      "execution_counts": {
+        "MTG-37": 4
+      },
+      "confidence_counts": {
+        "3": 2,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 3,
+        "MTG-10": 1,
+        "MTG-22": 1
+      },
+      "execution_counts": {
+        "MTG-37": 5
+      },
+      "confidence_counts": {
+        "3": 3,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-B277D53784",
+    "source_task_id": "tri-v3-language-calendar-explicit_dynamic-t5-flip",
+    "form": "B",
+    "position": "3",
+    "category": "rewrite",
+    "binding": "dynamic",
+    "update": "flip",
+    "candidate_order": "MTG-37 | MTG-10 | MTG-22",
+    "referent_gold": "MTG-22",
+    "execution_gold": "MTG-22",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "MTG-22": 1,
+        "MTG-37": 1
+      },
+      "execution_counts": {
+        "MTG-10": 1,
+        "MTG-37": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "MTG-22": 3,
+        "MTG-37": 1
+      },
+      "execution_counts": {
+        "MTG-10": 1,
+        "MTG-37": 2,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "MTG-22": 3,
+        "MTG-37": 2
+      },
+      "execution_counts": {
+        "MTG-10": 1,
+        "MTG-37": 2,
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "3": 2,
+        "4": 1,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-306A305996",
+    "source_task_id": "tri-v3-language-docs-explicit_anchor-t5-invalidate",
+    "form": "B",
+    "position": "4",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "invalidate",
+    "candidate_order": "DOC-9 | DOC-8 | DOC-7",
+    "referent_gold": "DOC-7",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "DOC-9": 2
+      },
+      "execution_counts": {
+        "DOC-9": 2
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "DOC-8": 1,
+        "DOC-9": 3
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "DOC-9": 2,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "DOC-7": 1,
+        "DOC-8": 1,
+        "DOC-9": 3
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "DOC-9": 3,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-5D81F2D4E9",
+    "source_task_id": "tri-v3-language-docs-explicit_anchor-t3-stable",
+    "form": "B",
+    "position": "5",
+    "category": "stable",
+    "binding": "anchored",
+    "update": "stable",
+    "candidate_order": "DOC-8 | DOC-9 | DOC-7",
+    "referent_gold": "DOC-7",
+    "execution_gold": "DOC-7",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "DOC-8": 2
+      },
+      "execution_counts": {
+        "DOC-8": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "DOC-8": 3
+      },
+      "execution_counts": {
+        "DOC-8": 4
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "DOC-8": 4
+      },
+      "execution_counts": {
+        "DOC-8": 5
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-4B8BA2C956",
+    "source_task_id": "tri-v3-language-docs-explicit_anchor-t2-flip",
+    "form": "B",
+    "position": "6",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "flip",
+    "candidate_order": "DOC-8 | DOC-9 | DOC-7",
+    "referent_gold": "DOC-7",
+    "execution_gold": "DOC-7",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "DOC-7": 1,
+        "DOC-9": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "DOC-7": 3,
+        "DOC-9": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 2,
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "4": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "DOC-7": 4,
+        "DOC-9": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 2,
+        "DOC-7": 1,
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-1E072B1531",
+    "source_task_id": "tri-v3-language-shipping-implicit_dynamic-t3-name_collision",
+    "form": "B",
+    "position": "7",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "name_collision",
+    "candidate_order": "SHP-88 | SHP-94 | SHP-91",
+    "referent_gold": "SHP-91",
+    "execution_gold": "SHP-91",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "SHP-88": 1
+      },
+      "execution_counts": {
+        "SHP-88": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "SHP-88": 3
+      },
+      "execution_counts": {
+        "SHP-88": 2,
+        "SHP-94": 2
+      },
+      "confidence_counts": {
+        "1": 2,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "SHP-88": 4
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "SHP-88": 2,
+        "SHP-94": 2
+      },
+      "confidence_counts": {
+        "1": 3,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-06205D793D",
+    "source_task_id": "tri-v3-language-support-explicit_anchor-t5-remove",
+    "form": "B",
+    "position": "8",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "remove",
+    "candidate_order": "TCK-52 | TCK-41 | TCK-63",
+    "referent_gold": "TCK-41",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "TCK-52": 2
+      },
+      "execution_counts": {
+        "TCK-52": 1,
+        "TCK-63": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "TCK-52": 4
+      },
+      "execution_counts": {
+        "TCK-41": 1,
+        "TCK-52": 2,
+        "TCK-63": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "4": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "TCK-52": 5
+      },
+      "execution_counts": {
+        "TCK-41": 2,
+        "TCK-52": 2,
+        "TCK-63": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "4": 2,
+        "5": 1
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-4F18881DC9",
+    "source_task_id": "tri-v3-language-docs-implicit_dynamic-t2-flip",
+    "form": "B",
+    "position": "9",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "flip",
+    "candidate_order": "DOC-8 | DOC-9 | DOC-7",
+    "referent_gold": "DOC-8",
+    "execution_gold": "DOC-8",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "DOC-8": 1,
+        "DOC-9": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "DOC-7": 2,
+        "DOC-8": 1,
+        "DOC-9": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "DOC-7": 1,
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "2": 1,
+        "4": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "DOC-7": 3,
+        "DOC-8": 1,
+        "DOC-9": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "DOC-7": 1,
+        "REJECT": 3
+      },
+      "confidence_counts": {
+        "2": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-CD01EB8674",
+    "source_task_id": "tri-v3-language-crm-explicit_dynamic-t5-name_collision",
+    "form": "B",
+    "position": "10",
+    "category": "rewrite",
+    "binding": "dynamic",
+    "update": "name_collision",
+    "candidate_order": "LEAD-17 | LEAD-22 | LEAD-31",
+    "referent_gold": "LEAD-22",
+    "execution_gold": "LEAD-22",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "LEAD-17": 1,
+        "LEAD-31": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "5": 2
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "LEAD-17": 1,
+        "LEAD-31": 3
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "LEAD-31": 2,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "LEAD-17": 1,
+        "LEAD-31": 4
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "LEAD-31": 3,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-ADF7B0C7A4",
+    "source_task_id": "tri-v3-language-shipping-implicit_anchor-t4-flip",
+    "form": "B",
+    "position": "11",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "flip",
+    "candidate_order": "SHP-94 | SHP-91 | SHP-88",
+    "referent_gold": "SHP-88",
+    "execution_gold": "SHP-88",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "SHP-88": 1,
+        "SHP-91": 1
+      },
+      "execution_counts": {
+        "SHP-91": 1,
+        "SHP-94": 1
+      },
+      "confidence_counts": {
+        "5": 2
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "SHP-88": 1,
+        "SHP-91": 3
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "SHP-91": 2,
+        "SHP-94": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "SHP-88": 1,
+        "SHP-91": 4
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "SHP-91": 3,
+        "SHP-94": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-02DAA34F6C",
+    "source_task_id": "tri-v3-language-mail-explicit_anchor-t5-name_collision",
+    "form": "B",
+    "position": "12",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "name_collision",
+    "candidate_order": "EM-319 | EM-205 | EM-104",
+    "referent_gold": "EM-104",
+    "execution_gold": "EM-104",
+    "strict_eligible": {
+      "labels": 2,
+      "referent_counts": {
+        "EM-319": 2
+      },
+      "execution_counts": {
+        "EM-319": 2
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "EM-319": 3
+      },
+      "execution_counts": {
+        "EM-104": 1,
+        "EM-205": 1,
+        "EM-319": 2
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "EM-104": 1,
+        "EM-319": 3
+      },
+      "execution_counts": {
+        "EM-104": 1,
+        "EM-205": 1,
+        "EM-319": 3
+      },
+      "confidence_counts": {
+        "2": 1,
+        "3": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-B601E92AEF",
+    "source_task_id": "tri-v3-language-shipping-implicit_dynamic-t5-stable",
+    "form": "C",
+    "position": "1",
+    "category": "rewrite",
+    "binding": "dynamic",
+    "update": "stable",
+    "candidate_order": "SHP-94 | SHP-88 | SHP-91",
+    "referent_gold": "SHP-88",
+    "execution_gold": "SHP-88",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "SHP-94": 1
+      },
+      "execution_counts": {
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "SHP-94": 2
+      },
+      "execution_counts": {
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "SHP-91": 3,
+        "SHP-94": 2
+      },
+      "execution_counts": {
+        "REJECT": 2,
+        "SHP-88": 1,
+        "SHP-94": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-797BB9EC3D",
+    "source_task_id": "tri-v3-language-crm-explicit_anchor-t2-stable",
+    "form": "C",
+    "position": "2",
+    "category": "stable",
+    "binding": "anchored",
+    "update": "stable",
+    "candidate_order": "LEAD-17 | LEAD-22 | LEAD-31",
+    "referent_gold": "LEAD-17",
+    "execution_gold": "LEAD-17",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "LEAD-17": 1
+      },
+      "execution_counts": {
+        "LEAD-22": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "LEAD-17": 1
+      },
+      "execution_counts": {
+        "LEAD-22": 1,
+        "LEAD-31": 1
+      },
+      "confidence_counts": {
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 3,
+        "LEAD-17": 1,
+        "LEAD-31": 1
+      },
+      "execution_counts": {
+        "LEAD-17": 2,
+        "LEAD-22": 1,
+        "LEAD-31": 2
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-F5B510FE07",
+    "source_task_id": "tri-v3-language-mail-explicit_dynamic-t5-name_collision",
+    "form": "C",
+    "position": "3",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "name_collision",
+    "candidate_order": "EM-319 | EM-104 | EM-205",
+    "referent_gold": "EM-205",
+    "execution_gold": "EM-205",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "AMBIGUOUS": 1
+      },
+      "execution_counts": {
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "EM-205": 1
+      },
+      "execution_counts": {
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 2,
+        "EM-104": 1,
+        "EM-205": 1,
+        "EM-319": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "EM-104": 1,
+        "REJECT": 3
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 2,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-1A49D544C7",
+    "source_task_id": "tri-v3-language-mail-explicit_dynamic-t2-stable",
+    "form": "C",
+    "position": "4",
+    "category": "stable",
+    "binding": "dynamic",
+    "update": "stable",
+    "candidate_order": "EM-104 | EM-205 | EM-319",
+    "referent_gold": "EM-104",
+    "execution_gold": "EM-104",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "EM-104": 1
+      },
+      "execution_counts": {
+        "EM-104": 1
+      },
+      "confidence_counts": {
+        "1": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "EM-104": 2
+      },
+      "execution_counts": {
+        "EM-104": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "EM-104": 5
+      },
+      "execution_counts": {
+        "EM-104": 3,
+        "EM-205": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 2,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-25F6DCB0B3",
+    "source_task_id": "tri-v3-language-shipping-implicit_dynamic-t4-flip",
+    "form": "C",
+    "position": "5",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "flip",
+    "candidate_order": "SHP-88 | SHP-94 | SHP-91",
+    "referent_gold": "SHP-91",
+    "execution_gold": "SHP-91",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "SHP-88": 1
+      },
+      "execution_counts": {
+        "SHP-91": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "SHP-88": 2
+      },
+      "execution_counts": {
+        "SHP-88": 1,
+        "SHP-91": 1
+      },
+      "confidence_counts": {
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "SHP-88": 4,
+        "SHP-94": 1
+      },
+      "execution_counts": {
+        "SHP-88": 4,
+        "SHP-91": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "4": 2,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-A9D938D616",
+    "source_task_id": "tri-v3-language-calendar-explicit_anchor-t2-remove",
+    "form": "C",
+    "position": "6",
+    "category": "rewrite",
+    "binding": "anchored",
+    "update": "remove",
+    "candidate_order": "MTG-10 | MTG-37 | MTG-22",
+    "referent_gold": "MTG-10",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "MTG-10": 1
+      },
+      "execution_counts": {
+        "MTG-22": 1
+      },
+      "confidence_counts": {
+        "2": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "MTG-10": 1,
+        "MTG-22": 1
+      },
+      "execution_counts": {
+        "MTG-22": 2
+      },
+      "confidence_counts": {
+        "2": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "MTG-10": 1,
+        "MTG-22": 4
+      },
+      "execution_counts": {
+        "MTG-22": 5
+      },
+      "confidence_counts": {
+        "2": 3,
+        "3": 1,
+        "5": 1
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-4FFF8A65B7",
+    "source_task_id": "tri-v3-language-commerce-explicit_anchor-t1-remove",
+    "form": "C",
+    "position": "7",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "remove",
+    "candidate_order": "SKU-11 | SKU-29 | SKU-43",
+    "referent_gold": "SKU-11",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "SKU-11": 1
+      },
+      "execution_counts": {
+        "SKU-43": 1
+      },
+      "confidence_counts": {
+        "4": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "SKU-11": 2
+      },
+      "execution_counts": {
+        "SKU-11": 1,
+        "SKU-43": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "SKU-11": 5
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "SKU-11": 3,
+        "SKU-43": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "4": 1,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-3F07A5D985",
+    "source_task_id": "tri-v3-language-mail-implicit_anchor-t1-flip",
+    "form": "C",
+    "position": "8",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "flip",
+    "candidate_order": "EM-205 | EM-319 | EM-104",
+    "referent_gold": "EM-104",
+    "execution_gold": "EM-104",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "EM-319": 1
+      },
+      "execution_counts": {
+        "EM-205": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "EM-319": 2
+      },
+      "execution_counts": {
+        "EM-104": 1,
+        "EM-205": 1
+      },
+      "confidence_counts": {
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "EM-205": 2,
+        "EM-319": 2
+      },
+      "execution_counts": {
+        "EM-104": 2,
+        "EM-205": 1,
+        "EM-319": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "4": 2,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-6C41B01CD5",
+    "source_task_id": "tri-v3-language-mail-implicit_anchor-t5-name_collision",
+    "form": "C",
+    "position": "9",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "name_collision",
+    "candidate_order": "EM-205 | EM-104 | EM-319",
+    "referent_gold": "EM-104",
+    "execution_gold": "EM-104",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "EM-104": 1
+      },
+      "execution_counts": {
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "EM-104": 1,
+        "EM-319": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "EM-104": 1,
+        "EM-319": 4
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "EM-319": 1,
+        "REJECT": 3
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-306D8831FD",
+    "source_task_id": "tri-v3-language-repo-implicit_anchor-t4-name_collision",
+    "form": "C",
+    "position": "10",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "name_collision",
+    "candidate_order": "BR-main | BR-dev | BR-rel",
+    "referent_gold": "BR-main",
+    "execution_gold": "BR-main",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-rel": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "BR-rel": 2
+      },
+      "execution_counts": {
+        "BR-rel": 2
+      },
+      "confidence_counts": {
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "BR-main": 1,
+        "BR-rel": 4
+      },
+      "execution_counts": {
+        "BR-rel": 4,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "5": 5
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-F5392F307F",
+    "source_task_id": "tri-v3-language-docs-explicit_dynamic-t2-flip",
+    "form": "C",
+    "position": "11",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "flip",
+    "candidate_order": "DOC-9 | DOC-8 | DOC-7",
+    "referent_gold": "DOC-8",
+    "execution_gold": "DOC-8",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "DOC-8": 1
+      },
+      "execution_counts": {
+        "DOC-8": 1
+      },
+      "confidence_counts": {
+        "3": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "DOC-7": 1,
+        "DOC-8": 1
+      },
+      "execution_counts": {
+        "DOC-8": 1,
+        "DOC-9": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "DOC-7": 1,
+        "DOC-8": 4
+      },
+      "execution_counts": {
+        "DOC-7": 1,
+        "DOC-8": 3,
+        "DOC-9": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-391116DA5A",
+    "source_task_id": "tri-v3-language-shipping-explicit_anchor-t2-invalidate",
+    "form": "C",
+    "position": "12",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "invalidate",
+    "candidate_order": "SHP-94 | SHP-88 | SHP-91",
+    "referent_gold": "SHP-88",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "SHP-91": 1
+      },
+      "execution_counts": {
+        "SHP-94": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 2,
+      "referent_counts": {
+        "SHP-91": 1,
+        "SHP-94": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "SHP-94": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "SHP-91": 1,
+        "SHP-94": 4
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "SHP-88": 1,
+        "SHP-94": 3
+      },
+      "confidence_counts": {
+        "2": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-375AD58BA9",
+    "source_task_id": "tri-v3-language-mail-explicit_anchor-t2-stable",
+    "form": "D",
+    "position": "1",
+    "category": "stable",
+    "binding": "anchored",
+    "update": "stable",
+    "candidate_order": "EM-205 | EM-104 | EM-319",
+    "referent_gold": "EM-104",
+    "execution_gold": "EM-104",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "AMBIGUOUS": 1
+      },
+      "execution_counts": {
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 2,
+        "EM-319": 2
+      },
+      "execution_counts": {
+        "REJECT": 4
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 2,
+        "EM-319": 3
+      },
+      "execution_counts": {
+        "REJECT": 5
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-216F25539E",
+    "source_task_id": "tri-v3-language-commerce-explicit_anchor-t5-stable",
+    "form": "D",
+    "position": "2",
+    "category": "rewrite",
+    "binding": "anchored",
+    "update": "stable",
+    "candidate_order": "SKU-11 | SKU-43 | SKU-29",
+    "referent_gold": "SKU-11",
+    "execution_gold": "SKU-11",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "AMBIGUOUS": 1
+      },
+      "execution_counts": {
+        "SKU-43": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 4
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "SKU-29": 2,
+        "SKU-43": 1
+      },
+      "confidence_counts": {
+        "5": 4
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 5
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "SKU-11": 1,
+        "SKU-29": 2,
+        "SKU-43": 1
+      },
+      "confidence_counts": {
+        "5": 5
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-90FEF3E01B",
+    "source_task_id": "tri-v3-language-support-explicit_anchor-t1-invalidate",
+    "form": "D",
+    "position": "3",
+    "category": "rewrite",
+    "binding": "anchored",
+    "update": "invalidate",
+    "candidate_order": "TCK-41 | TCK-52 | TCK-63",
+    "referent_gold": "TCK-41",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "TCK-63": 1
+      },
+      "execution_counts": {
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "TCK-63": 3
+      },
+      "execution_counts": {
+        "REJECT": 4
+      },
+      "confidence_counts": {
+        "5": 4
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "TCK-63": 4
+      },
+      "execution_counts": {
+        "REJECT": 5
+      },
+      "confidence_counts": {
+        "5": 5
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-237D25B4F0",
+    "source_task_id": "tri-v3-language-repo-implicit_dynamic-t4-name_collision",
+    "form": "D",
+    "position": "4",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "name_collision",
+    "candidate_order": "BR-rel | BR-main | BR-dev",
+    "referent_gold": "BR-rel",
+    "execution_gold": "BR-rel",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "BR-dev": 1
+      },
+      "execution_counts": {
+        "BR-rel": 1
+      },
+      "confidence_counts": {
+        "4": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "BR-dev": 1,
+        "BR-rel": 3
+      },
+      "execution_counts": {
+        "BR-rel": 2,
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "2": 1,
+        "3": 1,
+        "4": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "BR-dev": 2,
+        "BR-rel": 3
+      },
+      "execution_counts": {
+        "BR-rel": 3,
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-E756FD6593",
+    "source_task_id": "tri-v3-language-mail-implicit_dynamic-t1-flip",
+    "form": "D",
+    "position": "5",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "flip",
+    "candidate_order": "EM-205 | EM-104 | EM-319",
+    "referent_gold": "EM-205",
+    "execution_gold": "EM-205",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "EM-205": 1
+      },
+      "execution_counts": {
+        "EM-319": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "EM-205": 4
+      },
+      "execution_counts": {
+        "EM-205": 2,
+        "EM-319": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 2,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "EM-104": 1,
+        "EM-205": 4
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "EM-205": 2,
+        "EM-319": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 2,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-E82B36FA71",
+    "source_task_id": "tri-v3-language-repo-implicit_anchor-t5-flip",
+    "form": "D",
+    "position": "6",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "flip",
+    "candidate_order": "BR-rel | BR-dev | BR-main",
+    "referent_gold": "BR-main",
+    "execution_gold": "BR-main",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "BR-main": 1
+      },
+      "execution_counts": {
+        "BR-main": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "BR-main": 3,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-main": 4
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "BR-main": 4,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-main": 5
+      },
+      "confidence_counts": {
+        "2": 1,
+        "3": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-013EB55CF2",
+    "source_task_id": "tri-v3-language-calendar-implicit_anchor-t4-name_collision",
+    "form": "D",
+    "position": "7",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "name_collision",
+    "candidate_order": "MTG-22 | MTG-10 | MTG-37",
+    "referent_gold": "MTG-10",
+    "execution_gold": "MTG-10",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "MTG-22": 1
+      },
+      "execution_counts": {
+        "MTG-22": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "MTG-22": 3
+      },
+      "execution_counts": {
+        "MTG-22": 2,
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "4": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "MTG-22": 3,
+        "MTG-37": 1
+      },
+      "execution_counts": {
+        "MTG-10": 1,
+        "MTG-22": 2,
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "4": 1,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-3E7F76195A",
+    "source_task_id": "tri-v3-language-mail-explicit_anchor-t4-invalidate",
+    "form": "D",
+    "position": "8",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "invalidate",
+    "candidate_order": "EM-104 | EM-205 | EM-319",
+    "referent_gold": "EM-104",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "EM-205": 1
+      },
+      "execution_counts": {
+        "EM-205": 1
+      },
+      "confidence_counts": {
+        "1": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "EM-104": 2,
+        "EM-205": 2
+      },
+      "execution_counts": {
+        "EM-104": 2,
+        "EM-205": 1,
+        "EM-319": 1
+      },
+      "confidence_counts": {
+        "1": 2,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "EM-104": 3,
+        "EM-205": 2
+      },
+      "execution_counts": {
+        "EM-104": 3,
+        "EM-205": 1,
+        "EM-319": 1
+      },
+      "confidence_counts": {
+        "1": 2,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-4C3EC11A4A",
+    "source_task_id": "tri-v3-language-docs-implicit_anchor-t1-name_collision",
+    "form": "D",
+    "position": "9",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "name_collision",
+    "candidate_order": "DOC-9 | DOC-7 | DOC-8",
+    "referent_gold": "DOC-7",
+    "execution_gold": "DOC-7",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "DOC-8": 1
+      },
+      "execution_counts": {
+        "DOC-9": 1
+      },
+      "confidence_counts": {
+        "1": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "DOC-7": 1,
+        "DOC-8": 3
+      },
+      "execution_counts": {
+        "DOC-8": 1,
+        "DOC-9": 2,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "DOC-7": 1,
+        "DOC-8": 4
+      },
+      "execution_counts": {
+        "DOC-8": 2,
+        "DOC-9": 2,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "4": 1,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-DEE987EFA8",
+    "source_task_id": "tri-v3-language-mail-implicit_dynamic-t5-name_collision",
+    "form": "D",
+    "position": "10",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "name_collision",
+    "candidate_order": "EM-104 | EM-205 | EM-319",
+    "referent_gold": "EM-205",
+    "execution_gold": "EM-205",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "AMBIGUOUS": 1
+      },
+      "execution_counts": {
+        "EM-319": 1
+      },
+      "confidence_counts": {
+        "2": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "EM-205": 1,
+        "EM-319": 2
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "EM-205": 1,
+        "EM-319": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 2,
+        "EM-205": 1,
+        "EM-319": 2
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "EM-205": 2,
+        "EM-319": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-40952E40FE",
+    "source_task_id": "tri-v3-language-shipping-explicit_anchor-t1-remove",
+    "form": "D",
+    "position": "11",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "remove",
+    "candidate_order": "SHP-94 | SHP-91 | SHP-88",
+    "referent_gold": "SHP-88",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "SHP-91": 1
+      },
+      "execution_counts": {
+        "SHP-91": 1
+      },
+      "confidence_counts": {
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "SHP-88": 1,
+        "SHP-91": 3
+      },
+      "execution_counts": {
+        "SHP-88": 1,
+        "SHP-91": 3
+      },
+      "confidence_counts": {
+        "5": 4
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "SHP-88": 1,
+        "SHP-91": 4
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "SHP-88": 1,
+        "SHP-91": 3
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-64300E4C85",
+    "source_task_id": "tri-v3-language-calendar-explicit_dynamic-t1-stable",
+    "form": "D",
+    "position": "12",
+    "category": "stable",
+    "binding": "dynamic",
+    "update": "stable",
+    "candidate_order": "MTG-37 | MTG-22 | MTG-10",
+    "referent_gold": "MTG-10",
+    "execution_gold": "MTG-10",
+    "strict_eligible": {
+      "labels": 1,
+      "referent_counts": {
+        "MTG-37": 1
+      },
+      "execution_counts": {
+        "MTG-22": 1
+      },
+      "confidence_counts": {
+        "3": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "MTG-37": 3
+      },
+      "execution_counts": {
+        "MTG-22": 2,
+        "MTG-37": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "MTG-37": 4
+      },
+      "execution_counts": {
+        "MTG-22": 2,
+        "MTG-37": 2,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-0DB3070D0F",
+    "source_task_id": "tri-v3-language-docs-implicit_dynamic-t1-name_collision",
+    "form": "E",
+    "position": "1",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "name_collision",
+    "candidate_order": "DOC-8 | DOC-9 | DOC-7",
+    "referent_gold": "DOC-8",
+    "execution_gold": "DOC-8",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "DOC-7": 2,
+        "DOC-9": 1
+      },
+      "execution_counts": {
+        "DOC-7": 2,
+        "DOC-9": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 2
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "DOC-7": 2,
+        "DOC-8": 1,
+        "DOC-9": 1
+      },
+      "execution_counts": {
+        "DOC-7": 3,
+        "DOC-9": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "DOC-7": 3,
+        "DOC-8": 1,
+        "DOC-9": 1
+      },
+      "execution_counts": {
+        "DOC-7": 3,
+        "DOC-9": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-D5E2C922C5",
+    "source_task_id": "tri-v3-language-crm-implicit_anchor-t2-stable",
+    "form": "E",
+    "position": "2",
+    "category": "stable",
+    "binding": "anchored",
+    "update": "stable",
+    "candidate_order": "LEAD-17 | LEAD-31 | LEAD-22",
+    "referent_gold": "LEAD-17",
+    "execution_gold": "LEAD-17",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "AMBIGUOUS": 2,
+        "LEAD-17": 1
+      },
+      "execution_counts": {
+        "LEAD-17": 1,
+        "LEAD-22": 2
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 2
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 2,
+        "LEAD-17": 2
+      },
+      "execution_counts": {
+        "LEAD-17": 1,
+        "LEAD-22": 2,
+        "LEAD-31": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "3": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 3,
+        "LEAD-17": 2
+      },
+      "execution_counts": {
+        "LEAD-17": 1,
+        "LEAD-22": 3,
+        "LEAD-31": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "3": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-42505A56E5",
+    "source_task_id": "tri-v3-language-repo-explicit_anchor-t4-name_collision",
+    "form": "E",
+    "position": "3",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "name_collision",
+    "candidate_order": "BR-rel | BR-dev | BR-main",
+    "referent_gold": "BR-main",
+    "execution_gold": "BR-main",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "BR-main": 1,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-dev": 1,
+        "CLARIFY": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "BR-dev": 1,
+        "BR-main": 1,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-dev": 1,
+        "BR-main": 1,
+        "CLARIFY": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "BR-dev": 1,
+        "BR-main": 2,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-dev": 1,
+        "BR-main": 1,
+        "CLARIFY": 2,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-5296A94A20",
+    "source_task_id": "tri-v3-language-crm-explicit_anchor-t4-invalidate",
+    "form": "E",
+    "position": "4",
+    "category": "rewrite",
+    "binding": "anchored",
+    "update": "invalidate",
+    "candidate_order": "LEAD-22 | LEAD-17 | LEAD-31",
+    "referent_gold": "LEAD-17",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "LEAD-22": 3
+      },
+      "execution_counts": {
+        "LEAD-22": 1,
+        "LEAD-31": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "4": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "LEAD-22": 4
+      },
+      "execution_counts": {
+        "LEAD-17": 1,
+        "LEAD-22": 1,
+        "LEAD-31": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "4": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "LEAD-22": 5
+      },
+      "execution_counts": {
+        "LEAD-17": 1,
+        "LEAD-22": 2,
+        "LEAD-31": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-185D886B27",
+    "source_task_id": "tri-v3-language-repo-implicit_dynamic-t5-flip",
+    "form": "E",
+    "position": "5",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "flip",
+    "candidate_order": "BR-dev | BR-rel | BR-main",
+    "referent_gold": "BR-rel",
+    "execution_gold": "BR-rel",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "BR-dev": 2
+      },
+      "execution_counts": {
+        "BR-dev": 1,
+        "CLARIFY": 2
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 2
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "BR-dev": 2,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-dev": 1,
+        "BR-main": 1,
+        "CLARIFY": 2
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "BR-dev": 3,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-dev": 1,
+        "BR-main": 1,
+        "BR-rel": 1,
+        "CLARIFY": 2
+      },
+      "confidence_counts": {
+        "3": 2,
+        "4": 1,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-A81EEB2741",
+    "source_task_id": "tri-v3-language-support-implicit_anchor-t1-invalidate",
+    "form": "E",
+    "position": "6",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "invalidate",
+    "candidate_order": "TCK-63 | TCK-41 | TCK-52",
+    "referent_gold": "TCK-41",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "TCK-41": 1,
+        "TCK-52": 2
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "TCK-41": 1,
+        "TCK-52": 1
+      },
+      "confidence_counts": {
+        "5": 3
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "TCK-41": 2,
+        "TCK-52": 2
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "TCK-41": 1,
+        "TCK-52": 2
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "TCK-41": 3,
+        "TCK-52": 2
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "TCK-41": 1,
+        "TCK-52": 3
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-DD5979D59E",
+    "source_task_id": "tri-v3-language-calendar-implicit_dynamic-t4-name_collision",
+    "form": "E",
+    "position": "7",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "name_collision",
+    "candidate_order": "MTG-10 | MTG-22 | MTG-37",
+    "referent_gold": "MTG-22",
+    "execution_gold": "MTG-22",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "MTG-10": 2
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "MTG-22": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "4": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "MTG-10": 2,
+        "MTG-22": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "MTG-22": 1,
+        "MTG-37": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "MTG-10": 2,
+        "MTG-22": 1,
+        "MTG-37": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "MTG-22": 1,
+        "MTG-37": 2,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-F6524AC9FA",
+    "source_task_id": "tri-v3-language-support-implicit_anchor-t4-stable",
+    "form": "E",
+    "position": "8",
+    "category": "rewrite",
+    "binding": "anchored",
+    "update": "stable",
+    "candidate_order": "TCK-52 | TCK-41 | TCK-63",
+    "referent_gold": "TCK-41",
+    "execution_gold": "TCK-41",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "TCK-41": 1,
+        "TCK-52": 2
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "TCK-52": 2
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 2
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "TCK-41": 2,
+        "TCK-52": 2
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 1,
+        "TCK-52": 2
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "TCK-41": 2,
+        "TCK-52": 3
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 1,
+        "TCK-52": 3
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-01BF3ED302",
+    "source_task_id": "tri-v3-language-crm-implicit_anchor-t3-remove",
+    "form": "E",
+    "position": "9",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "remove",
+    "candidate_order": "LEAD-31 | LEAD-22 | LEAD-17",
+    "referent_gold": "LEAD-17",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "LEAD-17": 2
+      },
+      "execution_counts": {
+        "LEAD-22": 2,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "5": 3
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "LEAD-17": 2,
+        "LEAD-22": 1
+      },
+      "execution_counts": {
+        "LEAD-17": 1,
+        "LEAD-22": 2,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "5": 4
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "LEAD-17": 3,
+        "LEAD-22": 1
+      },
+      "execution_counts": {
+        "LEAD-17": 1,
+        "LEAD-22": 2,
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-4747DD03B4",
+    "source_task_id": "tri-v3-language-support-explicit_dynamic-t4-stable",
+    "form": "E",
+    "position": "10",
+    "category": "stable",
+    "binding": "dynamic",
+    "update": "stable",
+    "candidate_order": "TCK-52 | TCK-63 | TCK-41",
+    "referent_gold": "TCK-41",
+    "execution_gold": "TCK-41",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "TCK-41": 2
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "TCK-41": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "TCK-41": 3
+      },
+      "execution_counts": {
+        "CLARIFY": 2,
+        "TCK-41": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "TCK-41": 3,
+        "TCK-52": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 2,
+        "TCK-41": 3
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-80EE988A85",
+    "source_task_id": "tri-v3-language-calendar-implicit_anchor-t5-flip",
+    "form": "E",
+    "position": "11",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "flip",
+    "candidate_order": "MTG-22 | MTG-10 | MTG-37",
+    "referent_gold": "MTG-10",
+    "execution_gold": "MTG-10",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "MTG-22": 1,
+        "MTG-37": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "MTG-10": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 2
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "MTG-10": 1,
+        "MTG-22": 1,
+        "MTG-37": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 2,
+        "MTG-10": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "MTG-10": 2,
+        "MTG-22": 1,
+        "MTG-37": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 2,
+        "MTG-10": 1,
+        "MTG-37": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-F1A44E2394",
+    "source_task_id": "tri-v3-language-commerce-implicit_anchor-t4-flip",
+    "form": "E",
+    "position": "12",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "flip",
+    "candidate_order": "SKU-11 | SKU-29 | SKU-43",
+    "referent_gold": "SKU-11",
+    "execution_gold": "SKU-11",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "SKU-11": 2
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 1,
+        "SKU-11": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "SKU-11": 3
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 1,
+        "SKU-11": 1,
+        "SKU-43": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 2,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 2,
+        "SKU-11": 3
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 2,
+        "SKU-11": 1,
+        "SKU-43": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "4": 2,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-A68A208BC5",
+    "source_task_id": "tri-v3-language-commerce-explicit_anchor-t3-name_collision",
+    "form": "F",
+    "position": "1",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "name_collision",
+    "candidate_order": "SKU-11 | SKU-29 | SKU-43",
+    "referent_gold": "SKU-11",
+    "execution_gold": "SKU-11",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "SKU-11": 1,
+        "SKU-29": 1,
+        "SKU-43": 1
+      },
+      "execution_counts": {
+        "REJECT": 2,
+        "SKU-29": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 2
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "SKU-11": 1,
+        "SKU-29": 1,
+        "SKU-43": 2
+      },
+      "execution_counts": {
+        "REJECT": 2,
+        "SKU-29": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "4": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "SKU-11": 1,
+        "SKU-29": 1,
+        "SKU-43": 3
+      },
+      "execution_counts": {
+        "REJECT": 3,
+        "SKU-29": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-33B668012B",
+    "source_task_id": "tri-v3-language-repo-explicit_dynamic-t1-stable",
+    "form": "F",
+    "position": "2",
+    "category": "rewrite",
+    "binding": "dynamic",
+    "update": "stable",
+    "candidate_order": "BR-rel | BR-dev | BR-main",
+    "referent_gold": "BR-main",
+    "execution_gold": "BR-main",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "BR-main": 1,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-main": 2,
+        "CLARIFY": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 2
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 2,
+        "BR-main": 1,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-main": 3,
+        "CLARIFY": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 3,
+        "BR-main": 1,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-main": 4,
+        "CLARIFY": 1
+      },
+      "confidence_counts": {
+        "4": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-1A49D5D953",
+    "source_task_id": "tri-v3-language-commerce-implicit_anchor-t2-invalidate",
+    "form": "F",
+    "position": "3",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "invalidate",
+    "candidate_order": "SKU-29 | SKU-43 | SKU-11",
+    "referent_gold": "SKU-11",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "SKU-11": 2
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "SKU-11": 1,
+        "SKU-29": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "SKU-11": 3
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 1,
+        "SKU-11": 1,
+        "SKU-29": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "SKU-11": 4
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "REJECT": 2,
+        "SKU-11": 1,
+        "SKU-29": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-916D588895",
+    "source_task_id": "tri-v3-language-commerce-implicit_dynamic-t4-flip",
+    "form": "F",
+    "position": "4",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "flip",
+    "candidate_order": "SKU-11 | SKU-29 | SKU-43",
+    "referent_gold": "SKU-29",
+    "execution_gold": "SKU-29",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "SKU-29": 1,
+        "SKU-43": 2
+      },
+      "execution_counts": {
+        "SKU-11": 2,
+        "SKU-29": 1
+      },
+      "confidence_counts": {
+        "4": 2,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "SKU-11": 1,
+        "SKU-29": 1,
+        "SKU-43": 2
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "SKU-11": 2,
+        "SKU-29": 1
+      },
+      "confidence_counts": {
+        "4": 2,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "SKU-11": 2,
+        "SKU-29": 1,
+        "SKU-43": 2
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "SKU-11": 2,
+        "SKU-29": 2
+      },
+      "confidence_counts": {
+        "4": 2,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-98136753B6",
+    "source_task_id": "tri-v3-language-support-implicit_anchor-t5-remove",
+    "form": "F",
+    "position": "5",
+    "category": "rewrite",
+    "binding": "anchored",
+    "update": "remove",
+    "candidate_order": "TCK-41 | TCK-52 | TCK-63",
+    "referent_gold": "TCK-41",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "TCK-41": 2,
+        "TCK-52": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "TCK-41": 1,
+        "TCK-52": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "4": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "TCK-41": 3,
+        "TCK-52": 1
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "TCK-41": 2,
+        "TCK-52": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "4": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "TCK-41": 3,
+        "TCK-52": 2
+      },
+      "execution_counts": {
+        "CLARIFY": 1,
+        "TCK-41": 3,
+        "TCK-52": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-D5A1FEA7D6",
+    "source_task_id": "tri-v3-language-calendar-implicit_dynamic-t5-flip",
+    "form": "F",
+    "position": "6",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "flip",
+    "candidate_order": "MTG-37 | MTG-10 | MTG-22",
+    "referent_gold": "MTG-22",
+    "execution_gold": "MTG-22",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "MTG-22": 3
+      },
+      "execution_counts": {
+        "MTG-22": 2,
+        "MTG-37": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "MTG-22": 4
+      },
+      "execution_counts": {
+        "MTG-22": 2,
+        "MTG-37": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 2
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "MTG-22": 5
+      },
+      "execution_counts": {
+        "MTG-22": 3,
+        "MTG-37": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "3": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-26B2248F9C",
+    "source_task_id": "tri-v3-language-docs-explicit_anchor-t4-remove",
+    "form": "F",
+    "position": "7",
+    "category": "invalid",
+    "binding": "anchored",
+    "update": "remove",
+    "candidate_order": "DOC-9 | DOC-7 | DOC-8",
+    "referent_gold": "DOC-7",
+    "execution_gold": "REJECT",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "DOC-8": 1,
+        "DOC-9": 1
+      },
+      "execution_counts": {
+        "DOC-8": 1,
+        "DOC-9": 2
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "DOC-8": 1,
+        "DOC-9": 2
+      },
+      "execution_counts": {
+        "DOC-8": 1,
+        "DOC-9": 3
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "5": 1
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "DOC-8": 1,
+        "DOC-9": 3
+      },
+      "execution_counts": {
+        "DOC-8": 1,
+        "DOC-9": 4
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "5": 2
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-1A5BD5DBCD",
+    "source_task_id": "tri-v3-language-mail-implicit_dynamic-t2-stable",
+    "form": "F",
+    "position": "8",
+    "category": "stable",
+    "binding": "dynamic",
+    "update": "stable",
+    "candidate_order": "EM-319 | EM-205 | EM-104",
+    "referent_gold": "EM-104",
+    "execution_gold": "EM-104",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "EM-104": 1,
+        "EM-319": 2
+      },
+      "execution_counts": {
+        "EM-104": 1,
+        "EM-319": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "5": 3
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "AMBIGUOUS": 1,
+        "EM-104": 1,
+        "EM-319": 2
+      },
+      "execution_counts": {
+        "EM-104": 2,
+        "EM-319": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "5": 4
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "AMBIGUOUS": 2,
+        "EM-104": 1,
+        "EM-319": 2
+      },
+      "execution_counts": {
+        "EM-104": 3,
+        "EM-319": 1,
+        "REJECT": 1
+      },
+      "confidence_counts": {
+        "3": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-4BAC681383",
+    "source_task_id": "tri-v3-language-repo-explicit_anchor-t1-stable",
+    "form": "F",
+    "position": "9",
+    "category": "stable",
+    "binding": "anchored",
+    "update": "stable",
+    "candidate_order": "BR-rel | BR-main | BR-dev",
+    "referent_gold": "BR-main",
+    "execution_gold": "BR-main",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "BR-dev": 2,
+        "BR-main": 1
+      },
+      "execution_counts": {
+        "BR-main": 1,
+        "REJECT": 2
+      },
+      "confidence_counts": {
+        "5": 3
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "BR-dev": 2,
+        "BR-main": 1,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-main": 1,
+        "REJECT": 3
+      },
+      "confidence_counts": {
+        "5": 4
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "BR-dev": 3,
+        "BR-main": 1,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-main": 1,
+        "REJECT": 4
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 4
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-ED828937DC",
+    "source_task_id": "tri-v3-language-support-implicit_anchor-t2-name_collision",
+    "form": "F",
+    "position": "10",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "name_collision",
+    "candidate_order": "TCK-63 | TCK-52 | TCK-41",
+    "referent_gold": "TCK-41",
+    "execution_gold": "TCK-41",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "TCK-41": 3
+      },
+      "execution_counts": {
+        "TCK-41": 3
+      },
+      "confidence_counts": {
+        "5": 3
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "TCK-41": 3,
+        "TCK-63": 1
+      },
+      "execution_counts": {
+        "TCK-41": 4
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "TCK-41": 4,
+        "TCK-63": 1
+      },
+      "execution_counts": {
+        "TCK-41": 5
+      },
+      "confidence_counts": {
+        "2": 1,
+        "4": 1,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-D711E59F6B",
+    "source_task_id": "tri-v3-language-support-explicit_anchor-t2-name_collision",
+    "form": "F",
+    "position": "11",
+    "category": "changed",
+    "binding": "anchored",
+    "update": "name_collision",
+    "candidate_order": "TCK-41 | TCK-63 | TCK-52",
+    "referent_gold": "TCK-41",
+    "execution_gold": "TCK-41",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "TCK-41": 2,
+        "TCK-63": 1
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "TCK-41": 1,
+        "TCK-63": 1
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 2
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "TCK-41": 2,
+        "TCK-63": 2
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "TCK-41": 1,
+        "TCK-63": 2
+      },
+      "confidence_counts": {
+        "2": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "TCK-41": 2,
+        "TCK-52": 1,
+        "TCK-63": 2
+      },
+      "execution_counts": {
+        "REJECT": 1,
+        "TCK-41": 2,
+        "TCK-63": 2
+      },
+      "confidence_counts": {
+        "2": 2,
+        "5": 3
+      }
+    }
+  },
+  {
+    "public_item_id": "Q-BADA88480F",
+    "source_task_id": "tri-v3-language-repo-explicit_dynamic-t4-name_collision",
+    "form": "F",
+    "position": "12",
+    "category": "changed",
+    "binding": "dynamic",
+    "update": "name_collision",
+    "candidate_order": "BR-main | BR-rel | BR-dev",
+    "referent_gold": "BR-rel",
+    "execution_gold": "BR-rel",
+    "strict_eligible": {
+      "labels": 3,
+      "referent_counts": {
+        "BR-main": 2,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-main": 2,
+        "BR-rel": 1
+      },
+      "confidence_counts": {
+        "5": 3
+      }
+    },
+    "post_hoc_assistance_relaxed": {
+      "labels": 4,
+      "referent_counts": {
+        "BR-main": 3,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-main": 3,
+        "BR-rel": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "5": 3
+      }
+    },
+    "all_primary": {
+      "labels": 5,
+      "referent_counts": {
+        "BR-main": 4,
+        "BR-rel": 1
+      },
+      "execution_counts": {
+        "BR-dev": 1,
+        "BR-main": 3,
+        "BR-rel": 1
+      },
+      "confidence_counts": {
+        "1": 1,
+        "2": 1,
+        "5": 3
+      }
+    }
+  }
+]

@@ -20,14 +20,18 @@ Status: zero-API static manuscript audit.
 | `abstract_chronology_is_explicit` | PASS |
 | `body_chronology_is_explicit` | PASS |
 | `primary_is_explicitly_package_level` | PASS |
+| `theory_certification_scope_is_explicit` | PASS |
 | `binding_drift_boundary_and_citation_are_explicit` | PASS |
 | `selector_visibility_boundary_is_explicit` | PASS |
 | `code_data_supplement_routing_is_explicit` | PASS |
-| `figure_two_evidence_status_is_explicit` | PASS |
+| `claim_evidence_map_and_result_status_are_explicit` | PASS |
 | `no_overstated_tie_or_sample_sufficiency_language` | PASS |
 | `external_extension_has_four_paper_facing_conditions` | PASS |
 | `source_anchored_transfer_retains_boundary` | PASS |
 | `conclusion_retains_scope_boundary` | PASS |
+| `equal_call_interface_is_self_contained` | PASS |
+| `replication_denominator_is_explicit` | PASS |
+| `human_evidence_is_agreement_not_validation` | PASS |
 
 Missing bibliography entries: []
 Missing labels: []

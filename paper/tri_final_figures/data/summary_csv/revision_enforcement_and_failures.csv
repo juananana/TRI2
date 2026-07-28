@@ -1,0 +1,8 @@
+audit_id,audit_label,model,rows,clusters,repairs,harms,compiler_failures,history_actor_failures,visible_actor_failures,incomplete_tasks,logical_calls_planned,logical_calls_completed,http_attempts
+revision_full_diagnostic,authored full diagnostic,GLM-5.1,160,80,4,0,0,0,0,0,480,480,480
+revision_full_diagnostic,authored full diagnostic,Qwen3.5,160,80,18,8,0,0,0,0,480,480,480
+revision_human_rewrite,human rewrite,GLM-5.1,50,43,2,0,0,0,0,0,150,150,150
+revision_human_rewrite,human rewrite,Qwen3.5,50,43,8,5,0,0,0,0,150,150,150
+revision_source_grounded,source-grounded controlled contrast,GLM-5.1,60,30,4,0,0,0,0,0,180,180,180
+revision_source_grounded,source-grounded controlled contrast,Qwen3.5,60,30,9,5,0,0,0,0,180,180,180
+revision_source_grounded,source-grounded controlled contrast,DeepSeek,60,30,4,4,0,0,0,0,180,180,180

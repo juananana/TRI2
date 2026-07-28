@@ -1,0 +1,24 @@
+{
+  "status": "Figure 3 A/B candidates only; not integrated into the paper",
+  "source": "./paper/tri_final_figures/data/summary_csv/matched_pairacc_and_marginals.csv",
+  "source_sha256": "7ac145be8a950367d65573e6431749b1771c7fc6fa6a6651cccad4509a7d990c",
+  "minimum_text_pt": 7.0,
+  "png_dpi": 400,
+  "pdf_fonttype": 42,
+  "outputs": {
+    "option_a": {
+      "stem": "./paper/tri_final_figures/outputs/figure3_options_ab_v1/figure3_option_a_phase_map",
+      "size_inches": [
+        3.35,
+        2.52
+      ]
+    },
+    "option_b": {
+      "stem": "./paper/tri_final_figures/outputs/figure3_options_ab_v1/figure3_option_b_metric_matrix",
+      "size_inches": [
+        3.35,
+        2.34
+      ]
+    }
+  }
+}

@@ -44,10 +44,12 @@ from tri.revision_matched_audit import (
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "reports" / "revision_matched_audits_manifest_v1.json"
+ADDENDUM = ROOT / "reports" / "TRI_submission_critical_replication_addendum_20260728.md"
 MODEL_IDS = {
     "qwen": "Qwen/Qwen3.5-122B-A10B",
     "glm": "Pro/zai-org/GLM-5.1",
     "deepseek": "deepseek-ai/DeepSeek-V4-Pro",
+    "minimax": "Pro/MiniMaxAI/MiniMax-M2.5",
 }
 REVISION_ACTOR_SYSTEM_PROMPT = (
     "Choose the exact entity ID for the requested action. Use the instruction and supplied states "
@@ -167,6 +169,7 @@ def run_task(
         },
         "task_file_sha256": task_hash,
         "protocol_sha256": protocol_hash,
+        "submission_critical_addendum_sha256": sha256_path(ADDENDUM),
         "task": task,
         "task_index": task_index,
         "actor_order": actor_order,
@@ -220,6 +223,7 @@ def stopped_row(
         },
         "task_file_sha256": task_hash,
         "protocol_sha256": protocol_hash,
+        "submission_critical_addendum_sha256": sha256_path(ADDENDUM),
         "task": task,
         "task_index": task_index,
         "actor_order": [],
@@ -268,6 +272,10 @@ def validate_resume_prefix(
             raise ValueError("resume output task index mismatch")
         if row.get("task_file_sha256") != task_hash or row.get("protocol_sha256") != protocol_hash:
             raise ValueError("resume output freeze hash mismatch")
+        if row.get("model") in {MODEL_IDS["deepseek"], MODEL_IDS["minimax"]} and row.get(
+            "submission_critical_addendum_sha256"
+        ) != sha256_path(ADDENDUM):
+            raise ValueError("resume output submission-critical addendum hash mismatch")
 
 
 def dry_run(tasks: list[dict[str, Any]], audit: str, model: str, stage: str) -> dict[str, Any]:
@@ -314,8 +322,14 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     alias, model = resolve_model(args.model)
-    if alias == "deepseek" and args.audit != "source_grounded":
-        raise SystemExit("DeepSeek is frozen only for the source-grounded replication.")
+    if alias in {"deepseek", "minimax"} and args.audit not in {
+        "full_diagnostic",
+        "source_grounded",
+    }:
+        raise SystemExit(
+            "DeepSeek and MiniMax are frozen only for the submission-critical full-diagnostic "
+            "extension and source-grounded replication."
+        )
     tasks, task_path, manifest = load_frozen(args.audit)
     output = args.output or ROOT / "runs" / f"revision_{args.audit}_{alias}_{args.stage.replace('-', '_')}_v1.jsonl"
     if args.dry_run:

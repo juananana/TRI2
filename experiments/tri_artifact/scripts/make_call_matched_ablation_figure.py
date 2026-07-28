@@ -21,10 +21,10 @@ OUTPUTS = (
 INK = colors.HexColor("#17212B")
 MUTED = colors.HexColor("#5B6570")
 GRID = colors.HexColor("#D3D9DF")
-QWEN = colors.HexColor("#B64926")
-GLM = colors.HexColor("#126F66")
-HARM = colors.HexColor("#A53F2B")
-REPAIR = colors.HexColor("#1D7A70")
+QWEN = colors.HexColor("#407A7F")
+GLM = colors.HexColor("#E56D4E")
+HARM = colors.HexColor("#C85A46")
+REPAIR = colors.HexColor("#60AA84")
 FONT = "TRIHelvetica"
 BOLD = "TRIHelvetica-Bold"
 
@@ -168,11 +168,11 @@ def draw_enforcement_panel(
 def make_figure(output: Path, report: dict) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     width, height = 7.1 * inch, 3.15 * inch
-    c = canvas.Canvas(str(output), pagesize=(width, height))
-    c.setTitle("Call/information-matched authorization ablation")
+    c = canvas.Canvas(str(output), pagesize=(width, height), initialFontName=FONT)
+    c.setTitle("Equal-call decision visibility")
     c.setFillColor(colors.white)
     c.rect(0, 0, width, height, fill=1, stroke=0)
-    label(c, 16, height - 18, "Call/information-matched authorization ablation", 10.5, True)
+    label(c, 16, height - 18, "Equal-call decision visibility", 10.5, True)
     rows = model_rows(report)
 
     draw_metric_panel(c, 12, 10, 184, height - 35, "A", "Changed PairAcc", "changed_pairacc", 80, rows)

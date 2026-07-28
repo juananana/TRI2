@@ -1,0 +1,25 @@
+{
+  "status": "Figure 5 G/H line-light previews only; not integrated into the paper",
+  "source": "./paper/tri_final_figures/data/summary_csv/main_figure_paired_scores.csv",
+  "source_sha256": "9036c67938992a34d1a913492fec45fa27df31db44951d59f069a8d6131a6f78",
+  "minimum_text_pt": 7.0,
+  "png_dpi": 400,
+  "pdf_fonttype": 42,
+  "scope": "Authored and source-derived only; no pooled effect; human rewrite excluded",
+  "outputs": {
+    "option_g": {
+      "stem": "./paper/tri_final_figures/outputs/figure5_options_gh_v1/figure5_option_g_interval_ribbons",
+      "size_inches": [
+        3.35,
+        2.35
+      ]
+    },
+    "option_h": {
+      "stem": "./paper/tri_final_figures/outputs/figure5_options_gh_v1/figure5_option_h_nested_rate_bands",
+      "size_inches": [
+        3.35,
+        2.4
+      ]
+    }
+  }
+}

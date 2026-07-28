@@ -49,6 +49,11 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+def api_key_from_environment() -> str:
+    """Return only the frozen runtime secret name; aliases are intentionally rejected."""
+    return os.environ.get("LLM_API_KEY", "").strip()
+
+
 def resolve_model(value: str) -> tuple[str, str]:
     lowered = value.lower()
     if lowered in MODEL_IDS:
@@ -165,9 +170,9 @@ def main() -> None:
         smoke = load_jsonl(args.health_smoke)
         if len(smoke) != 4 or any(not row.get("complete") for row in smoke):
             raise SystemExit("health smoke is absent or incomplete")
-    key = (os.environ.get("LLM_API_KEY") or os.environ.get("SILICONFLOW_API_KEY") or "").strip()
+    key = api_key_from_environment()
     if not key:
-        raise SystemExit("Set LLM_API_KEY or SILICONFLOW_API_KEY")
+        raise SystemExit("Set LLM_API_KEY")
     output = args.output or ROOT / "runs" / f"independent_holdout_{alias}_{args.stage.replace('-', '_')}_v1.jsonl"
     if output.exists():
         raise SystemExit(f"Refusing to overwrite {output}")

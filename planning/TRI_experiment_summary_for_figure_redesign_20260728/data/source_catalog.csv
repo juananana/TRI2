@@ -1,0 +1,24 @@
+experiment_group,authoritative_report_or_data,grain,figure_use,boundary
+v3 package,experiments/tri_artifact/reports/v3_factorial_qwen_primary_cluster.md,160 rows per model; 20 template clusters,package effect forest,primary package comparison
+v3 components,experiments/tri_artifact/reports/field_ablation.md,160 rows per controller/model,method dotplot,post-primary component association
+v3 PairAcc,experiments/tri_artifact/reports/matched_pair_consistency.md,32 changed pairs; 16 stable pairs,policy rulers,do not use marginal accuracy alone
+v7 core,paper/tri_final_figures/data/summary_csv/v7_e2e_wrong_writes.csv,240 rows per controller/model,E2E-PairAcc-write comparison,conditional and ITT denominators differ
+v7 shared eligibility,paper/tri_final_figures/data/summary_csv/v7_shared_eligible_pairacc_and_substitution.csv,shared eligible tasks per model,paired substitution plot,zero conditional substitution is not total safety
+full history,experiments/tri_artifact/reports/v7_matched_full_history_three_model_final_v1.md,240 rows per interface/model,strong-baseline comparison,no separately scorable initial ID
+matched call 40-pair,experiments/tri_artifact/reports/call_matched_authorization_ablation_v2.md,80 rows; 40 pairs per model,visibility-vs-enforcement slopes,enforcement harms retained
+matched call full,experiments/tri_artifact/reports/revision_full_diagnostic_v2.md,160 rows; 32 actionable changed pairs per model,two-endpoint effect forest,Reject slice separate
+matched call figure data,paper/tri_final_figures/data/summary_csv/main_figure_paired_scores.csv,effect rows with cluster CI,Figure 5 redesign,PairAcc and E2E are separate intervals
+decision stratification,experiments/tri_artifact/reports/decision_block_stratification_v1.md,760 redundancy records; authored compiler strata,stratified repairs/harms,post-treatment descriptive only
+human rewrite matched,experiments/tri_artifact/reports/revision_human_rewrite_v2.md,50 rows; 40 actionable; 3 complete changed pairs,transfer effect forest,PairAcc n=3 sensitivity
+source matched,experiments/tri_artifact/reports/revision_source_grounded_v2.md,60 rows; 30 pairs per model,model/source heatmap,controlled source-derived not native
+source slices,paper/tri_final_figures/data/summary_csv/revision_source_grounded_by_source.csv,10 pairs and 20 rows per source/model/condition,source heterogeneity small multiples,do not pool universal gain
+SQLite model-facing,paper/tri_final_figures/data/summary_csv/sqlite_model_facing_outcomes.csv,40 tasks per model,outcome decomposition,strict and fallback writes separate
+human validation,experiments/tri_artifact/human_validation/analysis.md,100 items; 3 annotators,slice agreement dotplot,Reject support is weak
+six-form follow-up,experiments/tri_artifact/reports/wjx_six_form_human_construct_audit_incomplete_cutoff_v1.md,31 submissions; 11 eligible,failed-gate funnel,not a validation endpoint
+Rule v2,experiments/tri_artifact/reports/deterministic_discourse_rule_v2.md,v3/rewrite/v7 inventories,evidence-status method plot,post-hoc benchmark-aware
+Binding Drift,experiments/tri_artifact/reports/binding_drift_tri_glm_v7_full_v1.md,240 GLM rows,Preserve-Reevaluate matrix,author adaptation not official
+public coverage,experiments/tri_artifact/reports/public_suite_coverage_funnel_v1.md,six pinned suites,coverage funnel,no recall calibration or prevalence
+source anchored external,experiments/tri_artifact/reports/source_anchored_external_transfer_v1.md,20 clusters; 80 author-adapted tasks,repository-interface sparse matrix,limited bridge evidence
+model-authored stress,experiments/tri_artifact/reports/model_authored_linguistic_stress_transport_repaired_v2.md,48 rows; 24 pairs,construct-validity boundary,model judges yield no complete accepted pair
+trigger/order and Rule overlap,experiments/tri_artifact/reports/construct_validity_cue_overlap_v1.json,160 authored rows; 31 human-majority changed rewrites; 9 frozen model/controller outputs,construct-validity cue transfer and error-overlap panels,post-hoc zero-API; rewrites are not an independent holdout
+Convention-told control,experiments/tri_artifact/reports/TRI_convention_told_natural_history_protocol.md,planned 80 rows; 40 pairs per condition/model,roadmap only,planned/unverified; no model calls and not holdout evidence

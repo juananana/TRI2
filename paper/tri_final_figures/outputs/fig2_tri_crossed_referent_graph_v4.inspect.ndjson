@@ -1,0 +1,119 @@
+{"kind":"slide","id":"sl/2xj4c7","slide":1,"title":"TRI evaluates two referent threads over one controlled transition","textShapes":64}
+{"kind":"textbox","id":"sh/w7al0r6p","slide":1,"name":"title","text":"TRI evaluates two referent threads over one controlled transition","textPreview":"TRI evaluates two referent threads over one controlled transition","textChars":65,"textLines":1,"bbox":[48,20,1120,48]}
+{"kind":"textbox","id":"sh/bm1k7m54","slide":1,"name":"subtitle","text":"World evidence changes once; commitment timing determines which identity may reach the action.","textPreview":"World evidence changes once; commitment timing determines which identity may reach the action.","textChars":94,"textLines":1,"bbox":[50,67,1100,30]}
+{"kind":"shape","id":"sh/al83y1oj","slide":1,"name":"title-rule","bbox":[48,108,1504,0]}
+{"kind":"shape","id":"sh/lcj2dgn6","slide":1,"name":"legend-p-line","bbox":[1210,38,72,0]}
+{"kind":"textbox","id":"sh/kbal4b6l","slide":1,"name":"legend-p","text":"Preserve: bound identity","textPreview":"Preserve: bound identity","textChars":24,"textLines":1,"bbox":[1292,24,250,28]}
+{"kind":"shape","id":"sh/ja1kb65g","slide":1,"name":"legend-r-line","bbox":[1210,78,72,0]}
+{"kind":"textbox","id":"sh/y9s321ov","slide":1,"name":"legend-r","text":"Reevaluate: deferred selector","textPreview":"Reevaluate: deferred selector","textChars":29,"textLines":1,"bbox":[1292,64,250,28]}
+{"kind":"shape","id":"sh/tg3mhgni","slide":1,"name":"world-band","bbox":[48,126,1504,232]}
+{"kind":"shape","id":"sh/8ful8bmx","slide":1,"name":"referent-band","bbox":[48,378,1504,252]}
+{"kind":"shape","id":"sh/uds3e1s3","slide":1,"name":"refresh-lens","bbox":[704,140,190,474]}
+{"kind":"shape","id":"sh/ve14n698","slide":1,"name":"world-tag","bbox":[68,141,214,34]}
+{"kind":"textbox","id":"sh/wfalgbat","slide":1,"name":"world-tag-text","text":"WORLD / SELECTOR LAYER","textPreview":"WORLD / SELECTOR LAYER","textChars":22,"textLines":1,"bbox":[78,144,194,28]}
+{"kind":"shape","id":"sh/hgjmpgre","slide":1,"name":"ref-tag","bbox":[68,393,244,34]}
+{"kind":"textbox","id":"sh/ihc3il8z","slide":1,"name":"ref-tag-text","text":"REFERENT / AUTHORIZATION LAYER","textPreview":"REFERENT / AUTHORIZATION LAYER","textChars":30,"textLines":1,"bbox":[78,396,224,28]}
+{"kind":"textbox","id":"sh/j2l4rq9k","slide":1,"name":"refresh-label","text":"CONTROLLED\nREFRESH","textPreview":"CONTROLLED | REFRESH","textChars":18,"textLines":2,"bbox":[726,170,146,64]}
+{"kind":"shape","id":"sh/43ulkbq5","slide":1,"name":"task-token","bbox":[78,198,218,126]}
+{"kind":"textbox","id":"sh/543mtgrq","slide":1,"name":"task-token-head","text":"FROZEN TASK SUBSTRATE","textPreview":"FROZEN TASK SUBSTRATE","textChars":21,"textLines":1,"bbox":[94,210,186,28]}
+{"kind":"shape","id":"sh/yl836hsv","slide":1,"name":"task-token-rule","bbox":[96,246,182,0]}
+{"kind":"textbox","id":"sh/z6hkfm9g","slide":1,"name":"task-token-body","text":"selector q: top-ranked valid entity\naction a: mutate selected ID","textPreview":"selector q: top-ranked valid entity | action a: mutate selected ID","textChars":64,"textLines":2,"bbox":[98,256,178,56]}
+{"kind":"shape","id":"sh/3qx0nip8","slide":1,"name":"substrate-to-state","bbox":[292,245,58,20]}
+{"kind":"shape","id":"sh/2p4jed8n","slide":1,"name":"a0-halo","bbox":[374,166,88,88]}
+{"kind":"textbox","id":"sh/pcfips7y","slide":1,"name":"a0","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[390,182,56,56]}
+{"kind":"textbox","id":"sh/or61gnqd","slide":1,"name":"b0","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[394,276,48,48]}
+{"kind":"shape","id":"sh/fmd0jipw","slide":1,"name":"b1-halo","bbox":[1030,166,88,88]}
+{"kind":"textbox","id":"sh/el4zad8b","slide":1,"name":"b1","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1046,182,56,56]}
+{"kind":"textbox","id":"sh/1ovil872","slide":1,"name":"a1","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1050,276,48,48]}
+{"kind":"textbox","id":"sh/gnm1cnqh","slide":1,"name":"s0-label","text":"S0  BEFORE","textPreview":"S0  BEFORE","textChars":10,"textLines":1,"bbox":[354,150,128,30]}
+{"kind":"textbox","id":"sh/zih0v2p0","slide":1,"name":"s1-label","text":"S1  AFTER","textPreview":"S1  AFTER","textChars":9,"textLines":1,"bbox":[1010,150,128,30]}
+{"kind":"textbox","id":"sh/yhojmxov","slide":1,"name":"a0-winner","text":"q(S0) winner","textPreview":"q(S0) winner","textChars":12,"textLines":1,"bbox":[356,244,124,24]}
+{"kind":"textbox","id":"sh/wbyp0f21","slide":1,"name":"b1-winner","text":"q(S1) winner","textPreview":"q(S1) winner","textChars":12,"textLines":1,"bbox":[1012,244,124,24]}
+{"kind":"textbox","id":"sh/xc76t0jm","slide":1,"name":"a1-valid","text":"A remains action-valid","textPreview":"A remains action-valid","textChars":22,"textLines":1,"bbox":[970,312,208,24]}
+{"kind":"shape","id":"sh/apg7y5kv","slide":1,"name":"time-axis","bbox":[342,342,846,0]}
+{"kind":"textbox","id":"sh/vqpora1g","slide":1,"name":"time-axis-before","text":"pre-refresh","textPreview":"pre-refresh","textChars":11,"textLines":1,"bbox":[350,346,120,20]}
+{"kind":"textbox","id":"sh/kfip4f2x","slide":1,"name":"time-axis-after","text":"post-refresh","textPreview":"post-refresh","textChars":12,"textLines":1,"bbox":[1018,346,120,20]}
+{"kind":"shape","id":"sh/5gr6xkji","slide":1,"name":"preserve-lock-shackle","bbox":[104,447,38,36]}
+{"kind":"shape","id":"sh/idg725k7","slide":1,"name":"preserve-lock-mask","bbox":[99,470,48,16]}
+{"kind":"shape","id":"sh/je9ova1c","slide":1,"name":"preserve-lock-body","bbox":[96,471,54,44]}
+{"kind":"shape","id":"sh/sjip8z29","slide":1,"name":"preserve-lock-key","bbox":[118.5,485.5,9,9]}
+{"kind":"shape","id":"sh/tkr61kju","slide":1,"name":"preserve-lock-key-stem","bbox":[120,491,6,13]}
+{"kind":"textbox","id":"sh/dsj6hknu","slide":1,"name":"preserve-label","text":"PRESERVE","textPreview":"PRESERVE","textChars":8,"textLines":1,"bbox":[168,438,158,30]}
+{"kind":"textbox","id":"sh/srap8f69","slide":1,"name":"preserve-sub","text":"bind before refresh","textPreview":"bind before refresh","textChars":19,"textLines":1,"bbox":[168,471,176,28]}
+{"kind":"shape","id":"sh/rq1ofa5o","slide":1,"name":"reeval-clock-face","bbox":[95,539,58,58]}
+{"kind":"shape","id":"sh/qps765o3","slide":1,"name":"reeval-clock-hand-1","bbox":[124,553,0,15]}
+{"kind":"shape","id":"sh/5oj6d0ny","slide":1,"name":"reeval-clock-hand-2","bbox":[124,568,14,7]}
+{"kind":"shape","id":"sh/4nqp4f6d","slide":1,"name":"reeval-clock-hub","bbox":[120.5,564.5,7,7]}
+{"kind":"textbox","id":"sh/3mhoba5s","slide":1,"name":"reeval-label","text":"REEVALUATE","textPreview":"REEVALUATE","textChars":10,"textLines":1,"bbox":[168,528,176,30]}
+{"kind":"textbox","id":"sh/il8725o7","slide":1,"name":"reeval-sub","text":"resolve after refresh","textPreview":"resolve after refresh","textChars":21,"textLines":1,"bbox":[168,561,178,28]}
+{"kind":"textbox","id":"sh/pk3qp4n2","slide":1,"name":"p-bound","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[388,440,60,60]}
+{"kind":"textbox","id":"sh/ojupgz6h","slide":1,"name":"p-bound-note","text":"bound at S0","textPreview":"bound at S0","textChars":11,"textLines":1,"bbox":[362,506,112,24]}
+{"kind":"textbox","id":"sh/6po3a14z","slide":1,"name":"r-open","text":"q?","textPreview":"q?","textChars":2,"textLines":1,"bbox":[388,540,60,60]}
+{"kind":"textbox","id":"sh/7qx4j6lk","slide":1,"name":"r-open-note","text":"deferred","textPreview":"deferred","textChars":8,"textLines":1,"bbox":[370,606,96,22]}
+{"kind":"textbox","id":"sh/8r65cbm5","slide":1,"name":"r-bind","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1044,540,60,60]}
+{"kind":"textbox","id":"sh/tsfmlg3q","slide":1,"name":"r-bind-note","text":"bind at S1","textPreview":"bind at S1","textChars":10,"textLines":1,"bbox":[1020,606,108,22]}
+{"kind":"shape","id":"sh/y1436h43","slide":1,"name":"controller-lens","bbox":[1158,416,158,190]}
+{"kind":"shape","id":"sh/j2d4fml8","slide":1,"name":"controller-robot-antenna","bbox":[1237,428,0,12]}
+{"kind":"shape","id":"sh/k3ml8rmt","slide":1,"name":"controller-robot-tip","bbox":[1233.5,422.5,7,7]}
+{"kind":"shape","id":"sh/l4vmhw3e","slide":1,"name":"controller-robot-head","bbox":[1199,438,76,56]}
+{"kind":"shape","id":"sh/ix8nil47","slide":1,"name":"controller-robot-eye-1","bbox":[1219,457,8,8]}
+{"kind":"shape","id":"sh/3yh4rqls","slide":1,"name":"controller-robot-eye-2","bbox":[1247,457,8,8]}
+{"kind":"shape","id":"sh/fqpsnexs","slide":1,"name":"controller-robot-mouth","bbox":[1223,478,28,0]}
+{"kind":"textbox","id":"sh/epgru9g7","slide":1,"name":"controller-text","text":"SAME\nCONTROLLER","textPreview":"SAME | CONTROLLER","textChars":15,"textLines":2,"bbox":[1174,505,126,58]}
+{"kind":"textbox","id":"sh/1srapofy","slide":1,"name":"controller-target","text":"target ID","textPreview":"target ID","textChars":9,"textLines":1,"bbox":[1192,566,90,24]}
+{"kind":"textbox","id":"sh/gry9wjyd","slide":1,"name":"p-output","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1357,439,62,62]}
+{"kind":"textbox","id":"sh/3u9sryx4","slide":1,"name":"r-output","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1357,539,62,62]}
+{"kind":"textbox","id":"sh/2t0bytgj","slide":1,"name":"p-output-label","text":"T_P  gold A","textPreview":"T_P  gold A","textChars":11,"textLines":1,"bbox":[1336,505,104,24]}
+{"kind":"textbox","id":"sh/pwrat8fu","slide":1,"name":"r-output-label","text":"T_R  gold B","textPreview":"T_R  gold B","textChars":11,"textLines":1,"bbox":[1336,605,104,24]}
+{"kind":"shape","id":"sh/ovit03y9","slide":1,"name":"joint-bracket-v","bbox":[1450,470,0,100]}
+{"kind":"shape","id":"sh/by9svyx0","slide":1,"name":"joint-bracket-top","bbox":[1438,470,12,0]}
+{"kind":"shape","id":"sh/qx0b2tgf","slide":1,"name":"joint-bracket-bottom","bbox":[1438,570,12,0]}
+{"kind":"shape","id":"sh/8n29s3ut","slide":1,"name":"joint-to-pairacc","bbox":[1452,510,34,18]}
+{"kind":"textbox","id":"sh/9obal8ve","slide":1,"name":"pairacc-seal","text":"2/2","textPreview":"2/2","textChars":3,"textLines":1,"bbox":[1482,488,64,64]}
+{"kind":"textbox","id":"sh/m1krqdcn","slide":1,"name":"pairacc-label","text":"PairAcc","textPreview":"PairAcc","textChars":7,"textLines":1,"bbox":[1476,555,76,24]}
+{"kind":"shape","id":"sh/7mtsjyd8","slide":1,"bbox":[446,210,604,90]}
+{"kind":"shape","id":"sh/0z29o3uh","slide":1,"bbox":[442,210,604,90]}
+{"kind":"shape","id":"sh/l0bqh8v2","slide":1,"bbox":[418,238,0,202]}
+{"kind":"shape","id":"sh/yx0rmtcr","slide":1,"bbox":[1074,238,0,302]}
+{"kind":"shape","id":"sh/zy98fydw","slide":1,"bbox":[448,470,909,0]}
+{"kind":"shape","id":"sh/cvi9kjel","slide":1,"bbox":[448,570,596,0]}
+{"kind":"shape","id":"sh/dwrqdov6","slide":1,"bbox":[1104,570,253,0]}
+{"kind":"textbox","id":"sh/p4fqdkzq","slide":1,"name":"substitution-node","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[936,498,48,48]}
+{"kind":"shape","id":"sh/436p4fi5","slide":1,"bbox":[666,252,52,488]}
+{"kind":"textbox","id":"sh/32d8bah0","slide":1,"name":"error-label","text":"re-run q: A -> B\nconditional substitution","textPreview":"re-run q: A -> B | conditional substitution","textChars":41,"textLines":2,"bbox":[800,483,172,56]}
+{"kind":"textbox","id":"sh/2h47250f","slide":1,"name":"error-x","text":"x","textPreview":"x","textChars":1,"textLines":1,"bbox":[980,510,24,24]}
+{"kind":"textbox","id":"sh/d8fqhkz2","slide":1,"name":"a0-overlay","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[390,182,56,56]}
+{"kind":"textbox","id":"sh/c76p8fih","slide":1,"name":"b0-overlay","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[394,276,48,48]}
+{"kind":"textbox","id":"sh/r6x8fahw","slide":1,"name":"b1-overlay","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1046,182,56,56]}
+{"kind":"textbox","id":"sh/q5o7650b","slide":1,"name":"a1-overlay","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1050,276,48,48]}
+{"kind":"textbox","id":"sh/1czql4zy","slide":1,"name":"p-bound-overlay","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[388,440,60,60]}
+{"kind":"textbox","id":"sh/0bq9czid","slide":1,"name":"r-open-overlay","text":"q?","textPreview":"q?","textChars":2,"textLines":1,"bbox":[388,540,60,60]}
+{"kind":"textbox","id":"sh/y5gvqxcz","slide":1,"name":"r-bind-overlay","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1044,540,60,60]}
+{"kind":"shape","id":"sh/j6pwj2t4","slide":1,"name":"controller-lens-overlay","bbox":[1158,416,158,190]}
+{"kind":"shape","id":"sh/k7ids7up","slide":1,"name":"controller-robot-overlay-antenna","bbox":[1237,428,0,12]}
+{"kind":"shape","id":"sh/l8relcba","slide":1,"name":"controller-robot-overlay-tip","bbox":[1233.5,422.5,7,7]}
+{"kind":"shape","id":"sh/690vuxcv","slide":1,"name":"controller-robot-overlay-head","bbox":[1199,438,76,56]}
+{"kind":"shape","id":"sh/7a9wn2tg","slide":1,"name":"controller-robot-overlay-eye-1","bbox":[1219,457,8,8]}
+{"kind":"shape","id":"sh/8bixw7u1","slide":1,"name":"controller-robot-overlay-eye-2","bbox":[1247,457,8,8]}
+{"kind":"shape","id":"sh/twrepcbm","slide":1,"name":"controller-robot-overlay-mouth","bbox":[1223,478,28,0]}
+{"kind":"textbox","id":"sh/ux0fyhcr","slide":1,"name":"controller-text-overlay","text":"SAME\nCONTROLLER","textPreview":"SAME | CONTROLLER","textChars":15,"textLines":2,"bbox":[1174,505,126,58]}
+{"kind":"textbox","id":"sh/vytwrmtc","slide":1,"name":"controller-target-overlay","text":"target ID","textPreview":"target ID","textChars":9,"textLines":1,"bbox":[1192,566,90,24]}
+{"kind":"textbox","id":"sh/sfy1g3yl","slide":1,"name":"p-output-overlay","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1357,439,62,62]}
+{"kind":"textbox","id":"sh/tgr2p8z6","slide":1,"name":"r-output-overlay","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1357,539,62,62]}
+{"kind":"textbox","id":"sh/6tgjedgf","slide":1,"name":"substitution-node-overlay","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[936,498,48,48]}
+{"kind":"textbox","id":"sh/rupknyh0","slide":1,"name":"error-x-overlay","text":"x","textPreview":"x","textChars":1,"textLines":1,"bbox":[980,510,24,24]}
+{"kind":"shape","id":"sh/gji1knyx","slide":1,"name":"footer-rule","bbox":[48,654,1504,0]}
+{"kind":"textbox","id":"sh/1kr2tsz2","slide":1,"name":"footer-p-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[70,686,36,36]}
+{"kind":"textbox","id":"sh/eh0jidgr","slide":1,"name":"footer-p-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[100,686,36,36]}
+{"kind":"textbox","id":"sh/fi9krihc","slide":1,"name":"footer-pair","text":"PairAcc","textPreview":"PairAcc","textChars":7,"textLines":1,"bbox":[146,674,116,28]}
+{"kind":"textbox","id":"sh/wne18jyd","slide":1,"name":"footer-pair-desc","text":"both tracks correct","textPreview":"both tracks correct","textChars":19,"textLines":1,"bbox":[146,704,210,28]}
+{"kind":"textbox","id":"sh/xonihozy","slide":1,"name":"footer-s-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[472,684,40,40]}
+{"kind":"shape","id":"sh/zid4nm1g","slide":1,"name":"footer-s-arrow","bbox":[516,696,58,16]}
+{"kind":"textbox","id":"sh/yh4neh0v","slide":1,"name":"footer-s-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[578,684,40,40]}
+{"kind":"textbox","id":"sh/l4vmpwjm","slide":1,"name":"footer-sub","text":"Conditional substitution","textPreview":"Conditional substitution","textChars":24,"textLines":1,"bbox":[634,674,286,28]}
+{"kind":"textbox","id":"sh/0jm5gri1","slide":1,"name":"footer-sub-desc","text":"Preserve ends at B","textPreview":"Preserve ends at B","textChars":18,"textLines":1,"bbox":[634,704,326,28]}
+{"kind":"shape","id":"sh/bet4jm1k","slide":1,"name":"footer-db","bbox":[1100,678,54,54]}
+{"kind":"shape","id":"sh/qdk3ah0z","slide":1,"name":"footer-write-arrow","bbox":[1164,696,58,16]}
+{"kind":"textbox","id":"sh/dgvmlwja","slide":1,"name":"footer-write","text":"Executed state diff","textPreview":"Executed state diff","textChars":19,"textLines":1,"bbox":[1234,674,222,28]}
+{"kind":"textbox","id":"sh/cfm5cri5","slide":1,"name":"footer-write-desc","text":"selected ID receives the write","textPreview":"selected ID receives the write","textChars":30,"textLines":1,"bbox":[1234,704,292,28]}
+{"kind":"notes","id":"nt/2xj4c7","slide":1,"text":"[Sources]\n- Internal manuscript: paper/AnonymousSubmission2027.tex (TRI definition, Diagnostic Construction, Measurements and Denominators, Controller Probes).\n- User-supplied references: GSD problem/method overview, SymPareto scientific comparison, MetaEval framework. The integrated layered visual grammar is adapted; no artwork is copied.\n- Palette: #264a56, #407a7f, #248d82, #60aa84, #b4b87f, #eabc6b, #f1a464, #e56d4e."}

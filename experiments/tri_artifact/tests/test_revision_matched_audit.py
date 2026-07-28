@@ -15,25 +15,32 @@ from tri.revision_matched_audit import (
     build_human_rewrite,
     build_source_grounded,
     enforced_target,
+    load_jsonl,
     parse_actor_exact,
     parse_compiler_exact,
     validate_inventory,
 )
-from scripts.run_revision_matched_audit import load_frozen, validate_resume_prefix
+from scripts.run_revision_matched_audit import MODEL_IDS, load_frozen, resolve_model, validate_resume_prefix
 from scripts.run_revision_matrix import validate_existing
+from scripts import run_submission_critical_matrix
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def inventories():
+    private_key = ROOT / "human_validation" / "annotation_key_private.csv"
+    if private_key.is_file():
+        human_rewrite = build_human_rewrite(
+            ROOT / "data" / "temporal_referent_human_rewrites_v1.jsonl", ROOT
+        )
+    else:
+        human_rewrite = load_jsonl(ROOT / "data" / "revision_human_rewrite_v1.jsonl")
     return {
         "full_diagnostic": build_full_diagnostic(
             ROOT / "data" / "temporal_referent_v3_language_clusters.jsonl"
         ),
-        "human_rewrite": build_human_rewrite(
-            ROOT / "data" / "temporal_referent_human_rewrites_v1.jsonl", ROOT
-        ),
+        "human_rewrite": human_rewrite,
         "source_grounded": build_source_grounded(
             ROOT / "data" / "source_anchored_external_transfer_tasks_v1.jsonl",
             ROOT / "data" / "toolsandbox_tri_single_turn_2x2_v1.jsonl",
@@ -53,6 +60,12 @@ def test_revision_inventories_have_frozen_denominators():
         "STATE-Bench": 20,
         "ToolSandbox": 20,
     }
+
+
+def test_submission_critical_model_extension_uses_existing_siliconflow_ids():
+    assert resolve_model("deepseek") == ("deepseek", "deepseek-ai/DeepSeek-V4-Pro")
+    assert resolve_model("minimax") == ("minimax", "Pro/MiniMaxAI/MiniMax-M2.5")
+    assert set(MODEL_IDS) == {"qwen", "glm", "deepseek", "minimax"}
 
 
 def test_revision_runner_accepts_only_an_exact_complete_resume_prefix(tmp_path: Path):
@@ -82,6 +95,31 @@ def test_revision_runner_accepts_only_an_exact_complete_resume_prefix(tmp_path: 
             rows[0]["task_file_sha256"],
             rows[0]["protocol_sha256"],
         )
+
+
+def test_submission_orchestrator_resumes_partial_revision_output(tmp_path: Path, monkeypatch):
+    smoke = tmp_path / "smoke.jsonl"
+    full = tmp_path / "full.jsonl"
+    smoke.write_text("complete\n", encoding="utf-8")
+    full.write_text("partial\n", encoding="utf-8")
+    commands = []
+
+    monkeypatch.setattr(
+        run_submission_critical_matrix,
+        "_revision_paths",
+        lambda audit, alias: (smoke, full),
+    )
+    monkeypatch.setattr(
+        run_submission_critical_matrix,
+        "validate_revision_existing",
+        lambda path, audit, alias, stage: path == smoke,
+    )
+    monkeypatch.setattr(run_submission_critical_matrix, "_run", commands.append)
+
+    assert run_submission_critical_matrix.run_revision("full_diagnostic", "minimax") == full
+    assert len(commands) == 1
+    assert commands[0][-1] == "--resume"
+    assert commands[0][commands[0].index("--output") + 1] == str(full)
 
 
 def test_matched_actor_payloads_differ_only_by_decision():

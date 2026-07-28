@@ -1,0 +1,14 @@
+{
+  "status": "main-paper transfer matrix v6; no new experiment",
+  "source": "./paper/tri_final_figures/data/summary_csv/main_figure_paired_scores.csv",
+  "source_sha256": "9036c67938992a34d1a913492fec45fa27df31db44951d59f069a8d6131a6f78",
+  "output_stem": "./paper/tri_final_figures/outputs/result_closure_v6/result_decision_transfer_matrix",
+  "size_inches": [
+    3.35,
+    2.15
+  ],
+  "minimum_text_pt": 7.0,
+  "png_dpi": 400,
+  "pdf_fonttype": 42,
+  "encoding": "cell text gives rounded effect and CI; solid fill means CI excludes zero"
+}

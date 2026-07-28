@@ -1,0 +1,987 @@
+{
+  "report_version": "TRI-model-assisted-public-recall-triage-v1",
+  "evidence_status": "post-primary zero-API model-assisted triage; not independent review",
+  "decision": "MODEL-ASSISTED TRIAGE ONLY / NOT INDEPENDENT CALIBRATION",
+  "created_for": "rapid reviewer-facing recall sensitivity and human review queue",
+  "prompt_sha256": "f26ab81effc9e86f4014d2a04280f608139a7cb9e0a6ea8a8aa096edac07af9a",
+  "triage_jsonl": "data/model_assisted_public_recall_triage_v1.jsonl",
+  "triage_jsonl_sha256": "0cc2484112caf5e7daed6926ad3d43d94312c562d5a981087e37a4656fa7d3e2",
+  "natural_records": 72,
+  "injected_controls": 60,
+  "natural_candidate_strict": 0,
+  "control_strict_positive_recall": {
+    "numerator": 30,
+    "denominator": 30
+  },
+  "control_hard_negative_exclusion": {
+    "numerator": 30,
+    "denominator": 30
+  },
+  "by_suite": {
+    "ToolSandbox": {
+      "natural_records": 10,
+      "highest_priority": 1,
+      "high_priority": 0,
+      "candidate_strict": 0
+    },
+    "AppWorld": {
+      "natural_records": 10,
+      "highest_priority": 1,
+      "high_priority": 9,
+      "candidate_strict": 0
+    },
+    "tau3-bench": {
+      "natural_records": 4,
+      "highest_priority": 1,
+      "high_priority": 1,
+      "candidate_strict": 0
+    },
+    "API-Bank": {
+      "natural_records": 6,
+      "highest_priority": 0,
+      "high_priority": 6,
+      "candidate_strict": 0
+    },
+    "BFCL": {
+      "natural_records": 21,
+      "highest_priority": 0,
+      "high_priority": 20,
+      "candidate_strict": 0
+    },
+    "ToolTalk": {
+      "natural_records": 21,
+      "highest_priority": 0,
+      "high_priority": 21,
+      "candidate_strict": 0
+    }
+  },
+  "priority_queue": [
+    {
+      "record_id": "closest-toolsandbox",
+      "suite": "ToolSandbox",
+      "case_id": "update_contact_relationship_with_relationship_twice_multiple_user_turn",
+      "source_kind": "closest_case",
+      "review_priority": "highest",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner"
+      ]
+    },
+    {
+      "record_id": "closest-appworld",
+      "suite": "AppWorld",
+      "case_id": "generator family 8ce6779",
+      "source_kind": "closest_case",
+      "review_priority": "highest",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner"
+      ]
+    },
+    {
+      "record_id": "closest-tau3bench",
+      "suite": "tau3-bench",
+      "case_id": "8 telecom overdue-payment/resume-line definitions",
+      "source_kind": "closest_case",
+      "review_priority": "highest",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "observable_pre_refresh_binding",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "appworld-ipfuncall_gpt4o_test_normal-8ce6779_2-1",
+      "suite": "AppWorld",
+      "case_id": "ipfuncall_gpt4o_test_normal::8ce6779_2",
+      "source_kind": "released_trace_sample",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable"
+      ]
+    },
+    {
+      "record_id": "appworld-ipfuncall_gpt4turbo_test_normal-8ce6779_1-2",
+      "suite": "AppWorld",
+      "case_id": "ipfuncall_gpt4turbo_test_normal::8ce6779_1",
+      "source_kind": "released_trace_sample",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "observable_pre_refresh_binding",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable"
+      ]
+    },
+    {
+      "record_id": "appworld-ipfuncall_gpt4turbo_test_normal-8ce6779_2-3",
+      "suite": "AppWorld",
+      "case_id": "ipfuncall_gpt4turbo_test_normal::8ce6779_2",
+      "source_kind": "released_trace_sample",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner"
+      ]
+    },
+    {
+      "record_id": "appworld-ipfuncall_gpt4turbo_test_normal-8ce6779_3-4",
+      "suite": "AppWorld",
+      "case_id": "ipfuncall_gpt4turbo_test_normal::8ce6779_3",
+      "source_kind": "released_trace_sample",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner"
+      ]
+    },
+    {
+      "record_id": "appworld-react_gpt4o_test_normal-8ce6779_1-5",
+      "suite": "AppWorld",
+      "case_id": "react_gpt4o_test_normal::8ce6779_1",
+      "source_kind": "released_trace_sample",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner"
+      ]
+    },
+    {
+      "record_id": "appworld-react_gpt4o_test_normal-8ce6779_2-6",
+      "suite": "AppWorld",
+      "case_id": "react_gpt4o_test_normal::8ce6779_2",
+      "source_kind": "released_trace_sample",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner"
+      ]
+    },
+    {
+      "record_id": "appworld-react_gpt4o_test_normal-8ce6779_3-7",
+      "suite": "AppWorld",
+      "case_id": "react_gpt4o_test_normal::8ce6779_3",
+      "source_kind": "released_trace_sample",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner"
+      ]
+    },
+    {
+      "record_id": "appworld-react_gpt4turbo_test_normal-8ce6779_2-8",
+      "suite": "AppWorld",
+      "case_id": "react_gpt4turbo_test_normal::8ce6779_2",
+      "source_kind": "released_trace_sample",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner"
+      ]
+    },
+    {
+      "record_id": "appworld-react_gpt4turbo_test_normal-8ce6779_3-9",
+      "suite": "AppWorld",
+      "case_id": "react_gpt4turbo_test_normal::8ce6779_3",
+      "source_kind": "released_trace_sample",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner"
+      ]
+    },
+    {
+      "record_id": "tau3-telecom",
+      "suite": "tau3-bench",
+      "case_id": "telecom",
+      "source_kind": "domain_summary",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "observable_pre_refresh_binding",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-apibank-level-1-response:0",
+      "suite": "API-Bank",
+      "case_id": "level-1-response:0",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "observable_pre_refresh_binding",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-apibank-level-1-response:1",
+      "suite": "API-Bank",
+      "case_id": "level-1-response:1",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "observable_pre_refresh_binding",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-apibank-level-1-response:2",
+      "suite": "API-Bank",
+      "case_id": "level-1-response:2",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "observable_pre_refresh_binding",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-apibank-level-1-response:3",
+      "suite": "API-Bank",
+      "case_id": "level-1-response:3",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "observable_pre_refresh_binding",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-apibank-level-3:0",
+      "suite": "API-Bank",
+      "case_id": "level-3:0",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "observable_pre_refresh_binding",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-apibank-level-3:2",
+      "suite": "API-Bank",
+      "case_id": "level-3:2",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "observable_pre_refresh_binding",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_0",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_0",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_1",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_1",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_100",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_100",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_101",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_101",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_102",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_102",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_103",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_103",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_104",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_104",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_106",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_106",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_107",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_107",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_108",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_108",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_109",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_109",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_110",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_110",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_13",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_13",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "observable_pre_refresh_binding",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_24",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_24",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_26",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_26",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "observable_pre_refresh_binding",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_29",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_29",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_3",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_3",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_5",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_5",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_55",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_55",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-bfcl-multi_turn_base_60",
+      "suite": "BFCL",
+      "case_id": "multi_turn_base_60",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-AccountTools-Alarm-Calendar-AddAlarm-0",
+      "suite": "ToolTalk",
+      "case_id": "AccountTools-Alarm-Calendar-AddAlarm-0",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "observable_pre_refresh_binding",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-AccountTools-Alarm-Email-GetAccountInformati-0",
+      "suite": "ToolTalk",
+      "case_id": "AccountTools-Alarm-Email-GetAccountInformati-0",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-AccountTools-Alarm-Messages-FindAlarm-0",
+      "suite": "ToolTalk",
+      "case_id": "AccountTools-Alarm-Messages-FindAlarm-0",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-AccountTools-Alarm-Weather-DeleteAccount-2",
+      "suite": "ToolTalk",
+      "case_id": "AccountTools-Alarm-Weather-DeleteAccount-2",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "stable_entity_id",
+        "observable_pre_refresh_binding",
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Alarm-Messages-Reminder-GetReminder-2",
+      "suite": "ToolTalk",
+      "case_id": "Alarm-Messages-Reminder-GetReminder-2",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Email-Reminder-GetReminder-1",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Email-Reminder-GetReminder-1",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Email-Reminder-SendEmail-2",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Email-Reminder-SendEmail-2",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Messages-Reminder-AddReminder-1",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Messages-Reminder-AddReminder-1",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Messages-Reminder-ModifyEvent-0",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Messages-Reminder-ModifyEvent-0",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Messages-Reminder-QueryCalendar-2",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Messages-Reminder-QueryCalendar-2",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Messages-Weather-DeleteEvent-0",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Messages-Weather-DeleteEvent-0",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Reminder-Weather-CompleteReminder-1",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Reminder-Weather-CompleteReminder-1",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Reminder-Weather-CreateEvent-1",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Reminder-Weather-CreateEvent-1",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Reminder-Weather-DeleteEvent-0",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Reminder-Weather-DeleteEvent-0",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Reminder-Weather-DeleteReminder-1",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Reminder-Weather-DeleteReminder-1",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Reminder-Weather-ModifyEvent-1",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Reminder-Weather-ModifyEvent-1",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Calendar-Reminder-Weather-QueryCalendar-0",
+      "suite": "ToolTalk",
+      "case_id": "Calendar-Reminder-Weather-QueryCalendar-0",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Email-Messages-Reminder-DeleteReminder-1",
+      "suite": "ToolTalk",
+      "case_id": "Email-Messages-Reminder-DeleteReminder-1",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Email-Messages-Reminder-SendEmail-2",
+      "suite": "ToolTalk",
+      "case_id": "Email-Messages-Reminder-SendEmail-2",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Email-Reminder-Weather-CompleteReminder-2",
+      "suite": "ToolTalk",
+      "case_id": "Email-Reminder-Weather-CompleteReminder-2",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    },
+    {
+      "record_id": "external-tooltalk-Email-Reminder-Weather-DeleteReminder-0",
+      "suite": "ToolTalk",
+      "case_id": "Email-Reminder-Weather-DeleteReminder-0",
+      "source_kind": "external_structural_candidate",
+      "review_priority": "high",
+      "candidate_strict": false,
+      "missing_or_partial_features": [
+        "independent_post_binding_transition",
+        "competing_same_role_entity",
+        "changed_selector_winner",
+        "old_entity_remains_actionable",
+        "later_target_mutation",
+        "evaluable_authorized_target"
+      ]
+    }
+  ],
+  "boundary": "These candidate labels are produced from existing frozen audits and structured source excerpts. They can prioritize human review and probe whether the deterministic audit missed obvious near cases, but they cannot be reported as independent human recall calibration or as a new public benchmark result."
+}

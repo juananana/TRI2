@@ -1,0 +1,67 @@
+{
+  "audit_version": "TRI-external-public-opportunity-v1",
+  "claim_boundary": "Deterministic structure can nominate source-anchored workflow candidates. It found no strict native TRI opportunity because the released units do not jointly expose pre/post selector states, an independent refresh, a surviving old target, and an instruction-conditioned changed winner.",
+  "dataset_results": {
+    "API-Bank": {
+      "exact_id_linkage_units": 0,
+      "native_update_language_units": 0,
+      "query_before_mutation_units": 0,
+      "source_anchored_eligible_clusters": 0,
+      "source_anchored_eligible_units": 0,
+      "strict_native_opportunities": 0,
+      "timing_labels": {
+        "absent": 526,
+        "preserve_candidate": 2
+      },
+      "unique_clusters": 528,
+      "units": 528
+    },
+    "BFCL": {
+      "exact_id_linkage_units": 0,
+      "native_update_language_units": 20,
+      "query_before_mutation_units": 580,
+      "source_anchored_eligible_clusters": 57,
+      "source_anchored_eligible_units": 228,
+      "strict_native_opportunities": 0,
+      "timing_labels": {
+        "absent": 700,
+        "preserve_candidate": 100
+      },
+      "unique_clusters": 200,
+      "units": 800
+    },
+    "ToolTalk": {
+      "exact_id_linkage_units": 23,
+      "native_update_language_units": 1,
+      "query_before_mutation_units": 42,
+      "source_anchored_eligible_clusters": 23,
+      "source_anchored_eligible_units": 23,
+      "strict_native_opportunities": 0,
+      "timing_labels": {
+        "absent": 45,
+        "preserve_candidate": 5
+      },
+      "unique_clusters": 50,
+      "units": 50
+    }
+  },
+  "gate_requirements": {
+    "minimum_clusters": 8,
+    "minimum_datasets": 2,
+    "observed_clusters": 80,
+    "observed_datasets": 2
+  },
+  "manifest_commits": {
+    "API-Bank": "12e8158b7628c168f07e8f31fbbe3445e99f44cf",
+    "BFCL": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+    "ToolTalk": "e05f4ce6132c80ed33392b81535b077d56ab28fd"
+  },
+  "siliconflow_annotation_gate": "GO",
+  "source_anchored_eligible_clusters": 80,
+  "source_anchored_eligible_datasets": [
+    "BFCL",
+    "ToolTalk"
+  ],
+  "status": "post-primary zero-API structural audit",
+  "strict_native_opportunities": 0
+}

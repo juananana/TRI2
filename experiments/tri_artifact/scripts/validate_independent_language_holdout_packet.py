@@ -2,64 +2,106 @@ from __future__ import annotations
 
 import json
 import re
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 from tri.independent_language_holdout import (
+    INSTRUCTIONS,
     PAIRS,
     WRITERS,
-    build_assignments,
-    load_jsonl,
+    load_assignments,
     sha256_path,
     validate_assignments,
-    validate_pairs,
 )
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKET = ROOT / "human_studies" / "independent_language_holdout_v1"
+PACKET = ROOT / "human_studies" / "independent_language_holdout_12w_final"
+ITEM_PATTERN = r"IH-[A-Z]+-\d{2}-[PR]"
+
+
+def validate_form(writer_id: str, path: Path, assigned_items: set[str]) -> dict[str, int]:
+    text = path.read_text(encoding="utf-8")
+    stage_a = re.findall(rf"【情境 \d{{2}}｜({ITEM_PATTERN})】", text)
+    stage_b = re.findall(rf"【意图确认 \d{{2}}/10｜({ITEM_PATTERN})】", text)
+    echoes = [int(value) for value in re.findall(r"\[q(\d+)\]", text)]
+    questions = [int(value) for value in re.findall(r"(?m)^(\d+)\. ", text)]
+
+    if len(stage_a) != 10 or len(set(stage_a)) != 10 or set(stage_a) != assigned_items:
+        raise ValueError(f"{writer_id}: Stage A does not match its 10 allocated items")
+    if len(stage_b) != 10 or len(set(stage_b)) != 10 or set(stage_b) != assigned_items:
+        raise ValueError(f"{writer_id}: Stage B does not match its 10 allocated items")
+    if len(echoes) != 10 or set(echoes) != set(range(4, 14)):
+        raise ValueError(f"{writer_id}: expected one dynamic echo for every Stage A field")
+    if questions != list(range(1, 34)):
+        raise ValueError(f"{writer_id}: expected contiguous core questions 1-33")
+    checks = {
+        "pages": text.count("[分页栏]") + 1,
+        "stage_a_text_inputs": text.count("[填空题]"),
+        "stage_b_intents": text.count("根据这条原句，你原本打算操作哪个对象"),
+        "stage_b_confidence": text.count("你对这个意图判断有多确定"),
+        "dynamic_echoes": len(echoes),
+    }
+    if checks != {
+        "pages": 2,
+        "stage_a_text_inputs": 10,
+        "stage_b_intents": 10,
+        "stage_b_confidence": 10,
+        "dynamic_echoes": 10,
+    }:
+        raise ValueError(f"{writer_id}: unexpected page or field counts: {checks}")
+    if text.index("【B 阶段｜第 1/1 页】") < text.rindex("[填空题]"):
+        raise ValueError(f"{writer_id}: Stage B appears before Stage A is complete")
+    return checks
 
 
 def main() -> None:
-    pairs = load_jsonl(PACKET / "private_scenario_key.jsonl")
-    validate_pairs(pairs)
-    assignments = build_assignments(pairs)
+    manifest = json.loads((PACKET / "manifest.json").read_text(encoding="utf-8"))
+    assignments = load_assignments(PACKET / "writer_allocation.csv")
     validate_assignments(assignments)
-    for writer in WRITERS:
-        for batch in (1, 2):
-            stage_a = (PACKET / f"writer_{writer}_stage_a_part_{batch}_wjx.txt").read_text(
-                encoding="utf-8"
-            )
-            stage_b = (PACKET / f"writer_{writer}_stage_b_part_{batch}_wjx.txt").read_text(
-                encoding="utf-8"
-            )
-            assert stage_a.count("[填空题]") == 10
-            assert len(re.findall(r"【情境 \d{2}｜IH-[A-Z]+-\d{2}-[PR]】", stage_a)) == 10
-            assert stage_a.count("当前可见记录：") == 10
-            assert "同步后的记录：" not in stage_a
-            assert "pre_refresh_target" not in stage_a and "post_refresh_target" not in stage_a
-            assert stage_b.count("你在已提交的英文请求中打算操作哪个对象") == 10
-            assert stage_b.count("你对这个意图判断有多确定") == 10
-            assert len(re.findall(r"【意图判断 \d{2}｜IH-[A-Z]+-\d{2}-[PR]】", stage_b)) == 10
-            assert "writer_intent" not in stage_b
-        combined = (PACKET / f"writer_{writer}_combined_wjx.txt").read_text(
-            encoding="utf-8"
-        )
-        assert combined.count("[填空题]") == 20
-        assert combined.count("根据这条原句，你原本打算操作哪个对象") == 20
-        assert combined.count("你对这个意图判断有多确定") == 20
-        assert combined.count("[分页栏]") == 7
-        assert combined.index("【B 阶段｜第 1/4 页】") > combined.rindex("[填空题]")
-        assert "负责人" not in combined and "可执行" not in combined
-        assert all(combined.count(f"[q{question}]") == 1 for question in range(4, 24))
+    if len(assignments) != INSTRUCTIONS or len({row["pair_id"] for row in assignments}) != PAIRS:
+        raise ValueError("allocation must contain 120 items and 60 pairs")
+    if sha256_path(PACKET / "writer_allocation.csv") != manifest["allocation_sha256"]:
+        raise ValueError("writer allocation hash differs from manifest")
 
-    allocation = Counter(row["writer_id"] for row in assignments)
-    assert allocation == Counter({writer: 20 for writer in WRITERS})
-    manifest = json.loads((PACKET / "freeze_manifest.json").read_text(encoding="utf-8"))
-    assert manifest["pairs"] == PAIRS and manifest["instructions"] == 2 * PAIRS
-    for name, digest in manifest["files"].items():
-        assert sha256_path(PACKET / name) == digest
-    print("PASS: 6 writers; split and combined WJX forms; 60 disjoint pairs")
+    by_writer: dict[str, set[str]] = defaultdict(set)
+    by_pair: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for row in assignments:
+        by_writer[row["writer_id"]].add(row["item_id"])
+        by_pair[row["pair_id"]].append(row)
+    if Counter(row["writer_id"] for row in assignments) != Counter({writer: 10 for writer in WRITERS}):
+        raise ValueError("each writer must have exactly 10 items")
+    if any(Counter(row["mode"] for row in assignments if row["writer_id"] == writer)
+           != Counter({"preserve": 5, "reevaluate": 5}) for writer in WRITERS):
+        raise ValueError("each writer must have five Preserve and five Reevaluate items")
+    if any(len(rows) != 2 or len({row["writer_id"] for row in rows}) != 2 for rows in by_pair.values()):
+        raise ValueError("every pair must be complete and assigned to different writers")
+
+    expected_forms = {f"writer_{writer}_two_page_final_wjx.txt" for writer in WRITERS}
+    if set(manifest["forms"]) != expected_forms:
+        raise ValueError("manifest must list exactly the 12 final writer forms")
+    form_checks = {}
+    for writer_id in WRITERS:
+        name = f"writer_{writer_id}_two_page_final_wjx.txt"
+        path = PACKET / name
+        if sha256_path(path) != manifest["forms"][name]:
+            raise ValueError(f"form hash differs from manifest: {name}")
+        form_checks[writer_id] = validate_form(writer_id, path, by_writer[writer_id])
+
+    print(
+        json.dumps(
+            {
+                "status": "PASS",
+                "packet": str(PACKET),
+                "writers": len(WRITERS),
+                "instructions": INSTRUCTIONS,
+                "pairs": PAIRS,
+                "forms": form_checks,
+                "collection_gate": "ethics/recruitment checks and real eligibility fields remain required",
+            },
+            indent=2,
+        )
+    )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,14 @@
+panel,dataset,model,metric,left_condition,right_condition,left_num,left_den,right_num,right_den,difference_pp,ci95_low_pp,ci95_high_pp
+pairacc,Authored,Qwen3.5,changed_pairacc,History-only,Decision-visible,5,32,13,32,25.0,6.25,46.154
+pairacc,Authored,GLM-5.1,changed_pairacc,History-only,Decision-visible,8,32,25,32,53.125,28.571,77.778
+pairacc,Source-derived,Qwen3.5,changed_pairacc,History-only,Decision-visible,12,30,13,30,3.333,-11.111,20.0
+pairacc,Source-derived,GLM-5.1,changed_pairacc,History-only,Decision-visible,11,30,20,30,30.0,0.0,55.556
+pairacc,Source-derived,DeepSeek,changed_pairacc,History-only,Decision-visible,19,30,22,30,10.0,-10.0,30.0
+e2e,Authored,Qwen3.5,actionable_e2e,History-only,Decision-visible,100,128,106,128,4.688,0.0,9.375
+e2e,Authored,GLM-5.1,actionable_e2e,History-only,Decision-visible,102,128,120,128,14.062,8.397,20.0
+e2e,Rewrite,Qwen3.5,actionable_e2e,History-only,Decision-visible,30,40,30,40,0.0,-10.0,9.524
+e2e,Rewrite,GLM-5.1,actionable_e2e,History-only,Decision-visible,31,40,39,40,20.0,8.571,32.5
+e2e,Source-derived,Qwen3.5,actionable_e2e,History-only,Decision-visible,39,60,39,60,0.0,-6.667,6.667
+e2e,Source-derived,GLM-5.1,actionable_e2e,History-only,Decision-visible,37,60,48,60,18.333,8.333,30.0
+e2e,Source-derived,DeepSeek,actionable_e2e,History-only,Decision-visible,45,60,47,60,3.333,-5.0,11.667
+rule_boundary,Authored to source-derived,Rule*,changed_pairacc,Authored,Source-derived,28,32,2,30,-80.833,,

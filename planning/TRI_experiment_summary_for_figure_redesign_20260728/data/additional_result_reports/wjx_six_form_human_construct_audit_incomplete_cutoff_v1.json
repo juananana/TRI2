@@ -1,0 +1,634 @@
+{
+  "evidence_status": "post-primary audit (failed frozen eligibility gate; descriptive boundary evidence)",
+  "quality_gate": {
+    "passed": false,
+    "required_valid_per_form": 5,
+    "selected_valid_by_form": {
+      "A": 1,
+      "B": 2,
+      "C": 1,
+      "D": 1,
+      "E": 3,
+      "F": 3
+    },
+    "additional_valid_needed_by_form": {
+      "A": 4,
+      "B": 3,
+      "C": 4,
+      "D": 4,
+      "E": 2,
+      "F": 2
+    },
+    "selected_valid_total": 11,
+    "required_valid_total": 30
+  },
+  "coverage": {
+    "items": 72,
+    "labels": 132,
+    "labels_per_item_distribution": {
+      "1": 36,
+      "2": 12,
+      "3": 24
+    },
+    "items_with_at_least_three_labels": 24,
+    "complete_changed_pairs_at_five_labels": 0
+  },
+  "eligible_exploratory": {
+    "referent": {
+      "correct": 51,
+      "total": 132,
+      "rate": 0.38636363636363635,
+      "by_category": {
+        "changed": {
+          "correct": 27,
+          "total": 66,
+          "rate": 0.4090909090909091
+        },
+        "invalid": {
+          "correct": 7,
+          "total": 22,
+          "rate": 0.3181818181818182
+        },
+        "rewrite": {
+          "correct": 8,
+          "total": 22,
+          "rate": 0.36363636363636365
+        },
+        "stable": {
+          "correct": 9,
+          "total": 22,
+          "rate": 0.4090909090909091
+        }
+      },
+      "participant_rate_range": {
+        "minimum": 0.08333333333333333,
+        "maximum": 0.8333333333333334
+      }
+    },
+    "execution": {
+      "correct": 34,
+      "total": 132,
+      "rate": 0.25757575757575757,
+      "by_category": {
+        "changed": {
+          "correct": 18,
+          "total": 66,
+          "rate": 0.2727272727272727
+        },
+        "invalid": {
+          "correct": 3,
+          "total": 22,
+          "rate": 0.13636363636363635
+        },
+        "rewrite": {
+          "correct": 5,
+          "total": 22,
+          "rate": 0.22727272727272727
+        },
+        "stable": {
+          "correct": 8,
+          "total": 22,
+          "rate": 0.36363636363636365
+        }
+      },
+      "participant_rate_range": {
+        "minimum": 0.0,
+        "maximum": 0.75
+      }
+    },
+    "three_or_more_label_item_majority": {
+      "items": 24,
+      "referent_majority_gold": 8,
+      "execution_majority_gold": 4
+    },
+    "confidence_distribution": {
+      "1": 14,
+      "2": 9,
+      "3": 15,
+      "4": 20,
+      "5": 74
+    }
+  },
+  "excluded_sensitivity": {
+    "participants": 20,
+    "referent": {
+      "correct": 88,
+      "total": 240,
+      "rate": 0.36666666666666664,
+      "by_category": {
+        "changed": {
+          "correct": 49,
+          "total": 120,
+          "rate": 0.4083333333333333
+        },
+        "invalid": {
+          "correct": 18,
+          "total": 40,
+          "rate": 0.45
+        },
+        "rewrite": {
+          "correct": 9,
+          "total": 40,
+          "rate": 0.225
+        },
+        "stable": {
+          "correct": 12,
+          "total": 40,
+          "rate": 0.3
+        }
+      },
+      "participant_rate_range": {
+        "minimum": 0.16666666666666666,
+        "maximum": 0.75
+      }
+    },
+    "execution": {
+      "correct": 77,
+      "total": 240,
+      "rate": 0.32083333333333336,
+      "by_category": {
+        "changed": {
+          "correct": 40,
+          "total": 120,
+          "rate": 0.3333333333333333
+        },
+        "invalid": {
+          "correct": 12,
+          "total": 40,
+          "rate": 0.3
+        },
+        "rewrite": {
+          "correct": 12,
+          "total": 40,
+          "rate": 0.3
+        },
+        "stable": {
+          "correct": 13,
+          "total": 40,
+          "rate": 0.325
+        }
+      },
+      "participant_rate_range": {
+        "minimum": 0.08333333333333333,
+        "maximum": 0.75
+      }
+    }
+  },
+  "selection_ledger": [
+    {
+      "participant_code": "A-01",
+      "form": "A",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance",
+        "technical_issue"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "A-02",
+      "form": "A",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "technical_issue"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "A-03",
+      "form": "A",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "technical_issue"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "A-04",
+      "form": "A",
+      "allocation_role": "primary",
+      "valid": true,
+      "exclusion_reasons": [],
+      "selected": true
+    },
+    {
+      "participant_code": "A-05",
+      "form": "A",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "B-01",
+      "form": "B",
+      "allocation_role": "primary",
+      "valid": true,
+      "exclusion_reasons": [],
+      "selected": true
+    },
+    {
+      "participant_code": "B-02",
+      "form": "B",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "B-03",
+      "form": "B",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "B-04",
+      "form": "B",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "technical_issue"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "B-05",
+      "form": "B",
+      "allocation_role": "primary",
+      "valid": true,
+      "exclusion_reasons": [],
+      "selected": true
+    },
+    {
+      "participant_code": "C-01",
+      "form": "C",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance",
+        "technical_issue"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "C-02",
+      "form": "C",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance",
+        "technical_issue"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "C-03",
+      "form": "C",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance",
+        "technical_issue"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "C-04",
+      "form": "C",
+      "allocation_role": "primary",
+      "valid": true,
+      "exclusion_reasons": [],
+      "selected": true
+    },
+    {
+      "participant_code": "C-05",
+      "form": "C",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "D-01",
+      "form": "D",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "D-02",
+      "form": "D",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "D-03",
+      "form": "D",
+      "allocation_role": "primary",
+      "valid": true,
+      "exclusion_reasons": [],
+      "selected": true
+    },
+    {
+      "participant_code": "D-04",
+      "form": "D",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "technical_issue"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "D-05",
+      "form": "D",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "E-01",
+      "form": "E",
+      "allocation_role": "primary",
+      "valid": true,
+      "exclusion_reasons": [],
+      "selected": true
+    },
+    {
+      "participant_code": "E-02",
+      "form": "E",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "E-03",
+      "form": "E",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "technical_issue"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "E-04",
+      "form": "E",
+      "allocation_role": "primary",
+      "valid": true,
+      "exclusion_reasons": [],
+      "selected": true
+    },
+    {
+      "participant_code": "E-05",
+      "form": "E",
+      "allocation_role": "primary",
+      "valid": true,
+      "exclusion_reasons": [],
+      "selected": true
+    },
+    {
+      "participant_code": "E-06",
+      "form": "E",
+      "allocation_role": "reserve",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance",
+        "technical_issue"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "F-01",
+      "form": "F",
+      "allocation_role": "primary",
+      "valid": true,
+      "exclusion_reasons": [],
+      "selected": true
+    },
+    {
+      "participant_code": "F-02",
+      "form": "F",
+      "allocation_role": "primary",
+      "valid": true,
+      "exclusion_reasons": [],
+      "selected": true
+    },
+    {
+      "participant_code": "F-03",
+      "form": "F",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance",
+        "technical_issue"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "F-04",
+      "form": "F",
+      "allocation_role": "primary",
+      "valid": false,
+      "exclusion_reasons": [
+        "used_assistance"
+      ],
+      "selected": false
+    },
+    {
+      "participant_code": "F-05",
+      "form": "F",
+      "allocation_role": "primary",
+      "valid": true,
+      "exclusion_reasons": [],
+      "selected": true
+    }
+  ],
+  "collection": {
+    "raw_by_form": {
+      "A": 5,
+      "B": 5,
+      "C": 5,
+      "D": 5,
+      "E": 6,
+      "F": 5
+    },
+    "mapped_total": 31,
+    "primary_total": 30,
+    "reserve_total": 1,
+    "valid_total": 11,
+    "invalid_total": 20,
+    "exclusion_reason_counts": {
+      "technical_issue": 11,
+      "used_assistance": 15
+    },
+    "exclusion_pattern_counts": {
+      "technical_issue": 5,
+      "used_assistance": 9,
+      "used_assistance+technical_issue": 6
+    },
+    "beyond_frozen_cap_by_form": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 0,
+      "F": 0
+    },
+    "duration_seconds": {
+      "minimum": 62,
+      "median": 330,
+      "maximum": 3734,
+      "below_five_minutes": 11,
+      "below_ten_minutes": 30
+    }
+  },
+  "private_source_sha256": {
+    "A": "b5fdc3bd6e2eb820da576beef7b5c22b83d16aa0e6d85b698aa1feb6997fd96d",
+    "B": "38f2a7788acd344cb73fe2d604fd227901b7f0bd6fb88b2899a76e08e2b23729",
+    "C": "831716fce75cee1b29ec0bad238ba6e1711794c8994e3b9c2fa9bf48f8e00bc2",
+    "D": "4cb8bc11e46d8c183e11e660a9575755108c081257bd020244dc66a9fd8d86af",
+    "E": "52ea7303ee0840cff0075357e544f232ff3aaf76b2384fb271f03f117da04923",
+    "F": "181643dcc05b9288bec2697e2acafddace9ab9f5f7b0116b45d7cc639e4e6bd3"
+  },
+  "post_hoc_assistance_relaxed_sensitivity": {
+    "warning": "Ignores the frozen assistance exclusion but still excludes technical issues; post-hoc and not evidence.",
+    "participants": 20,
+    "selected_by_form": {
+      "A": 2,
+      "B": 4,
+      "C": 2,
+      "D": 4,
+      "E": 4,
+      "F": 4
+    },
+    "referent": {
+      "correct": 92,
+      "total": 240,
+      "rate": 0.38333333333333336,
+      "by_category": {
+        "changed": {
+          "correct": 53,
+          "total": 120,
+          "rate": 0.44166666666666665
+        },
+        "invalid": {
+          "correct": 13,
+          "total": 40,
+          "rate": 0.325
+        },
+        "rewrite": {
+          "correct": 13,
+          "total": 40,
+          "rate": 0.325
+        },
+        "stable": {
+          "correct": 13,
+          "total": 40,
+          "rate": 0.325
+        }
+      },
+      "participant_rate_range": {
+        "minimum": 0.08333333333333333,
+        "maximum": 0.8333333333333334
+      }
+    },
+    "execution": {
+      "correct": 61,
+      "total": 240,
+      "rate": 0.25416666666666665,
+      "by_category": {
+        "changed": {
+          "correct": 33,
+          "total": 120,
+          "rate": 0.275
+        },
+        "invalid": {
+          "correct": 6,
+          "total": 40,
+          "rate": 0.15
+        },
+        "rewrite": {
+          "correct": 10,
+          "total": 40,
+          "rate": 0.25
+        },
+        "stable": {
+          "correct": 12,
+          "total": 40,
+          "rate": 0.3
+        }
+      },
+      "participant_rate_range": {
+        "minimum": 0.0,
+        "maximum": 0.75
+      }
+    }
+  },
+  "non_evidentiary_all_primary_sensitivity": {
+    "warning": "Includes submissions excluded by the frozen eligibility rules; not evidence.",
+    "participants": 30,
+    "referent": {
+      "majority_gold": 27,
+      "unanimous": 7,
+      "pair_majority_correct": 3,
+      "pair_denominator": 18
+    },
+    "execution": {
+      "majority_gold": 19,
+      "unanimous": 8,
+      "majority_distribution": {
+        "BR-main": 3,
+        "BR-rel": 2,
+        "DOC-7": 2,
+        "DOC-8": 2,
+        "DOC-9": 2,
+        "EM-104": 3,
+        "EM-319": 1,
+        "LEAD-17": 2,
+        "LEAD-22": 1,
+        "LEAD-31": 1,
+        "MTG-10": 1,
+        "MTG-22": 2,
+        "MTG-37": 1,
+        "NO_MAJORITY": 26,
+        "REJECT": 10,
+        "SHP-88": 1,
+        "SHP-91": 2,
+        "SHP-94": 1,
+        "SKU-11": 1,
+        "SKU-29": 1,
+        "TCK-41": 4,
+        "TCK-52": 3
+      },
+      "clarify_majorities": 0,
+      "identity_correct_execution_disagrees": 14
+    }
+  }
+}

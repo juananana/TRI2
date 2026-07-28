@@ -1,0 +1,246 @@
+{
+  "file": "paper/tri_final_figures/outputs/fig2_v8_candidate_drawio/fig2_tri_diagnostic_workflow_v8_candidate.drawio",
+  "summary": {
+    "total_findings": 20,
+    "fail": 0,
+    "warn": 20,
+    "passed": true,
+    "clean": false
+  },
+  "fails": [],
+  "warns": [
+    {
+      "rule": "spacing-inconsistent-h",
+      "element_id": "refresh_clock",
+      "message": "Row at y≈176: horizontal gaps vary (gaps=['866', '70'], mean=468, cv=0.85). Use uniform spacing.",
+      "detail": {
+        "row_y": 176,
+        "gaps": [
+          866.0,
+          70.0
+        ],
+        "mean": 468.0,
+        "cv": 0.85,
+        "element_ids": [
+          "refresh_clock",
+          "r1_formula_p",
+          "r1_formula_r"
+        ]
+      }
+    },
+    {
+      "rule": "spacing-inconsistent-h",
+      "element_id": "preserve_badge",
+      "message": "Row at y≈316: horizontal gaps vary (gaps=['40', '408'], mean=224, cv=0.82). Use uniform spacing.",
+      "detail": {
+        "row_y": 316,
+        "gaps": [
+          40.0,
+          408.0
+        ],
+        "mean": 224.0,
+        "cv": 0.82,
+        "element_ids": [
+          "preserve_badge",
+          "p_bound_a",
+          "p_target_a"
+        ]
+      }
+    },
+    {
+      "rule": "spacing-inconsistent-h",
+      "element_id": "reevaluate_badge",
+      "message": "Row at y≈470: horizontal gaps vary (gaps=['40', '408', '528'], mean=325, cv=0.64). Use uniform spacing.",
+      "detail": {
+        "row_y": 470,
+        "gaps": [
+          40.0,
+          408.0,
+          528.0
+        ],
+        "mean": 325.3,
+        "cv": 0.64,
+        "element_ids": [
+          "reevaluate_badge",
+          "r_deferred_q",
+          "r_target_b",
+          "num_3"
+        ]
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "p_bound_a",
+      "message": "Isolated colored shape 'p_bound_a' (62x62, fill=#fcede8, label='A') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "p_bound_a",
+        "fill_color": "#fcede8",
+        "label": "A",
+        "size": "62x62"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "p_target_a",
+      "message": "Isolated colored shape 'p_target_a' (62x62, fill=#ffffff, label='A') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "p_target_a",
+        "fill_color": "#ffffff",
+        "label": "A",
+        "size": "62x62"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "r_deferred_q",
+      "message": "Isolated colored shape 'r_deferred_q' (62x62, fill=#e8f5f2, label='q') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "r_deferred_q",
+        "fill_color": "#e8f5f2",
+        "label": "q",
+        "size": "62x62"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "r_target_b",
+      "message": "Isolated colored shape 'r_target_b' (62x62, fill=#ffffff, label='B') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "r_target_b",
+        "fill_color": "#ffffff",
+        "label": "B",
+        "size": "62x62"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "num_1",
+      "message": "Isolated colored shape 'num_1' (44x44, fill=#ffffff, label='1') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "num_1",
+        "fill_color": "#ffffff",
+        "label": "1",
+        "size": "44x44"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "num_2",
+      "message": "Isolated colored shape 'num_2' (44x44, fill=#ffffff, label='2') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "num_2",
+        "fill_color": "#ffffff",
+        "label": "2",
+        "size": "44x44"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "r2_a",
+      "message": "Isolated colored shape 'r2_a' (50x50, fill=#fcede8, label='A') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "r2_a",
+        "fill_color": "#fcede8",
+        "label": "A",
+        "size": "50x50"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "r2_b",
+      "message": "Isolated colored shape 'r2_b' (50x50, fill=#e8f5f2, label='B') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "r2_b",
+        "fill_color": "#e8f5f2",
+        "label": "B",
+        "size": "50x50"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "num_3",
+      "message": "Isolated colored shape 'num_3' (44x44, fill=#ffffff, label='3') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "num_3",
+        "fill_color": "#ffffff",
+        "label": "3",
+        "size": "44x44"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "panel_a",
+      "message": "Box 'panel_a' (860×688) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "panel_a",
+        "size": "860×688"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "panel_b",
+      "message": "Box 'panel_b' (384×688) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "panel_b",
+        "size": "384×688"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "panel_c",
+      "message": "Box 'panel_c' (484×688) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "panel_c",
+        "size": "484×688"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "preserve_lane",
+      "message": "Box 'preserve_lane' (812×138) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "preserve_lane",
+        "size": "812×138"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "reevaluate_lane",
+      "message": "Box 'reevaluate_lane' (812×138) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "reevaluate_lane",
+        "size": "812×138"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "readout_1",
+      "message": "Box 'readout_1' (436×180) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "readout_1",
+        "size": "436×180"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "readout_2",
+      "message": "Box 'readout_2' (436×186) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "readout_2",
+        "size": "436×186"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "readout_3",
+      "message": "Box 'readout_3' (436×208) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "readout_3",
+        "size": "436×208"
+      }
+    }
+  ],
+  "vertex_count": 55,
+  "edge_count": 12,
+  "canvas": "1800x720"
+}

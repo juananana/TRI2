@@ -301,11 +301,15 @@
     "qwen_primary_claim_present": true,
     "glm_primary_claim_present": true,
     "human_agreement_claim_present": true,
+    "replication_structure_and_denominator_present": true,
     "coverage_scope_present": true,
     "external_extension_four_condition_scope_matches_sources": true,
     "source_anchored_transfer_claim_matches_report": true,
     "selection_regret_claim_matches_report": true,
     "call_matched_claim_matches_report": true,
+    "decision_block_stratification_matches_report": true,
+    "oracle_stage_decomposition_matches_report": true,
+    "temperature_zero_repeat_matches_report": true,
     "source_grounded_matched_claim_matches_report": true,
     "binding_drift_author_adaptation_matches_report": true,
     "rule_hard_residual_matches_report": true,
@@ -315,7 +319,7 @@
   "all_checks_pass": true,
   "boundaries": [
     "The audit checks numerical and provenance consistency, not natural prevalence.",
-    "Human and public-suite classifications retain the limitations stated in the paper.",
+    "Human agreement and public-suite classifications retain the limitations stated in the paper.",
     "Provider inference cannot be reproduced exactly because immutable serving revisions are unavailable."
   ]
 }

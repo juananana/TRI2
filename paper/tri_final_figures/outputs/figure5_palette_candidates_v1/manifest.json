@@ -1,0 +1,72 @@
+{
+  "status": "palette candidates only; not integrated into the paper",
+  "structure": "selected Figure 5 option F v3",
+  "source": "./paper/tri_final_figures/data/summary_csv/main_figure_paired_scores.csv",
+  "source_sha256": "9036c67938992a34d1a913492fec45fa27df31db44951d59f069a8d6131a6f78",
+  "candidate_count": 5,
+  "palettes": {
+    "a_ocean_breeze": {
+      "label": "A  Ocean breeze",
+      "primary": "#51999F",
+      "secondary": "#ED8D5A",
+      "tertiary": "#7BC0CD",
+      "support": "#BFDFD2",
+      "neutral": "#69737A",
+      "primary_light": "#D9EBEC",
+      "secondary_light": "#FAE1D4",
+      "note": "Xiaohongshu scientific-figure palette; yellow members omitted"
+    },
+    "b_berry_coral": {
+      "label": "B  Berry coral",
+      "primary": "#8D718D",
+      "secondary": "#D97B68",
+      "tertiary": "#4F9189",
+      "support": "#DCC9D4",
+      "neutral": "#69737A",
+      "primary_light": "#E7DDE4",
+      "secondary_light": "#F5DDD7",
+      "note": "soft editorial palette close to TRI's existing model colors"
+    },
+    "c_ink_blush": {
+      "label": "C  Ink blue + blush",
+      "primary": "#637A9F",
+      "secondary": "#D88B96",
+      "tertiary": "#6C9488",
+      "support": "#BCC9DD",
+      "neutral": "#66717C",
+      "primary_light": "#DFE5EE",
+      "secondary_light": "#F3E0E4",
+      "note": "cooler conference-paper palette with restrained rose"
+    },
+    "d_forest_ember": {
+      "label": "D  Forest ember",
+      "primary": "#407A7F",
+      "secondary": "#E56D4E",
+      "tertiary": "#60AA84",
+      "support": "#B8D0C7",
+      "neutral": "#5F6B70",
+      "primary_light": "#D9E7E7",
+      "secondary_light": "#F8DDD5",
+      "note": "higher-contrast version of the approved tropical-forest system"
+    },
+    "e_plum_seafoam": {
+      "label": "E  Plum + seafoam",
+      "primary": "#A0677D",
+      "secondary": "#5C8F94",
+      "tertiary": "#D38A6F",
+      "support": "#D8BCC8",
+      "neutral": "#6B7077",
+      "primary_light": "#ECDDE3",
+      "secondary_light": "#DDEBEC",
+      "note": "warmer berry-led palette with quiet teal contrast"
+    }
+  },
+  "outputs": {
+    "a_ocean_breeze": "./paper/tri_final_figures/outputs/figure5_palette_candidates_v1/figure5_palette_a_ocean_breeze",
+    "b_berry_coral": "./paper/tri_final_figures/outputs/figure5_palette_candidates_v1/figure5_palette_b_berry_coral",
+    "c_ink_blush": "./paper/tri_final_figures/outputs/figure5_palette_candidates_v1/figure5_palette_c_ink_blush",
+    "d_forest_ember": "./paper/tri_final_figures/outputs/figure5_palette_candidates_v1/figure5_palette_d_forest_ember",
+    "e_plum_seafoam": "./paper/tri_final_figures/outputs/figure5_palette_candidates_v1/figure5_palette_e_plum_seafoam"
+  },
+  "contact_sheet": "./paper/tri_final_figures/outputs/figure5_palette_candidates_v1/figure5_palette_comparison.png"
+}

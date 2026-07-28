@@ -1,0 +1,37 @@
+{
+  "status": "main-paper candidate v3; source-derived; no new experiment",
+  "source_sha256": {
+    "matched_pairacc_and_marginals.csv": "7ac145be8a950367d65573e6431749b1771c7fc6fa6a6651cccad4509a7d990c",
+    "v7_shared_eligible_pairacc_and_substitution.csv": "cf2564d320d7d221f2a6366d6d8a379813d43fa19cf65b444322b6b9b81d002d",
+    "main_figure_paired_scores.csv": "9036c67938992a34d1a913492fec45fa27df31db44951d59f069a8d6131a6f78"
+  },
+  "outputs": {
+    "policy": {
+      "size_inches": [
+        3.35,
+        1.92
+      ],
+      "stem": "./planning/TRI_experiment_summary_for_figure_redesign_20260728/figure_outputs/result_closure_v3/result_policy_discrimination",
+      "evidence": "v3 Qwen primary/frozen; GLM replication; Rule* post-hoc"
+    },
+    "conditional_pairing": {
+      "size_inches": [
+        3.35,
+        2.2
+      ],
+      "stem": "./planning/TRI_experiment_summary_for_figure_redesign_20260728/figure_outputs/result_closure_v3/result_conditional_pairing",
+      "evidence": "post-primary ten-schema diagnostic; endpoint-specific denominators"
+    },
+    "decision_transfer": {
+      "size_inches": [
+        3.35,
+        2.03
+      ],
+      "stem": "./planning/TRI_experiment_summary_for_figure_redesign_20260728/figure_outputs/result_closure_v3/result_decision_transfer",
+      "evidence": "post-primary matched audits; no pooled effect"
+    }
+  },
+  "minimum_text_pt": 7.0,
+  "pdf_fonttype": 42,
+  "png_dpi": 400
+}

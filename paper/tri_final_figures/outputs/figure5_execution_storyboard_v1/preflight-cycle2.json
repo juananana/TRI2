@@ -1,0 +1,73 @@
+{
+  "file": "figure5_execution_storyboard.drawio",
+  "summary": {
+    "total_findings": 3,
+    "fail": 0,
+    "warn": 3,
+    "passed": true,
+    "clean": false
+  },
+  "fails": [],
+  "warns": [
+    {
+      "rule": "spacing-inconsistent-h",
+      "element_id": "bind_a",
+      "message": "Row at y≈132: horizontal gaps vary (gaps=['106', '36', '12', '35', '33'], mean=44, cv=0.72). Use uniform spacing.",
+      "detail": {
+        "row_y": 132,
+        "gaps": [
+          106.0,
+          36.0,
+          12.0,
+          35.0,
+          33.0
+        ],
+        "mean": 44.4,
+        "cv": 0.72,
+        "element_ids": [
+          "bind_a",
+          "refresh",
+          "branch",
+          "stable_state",
+          "stable_write",
+          "stable_row_a"
+        ]
+      }
+    },
+    {
+      "rule": "spacing-inconsistent-v",
+      "element_id": "stable_row_a",
+      "message": "Column at x≈658: vertical gaps vary (gaps=['8', '50', '10'], mean=23, cv=0.85). Use uniform spacing.",
+      "detail": {
+        "col_x": 658,
+        "gaps": [
+          8.0,
+          50.0,
+          10.0
+        ],
+        "mean": 22.7,
+        "cv": 0.85,
+        "element_ids": [
+          "stable_row_a",
+          "stable_row_b",
+          "changed_row_a",
+          "changed_row_b"
+        ]
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "bind_a",
+      "message": "Isolated colored shape 'bind_a' (62x62, fill=#eaf2f0, label='A') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "bind_a",
+        "fill_color": "#eaf2f0",
+        "label": "A",
+        "size": "62x62"
+      }
+    }
+  ],
+  "vertex_count": 45,
+  "edge_count": 8,
+  "canvas": "820x650"
+}

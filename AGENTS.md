@@ -78,6 +78,24 @@ Prefer deleting exploratory methods and secondary tables over weakening these it
 main paper within the AAAI page limit and keep the title, abstract, contributions, results,
 discussion, and conclusion at the same claim strength.
 
+## Fit-First Use of External Material
+
+- Before using anything supplied to the project--including writing templates, example papers,
+  reviewer suggestions, checklists, figures, prompts, or experimental recipes--first judge
+  whether it fits TRI's contribution type, current evidence, claim boundaries, venue, and
+  submission stage.
+- Record or state the fit decision when it affects the manuscript: adopt, adapt, or reject, with
+  a brief reason. Do not mechanically apply generic top-conference advice merely because it is
+  presented as a standard pattern.
+- For introduction advice in particular, TRI may use a clear funnel from the practical referent
+  problem to the state--authorization distinction, evidence, and bounded contributions. It must
+  not be forced into an algorithm-paper template built around an allegedly exhaustive taxonomy,
+  a manufactured ``triple challenge,'' a multi-module novelty story, or SOTA-style claims.
+- Prefer structures appropriate to a problem-definition and controlled-diagnostic paper: define
+  the concrete failure, distinguish it from the closest neighboring problem, explain why the
+  distinction is identifiable, summarize the diagnostic evidence and adverse boundaries, and
+  state contributions at their actual evidentiary strength.
+
 ## Paper Writing And Page Budget
 
 These rules apply to every edit of the main paper, supplement, abstract, figure, table, and
@@ -100,6 +118,22 @@ rebuttal-facing explanation.
   more dramatic wording.
 - Preserve unfavorable evidence in the main-text logic: Rule v2, full-history baseline, external
   nulls, and negative composition results narrow the claim rather than becoming footnotes.
+
+### Conceptual Figure Roles
+
+- Figure 1 is the problem-definition figure: it introduces unauthorized re-resolution with a
+  concrete shared-refresh example. Do not force it to carry the later scoring or controller audit.
+- Figure 2 is the diagnostic-workflow figure: it connects the shared transition, matched
+  Preserve/Reevaluate pair, same probe interface, PairAcc, conditional substitution, and executed
+  state diff. It is not a controller architecture or a claim about an internal model mechanism.
+- Figure 2 must show what is fixed within a pair, that the old target remains action-valid, and
+  which slice each readout measures. It must not expose gold information as controller input or
+  contain model results, percentages, confidence intervals, or a preferred implementation.
+- When both Figure 2 and the claim-to-evidence table remain in the main text, keep the diagnostic
+  figure compact enough that the body still occupies at most seven pages excluding references.
+- Adapt Figure 1's palette and semantic icon language, but do not copy decorative clouds, cartoon
+  agents, or redundant prose into the method figure. Preserve solid/dashed and textual redundancy
+  so the two referent paths remain distinguishable in grayscale.
 
 ### Page Budget and Main/Supplement Split
 
@@ -157,6 +191,23 @@ remains 7 body pages plus references, inspect figures/tables for legibility and 
 `git diff --check`, and verify that no title/abstract/contribution claim exceeds the evidence
 status recorded in claim provenance.
 
+### Anonymous Artifact Packaging Cadence
+
+- `paper/supplementary_material.pdf` is the supplementary-material document. The separate
+  `submission/tri_anonymous_artifact_current.zip` is the anonymous reproducibility artifact
+  containing code, data, frozen runs, report scripts, paper sources, and figure sources.
+- Do not rebuild the ZIP after every manuscript or figure edit. While the paper is still moving,
+  update the source, tests, required-member assertions, and provenance records, but treat the
+  existing ZIP only as a checkpoint.
+- Rebuild the submission ZIP once after the main paper, supplement, checklist, figures, and audit
+  reports are frozen, then perform the clean-room extraction, archived test run, manifest check,
+  and secret/identity/private-data scan. Rebuild earlier only for an explicit packaging checkpoint
+  or a packaging-specific failure.
+- Because the full-paper deadline is 2026-07-29 and the supplement/code deadline is 2026-08-01,
+  begin final artifact reconciliation on the afternoon of 2026-07-29. Until then, prioritize the
+  manuscript logic, evidence consistency, and final PDF presentation over repeatedly compressing
+  an immediately stale archive.
+
 ## Project Map
 
 - Main paper: `paper/AnonymousSubmission2027.tex`
@@ -204,3 +255,9 @@ then clean-room extract the anonymous artifact and execute its documented smoke 
 - Full paper: 2026-07-29 19:59
 - Supplement and code: 2026-08-01 19:59
 - Internal main-paper freeze: 2026-07-27
+
+## Repository Authorization
+
+- The user authorizes routine, reversible read and write operations throughout this repository.
+- Do not ask again before edits within this repository.
+- Continue to preserve unrelated changes and exclude private human-study material from commits.

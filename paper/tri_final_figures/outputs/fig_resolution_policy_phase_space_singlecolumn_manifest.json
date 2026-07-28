@@ -1,0 +1,19 @@
+{
+  "source_csv": "./paper/tri_final_figures/data/summary_csv/matched_pairacc_and_marginals.csv",
+  "source_sha256": "2fb9da2af3671517879aac9abe291675df3c88269850cb622a0d8478b9d9d3a5",
+  "evidence": "v3 Qwen primary/frozen; GLM post-primary; Rule* post-hoc",
+  "figure_size_inches": [
+    3.25,
+    3.15
+  ],
+  "minimum_text_pt": 8,
+  "raster_dpi": 400,
+  "text_contrast_on_white": {
+    "ink": 13.19,
+    "generic_text": 8.37,
+    "cta": 4.87,
+    "lifecycle": 6.16,
+    "posthoc": 6.14
+  },
+  "note": "All colored text exceeds 4.5:1 contrast on white; quadrant labels use dark neutral text."
+}

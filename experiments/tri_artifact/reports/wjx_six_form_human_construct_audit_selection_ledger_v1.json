@@ -1,0 +1,296 @@
+[
+  {
+    "participant_code": "A-01",
+    "form": "A",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance",
+      "technical_issue"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "A-02",
+    "form": "A",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "technical_issue"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "A-03",
+    "form": "A",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "technical_issue"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "A-04",
+    "form": "A",
+    "allocation_role": "primary",
+    "valid": true,
+    "exclusion_reasons": [],
+    "selected": true
+  },
+  {
+    "participant_code": "A-05",
+    "form": "A",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "B-01",
+    "form": "B",
+    "allocation_role": "primary",
+    "valid": true,
+    "exclusion_reasons": [],
+    "selected": true
+  },
+  {
+    "participant_code": "B-02",
+    "form": "B",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "B-03",
+    "form": "B",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "B-04",
+    "form": "B",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "technical_issue"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "B-05",
+    "form": "B",
+    "allocation_role": "primary",
+    "valid": true,
+    "exclusion_reasons": [],
+    "selected": true
+  },
+  {
+    "participant_code": "C-01",
+    "form": "C",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance",
+      "technical_issue"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "C-02",
+    "form": "C",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance",
+      "technical_issue"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "C-03",
+    "form": "C",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance",
+      "technical_issue"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "C-04",
+    "form": "C",
+    "allocation_role": "primary",
+    "valid": true,
+    "exclusion_reasons": [],
+    "selected": true
+  },
+  {
+    "participant_code": "C-05",
+    "form": "C",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "D-01",
+    "form": "D",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "D-02",
+    "form": "D",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "D-03",
+    "form": "D",
+    "allocation_role": "primary",
+    "valid": true,
+    "exclusion_reasons": [],
+    "selected": true
+  },
+  {
+    "participant_code": "D-04",
+    "form": "D",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "technical_issue"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "D-05",
+    "form": "D",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "E-01",
+    "form": "E",
+    "allocation_role": "primary",
+    "valid": true,
+    "exclusion_reasons": [],
+    "selected": true
+  },
+  {
+    "participant_code": "E-02",
+    "form": "E",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "E-03",
+    "form": "E",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "technical_issue"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "E-04",
+    "form": "E",
+    "allocation_role": "primary",
+    "valid": true,
+    "exclusion_reasons": [],
+    "selected": true
+  },
+  {
+    "participant_code": "E-05",
+    "form": "E",
+    "allocation_role": "primary",
+    "valid": true,
+    "exclusion_reasons": [],
+    "selected": true
+  },
+  {
+    "participant_code": "E-06",
+    "form": "E",
+    "allocation_role": "reserve",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance",
+      "technical_issue"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "F-01",
+    "form": "F",
+    "allocation_role": "primary",
+    "valid": true,
+    "exclusion_reasons": [],
+    "selected": true
+  },
+  {
+    "participant_code": "F-02",
+    "form": "F",
+    "allocation_role": "primary",
+    "valid": true,
+    "exclusion_reasons": [],
+    "selected": true
+  },
+  {
+    "participant_code": "F-03",
+    "form": "F",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance",
+      "technical_issue"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "F-04",
+    "form": "F",
+    "allocation_role": "primary",
+    "valid": false,
+    "exclusion_reasons": [
+      "used_assistance"
+    ],
+    "selected": false
+  },
+  {
+    "participant_code": "F-05",
+    "form": "F",
+    "allocation_role": "primary",
+    "valid": true,
+    "exclusion_reasons": [],
+    "selected": true
+  }
+]

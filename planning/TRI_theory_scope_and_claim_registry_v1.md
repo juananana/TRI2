@@ -55,7 +55,8 @@ This is an evaluation-design observation, not a lower bound on algorithmic compl
 claim that an explicit field, pre-refresh compilation, Lifecycle, or CTA is mathematically
 necessary. It explains why aggregate, Stable-only, Preserve-only, and Reevaluate-only evaluation
 can reward incompatible unconditional policies. PairAcc on changed-winner matched pairs is the
-minimal reported score that exposes this failure mode.
+paired co-correctness score used here to expose this failure mode; the two-row support, rather
+than PairAcc as a uniquely necessary metric, is cardinality-minimal in the stated policy class.
 
 ## Scope Conditions
 

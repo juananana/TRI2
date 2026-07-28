@@ -1,0 +1,14 @@
+{
+  "status": "unified v6 A/B result with rounded endpoint enclosures and direct bar values",
+  "source": "./paper/tri_final_figures/data/summary_csv/v7_shared_eligible_pairacc_and_substitution.csv",
+  "source_sha256": "cf2564d320d7d221f2a6366d6d8a379813d43fa19cf65b444322b6b9b81d002d",
+  "size_inches": [
+    3.35,
+    2.16
+  ],
+  "minimum_text_pt": 7.0,
+  "png_dpi": 400,
+  "pdf_fonttype": 42,
+  "panel_a": "Generic open to CTA filled; rounded endpoint enclosures replace ellipses; visible lower caps at the zero boundary; Wilson 95% CI; y-axis -20 to 105",
+  "panel_b": "controller-grouped bars with direct integer percentages; cluster-bootstrap 95% CI; exact counts retained outside the plot"
+}

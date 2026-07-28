@@ -43,6 +43,7 @@ def test_claims_to_evidence_has_valid_status_and_sources() -> None:
     assert len(rows) >= 10
     assert len({row["claim_id"] for row in rows}) == len(rows)
     allowed = {
+        "formal deduction",
         "primary/frozen",
         "post-primary replication/audit",
         "post-hoc",
@@ -52,6 +53,8 @@ def test_claims_to_evidence_has_valid_status_and_sources() -> None:
         assert row["evidence_status"] in allowed
         assert row["boundary"]
         for source in row["source_report"].split(";"):
-            assert (ROOT / source).is_file(), source
+            artifact_source = ROOT / source
+            repository_source = ROOT.parents[1] / source
+            assert artifact_source.is_file() or repository_source.is_file(), source
         if row["evidence_status"] == "planned/unverified":
             assert row["role"] == "none"

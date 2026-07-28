@@ -1,0 +1,33 @@
+{
+  "status": "Option F selected and refined; preview not integrated into the paper",
+  "selected": "option_f",
+  "source": "./paper/tri_final_figures/data/summary_csv/main_figure_paired_scores.csv",
+  "source_sha256": "9036c67938992a34d1a913492fec45fa27df31db44951d59f069a8d6131a6f78",
+  "minimum_text_pt": 7.0,
+  "png_dpi": 400,
+  "pdf_fonttype": 42,
+  "scope": "Authored and source-derived only; no pooled effect; human rewrite excluded",
+  "outputs": {
+    "option_d": {
+      "stem": "./paper/tri_final_figures/outputs/figure5_option_f_v2_selected/figure5_option_d_baseline_gain",
+      "size_inches": [
+        3.35,
+        2.43
+      ]
+    },
+    "option_e": {
+      "stem": "./paper/tri_final_figures/outputs/figure5_option_f_v2_selected/figure5_option_e_horizontal_bars",
+      "size_inches": [
+        3.35,
+        2.38
+      ]
+    },
+    "option_f": {
+      "stem": "./paper/tri_final_figures/outputs/figure5_option_f_v2_selected/figure5_option_f_vertical_bars",
+      "size_inches": [
+        3.35,
+        2.55
+      ]
+    }
+  }
+}

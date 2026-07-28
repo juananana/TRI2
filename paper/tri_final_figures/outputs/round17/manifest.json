@@ -1,0 +1,13 @@
+{
+  "status": "unified round-17 SQLite result; no new experiment",
+  "source": "./paper/tri_final_figures/data/summary_csv/sqlite_model_facing_outcomes.csv",
+  "source_sha256": "89a9fb91adc4794c5150d3dadc3a039ba18b5840c54146a85a0976a69a91bf48",
+  "output_stem": "./paper/tri_final_figures/outputs/round17/fig4_sqlite_outcome_tree",
+  "size_inches": [
+    3.35,
+    2.45
+  ],
+  "minimum_text_pt": 7.0,
+  "png_dpi": 400,
+  "pdf_fonttype": 42
+}

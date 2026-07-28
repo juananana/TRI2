@@ -1,0 +1,976 @@
+{
+  "report_version": "TRI-decision-block-stratification-v1",
+  "evidence_status": "post-primary zero-API descriptive audit",
+  "interpretation_boundary": "Compiler-quality strata are post-treatment and descriptive. They are not mediation estimates or causal effects of individual decision-block fields. The v7 table is an unmatched end-to-end boundary comparison.",
+  "authored_stratification": {
+    "Qwen": {
+      "all_rows": {
+        "rows": 160,
+        "exact_target": {
+          "history_only": {
+            "numerator": 121,
+            "denominator": 160,
+            "rate": 0.75625
+          },
+          "decision_visible": {
+            "numerator": 131,
+            "denominator": 160,
+            "rate": 0.81875
+          },
+          "paired_discordance": {
+            "visible_repairs": 16,
+            "visible_harms": 6,
+            "both_correct": 115,
+            "both_wrong": 23
+          }
+        },
+        "action_and_target_e2e": {
+          "history_only": {
+            "numerator": 121,
+            "denominator": 160,
+            "rate": 0.75625
+          },
+          "decision_visible": {
+            "numerator": 131,
+            "denominator": 160,
+            "rate": 0.81875
+          },
+          "paired_discordance": {
+            "visible_repairs": 16,
+            "visible_harms": 6,
+            "both_correct": 115,
+            "both_wrong": 23
+          }
+        }
+      },
+      "by_compiler_mode_correctness": {
+        "correct": {
+          "rows": 137,
+          "exact_target": {
+            "history_only": {
+              "numerator": 105,
+              "denominator": 137,
+              "rate": 0.7664233576642335
+            },
+            "decision_visible": {
+              "numerator": 119,
+              "denominator": 137,
+              "rate": 0.8686131386861314
+            },
+            "paired_discordance": {
+              "visible_repairs": 16,
+              "visible_harms": 2,
+              "both_correct": 103,
+              "both_wrong": 16
+            }
+          },
+          "action_and_target_e2e": {
+            "history_only": {
+              "numerator": 105,
+              "denominator": 137,
+              "rate": 0.7664233576642335
+            },
+            "decision_visible": {
+              "numerator": 119,
+              "denominator": 137,
+              "rate": 0.8686131386861314
+            },
+            "paired_discordance": {
+              "visible_repairs": 16,
+              "visible_harms": 2,
+              "both_correct": 103,
+              "both_wrong": 16
+            }
+          }
+        },
+        "wrong": {
+          "rows": 23,
+          "exact_target": {
+            "history_only": {
+              "numerator": 16,
+              "denominator": 23,
+              "rate": 0.6956521739130435
+            },
+            "decision_visible": {
+              "numerator": 12,
+              "denominator": 23,
+              "rate": 0.5217391304347826
+            },
+            "paired_discordance": {
+              "visible_repairs": 0,
+              "visible_harms": 4,
+              "both_correct": 12,
+              "both_wrong": 7
+            }
+          },
+          "action_and_target_e2e": {
+            "history_only": {
+              "numerator": 16,
+              "denominator": 23,
+              "rate": 0.6956521739130435
+            },
+            "decision_visible": {
+              "numerator": 12,
+              "denominator": 23,
+              "rate": 0.5217391304347826
+            },
+            "paired_discordance": {
+              "visible_repairs": 0,
+              "visible_harms": 4,
+              "both_correct": 12,
+              "both_wrong": 7
+            }
+          }
+        }
+      },
+      "preserve_by_compiler_bound_id_correctness": {
+        "correct": {
+          "rows": 70,
+          "exact_target": {
+            "history_only": {
+              "numerator": 39,
+              "denominator": 70,
+              "rate": 0.5571428571428572
+            },
+            "decision_visible": {
+              "numerator": 52,
+              "denominator": 70,
+              "rate": 0.7428571428571429
+            },
+            "paired_discordance": {
+              "visible_repairs": 15,
+              "visible_harms": 2,
+              "both_correct": 37,
+              "both_wrong": 16
+            }
+          },
+          "action_and_target_e2e": {
+            "history_only": {
+              "numerator": 39,
+              "denominator": 70,
+              "rate": 0.5571428571428572
+            },
+            "decision_visible": {
+              "numerator": 52,
+              "denominator": 70,
+              "rate": 0.7428571428571429
+            },
+            "paired_discordance": {
+              "visible_repairs": 15,
+              "visible_harms": 2,
+              "both_correct": 37,
+              "both_wrong": 16
+            }
+          }
+        },
+        "wrong": {
+          "rows": 10,
+          "exact_target": {
+            "history_only": {
+              "numerator": 4,
+              "denominator": 10,
+              "rate": 0.4
+            },
+            "decision_visible": {
+              "numerator": 2,
+              "denominator": 10,
+              "rate": 0.2
+            },
+            "paired_discordance": {
+              "visible_repairs": 0,
+              "visible_harms": 2,
+              "both_correct": 2,
+              "both_wrong": 6
+            }
+          },
+          "action_and_target_e2e": {
+            "history_only": {
+              "numerator": 4,
+              "denominator": 10,
+              "rate": 0.4
+            },
+            "decision_visible": {
+              "numerator": 2,
+              "denominator": 10,
+              "rate": 0.2
+            },
+            "paired_discordance": {
+              "visible_repairs": 0,
+              "visible_harms": 2,
+              "both_correct": 2,
+              "both_wrong": 6
+            }
+          }
+        }
+      }
+    },
+    "GLM": {
+      "all_rows": {
+        "rows": 160,
+        "exact_target": {
+          "history_only": {
+            "numerator": 113,
+            "denominator": 160,
+            "rate": 0.70625
+          },
+          "decision_visible": {
+            "numerator": 141,
+            "denominator": 160,
+            "rate": 0.88125
+          },
+          "paired_discordance": {
+            "visible_repairs": 29,
+            "visible_harms": 1,
+            "both_correct": 112,
+            "both_wrong": 18
+          }
+        },
+        "action_and_target_e2e": {
+          "history_only": {
+            "numerator": 113,
+            "denominator": 160,
+            "rate": 0.70625
+          },
+          "decision_visible": {
+            "numerator": 141,
+            "denominator": 160,
+            "rate": 0.88125
+          },
+          "paired_discordance": {
+            "visible_repairs": 29,
+            "visible_harms": 1,
+            "both_correct": 112,
+            "both_wrong": 18
+          }
+        }
+      },
+      "by_compiler_mode_correctness": {
+        "correct": {
+          "rows": 141,
+          "exact_target": {
+            "history_only": {
+              "numerator": 110,
+              "denominator": 141,
+              "rate": 0.7801418439716312
+            },
+            "decision_visible": {
+              "numerator": 136,
+              "denominator": 141,
+              "rate": 0.9645390070921985
+            },
+            "paired_discordance": {
+              "visible_repairs": 27,
+              "visible_harms": 1,
+              "both_correct": 109,
+              "both_wrong": 4
+            }
+          },
+          "action_and_target_e2e": {
+            "history_only": {
+              "numerator": 110,
+              "denominator": 141,
+              "rate": 0.7801418439716312
+            },
+            "decision_visible": {
+              "numerator": 136,
+              "denominator": 141,
+              "rate": 0.9645390070921985
+            },
+            "paired_discordance": {
+              "visible_repairs": 27,
+              "visible_harms": 1,
+              "both_correct": 109,
+              "both_wrong": 4
+            }
+          }
+        },
+        "wrong": {
+          "rows": 19,
+          "exact_target": {
+            "history_only": {
+              "numerator": 3,
+              "denominator": 19,
+              "rate": 0.15789473684210525
+            },
+            "decision_visible": {
+              "numerator": 5,
+              "denominator": 19,
+              "rate": 0.2631578947368421
+            },
+            "paired_discordance": {
+              "visible_repairs": 2,
+              "visible_harms": 0,
+              "both_correct": 3,
+              "both_wrong": 14
+            }
+          },
+          "action_and_target_e2e": {
+            "history_only": {
+              "numerator": 3,
+              "denominator": 19,
+              "rate": 0.15789473684210525
+            },
+            "decision_visible": {
+              "numerator": 5,
+              "denominator": 19,
+              "rate": 0.2631578947368421
+            },
+            "paired_discordance": {
+              "visible_repairs": 2,
+              "visible_harms": 0,
+              "both_correct": 3,
+              "both_wrong": 14
+            }
+          }
+        }
+      },
+      "preserve_by_compiler_bound_id_correctness": {
+        "correct": {
+          "rows": 61,
+          "exact_target": {
+            "history_only": {
+              "numerator": 32,
+              "denominator": 61,
+              "rate": 0.5245901639344263
+            },
+            "decision_visible": {
+              "numerator": 57,
+              "denominator": 61,
+              "rate": 0.9344262295081968
+            },
+            "paired_discordance": {
+              "visible_repairs": 25,
+              "visible_harms": 0,
+              "both_correct": 32,
+              "both_wrong": 4
+            }
+          },
+          "action_and_target_e2e": {
+            "history_only": {
+              "numerator": 32,
+              "denominator": 61,
+              "rate": 0.5245901639344263
+            },
+            "decision_visible": {
+              "numerator": 57,
+              "denominator": 61,
+              "rate": 0.9344262295081968
+            },
+            "paired_discordance": {
+              "visible_repairs": 25,
+              "visible_harms": 0,
+              "both_correct": 32,
+              "both_wrong": 4
+            }
+          }
+        },
+        "wrong": {
+          "rows": 19,
+          "exact_target": {
+            "history_only": {
+              "numerator": 3,
+              "denominator": 19,
+              "rate": 0.15789473684210525
+            },
+            "decision_visible": {
+              "numerator": 5,
+              "denominator": 19,
+              "rate": 0.2631578947368421
+            },
+            "paired_discordance": {
+              "visible_repairs": 2,
+              "visible_harms": 0,
+              "both_correct": 3,
+              "both_wrong": 14
+            }
+          },
+          "action_and_target_e2e": {
+            "history_only": {
+              "numerator": 3,
+              "denominator": 19,
+              "rate": 0.15789473684210525
+            },
+            "decision_visible": {
+              "numerator": 5,
+              "denominator": 19,
+              "rate": 0.2631578947368421
+            },
+            "paired_discordance": {
+              "visible_repairs": 2,
+              "visible_harms": 0,
+              "both_correct": 3,
+              "both_wrong": 14
+            }
+          }
+        }
+      }
+    }
+  },
+  "interface_redundancy": {
+    "Authored / Qwen": {
+      "rows": 160,
+      "checks": {
+        "actor_request_initial_ids_equal_each_other": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        },
+        "compiler_request_initial_id_equals_task": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        },
+        "compiler_selector_equals_base_selector": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        },
+        "history_request_initial_id_equals_task": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        },
+        "task_initial_id_equals_pre_refresh_target": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        },
+        "visible_request_initial_id_equals_task": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        }
+      }
+    },
+    "Authored / GLM": {
+      "rows": 160,
+      "checks": {
+        "actor_request_initial_ids_equal_each_other": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        },
+        "compiler_request_initial_id_equals_task": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        },
+        "compiler_selector_equals_base_selector": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        },
+        "history_request_initial_id_equals_task": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        },
+        "task_initial_id_equals_pre_refresh_target": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        },
+        "visible_request_initial_id_equals_task": {
+          "numerator": 160,
+          "denominator": 160,
+          "rate": 1.0
+        }
+      }
+    },
+    "Rewrite / Qwen": {
+      "rows": 50,
+      "checks": {
+        "actor_request_initial_ids_equal_each_other": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        },
+        "compiler_request_initial_id_equals_task": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        },
+        "compiler_selector_equals_base_selector": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        },
+        "history_request_initial_id_equals_task": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        },
+        "task_initial_id_equals_pre_refresh_target": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        },
+        "visible_request_initial_id_equals_task": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        }
+      }
+    },
+    "Rewrite / GLM": {
+      "rows": 50,
+      "checks": {
+        "actor_request_initial_ids_equal_each_other": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        },
+        "compiler_request_initial_id_equals_task": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        },
+        "compiler_selector_equals_base_selector": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        },
+        "history_request_initial_id_equals_task": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        },
+        "task_initial_id_equals_pre_refresh_target": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        },
+        "visible_request_initial_id_equals_task": {
+          "numerator": 50,
+          "denominator": 50,
+          "rate": 1.0
+        }
+      }
+    },
+    "Source-derived / Qwen": {
+      "rows": 60,
+      "checks": {
+        "actor_request_initial_ids_equal_each_other": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "compiler_request_initial_id_equals_task": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "compiler_selector_equals_base_selector": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "history_request_initial_id_equals_task": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "task_initial_id_equals_pre_refresh_target": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "visible_request_initial_id_equals_task": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        }
+      }
+    },
+    "Source-derived / GLM": {
+      "rows": 60,
+      "checks": {
+        "actor_request_initial_ids_equal_each_other": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "compiler_request_initial_id_equals_task": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "compiler_selector_equals_base_selector": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "history_request_initial_id_equals_task": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "task_initial_id_equals_pre_refresh_target": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "visible_request_initial_id_equals_task": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        }
+      }
+    },
+    "Source-derived / DeepSeek": {
+      "rows": 60,
+      "checks": {
+        "actor_request_initial_ids_equal_each_other": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "compiler_request_initial_id_equals_task": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "compiler_selector_equals_base_selector": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "history_request_initial_id_equals_task": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "task_initial_id_equals_pre_refresh_target": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        },
+        "visible_request_initial_id_equals_task": {
+          "numerator": 60,
+          "denominator": 60,
+          "rate": 1.0
+        }
+      }
+    },
+    "Cross-schema matched / Qwen": {
+      "rows": 80,
+      "checks": {
+        "actor_request_initial_ids_equal_each_other": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        },
+        "compiler_request_initial_id_equals_task": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        },
+        "compiler_selector_equals_base_selector": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        },
+        "history_request_initial_id_equals_task": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        },
+        "task_initial_id_equals_pre_refresh_target": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        },
+        "visible_request_initial_id_equals_task": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        }
+      }
+    },
+    "Cross-schema matched / GLM": {
+      "rows": 80,
+      "checks": {
+        "actor_request_initial_ids_equal_each_other": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        },
+        "compiler_request_initial_id_equals_task": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        },
+        "compiler_selector_equals_base_selector": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        },
+        "history_request_initial_id_equals_task": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        },
+        "task_initial_id_equals_pre_refresh_target": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        },
+        "visible_request_initial_id_equals_task": {
+          "numerator": 80,
+          "denominator": 80,
+          "rate": 1.0
+        }
+      }
+    }
+  },
+  "interface_redundancy_pooled": {
+    "rows": 760,
+    "checks": {
+      "actor_request_initial_ids_equal_each_other": {
+        "numerator": 760,
+        "denominator": 760,
+        "rate": 1.0
+      },
+      "compiler_request_initial_id_equals_task": {
+        "numerator": 760,
+        "denominator": 760,
+        "rate": 1.0
+      },
+      "compiler_selector_equals_base_selector": {
+        "numerator": 760,
+        "denominator": 760,
+        "rate": 1.0
+      },
+      "history_request_initial_id_equals_task": {
+        "numerator": 760,
+        "denominator": 760,
+        "rate": 1.0
+      },
+      "task_initial_id_equals_pre_refresh_target": {
+        "numerator": 760,
+        "denominator": 760,
+        "rate": 1.0
+      },
+      "visible_request_initial_id_equals_task": {
+        "numerator": 760,
+        "denominator": 760,
+        "rate": 1.0
+      }
+    }
+  },
+  "v7_end_to_end_boundary": {
+    "Qwen": {
+      "Generic": {
+        "preserve_initial_binding": {
+          "numerator": 34,
+          "denominator": 40,
+          "rate": 0.85
+        },
+        "preserve_e2e": {
+          "numerator": 4,
+          "denominator": 40,
+          "rate": 0.1
+        },
+        "reevaluate_e2e": {
+          "numerator": 22,
+          "denominator": 40,
+          "rate": 0.55
+        },
+        "changed_pairacc": {
+          "numerator": 3,
+          "denominator": 40,
+          "rate": 0.075
+        }
+      },
+      "Historical CTA": {
+        "preserve_initial_binding": {
+          "numerator": 35,
+          "denominator": 40,
+          "rate": 0.875
+        },
+        "preserve_e2e": {
+          "numerator": 35,
+          "denominator": 40,
+          "rate": 0.875
+        },
+        "reevaluate_e2e": {
+          "numerator": 16,
+          "denominator": 40,
+          "rate": 0.4
+        },
+        "changed_pairacc": {
+          "numerator": 14,
+          "denominator": 40,
+          "rate": 0.35
+        }
+      },
+      "Lifecycle-Gated": {
+        "preserve_initial_binding": {
+          "numerator": 30,
+          "denominator": 40,
+          "rate": 0.75
+        },
+        "preserve_e2e": {
+          "numerator": 30,
+          "denominator": 40,
+          "rate": 0.75
+        },
+        "reevaluate_e2e": {
+          "numerator": 22,
+          "denominator": 40,
+          "rate": 0.55
+        },
+        "changed_pairacc": {
+          "numerator": 17,
+          "denominator": 40,
+          "rate": 0.425
+        }
+      }
+    },
+    "GLM": {
+      "Generic": {
+        "preserve_initial_binding": {
+          "numerator": 40,
+          "denominator": 40,
+          "rate": 1.0
+        },
+        "preserve_e2e": {
+          "numerator": 8,
+          "denominator": 40,
+          "rate": 0.2
+        },
+        "reevaluate_e2e": {
+          "numerator": 39,
+          "denominator": 40,
+          "rate": 0.975
+        },
+        "changed_pairacc": {
+          "numerator": 7,
+          "denominator": 40,
+          "rate": 0.175
+        }
+      },
+      "Historical CTA": {
+        "preserve_initial_binding": {
+          "numerator": 34,
+          "denominator": 40,
+          "rate": 0.85
+        },
+        "preserve_e2e": {
+          "numerator": 34,
+          "denominator": 40,
+          "rate": 0.85
+        },
+        "reevaluate_e2e": {
+          "numerator": 36,
+          "denominator": 40,
+          "rate": 0.9
+        },
+        "changed_pairacc": {
+          "numerator": 30,
+          "denominator": 40,
+          "rate": 0.75
+        }
+      },
+      "Lifecycle-Gated": {
+        "preserve_initial_binding": {
+          "numerator": 40,
+          "denominator": 40,
+          "rate": 1.0
+        },
+        "preserve_e2e": {
+          "numerator": 40,
+          "denominator": 40,
+          "rate": 1.0
+        },
+        "reevaluate_e2e": {
+          "numerator": 36,
+          "denominator": 40,
+          "rate": 0.9
+        },
+        "changed_pairacc": {
+          "numerator": 36,
+          "denominator": 40,
+          "rate": 0.9
+        }
+      }
+    }
+  },
+  "inputs": [
+    {
+      "path": "runs/revision_full_diagnostic_qwen_full_v1.jsonl",
+      "rows": 160,
+      "sha256": "b672d74de3e31ee323acbf36e61f3c3d223cf9a9ca40ca148aa9677c55b6bda2"
+    },
+    {
+      "path": "runs/revision_full_diagnostic_glm_full_v1.jsonl",
+      "rows": 160,
+      "sha256": "fd8911ed7c2cfbbfb1bf8efca243f3b6931be9e881e6ade89d4c6e96741efc0b"
+    },
+    {
+      "path": "runs/revision_human_rewrite_qwen_full_v1.jsonl",
+      "rows": 50,
+      "sha256": "eea8e29531c133fc22b0cb48e81c56c0b0c09e9af20e887442676de342b8fbdc"
+    },
+    {
+      "path": "runs/revision_human_rewrite_glm_full_v1.jsonl",
+      "rows": 50,
+      "sha256": "05bd78fd4dd95c29bd23474b2b3a388cfead9d6794da0a22301d129acdd2b850"
+    },
+    {
+      "path": "runs/revision_source_grounded_qwen_full_v1.jsonl",
+      "rows": 60,
+      "sha256": "0bc4e782abd425605baec59669dc7eb60676b8c7cf4a85bf094401e5b26ebb34"
+    },
+    {
+      "path": "runs/revision_source_grounded_glm_full_v1.jsonl",
+      "rows": 60,
+      "sha256": "abf87c52db74d7688ff6c1fcf796c2f22824e3a6b75ecb2c011af221d8658d19"
+    },
+    {
+      "path": "runs/revision_source_grounded_deepseek_full_v1.jsonl",
+      "rows": 60,
+      "sha256": "0d52868491a41f747f6db82d38f26e9886b9045942766fc9ec9079d54fc423f6"
+    },
+    {
+      "path": "runs/call_matched_authorization_qwen_full_v2.jsonl",
+      "rows": 80,
+      "sha256": "19177befd807b7f3fac8692b8a42b7fc112569f810c219e161ffb46fee0c063f"
+    },
+    {
+      "path": "runs/call_matched_authorization_glm_full_v2.jsonl",
+      "rows": 80,
+      "sha256": "f996d8267d69f7efde3441df806aa6985fbfe4a8ede87e425441736eec47e9f5"
+    },
+    {
+      "path": "runs/v7_qwen_generic_structured_ledger_then_act_full.jsonl",
+      "rows": 240,
+      "sha256": "91d7d042e4539d7e748fd213ce096ffb7018ac9f1efa14e9bca4c1b4de8d2a4b"
+    },
+    {
+      "path": "runs/v7_qwen_compile_then_act_full.jsonl",
+      "rows": 240,
+      "sha256": "8975072588396f30f74b1a46b19238f053d680212cce5fc7692f5621fdb6adcf"
+    },
+    {
+      "path": "runs/v7_qwen_factorized_hybrid_compile_then_act_full.jsonl",
+      "rows": 240,
+      "sha256": "7f13cee82f434a66a0a58993463337f7552526859c4c37d851422af4e898d6f5"
+    },
+    {
+      "path": "runs/v7_glm_generic_structured_ledger_then_act_full.jsonl",
+      "rows": 240,
+      "sha256": "773c8bbe3ab65f4e5899568c6440bbd303a840521975f4504d1bcd33c4ee0f0e"
+    },
+    {
+      "path": "runs/v7_glm_compile_then_act_full.jsonl",
+      "rows": 240,
+      "sha256": "87eb48ddf9f71e18862a2e51006b436127b72f291a72b473bfbdb61d25d6ec75"
+    },
+    {
+      "path": "runs/v7_glm_factorized_hybrid_compile_then_act_full.jsonl",
+      "rows": 240,
+      "sha256": "5f5906905269a25dabdfffad35168e19e01f4688fd1388acd8f6918faa8ef53b"
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{"kind":"slide","id":"sl/1pbg2g","slide":1,"title":"A.  MATCHED DIAGNOSTIC CONSTRUCTION","textShapes":83}
+{"kind":"shape","id":"sh/10r6twj6","slide":1,"name":"panel-a","bbox":[36,28,1012,716]}
+{"kind":"shape","id":"sh/ed07i10v","slide":1,"name":"panel-b","bbox":[1064,28,500,716]}
+{"kind":"shape","id":"sh/fe9or61g","slide":1,"name":"panel-a-head","bbox":[36,28,1012,48]}
+{"kind":"shape","id":"sh/o32pobix","slide":1,"name":"panel-b-head","bbox":[1064,28,500,48]}
+{"kind":"textbox","id":"sh/p4b6xgji","slide":1,"name":"panel-a-title","text":"A.  MATCHED DIAGNOSTIC CONSTRUCTION","textPreview":"A.  MATCHED DIAGNOSTIC CONSTRUCTION","textChars":35,"textLines":1,"bbox":[56,31,972,42]}
+{"kind":"textbox","id":"sh/2107m10r","slide":1,"name":"panel-b-title","text":"B.  EXECUTION AND SCORING","textPreview":"B.  EXECUTION AND SCORING","textChars":25,"textLines":1,"bbox":[1080,31,468,42]}
+{"kind":"shape","id":"sh/n29ov61c","slide":1,"name":"step-1-frame","bbox":[54,86,238,626]}
+{"kind":"shape","id":"sh/c72psvit","slide":1,"name":"step-2-frame","bbox":[306,86,310,626]}
+{"kind":"shape","id":"sh/x8bq10je","slide":1,"name":"step-4-frame","bbox":[1080,86,464,456]}
+{"kind":"shape","id":"sh/x4ny1wf2","slide":1,"name":"step-5-frame","bbox":[1080,552,464,184]}
+{"kind":"shape","id":"sh/w3eh8beh","slide":1,"name":"a-flow-1","bbox":[271,340,42,20]}
+{"kind":"shape","id":"sh/v25gz6xw","slide":1,"name":"a-flow-2","bbox":[581,340,42,20]}
+{"kind":"shape","id":"sh/a1wz61wb","slide":1,"name":"state-refresh-arrow","bbox":[431,262,68,24]}
+{"kind":"shape","id":"sh/5s7y5gfy","slide":1,"name":"preserve-timeline-1","bbox":[720,406,78,18]}
+{"kind":"shape","id":"sh/kryhcbed","slide":1,"name":"preserve-timeline-2","bbox":[854,406,64,18]}
+{"kind":"shape","id":"sh/jqpg36xs","slide":1,"name":"reeval-timeline-1","bbox":[720,566,78,18]}
+{"kind":"shape","id":"sh/i5wza1wn","slide":1,"name":"reeval-timeline-2","bbox":[854,566,64,18]}
+{"kind":"shape","id":"sh/lw3ytcfu","slide":1,"name":"pair-to-run-p","bbox":[1026,296,72,18]}
+{"kind":"shape","id":"sh/0vuh0re9","slide":1,"name":"pair-to-run-r","bbox":[1026,384,72,18]}
+{"kind":"shape","id":"sh/cfyhgrm5","slide":1,"name":"b-input-p","bbox":[1106,272,74,18]}
+{"kind":"shape","id":"sh/dg7y9wnq","slide":1,"name":"b-input-r","bbox":[1106,360,74,18]}
+{"kind":"shape","id":"sh/qdgzeh4z","slide":1,"name":"b-output-p","bbox":[1376,272,68,18]}
+{"kind":"shape","id":"sh/repg7m5k","slide":1,"name":"b-output-r","bbox":[1376,360,68,18]}
+{"kind":"shape","id":"sh/0jyhkrm1","slide":1,"name":"tool-write-arrow","bbox":[1256,464,70,20]}
+{"kind":"shape","id":"sh/1kridwnm","slide":1,"name":"state-diff-arrow","bbox":[1418,464,48,20]}
+{"kind":"shape","id":"sh/ehgzih4b","slide":1,"name":"step-1-badge","bbox":[56,94,32,32]}
+{"kind":"textbox","id":"sh/zipgbm5g","slide":1,"name":"step-1-number","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[56,94,32,32]}
+{"kind":"textbox","id":"sh/o7ihobmd","slide":1,"name":"step-1-label","text":"TASK BLUEPRINT","textPreview":"TASK BLUEPRINT","textChars":14,"textLines":1,"bbox":[98,93,178,34]}
+{"kind":"shape","id":"sh/98rihgny","slide":1,"name":"blueprint-icon-paper","bbox":[75,145,62,76]}
+{"kind":"shape","id":"sh/j2tk7ap0","slide":1,"name":"blueprint-icon-clip","bbox":[93,138,26,14]}
+{"kind":"shape","id":"sh/y1kje5of","slide":1,"name":"blueprint-icon-dot-0","bbox":[86.5,162.5,7,7]}
+{"kind":"shape","id":"sh/l4v29k76","slide":1,"name":"blueprint-icon-line-0","bbox":[100,166,25,0]}
+{"kind":"shape","id":"sh/k3m1gf6l","slide":1,"name":"blueprint-icon-dot-1","bbox":[86.5,179.5,7,7]}
+{"kind":"shape","id":"sh/betk3qpo","slide":1,"name":"blueprint-icon-line-1","bbox":[100,183,25,0]}
+{"kind":"shape","id":"sh/adkjaloj","slide":1,"name":"blueprint-icon-dot-2","bbox":[86.5,196.5,7,7]}
+{"kind":"shape","id":"sh/x0b2507u","slide":1,"name":"blueprint-icon-line-2","bbox":[100,200,25,0]}
+{"kind":"textbox","id":"sh/wf21cv69","slide":1,"name":"blueprint-selector","text":"selector q","textPreview":"selector q","textChars":10,"textLines":1,"bbox":[151,146,120,28]}
+{"kind":"textbox","id":"sh/vadkfup8","slide":1,"name":"blueprint-selector-v","text":"top-ranked\nunread","textPreview":"top-ranked | unread","textChars":17,"textLines":2,"bbox":[151,174,124,54]}
+{"kind":"textbox","id":"sh/u943mpon","slide":1,"name":"blueprint-action","text":"action a","textPreview":"action a","textChars":8,"textLines":1,"bbox":[151,234,120,28]}
+{"kind":"textbox","id":"sh/2hkna9kr","slide":1,"name":"blueprint-action-v","text":"reply(id)","textPreview":"reply(id)","textChars":9,"textLines":1,"bbox":[151,262,120,28]}
+{"kind":"shape","id":"sh/3idojelc","slide":1,"name":"mini-table","bbox":[60,326,216,154]}
+{"kind":"shape","id":"sh/ojm5cj2x","slide":1,"name":"mini-table-head","bbox":[60,326,216,34]}
+{"kind":"textbox","id":"sh/pkv6lo3i","slide":1,"name":"mini-h-1","text":"ID","textPreview":"ID","textChars":2,"textLines":1,"bbox":[68,329,42,28]}
+{"kind":"textbox","id":"sh/edkn69kv","slide":1,"name":"mini-h-2","text":"S0","textPreview":"S0","textChars":2,"textLines":1,"bbox":[112,329,44,28]}
+{"kind":"textbox","id":"sh/fetofelg","slide":1,"name":"mini-h-3","text":"S1","textPreview":"S1","textChars":2,"textLines":1,"bbox":[160,329,44,28]}
+{"kind":"textbox","id":"sh/gf258j2l","slide":1,"name":"mini-h-4","text":"valid","textPreview":"valid","textChars":5,"textLines":1,"bbox":[205,329,62,28]}
+{"kind":"shape","id":"sh/1gb6ho36","slide":1,"name":"mini-v-1","bbox":[110,326,0,154]}
+{"kind":"shape","id":"sh/y9onidkz","slide":1,"name":"mini-v-2","bbox":[157,326,0,154]}
+{"kind":"shape","id":"sh/zaxorylk","slide":1,"name":"mini-v-3","bbox":[204,326,0,154]}
+{"kind":"shape","id":"sh/9gjixwry","slide":1,"name":"mini-h-row","bbox":[60,411,216,0]}
+{"kind":"textbox","id":"sh/8fah4rqd","slide":1,"name":"mini-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[72,369,30,32]}
+{"kind":"textbox","id":"sh/7e10vm9s","slide":1,"name":"mini-a0","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[118,369,30,32]}
+{"kind":"textbox","id":"sh/md8z2h87","slide":1,"name":"mini-a1","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[166,369,30,32]}
+{"kind":"textbox","id":"sh/lszitwr2","slide":1,"name":"mini-av","text":"yes","textPreview":"yes","textChars":3,"textLines":1,"bbox":[211,369,50,32]}
+{"kind":"textbox","id":"sh/krqh0rqh","slide":1,"name":"mini-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[72,426,30,32]}
+{"kind":"textbox","id":"sh/zqhgrm9w","slide":1,"name":"mini-b0","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[118,426,30,32]}
+{"kind":"textbox","id":"sh/yp8zyhsb","slide":1,"name":"mini-b1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[166,426,30,32]}
+{"kind":"textbox","id":"sh/5o3i5gr6","slide":1,"name":"mini-bv","text":"yes","textPreview":"yes","textChars":3,"textLines":1,"bbox":[211,426,50,32]}
+{"kind":"shape","id":"sh/4nuhcbql","slide":1,"name":"generator-stack-back","bbox":[82,520,158,72]}
+{"kind":"shape","id":"sh/or218fyx","slide":1,"name":"generator-stack-front","bbox":[70,508,158,72]}
+{"kind":"textbox","id":"sh/psb21kzi","slide":1,"name":"generator-label","text":"domain + schema","textPreview":"domain + schema","textChars":15,"textLines":1,"bbox":[84,520,130,26]}
+{"kind":"textbox","id":"sh/2p0j6pgr","slide":1,"name":"generator-sub","text":"frozen task spec","textPreview":"frozen task spec","textChars":16,"textLines":1,"bbox":[84,548,130,24]}
+{"kind":"textbox","id":"sh/3qtkzuhc","slide":1,"name":"blueprint-foot","text":"Defines the resolver, action, and validity slice","textPreview":"Defines the resolver, action, and validity slice","textChars":48,"textLines":1,"bbox":[62,620,210,62]}
+{"kind":"shape","id":"sh/gni14fyl","slide":1,"name":"step-2-badge","bbox":[318,94,32,32]}
+{"kind":"textbox","id":"sh/1or2xkz6","slide":1,"name":"step-2-number","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[318,94,32,32]}
+{"kind":"textbox","id":"sh/ul0j25gv","slide":1,"name":"step-2-label","text":"SHARED TRANSITION","textPreview":"SHARED TRANSITION","textChars":17,"textLines":1,"bbox":[360,93,238,34]}
+{"kind":"textbox","id":"sh/fm9kvah0","slide":1,"name":"state-space-label","text":"selector score","textPreview":"selector score","textChars":14,"textLines":1,"bbox":[320,145,264,28]}
+{"kind":"shape","id":"sh/szi10vyp","slide":1,"name":"s0-space","bbox":[322,180,118,210]}
+{"kind":"shape","id":"sh/tkr2t0za","slide":1,"name":"s1-space","bbox":[500,180,118,210]}
+{"kind":"textbox","id":"sh/vupk3q1w","slide":1,"name":"s0-space-title","text":"S0","textPreview":"S0","textChars":2,"textLines":1,"bbox":[346,187,70,28]}
+{"kind":"textbox","id":"sh/atg3a5kb","slide":1,"name":"s1-space-title","text":"S1","textPreview":"S1","textChars":2,"textLines":1,"bbox":[524,187,70,28]}
+{"kind":"shape","id":"sh/xw7250j2","slide":1,"name":"s0-axis","bbox":[343,240,0,115]}
+{"kind":"shape","id":"sh/wvylcvih","slide":1,"name":"s1-axis","bbox":[521,240,0,115]}
+{"kind":"shape","id":"sh/jipk7a18","slide":1,"name":"s0-high","bbox":[350,248,72,0]}
+{"kind":"shape","id":"sh/ixg3e50n","slide":1,"name":"s0-low","bbox":[350,329,72,0]}
+{"kind":"shape","id":"sh/5kr29kjy","slide":1,"name":"s1-high","bbox":[528,248,72,0]}
+{"kind":"shape","id":"sh/kjilgfid","slide":1,"name":"s1-low","bbox":[528,329,72,0]}
+{"kind":"textbox","id":"sh/7m94ba14","slide":1,"name":"s0-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[361,223,48,48]}
+{"kind":"textbox","id":"sh/6l03ip0j","slide":1,"name":"s0-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[364,307,42,42]}
+{"kind":"textbox","id":"sh/e9g769g3","slide":1,"name":"s1-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[539,223,48,48]}
+{"kind":"textbox","id":"sh/fapofex8","slide":1,"name":"s1-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[542,307,42,42]}
+{"kind":"shape","id":"sh/0vyp8jyt","slide":1,"name":"transition-facts","bbox":[324,424,292,178]}
+{"kind":"textbox","id":"sh/1w76hofe","slide":1,"name":"facts-head","text":"CONTROLLED CONTRAST","textPreview":"CONTROLLED CONTRAST","textChars":19,"textLines":1,"bbox":[342,434,256,30]}
+{"kind":"shape","id":"sh/2x07atgz","slide":1,"name":"fact-check-1","bbox":[338,478,16,16]}
+{"kind":"shape","id":"sh/ny9ojyxk","slide":1,"name":"fact-inner-1","bbox":[343,483,6,6]}
+{"kind":"textbox","id":"sh/ozipcjy5","slide":1,"name":"fact-1","text":"S0, S1, q, a fixed","textPreview":"S0, S1, q, a fixed","textChars":18,"textLines":1,"bbox":[362,470,226,32]}
+{"kind":"shape","id":"sh/p0r6lofq","slide":1,"name":"fact-check-2","bbox":[338,522,16,16]}
+{"kind":"shape","id":"sh/a107etgv","slide":1,"name":"fact-inner-2","bbox":[343,527,6,6]}
+{"kind":"textbox","id":"sh/b29onyxg","slide":1,"name":"fact-2","text":"A remains actionable","textPreview":"A remains actionable","textChars":20,"textLines":1,"bbox":[362,514,226,32]}
+{"kind":"shape","id":"sh/lwvadszy","slide":1,"name":"fact-check-3","bbox":[338,566,16,16]}
+{"kind":"shape","id":"sh/kv294nid","slide":1,"name":"fact-inner-3","bbox":[343,571,6,6]}
+{"kind":"textbox","id":"sh/zut8bihs","slide":1,"name":"fact-3","text":"winner changes A -> B","textPreview":"winner changes A -> B","textChars":21,"textLines":1,"bbox":[362,558,226,32]}
+{"kind":"textbox","id":"sh/ytkr2x07","slide":1,"name":"transition-foot","text":"World state changes;\nauthorization may not.","textPreview":"World state changes; | authorization may not.","textChars":43,"textLines":2,"bbox":[334,626,270,58]}
+{"kind":"shape","id":"sh/90vahczu","slide":1,"name":"core-panel","bbox":[628,88,402,632]}
+{"kind":"shape","id":"sh/8zm987i9","slide":1,"name":"core-head","bbox":[628,88,402,48]}
+{"kind":"textbox","id":"sh/7ydsf2ho","slide":1,"name":"core-title","text":"3   MATCHED PAIR GENERATION","textPreview":"3   MATCHED PAIR GENERATION","textChars":27,"textLines":1,"bbox":[646,91,366,42]}
+{"kind":"textbox","id":"sh/mx4r6x03","slide":1,"name":"core-question","text":"WHEN DOES THE TARGET RESOLVE?","textPreview":"WHEN DOES THE TARGET RESOLVE?","textChars":29,"textLines":1,"bbox":[652,151,354,36]}
+{"kind":"textbox","id":"sh/hofalczq","slide":1,"name":"timing-switch","text":"BIND\nTIME","textPreview":"BIND | TIME","textChars":9,"textLines":2,"bbox":[779,181,100,100]}
+{"kind":"shape","id":"sh/wnm9c7yl","slide":1,"name":"timing-stem","bbox":[829,279,0,35]}
+{"kind":"shape","id":"sh/tgnapoj2","slide":1,"name":"timing-branch","bbox":[726,314,206,0]}
+{"kind":"shape","id":"sh/sfetgjih","slide":1,"name":"timing-down-p","bbox":[726,314,0,26]}
+{"kind":"shape","id":"sh/re5sne1c","slide":1,"name":"timing-down-r","bbox":[932,314,0,186]}
+{"kind":"shape","id":"sh/6dwbet0r","slide":1,"name":"preserve-track","bbox":[650,334,356,128]}
+{"kind":"shape","id":"sh/1k7at8je","slide":1,"name":"preserve-lock-shackle","bbox":[672,360,38,36]}
+{"kind":"shape","id":"sh/gjytk3it","slide":1,"name":"preserve-lock-mask","bbox":[667,383,48,16]}
+{"kind":"shape","id":"sh/fi5sry18","slide":1,"name":"preserve-lock-body","bbox":[664,384,54,44]}
+{"kind":"shape","id":"sh/ehwbit0n","slide":1,"name":"preserve-lock-key","bbox":[686.5,398.5,9,9]}
+{"kind":"shape","id":"sh/p87ux8ja","slide":1,"name":"preserve-lock-key-stem","bbox":[688,404,6,13]}
+{"kind":"textbox","id":"sh/o7yto3ip","slide":1,"name":"preserve-mode","text":"PRESERVE","textPreview":"PRESERVE","textChars":8,"textLines":1,"bbox":[728,342,138,30]}
+{"kind":"textbox","id":"sh/mts7i5g7","slide":1,"name":"preserve-event-1","text":"REFRESH","textPreview":"REFRESH","textChars":7,"textLines":1,"bbox":[738,376,78,24]}
+{"kind":"textbox","id":"sh/7u18rahs","slide":1,"name":"preserve-event-2","text":"ACT","textPreview":"ACT","textChars":3,"textLines":1,"bbox":[872,376,60,24]}
+{"kind":"textbox","id":"sh/8fapkfyd","slide":1,"name":"preserve-bound","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[803,389,50,50]}
+{"kind":"textbox","id":"sh/9gjqtkzy","slide":1,"name":"preserve-gold","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[922,386,56,56]}
+{"kind":"textbox","id":"sh/uhs7mpgj","slide":1,"name":"preserve-bound-label","text":"bound S0","textPreview":"bound S0","textChars":8,"textLines":1,"bbox":[782,438,92,22]}
+{"kind":"textbox","id":"sh/vi18vuh4","slide":1,"name":"preserve-gold-label","text":"gold","textPreview":"gold","textChars":4,"textLines":1,"bbox":[920,442,60,20]}
+{"kind":"shape","id":"sh/wja9ofy9","slide":1,"name":"reeval-track","bbox":[650,494,356,128]}
+{"kind":"shape","id":"sh/hk3qxkzu","slide":1,"name":"reeval-clock-face","bbox":[662,529,58,58]}
+{"kind":"shape","id":"sh/ilcrqpgf","slide":1,"name":"reeval-clock-hand-1","bbox":[691,543,0,15]}
+{"kind":"shape","id":"sh/jml8zuh0","slide":1,"name":"reeval-clock-hand-2","bbox":[691,558,14,7]}
+{"kind":"shape","id":"sh/fqlo7ud8","slide":1,"name":"reeval-clock-hub","bbox":[687.5,554.5,7,7]}
+{"kind":"textbox","id":"sh/epc7epwn","slide":1,"name":"reeval-mode","text":"REEVALUATE","textPreview":"REEVALUATE","textChars":10,"textLines":1,"bbox":[728,502,172,30]}
+{"kind":"textbox","id":"sh/1snq94vy","slide":1,"name":"reeval-event-1","text":"DEFER","textPreview":"DEFER","textChars":5,"textLines":1,"bbox":[738,536,78,24]}
+{"kind":"textbox","id":"sh/grepgzet","slide":1,"name":"reeval-event-2","text":"SELECT","textPreview":"SELECT","textChars":6,"textLines":1,"bbox":[866,536,74,24]}
+{"kind":"textbox","id":"sh/rmlo3udw","slide":1,"name":"reeval-deferred","text":"?","textPreview":"?","textChars":1,"textLines":1,"bbox":[803,549,50,50]}
+{"kind":"textbox","id":"sh/6lc7apwb","slide":1,"name":"reeval-gold","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[922,546,56,56]}
+{"kind":"textbox","id":"sh/to365kv2","slide":1,"name":"reeval-deferred-label","text":"deferred","textPreview":"deferred","textChars":8,"textLines":1,"bbox":[782,598,92,22]}
+{"kind":"textbox","id":"sh/snupczeh","slide":1,"name":"reeval-gold-label","text":"gold","textPreview":"gold","textChars":4,"textLines":1,"bbox":[920,602,60,20]}
+{"kind":"shape","id":"sh/ji1ofad0","slide":1,"name":"core-conclusion","bbox":[664,646,328,58]}
+{"kind":"textbox","id":"sh/ihs765wf","slide":1,"name":"core-conclusion-text","text":"Same transition + opposite golds\nmake selective re-resolution measurable","textPreview":"Same transition + opposite golds | make selective re-resolution measurable","textChars":72,"textLines":2,"bbox":[676,654,304,42]}
+{"kind":"shape","id":"sh/8nqlgbud","slide":1,"name":"step-4-badge","bbox":[1084,94,32,32]}
+{"kind":"textbox","id":"sh/9ozm9gby","slide":1,"name":"step-4-number","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1084,94,32,32]}
+{"kind":"textbox","id":"sh/m183e1c7","slide":1,"name":"step-4-label","text":"RUN BOTH MEMBERS","textPreview":"RUN BOTH MEMBERS","textChars":16,"textLines":1,"bbox":[1126,93,258,34]}
+{"kind":"textbox","id":"sh/72h476ts","slide":1,"name":"run-same-interface","text":"same states, tools, and controller interface","textPreview":"same states, tools, and controller interface","textChars":44,"textLines":1,"bbox":[1092,137,444,30]}
+{"kind":"shape","id":"sh/wrq5kvu9","slide":1,"name":"input-p","bbox":[1088,240,88,52]}
+{"kind":"textbox","id":"sh/hsjmd0bu","slide":1,"name":"input-p-text","text":"P","textPreview":"P","textChars":1,"textLines":1,"bbox":[1088,245,88,42]}
+{"kind":"shape","id":"sh/up8nilc3","slide":1,"name":"input-r","bbox":[1088,328,88,52]}
+{"kind":"textbox","id":"sh/vqh4bqto","slide":1,"name":"input-r-text","text":"R","textPreview":"R","textChars":1,"textLines":1,"bbox":[1088,333,88,42]}
+{"kind":"shape","id":"sh/cv6l8ru5","slide":1,"name":"controller-chip","bbox":[1184,190,188,254]}
+{"kind":"shape","id":"sh/xwfm1wvq","slide":1,"name":"controller-robot-antenna","bbox":[1278,206,0,14]}
+{"kind":"shape","id":"sh/5srehwbu","slide":1,"name":"controller-robot-tip","bbox":[1274.5,200.5,7,7]}
+{"kind":"shape","id":"sh/4rid8ru9","slide":1,"name":"controller-robot-head","bbox":[1230,218,96,68]}
+{"kind":"shape","id":"sh/3q9wfmto","slide":1,"name":"controller-robot-eye-1","bbox":[1255,241,10,10]}
+{"kind":"shape","id":"sh/ip0v6hcj","slide":1,"name":"controller-robot-eye-2","bbox":[1291,241,10,10]}
+{"kind":"shape","id":"sh/ho7edcby","slide":1,"name":"controller-robot-mouth","bbox":[1261,266,34,0]}
+{"kind":"shape","id":"sh/gnyd4rud","slide":1,"name":"controller-robot-pin-l-0","bbox":[1220,234,10,0]}
+{"kind":"shape","id":"sh/vmpwbmds","slide":1,"name":"controller-robot-pin-r-0","bbox":[1326,234,10,0]}
+{"kind":"shape","id":"sh/ulgv2hc7","slide":1,"name":"controller-robot-pin-l-1","bbox":[1220,252,10,0]}
+{"kind":"shape","id":"sh/tk7e9cvm","slide":1,"name":"controller-robot-pin-r-1","bbox":[1326,252,10,0]}
+{"kind":"shape","id":"sh/8jyd07u1","slide":1,"name":"controller-robot-pin-l-2","bbox":[1220,270,10,0]}
+{"kind":"shape","id":"sh/ypwbadsz","slide":1,"name":"controller-robot-pin-r-2","bbox":[1326,270,10,0]}
+{"kind":"textbox","id":"sh/jq5sji9k","slide":1,"name":"controller-label","text":"CONTROLLER\nPROBE","textPreview":"CONTROLLER | PROBE","textChars":16,"textLines":2,"bbox":[1198,302,160,60]}
+{"kind":"shape","id":"sh/kretcna5","slide":1,"name":"controller-rule","bbox":[1206,372,144,0]}
+{"kind":"textbox","id":"sh/lsnalsrq","slide":1,"name":"controller-io","text":"instruction + history","textPreview":"instruction + history","textChars":21,"textLines":1,"bbox":[1196,378,164,24]}
+{"kind":"textbox","id":"sh/a1cb6ts3","slide":1,"name":"controller-target","text":"selected ID","textPreview":"selected ID","textChars":11,"textLines":1,"bbox":[1202,405,152,24]}
+{"kind":"textbox","id":"sh/b2lsfyto","slide":1,"name":"output-p","text":"T_P","textPreview":"T_P","textChars":3,"textLines":1,"bbox":[1451,247,66,66]}
+{"kind":"textbox","id":"sh/w3ut83at","slide":1,"name":"output-r","text":"T_R","textPreview":"T_R","textChars":3,"textLines":1,"bbox":[1451,335,66,66]}
+{"kind":"textbox","id":"sh/x43ah8be","slide":1,"name":"output-p-gold","text":"gold A","textPreview":"gold A","textChars":6,"textLines":1,"bbox":[1446,313,76,22]}
+{"kind":"textbox","id":"sh/2xsb2tsr","slide":1,"name":"output-r-gold","text":"gold B","textPreview":"gold B","textChars":6,"textLines":1,"bbox":[1446,401,76,22]}
+{"kind":"shape","id":"sh/nylsbytc","slide":1,"name":"selected-id-db","bbox":[1182,438,66,76]}
+{"kind":"textbox","id":"sh/r2h8ju94","slide":1,"name":"selected-id-db-label","text":"ID","textPreview":"ID","textChars":2,"textLines":1,"bbox":[1188,458,54,36]}
+{"kind":"shape","id":"sh/q187ap8j","slide":1,"name":"action-tool","bbox":[1326,441,92,70]}
+{"kind":"textbox","id":"sh/d4zql4ra","slide":1,"name":"action-tool-label","text":"WRITE","textPreview":"WRITE","textChars":5,"textLines":1,"bbox":[1334,452,76,46]}
+{"kind":"shape","id":"sh/s3qpczqp","slide":1,"name":"final-state-db","bbox":[1466,438,66,76]}
+{"kind":"textbox","id":"sh/f6187u9g","slide":1,"name":"final-state-db-label","text":"S1+","textPreview":"S1+","textChars":3,"textLines":1,"bbox":[1472,458,54,36]}
+{"kind":"textbox","id":"sh/e587ep8v","slide":1,"name":"consequence-label","text":"target-to-write consequence","textPreview":"target-to-write consequence","textChars":27,"textLines":1,"bbox":[1150,521,386,28]}
+{"kind":"shape","id":"sh/18jq9476","slide":1,"name":"metric-divider","bbox":[1086,558,456,0]}
+{"kind":"shape","id":"sh/07apgzql","slide":1,"name":"step-5-badge","bbox":[1372,560,32,32]}
+{"kind":"textbox","id":"sh/vax8ba9w","slide":1,"name":"step-5-number","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1372,560,32,32]}
+{"kind":"textbox","id":"sh/u9o7258b","slide":1,"name":"step-5-label","text":"READOUTS","textPreview":"READOUTS","textChars":8,"textLines":1,"bbox":[1412,560,116,32]}
+{"kind":"textbox","id":"sh/k32dw72x","slide":1,"name":"metric-pair-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1095,569,34,34]}
+{"kind":"textbox","id":"sh/l4bepc3i","slide":1,"name":"metric-pair-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1127,569,34,34]}
+{"kind":"textbox","id":"sh/y10vuhk7","slide":1,"name":"metric-pair","text":"PairAcc","textPreview":"PairAcc","textChars":7,"textLines":1,"bbox":[1172,564,124,30]}
+{"kind":"textbox","id":"sh/z2twn2lc","slide":1,"name":"metric-pair-desc","text":"both pair members correct","textPreview":"both pair members correct","textChars":25,"textLines":1,"bbox":[1172,592,334,28]}
+{"kind":"textbox","id":"sh/czids721","slide":1,"name":"metric-sub-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1101,623,38,38]}
+{"kind":"shape","id":"sh/x0relc3m","slide":1,"name":"metric-sub-arrow","bbox":[1142,634,58,16]}
+{"kind":"textbox","id":"sh/ad0vqxkv","slide":1,"name":"metric-sub-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1205,623,38,38]}
+{"kind":"textbox","id":"sh/be9wj2lg","slide":1,"name":"metric-sub","text":"Conditional substitution","textPreview":"Conditional substitution","textChars":24,"textLines":1,"bbox":[1260,619,270,30]}
+{"kind":"textbox","id":"sh/wvmx4r25","slide":1,"name":"metric-sub-desc","text":"B replaces valid bound A","textPreview":"B replaces valid bound A","textChars":24,"textLines":1,"bbox":[1260,647,270,28]}
+{"kind":"shape","id":"sh/hwvexwjq","slide":1,"name":"metric-write-db","bbox":[1100,688,54,46]}
+{"kind":"textbox","id":"sh/pozidsf6","slide":1,"name":"metric-write","text":"Executed state diff","textPreview":"Executed state diff","textChars":19,"textLines":1,"bbox":[1172,682,210,30]}
+{"kind":"textbox","id":"sh/onq1k7y1","slide":1,"name":"metric-write-desc","text":"which entity received the action","textPreview":"which entity received the action","textChars":32,"textLines":1,"bbox":[1172,710,354,26]}
+{"kind":"notes","id":"nt/1pbg2g","slide":1,"text":"[Sources]\n- Internal manuscript: paper/AnonymousSubmission2027.tex (Diagnostic Construction; Measurements and Denominators; Controller Probes).\n- User-supplied visual references: GSD problem/method overview; SymPareto comparative framework; MetaEval multi-step framework. Used for hierarchy and scientific-illustration grammar only; no artwork copied.\n- Palette: #264a56, #407a7f, #248d82, #60aa84, #b4b87f, #eabc6b, #f1a464, #e56d4e."}

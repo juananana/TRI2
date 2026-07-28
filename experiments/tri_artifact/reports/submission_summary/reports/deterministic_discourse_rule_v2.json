@@ -1,0 +1,228 @@
+{
+  "protocol": "reports/TRI_deterministic_discourse_rule_v2_protocol.md",
+  "status": "post_hoc_strengthened_upper_baseline",
+  "allowed_inputs": [
+    "instruction",
+    "initial_state",
+    "refreshed_state",
+    "action_schema"
+  ],
+  "forbidden_inputs": [
+    "binding",
+    "style",
+    "phenomenon",
+    "update",
+    "selector",
+    "pre_refresh_target",
+    "post_refresh_target",
+    "correct_target",
+    "new_leader",
+    "bound_entity_present_after_refresh",
+    "bound_entity_actionable_after_refresh"
+  ],
+  "bootstrap_samples": 10000,
+  "seed": 20260721,
+  "datasets": [
+    {
+      "dataset": "v3",
+      "data_path": "data/temporal_referent_v3_language_clusters.jsonl",
+      "overall": {
+        "n": 160,
+        "correct": 148,
+        "mode_correct": 144,
+        "unresolved": 0
+      },
+      "actionable_core": {
+        "n": 128,
+        "correct": 120,
+        "mode_correct": 116,
+        "unresolved": 0
+      },
+      "reject_policy": {
+        "n": 32,
+        "correct": 28,
+        "mode_correct": 28,
+        "unresolved": 0
+      },
+      "by_binding": {
+        "anchored": {
+          "n": 80,
+          "correct": 74,
+          "mode_correct": 72,
+          "unresolved": 0
+        },
+        "dynamic": {
+          "n": 80,
+          "correct": 74,
+          "mode_correct": 72,
+          "unresolved": 0
+        }
+      },
+      "errors": {},
+      "cta_comparisons": {
+        "Qwen3.5": {
+          "path": "runs/v3_exact_predecessor_qwen_full.jsonl",
+          "n": 160,
+          "n_clusters": 20,
+          "rule_accuracy": 0.925,
+          "cta_accuracy": 0.95,
+          "cta_minus_rule": 0.025,
+          "cluster_ci95": [
+            -0.075,
+            0.15
+          ]
+        },
+        "GLM-5.1": {
+          "path": "runs/v3_exact_predecessor_glm_full.jsonl",
+          "n": 160,
+          "n_clusters": 20,
+          "rule_accuracy": 0.925,
+          "cta_accuracy": 0.9625,
+          "cta_minus_rule": 0.0375,
+          "cluster_ci95": [
+            -0.0625,
+            0.1625
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "human_rewrite",
+      "data_path": "data/temporal_referent_human_rewrites_v1.jsonl",
+      "overall": {
+        "n": 50,
+        "correct": 48,
+        "mode_correct": 48,
+        "unresolved": 0
+      },
+      "actionable_core": {
+        "n": 40,
+        "correct": 38,
+        "mode_correct": 38,
+        "unresolved": 0
+      },
+      "reject_policy": {
+        "n": 10,
+        "correct": 10,
+        "mode_correct": 10,
+        "unresolved": 0
+      },
+      "by_binding": {
+        "anchored": {
+          "n": 25,
+          "correct": 24,
+          "mode_correct": 24,
+          "unresolved": 0
+        },
+        "dynamic": {
+          "n": 25,
+          "correct": 24,
+          "mode_correct": 24,
+          "unresolved": 0
+        }
+      },
+      "errors": {},
+      "cta_comparisons": {
+        "Qwen3.5": {
+          "path": "runs/20260718T233608Z_Qwen_Qwen3.5-122B-A10B_compile_then_act_human_rewrites_v1.jsonl",
+          "n": 50,
+          "n_clusters": 18,
+          "rule_accuracy": 0.96,
+          "cta_accuracy": 0.9,
+          "cta_minus_rule": -0.06,
+          "cluster_ci95": [
+            -0.1590909090909091,
+            0.0425531914893617
+          ]
+        },
+        "GLM-5.1": {
+          "path": "runs/20260718T234334Z_Pro_zai-org_GLM-5.1_compile_then_act_human_rewrites_v1.jsonl",
+          "n": 50,
+          "n_clusters": 18,
+          "rule_accuracy": 0.96,
+          "cta_accuracy": 0.98,
+          "cta_minus_rule": 0.02,
+          "cluster_ci95": [
+            -0.044444444444444446,
+            0.09090909090909091
+          ]
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "data_path": "data/temporal_referent_v7_core_replication.jsonl",
+      "overall": {
+        "n": 240,
+        "correct": 220,
+        "mode_correct": 210,
+        "unresolved": 0
+      },
+      "actionable_core": {
+        "n": 240,
+        "correct": 220,
+        "mode_correct": 210,
+        "unresolved": 0
+      },
+      "reject_policy": {
+        "n": 0,
+        "correct": 0,
+        "mode_correct": 0,
+        "unresolved": 0
+      },
+      "by_binding": {
+        "anchored": {
+          "n": 120,
+          "correct": 110,
+          "mode_correct": 106,
+          "unresolved": 0
+        },
+        "dynamic": {
+          "n": 120,
+          "correct": 110,
+          "mode_correct": 104,
+          "unresolved": 0
+        }
+      },
+      "errors": {},
+      "cta_comparisons": {
+        "Qwen3.5": {
+          "path": "runs/v7_qwen_compile_then_act_full.jsonl",
+          "n": 240,
+          "n_clusters": 40,
+          "rule_accuracy": 0.9166666666666666,
+          "cta_accuracy": 0.7083333333333334,
+          "cta_minus_rule": -0.20833333333333334,
+          "cluster_ci95": [
+            -0.2875,
+            -0.13333333333333333
+          ]
+        },
+        "GLM-5.1": {
+          "path": "runs/v7_glm_compile_then_act_full.jsonl",
+          "n": 240,
+          "n_clusters": 40,
+          "rule_accuracy": 0.9166666666666666,
+          "cta_accuracy": 0.9416666666666667,
+          "cta_minus_rule": 0.025,
+          "cluster_ci95": [
+            -0.004166666666666667,
+            0.05416666666666667
+          ]
+        },
+        "DeepSeek": {
+          "path": "runs/v7_deepseek_compile_then_act_full_v1.jsonl",
+          "n": 240,
+          "n_clusters": 40,
+          "rule_accuracy": 0.9166666666666666,
+          "cta_accuracy": 0.9125,
+          "cta_minus_rule": -0.004166666666666667,
+          "cluster_ci95": [
+            -0.05,
+            0.041666666666666664
+          ]
+        }
+      }
+    }
+  ]
+}

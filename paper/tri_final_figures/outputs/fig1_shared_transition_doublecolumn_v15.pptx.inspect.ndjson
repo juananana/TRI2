@@ -1,0 +1,142 @@
+{"kind":"deck","id":"pr/4r1as0","name":"Deck"}
+{"kind":"layout","layoutId":"fde1dcbc-53cb-4c0b-a16f-621e786dd05b","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"2affe2c4-28c5-417d-8b98-2108142aac22","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/yl3hm4","slide":1,"title":"Resolution timing changes the correct target","textShapes":40}
+{"kind":"textbox","id":"sh/byl4fu18","slide":1,"name":"figure-title","text":"Resolution timing changes the correct target","textPreview":"Resolution timing changes the correct target","textChars":44,"textLines":1,"bbox":[26,15,980,46]}
+{"kind":"textbox","id":"sh/czu5ozit","slide":1,"name":"figure-tagline","text":"The same refresh supports opposite-gold instructions.","textPreview":"The same refresh supports opposite-gold instructions.","textChars":53,"textLines":1,"bbox":[28,59,860,34]}
+{"kind":"shape","id":"sh/xknmhkze","slide":1,"name":"scenario-header","bbox":[24,126,770,54]}
+{"kind":"textbox","id":"sh/ylwnqp0z","slide":1,"name":"scenario-header-text","text":"SHARED SCENARIO","textPreview":"SHARED SCENARIO","textChars":15,"textLines":1,"bbox":[40,135,738,35]}
+{"kind":"shape","id":"sh/zm54juhk","slide":1,"name":"scenario-frame","bbox":[24,180,770,265]}
+{"kind":"shape","id":"sh/kne5szi5","slide":1,"name":"scenario-a-back2","bbox":[97.8,215,180.5,112.1]}
+{"kind":"shape","id":"sh/lonml4zq","slide":1,"name":"scenario-a-back1","bbox":[86.4,225.45,180.5,112.1]}
+{"kind":"shape","id":"sh/mpwnu90b","slide":1,"name":"scenario-a-front","bbox":[75,236.85,180.5,112.1]}
+{"kind":"shape","id":"sh/7q54nehg","slide":1,"name":"scenario-a-top-stripe-0","bbox":[79.75,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/jypwfyhc","slide":1,"name":"scenario-a-bottom-stripe-0","bbox":[79.75,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/yxgvmt0r","slide":1,"name":"scenario-a-top-stripe-1","bbox":[96.85,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/lkreh8z2","slide":1,"name":"scenario-a-bottom-stripe-1","bbox":[96.85,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/kjido3ix","slide":1,"name":"scenario-a-top-stripe-2","bbox":[113.95,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/bupwbeh0","slide":1,"name":"scenario-a-bottom-stripe-2","bbox":[113.95,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/atgvi90f","slide":1,"name":"scenario-a-top-stripe-3","bbox":[131.05,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/xw7edoz6","slide":1,"name":"scenario-a-bottom-stripe-3","bbox":[131.05,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/cvydkjil","slide":1,"name":"scenario-a-top-stripe-4","bbox":[148.15,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/vq9wnihk","slide":1,"name":"scenario-a-bottom-stripe-4","bbox":[148.15,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/up0fud0z","slide":1,"name":"scenario-a-top-stripe-5","bbox":[165.25,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/ql4zmhk7","slide":1,"name":"scenario-a-bottom-stripe-5","bbox":[165.25,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/rmdgfm1s","slide":1,"name":"scenario-a-top-stripe-6","bbox":[182.35,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/snmhor2x","slide":1,"name":"scenario-a-bottom-stripe-6","bbox":[182.35,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/dovyhwji","slide":1,"name":"scenario-a-top-stripe-7","bbox":[199.45,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/e94zqhk3","slide":1,"name":"scenario-a-bottom-stripe-7","bbox":[199.45,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/faxgjm1o","slide":1,"name":"scenario-a-top-stripe-8","bbox":[216.55,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/0b6hsr29","slide":1,"name":"scenario-a-bottom-stripe-8","bbox":[216.55,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/1cfilwju","slide":1,"name":"scenario-a-top-stripe-9","bbox":[233.65,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/udkzexkz","slide":1,"name":"scenario-a-bottom-stripe-9","bbox":[233.65,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/vetg721k","slide":1,"name":"scenario-a-fold-left","bbox":[82.6,254.9,82.65,59.85]}
+{"kind":"shape","id":"sh/xkja947y","slide":1,"name":"scenario-a-fold-right","bbox":[165.25,254.9,82.65,59.85]}
+{"kind":"shape","id":"sh/wjat0zqt","slide":1,"name":"scenario-a-badge","bbox":[136.75,267.25,57,57]}
+{"kind":"textbox","id":"sh/bi1s7up8","slide":1,"name":"scenario-a-label","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[136.75,269.15,57,53.2]}
+{"kind":"shape","id":"sh/ahsbyp8n","slide":1,"name":"scenario-b-back2","bbox":[542.8,215,180.5,112.1]}
+{"kind":"shape","id":"sh/5o3ad47a","slide":1,"name":"scenario-b-back1","bbox":[531.4,225.45,180.5,112.1]}
+{"kind":"shape","id":"sh/knut4zqp","slide":1,"name":"scenario-b-front","bbox":[520,236.85,180.5,112.1]}
+{"kind":"shape","id":"sh/jmlsbup4","slide":1,"name":"scenario-b-top-stripe-0","bbox":[524.75,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/ylsb2p8j","slide":1,"name":"scenario-b-bottom-stripe-0","bbox":[524.75,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/1sza1076","slide":1,"name":"scenario-b-top-stripe-1","bbox":[541.85,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/0rq9sfql","slide":1,"name":"scenario-b-bottom-stripe-1","bbox":[541.85,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/47yd0na9","slide":1,"name":"scenario-b-top-stripe-2","bbox":[558.95,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/p87e98re","slide":1,"name":"scenario-b-bottom-stripe-2","bbox":[558.95,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/25gvyds3","slide":1,"name":"scenario-b-top-stripe-3","bbox":[576.05,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/36pw7i9o","slide":1,"name":"scenario-b-bottom-stripe-3","bbox":[576.05,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/gjedw3ax","slide":1,"name":"scenario-b-top-stripe-4","bbox":[593.15,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/h4ne58ri","slide":1,"name":"scenario-b-bottom-stripe-4","bbox":[593.15,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/uhwvutsr","slide":1,"name":"scenario-b-top-stripe-5","bbox":[610.25,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/fi5w3y9c","slide":1,"name":"scenario-b-bottom-stripe-5","bbox":[610.25,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/sfeds3a1","slide":1,"name":"scenario-b-top-stripe-6","bbox":[627.35,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/tgne1or6","slide":1,"name":"scenario-b-bottom-stripe-6","bbox":[627.35,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/valwbed8","slide":1,"name":"scenario-b-top-stripe-7","bbox":[644.45,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/a9cfitcn","slide":1,"name":"scenario-b-bottom-stripe-7","bbox":[644.45,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/xc3edove","slide":1,"name":"scenario-b-top-stripe-8","bbox":[661.55,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/wbuxkjut","slide":1,"name":"scenario-b-bottom-stripe-8","bbox":[661.55,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/je5wfyd4","slide":1,"name":"scenario-b-top-stripe-9","bbox":[678.65,237.8,16.15,7.6]}
+{"kind":"shape","id":"sh/idcfmtcz","slide":1,"name":"scenario-b-bottom-stripe-9","bbox":[678.65,340.4,16.15,7.6]}
+{"kind":"shape","id":"sh/5gneh8va","slide":1,"name":"scenario-b-fold-left","bbox":[527.6,254.9,82.65,59.85]}
+{"kind":"shape","id":"sh/kfexo3up","slide":1,"name":"scenario-b-fold-right","bbox":[610.25,254.9,82.65,59.85]}
+{"kind":"shape","id":"sh/725wjidg","slide":1,"name":"scenario-b-badge","bbox":[581.75,267.25,57,57]}
+{"kind":"textbox","id":"sh/6hwfqdcv","slide":1,"name":"scenario-b-label","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[581.75,269.15,57,53.2]}
+{"kind":"shape","id":"sh/2xgzihw3","slide":1,"name":"scenario-refresh-arrow","bbox":[329,278,156,45]}
+{"kind":"textbox","id":"sh/3y90b2xo","slide":1,"name":"scenario-refresh","text":"REFRESH","textPreview":"REFRESH","textChars":7,"textLines":1,"bbox":[341,240,132,34]}
+{"kind":"textbox","id":"sh/4zihk7e9","slide":1,"name":"scenario-a-caption","text":"Pre-refresh winner","textPreview":"Pre-refresh winner","textChars":18,"textLines":1,"bbox":[64,381,225,35]}
+{"kind":"textbox","id":"sh/p0ridcfu","slide":1,"name":"scenario-b-caption","text":"Refreshed winner","textPreview":"Refreshed winner","textChars":16,"textLines":1,"bbox":[508,381,225,35]}
+{"kind":"shape","id":"sh/u9gzexw7","slide":1,"name":"control-frame-shadow","bbox":[818,100,744,356]}
+{"kind":"shape","id":"sh/fap072xc","slide":1,"name":"control-frame","bbox":[806,88,744,356]}
+{"kind":"shape","id":"sh/gbyhg7ex","slide":1,"name":"memory-box","bbox":[988,126,34,34]}
+{"kind":"shape","id":"sh/hw7i9cfi","slide":1,"name":"memory-tick-a","bbox":[995,144,8,9]}
+{"kind":"shape","id":"sh/e5kzq1wb","slide":1,"name":"memory-tick-b","bbox":[1003,133,16,20]}
+{"kind":"textbox","id":"sh/z6t0jmdw","slide":1,"name":"memory-title","text":"MEMORY PRESERVED","textPreview":"MEMORY PRESERVED","textChars":16,"textLines":1,"bbox":[1034,121,330,34]}
+{"kind":"textbox","id":"sh/90v290zy","slide":1,"name":"memory-values","text":"A before refresh   ·   B after refresh","textPreview":"A before refresh   ·   B after refresh","textChars":38,"textLines":1,"bbox":[1034,153,410,28]}
+{"kind":"textbox","id":"sh/ozmlgvyd","slide":1,"name":"control-state-title","text":"REFERENTIAL CONTROL STATE","textPreview":"REFERENTIAL CONTROL STATE","textChars":25,"textLines":1,"bbox":[1001,184,382,30]}
+{"kind":"shape","id":"sh/nydk7qhs","slide":1,"name":"control-state-divider","bbox":[1180,216,0,188]}
+{"kind":"textbox","id":"sh/mx43elg7","slide":1,"name":"preserve-index","text":"#1","textPreview":"#1","textChars":2,"textLines":1,"bbox":[838,214,54,28]}
+{"kind":"shape","id":"sh/1wb25gz2","slide":1,"name":"preserve-it","bbox":[868,258,52,52]}
+{"kind":"textbox","id":"sh/0v21cbyh","slide":1,"name":"preserve-it-label","text":"it","textPreview":"it","textChars":2,"textLines":1,"bbox":[868,259,52,48]}
+{"kind":"shape","id":"sh/zutk36hw","slide":1,"name":"preserve-path-a","bbox":[930,272,62,23]}
+{"kind":"shape","id":"sh/etkja1gb","slide":1,"name":"preserve-lock-shackle","bbox":[1009.2,253,32.4,30.6]}
+{"kind":"shape","id":"sh/lsf2hkf6","slide":1,"name":"preserve-lock-body","bbox":[1004.7,272.8,41.4,30.6]}
+{"kind":"shape","id":"sh/kr6lofyl","slide":1,"name":"preserve-lock-hole","bbox":[1020.9,280.9,9,9]}
+{"kind":"shape","id":"sh/gzaxw3m5","slide":1,"name":"preserve-lock-stem","bbox":[1023.6,287.2,3.6,9]}
+{"kind":"shape","id":"sh/10je583q","slide":1,"name":"preserve-path-b","bbox":[1058,272,43,23]}
+{"kind":"shape","id":"sh/exsfut4z","slide":1,"name":"preserve-target","bbox":[1108,257,53,53]}
+{"kind":"textbox","id":"sh/fy1w3ylk","slide":1,"name":"preserve-target-label","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1108,258,53,49]}
+{"kind":"textbox","id":"sh/onux0nm1","slide":1,"name":"preserve-mode","text":"BOUND BEFORE REFRESH","textPreview":"BOUND BEFORE REFRESH","textChars":20,"textLines":1,"bbox":[828,319,342,32]}
+{"kind":"textbox","id":"sh/po3e9s3m","slide":1,"name":"preserve-desc","text":"target already committed","textPreview":"target already committed","textChars":24,"textLines":1,"bbox":[828,364,342,27]}
+{"kind":"textbox","id":"sh/21cfyd4b","slide":1,"name":"reevaluate-index","text":"#2","textPreview":"#2","textChars":2,"textLines":1,"bbox":[1194,214,54,28]}
+{"kind":"textbox","id":"sh/32lw7ilg","slide":1,"name":"reevaluate-unresolved-it","text":"it","textPreview":"it","textChars":2,"textLines":1,"bbox":[1271,224,32,30]}
+{"kind":"shape","id":"sh/4rqdojmx","slide":1,"name":"reevaluate-unresolved-line","bbox":[1309,239,63,0]}
+{"kind":"shape","id":"sh/5szexoni","slide":1,"name":"reevaluate-unresolved-arrow","bbox":[1363,233,28,12]}
+{"kind":"textbox","id":"sh/nmp03m50","slide":1,"name":"reevaluate-unresolved-q","text":"?","textPreview":"?","textChars":1,"textLines":1,"bbox":[1398,224,32,30]}
+{"kind":"shape","id":"sh/mlgzahof","slide":1,"name":"reevaluate-it","bbox":[1205,268,50,50]}
+{"kind":"textbox","id":"sh/9o7i5wn6","slide":1,"name":"reevaluate-it-label","text":"it","textPreview":"it","textChars":2,"textLines":1,"bbox":[1205,269,50,46]}
+{"kind":"shape","id":"sh/8nyhcr6l","slide":1,"name":"reevaluate-path-a","bbox":[1265,282,52,22]}
+{"kind":"shape","id":"sh/zi5gzm5o","slide":1,"name":"reevaluate-hourglass-top","bbox":[1325,273.44,34.56,0]}
+{"kind":"shape","id":"sh/yhwz6hoj","slide":1,"name":"reevaluate-hourglass-bottom","bbox":[1325,310.88,34.56,0]}
+{"kind":"shape","id":"sh/lk7i1cnu","slide":1,"name":"reevaluate-hourglass-side-left","bbox":[1330.04,277.76,24.48,28.8]}
+{"kind":"shape","id":"sh/0jeh8r69","slide":1,"name":"reevaluate-hourglass-side-right","bbox":[1330.04,277.76,24.48,28.8]}
+{"kind":"shape","id":"sh/bu5gv2ps","slide":1,"name":"reevaluate-hourglass-sand-top","bbox":[1336.52,279.2,11.52,9.36]}
+{"kind":"shape","id":"sh/qtwz2xo7","slide":1,"name":"reevaluate-hourglass-sand-bottom","bbox":[1335.8,297.92,12.96,8.64]}
+{"kind":"shape","id":"sh/369sfet8","slide":1,"name":"reevaluate-hourglass-sand-neck","bbox":[1340.12,290,4.32,4.32]}
+{"kind":"shape","id":"sh/250r69c3","slide":1,"name":"reevaluate-path-b","bbox":[1369,282,47,22]}
+{"kind":"shape","id":"sh/p8rahobe","slide":1,"name":"reevaluate-target","bbox":[1425,268,50,50]}
+{"kind":"textbox","id":"sh/o7i98jut","slide":1,"name":"reevaluate-target-label","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1425,269,50,46]}
+{"kind":"textbox","id":"sh/butsjytk","slide":1,"name":"reevaluate-mode","text":"DEFERRED UNTIL AFTER REFRESH","textPreview":"DEFERRED UNTIL AFTER REFRESH","textChars":28,"textLines":1,"bbox":[1188,322,344,36]}
+{"kind":"textbox","id":"sh/qtkbatcz","slide":1,"name":"reevaluate-desc","text":"target selected after refresh","textPreview":"target selected after refresh","textChars":29,"textLines":1,"bbox":[1188,364,344,27]}
+{"kind":"shape","id":"sh/xwbalobq","slide":1,"name":"bottom-rule","bbox":[24,486,1552,0]}
+{"kind":"textbox","id":"sh/cv2tcju5","slide":1,"name":"matched-title","text":"OPPOSITE-GOLD MATCHED PAIR","textPreview":"OPPOSITE-GOLD MATCHED PAIR","textChars":26,"textLines":1,"bbox":[24,492,510,31]}
+{"kind":"textbox","id":"sh/zytsnytg","slide":1,"name":"matched-note","text":"same states  ·  same selector  ·  only timing changes","textPreview":"same states  ·  same selector  ·  only timing changes","textChars":53,"textLines":1,"bbox":[535,493,620,29]}
+{"kind":"textbox","id":"sh/yxkbetcv","slide":1,"name":"guide-instruction","text":"INSTRUCTION","textPreview":"INSTRUCTION","textChars":11,"textLines":1,"bbox":[140,521,300,24]}
+{"kind":"textbox","id":"sh/w3m943q9","slide":1,"name":"guide-target","text":"CORRECT TARGET","textPreview":"CORRECT TARGET","textChars":14,"textLines":1,"bbox":[790,521,250,24]}
+{"kind":"textbox","id":"sh/h4vad8ru","slide":1,"name":"guide-failure","text":"COMPLEMENTARY FAILURE","textPreview":"COMPLEMENTARY FAILURE","textChars":21,"textLines":1,"bbox":[1110,521,360,24]}
+{"kind":"shape","id":"sh/u14r2t83","slide":1,"name":"row-1-accent","bbox":[24,548,7,79]}
+{"kind":"textbox","id":"sh/v2dsby9o","slide":1,"name":"row-1-index","text":"#1","textPreview":"#1","textChars":2,"textLines":1,"bbox":[38,553,70,35]}
+{"kind":"textbox","id":"sh/8z2903qx","slide":1,"name":"row-1-text","text":"Choose the highest-priority unread email now.\nRefresh the mailbox, then reply to it.","textPreview":"Choose the highest-priority unread email now. | Refresh the mailbox, then reply to it.","textChars":84,"textLines":2,"bbox":[140,548,572,72]}
+{"kind":"shape","id":"sh/90vq9ori","slide":1,"name":"row-1-to-target","bbox":[722,574,50,20]}
+{"kind":"textbox","id":"sh/mxkryt87","slide":1,"name":"row-1-target","text":"Email A","textPreview":"Email A","textChars":7,"textLines":1,"bbox":[785,556,265,48]}
+{"kind":"shape","id":"sh/7yt87y9s","slide":1,"name":"row-1-target-rule","bbox":[837,609,161,0]}
+{"kind":"shape","id":"sh/kv29wjq1","slide":1,"name":"failure-1-from","bbox":[1090,557,50,50]}
+{"kind":"textbox","id":"sh/lwbq5orm","slide":1,"name":"failure-1-from-label","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1090,559,50,46]}
+{"kind":"shape","id":"sh/1s369kja","slide":1,"name":"failure-1-arrow","bbox":[1150,571,57,22]}
+{"kind":"shape","id":"sh/0rup0f2p","slide":1,"name":"failure-1-to","bbox":[1217,557,50,50]}
+{"kind":"textbox","id":"sh/fqlo7a1k","slide":1,"name":"failure-1-to-label","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1217,559,50,46]}
+{"kind":"textbox","id":"sh/epc7y5kz","slide":1,"name":"failure-1-label","text":"Incorrect re-resolution","textPreview":"Incorrect re-resolution","textChars":23,"textLines":1,"bbox":[1282,560,285,44]}
+{"kind":"shape","id":"sh/do3650je","slide":1,"name":"rows-divider","bbox":[24,635,1552,0]}
+{"kind":"shape","id":"sh/s3apwv2t","slide":1,"name":"row-2-accent","bbox":[24,647,7,79]}
+{"kind":"textbox","id":"sh/r21o3q18","slide":1,"name":"row-2-index","text":"#2","textPreview":"#2","textChars":2,"textLines":1,"bbox":[38,652,70,35]}
+{"kind":"textbox","id":"sh/q1s7ulkn","slide":1,"name":"row-2-text","text":"Refresh the mailbox first.\nThen choose the highest-priority unread email and reply.","textPreview":"Refresh the mailbox first. | Then choose the highest-priority unread email and reply.","textChars":83,"textLines":2,"bbox":[140,647,572,72]}
+{"kind":"shape","id":"sh/xknqh4ji","slide":1,"name":"row-2-to-target","bbox":[722,673,50,20]}
+{"kind":"textbox","id":"sh/czep8z2x","slide":1,"name":"row-2-target","text":"Email B","textPreview":"Email B","textChars":7,"textLines":1,"bbox":[785,655,265,48]}
+{"kind":"shape","id":"sh/utovmxw3","slide":1,"name":"row-2-target-rule","bbox":[837,708,161,0]}
+{"kind":"shape","id":"sh/vuxcf2do","slide":1,"name":"failure-2-from","bbox":[1090,656,50,50]}
+{"kind":"textbox","id":"sh/wv6do7e9","slide":1,"name":"failure-2-from-label","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1090,658,50,46]}
+{"kind":"shape","id":"sh/hwfehcvu","slide":1,"name":"failure-2-arrow","bbox":[1150,670,57,22]}
+{"kind":"shape","id":"sh/mp4vixw7","slide":1,"name":"failure-2-to","bbox":[1217,656,50,50]}
+{"kind":"textbox","id":"sh/7qdcbids","slide":1,"name":"failure-2-to-label","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1217,658,50,46]}
+{"kind":"textbox","id":"sh/8rmdkned","slide":1,"name":"failure-2-label","text":"Incorrect early lock","textPreview":"Incorrect early lock","textChars":20,"textLines":1,"bbox":[1282,659,285,44]}
+{"kind":"shape","id":"sh/9sfudsvy","slide":1,"name":"bottom-rule-final","bbox":[24,738,1552,0]}
+{"kind":"notes","id":"nt/yl3hm4","slide":1,"text":""}

@@ -1,0 +1,796 @@
+{
+  "audit_id": "full_diagnostic",
+  "bootstrap": {
+    "samples": 10000,
+    "seed": 20260726,
+    "unit": "pair/workflow cluster"
+  },
+  "boundary": "Matched actor evidence only. Human rewrites retain authored task semantics; source-grounded contrasts are controlled interventions, not native benchmark prevalence or open-language proof.",
+  "evidence_status": "post-primary; protocol frozen before own calls",
+  "models": [
+    {
+      "cluster_sizes": {
+        "2": 80
+      },
+      "clusters": 80,
+      "decision_visible_minus_history": {
+        "actionable_e2e": {
+          "ci95_cluster": [
+            0.08396946564885499,
+            0.19999999999999996
+          ],
+          "difference": 0.140625,
+          "left": "history_only",
+          "right": "decision_visible"
+        },
+        "changed_pairacc": {
+          "ci95_cluster": [
+            0.2857142857142857,
+            0.7777777777777777
+          ],
+          "difference": 0.53125,
+          "left": "history_only",
+          "right": "decision_visible"
+        }
+      },
+      "enforcement": {
+        "harms": 0,
+        "repairs": 4
+      },
+      "failures": {
+        "compiler": 0,
+        "history_actor": 0,
+        "incomplete_tasks": 0,
+        "visible_actor": 0
+      },
+      "logical_calls": {
+        "completed": 480,
+        "http_attempts": 480,
+        "planned": 480
+      },
+      "metrics": {
+        "decision_enforced": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.8947368421052632,
+              0.9761904761904762
+            ],
+            "denominator": 128,
+            "numerator": 120,
+            "rate": 0.9375
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.85625,
+              0.95
+            ],
+            "denominator": 160,
+            "numerator": 145,
+            "rate": 0.90625
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.625,
+              0.90625
+            ],
+            "denominator": 32,
+            "numerator": 25,
+            "rate": 0.78125
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.7375,
+              0.9
+            ],
+            "denominator": 80,
+            "numerator": 66,
+            "rate": 0.825
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.022222222222222223,
+              0.09448818897637795
+            ],
+            "denominator": 128,
+            "numerator": 7,
+            "rate": 0.0546875
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 25,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 64,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              0.6285714285714286,
+              0.92
+            ],
+            "denominator": 32,
+            "numerator": 25,
+            "rate": 0.78125
+          }
+        },
+        "decision_visible": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.8947368421052632,
+              0.9761904761904762
+            ],
+            "denominator": 128,
+            "numerator": 120,
+            "rate": 0.9375
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.83125,
+              0.93125
+            ],
+            "denominator": 160,
+            "numerator": 141,
+            "rate": 0.88125
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.625,
+              0.90625
+            ],
+            "denominator": 32,
+            "numerator": 25,
+            "rate": 0.78125
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.6875,
+              0.8625
+            ],
+            "denominator": 80,
+            "numerator": 62,
+            "rate": 0.775
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.022222222222222223,
+              0.09448818897637795
+            ],
+            "denominator": 128,
+            "numerator": 7,
+            "rate": 0.0546875
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 25,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 64,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              0.4838709677419355,
+              0.8214285714285714
+            ],
+            "denominator": 32,
+            "numerator": 21,
+            "rate": 0.65625
+          }
+        },
+        "history_only": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.7384615384615385,
+              0.856
+            ],
+            "denominator": 128,
+            "numerator": 102,
+            "rate": 0.796875
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.65,
+              0.7625
+            ],
+            "denominator": 160,
+            "numerator": 113,
+            "rate": 0.70625
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.09375,
+              0.40625
+            ],
+            "denominator": 32,
+            "numerator": 8,
+            "rate": 0.25
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.3,
+              0.525
+            ],
+            "denominator": 80,
+            "numerator": 33,
+            "rate": 0.4125
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.12307692307692308,
+              0.23622047244094488
+            ],
+            "denominator": 128,
+            "numerator": 23,
+            "rate": 0.1796875
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.4482758620689655,
+              0.8214285714285714
+            ],
+            "denominator": 25,
+            "numerator": 16,
+            "rate": 0.64
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 64,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              0.18421052631578946,
+              0.5161290322580645
+            ],
+            "denominator": 32,
+            "numerator": 11,
+            "rate": 0.34375
+          }
+        }
+      },
+      "model": "Pro/zai-org/GLM-5.1",
+      "rows": 160,
+      "source_slices": {
+        "Matched Timing Diagnostic": {
+          "decision_enforced": {
+            "e2e": {
+              "ci95_cluster": [
+                0.85625,
+                0.95
+              ],
+              "denominator": 160,
+              "numerator": 145,
+              "rate": 0.90625
+            },
+            "pairacc": {
+              "ci95_cluster": [
+                0.625,
+                0.90625
+              ],
+              "denominator": 32,
+              "numerator": 25,
+              "rate": 0.78125
+            }
+          },
+          "decision_visible": {
+            "e2e": {
+              "ci95_cluster": [
+                0.83125,
+                0.93125
+              ],
+              "denominator": 160,
+              "numerator": 141,
+              "rate": 0.88125
+            },
+            "pairacc": {
+              "ci95_cluster": [
+                0.625,
+                0.90625
+              ],
+              "denominator": 32,
+              "numerator": 25,
+              "rate": 0.78125
+            }
+          },
+          "history_only": {
+            "e2e": {
+              "ci95_cluster": [
+                0.65,
+                0.7625
+              ],
+              "denominator": 160,
+              "numerator": 113,
+              "rate": 0.70625
+            },
+            "pairacc": {
+              "ci95_cluster": [
+                0.09375,
+                0.40625
+              ],
+              "denominator": 32,
+              "numerator": 8,
+              "rate": 0.25
+            }
+          }
+        }
+      }
+    },
+    {
+      "cluster_sizes": {
+        "2": 80
+      },
+      "clusters": 80,
+      "decision_visible_minus_history": {
+        "actionable_e2e": {
+          "ci95_cluster": [
+            0.0,
+            0.09375
+          ],
+          "difference": 0.046875,
+          "left": "history_only",
+          "right": "decision_visible"
+        },
+        "changed_pairacc": {
+          "ci95_cluster": [
+            0.0625,
+            0.4615384615384615
+          ],
+          "difference": 0.25,
+          "left": "history_only",
+          "right": "decision_visible"
+        }
+      },
+      "enforcement": {
+        "harms": 8,
+        "repairs": 18
+      },
+      "failures": {
+        "compiler": 0,
+        "history_actor": 0,
+        "incomplete_tasks": 0,
+        "visible_actor": 0
+      },
+      "logical_calls": {
+        "completed": 480,
+        "http_attempts": 480,
+        "planned": 480
+      },
+      "metrics": {
+        "decision_enforced": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.8253968253968254,
+              0.934435138987883
+            ],
+            "denominator": 128,
+            "numerator": 113,
+            "rate": 0.8828125
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.83125,
+              0.925
+            ],
+            "denominator": 160,
+            "numerator": 141,
+            "rate": 0.88125
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.59375,
+              0.90625
+            ],
+            "denominator": 32,
+            "numerator": 24,
+            "rate": 0.75
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.6625,
+              0.85
+            ],
+            "denominator": 80,
+            "numerator": 61,
+            "rate": 0.7625
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.024,
+              0.1044776119402985
+            ],
+            "denominator": 128,
+            "numerator": 8,
+            "rate": 0.0625
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 28,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 53,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              0.75,
+              0.9705882352941176
+            ],
+            "denominator": 32,
+            "numerator": 28,
+            "rate": 0.875
+          }
+        },
+        "decision_visible": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.7692307692307693,
+              0.8852459016393442
+            ],
+            "denominator": 128,
+            "numerator": 106,
+            "rate": 0.828125
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.76875,
+              0.86875
+            ],
+            "denominator": 160,
+            "numerator": 131,
+            "rate": 0.81875
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.25,
+              0.59375
+            ],
+            "denominator": 32,
+            "numerator": 13,
+            "rate": 0.40625
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.5375,
+              0.7375
+            ],
+            "denominator": 80,
+            "numerator": 51,
+            "rate": 0.6375
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.08064516129032258,
+              0.18548387096774194
+            ],
+            "denominator": 128,
+            "numerator": 17,
+            "rate": 0.1328125
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.28,
+              0.6538461538461539
+            ],
+            "denominator": 28,
+            "numerator": 13,
+            "rate": 0.4642857142857143
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 53,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              0.6296296296296297,
+              0.9142857142857143
+            ],
+            "denominator": 32,
+            "numerator": 25,
+            "rate": 0.78125
+          }
+        },
+        "history_only": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.7244094488188977,
+              0.84
+            ],
+            "denominator": 128,
+            "numerator": 100,
+            "rate": 0.78125
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.7,
+              0.8125
+            ],
+            "denominator": 160,
+            "numerator": 121,
+            "rate": 0.75625
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.03125,
+              0.28125
+            ],
+            "denominator": 32,
+            "numerator": 5,
+            "rate": 0.15625
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.4,
+              0.625
+            ],
+            "denominator": 80,
+            "numerator": 41,
+            "rate": 0.5125
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.14516129032258066,
+              0.2595419847328244
+            ],
+            "denominator": 128,
+            "numerator": 26,
+            "rate": 0.203125
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.625,
+              0.9286330049261076
+            ],
+            "denominator": 28,
+            "numerator": 22,
+            "rate": 0.7857142857142857
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.0625
+            ],
+            "denominator": 53,
+            "numerator": 1,
+            "rate": 0.018867924528301886
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              0.4838709677419355,
+              0.8148148148148148
+            ],
+            "denominator": 32,
+            "numerator": 21,
+            "rate": 0.65625
+          }
+        }
+      },
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "rows": 160,
+      "source_slices": {
+        "Matched Timing Diagnostic": {
+          "decision_enforced": {
+            "e2e": {
+              "ci95_cluster": [
+                0.83125,
+                0.925
+              ],
+              "denominator": 160,
+              "numerator": 141,
+              "rate": 0.88125
+            },
+            "pairacc": {
+              "ci95_cluster": [
+                0.59375,
+                0.90625
+              ],
+              "denominator": 32,
+              "numerator": 24,
+              "rate": 0.75
+            }
+          },
+          "decision_visible": {
+            "e2e": {
+              "ci95_cluster": [
+                0.76875,
+                0.86875
+              ],
+              "denominator": 160,
+              "numerator": 131,
+              "rate": 0.81875
+            },
+            "pairacc": {
+              "ci95_cluster": [
+                0.25,
+                0.59375
+              ],
+              "denominator": 32,
+              "numerator": 13,
+              "rate": 0.40625
+            }
+          },
+          "history_only": {
+            "e2e": {
+              "ci95_cluster": [
+                0.7,
+                0.8125
+              ],
+              "denominator": 160,
+              "numerator": 121,
+              "rate": 0.75625
+            },
+            "pairacc": {
+              "ci95_cluster": [
+                0.03125,
+                0.28125
+              ],
+              "denominator": 32,
+              "numerator": 5,
+              "rate": 0.15625
+            }
+          }
+        }
+      }
+    }
+  ],
+  "report_amendment": {
+    "change": "Preserve substitution now requires actionable_core before counting eligibility.",
+    "discovered": "during the temporary Qwen full-diagnostic summary",
+    "status": "post-run zero-API denominator repair",
+    "superseded_report": "reports/revision_full_diagnostic_v1.json",
+    "unchanged": [
+      "raw outputs",
+      "tasks and gold",
+      "all ITT accuracy and PairAcc metrics",
+      "wrong-write metrics",
+      "failure accounting"
+    ]
+  },
+  "report_version": "TRI-revision-matched-audit-report-v2"
+}

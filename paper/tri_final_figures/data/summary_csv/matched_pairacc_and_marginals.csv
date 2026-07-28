@@ -1,0 +1,55 @@
+dataset,model,controller,slice,pairs,preserve_correct,preserve_accuracy_pct,reevaluate_correct,reevaluate_accuracy_pct,both_correct,pairacc_pct
+v3,Qwen3.5,Generic,all,80,27,33.75,76,95.0,23,28.75
+v3,Qwen3.5,Generic,changed_winner_core,32,3,9.375,32,100.0,3,9.375
+v3,Qwen3.5,Generic,stable_control,16,16,100.0,16,100.0,16,100.0
+v3,Qwen3.5,Generic,invalidity_policy,32,8,25.0,28,87.5,4,12.5
+v3,GLM-5.1,Generic,all,80,45,56.25,70,87.5,38,47.5
+v3,GLM-5.1,Generic,changed_winner_core,32,7,21.875,29,90.625,7,21.875
+v3,GLM-5.1,Generic,stable_control,16,16,100.0,16,100.0,16,100.0
+v3,GLM-5.1,Generic,invalidity_policy,32,22,68.75,25,78.125,15,46.875
+v3,Qwen3.5,CTA,all,80,73,91.25,79,98.75,72,90.0
+v3,Qwen3.5,CTA,changed_winner_core,32,31,96.875,31,96.875,30,93.75
+v3,Qwen3.5,CTA,stable_control,16,16,100.0,16,100.0,16,100.0
+v3,Qwen3.5,CTA,invalidity_policy,32,26,81.25,32,100.0,26,81.25
+v3,GLM-5.1,CTA,all,80,74,92.5,80,100.0,74,92.5
+v3,GLM-5.1,CTA,changed_winner_core,32,31,96.875,32,100.0,31,96.875
+v3,GLM-5.1,CTA,stable_control,16,16,100.0,16,100.0,16,100.0
+v3,GLM-5.1,CTA,invalidity_policy,32,27,84.375,32,100.0,27,84.375
+v3,Qwen3.5,Lifecycle-free,all,80,78,97.5,77,96.25,75,93.75
+v3,Qwen3.5,Lifecycle-free,changed_winner_core,32,30,93.75,32,100.0,30,93.75
+v3,Qwen3.5,Lifecycle-free,stable_control,16,16,100.0,16,100.0,16,100.0
+v3,Qwen3.5,Lifecycle-free,invalidity_policy,32,32,100.0,29,90.625,29,90.625
+v3,GLM-5.1,Lifecycle-free,all,80,77,96.25,80,100.0,77,96.25
+v3,GLM-5.1,Lifecycle-free,changed_winner_core,32,29,90.625,32,100.0,29,90.625
+v3,GLM-5.1,Lifecycle-free,stable_control,16,16,100.0,16,100.0,16,100.0
+v3,GLM-5.1,Lifecycle-free,invalidity_policy,32,32,100.0,32,100.0,32,100.0
+v3,Qwen3.5,Lifecycle-gated,all,80,80,100.0,77,96.25,77,96.25
+v3,Qwen3.5,Lifecycle-gated,changed_winner_core,32,32,100.0,32,100.0,32,100.0
+v3,Qwen3.5,Lifecycle-gated,stable_control,16,16,100.0,16,100.0,16,100.0
+v3,Qwen3.5,Lifecycle-gated,invalidity_policy,32,32,100.0,29,90.625,29,90.625
+v3,GLM-5.1,Lifecycle-gated,all,80,80,100.0,80,100.0,80,100.0
+v3,GLM-5.1,Lifecycle-gated,changed_winner_core,32,32,100.0,32,100.0,32,100.0
+v3,GLM-5.1,Lifecycle-gated,stable_control,16,16,100.0,16,100.0,16,100.0
+v3,GLM-5.1,Lifecycle-gated,invalidity_policy,32,32,100.0,32,100.0,32,100.0
+v3,model-independent,Always-Lock+validity,all,80,80,100.0,16,20.0,16,20.0
+v3,model-independent,Always-Lock+validity,changed_winner_core,32,32,100.0,0,0.0,0,0.0
+v3,model-independent,Always-Lock+validity,stable_control,16,16,100.0,16,100.0,16,100.0
+v3,model-independent,Always-Lock+validity,invalidity_policy,32,32,100.0,0,0.0,0,0.0
+v3,model-independent,Always-Reevaluate,all,80,16,20.0,80,100.0,16,20.0
+v3,model-independent,Always-Reevaluate,changed_winner_core,32,0,0.0,32,100.0,0,0.0
+v3,model-independent,Always-Reevaluate,stable_control,16,16,100.0,16,100.0,16,100.0
+v3,model-independent,Always-Reevaluate,invalidity_policy,32,0,0.0,32,100.0,0,0.0
+v3,model-independent,Rule v2 (post-hoc),all,80,74,92.5,74,92.5,68,85.0
+v3,model-independent,Rule v2 (post-hoc),changed_winner_core,32,30,93.75,30,93.75,28,87.5
+v3,model-independent,Rule v2 (post-hoc),stable_control,16,16,100.0,16,100.0,16,100.0
+v3,model-independent,Rule v2 (post-hoc),invalidity_policy,32,28,87.5,28,87.5,24,75.0
+v7,Qwen3.5,Generic,changed_winner_core,80,,38.333,,56.667,7,8.75
+v7,Qwen3.5,CTA,changed_winner_core,80,,86.667,,55.0,31,38.75
+v7,Qwen3.5,Lifecycle-Gated,changed_winner_core,80,,79.167,,63.333,40,50.0
+v7,GLM-5.1,Generic,changed_winner_core,80,,45.0,,95.0,15,18.75
+v7,GLM-5.1,CTA,changed_winner_core,80,,91.667,,96.667,66,82.5
+v7,GLM-5.1,Lifecycle-Gated,changed_winner_core,80,,99.167,,95.0,73,91.25
+v7,DeepSeek,Generic,changed_winner_core,80,,47.5,,100.0,17,21.25
+v7,DeepSeek,CTA,changed_winner_core,80,,90.833,,91.667,64,80.0
+v7,Always,Lock+validity,changed_winner_core,80,,100.0,,33.333,0,0.0
+v7,Always,Reevaluate,changed_winner_core,80,,33.333,,100.0,0,0.0

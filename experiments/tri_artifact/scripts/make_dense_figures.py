@@ -393,7 +393,9 @@ def draw_policy_slice_panel(c: canvas.Canvas, x: float, y: float, w: float, h: f
 
 def draw_comprehensive_results(path: Path) -> None:
     width, height = 7.0 * inch, 4.75 * inch
-    c = canvas.Canvas(str(path), pagesize=(width, height), pageCompression=1)
+    c = canvas.Canvas(
+        str(path), pagesize=(width, height), pageCompression=0, initialFontName=dash.FONT_REGULAR
+    )
     c.setTitle("TRI comprehensive dense result figure")
     c.setAuthor("anonymous")
     c.setCreator("anonymous")
@@ -414,7 +416,9 @@ def draw_comprehensive_results(path: Path) -> None:
 
 def draw_schema_transfer(path: Path) -> None:
     width, height = 7.0 * inch, 3.55 * inch
-    c = canvas.Canvas(str(path), pagesize=(width, height), pageCompression=1)
+    c = canvas.Canvas(
+        str(path), pagesize=(width, height), pageCompression=0, initialFontName=dash.FONT_REGULAR
+    )
     c.setTitle("TRI schema-transfer dense result figure")
     c.setAuthor("anonymous")
     c.setCreator("anonymous")

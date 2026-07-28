@@ -1,0 +1,28 @@
+{
+  "status": "main-paper candidate v2; source-derived; no new experiment",
+  "source_sha256": {
+    "matched_pairacc_and_marginals.csv": "7ac145be8a950367d65573e6431749b1771c7fc6fa6a6651cccad4509a7d990c",
+    "main_figure_paired_scores.csv": "9036c67938992a34d1a913492fec45fa27df31db44951d59f069a8d6131a6f78"
+  },
+  "outputs": {
+    "policy": {
+      "size_inches": [
+        3.35,
+        1.92
+      ],
+      "stem": "./paper/tri_final_figures/outputs/result_closure_v2/result_policy_discrimination",
+      "evidence": "v3 Qwen primary/frozen; GLM replication; Rule* post-hoc"
+    },
+    "decision_transfer": {
+      "size_inches": [
+        3.35,
+        2.15
+      ],
+      "stem": "./paper/tri_final_figures/outputs/result_closure_v2/result_decision_transfer",
+      "evidence": "post-primary matched audits; no pooled effect"
+    }
+  },
+  "minimum_text_pt": 7.0,
+  "pdf_fonttype": 42,
+  "png_dpi": 400
+}

@@ -35,6 +35,11 @@ REPORTS = [
     "reports/deterministic_discourse_rule_v2.json",
     "reports/rule_hard_residual_v1.json",
     "reports/rule_hard_residual_v1.md",
+    "reports/construct_validity_cue_overlap_v1.json",
+    "reports/construct_validity_cue_overlap_v1.md",
+    "reports/TRI_convention_told_natural_history_protocol.md",
+    "reports/TRI_submission_critical_replication_addendum_20260728.md",
+    "reports/TRI_submission_critical_execution_runbook.md",
     "reports/TRI_binding_drift_author_adaptation_v7_full_protocol.md",
     "reports/binding_drift_repro_audit.md",
     "reports/binding_drift_tri_glm_v7_full_v1.json",
@@ -55,16 +60,11 @@ REPORTS = [
 ]
 
 FIGURES = [
-    "reports/figures/tri_first_figure.pdf",
-    "reports/figures/tri_comprehensive_results.pdf",
-    "reports/figures/tri_schema_transfer_dense.pdf",
-    "reports/figures/tri_call_matched_ablation.pdf",
-    "reports/figures/tri_component_audit_dotline.pdf",
-    "reports/figures/tri_claim_boundary_matrix.pdf",
-    "reports/figures/tri_core_diagnostic.pdf",
-    "reports/figures/tri_replication_attribution.pdf",
-    "reports/figures/tri_revision_matched_confirmation.pdf",
-    "reports/figures/tri_source_grounded_confirmation.pdf",
+    "paper/Figures/fig1_shared_transition.pdf",
+    "paper/Figures/fig2_policy_rulers.pdf",
+    "paper/Figures/fig3_substitution_flow.pdf",
+    "paper/Figures/fig4_sqlite_outcome_tree.pdf",
+    "paper/Figures/fig5_paired_transfer_matrix.pdf",
 ]
 
 
@@ -76,6 +76,15 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def source_path(relative: str) -> Path:
+    """Resolve sources in both the development repository and extracted artifact."""
+    local = ROOT / relative
+    if local.is_file():
+        return local
+    repository = ROOT.parents[1] / relative
+    return repository
+
+
 def build(output: Path) -> dict[str, object]:
     report_dir = output / "reports"
     figure_dir = output / "figures"
@@ -84,7 +93,7 @@ def build(output: Path) -> dict[str, object]:
 
     entries: list[dict[str, object]] = []
     for source_name in REPORTS:
-        source = ROOT / source_name
+        source = source_path(source_name)
         if not source.is_file():
             raise FileNotFoundError(source)
         destination = report_dir / source.name
@@ -100,7 +109,7 @@ def build(output: Path) -> dict[str, object]:
         )
 
     for source_name in FIGURES:
-        source = ROOT / source_name
+        source = source_path(source_name)
         if not source.is_file():
             raise FileNotFoundError(source)
         destination = figure_dir / source.name

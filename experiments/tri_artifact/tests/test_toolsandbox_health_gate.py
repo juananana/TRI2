@@ -6,7 +6,7 @@ from pathlib import Path
 from tri.toolsandbox_health_gate import evaluate
 
 
-def test_health_gate_requires_opportunities_in_every_cell(tmp_path: Path) -> None:
+def test_health_gate_requires_task_coverage_but_not_model_accuracy(tmp_path: Path) -> None:
     path = tmp_path / "health.jsonl"
     rows = []
     for mode in ("preserve", "reevaluate"):
@@ -28,6 +28,16 @@ def test_health_gate_requires_opportunities_in_every_cell(tmp_path: Path) -> Non
     )
     assert evaluate(path)["passed"]
     rows[0]["tri_opportunity"] = False
+    path.write_text(
+        "".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8"
+    )
+    result = evaluate(path)
+    assert result["passed"]
+    assert result["opportunities_by_cell"]["preserve_stable"] == 0
+
+    for row in rows:
+        if row["reference_mode"] == "preserve" and row["transition"] == "stable":
+            row["transition"] = "flip"
     path.write_text(
         "".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8"
     )

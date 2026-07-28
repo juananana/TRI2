@@ -1,15 +1,20 @@
 from __future__ import annotations
 
 import csv
+import json
 from pathlib import Path
 
 import pytest
+from openpyxl import Workbook
 
 from tri.wjx_human_audit import (
+    _semantic_role,
     analyze,
+    analyze_incomplete,
     load_allocation,
     load_key,
     normalize_export_row,
+    read_table,
     select_frozen_sample,
 )
 
@@ -191,3 +196,83 @@ def test_numbered_wjx_headers_are_normalized(tmp_path: Path):
     normalized = normalize(raw, key_rows, allocation)
     assert normalized["age_18"] and normalized["consent"]
     assert all(answer["confidence"] == 5 for answer in normalized["responses"].values())
+
+
+def test_wjx_choice_prefixes_and_non_numeric_ids_are_normalized(tmp_path: Path):
+    key_rows, allocation = frozen_fixture(tmp_path)
+    item = next(row for row in key_rows if row["form"] == "A")
+    item["candidate_order"] = "BR-main | BR-rel | BR-dev"
+    item["discourse_referent_gold"] = "BR-main"
+    item["execution_gold"] = "BR-main"
+    raw = raw_submission("A-01", key_rows)
+    raw.update(
+        {
+            "age_18": "A. 是",
+            "english_independent": "A. 是",
+            "consent": "A. 我已阅读知情同意书，并自愿同意参加",
+            "used_assistance": "A. 没有",
+            "technical_issue": "A. 没有",
+            f"{item['public_item_id']}_referent": "B. 对象 BR-main",
+            f"{item['public_item_id']}_execution": "C. 执行 BR-main",
+            f"{item['public_item_id']}_confidence": "E. 非常确定（5）",
+        }
+    )
+    normalized = normalize(raw, key_rows, allocation)
+    answer = normalized["responses"][item["public_item_id"]]
+    assert normalized["age_18"] and not normalized["used_assistance"]
+    assert answer == {"referent": "BR-main", "execution": "BR-main", "confidence": 5}
+
+
+def test_xlsx_tables_are_read_without_platform_type_leakage(tmp_path: Path):
+    path = tmp_path / "responses.xlsx"
+    workbook = Workbook()
+    sheet = workbook.active
+    sheet.append(["序号", "提交答卷时间", "1. 资格"])
+    sheet.append([1, "2026/07/27 20:00:00", "A. 是"])
+    workbook.save(path)
+    assert read_table(path) == [
+        {"序号": "1", "提交答卷时间": "2026/07/27 20:00:00", "1. 资格": "A. 是"}
+    ]
+
+
+def test_item_specific_ids_share_semantic_agreement_categories():
+    first = {"pre_refresh_target": "DOC-7", "post_refresh_target": "DOC-8"}
+    second = {"pre_refresh_target": "BR-main", "post_refresh_target": "BR-rel"}
+    assert [_semantic_role(label, first) for label in ("DOC-7", "DOC-8", "DOC-9")] == [
+        "PRE_REFRESH_TARGET",
+        "POST_REFRESH_TARGET",
+        "OTHER_CANDIDATE",
+    ]
+    assert [_semantic_role(label, second) for label in ("BR-main", "BR-rel", "BR-dev")] == [
+        "PRE_REFRESH_TARGET",
+        "POST_REFRESH_TARGET",
+        "OTHER_CANDIDATE",
+    ]
+
+
+def test_incomplete_cutoff_never_promotes_fixed_rater_statistics(tmp_path: Path):
+    key_rows, allocation = frozen_fixture(tmp_path)
+    rows = [
+        normalize(raw_submission(code, key_rows), key_rows, allocation)
+        for code, assigned in allocation.items()
+        if assigned["valid_status"] == "primary"
+    ]
+    for row in rows:
+        if not row["participant_code"].endswith("-01"):
+            row["used_assistance"] = True
+    selected, ledger = select_frozen_sample(rows, require_complete=False)
+    report = analyze_incomplete(selected, key_rows, all_rows=rows)
+    assert len(selected) == 6
+    assert report["evidence_status"] == "post-primary audit (failed frozen eligibility gate; descriptive boundary evidence)"
+    assert report["quality_gate"]["selected_valid_by_form"] == {
+        form: 1 for form in "ABCDEF"
+    }
+    assert report["coverage"]["labels_per_item_distribution"] == {"1": 72}
+    assert report["coverage"]["complete_changed_pairs_at_five_labels"] == 0
+    assert "fleiss_kappa" not in report["eligible_exploratory"]["referent"]
+    assert sum(entry["selected"] for entry in ledger) == 6
+    serialized = json.dumps(report)
+    assert not any(
+        private_field in serialized
+        for private_field in ("response_id", "答卷编号", "来自IP", "submitted_at")
+    )

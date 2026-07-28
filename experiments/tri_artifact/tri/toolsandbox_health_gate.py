@@ -18,6 +18,14 @@ def evaluate(path: Path, expected_rows: int = 8) -> dict:
         rows = [json.loads(line) for line in handle if line.strip()]
     keys = {(row["model"], row["controller"], row["scenario_id"]) for row in rows}
     api_or_protocol_errors = sum(bool(row.get("errors")) for row in rows)
+    rows_by_cell = {
+        cell: sum(
+            1
+            for row in rows
+            if (row["reference_mode"], row["transition"]) == cell
+        )
+        for cell in CELLS
+    }
     opportunities = {
         cell: sum(
             bool(row.get("tri_opportunity"))
@@ -30,13 +38,18 @@ def evaluate(path: Path, expected_rows: int = 8) -> dict:
         len(rows) == expected_rows
         and len(keys) == expected_rows
         and api_or_protocol_errors == 0
-        and all(count > 0 for count in opportunities.values())
+        # Opportunity formation is a model outcome, not interface health.
+        and all(count > 0 for count in rows_by_cell.values())
     )
     return {
         "passed": passed,
         "rows": len(rows),
         "unique_keys": len(keys),
         "api_or_protocol_errors": api_or_protocol_errors,
+        "rows_by_cell": {
+            f"{mode}_{transition}": rows_by_cell[(mode, transition)]
+            for mode, transition in sorted(CELLS)
+        },
         "opportunities_by_cell": {
             f"{mode}_{transition}": opportunities[(mode, transition)]
             for mode, transition in sorted(CELLS)

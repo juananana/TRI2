@@ -1,0 +1,162 @@
+{"kind":"slide","id":"sl/4yde2f","slide":1,"title":"A","textShapes":64}
+{"kind":"textbox","id":"sh/utcrihk3","slide":1,"name":"phase-A","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[16,10,26,26]}
+{"kind":"textbox","id":"sh/hw3qtw3e","slide":1,"name":"phase-A-title","text":"Construct the matched pair","textPreview":"Construct the matched pair","textChars":26,"textLines":1,"bbox":[51,8,605,30]}
+{"kind":"textbox","id":"sh/gvu9kr2t","slide":1,"name":"phase-B","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[696,10,26,26]}
+{"kind":"textbox","id":"sh/7618nmlc","slide":1,"name":"phase-B-title","text":"Run the pair","textPreview":"Run the pair","textChars":12,"textLines":1,"bbox":[731,8,175,30]}
+{"kind":"textbox","id":"sh/65s7ehkr","slide":1,"name":"phase-C","text":"C","textPreview":"C","textChars":1,"textLines":1,"bbox":[946,10,26,26]}
+{"kind":"textbox","id":"sh/tsjqpc3i","slide":1,"name":"phase-C-title","text":"Observable readouts","textPreview":"Observable readouts","textChars":19,"textLines":1,"bbox":[981,8,281,30]}
+{"kind":"shape","id":"sh/s7a9g72x","slide":1,"name":"pair-contract","bbox":[16,48,640,65]}
+{"kind":"textbox","id":"sh/r258z6lg","slide":1,"name":"fixed-label","text":"FIXED","textPreview":"FIXED","textChars":5,"textLines":1,"bbox":[30,54,58,18]}
+{"kind":"textbox","id":"sh/q1wrq1kb","slide":1,"name":"fixed-items","text":"S0, S1, q, action, schema, controller interface","textPreview":"S0, S1, q, action, schema, controller interface","textChars":47,"textLines":1,"bbox":[88,53,340,20]}
+{"kind":"textbox","id":"sh/wfihg7ax","slide":1,"name":"change-label","text":"ONLY CHANGE","textPreview":"ONLY CHANGE","textChars":11,"textLines":1,"bbox":[30,81,92,18]}
+{"kind":"textbox","id":"sh/hgrypcbi","slide":1,"name":"change-items","text":"commitment timing","textPreview":"commitment timing","textChars":17,"textLines":1,"bbox":[122,80,160,20]}
+{"kind":"textbox","id":"sh/ut0zehsr","slide":1,"name":"transition","text":"q(S0)=A  ->  refresh  ->  q(S1)=B","textPreview":"q(S0)=A  ->  refresh  ->  q(S1)=B","textChars":33,"textLines":1,"bbox":[294,76,338,22]}
+{"kind":"shape","id":"sh/vu9gnmtc","slide":1,"name":"valid-pill","bbox":[405,97,228,18]}
+{"kind":"textbox","id":"sh/8ryhc7al","slide":1,"name":"valid-text","text":"A remains present and action-valid in S1","textPreview":"A remains present and action-valid in S1","textChars":40,"textLines":1,"bbox":[412,98,214,15]}
+{"kind":"shape","id":"sh/9srylcb6","slide":1,"name":"contract-rule","bbox":[28,114,606,1]}
+{"kind":"shape","id":"sh/mpgzaxsv","slide":1,"name":"pair-frame","bbox":[16,128,640,205]}
+{"kind":"shape","id":"sh/nqpgj2tg","slide":1,"name":"pair-stem","bbox":[42,173,2,118]}
+{"kind":"shape","id":"sh/0nyh8nap","slide":1,"name":"pair-dot-p","bbox":[36,167,14,14]}
+{"kind":"shape","id":"sh/lo7yhsba","slide":1,"name":"pair-dot-r","bbox":[36,285,14,14]}
+{"kind":"textbox","id":"sh/1kzelo3y","slide":1,"name":"pair-badge-text","text":"PAIR","textPreview":"PAIR","textChars":4,"textLines":1,"bbox":[20,220,46,24]}
+{"kind":"textbox","id":"sh/0jqxcj2d","slide":1,"name":"refresh-tab-text","text":"same refresh, replayed twice","textPreview":"same refresh, replayed twice","textChars":28,"textLines":1,"bbox":[286,121,128,18]}
+{"kind":"shape","id":"sh/fihwjel8","slide":1,"name":"refresh-tab-left","bbox":[278,127,6,6]}
+{"kind":"shape","id":"sh/eh8fa9kn","slide":1,"name":"refresh-tab-right","bbox":[416,127,6,6]}
+{"kind":"shape","id":"sh/dgzeh432","slide":1,"name":"preserve-lane","bbox":[64,141,578,82]}
+{"kind":"shape","id":"sh/sf6x8j2h","slide":1,"name":"preserve-lock-shackle","bbox":[82,151,20,20]}
+{"kind":"shape","id":"sh/rexwfelw","slide":1,"name":"preserve-lock-body","bbox":[78,160,28,23]}
+{"kind":"shape","id":"sh/qdof69kb","slide":1,"name":"preserve-lock-key","bbox":[90,167,5,5]}
+{"kind":"textbox","id":"sh/xcjyt836","slide":1,"name":"preserve-title","text":"Preserve","textPreview":"Preserve","textChars":8,"textLines":1,"bbox":[114,147,112,22]}
+{"kind":"textbox","id":"sh/cbaxk32l","slide":1,"name":"preserve-rule","text":"bind A before refresh","textPreview":"bind A before refresh","textChars":21,"textLines":1,"bbox":[114,169,150,18]}
+{"kind":"shape","id":"sh/ux4be503","slide":1,"name":"p-s0-state","bbox":[264,155,56,56]}
+{"kind":"shape","id":"sh/vidc7a1o","slide":1,"name":"p-s0-other-0","bbox":[276,168,8,8]}
+{"kind":"shape","id":"sh/gjmtgfi9","slide":1,"name":"p-s0-other-1","bbox":[291,164,8,8]}
+{"kind":"shape","id":"sh/hkvu9kju","slide":1,"name":"p-s0-other-2","bbox":[274,186,8,8]}
+{"kind":"shape","id":"sh/6tkbalk7","slide":1,"name":"p-s0-other-3","bbox":[292,193,8,8]}
+{"kind":"textbox","id":"sh/7utc3q1s","slide":1,"name":"p-s0-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[298,181,16,16]}
+{"kind":"shape","id":"sh/8v2tcvix","slide":1,"name":"p-clock-face","bbox":[390,166,34,34]}
+{"kind":"shape","id":"sh/twbu50ji","slide":1,"name":"p-clock-hand-v","bbox":[406.66,172.12,2,10.88]}
+{"kind":"shape","id":"sh/qpovmp0b","slide":1,"name":"p-clock-hand-h","bbox":[406.66,182.66,7.48,2]}
+{"kind":"shape","id":"sh/rqxcfu1w","slide":1,"name":"p-clock-hub","bbox":[404.62,180.62,4.76,4.76]}
+{"kind":"shape","id":"sh/bit8bm5c","slide":1,"name":"p-s1-state","bbox":[468,155,56,56]}
+{"kind":"shape","id":"sh/qhk7ih4r","slide":1,"name":"p-s1-other-0","bbox":[480,168,8,8]}
+{"kind":"shape","id":"sh/dkvqdwni","slide":1,"name":"p-s1-other-1","bbox":[495,164,8,8]}
+{"kind":"shape","id":"sh/cjmpkrmx","slide":1,"name":"p-s1-other-2","bbox":[478,186,8,8]}
+{"kind":"shape","id":"sh/3et87m50","slide":1,"name":"p-s1-other-3","bbox":[496,193,8,8]}
+{"kind":"textbox","id":"sh/2dk7eh4v","slide":1,"name":"p-s1-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[502,181,16,16]}
+{"kind":"textbox","id":"sh/pgbq9wn6","slide":1,"name":"p-s1-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[502,163,16,16]}
+{"kind":"textbox","id":"sh/of2pgrml","slide":1,"name":"p-target-circle","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[580,162,42,42]}
+{"kind":"shape","id":"sh/7ax8j65k","slide":1,"name":"p-target-h","bbox":[575,182,52,2]}
+{"kind":"shape","id":"sh/m94rq14z","slide":1,"name":"p-target-v","bbox":[600,157,2,52]}
+{"kind":"shape","id":"sh/kjedojy5","slide":1,"bbox":[320,183,70,0]}
+{"kind":"shape","id":"sh/54nexozq","slide":1,"bbox":[424,183,44,0]}
+{"kind":"shape","id":"sh/ihwvm9gz","slide":1,"bbox":[524,183,56,0]}
+{"kind":"textbox","id":"sh/ji5wvehk","slide":1,"name":"p-s0-label","text":"S0  q(S0)=A","textPreview":"S0  q(S0)=A","textChars":11,"textLines":1,"bbox":[252,208,80,16]}
+{"kind":"textbox","id":"sh/s7yxsjy1","slide":1,"name":"p-bound","text":"BOUND A","textPreview":"BOUND A","textChars":7,"textLines":1,"bbox":[334,147,64,18]}
+{"kind":"textbox","id":"sh/t87e1ozm","slide":1,"name":"p-s1-label","text":"S1  q(S1)=B","textPreview":"S1  q(S1)=B","textChars":11,"textLines":1,"bbox":[456,208,80,16]}
+{"kind":"textbox","id":"sh/65wfq9gb","slide":1,"name":"p-target-label","text":"target A","textPreview":"target A","textChars":8,"textLines":1,"bbox":[571,208,60,16]}
+{"kind":"shape","id":"sh/76pwzehw","slide":1,"name":"p-spark-dot-1","bbox":[625,161,3,3]}
+{"kind":"shape","id":"sh/gbyxw3yd","slide":1,"name":"p-spark-dot-2","bbox":[632,156,4,4]}
+{"kind":"shape","id":"sh/hc7e58zy","slide":1,"name":"p-spark-dot-3","bbox":[641,151,3,3]}
+{"kind":"shape","id":"sh/ps3epor2","slide":1,"name":"reevaluate-lane","bbox":[76,238,560,82]}
+{"kind":"shape","id":"sh/orudgjqh","slide":1,"name":"reevaluate-icon-face","bbox":[88,248,30,30]}
+{"kind":"shape","id":"sh/3qlwny9w","slide":1,"name":"reevaluate-icon-hand-v","bbox":[102.7,253.4,2,9.6]}
+{"kind":"shape","id":"sh/2pcvet8b","slide":1,"name":"reevaluate-icon-hand-h","bbox":[102.7,262.7,6.6,2]}
+{"kind":"shape","id":"sh/dwnet8ry","slide":1,"name":"reevaluate-icon-hub","bbox":[100.9,260.9,4.2,4.2]}
+{"kind":"textbox","id":"sh/cvexk3qd","slide":1,"name":"reevaluate-title","text":"Reevaluate","textPreview":"Reevaluate","textChars":10,"textLines":1,"bbox":[124,244,122,22]}
+{"kind":"textbox","id":"sh/bu5wry98","slide":1,"name":"reevaluate-rule","text":"defer q until after refresh","textPreview":"defer q until after refresh","textChars":27,"textLines":1,"bbox":[124,266,170,18]}
+{"kind":"shape","id":"sh/qtwvit8n","slide":1,"name":"r-s0-state","bbox":[276,252,56,56]}
+{"kind":"shape","id":"sh/t0jeh4ru","slide":1,"name":"r-s0-other-0","bbox":[288,265,8,8]}
+{"kind":"shape","id":"sh/szad8zq9","slide":1,"name":"r-s0-other-1","bbox":[303,261,8,8]}
+{"kind":"shape","id":"sh/i58bi5o7","slide":1,"name":"r-s0-other-2","bbox":[286,283,8,8]}
+{"kind":"shape","id":"sh/j6hsbaps","slide":1,"name":"r-s0-other-3","bbox":[304,290,8,8]}
+{"kind":"textbox","id":"sh/47qtkf6d","slide":1,"name":"r-s0-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[310,278,16,16]}
+{"kind":"shape","id":"sh/58zudk7i","slide":1,"name":"r-clock-face","bbox":[402,263,34,34]}
+{"kind":"shape","id":"sh/69sbmpo3","slide":1,"name":"r-clock-hand-v","bbox":[418.66,269.12,2,10.88]}
+{"kind":"shape","id":"sh/ra1cfupo","slide":1,"name":"r-clock-hand-h","bbox":[418.66,279.66,7.48,2]}
+{"kind":"shape","id":"sh/svatoz69","slide":1,"name":"r-clock-hub","bbox":[416.62,277.62,4.76,4.76]}
+{"kind":"shape","id":"sh/twjuhk7u","slide":1,"name":"r-s1-state","bbox":[480,252,56,56]}
+{"kind":"shape","id":"sh/mdobaloz","slide":1,"name":"r-s1-other-0","bbox":[492,265,8,8]}
+{"kind":"shape","id":"sh/7exs3qpk","slide":1,"name":"r-s1-other-1","bbox":[507,261,8,8]}
+{"kind":"shape","id":"sh/rm54fq10","slide":1,"name":"r-s1-other-2","bbox":[490,283,8,8]}
+{"kind":"shape","id":"sh/qlc36l0f","slide":1,"name":"r-s1-other-3","bbox":[508,290,8,8]}
+{"kind":"textbox","id":"sh/donmh0jq","slide":1,"name":"r-s1-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[514,278,16,16]}
+{"kind":"textbox","id":"sh/cnel8vil","slide":1,"name":"r-s1-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[514,260,16,16]}
+{"kind":"textbox","id":"sh/za54jq1w","slide":1,"name":"r-target-circle","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[590,259,42,42]}
+{"kind":"shape","id":"sh/epw3al0b","slide":1,"name":"r-target-h","bbox":[585,279,52,2]}
+{"kind":"shape","id":"sh/1cnml0j2","slide":1,"name":"r-target-v","bbox":[610,254,2,52]}
+{"kind":"shape","id":"sh/0belcvih","slide":1,"bbox":[332,280,70,0]}
+{"kind":"shape","id":"sh/felk761s","slide":1,"bbox":[436,280,44,0]}
+{"kind":"shape","id":"sh/uts3y1k7","slide":1,"bbox":[536,280,54,0]}
+{"kind":"textbox","id":"sh/kzq187i5","slide":1,"name":"r-s0-label","text":"S0  q(S0)=A","textPreview":"S0  q(S0)=A","textChars":11,"textLines":1,"bbox":[264,305,80,16]}
+{"kind":"textbox","id":"sh/lkzihcza","slide":1,"name":"r-defer","text":"DEFER q","textPreview":"DEFER q","textChars":7,"textLines":1,"bbox":[346,244,64,18]}
+{"kind":"textbox","id":"sh/yx8j6x0z","slide":1,"name":"r-resolve","text":"resolve q on S1","textPreview":"resolve q on S1","textChars":15,"textLines":1,"bbox":[495,235,82,17]}
+{"kind":"textbox","id":"sh/jyh0f2hk","slide":1,"name":"r-s1-label","text":"S1  q(S1)=B","textPreview":"S1  q(S1)=B","textChars":11,"textLines":1,"bbox":[468,305,80,16]}
+{"kind":"textbox","id":"sh/wvqh4nit","slide":1,"name":"r-target-label","text":"target B","textPreview":"target B","textChars":8,"textLines":1,"bbox":[581,305,60,16]}
+{"kind":"shape","id":"sh/xwzidsze","slide":1,"name":"r-spark-dot-1","bbox":[623,256,3,3]}
+{"kind":"shape","id":"sh/atoz2d0n","slide":1,"name":"r-spark-dot-2","bbox":[630,251,4,4]}
+{"kind":"shape","id":"sh/bux0bih8","slide":1,"name":"r-spark-dot-3","bbox":[639,246,3,3]}
+{"kind":"textbox","id":"sh/gra1gryd","slide":1,"name":"pair-invariant","text":"same world transition + same interface; only commitment timing changes","textPreview":"same world transition + same interface; only commitment timing changes","textChars":70,"textLines":1,"bbox":[70,332,470,15]}
+{"kind":"textbox","id":"sh/hsjipwzi","slide":1,"name":"line-legend","text":"solid Preserve | dashed Reevaluate","textPreview":"solid Preserve | dashed Reevaluate","textChars":34,"textLines":1,"bbox":[535,332,120,15]}
+{"kind":"shape","id":"sh/6xwzil4f","slide":1,"name":"same-chip","bbox":[696,49,210,44]}
+{"kind":"textbox","id":"sh/7y50bql0","slide":1,"name":"same-chip-text","text":"same controller + same interface","textPreview":"same controller + same interface","textChars":32,"textLines":1,"bbox":[708,55,186,31]}
+{"kind":"shape","id":"sh/8ze1kvml","slide":1,"name":"same-chip-rule","bbox":[738,87,126,2]}
+{"kind":"textbox","id":"sh/t0nid036","slide":1,"name":"independent","text":"two independent runs","textPreview":"two independent runs","textChars":20,"textLines":1,"bbox":[718,95,166,20]}
+{"kind":"textbox","id":"sh/y9czel4j","slide":1,"name":"p-packet","text":"P","textPreview":"P","textChars":1,"textLines":1,"bbox":[704,147,44,44]}
+{"kind":"textbox","id":"sh/jal076lo","slide":1,"name":"r-packet","text":"R","textPreview":"R","textChars":1,"textLines":1,"bbox":[704,249,44,44]}
+{"kind":"shape","id":"sh/kbuhgbm9","slide":1,"name":"probe","bbox":[768,129,96,180]}
+{"kind":"textbox","id":"sh/lwni9g3u","slide":1,"name":"probe-title","text":"Probe","textPreview":"Probe","textChars":5,"textLines":1,"bbox":[778,138,76,25]}
+{"kind":"textbox","id":"sh/a5cza147","slide":1,"name":"probe-kind","text":"controller black box","textPreview":"controller black box","textChars":20,"textLines":1,"bbox":[778,163,76,18]}
+{"kind":"shape","id":"sh/b6l036ls","slide":1,"name":"probe-dot-p","bbox":[795,190,9,9]}
+{"kind":"shape","id":"sh/dcbu58rm","slide":1,"name":"probe-dot-r","bbox":[830,190,9,9]}
+{"kind":"textbox","id":"sh/cb2tw3a1","slide":1,"name":"probe-blackbox","text":"internals unobserved","textPreview":"internals unobserved","textChars":20,"textLines":1,"bbox":[780,205,72,26]}
+{"kind":"textbox","id":"sh/batc3y9g","slide":1,"name":"probe-io","text":"instruction + history\n+ observed state\n-> target ID","textPreview":"instruction + history | + observed state | -> target ID","textChars":51,"textLines":3,"bbox":[778,251,76,48]}
+{"kind":"shape","id":"sh/q9kbutsv","slide":1,"name":"tp","bbox":[870,152,50,30]}
+{"kind":"textbox","id":"sh/p8bu1ora","slide":1,"name":"tp-text","text":"TP","textPreview":"TP","textChars":2,"textLines":1,"bbox":[875,155,40,24]}
+{"kind":"shape","id":"sh/o7itsja5","slide":1,"name":"tr","bbox":[870,254,50,30]}
+{"kind":"textbox","id":"sh/369cze9k","slide":1,"name":"tr-text","text":"TR","textPreview":"TR","textChars":2,"textLines":1,"bbox":[875,257,40,24]}
+{"kind":"shape","id":"sh/250bq9sz","slide":1,"name":"p-in","bbox":[772,164,4,4]}
+{"kind":"shape","id":"sh/14ruxore","slide":1,"name":"r-in","bbox":[772,266,4,4]}
+{"kind":"shape","id":"sh/g3itojat","slide":1,"name":"p-out","bbox":[858,164,4,4]}
+{"kind":"shape","id":"sh/8nmd4jip","slide":1,"name":"r-out","bbox":[858,266,4,4]}
+{"kind":"shape","id":"sh/tovudoza","slide":1,"bbox":[758.5,155.5,3,24]}
+{"kind":"shape","id":"sh/6lkb290j","slide":1,"bbox":[758.5,257.5,3,24]}
+{"kind":"shape","id":"sh/7mdcbeh4","slide":1,"bbox":[865.5,162.5,1,8]}
+{"kind":"shape","id":"sh/kj2t0zit","slide":1,"bbox":[865.5,264.5,1,8]}
+{"kind":"shape","id":"sh/lkbu94jy","slide":1,"name":"p-in-port","bbox":[770,161,9,9]}
+{"kind":"shape","id":"sh/yhkby90n","slide":1,"name":"r-in-port","bbox":[770,263,9,9]}
+{"kind":"shape","id":"sh/jitc7e18","slide":1,"name":"p-out-port","bbox":[855,161,9,9]}
+{"kind":"shape","id":"sh/4f6dc3ix","slide":1,"name":"r-out-port","bbox":[855,263,9,9]}
+{"kind":"textbox","id":"sh/pgful8zi","slide":1,"name":"withheld","text":"Withheld: gold mode/target; normalized selector fields; generator winner IDs","textPreview":"Withheld: gold mode/target; normalized selector fields; generator winner IDs","textChars":76,"textLines":1,"bbox":[702,317,208,28]}
+{"kind":"shape","id":"sh/zahwb21k","slide":1,"name":"evidence-spine","bbox":[961,58,2,278]}
+{"kind":"textbox","id":"sh/e98fixkz","slide":1,"name":"readout-1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[950,55,25,25]}
+{"kind":"textbox","id":"sh/1czydcjq","slide":1,"name":"pairacc-title","text":"PairAcc","textPreview":"PairAcc","textChars":7,"textLines":1,"bbox":[985,52,102,28]}
+{"kind":"shape","id":"sh/0bqxk725","slide":1,"name":"pairacc-formula","bbox":[1085,53,174,34]}
+{"kind":"textbox","id":"sh/ne1gf21g","slide":1,"name":"pairacc-formula-text","text":"T_P=A  AND  T_R=B","textPreview":"T_P=A  AND  T_R=B","textChars":17,"textLines":1,"bbox":[1093,57,158,25]}
+{"kind":"textbox","id":"sh/mdsfmhkb","slide":1,"name":"pairacc-denom","text":"all complete changed-winner pairs","textPreview":"all complete changed-winner pairs","textChars":33,"textLines":1,"bbox":[985,86,274,22]}
+{"kind":"shape","id":"sh/9gjyhcjm","slide":1,"name":"c-sep-1","bbox":[985,112,274,1]}
+{"kind":"textbox","id":"sh/ofaxo721","slide":1,"name":"readout-2","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[950,126,25,25]}
+{"kind":"textbox","id":"sh/3ixw3ilc","slide":1,"name":"sub-title","text":"Conditional substitution","textPreview":"Conditional substitution","textChars":24,"textLines":1,"bbox":[985,123,274,27]}
+{"kind":"textbox","id":"sh/2hofadkr","slide":1,"name":"sub-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[998,162,30,30]}
+{"kind":"shape","id":"sh/u1sfqdsn","slide":1,"name":"sub-clock-face","bbox":[1104,162,30,30]}
+{"kind":"shape","id":"sh/vm1gjit8","slide":1,"name":"sub-clock-hand-v","bbox":[1118.7,167.4,2,9.6]}
+{"kind":"shape","id":"sh/gnaxsnat","slide":1,"name":"sub-clock-hand-h","bbox":[1118.7,176.7,6.6,2]}
+{"kind":"shape","id":"sh/hojylsbe","slide":1,"name":"sub-clock-hub","bbox":[1116.9,174.9,4.2,4.2]}
+{"kind":"textbox","id":"sh/ipsfuxsz","slide":1,"name":"sub-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1220,162,30,30]}
+{"kind":"shape","id":"sh/3qlgn2t4","slide":1,"bbox":[1028,177,76,0]}
+{"kind":"shape","id":"sh/4ruxw7ap","slide":1,"bbox":[1134,177,86,0]}
+{"kind":"textbox","id":"sh/5s3ypsra","slide":1,"name":"sub-label","text":"correct bind       refresh       final B","textPreview":"correct bind       refresh       final B","textChars":40,"textLines":1,"bbox":[985,193,274,18]}
+{"kind":"textbox","id":"sh/qtcfyxsv","slide":1,"name":"sub-denom","text":"Preserve: correct binding + completed refresh + changed winner\n+ surviving, action-valid A","textPreview":"Preserve: correct binding + completed refresh + changed winner | + surviving, action-valid A","textChars":90,"textLines":2,"bbox":[985,212,274,37]}
+{"kind":"shape","id":"sh/rulgr29g","slide":1,"name":"c-sep-2","bbox":[985,254,274,1]}
+{"kind":"textbox","id":"sh/107ad0zu","slide":1,"name":"readout-3","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[950,269,25,25]}
+{"kind":"textbox","id":"sh/0zy94vy9","slide":1,"name":"exec-title","text":"Execution subset","textPreview":"Execution subset","textChars":16,"textLines":1,"bbox":[985,266,174,27]}
+{"kind":"shape","id":"sh/zyp8bqho","slide":1,"name":"exec-id","bbox":[998,305,42,30]}
+{"kind":"textbox","id":"sh/exgr2lg3","slide":1,"name":"exec-id-text","text":"ID","textPreview":"ID","textChars":2,"textLines":1,"bbox":[1004,308,30,24]}
+{"kind":"shape","id":"sh/9orah0fq","slide":1,"name":"write","bbox":[1090,305,72,30]}
+{"kind":"textbox","id":"sh/oni98vy5","slide":1,"name":"write-text","text":"TOOL WRITE","textPreview":"TOOL WRITE","textChars":10,"textLines":1,"bbox":[1096,307,60,25]}
+{"kind":"shape","id":"sh/n2psfah0","slide":1,"name":"diff","bbox":[1182,305,72,30]}
+{"kind":"textbox","id":"sh/m1gr65gf","slide":1,"name":"diff-text","text":"STATE DIFF","textPreview":"STATE DIFF","textChars":10,"textLines":1,"bbox":[1188,307,60,25]}
+{"kind":"shape","id":"sh/xsralkf2","slide":1,"bbox":[1040,320,50,0]}
+{"kind":"shape","id":"sh/wri9cfyh","slide":1,"bbox":[1162,320,20,0]}
+{"kind":"textbox","id":"sh/gvqt8j6t","slide":1,"name":"exec-denom","text":"executed model-issued writes only","textPreview":"executed model-issued writes only","textChars":33,"textLines":1,"bbox":[985,333,274,14]}
+{"kind":"notes","id":"nt/4yde2f","slide":1,"text":"[Sources]\n- Anonymous TRI manuscript: matched-pair construction, strict estimands, withheld fields, and execution trace.\n- User-provided strong-paper examples: composition references only; no scientific content copied."}

@@ -1,0 +1,125 @@
+{"kind":"slide","id":"sl/0e46hk","slide":1,"title":"TRI converts one controlled transition into a matched diagnostic","textShapes":74}
+{"kind":"shape","id":"sh/udsfyxor","slide":1,"name":"flow-1","bbox":[325,322,58,22]}
+{"kind":"shape","id":"sh/hg3y9c72","slide":1,"name":"flow-2","bbox":[695,322,58,22]}
+{"kind":"shape","id":"sh/gfux076x","slide":1,"name":"flow-3","bbox":[1192,322,50,22]}
+{"kind":"shape","id":"sh/7a1g32p0","slide":1,"name":"state-refresh","bbox":[500,266,78,24]}
+{"kind":"shape","id":"sh/69sfuxof","slide":1,"name":"preserve-flow-1","bbox":[938,251,42,18]}
+{"kind":"shape","id":"sh/tcjy5s76","slide":1,"name":"preserve-flow-2","bbox":[1026,251,61,18]}
+{"kind":"shape","id":"sh/8baxwn6l","slide":1,"name":"reeval-flow-1","bbox":[938,390,42,18]}
+{"kind":"shape","id":"sh/jmhwzip4","slide":1,"name":"reeval-flow-2","bbox":[1026,390,61,18]}
+{"kind":"shape","id":"sh/yl8fqdoj","slide":1,"name":"controller-output-p","bbox":[1390,412,45,15]}
+{"kind":"shape","id":"sh/4ve18jm1","slide":1,"name":"controller-output-r","bbox":[1390,462,45,15]}
+{"kind":"textbox","id":"sh/pwn2ho3m","slide":1,"name":"title","text":"TRI converts one controlled transition into a matched diagnostic","textPreview":"TRI converts one controlled transition into a matched diagnostic","textChars":64,"textLines":1,"bbox":[44,22,1512,48]}
+{"kind":"textbox","id":"sh/2twj694b","slide":1,"name":"subtitle","text":"Hold the world fixed; vary only when the action target becomes committed.","textPreview":"Hold the world fixed; vary only when the action target becomes committed.","textChars":73,"textLines":1,"bbox":[46,69,1470,30]}
+{"kind":"shape","id":"sh/3u5kfe5g","slide":1,"name":"title-rule","bbox":[44,108,1512,0]}
+{"kind":"shape","id":"sh/gru14zm5","slide":1,"name":"core-spotlight","bbox":[734,116,476,418]}
+{"kind":"shape","id":"sh/hs32d4nq","slide":1,"name":"sep-1","bbox":[354,124,0,402]}
+{"kind":"shape","id":"sh/u5cj294z","slide":1,"name":"sep-2","bbox":[724,124,0,402]}
+{"kind":"shape","id":"sh/f6lkbu5k","slide":1,"name":"sep-3","bbox":[1214,124,0,402]}
+{"kind":"textbox","id":"sh/0nylg3m9","slide":1,"name":"stage-1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[44,122,36,36]}
+{"kind":"textbox","id":"sh/1o72p83u","slide":1,"name":"stage-label-1","text":"TASK SPECIFICATION","textPreview":"TASK SPECIFICATION","textChars":18,"textLines":1,"bbox":[92,120,246,40]}
+{"kind":"textbox","id":"sh/9k3298vy","slide":1,"name":"stage-2","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[378,122,36,36]}
+{"kind":"textbox","id":"sh/8ju103ed","slide":1,"name":"stage-label-2","text":"CONTROLLED TRANSITION","textPreview":"CONTROLLED TRANSITION","textChars":21,"textLines":1,"bbox":[426,120,278,40]}
+{"kind":"shape","id":"sh/nilk7yds","slide":1,"name":"stage-3-core-header","bbox":[750,120,438,44]}
+{"kind":"textbox","id":"sh/mhcjytwn","slide":1,"name":"stage-3-core-label","text":"CORE 3   MATCHED PAIR","textPreview":"CORE 3   MATCHED PAIR","textChars":21,"textLines":1,"bbox":[770,124,300,36]}
+{"kind":"textbox","id":"sh/lg325ov2","slide":1,"name":"stage-3-pair-icon-q","text":"q","textPreview":"q","textChars":1,"textLines":1,"bbox":[1096,128,28,28]}
+{"kind":"shape","id":"sh/0fa1wjeh","slide":1,"name":"stage-3-pair-icon-branch-a","bbox":[1124,138,22,-12]}
+{"kind":"shape","id":"sh/ze1k3edw","slide":1,"name":"stage-3-pair-icon-branch-b","bbox":[1124,146,22,12]}
+{"kind":"textbox","id":"sh/ydsju9wb","slide":1,"name":"stage-3-pair-icon-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1146,112,24,24]}
+{"kind":"textbox","id":"sh/dcji1ovq","slide":1,"name":"stage-3-pair-icon-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1146,148,24,24]}
+{"kind":"textbox","id":"sh/cba1sje5","slide":1,"name":"stage-4","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1236,122,36,36]}
+{"kind":"textbox","id":"sh/2h8z25c3","slide":1,"name":"stage-label-4","text":"SAME CONTROLLER","textPreview":"SAME CONTROLLER","textChars":15,"textLines":1,"bbox":[1284,120,268,40]}
+{"kind":"textbox","id":"sh/3ihgbato","slide":1,"name":"entity-table-label","text":"Entities and resolver","textPreview":"Entities and resolver","textChars":21,"textLines":1,"bbox":[58,174,264,30]}
+{"kind":"shape","id":"sh/ojqh4fu9","slide":1,"name":"task-spec-icon-paper","bbox":[286,170,30,36]}
+{"kind":"shape","id":"sh/pkzydkbu","slide":1,"name":"task-spec-icon-clip","bbox":[294,166,14,8]}
+{"kind":"shape","id":"sh/etozy5c7","slide":1,"name":"task-spec-icon-dot-1","bbox":[291.5,180.5,5,5]}
+{"kind":"shape","id":"sh/fuxg7ats","slide":1,"name":"task-spec-icon-dot-2","bbox":[291.5,192.5,5,5]}
+{"kind":"shape","id":"sh/gv6h0fux","slide":1,"name":"task-spec-icon-line-1","bbox":[300,183,10,0]}
+{"kind":"shape","id":"sh/1wfy9kbi","slide":1,"name":"task-spec-icon-line-2","bbox":[300,195,10,0]}
+{"kind":"shape","id":"sh/6pofulcv","slide":1,"name":"entity-table-frame","bbox":[58,210,264,124]}
+{"kind":"shape","id":"sh/rqxg3qdg","slide":1,"name":"entity-table-header","bbox":[58,210,264,34]}
+{"kind":"textbox","id":"sh/jihcz6xc","slide":1,"name":"entity-head-id","text":"ID","textPreview":"ID","textChars":2,"textLines":1,"bbox":[70,211,44,31]}
+{"kind":"textbox","id":"sh/ihov61gr","slide":1,"name":"entity-head-s0","text":"rank S0","textPreview":"rank S0","textChars":7,"textLines":1,"bbox":[112,211,72,31]}
+{"kind":"textbox","id":"sh/54zu1gf2","slide":1,"name":"entity-head-s1","text":"rank S1","textPreview":"rank S1","textChars":7,"textLines":1,"bbox":[184,211,72,31]}
+{"kind":"textbox","id":"sh/kjqd8byx","slide":1,"name":"entity-head-valid","text":"valid","textPreview":"valid","textChars":5,"textLines":1,"bbox":[256,211,54,31]}
+{"kind":"shape","id":"sh/bexcvmx0","slide":1,"name":"entity-mid-1","bbox":[58,273,264,0]}
+{"kind":"shape","id":"sh/adov2hgf","slide":1,"name":"entity-v-1","bbox":[110,210,0,124]}
+{"kind":"shape","id":"sh/xgfuxwf6","slide":1,"name":"entity-v-2","bbox":[184,210,0,124]}
+{"kind":"shape","id":"sh/wf6d4ryl","slide":1,"name":"entity-v-3","bbox":[256,210,0,124]}
+{"kind":"textbox","id":"sh/nadcrmx4","slide":1,"name":"entity-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[70,242,28,30]}
+{"kind":"textbox","id":"sh/m94vyhgj","slide":1,"name":"entity-a-s0","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[126,242,44,30]}
+{"kind":"textbox","id":"sh/sji1cja5","slide":1,"name":"entity-a-s1","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[198,242,44,30]}
+{"kind":"textbox","id":"sh/d4rilorq","slide":1,"name":"entity-a-valid","text":"yes","textPreview":"yes","textChars":3,"textLines":1,"bbox":[264,242,40,30]}
+{"kind":"textbox","id":"sh/qh0ja9sz","slide":1,"name":"entity-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[70,278,28,30]}
+{"kind":"textbox","id":"sh/ri90je9k","slide":1,"name":"entity-b-s0","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[126,278,44,30]}
+{"kind":"textbox","id":"sh/0721g3a1","slide":1,"name":"entity-b-s1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[198,278,44,30]}
+{"kind":"textbox","id":"sh/18b2p8rm","slide":1,"name":"entity-b-valid","text":"yes","textPreview":"yes","textChars":3,"textLines":1,"bbox":[264,278,40,30]}
+{"kind":"textbox","id":"sh/e50jetsb","slide":1,"name":"selector","text":"selector q: highest-priority unread","textPreview":"selector q: highest-priority unread","textChars":35,"textLines":1,"bbox":[58,354,278,54]}
+{"kind":"textbox","id":"sh/f6tkny9w","slide":1,"name":"action","text":"action a: reply(entity)","textPreview":"action a: reply(entity)","textChars":23,"textLines":1,"bbox":[58,412,278,34]}
+{"kind":"textbox","id":"sh/gby14zax","slide":1,"name":"precondition","text":"precondition: old target remains actionable","textPreview":"precondition: old target remains actionable","textChars":43,"textLines":1,"bbox":[58,454,278,53]}
+{"kind":"textbox","id":"sh/hc7id4ri","slide":1,"name":"transition-note","text":"Same S0, S1, q, and action","textPreview":"Same S0, S1, q, and action","textChars":26,"textLines":1,"bbox":[394,174,294,32]}
+{"kind":"shape","id":"sh/x8zyh036","slide":1,"name":"s0-frame","bbox":[392,222,122,142]}
+{"kind":"shape","id":"sh/w7qh8v2l","slide":1,"name":"s1-frame","bbox":[574,222,122,142]}
+{"kind":"textbox","id":"sh/v6hgfqlg","slide":1,"name":"s0-title","text":"S0  BEFORE","textPreview":"S0  BEFORE","textChars":10,"textLines":1,"bbox":[401,232,104,28]}
+{"kind":"textbox","id":"sh/a58z6lkv","slide":1,"name":"s1-title","text":"S1  AFTER","textPreview":"S1  AFTER","textChars":9,"textLines":1,"bbox":[583,232,104,28]}
+{"kind":"textbox","id":"sh/5cjyl03i","slide":1,"name":"s0-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[422,270,62,62]}
+{"kind":"textbox","id":"sh/kbahcv2x","slide":1,"name":"s1-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[604,270,62,62]}
+{"kind":"textbox","id":"sh/ja1gjalc","slide":1,"name":"s0-winner","text":"winner","textPreview":"winner","textChars":6,"textLines":1,"bbox":[407,337,92,24]}
+{"kind":"textbox","id":"sh/i98za5kr","slide":1,"name":"s1-winner","text":"winner","textPreview":"winner","textChars":6,"textLines":1,"bbox":[589,337,92,24]}
+{"kind":"textbox","id":"sh/t0jipkje","slide":1,"name":"refresh-label","text":"REFRESH","textPreview":"REFRESH","textChars":7,"textLines":1,"bbox":[506,235,68,28]}
+{"kind":"shape","id":"sh/szahgf2t","slide":1,"name":"validity-band","bbox":[402,390,284,72]}
+{"kind":"textbox","id":"sh/ql4vah0b","slide":1,"name":"validity-main","text":"A stays present and action-valid","textPreview":"A stays present and action-valid","textChars":32,"textLines":1,"bbox":[416,397,256,28]}
+{"kind":"textbox","id":"sh/rmdwjm1w","slide":1,"name":"validity-sub","text":"Only the selector winner changes: A -> B","textPreview":"Only the selector winner changes: A -> B","textChars":40,"textLines":1,"bbox":[416,429,256,27]}
+{"kind":"textbox","id":"sh/c7mdc7ih","slide":1,"name":"controlled-tag","text":"controlled contrast","textPreview":"controlled contrast","textChars":19,"textLines":1,"bbox":[439,476,208,30]}
+{"kind":"textbox","id":"sh/d8velcj2","slide":1,"name":"pair-note","text":"Instruction timing chooses the gold target","textPreview":"Instruction timing chooses the gold target","textChars":42,"textLines":1,"bbox":[768,174,398,32]}
+{"kind":"shape","id":"sh/e94veh0n","slide":1,"name":"preserve-lane","bbox":[768,214,398,112]}
+{"kind":"shape","id":"sh/zadwnm18","slide":1,"name":"preserve-stripe","bbox":[768,214,9,112]}
+{"kind":"textbox","id":"sh/0b6xgrid","slide":1,"name":"preserve-title","text":"PRESERVE","textPreview":"PRESERVE","textChars":8,"textLines":1,"bbox":[788,220,154,28]}
+{"kind":"textbox","id":"sh/1cfepwjy","slide":1,"name":"preserve-sub","text":"bind before refresh","textPreview":"bind before refresh","textChars":19,"textLines":1,"bbox":[788,249,150,42]}
+{"kind":"textbox","id":"sh/mdofi10j","slide":1,"name":"preserve-q","text":"q","textPreview":"q","textChars":1,"textLines":1,"bbox":[974,234,52,52]}
+{"kind":"textbox","id":"sh/nexwr614","slide":1,"name":"preserve-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1087,231,58,58]}
+{"kind":"textbox","id":"sh/76ds7ylk","slide":1,"name":"preserve-eq","text":"q(S0)=A","textPreview":"q(S0)=A","textChars":7,"textLines":1,"bbox":[958,292,84,24]}
+{"kind":"textbox","id":"sh/654ret4z","slide":1,"name":"preserve-gold","text":"gold A","textPreview":"gold A","textChars":6,"textLines":1,"bbox":[1079,292,74,24]}
+{"kind":"shape","id":"sh/t8va983q","slide":1,"name":"reevaluate-lane","bbox":[768,350,398,112]}
+{"kind":"shape","id":"sh/87mtg3m5","slide":1,"name":"reevaluate-stripe","bbox":[768,350,9,112]}
+{"kind":"textbox","id":"sh/vudsbilg","slide":1,"name":"reevaluate-title","text":"REEVALUATE","textPreview":"REEVALUATE","textChars":10,"textLines":1,"bbox":[788,356,164,28]}
+{"kind":"textbox","id":"sh/u94bid4v","slide":1,"name":"reevaluate-sub","text":"defer until after refresh","textPreview":"defer until after refresh","textChars":25,"textLines":1,"bbox":[788,385,150,48]}
+{"kind":"textbox","id":"sh/hwfad83m","slide":1,"name":"reevaluate-q","text":"q","textPreview":"q","textChars":1,"textLines":1,"bbox":[974,373,52,52]}
+{"kind":"textbox","id":"sh/gvmtk3m1","slide":1,"name":"reevaluate-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1087,370,58,58]}
+{"kind":"textbox","id":"sh/3yxsfils","slide":1,"name":"reevaluate-eq","text":"q(S1)=B","textPreview":"q(S1)=B","textChars":7,"textLines":1,"bbox":[958,431,84,24]}
+{"kind":"textbox","id":"sh/ixobmd47","slide":1,"name":"reevaluate-gold","text":"gold B","textPreview":"gold B","textChars":6,"textLines":1,"bbox":[1079,431,74,24]}
+{"kind":"textbox","id":"sh/0369cn25","slide":1,"name":"matched-foot","text":"Opposite golds; all task content is shared","textPreview":"Opposite golds; all task content is shared","textChars":42,"textLines":1,"bbox":[792,480,350,30]}
+{"kind":"textbox","id":"sh/14za5sjq","slide":1,"name":"controller-note","text":"Run both members under one interface","textPreview":"Run both members under one interface","textChars":36,"textLines":1,"bbox":[1250,174,288,54]}
+{"kind":"shape","id":"sh/e1oradkf","slide":1,"name":"controller-box","bbox":[1270,238,248,146]}
+{"kind":"shape","id":"sh/f2xs3i10","slide":1,"name":"controller-robot-antenna","bbox":[1394,240,0,11]}
+{"kind":"shape","id":"sh/sz698n29","slide":1,"name":"controller-robot-antenna-tip","bbox":[1391,235,6,6]}
+{"kind":"shape","id":"sh/d0fq18ju","slide":1,"name":"controller-robot-head","bbox":[1366,250,56,42]}
+{"kind":"shape","id":"sh/qxor6dk3","slide":1,"name":"controller-robot-eye-1","bbox":[1380.5,264.5,7,7]}
+{"kind":"shape","id":"sh/ryx8zi1o","slide":1,"name":"controller-robot-eye-2","bbox":[1400.5,264.5,7,7]}
+{"kind":"shape","id":"sh/4bm9432x","slide":1,"name":"controller-robot-mouth","bbox":[1385,281,18,0]}
+{"kind":"textbox","id":"sh/5wfqx8ji","slide":1,"name":"controller-title","text":"CONTROLLER PROBE","textPreview":"CONTROLLER PROBE","textChars":16,"textLines":1,"bbox":[1290,294,208,30]}
+{"kind":"shape","id":"sh/i5ovixgn","slide":1,"name":"controller-divider","bbox":[1290,328,208,0]}
+{"kind":"textbox","id":"sh/jqxcb2x8","slide":1,"name":"controller-input","text":"instruction + state history  ->  selected target ID","textPreview":"instruction + state history  ->  selected target ID","textChars":51,"textLines":1,"bbox":[1292,337,204,40]}
+{"kind":"textbox","id":"sh/4r6dk7yt","slide":1,"name":"tp-label","text":"Preserve output","textPreview":"Preserve output","textChars":15,"textLines":1,"bbox":[1248,398,136,34]}
+{"kind":"textbox","id":"sh/5sfedcfe","slide":1,"name":"tp-node","text":"T^P","textPreview":"T^P","textChars":3,"textLines":1,"bbox":[1443,392,58,58]}
+{"kind":"textbox","id":"sh/u1ovedgr","slide":1,"name":"tr-label","text":"Reevaluate output","textPreview":"Reevaluate output","textChars":17,"textLines":1,"bbox":[1248,448,142,34]}
+{"kind":"textbox","id":"sh/v2xc7ixc","slide":1,"name":"tr-node","text":"T^R","textPreview":"T^R","textChars":3,"textLines":1,"bbox":[1443,442,58,58]}
+{"kind":"textbox","id":"sh/w36dgnyx","slide":1,"name":"controller-boundary","text":"Probe the decision; do not assume an internal mechanism","textPreview":"Probe the decision; do not assume an internal mechanism","textChars":55,"textLines":1,"bbox":[1252,500,292,30]}
+{"kind":"shape","id":"sh/h4fu9sfi","slide":1,"name":"score-band-bg","bbox":[44,548,1512,188]}
+{"kind":"shape","id":"sh/ex8vqhgv","slide":1,"name":"score-band-head","bbox":[44,548,1512,42]}
+{"kind":"textbox","id":"sh/fyhwjmxg","slide":1,"name":"score-band-title","text":"SCORING: separate joint correctness, post-binding substitution, and executed consequence","textPreview":"SCORING: separate joint correctness, post-binding substitution, and executed consequence","textChars":88,"textLines":1,"bbox":[62,552,1474,34]}
+{"kind":"shape","id":"sh/94365k3u","slide":1,"name":"score-sep-1","bbox":[552,590,0,146]}
+{"kind":"shape","id":"sh/o3upwfm9","slide":1,"name":"score-sep-2","bbox":[1058,590,0,146]}
+{"kind":"textbox","id":"sh/n2lo3alo","slide":1,"name":"metric-one","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[65,607,34,34]}
+{"kind":"textbox","id":"sh/m1c7u54j","slide":1,"name":"metric-one-title","text":"CHANGED-WINNER PairAcc","textPreview":"CHANGED-WINNER PairAcc","textChars":22,"textLines":1,"bbox":[108,602,410,38]}
+{"kind":"textbox","id":"sh/1036103y","slide":1,"name":"metric-one-formula","text":"1 only if  T^P = A  AND  T^R = B","textPreview":"1 only if  T^P = A  AND  T^R = B","textChars":32,"textLines":1,"bbox":[72,648,444,34]}
+{"kind":"textbox","id":"sh/0zupsvmd","slide":1,"name":"metric-one-note","text":"Rejects Always-Lock and Always-Reevaluate jointly","textPreview":"Rejects Always-Lock and Always-Reevaluate jointly","textChars":49,"textLines":1,"bbox":[72,688,444,30]}
+{"kind":"textbox","id":"sh/zylozqls","slide":1,"name":"metric-two","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[573,607,34,34]}
+{"kind":"textbox","id":"sh/exs7ql47","slide":1,"name":"metric-two-title","text":"CONDITIONAL SUBSTITUTION","textPreview":"CONDITIONAL SUBSTITUTION","textChars":24,"textLines":1,"bbox":[616,602,410,38]}
+{"kind":"textbox","id":"sh/lwnqd432","slide":1,"name":"metric-two-formula","text":"Preserve: correct bind A  ->  final target B","textPreview":"Preserve: correct bind A  ->  final target B","textChars":44,"textLines":1,"bbox":[580,648,448,34]}
+{"kind":"textbox","id":"sh/kvep4zmh","slide":1,"name":"metric-two-note","text":"Counts replacement only when A remains valid","textPreview":"Counts replacement only when A remains valid","textChars":44,"textLines":1,"bbox":[580,688,448,30]}
+{"kind":"textbox","id":"sh/4zm903ut","slide":1,"name":"metric-three","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[1079,607,34,34]}
+{"kind":"textbox","id":"sh/50va98be","slide":1,"name":"metric-three-title","text":"EXECUTED STATE DIFF","textPreview":"EXECUTED STATE DIFF","textChars":19,"textLines":1,"bbox":[1122,602,402,38]}
+{"kind":"textbox","id":"sh/id4rytcn","slide":1,"name":"metric-three-formula","text":"selected ID  ->  model-issued write  ->  final state","textPreview":"selected ID  ->  model-issued write  ->  final state","textChars":52,"textLines":1,"bbox":[1086,648,444,34]}
+{"kind":"textbox","id":"sh/jyds7yt8","slide":1,"name":"metric-three-note","text":"Localizes which entity actually received the action","textPreview":"Localizes which entity actually received the action","textChars":51,"textLines":1,"bbox":[1086,688,444,30]}
+{"kind":"notes","id":"nt/0e46hk","slide":1,"text":"[Sources]\n- Internal manuscript: paper/AnonymousSubmission2027.tex, especially Diagnostic Construction, Measurements and Denominators, and Controller Probes.\n- Internal visual references: draw_learning/*.pdf. Layout adapted at the level of hierarchy and reading order; no external artwork reused.\n- User-supplied palette: #264a56, #407a7f, #248d82, #60aa84, #b4b87f, #eabc6b, #f1a464, #e56d4e."}

@@ -1,0 +1,7 @@
+dataset,model,controller,n_tasks,e2e_accuracy_pct,pairacc,conditional_substitution,core_substitution_writes,all_wrong_writes,non_core_wrong_writes
+v7,Qwen3.5,Generic,240,47.5,7/80,43/72,43,44,1
+v7,Qwen3.5,CTA,240,70.833,31/80,0/71,0,8,8
+v7,GLM-5.1,Generic,240,70.0,15/80,38/80,38,38,0
+v7,GLM-5.1,CTA,240,94.167,66/80,0/70,0,14,14
+v7,DeepSeek,Generic,240,73.75,17/80,59/79,59,60,1
+v7,DeepSeek,CTA,240,91.25,64/80,0/70,0,17,17

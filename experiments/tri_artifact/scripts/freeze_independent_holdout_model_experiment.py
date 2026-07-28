@@ -16,6 +16,7 @@ IMPLEMENTATIONS = (
     ROOT / "tri" / "independent_holdout_model_experiment.py",
     ROOT / "tri" / "deterministic_discourse_rule_v2.py",
     ROOT / "scripts" / "run_independent_holdout_model_experiment.py",
+    ROOT / "scripts" / "report_independent_holdout_model_experiment.py",
 )
 
 
@@ -51,6 +52,23 @@ def main() -> None:
         "secondary_conditions": ["timing_reminder", "cta", "rule_star"],
         "stopping_rule": "health smoke must have four complete rows; full retains every attempted row",
         "retry_rule": "two retries; API, transport, parse, and incomplete outputs count as ITT errors",
+        "reporting": {
+            "bootstrap_unit": "pair_id",
+            "bootstrap_samples": 10000,
+            "bootstrap_seed": 20260728,
+            "primary_endpoint": "clear-complete-pair PairAcc",
+            "secondary_endpoints": [
+                "all-row E2E",
+                "Preserve conditional substitution",
+                "initial-binding/compiler error",
+                "deterministic SQLite wrong writes",
+            ],
+        },
+        "claim_promotion_gate": {
+            "all_three_pairacc_differences_positive": True,
+            "minimum_models_whose_pair_cluster_ci95_excludes_zero": 2,
+            "maximum_decision_visible_minus_history_only_wrong_write_rate": 0.05,
+        },
     }
     OUTPUT.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(manifest, indent=2))

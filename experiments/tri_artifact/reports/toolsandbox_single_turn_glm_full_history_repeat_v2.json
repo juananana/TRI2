@@ -1,0 +1,127 @@
+{
+  "inventory": {
+    "rows": 96,
+    "duplicate_model_controller_task_keys": 0,
+    "models": [
+      "Pro/zai-org/GLM-5.1"
+    ],
+    "controllers": [
+      "full_history"
+    ],
+    "tasks": 96
+  },
+  "cells": [
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "controller": "full_history",
+      "reference_mode": "preserve",
+      "transition": "flip",
+      "n": 24,
+      "api_or_protocol_errors": 1,
+      "binding_observed": 23,
+      "initial_binding_correct": 20,
+      "tri_opportunities": 20,
+      "final_state_success": 22,
+      "wrong_entity_writes": 1,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "selector_clusters": [
+        "alpha-first",
+        "alpha-last",
+        "due-earliest",
+        "due-latest",
+        "newest-created",
+        "oldest-created"
+      ]
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "controller": "full_history",
+      "reference_mode": "preserve",
+      "transition": "stable",
+      "n": 24,
+      "api_or_protocol_errors": 1,
+      "binding_observed": 23,
+      "initial_binding_correct": 20,
+      "tri_opportunities": 20,
+      "final_state_success": 21,
+      "wrong_entity_writes": 2,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "selector_clusters": [
+        "alpha-first",
+        "alpha-last",
+        "due-earliest",
+        "due-latest",
+        "newest-created",
+        "oldest-created"
+      ]
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "controller": "full_history",
+      "reference_mode": "reevaluate",
+      "transition": "flip",
+      "n": 24,
+      "api_or_protocol_errors": 0,
+      "binding_observed": 24,
+      "initial_binding_correct": 16,
+      "tri_opportunities": 16,
+      "final_state_success": 16,
+      "wrong_entity_writes": 8,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "selector_clusters": [
+        "alpha-first",
+        "alpha-last",
+        "due-earliest",
+        "due-latest",
+        "newest-created",
+        "oldest-created"
+      ]
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "controller": "full_history",
+      "reference_mode": "reevaluate",
+      "transition": "stable",
+      "n": 24,
+      "api_or_protocol_errors": 0,
+      "binding_observed": 24,
+      "initial_binding_correct": 17,
+      "tri_opportunities": 17,
+      "final_state_success": 21,
+      "wrong_entity_writes": 3,
+      "unauthorized_rebindings": 0,
+      "premature_locks": 0,
+      "conditional_mechanism_error_rate": 0.0,
+      "cluster_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "selector_clusters": [
+        "alpha-first",
+        "alpha-last",
+        "due-earliest",
+        "due-latest",
+        "newest-created",
+        "oldest-created"
+      ]
+    }
+  ]
+}

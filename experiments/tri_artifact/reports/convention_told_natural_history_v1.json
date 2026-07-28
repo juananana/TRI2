@@ -1,0 +1,633 @@
+{
+  "report_version": "TRI-convention-told-natural-history-report-v1",
+  "evidence_status": "post-primary replication/audit",
+  "estimand": "Convention-told minus Plain-history changed PairAcc, separately by model",
+  "bootstrap": {
+    "unit": "state_cluster_id",
+    "samples": 10000,
+    "seed": 20260728
+  },
+  "models": [
+    {
+      "model": "Pro/MiniMaxAI/MiniMax-M2.5",
+      "rows": 80,
+      "state_clusters": 40,
+      "metrics": {
+        "plain_history": {
+          "changed_pairacc": {
+            "numerator": 15,
+            "denominator": 40,
+            "rate": 0.375,
+            "ci95_state_cluster": [
+              0.225,
+              0.525
+            ]
+          },
+          "e2e": {
+            "numerator": 53,
+            "denominator": 80,
+            "rate": 0.6625,
+            "ci95_state_cluster": [
+              0.575,
+              0.75
+            ]
+          },
+          "preserve_accuracy": {
+            "numerator": 15,
+            "denominator": 40,
+            "rate": 0.375,
+            "ci95_state_cluster": [
+              0.225,
+              0.525
+            ]
+          },
+          "reevaluate_accuracy": {
+            "numerator": 38,
+            "denominator": 40,
+            "rate": 0.95,
+            "ci95_state_cluster": [
+              0.875,
+              1.0
+            ]
+          },
+          "preserve_refreshed_winner_error": {
+            "numerator": 24,
+            "denominator": 40,
+            "rate": 0.6,
+            "ci95_state_cluster": [
+              0.45,
+              0.75
+            ]
+          },
+          "reevaluate_old_target_error": {
+            "numerator": 0,
+            "denominator": 40,
+            "rate": 0.0,
+            "ci95_state_cluster": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "convention_told": {
+          "changed_pairacc": {
+            "numerator": 25,
+            "denominator": 40,
+            "rate": 0.625,
+            "ci95_state_cluster": [
+              0.475,
+              0.775
+            ]
+          },
+          "e2e": {
+            "numerator": 62,
+            "denominator": 80,
+            "rate": 0.775,
+            "ci95_state_cluster": [
+              0.675,
+              0.8625
+            ]
+          },
+          "preserve_accuracy": {
+            "numerator": 25,
+            "denominator": 40,
+            "rate": 0.625,
+            "ci95_state_cluster": [
+              0.475,
+              0.775
+            ]
+          },
+          "reevaluate_accuracy": {
+            "numerator": 37,
+            "denominator": 40,
+            "rate": 0.925,
+            "ci95_state_cluster": [
+              0.825,
+              1.0
+            ]
+          },
+          "preserve_refreshed_winner_error": {
+            "numerator": 13,
+            "denominator": 40,
+            "rate": 0.325,
+            "ci95_state_cluster": [
+              0.2,
+              0.475
+            ]
+          },
+          "reevaluate_old_target_error": {
+            "numerator": 1,
+            "denominator": 40,
+            "rate": 0.025,
+            "ci95_state_cluster": [
+              0.0,
+              0.075
+            ]
+          }
+        }
+      },
+      "paired_differences": [
+        {
+          "left": "plain_history",
+          "right": "convention_told",
+          "metric": "changed_pairacc",
+          "difference_right_minus_left": 0.25,
+          "ci95_state_cluster": [
+            0.125,
+            0.37500000000000006
+          ]
+        },
+        {
+          "left": "plain_history",
+          "right": "convention_told",
+          "metric": "e2e",
+          "difference_right_minus_left": 0.11250000000000004,
+          "ci95_state_cluster": [
+            0.03749999999999998,
+            0.1875
+          ]
+        }
+      ],
+      "failures": {
+        "api": 0,
+        "parse_or_schema": 0,
+        "incomplete_tasks": 0
+      },
+      "calls": {
+        "logical_planned": 160,
+        "logical_completed": 160,
+        "http_attempts": 160,
+        "retries": 0,
+        "prompt_tokens": 100124,
+        "completion_tokens": 68034
+      }
+    },
+    {
+      "model": "Pro/zai-org/GLM-5.1",
+      "rows": 80,
+      "state_clusters": 40,
+      "metrics": {
+        "plain_history": {
+          "changed_pairacc": {
+            "numerator": 6,
+            "denominator": 40,
+            "rate": 0.15,
+            "ci95_state_cluster": [
+              0.05,
+              0.275
+            ]
+          },
+          "e2e": {
+            "numerator": 42,
+            "denominator": 80,
+            "rate": 0.525,
+            "ci95_state_cluster": [
+              0.45,
+              0.6
+            ]
+          },
+          "preserve_accuracy": {
+            "numerator": 6,
+            "denominator": 40,
+            "rate": 0.15,
+            "ci95_state_cluster": [
+              0.05,
+              0.275
+            ]
+          },
+          "reevaluate_accuracy": {
+            "numerator": 36,
+            "denominator": 40,
+            "rate": 0.9,
+            "ci95_state_cluster": [
+              0.8,
+              0.975
+            ]
+          },
+          "preserve_refreshed_winner_error": {
+            "numerator": 31,
+            "denominator": 40,
+            "rate": 0.775,
+            "ci95_state_cluster": [
+              0.65,
+              0.9
+            ]
+          },
+          "reevaluate_old_target_error": {
+            "numerator": 1,
+            "denominator": 40,
+            "rate": 0.025,
+            "ci95_state_cluster": [
+              0.0,
+              0.075
+            ]
+          }
+        },
+        "convention_told": {
+          "changed_pairacc": {
+            "numerator": 10,
+            "denominator": 40,
+            "rate": 0.25,
+            "ci95_state_cluster": [
+              0.125,
+              0.4
+            ]
+          },
+          "e2e": {
+            "numerator": 49,
+            "denominator": 80,
+            "rate": 0.6125,
+            "ci95_state_cluster": [
+              0.5375,
+              0.6875
+            ]
+          },
+          "preserve_accuracy": {
+            "numerator": 11,
+            "denominator": 40,
+            "rate": 0.275,
+            "ci95_state_cluster": [
+              0.15,
+              0.425
+            ]
+          },
+          "reevaluate_accuracy": {
+            "numerator": 38,
+            "denominator": 40,
+            "rate": 0.95,
+            "ci95_state_cluster": [
+              0.875,
+              1.0
+            ]
+          },
+          "preserve_refreshed_winner_error": {
+            "numerator": 26,
+            "denominator": 40,
+            "rate": 0.65,
+            "ci95_state_cluster": [
+              0.5,
+              0.8
+            ]
+          },
+          "reevaluate_old_target_error": {
+            "numerator": 1,
+            "denominator": 40,
+            "rate": 0.025,
+            "ci95_state_cluster": [
+              0.0,
+              0.075
+            ]
+          }
+        }
+      },
+      "paired_differences": [
+        {
+          "left": "plain_history",
+          "right": "convention_told",
+          "metric": "changed_pairacc",
+          "difference_right_minus_left": 0.1,
+          "ci95_state_cluster": [
+            0.024999999999999994,
+            0.2
+          ]
+        },
+        {
+          "left": "plain_history",
+          "right": "convention_told",
+          "metric": "e2e",
+          "difference_right_minus_left": 0.08750000000000002,
+          "ci95_state_cluster": [
+            0.03749999999999998,
+            0.15000000000000002
+          ]
+        }
+      ],
+      "failures": {
+        "api": 0,
+        "parse_or_schema": 1,
+        "incomplete_tasks": 1
+      },
+      "calls": {
+        "logical_planned": 160,
+        "logical_completed": 160,
+        "http_attempts": 160,
+        "retries": 0,
+        "prompt_tokens": 96604,
+        "completion_tokens": 2918
+      }
+    },
+    {
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "rows": 80,
+      "state_clusters": 40,
+      "metrics": {
+        "plain_history": {
+          "changed_pairacc": {
+            "numerator": 4,
+            "denominator": 40,
+            "rate": 0.1,
+            "ci95_state_cluster": [
+              0.025,
+              0.2
+            ]
+          },
+          "e2e": {
+            "numerator": 23,
+            "denominator": 80,
+            "rate": 0.2875,
+            "ci95_state_cluster": [
+              0.1875,
+              0.3875
+            ]
+          },
+          "preserve_accuracy": {
+            "numerator": 5,
+            "denominator": 40,
+            "rate": 0.125,
+            "ci95_state_cluster": [
+              0.025,
+              0.225
+            ]
+          },
+          "reevaluate_accuracy": {
+            "numerator": 18,
+            "denominator": 40,
+            "rate": 0.45,
+            "ci95_state_cluster": [
+              0.3,
+              0.6
+            ]
+          },
+          "preserve_refreshed_winner_error": {
+            "numerator": 20,
+            "denominator": 40,
+            "rate": 0.5,
+            "ci95_state_cluster": [
+              0.35,
+              0.65
+            ]
+          },
+          "reevaluate_old_target_error": {
+            "numerator": 1,
+            "denominator": 40,
+            "rate": 0.025,
+            "ci95_state_cluster": [
+              0.0,
+              0.075
+            ]
+          }
+        },
+        "convention_told": {
+          "changed_pairacc": {
+            "numerator": 2,
+            "denominator": 40,
+            "rate": 0.05,
+            "ci95_state_cluster": [
+              0.0,
+              0.125
+            ]
+          },
+          "e2e": {
+            "numerator": 18,
+            "denominator": 80,
+            "rate": 0.225,
+            "ci95_state_cluster": [
+              0.1375,
+              0.325
+            ]
+          },
+          "preserve_accuracy": {
+            "numerator": 3,
+            "denominator": 40,
+            "rate": 0.075,
+            "ci95_state_cluster": [
+              0.0,
+              0.175
+            ]
+          },
+          "reevaluate_accuracy": {
+            "numerator": 15,
+            "denominator": 40,
+            "rate": 0.375,
+            "ci95_state_cluster": [
+              0.225,
+              0.525
+            ]
+          },
+          "preserve_refreshed_winner_error": {
+            "numerator": 17,
+            "denominator": 40,
+            "rate": 0.425,
+            "ci95_state_cluster": [
+              0.275,
+              0.575
+            ]
+          },
+          "reevaluate_old_target_error": {
+            "numerator": 1,
+            "denominator": 40,
+            "rate": 0.025,
+            "ci95_state_cluster": [
+              0.0,
+              0.075
+            ]
+          }
+        }
+      },
+      "paired_differences": [
+        {
+          "left": "plain_history",
+          "right": "convention_told",
+          "metric": "changed_pairacc",
+          "difference_right_minus_left": -0.05,
+          "ci95_state_cluster": [
+            -0.125,
+            0.0
+          ]
+        },
+        {
+          "left": "plain_history",
+          "right": "convention_told",
+          "metric": "e2e",
+          "difference_right_minus_left": -0.06249999999999997,
+          "ci95_state_cluster": [
+            -0.1375,
+            0.012500000000000011
+          ]
+        }
+      ],
+      "failures": {
+        "api": 0,
+        "parse_or_schema": 0,
+        "incomplete_tasks": 0
+      },
+      "calls": {
+        "logical_planned": 160,
+        "logical_completed": 160,
+        "http_attempts": 160,
+        "retries": 0,
+        "prompt_tokens": 101204,
+        "completion_tokens": 2332
+      }
+    },
+    {
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "rows": 80,
+      "state_clusters": 40,
+      "metrics": {
+        "plain_history": {
+          "changed_pairacc": {
+            "numerator": 2,
+            "denominator": 40,
+            "rate": 0.05,
+            "ci95_state_cluster": [
+              0.0,
+              0.125
+            ]
+          },
+          "e2e": {
+            "numerator": 42,
+            "denominator": 80,
+            "rate": 0.525,
+            "ci95_state_cluster": [
+              0.5,
+              0.5625
+            ]
+          },
+          "preserve_accuracy": {
+            "numerator": 7,
+            "denominator": 40,
+            "rate": 0.175,
+            "ci95_state_cluster": [
+              0.075,
+              0.3
+            ]
+          },
+          "reevaluate_accuracy": {
+            "numerator": 35,
+            "denominator": 40,
+            "rate": 0.875,
+            "ci95_state_cluster": [
+              0.775,
+              0.975
+            ]
+          },
+          "preserve_refreshed_winner_error": {
+            "numerator": 33,
+            "denominator": 40,
+            "rate": 0.825,
+            "ci95_state_cluster": [
+              0.7,
+              0.925
+            ]
+          },
+          "reevaluate_old_target_error": {
+            "numerator": 5,
+            "denominator": 40,
+            "rate": 0.125,
+            "ci95_state_cluster": [
+              0.025,
+              0.225
+            ]
+          }
+        },
+        "convention_told": {
+          "changed_pairacc": {
+            "numerator": 5,
+            "denominator": 40,
+            "rate": 0.125,
+            "ci95_state_cluster": [
+              0.025,
+              0.225
+            ]
+          },
+          "e2e": {
+            "numerator": 45,
+            "denominator": 80,
+            "rate": 0.5625,
+            "ci95_state_cluster": [
+              0.5125,
+              0.6125
+            ]
+          },
+          "preserve_accuracy": {
+            "numerator": 5,
+            "denominator": 40,
+            "rate": 0.125,
+            "ci95_state_cluster": [
+              0.025,
+              0.225
+            ]
+          },
+          "reevaluate_accuracy": {
+            "numerator": 40,
+            "denominator": 40,
+            "rate": 1.0,
+            "ci95_state_cluster": [
+              1.0,
+              1.0
+            ]
+          },
+          "preserve_refreshed_winner_error": {
+            "numerator": 34,
+            "denominator": 40,
+            "rate": 0.85,
+            "ci95_state_cluster": [
+              0.725,
+              0.95
+            ]
+          },
+          "reevaluate_old_target_error": {
+            "numerator": 0,
+            "denominator": 40,
+            "rate": 0.0,
+            "ci95_state_cluster": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "paired_differences": [
+        {
+          "left": "plain_history",
+          "right": "convention_told",
+          "metric": "changed_pairacc",
+          "difference_right_minus_left": 0.075,
+          "ci95_state_cluster": [
+            -0.05,
+            0.2
+          ]
+        },
+        {
+          "left": "plain_history",
+          "right": "convention_told",
+          "metric": "e2e",
+          "difference_right_minus_left": 0.03749999999999998,
+          "ci95_state_cluster": [
+            -0.025000000000000022,
+            0.10000000000000009
+          ]
+        }
+      ],
+      "failures": {
+        "api": 0,
+        "parse_or_schema": 0,
+        "incomplete_tasks": 0
+      },
+      "calls": {
+        "logical_planned": 160,
+        "logical_completed": 160,
+        "http_attempts": 160,
+        "retries": 0,
+        "prompt_tokens": 101724,
+        "completion_tokens": 2190
+      }
+    }
+  ],
+  "boundaries": [
+    "Authored frozen gold; not independent-human or open-language evidence.",
+    "No structured ID, reference-mode record, compiler decision, or separately scored initial binding.",
+    "Refreshed-winner and old-target errors are unconditional and are not called conditional TRI."
+  ]
+}

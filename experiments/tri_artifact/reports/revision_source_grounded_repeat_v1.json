@@ -1,0 +1,2287 @@
+{
+  "audit_id": "source_grounded",
+  "boundary": "Temperature-zero repeats measure endpoint repeatability on the same 30 source-derived pairs. They do not increase the independent pair count or establish native behavior.",
+  "evidence_status": "post-primary replication/audit",
+  "models": [
+    "Pro/MiniMaxAI/MiniMax-M2.5",
+    "Pro/zai-org/GLM-5.1",
+    "Qwen/Qwen3.5-122B-A10B",
+    "deepseek-ai/DeepSeek-V4-Pro"
+  ],
+  "passes": [
+    {
+      "clusters": 30,
+      "decision_visible_minus_history": {
+        "actionable_e2e": {
+          "ci95_cluster": [
+            -0.06666666666666665,
+            0.06666666666666665
+          ],
+          "difference": 0.0,
+          "left": "history_only",
+          "right": "decision_visible"
+        },
+        "changed_pairacc": {
+          "ci95_cluster": [
+            -0.11111111111111116,
+            0.19999999999999996
+          ],
+          "difference": 0.033333333333333326,
+          "left": "history_only",
+          "right": "decision_visible"
+        }
+      },
+      "failures": {
+        "compiler": 0,
+        "history_actor": 0,
+        "incomplete_tasks": 0,
+        "visible_actor": 0
+      },
+      "label": "historical",
+      "logical_calls": {
+        "completed": 180,
+        "http_attempts": 180,
+        "planned": 180
+      },
+      "metrics": {
+        "decision_enforced": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.5833333333333334,
+              0.8333333333333334
+            ],
+            "denominator": 60,
+            "numerator": 43,
+            "rate": 0.7166666666666667
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.5833333333333334,
+              0.8333333333333334
+            ],
+            "denominator": 60,
+            "numerator": 43,
+            "rate": 0.7166666666666667
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.4,
+              0.7333333333333333
+            ],
+            "denominator": 30,
+            "numerator": 17,
+            "rate": 0.5666666666666667
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.4,
+              0.7333333333333333
+            ],
+            "denominator": 30,
+            "numerator": 17,
+            "rate": 0.5666666666666667
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.13333333333333333,
+              0.38333333333333336
+            ],
+            "denominator": 60,
+            "numerator": 15,
+            "rate": 0.25
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 26,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.2727272727272727
+            ],
+            "denominator": 24,
+            "numerator": 3,
+            "rate": 0.125
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "decision_visible": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.5166666666666667,
+              0.7666666666666667
+            ],
+            "denominator": 60,
+            "numerator": 39,
+            "rate": 0.65
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.5166666666666667,
+              0.7666666666666667
+            ],
+            "denominator": 60,
+            "numerator": 39,
+            "rate": 0.65
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.26666666666666666,
+              0.6
+            ],
+            "denominator": 30,
+            "numerator": 13,
+            "rate": 0.43333333333333335
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.26666666666666666,
+              0.6
+            ],
+            "denominator": 30,
+            "numerator": 13,
+            "rate": 0.43333333333333335
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.18333333333333332,
+              0.4
+            ],
+            "denominator": 60,
+            "numerator": 17,
+            "rate": 0.2833333333333333
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.1111111111111111,
+              0.4583333333333333
+            ],
+            "denominator": 26,
+            "numerator": 7,
+            "rate": 0.2692307692307692
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.2727272727272727
+            ],
+            "denominator": 24,
+            "numerator": 3,
+            "rate": 0.125
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "history_only": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.5333333333333333,
+              0.7666666666666667
+            ],
+            "denominator": 60,
+            "numerator": 39,
+            "rate": 0.65
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.5333333333333333,
+              0.7666666666666667
+            ],
+            "denominator": 60,
+            "numerator": 39,
+            "rate": 0.65
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.23333333333333334,
+              0.5666666666666667
+            ],
+            "denominator": 30,
+            "numerator": 12,
+            "rate": 0.4
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.23333333333333334,
+              0.5666666666666667
+            ],
+            "denominator": 30,
+            "numerator": 12,
+            "rate": 0.4
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.18333333333333332,
+              0.35
+            ],
+            "denominator": 60,
+            "numerator": 16,
+            "rate": 0.26666666666666666
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.1111111111111111,
+              0.4583333333333333
+            ],
+            "denominator": 26,
+            "numerator": 7,
+            "rate": 0.2692307692307692
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.038461538461538464,
+              0.3333333333333333
+            ],
+            "denominator": 24,
+            "numerator": 4,
+            "rate": 0.16666666666666666
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        }
+      },
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "rows": 60
+    },
+    {
+      "clusters": 30,
+      "decision_visible_minus_history": {
+        "actionable_e2e": {
+          "ci95_cluster": [
+            0.08333333333333326,
+            0.29999999999999993
+          ],
+          "difference": 0.18333333333333335,
+          "left": "history_only",
+          "right": "decision_visible"
+        },
+        "changed_pairacc": {
+          "ci95_cluster": [
+            0.0,
+            0.5555555555555556
+          ],
+          "difference": 0.3,
+          "left": "history_only",
+          "right": "decision_visible"
+        }
+      },
+      "failures": {
+        "compiler": 0,
+        "history_actor": 0,
+        "incomplete_tasks": 0,
+        "visible_actor": 0
+      },
+      "label": "historical",
+      "logical_calls": {
+        "completed": 180,
+        "http_attempts": 180,
+        "planned": 180
+      },
+      "metrics": {
+        "decision_enforced": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.7833333333333333,
+              0.95
+            ],
+            "denominator": 60,
+            "numerator": 52,
+            "rate": 0.8666666666666667
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.7833333333333333,
+              0.95
+            ],
+            "denominator": 60,
+            "numerator": 52,
+            "rate": 0.8666666666666667
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.5666666666666667,
+              0.9
+            ],
+            "denominator": 30,
+            "numerator": 22,
+            "rate": 0.7333333333333333
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.5666666666666667,
+              0.9
+            ],
+            "denominator": 30,
+            "numerator": 22,
+            "rate": 0.7333333333333333
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.016666666666666666,
+              0.13333333333333333
+            ],
+            "denominator": 60,
+            "numerator": 4,
+            "rate": 0.06666666666666667
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 30,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.23333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 3,
+            "rate": 0.1
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "decision_visible": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.6833333333333333,
+              0.9
+            ],
+            "denominator": 60,
+            "numerator": 48,
+            "rate": 0.8
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.6833333333333333,
+              0.9
+            ],
+            "denominator": 60,
+            "numerator": 48,
+            "rate": 0.8
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.5,
+              0.8333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 20,
+            "rate": 0.6666666666666666
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.5,
+              0.8333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 20,
+            "rate": 0.6666666666666666
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.016666666666666666,
+              0.15
+            ],
+            "denominator": 60,
+            "numerator": 5,
+            "rate": 0.08333333333333333
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.1
+            ],
+            "denominator": 30,
+            "numerator": 1,
+            "rate": 0.03333333333333333
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.23333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 3,
+            "rate": 0.1
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "history_only": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.5,
+              0.7333333333333333
+            ],
+            "denominator": 60,
+            "numerator": 37,
+            "rate": 0.6166666666666667
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.5,
+              0.7333333333333333
+            ],
+            "denominator": 60,
+            "numerator": 37,
+            "rate": 0.6166666666666667
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.2,
+              0.5333333333333333
+            ],
+            "denominator": 30,
+            "numerator": 11,
+            "rate": 0.36666666666666664
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.2,
+              0.5333333333333333
+            ],
+            "denominator": 30,
+            "numerator": 11,
+            "rate": 0.36666666666666664
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.16666666666666666,
+              0.38333333333333336
+            ],
+            "denominator": 60,
+            "numerator": 16,
+            "rate": 0.26666666666666666
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.16666666666666666,
+              0.5
+            ],
+            "denominator": 30,
+            "numerator": 10,
+            "rate": 0.3333333333333333
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.16666666666666666
+            ],
+            "denominator": 30,
+            "numerator": 2,
+            "rate": 0.06666666666666667
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        }
+      },
+      "model": "Pro/zai-org/GLM-5.1",
+      "rows": 60
+    },
+    {
+      "clusters": 30,
+      "decision_visible_minus_history": {
+        "actionable_e2e": {
+          "ci95_cluster": [
+            -0.050000000000000044,
+            0.1166666666666667
+          ],
+          "difference": 0.033333333333333326,
+          "left": "history_only",
+          "right": "decision_visible"
+        },
+        "changed_pairacc": {
+          "ci95_cluster": [
+            -0.09999999999999998,
+            0.30000000000000004
+          ],
+          "difference": 0.09999999999999998,
+          "left": "history_only",
+          "right": "decision_visible"
+        }
+      },
+      "failures": {
+        "compiler": 0,
+        "history_actor": 0,
+        "incomplete_tasks": 0,
+        "visible_actor": 0
+      },
+      "label": "historical",
+      "logical_calls": {
+        "completed": 180,
+        "http_attempts": 180,
+        "planned": 180
+      },
+      "metrics": {
+        "decision_enforced": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.6666666666666666,
+              0.9
+            ],
+            "denominator": 60,
+            "numerator": 47,
+            "rate": 0.7833333333333333
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.6666666666666666,
+              0.9
+            ],
+            "denominator": 60,
+            "numerator": 47,
+            "rate": 0.7833333333333333
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.5,
+              0.8333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 20,
+            "rate": 0.6666666666666666
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.5,
+              0.8333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 20,
+            "rate": 0.6666666666666666
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.1,
+              0.3333333333333333
+            ],
+            "denominator": 60,
+            "numerator": 13,
+            "rate": 0.21666666666666667
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 27,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 23,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "decision_visible": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.65,
+              0.9166666666666666
+            ],
+            "denominator": 60,
+            "numerator": 47,
+            "rate": 0.7833333333333333
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.65,
+              0.9166666666666666
+            ],
+            "denominator": 60,
+            "numerator": 47,
+            "rate": 0.7833333333333333
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.5666666666666667,
+              0.9
+            ],
+            "denominator": 30,
+            "numerator": 22,
+            "rate": 0.7333333333333333
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.5666666666666667,
+              0.9
+            ],
+            "denominator": 30,
+            "numerator": 22,
+            "rate": 0.7333333333333333
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.03333333333333333,
+              0.2833333333333333
+            ],
+            "denominator": 60,
+            "numerator": 9,
+            "rate": 0.15
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.18518518518518517
+            ],
+            "denominator": 27,
+            "numerator": 2,
+            "rate": 0.07407407407407407
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 23,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "history_only": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.6166666666666667,
+              0.8666666666666667
+            ],
+            "denominator": 60,
+            "numerator": 45,
+            "rate": 0.75
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.6166666666666667,
+              0.8666666666666667
+            ],
+            "denominator": 60,
+            "numerator": 45,
+            "rate": 0.75
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.4666666666666667,
+              0.8
+            ],
+            "denominator": 30,
+            "numerator": 19,
+            "rate": 0.6333333333333333
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.4666666666666667,
+              0.8
+            ],
+            "denominator": 30,
+            "numerator": 19,
+            "rate": 0.6333333333333333
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.08333333333333333,
+              0.3
+            ],
+            "denominator": 60,
+            "numerator": 11,
+            "rate": 0.18333333333333332
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.07407407407407407,
+              0.38461538461538464
+            ],
+            "denominator": 27,
+            "numerator": 6,
+            "rate": 0.2222222222222222
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 23,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        }
+      },
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "rows": 60
+    },
+    {
+      "clusters": 30,
+      "decision_visible_minus_history": {
+        "actionable_e2e": {
+          "ci95_cluster": [
+            0.0,
+            0.15000000000000002
+          ],
+          "difference": 0.06666666666666665,
+          "left": "history_only",
+          "right": "decision_visible"
+        },
+        "changed_pairacc": {
+          "ci95_cluster": [
+            0.0,
+            0.36363636363636365
+          ],
+          "difference": 0.16666666666666669,
+          "left": "history_only",
+          "right": "decision_visible"
+        }
+      },
+      "failures": {
+        "compiler": 0,
+        "history_actor": 0,
+        "incomplete_tasks": 0,
+        "visible_actor": 0
+      },
+      "label": "repeat2",
+      "logical_calls": {
+        "completed": 180,
+        "http_attempts": 180,
+        "planned": 180
+      },
+      "metrics": {
+        "decision_enforced": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.5666666666666667,
+              0.8333333333333334
+            ],
+            "denominator": 60,
+            "numerator": 42,
+            "rate": 0.7
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.5666666666666667,
+              0.8333333333333334
+            ],
+            "denominator": 60,
+            "numerator": 42,
+            "rate": 0.7
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.4,
+              0.7333333333333333
+            ],
+            "denominator": 30,
+            "numerator": 17,
+            "rate": 0.5666666666666667
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.4,
+              0.7333333333333333
+            ],
+            "denominator": 30,
+            "numerator": 17,
+            "rate": 0.5666666666666667
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.13333333333333333,
+              0.4
+            ],
+            "denominator": 60,
+            "numerator": 16,
+            "rate": 0.26666666666666666
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 25,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.2727272727272727
+            ],
+            "denominator": 24,
+            "numerator": 3,
+            "rate": 0.125
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "decision_visible": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.55,
+              0.8
+            ],
+            "denominator": 60,
+            "numerator": 41,
+            "rate": 0.6833333333333333
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.55,
+              0.8
+            ],
+            "denominator": 60,
+            "numerator": 41,
+            "rate": 0.6833333333333333
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.3333333333333333,
+              0.6666666666666666
+            ],
+            "denominator": 30,
+            "numerator": 15,
+            "rate": 0.5
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.3333333333333333,
+              0.6666666666666666
+            ],
+            "denominator": 30,
+            "numerator": 15,
+            "rate": 0.5
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.15,
+              0.36666666666666664
+            ],
+            "denominator": 60,
+            "numerator": 15,
+            "rate": 0.25
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.038461538461538464,
+              0.3181818181818182
+            ],
+            "denominator": 25,
+            "numerator": 4,
+            "rate": 0.16
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.2727272727272727
+            ],
+            "denominator": 24,
+            "numerator": 3,
+            "rate": 0.125
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "history_only": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.5,
+              0.7333333333333333
+            ],
+            "denominator": 60,
+            "numerator": 37,
+            "rate": 0.6166666666666667
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.5,
+              0.7333333333333333
+            ],
+            "denominator": 60,
+            "numerator": 37,
+            "rate": 0.6166666666666667
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.16666666666666666,
+              0.5
+            ],
+            "denominator": 30,
+            "numerator": 10,
+            "rate": 0.3333333333333333
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.16666666666666666,
+              0.5
+            ],
+            "denominator": 30,
+            "numerator": 10,
+            "rate": 0.3333333333333333
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.2,
+              0.36666666666666664
+            ],
+            "denominator": 60,
+            "numerator": 17,
+            "rate": 0.2833333333333333
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.11538461538461539,
+              0.4642857142857143
+            ],
+            "denominator": 25,
+            "numerator": 7,
+            "rate": 0.28
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.038461538461538464,
+              0.3333333333333333
+            ],
+            "denominator": 24,
+            "numerator": 4,
+            "rate": 0.16666666666666666
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        }
+      },
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "rows": 60
+    },
+    {
+      "clusters": 30,
+      "decision_visible_minus_history": {
+        "actionable_e2e": {
+          "ci95_cluster": [
+            0.033333333333333326,
+            0.2666666666666667
+          ],
+          "difference": 0.15000000000000002,
+          "left": "history_only",
+          "right": "decision_visible"
+        },
+        "changed_pairacc": {
+          "ci95_cluster": [
+            0.0,
+            0.5
+          ],
+          "difference": 0.23333333333333328,
+          "left": "history_only",
+          "right": "decision_visible"
+        }
+      },
+      "failures": {
+        "compiler": 0,
+        "history_actor": 0,
+        "incomplete_tasks": 0,
+        "visible_actor": 0
+      },
+      "label": "repeat2",
+      "logical_calls": {
+        "completed": 180,
+        "http_attempts": 180,
+        "planned": 180
+      },
+      "metrics": {
+        "decision_enforced": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.7833333333333333,
+              0.95
+            ],
+            "denominator": 60,
+            "numerator": 52,
+            "rate": 0.8666666666666667
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.7833333333333333,
+              0.95
+            ],
+            "denominator": 60,
+            "numerator": 52,
+            "rate": 0.8666666666666667
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.5666666666666667,
+              0.9
+            ],
+            "denominator": 30,
+            "numerator": 22,
+            "rate": 0.7333333333333333
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.5666666666666667,
+              0.9
+            ],
+            "denominator": 30,
+            "numerator": 22,
+            "rate": 0.7333333333333333
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.016666666666666666,
+              0.13333333333333333
+            ],
+            "denominator": 60,
+            "numerator": 4,
+            "rate": 0.06666666666666667
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 30,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.23333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 3,
+            "rate": 0.1
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "decision_visible": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.6666666666666666,
+              0.8833333333333333
+            ],
+            "denominator": 60,
+            "numerator": 47,
+            "rate": 0.7833333333333333
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.6666666666666666,
+              0.8833333333333333
+            ],
+            "denominator": 60,
+            "numerator": 47,
+            "rate": 0.7833333333333333
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.4666666666666667,
+              0.8
+            ],
+            "denominator": 30,
+            "numerator": 19,
+            "rate": 0.6333333333333333
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.4666666666666667,
+              0.8
+            ],
+            "denominator": 30,
+            "numerator": 19,
+            "rate": 0.6333333333333333
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.016666666666666666,
+              0.15
+            ],
+            "denominator": 60,
+            "numerator": 5,
+            "rate": 0.08333333333333333
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.1
+            ],
+            "denominator": 30,
+            "numerator": 1,
+            "rate": 0.03333333333333333
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.23333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 3,
+            "rate": 0.1
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "history_only": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.5166666666666667,
+              0.75
+            ],
+            "denominator": 60,
+            "numerator": 38,
+            "rate": 0.6333333333333333
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.5166666666666667,
+              0.75
+            ],
+            "denominator": 60,
+            "numerator": 38,
+            "rate": 0.6333333333333333
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.23333333333333334,
+              0.5666666666666667
+            ],
+            "denominator": 30,
+            "numerator": 12,
+            "rate": 0.4
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.23333333333333334,
+              0.5666666666666667
+            ],
+            "denominator": 30,
+            "numerator": 12,
+            "rate": 0.4
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.16666666666666666,
+              0.38333333333333336
+            ],
+            "denominator": 60,
+            "numerator": 16,
+            "rate": 0.26666666666666666
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.2,
+              0.5333333333333333
+            ],
+            "denominator": 30,
+            "numerator": 11,
+            "rate": 0.36666666666666664
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.1
+            ],
+            "denominator": 30,
+            "numerator": 1,
+            "rate": 0.03333333333333333
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        }
+      },
+      "model": "Pro/zai-org/GLM-5.1",
+      "rows": 60
+    },
+    {
+      "clusters": 30,
+      "decision_visible_minus_history": {
+        "actionable_e2e": {
+          "ci95_cluster": [
+            -0.06666666666666676,
+            0.13333333333333341
+          ],
+          "difference": 0.033333333333333326,
+          "left": "history_only",
+          "right": "decision_visible"
+        },
+        "changed_pairacc": {
+          "ci95_cluster": [
+            -0.18181818181818188,
+            0.3076923076923077
+          ],
+          "difference": 0.06666666666666665,
+          "left": "history_only",
+          "right": "decision_visible"
+        }
+      },
+      "failures": {
+        "compiler": 0,
+        "history_actor": 0,
+        "incomplete_tasks": 0,
+        "visible_actor": 0
+      },
+      "label": "repeat2",
+      "logical_calls": {
+        "completed": 180,
+        "http_attempts": 180,
+        "planned": 180
+      },
+      "metrics": {
+        "decision_enforced": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.6833333333333333,
+              0.9
+            ],
+            "denominator": 60,
+            "numerator": 48,
+            "rate": 0.8
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.6833333333333333,
+              0.9
+            ],
+            "denominator": 60,
+            "numerator": 48,
+            "rate": 0.8
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.5,
+              0.8333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 20,
+            "rate": 0.6666666666666666
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.5,
+              0.8333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 20,
+            "rate": 0.6666666666666666
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.08333333333333333,
+              0.3
+            ],
+            "denominator": 60,
+            "numerator": 11,
+            "rate": 0.18333333333333332
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 28,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 24,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "decision_visible": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.6666666666666666,
+              0.9
+            ],
+            "denominator": 60,
+            "numerator": 47,
+            "rate": 0.7833333333333333
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.6666666666666666,
+              0.9
+            ],
+            "denominator": 60,
+            "numerator": 47,
+            "rate": 0.7833333333333333
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.5,
+              0.8333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 20,
+            "rate": 0.6666666666666666
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.5,
+              0.8333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 20,
+            "rate": 0.6666666666666666
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.05,
+              0.26666666666666666
+            ],
+            "denominator": 60,
+            "numerator": 9,
+            "rate": 0.15
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.17857142857142858
+            ],
+            "denominator": 28,
+            "numerator": 2,
+            "rate": 0.07142857142857142
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 24,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "history_only": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.6333333333333333,
+              0.8666666666666667
+            ],
+            "denominator": 60,
+            "numerator": 45,
+            "rate": 0.75
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.6333333333333333,
+              0.8666666666666667
+            ],
+            "denominator": 60,
+            "numerator": 45,
+            "rate": 0.75
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.43333333333333335,
+              0.7666666666666667
+            ],
+            "denominator": 30,
+            "numerator": 18,
+            "rate": 0.6
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.43333333333333335,
+              0.7666666666666667
+            ],
+            "denominator": 30,
+            "numerator": 18,
+            "rate": 0.6
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.1,
+              0.31666666666666665
+            ],
+            "denominator": 60,
+            "numerator": 12,
+            "rate": 0.2
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.07142857142857142,
+              0.37037037037037035
+            ],
+            "denominator": 28,
+            "numerator": 6,
+            "rate": 0.21428571428571427
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.13636363636363635
+            ],
+            "denominator": 24,
+            "numerator": 1,
+            "rate": 0.041666666666666664
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        }
+      },
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "rows": 60
+    },
+    {
+      "clusters": 30,
+      "decision_visible_minus_history": {
+        "actionable_e2e": {
+          "ci95_cluster": [
+            -0.1166666666666667,
+            0.06666666666666665
+          ],
+          "difference": -0.033333333333333326,
+          "left": "history_only",
+          "right": "decision_visible"
+        },
+        "changed_pairacc": {
+          "ci95_cluster": [
+            -0.16666666666666663,
+            0.23076923076923073
+          ],
+          "difference": 0.033333333333333326,
+          "left": "history_only",
+          "right": "decision_visible"
+        }
+      },
+      "failures": {
+        "compiler": 0,
+        "history_actor": 0,
+        "incomplete_tasks": 0,
+        "visible_actor": 0
+      },
+      "label": "first-pass",
+      "logical_calls": {
+        "completed": 180,
+        "http_attempts": 181,
+        "planned": 180
+      },
+      "metrics": {
+        "decision_enforced": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.7,
+              0.9166666666666666
+            ],
+            "denominator": 60,
+            "numerator": 49,
+            "rate": 0.8166666666666667
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.7,
+              0.9166666666666666
+            ],
+            "denominator": 60,
+            "numerator": 49,
+            "rate": 0.8166666666666667
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.5333333333333333,
+              0.8666666666666667
+            ],
+            "denominator": 30,
+            "numerator": 21,
+            "rate": 0.7
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.5333333333333333,
+              0.8666666666666667
+            ],
+            "denominator": 30,
+            "numerator": 21,
+            "rate": 0.7
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.05,
+              0.26666666666666666
+            ],
+            "denominator": 60,
+            "numerator": 9,
+            "rate": 0.15
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 28,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.23333333333333334
+            ],
+            "denominator": 28,
+            "numerator": 3,
+            "rate": 0.10714285714285714
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "decision_visible": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.6333333333333333,
+              0.8833333333333333
+            ],
+            "denominator": 60,
+            "numerator": 46,
+            "rate": 0.7666666666666667
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.6333333333333333,
+              0.8833333333333333
+            ],
+            "denominator": 60,
+            "numerator": 46,
+            "rate": 0.7666666666666667
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.5,
+              0.8333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 20,
+            "rate": 0.6666666666666666
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.5,
+              0.8333333333333334
+            ],
+            "denominator": 30,
+            "numerator": 20,
+            "rate": 0.6666666666666666
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.03333333333333333,
+              0.25
+            ],
+            "denominator": 60,
+            "numerator": 8,
+            "rate": 0.13333333333333333
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.0,
+              0.0
+            ],
+            "denominator": 28,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.23333333333333334
+            ],
+            "denominator": 28,
+            "numerator": 3,
+            "rate": 0.10714285714285714
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "history_only": {
+          "actionable_e2e": {
+            "ci95_cluster": [
+              0.7,
+              0.8833333333333333
+            ],
+            "denominator": 60,
+            "numerator": 48,
+            "rate": 0.8
+          },
+          "all_e2e": {
+            "ci95_cluster": [
+              0.7,
+              0.8833333333333333
+            ],
+            "denominator": 60,
+            "numerator": 48,
+            "rate": 0.8
+          },
+          "changed_pairacc": {
+            "ci95_cluster": [
+              0.4666666666666667,
+              0.8
+            ],
+            "denominator": 30,
+            "numerator": 19,
+            "rate": 0.6333333333333333
+          },
+          "complete_pairacc": {
+            "ci95_cluster": [
+              0.4666666666666667,
+              0.8
+            ],
+            "denominator": 30,
+            "numerator": 19,
+            "rate": 0.6333333333333333
+          },
+          "fixed_executor_wrong_writes": {
+            "ci95_cluster": [
+              0.1,
+              0.2833333333333333
+            ],
+            "denominator": 60,
+            "numerator": 11,
+            "rate": 0.18333333333333332
+          },
+          "human_actionable_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "human_majority": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preserve_substitution": {
+            "ci95_cluster": [
+              0.034482758620689655,
+              0.2857142857142857
+            ],
+            "denominator": 28,
+            "numerator": 4,
+            "rate": 0.14285714285714285
+          },
+          "reevaluate_premature_lock": {
+            "ci95_cluster": [
+              0.0,
+              0.17857142857142858
+            ],
+            "denominator": 28,
+            "numerator": 2,
+            "rate": 0.07142857142857142
+          },
+          "reject_slice": {
+            "ci95_cluster": [
+              null,
+              null
+            ],
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        }
+      },
+      "model": "Pro/MiniMaxAI/MiniMax-M2.5",
+      "rows": 60
+    }
+  ],
+  "report_version": "TRI-revision-repeat-stability-report-v1",
+  "target_agreement": [
+    {
+      "conditions": {
+        "decision_enforced": {
+          "denominator": 60,
+          "numerator": 58,
+          "rate": 0.9666666666666667
+        },
+        "decision_visible": {
+          "denominator": 60,
+          "numerator": 56,
+          "rate": 0.9333333333333333
+        },
+        "history_only": {
+          "denominator": 60,
+          "numerator": 58,
+          "rate": 0.9666666666666667
+        }
+      },
+      "historical_label": "historical",
+      "model": "Qwen/Qwen3.5-122B-A10B",
+      "new_label": "repeat2"
+    },
+    {
+      "conditions": {
+        "decision_enforced": {
+          "denominator": 60,
+          "numerator": 60,
+          "rate": 1.0
+        },
+        "decision_visible": {
+          "denominator": 60,
+          "numerator": 59,
+          "rate": 0.9833333333333333
+        },
+        "history_only": {
+          "denominator": 60,
+          "numerator": 58,
+          "rate": 0.9666666666666667
+        }
+      },
+      "historical_label": "historical",
+      "model": "Pro/zai-org/GLM-5.1",
+      "new_label": "repeat2"
+    },
+    {
+      "conditions": {
+        "decision_enforced": {
+          "denominator": 60,
+          "numerator": 56,
+          "rate": 0.9333333333333333
+        },
+        "decision_visible": {
+          "denominator": 60,
+          "numerator": 53,
+          "rate": 0.8833333333333333
+        },
+        "history_only": {
+          "denominator": 60,
+          "numerator": 57,
+          "rate": 0.95
+        }
+      },
+      "historical_label": "historical",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "new_label": "repeat2"
+    }
+  ]
+}

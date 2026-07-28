@@ -1,0 +1,446 @@
+{
+  "estimand": "CTA minus Generic exact-target accuracy in percentage points",
+  "models": [
+    {
+      "model": "Qwen3.5",
+      "n": 240,
+      "overall_delta_points": 23.333333333333332,
+      "leave_one_domain_out": [
+        {
+          "excluded": "alerts",
+          "n": 216,
+          "delta_points": 25.0
+        },
+        {
+          "excluded": "applications",
+          "n": 216,
+          "delta_points": 24.074074074074073
+        },
+        {
+          "excluded": "appointments",
+          "n": 216,
+          "delta_points": 25.462962962962962
+        },
+        {
+          "excluded": "batches",
+          "n": 216,
+          "delta_points": 23.14814814814815
+        },
+        {
+          "excluded": "bids",
+          "n": 216,
+          "delta_points": 22.685185185185187
+        },
+        {
+          "excluded": "certificates",
+          "n": 216,
+          "delta_points": 22.22222222222222
+        },
+        {
+          "excluded": "invoices",
+          "n": 216,
+          "delta_points": 24.537037037037038
+        },
+        {
+          "excluded": "reminders",
+          "n": 216,
+          "delta_points": 23.61111111111111
+        },
+        {
+          "excluded": "reservations",
+          "n": 216,
+          "delta_points": 24.074074074074073
+        },
+        {
+          "excluded": "reviews",
+          "n": 216,
+          "delta_points": 18.51851851851852
+        }
+      ],
+      "leave_one_template_out": [
+        {
+          "excluded": "v7-explicit_anchor-t1",
+          "n": 226,
+          "delta_points": 20.79646017699115
+        },
+        {
+          "excluded": "v7-explicit_anchor-t2",
+          "n": 226,
+          "delta_points": 21.238938053097346
+        },
+        {
+          "excluded": "v7-explicit_anchor-t3",
+          "n": 224,
+          "delta_points": 21.428571428571427
+        },
+        {
+          "excluded": "v7-explicit_anchor-t4",
+          "n": 224,
+          "delta_points": 23.660714285714285
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t1",
+          "n": 224,
+          "delta_points": 25.446428571428573
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t2",
+          "n": 224,
+          "delta_points": 25.446428571428573
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t3",
+          "n": 226,
+          "delta_points": 23.451327433628318
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t4",
+          "n": 226,
+          "delta_points": 24.336283185840706
+        },
+        {
+          "excluded": "v7-implicit_anchor-t1",
+          "n": 224,
+          "delta_points": 21.428571428571427
+        },
+        {
+          "excluded": "v7-implicit_anchor-t2",
+          "n": 224,
+          "delta_points": 23.214285714285715
+        },
+        {
+          "excluded": "v7-implicit_anchor-t3",
+          "n": 226,
+          "delta_points": 21.238938053097346
+        },
+        {
+          "excluded": "v7-implicit_anchor-t4",
+          "n": 226,
+          "delta_points": 20.353982300884955
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t1",
+          "n": 226,
+          "delta_points": 25.663716814159294
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t2",
+          "n": 226,
+          "delta_points": 23.893805309734514
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t3",
+          "n": 224,
+          "delta_points": 25.446428571428573
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t4",
+          "n": 224,
+          "delta_points": 26.339285714285715
+        }
+      ],
+      "domain_delta_range": [
+        18.51851851851852,
+        25.462962962962962
+      ],
+      "template_delta_range": [
+        20.353982300884955,
+        26.339285714285715
+      ]
+    },
+    {
+      "model": "GLM-5.1",
+      "n": 240,
+      "overall_delta_points": 24.166666666666668,
+      "leave_one_domain_out": [
+        {
+          "excluded": "alerts",
+          "n": 216,
+          "delta_points": 23.14814814814815
+        },
+        {
+          "excluded": "applications",
+          "n": 216,
+          "delta_points": 23.14814814814815
+        },
+        {
+          "excluded": "appointments",
+          "n": 216,
+          "delta_points": 25.462962962962962
+        },
+        {
+          "excluded": "batches",
+          "n": 216,
+          "delta_points": 24.074074074074073
+        },
+        {
+          "excluded": "bids",
+          "n": 216,
+          "delta_points": 23.14814814814815
+        },
+        {
+          "excluded": "certificates",
+          "n": 216,
+          "delta_points": 25.0
+        },
+        {
+          "excluded": "invoices",
+          "n": 216,
+          "delta_points": 23.14814814814815
+        },
+        {
+          "excluded": "reminders",
+          "n": 216,
+          "delta_points": 25.462962962962962
+        },
+        {
+          "excluded": "reservations",
+          "n": 216,
+          "delta_points": 25.925925925925927
+        },
+        {
+          "excluded": "reviews",
+          "n": 216,
+          "delta_points": 23.14814814814815
+        }
+      ],
+      "leave_one_template_out": [
+        {
+          "excluded": "v7-explicit_anchor-t1",
+          "n": 226,
+          "delta_points": 20.79646017699115
+        },
+        {
+          "excluded": "v7-explicit_anchor-t2",
+          "n": 226,
+          "delta_points": 23.008849557522122
+        },
+        {
+          "excluded": "v7-explicit_anchor-t3",
+          "n": 224,
+          "delta_points": 22.767857142857142
+        },
+        {
+          "excluded": "v7-explicit_anchor-t4",
+          "n": 224,
+          "delta_points": 25.0
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t1",
+          "n": 224,
+          "delta_points": 25.0
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t2",
+          "n": 224,
+          "delta_points": 25.892857142857142
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t3",
+          "n": 226,
+          "delta_points": 26.106194690265486
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t4",
+          "n": 226,
+          "delta_points": 26.106194690265486
+        },
+        {
+          "excluded": "v7-implicit_anchor-t1",
+          "n": 224,
+          "delta_points": 21.428571428571427
+        },
+        {
+          "excluded": "v7-implicit_anchor-t2",
+          "n": 224,
+          "delta_points": 25.892857142857142
+        },
+        {
+          "excluded": "v7-implicit_anchor-t3",
+          "n": 226,
+          "delta_points": 21.238938053097346
+        },
+        {
+          "excluded": "v7-implicit_anchor-t4",
+          "n": 226,
+          "delta_points": 21.238938053097346
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t1",
+          "n": 226,
+          "delta_points": 25.663716814159294
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t2",
+          "n": 226,
+          "delta_points": 25.221238938053098
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t3",
+          "n": 224,
+          "delta_points": 25.892857142857142
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t4",
+          "n": 224,
+          "delta_points": 25.446428571428573
+        }
+      ],
+      "domain_delta_range": [
+        23.14814814814815,
+        25.925925925925927
+      ],
+      "template_delta_range": [
+        20.79646017699115,
+        26.106194690265486
+      ]
+    },
+    {
+      "model": "DeepSeek",
+      "n": 240,
+      "overall_delta_points": 17.5,
+      "leave_one_domain_out": [
+        {
+          "excluded": "alerts",
+          "n": 216,
+          "delta_points": 16.203703703703702
+        },
+        {
+          "excluded": "applications",
+          "n": 216,
+          "delta_points": 16.203703703703702
+        },
+        {
+          "excluded": "appointments",
+          "n": 216,
+          "delta_points": 16.666666666666668
+        },
+        {
+          "excluded": "batches",
+          "n": 216,
+          "delta_points": 22.22222222222222
+        },
+        {
+          "excluded": "bids",
+          "n": 216,
+          "delta_points": 15.74074074074074
+        },
+        {
+          "excluded": "certificates",
+          "n": 216,
+          "delta_points": 18.055555555555557
+        },
+        {
+          "excluded": "invoices",
+          "n": 216,
+          "delta_points": 18.055555555555557
+        },
+        {
+          "excluded": "reminders",
+          "n": 216,
+          "delta_points": 17.59259259259259
+        },
+        {
+          "excluded": "reservations",
+          "n": 216,
+          "delta_points": 18.51851851851852
+        },
+        {
+          "excluded": "reviews",
+          "n": 216,
+          "delta_points": 15.74074074074074
+        }
+      ],
+      "leave_one_template_out": [
+        {
+          "excluded": "v7-explicit_anchor-t1",
+          "n": 226,
+          "delta_points": 14.601769911504425
+        },
+        {
+          "excluded": "v7-explicit_anchor-t2",
+          "n": 226,
+          "delta_points": 17.256637168141594
+        },
+        {
+          "excluded": "v7-explicit_anchor-t3",
+          "n": 224,
+          "delta_points": 15.178571428571429
+        },
+        {
+          "excluded": "v7-explicit_anchor-t4",
+          "n": 224,
+          "delta_points": 18.75
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t1",
+          "n": 224,
+          "delta_points": 18.75
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t2",
+          "n": 224,
+          "delta_points": 19.642857142857142
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t3",
+          "n": 226,
+          "delta_points": 19.02654867256637
+        },
+        {
+          "excluded": "v7-explicit_dynamic-t4",
+          "n": 226,
+          "delta_points": 19.02654867256637
+        },
+        {
+          "excluded": "v7-implicit_anchor-t1",
+          "n": 224,
+          "delta_points": 14.732142857142858
+        },
+        {
+          "excluded": "v7-implicit_anchor-t2",
+          "n": 224,
+          "delta_points": 15.625
+        },
+        {
+          "excluded": "v7-implicit_anchor-t3",
+          "n": 226,
+          "delta_points": 14.15929203539823
+        },
+        {
+          "excluded": "v7-implicit_anchor-t4",
+          "n": 226,
+          "delta_points": 15.929203539823009
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t1",
+          "n": 226,
+          "delta_points": 19.469026548672566
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t2",
+          "n": 226,
+          "delta_points": 19.469026548672566
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t3",
+          "n": 224,
+          "delta_points": 18.75
+        },
+        {
+          "excluded": "v7-implicit_dynamic-t4",
+          "n": 224,
+          "delta_points": 19.642857142857142
+        }
+      ],
+      "domain_delta_range": [
+        15.74074074074074,
+        22.22222222222222
+      ],
+      "template_delta_range": [
+        14.15929203539823,
+        19.642857142857142
+      ]
+    }
+  ]
+}

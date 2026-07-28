@@ -19,51 +19,55 @@
     "abstract_chronology_is_explicit": true,
     "body_chronology_is_explicit": true,
     "primary_is_explicitly_package_level": true,
+    "theory_certification_scope_is_explicit": true,
     "binding_drift_boundary_and_citation_are_explicit": true,
     "selector_visibility_boundary_is_explicit": true,
     "code_data_supplement_routing_is_explicit": true,
-    "figure_two_evidence_status_is_explicit": true,
+    "claim_evidence_map_and_result_status_are_explicit": true,
     "no_overstated_tie_or_sample_sufficiency_language": true,
     "external_extension_has_four_paper_facing_conditions": true,
     "source_anchored_transfer_retains_boundary": true,
-    "conclusion_retains_scope_boundary": true
+    "conclusion_retains_scope_boundary": true,
+    "equal_call_interface_is_self_contained": true,
+    "replication_denominator_is_explicit": true,
+    "human_evidence_is_agreement_not_validation": true
   },
   "first_use": {
     "TRI": {
-      "first": 229,
-      "definition": 199
+      "first": 350,
+      "definition": 321
     },
     "LLM": {
-      "first": 6591,
-      "definition": 6569
+      "first": 16497,
+      "definition": 16475
     },
     "CTA": {
-      "first": 811,
-      "definition": 793
+      "first": 7278,
+      "definition": 890
     },
     "ID": {
-      "first": 3019,
-      "definition": 3000
+      "first": 2715,
+      "definition": 2696
     },
     "APIs": {
-      "first": 8370,
-      "definition": 8334
+      "first": -1,
+      "definition": -1
     },
     "NLI": {
-      "first": 10149,
-      "definition": 10121
+      "first": -1,
+      "definition": -1
     },
     "PairAcc": {
-      "first": 1056,
-      "definition": 1041
+      "first": 557,
+      "definition": 542
     },
     "E2E": {
-      "first": 25549,
-      "definition": 25537
+      "first": 11993,
+      "definition": 11981
     },
     "ITT": {
-      "first": 40651,
-      "definition": 40631
+      "first": -1,
+      "definition": 15612
     }
   },
   "missing_bibliography_entries": [],

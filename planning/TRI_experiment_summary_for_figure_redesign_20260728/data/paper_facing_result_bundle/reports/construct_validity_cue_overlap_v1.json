@@ -1,0 +1,475 @@
+{
+  "rule_model_overlap": {
+    "boundary": "Rule* was developed after authored error inspection. Overlap is descriptive and does not establish a learned mechanism or confirmatory residual superiority.",
+    "inventory": "v7; 240 rows and 80 changed-winner pairs per model/controller",
+    "results": {
+      "DeepSeek / CTA": {
+        "all_rows": {
+          "both_correct": 203,
+          "both_wrong": 4,
+          "model_error_rule_solvable_rate": 0.8095238095238095,
+          "model_errors": 21,
+          "model_errors_rule_solvable": 17,
+          "model_only": 16,
+          "n": 240,
+          "rule_error_model_solvable_rate": 0.8,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 16,
+          "rule_only": 17
+        },
+        "changed_pairs": {
+          "both_correct": 50,
+          "both_wrong": 6,
+          "model_error_rule_solvable_rate": 0.625,
+          "model_errors": 16,
+          "model_errors_rule_solvable": 10,
+          "model_only": 14,
+          "n": 80,
+          "rule_error_model_solvable_rate": 0.7,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 14,
+          "rule_only": 10
+        },
+        "changed_rows": {
+          "both_correct": 124,
+          "both_wrong": 4,
+          "model_error_rule_solvable_rate": 0.8,
+          "model_errors": 20,
+          "model_errors_rule_solvable": 16,
+          "model_only": 16,
+          "n": 160,
+          "rule_error_model_solvable_rate": 0.8,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 16,
+          "rule_only": 16
+        },
+        "source": "runs/v7_deepseek_compile_then_act_full_v1.jsonl"
+      },
+      "DeepSeek / History-only": {
+        "all_rows": {
+          "both_correct": 150,
+          "both_wrong": 5,
+          "model_error_rule_solvable_rate": 0.9333333333333333,
+          "model_errors": 75,
+          "model_errors_rule_solvable": 70,
+          "model_only": 15,
+          "n": 240,
+          "rule_error_model_solvable_rate": 0.75,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 15,
+          "rule_only": 70
+        },
+        "changed_pairs": {
+          "both_correct": 7,
+          "both_wrong": 15,
+          "model_error_rule_solvable_rate": 0.7794117647058824,
+          "model_errors": 68,
+          "model_errors_rule_solvable": 53,
+          "model_only": 5,
+          "n": 80,
+          "rule_error_model_solvable_rate": 0.25,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 5,
+          "rule_only": 53
+        },
+        "changed_rows": {
+          "both_correct": 77,
+          "both_wrong": 5,
+          "model_error_rule_solvable_rate": 0.9264705882352942,
+          "model_errors": 68,
+          "model_errors_rule_solvable": 63,
+          "model_only": 15,
+          "n": 160,
+          "rule_error_model_solvable_rate": 0.75,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 15,
+          "rule_only": 63
+        },
+        "source": "runs/v7_deepseek_interactive_matched_full_v1.jsonl"
+      },
+      "DeepSeek / Timing-reminder": {
+        "all_rows": {
+          "both_correct": 164,
+          "both_wrong": 2,
+          "model_error_rule_solvable_rate": 0.9655172413793104,
+          "model_errors": 58,
+          "model_errors_rule_solvable": 56,
+          "model_only": 18,
+          "n": 240,
+          "rule_error_model_solvable_rate": 0.9,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 18,
+          "rule_only": 56
+        },
+        "changed_pairs": {
+          "both_correct": 26,
+          "both_wrong": 13,
+          "model_error_rule_solvable_rate": 0.723404255319149,
+          "model_errors": 47,
+          "model_errors_rule_solvable": 34,
+          "model_only": 7,
+          "n": 80,
+          "rule_error_model_solvable_rate": 0.35,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 7,
+          "rule_only": 34
+        },
+        "changed_rows": {
+          "both_correct": 94,
+          "both_wrong": 2,
+          "model_error_rule_solvable_rate": 0.9583333333333334,
+          "model_errors": 48,
+          "model_errors_rule_solvable": 46,
+          "model_only": 18,
+          "n": 160,
+          "rule_error_model_solvable_rate": 0.9,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 18,
+          "rule_only": 46
+        },
+        "source": "runs/v7_deepseek_full_history_once_matched_full_v1.jsonl"
+      },
+      "GLM / CTA": {
+        "all_rows": {
+          "both_correct": 206,
+          "both_wrong": 0,
+          "model_error_rule_solvable_rate": 1.0,
+          "model_errors": 14,
+          "model_errors_rule_solvable": 14,
+          "model_only": 20,
+          "n": 240,
+          "rule_error_model_solvable_rate": 1.0,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 20,
+          "rule_only": 14
+        },
+        "changed_pairs": {
+          "both_correct": 56,
+          "both_wrong": 10,
+          "model_error_rule_solvable_rate": 0.2857142857142857,
+          "model_errors": 14,
+          "model_errors_rule_solvable": 4,
+          "model_only": 10,
+          "n": 80,
+          "rule_error_model_solvable_rate": 0.5,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 10,
+          "rule_only": 4
+        },
+        "changed_rows": {
+          "both_correct": 126,
+          "both_wrong": 0,
+          "model_error_rule_solvable_rate": 1.0,
+          "model_errors": 14,
+          "model_errors_rule_solvable": 14,
+          "model_only": 20,
+          "n": 160,
+          "rule_error_model_solvable_rate": 1.0,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 20,
+          "rule_only": 14
+        },
+        "source": "runs/v7_glm_compile_then_act_full.jsonl"
+      },
+      "GLM / History-only": {
+        "all_rows": {
+          "both_correct": 151,
+          "both_wrong": 10,
+          "model_error_rule_solvable_rate": 0.8734177215189873,
+          "model_errors": 79,
+          "model_errors_rule_solvable": 69,
+          "model_only": 10,
+          "n": 240,
+          "rule_error_model_solvable_rate": 0.5,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 10,
+          "rule_only": 69
+        },
+        "changed_pairs": {
+          "both_correct": 6,
+          "both_wrong": 20,
+          "model_error_rule_solvable_rate": 0.7297297297297297,
+          "model_errors": 74,
+          "model_errors_rule_solvable": 54,
+          "model_only": 0,
+          "n": 80,
+          "rule_error_model_solvable_rate": 0.0,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 0,
+          "rule_only": 54
+        },
+        "changed_rows": {
+          "both_correct": 76,
+          "both_wrong": 10,
+          "model_error_rule_solvable_rate": 0.8648648648648649,
+          "model_errors": 74,
+          "model_errors_rule_solvable": 64,
+          "model_only": 10,
+          "n": 160,
+          "rule_error_model_solvable_rate": 0.5,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 10,
+          "rule_only": 64
+        },
+        "source": "runs/v7_glm_interactive_matched_full_v1.jsonl"
+      },
+      "GLM / Timing-reminder": {
+        "all_rows": {
+          "both_correct": 174,
+          "both_wrong": 0,
+          "model_error_rule_solvable_rate": 1.0,
+          "model_errors": 46,
+          "model_errors_rule_solvable": 46,
+          "model_only": 20,
+          "n": 240,
+          "rule_error_model_solvable_rate": 1.0,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 20,
+          "rule_only": 46
+        },
+        "changed_pairs": {
+          "both_correct": 32,
+          "both_wrong": 12,
+          "model_error_rule_solvable_rate": 0.7,
+          "model_errors": 40,
+          "model_errors_rule_solvable": 28,
+          "model_only": 8,
+          "n": 80,
+          "rule_error_model_solvable_rate": 0.4,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 8,
+          "rule_only": 28
+        },
+        "changed_rows": {
+          "both_correct": 100,
+          "both_wrong": 0,
+          "model_error_rule_solvable_rate": 1.0,
+          "model_errors": 40,
+          "model_errors_rule_solvable": 40,
+          "model_only": 20,
+          "n": 160,
+          "rule_error_model_solvable_rate": 1.0,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 20,
+          "rule_only": 40
+        },
+        "source": "runs/v7_glm_full_history_once_matched_full_v1.jsonl"
+      },
+      "Qwen / CTA": {
+        "all_rows": {
+          "both_correct": 157,
+          "both_wrong": 7,
+          "model_error_rule_solvable_rate": 0.9,
+          "model_errors": 70,
+          "model_errors_rule_solvable": 63,
+          "model_only": 13,
+          "n": 240,
+          "rule_error_model_solvable_rate": 0.65,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 13,
+          "rule_only": 63
+        },
+        "changed_pairs": {
+          "both_correct": 23,
+          "both_wrong": 12,
+          "model_error_rule_solvable_rate": 0.7551020408163265,
+          "model_errors": 49,
+          "model_errors_rule_solvable": 37,
+          "model_only": 8,
+          "n": 80,
+          "rule_error_model_solvable_rate": 0.4,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 8,
+          "rule_only": 37
+        },
+        "changed_rows": {
+          "both_correct": 92,
+          "both_wrong": 7,
+          "model_error_rule_solvable_rate": 0.8727272727272727,
+          "model_errors": 55,
+          "model_errors_rule_solvable": 48,
+          "model_only": 13,
+          "n": 160,
+          "rule_error_model_solvable_rate": 0.65,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 13,
+          "rule_only": 48
+        },
+        "source": "runs/v7_qwen_compile_then_act_full.jsonl"
+      },
+      "Qwen / History-only": {
+        "all_rows": {
+          "both_correct": 142,
+          "both_wrong": 10,
+          "model_error_rule_solvable_rate": 0.8863636363636364,
+          "model_errors": 88,
+          "model_errors_rule_solvable": 78,
+          "model_only": 10,
+          "n": 240,
+          "rule_error_model_solvable_rate": 0.5,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 10,
+          "rule_only": 78
+        },
+        "changed_pairs": {
+          "both_correct": 3,
+          "both_wrong": 20,
+          "model_error_rule_solvable_rate": 0.7402597402597403,
+          "model_errors": 77,
+          "model_errors_rule_solvable": 57,
+          "model_only": 0,
+          "n": 80,
+          "rule_error_model_solvable_rate": 0.0,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 0,
+          "rule_only": 57
+        },
+        "changed_rows": {
+          "both_correct": 72,
+          "both_wrong": 10,
+          "model_error_rule_solvable_rate": 0.8717948717948718,
+          "model_errors": 78,
+          "model_errors_rule_solvable": 68,
+          "model_only": 10,
+          "n": 160,
+          "rule_error_model_solvable_rate": 0.5,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 10,
+          "rule_only": 68
+        },
+        "source": "runs/v7_qwen_interactive_matched_full_v1.jsonl"
+      },
+      "Qwen / Timing-reminder": {
+        "all_rows": {
+          "both_correct": 154,
+          "both_wrong": 7,
+          "model_error_rule_solvable_rate": 0.9041095890410958,
+          "model_errors": 73,
+          "model_errors_rule_solvable": 66,
+          "model_only": 13,
+          "n": 240,
+          "rule_error_model_solvable_rate": 0.65,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 13,
+          "rule_only": 66
+        },
+        "changed_pairs": {
+          "both_correct": 13,
+          "both_wrong": 18,
+          "model_error_rule_solvable_rate": 0.7230769230769231,
+          "model_errors": 65,
+          "model_errors_rule_solvable": 47,
+          "model_only": 2,
+          "n": 80,
+          "rule_error_model_solvable_rate": 0.1,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 2,
+          "rule_only": 47
+        },
+        "changed_rows": {
+          "both_correct": 81,
+          "both_wrong": 7,
+          "model_error_rule_solvable_rate": 0.8939393939393939,
+          "model_errors": 66,
+          "model_errors_rule_solvable": 59,
+          "model_only": 13,
+          "n": 160,
+          "rule_error_model_solvable_rate": 0.65,
+          "rule_errors": 20,
+          "rule_errors_model_solvable": 13,
+          "rule_only": 59
+        },
+        "source": "runs/v7_qwen_full_history_once_matched_full_v1.jsonl"
+      }
+    },
+    "rule": "Rule* v2",
+    "status": "post_hoc_zero_api_full_inventory_overlap"
+  },
+  "trigger_logistic": {
+    "boundary": "The cue lexicon and model specification were developed post hoc. Human rewrites adapt authored tasks and do not form an independent open-language holdout.",
+    "existing_human_agreement": {
+      "fleiss_kappa": 0.7077585394211735,
+      "krippendorff_alpha": 0.7087326776231028,
+      "n_items": 100
+    },
+    "external_diagnostic": "determinate human-majority changed rewrites; stable rows excluded",
+    "models": {
+      "trigger_only": {
+        "coefficients": {
+          "after_then": -1.0001112596004538,
+          "current_latest": -3.622431436825928,
+          "deictic": -0.960475404897903,
+          "intercept": 4.356616246873577,
+          "keep": -0.36277088085057607,
+          "refresh": -1.61502285920685,
+          "same_exact": -2.0442846487639725,
+          "selection": 0.710210368333904
+        },
+        "feature_names": [
+          "intercept",
+          "same_exact",
+          "deictic",
+          "keep",
+          "after_then",
+          "refresh",
+          "current_latest",
+          "selection"
+        ],
+        "human_majority_changed_rewrites": {
+          "accuracy": 0.4838709677419355,
+          "auc": 0.1206140350877193,
+          "majority_class_accuracy": 0.6129032258064516,
+          "n": 31,
+          "preserve_n": 12,
+          "reevaluate_n": 19
+        },
+        "v3_leave_template_out": {
+          "accuracy": 0.7125,
+          "auc": 0.72390625,
+          "n": 160
+        }
+      },
+      "trigger_plus_event_order": {
+        "coefficients": {
+          "after_then": -0.6889781788643587,
+          "current_latest": -3.5072716622085043,
+          "deictic": -0.5233909712402782,
+          "intercept": 3.9349795519472694,
+          "keep": -0.49536268278921847,
+          "refresh": -1.9009113477673993,
+          "refresh_before_selection": 1.0762146995028552,
+          "same_exact": -2.1058495521641976,
+          "selection": 0.34070669090642947,
+          "selection_before_refresh": -0.5754191359117347
+        },
+        "feature_names": [
+          "intercept",
+          "same_exact",
+          "deictic",
+          "keep",
+          "after_then",
+          "refresh",
+          "current_latest",
+          "selection",
+          "selection_before_refresh",
+          "refresh_before_selection"
+        ],
+        "human_majority_changed_rewrites": {
+          "accuracy": 0.4838709677419355,
+          "auc": 0.5548245614035088,
+          "majority_class_accuracy": 0.6129032258064516,
+          "n": 31,
+          "preserve_n": 12,
+          "reevaluate_n": 19
+        },
+        "v3_leave_template_out": {
+          "accuracy": 0.75,
+          "auc": 0.69453125,
+          "n": 160
+        }
+      }
+    },
+    "status": "post_hoc_zero_api_construct_diagnostic",
+    "training_inventory": "v3 authored instructions; design binding labels"
+  }
+}

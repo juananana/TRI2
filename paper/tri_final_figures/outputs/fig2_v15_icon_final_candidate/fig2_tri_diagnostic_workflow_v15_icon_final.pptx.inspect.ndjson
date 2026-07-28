@@ -1,0 +1,167 @@
+{"kind":"deck","id":"pr/2g22ur","name":"Deck"}
+{"kind":"layout","layoutId":"2d1f3947-7d3a-4c41-9484-3d5a28753caa","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"dcce78e9-2b58-49bd-9e8f-e1afd61a07c5","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/th2pkh","slide":1,"title":"A","textShapes":64}
+{"kind":"textbox","id":"sh/9w7e5kn2","slide":1,"name":"phase-A","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[16,10,26,26]}
+{"kind":"textbox","id":"sh/mtgvap4r","slide":1,"name":"phase-A-title","text":"Construct the matched pair","textPreview":"Construct the matched pair","textChars":26,"textLines":1,"bbox":[51,8,605,30]}
+{"kind":"textbox","id":"sh/7upc3u5c","slide":1,"name":"phase-B","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[696,10,26,26]}
+{"kind":"textbox","id":"sh/wzidgzmt","slide":1,"name":"phase-B-title","text":"Run the pair","textPreview":"Run the pair","textChars":12,"textLines":1,"bbox":[731,8,175,30]}
+{"kind":"textbox","id":"sh/hkre943e","slide":1,"name":"phase-C","text":"C","textPreview":"C","textChars":1,"textLines":1,"bbox":[946,10,26,26]}
+{"kind":"textbox","id":"sh/uxgvep4n","slide":1,"name":"phase-C-title","text":"Observable readouts","textPreview":"Observable readouts","textChars":19,"textLines":1,"bbox":[981,8,281,30]}
+{"kind":"shape","id":"sh/vypw7u58","slide":1,"name":"pair-contract","bbox":[16,48,640,65]}
+{"kind":"textbox","id":"sh/xonux0nu","slide":1,"name":"fixed-label","text":"FIXED","textPreview":"FIXED","textChars":5,"textLines":1,"bbox":[49,54,50,18]}
+{"kind":"textbox","id":"sh/5ovmxwb6","slide":1,"name":"fixed-items","text":"S0, S1, q, action, schema, controller interface","textPreview":"S0, S1, q, action, schema, controller interface","textChars":47,"textLines":1,"bbox":[101,53,327,20]}
+{"kind":"textbox","id":"sh/jmdkvmt0","slide":1,"name":"change-label","text":"ONLY CHANGE","textPreview":"ONLY CHANGE","textChars":11,"textLines":1,"bbox":[49,81,73,18]}
+{"kind":"textbox","id":"sh/il432hsv","slide":1,"name":"change-items","text":"commitment timing","textPreview":"commitment timing","textChars":17,"textLines":1,"bbox":[122,80,160,20]}
+{"kind":"textbox","id":"sh/dcfm1gbi","slide":1,"name":"transition","text":"q(S0)=A  ->  refresh  ->  q(S1)=B","textPreview":"q(S0)=A  ->  refresh  ->  q(S1)=B","textChars":33,"textLines":1,"bbox":[294,76,338,22]}
+{"kind":"shape","id":"sh/sbml8bax","slide":1,"name":"valid-pill","bbox":[405,97,228,18]}
+{"kind":"textbox","id":"sh/rqd4z6tc","slide":1,"name":"valid-text","text":"A remains present and action-valid in S1","textPreview":"A remains present and action-valid in S1","textChars":40,"textLines":1,"bbox":[412,98,214,15]}
+{"kind":"shape","id":"sh/qp4361sr","slide":1,"name":"contract-rule","bbox":[28,114,606,1]}
+{"kind":"shape","id":"sh/1gfm5gre","slide":1,"name":"pair-frame","bbox":[16,128,640,205]}
+{"kind":"shape","id":"sh/0f6lcbat","slide":1,"name":"pair-stem","bbox":[42,173,2,118]}
+{"kind":"shape","id":"sh/0je58zi5","slide":1,"name":"pair-dot-p","bbox":[36,167,14,14]}
+{"kind":"shape","id":"sh/lkn61kzq","slide":1,"name":"pair-dot-r","bbox":[36,285,14,14]}
+{"kind":"textbox","id":"sh/yxwn6p0z","slide":1,"name":"pair-badge-text","text":"PAIR","textPreview":"PAIR","textChars":4,"textLines":1,"bbox":[20,220,46,24]}
+{"kind":"textbox","id":"sh/zi5ozuhk","slide":1,"name":"refresh-tab-text","text":"same refresh, replayed twice","textPreview":"same refresh, replayed twice","textChars":28,"textLines":1,"bbox":[286,121,128,18]}
+{"kind":"shape","id":"sh/8ny5czi1","slide":1,"name":"refresh-tab-left","bbox":[278,127,6,6]}
+{"kind":"shape","id":"sh/9o7654zm","slide":1,"name":"refresh-tab-right","bbox":[416,127,6,6]}
+{"kind":"shape","id":"sh/mlwnap0b","slide":1,"name":"preserve-lane","bbox":[64,141,578,82]}
+{"kind":"shape","id":"sh/nm5o3uhg","slide":1,"name":"preserve-icon-bg","bbox":[73,146,38,38]}
+{"kind":"textbox","id":"sh/ps3mt0zi","slide":1,"name":"preserve-title","text":"Preserve","textPreview":"Preserve","textChars":8,"textLines":1,"bbox":[114,147,112,22]}
+{"kind":"textbox","id":"sh/ryt0v25c","slide":1,"name":"preserve-rule","text":"bind A before refresh","textPreview":"bind A before refresh","textChars":21,"textLines":1,"bbox":[114,169,150,18]}
+{"kind":"shape","id":"sh/6xkzmxor","slide":1,"name":"p-s0-state","bbox":[264,155,56,56]}
+{"kind":"shape","id":"sh/tkvixcn2","slide":1,"name":"p-s0-other-0","bbox":[276,168,8,8]}
+{"kind":"shape","id":"sh/sjmho76x","slide":1,"name":"p-s0-other-1","bbox":[291,164,8,8]}
+{"kind":"shape","id":"sh/jut0r250","slide":1,"name":"p-s0-other-2","bbox":[274,186,8,8]}
+{"kind":"shape","id":"sh/itkzixof","slide":1,"name":"p-s0-other-3","bbox":[292,193,8,8]}
+{"kind":"textbox","id":"sh/5wbitsn6","slide":1,"name":"p-s0-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[298,181,16,16]}
+{"kind":"shape","id":"sh/4v2hkn6l","slide":1,"name":"p-refresh-node","bbox":[390,166,34,34]}
+{"kind":"shape","id":"sh/up0zedoj","slide":1,"name":"p-s1-state","bbox":[468,155,56,56]}
+{"kind":"shape","id":"sh/axk3ilk3","slide":1,"name":"p-s1-other-0","bbox":[480,168,8,8]}
+{"kind":"shape","id":"sh/byd4rq1o","slide":1,"name":"p-s1-other-1","bbox":[495,164,8,8]}
+{"kind":"shape","id":"sh/wzmlkv29","slide":1,"name":"p-s1-other-2","bbox":[478,186,8,8]}
+{"kind":"shape","id":"sh/x0vmtgju","slide":1,"name":"p-s1-other-3","bbox":[496,193,8,8]}
+{"kind":"textbox","id":"sh/m9k3e1k7","slide":1,"name":"p-s1-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[502,181,16,16]}
+{"kind":"textbox","id":"sh/natkn61c","slide":1,"name":"p-s1-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[502,163,16,16]}
+{"kind":"textbox","id":"sh/ov2lgb2x","slide":1,"name":"p-target-circle","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[580,162,42,42]}
+{"kind":"shape","id":"sh/9wb2pgji","slide":1,"name":"p-target-h","bbox":[575,182,52,2]}
+{"kind":"shape","id":"sh/e503a1kv","slide":1,"name":"p-target-v","bbox":[600,157,2,52]}
+{"kind":"shape","id":"sh/z6tkj6lg","slide":1,"bbox":[320,183,70,0]}
+{"kind":"shape","id":"sh/h0z6p43y","slide":1,"bbox":[424,183,44,0]}
+{"kind":"shape","id":"sh/gzq5wzmd","slide":1,"bbox":[524,183,56,0]}
+{"kind":"textbox","id":"sh/vyhonuls","slide":1,"name":"p-s0-label","text":"S0  q(S0)=A","textPreview":"S0  q(S0)=A","textChars":11,"textLines":1,"bbox":[252,208,80,16]}
+{"kind":"textbox","id":"sh/ux8nup47","slide":1,"name":"p-bound","text":"BOUND A","textPreview":"BOUND A","textChars":7,"textLines":1,"bbox":[334,147,64,18]}
+{"kind":"textbox","id":"sh/twf6lk32","slide":1,"name":"p-s1-label","text":"S1  q(S1)=B","textPreview":"S1  q(S1)=B","textChars":11,"textLines":1,"bbox":[456,208,80,16]}
+{"kind":"textbox","id":"sh/8v65sfmh","slide":1,"name":"p-target-label","text":"target A","textPreview":"target A","textChars":8,"textLines":1,"bbox":[571,208,60,16]}
+{"kind":"shape","id":"sh/7uxojulw","slide":1,"name":"p-spark-dot-1","bbox":[625,161,3,3]}
+{"kind":"shape","id":"sh/6tonqp4b","slide":1,"name":"p-spark-dot-2","bbox":[632,156,4,4]}
+{"kind":"shape","id":"sh/lsf6hk3q","slide":1,"name":"p-spark-dot-3","bbox":[641,151,3,3]}
+{"kind":"shape","id":"sh/kr65ofm5","slide":1,"name":"reevaluate-lane","bbox":[76,238,560,82]}
+{"kind":"shape","id":"sh/cbap4fu1","slide":1,"name":"reevaluate-icon-bg","bbox":[83,243,40,40]}
+{"kind":"textbox","id":"sh/a98n25cv","slide":1,"name":"reevaluate-title","text":"Reevaluate","textPreview":"Reevaluate","textChars":10,"textLines":1,"bbox":[124,244,122,22]}
+{"kind":"textbox","id":"sh/bahovadg","slide":1,"name":"reevaluate-rule","text":"defer q until after refresh","textPreview":"defer q until after refresh","textChars":27,"textLines":1,"bbox":[124,266,170,18]}
+{"kind":"shape","id":"sh/o7q50fu5","slide":1,"name":"r-s0-state","bbox":[276,252,56,56]}
+{"kind":"shape","id":"sh/p8z6tkvq","slide":1,"name":"r-s0-other-0","bbox":[288,265,8,8]}
+{"kind":"shape","id":"sh/258ny5cz","slide":1,"name":"r-s0-other-1","bbox":[303,261,8,8]}
+{"kind":"shape","id":"sh/n6horadk","slide":1,"name":"r-s0-other-2","bbox":[286,283,8,8]}
+{"kind":"shape","id":"sh/83upczu9","slide":1,"name":"r-s0-other-3","bbox":[304,290,8,8]}
+{"kind":"textbox","id":"sh/943654bu","slide":1,"name":"r-s0-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[310,278,16,16]}
+{"kind":"shape","id":"sh/jy5svydw","slide":1,"name":"r-refresh-node","bbox":[402,263,34,34]}
+{"kind":"shape","id":"sh/50nax8v2","slide":1,"name":"r-s1-state","bbox":[480,252,56,56]}
+{"kind":"shape","id":"sh/4ze943eh","slide":1,"name":"r-s1-other-0","bbox":[492,265,8,8]}
+{"kind":"shape","id":"sh/r2pszid8","slide":1,"name":"r-s1-other-1","bbox":[507,261,8,8]}
+{"kind":"shape","id":"sh/61gr6dwn","slide":1,"name":"r-s1-other-2","bbox":[490,283,8,8]}
+{"kind":"shape","id":"sh/t47a18vy","slide":1,"name":"r-s1-other-3","bbox":[508,290,8,8]}
+{"kind":"textbox","id":"sh/s3y98net","slide":1,"name":"r-s1-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[514,278,16,16]}
+{"kind":"textbox","id":"sh/76l8nexo","slide":1,"name":"r-s1-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[514,260,16,16]}
+{"kind":"textbox","id":"sh/m5cru9w3","slide":1,"name":"r-target-circle","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[590,259,42,42]}
+{"kind":"shape","id":"sh/ah8zyxk3","slide":1,"name":"r-target-h","bbox":[585,279,52,2]}
+{"kind":"shape","id":"sh/bi1g721o","slide":1,"name":"r-target-v","bbox":[610,254,2,52]}
+{"kind":"shape","id":"sh/wjah0729","slide":1,"bbox":[332,280,70,0]}
+{"kind":"shape","id":"sh/xkjy9sju","slide":1,"bbox":[436,280,44,0]}
+{"kind":"shape","id":"sh/ylsz2xkf","slide":1,"bbox":[536,280,54,0]}
+{"kind":"textbox","id":"sh/jm10b210","slide":1,"name":"r-s0-label","text":"S0  q(S0)=A","textPreview":"S0  q(S0)=A","textChars":11,"textLines":1,"bbox":[264,305,80,16]}
+{"kind":"textbox","id":"sh/knah472l","slide":1,"name":"r-defer","text":"DEFER q","textPreview":"DEFER q","textChars":7,"textLines":1,"bbox":[346,244,64,18]}
+{"kind":"textbox","id":"sh/lojidcjq","slide":1,"name":"r-resolve","text":"resolve q on S1","textPreview":"resolve q on S1","textChars":15,"textLines":1,"bbox":[495,235,82,17]}
+{"kind":"textbox","id":"sh/epozqdkb","slide":1,"name":"r-s1-label","text":"S1  q(S1)=B","textPreview":"S1  q(S1)=B","textChars":11,"textLines":1,"bbox":[468,305,80,16]}
+{"kind":"textbox","id":"sh/zqhgzi1g","slide":1,"name":"r-target-label","text":"target B","textPreview":"target B","textChars":8,"textLines":1,"bbox":[581,305,60,16]}
+{"kind":"shape","id":"sh/hkn25g3y","slide":1,"name":"r-spark-dot-1","bbox":[623,256,3,3]}
+{"kind":"shape","id":"sh/gje1cbmt","slide":1,"name":"r-spark-dot-2","bbox":[630,251,4,4]}
+{"kind":"shape","id":"sh/fi5k36l8","slide":1,"name":"r-spark-dot-3","bbox":[639,246,3,3]}
+{"kind":"textbox","id":"sh/uhwja14n","slide":1,"name":"pair-invariant","text":"same world transition + same interface; only commitment timing changes","textPreview":"same world transition + same interface; only commitment timing changes","textChars":70,"textLines":1,"bbox":[70,332,470,15]}
+{"kind":"textbox","id":"sh/p8729g3a","slide":1,"name":"line-legend","text":"solid Preserve | dashed Reevaluate","textPreview":"solid Preserve | dashed Reevaluate","textChars":34,"textLines":1,"bbox":[535,332,120,15]}
+{"kind":"shape","id":"sh/47e1gbmp","slide":1,"name":"same-chip","bbox":[696,49,210,44]}
+{"kind":"textbox","id":"sh/365k7ql4","slide":1,"name":"same-chip-text","text":"same controller + same interface","textPreview":"same controller + same interface","textChars":32,"textLines":1,"bbox":[708,55,186,31]}
+{"kind":"shape","id":"sh/25wjel4j","slide":1,"name":"same-chip-rule","bbox":[738,87,126,2]}
+{"kind":"textbox","id":"sh/lc32xw36","slide":1,"name":"independent","text":"two independent runs","textPreview":"two independent runs","textChars":20,"textLines":1,"bbox":[718,95,166,20]}
+{"kind":"textbox","id":"sh/kbu14rml","slide":1,"name":"p-packet","text":"P","textPreview":"P","textChars":1,"textLines":1,"bbox":[704,147,44,44]}
+{"kind":"textbox","id":"sh/h072lwz6","slide":1,"name":"r-packet","text":"R","textPreview":"R","textChars":1,"textLines":1,"bbox":[704,249,44,44]}
+{"kind":"shape","id":"sh/gzy1cril","slide":1,"name":"probe","bbox":[768,129,96,180]}
+{"kind":"textbox","id":"sh/udgjah0f","slide":1,"name":"probe-title","text":"Probe","textPreview":"Probe","textChars":5,"textLines":1,"bbox":[778,164,76,20]}
+{"kind":"textbox","id":"sh/p4r2pwz2","slide":1,"name":"probe-kind","text":"controller black box","textPreview":"controller black box","textChars":20,"textLines":1,"bbox":[778,182,76,16]}
+{"kind":"shape","id":"sh/43i1gryh","slide":1,"name":"probe-dot-p","bbox":[795,202,9,9]}
+{"kind":"shape","id":"sh/329knmhw","slide":1,"name":"probe-dot-r","bbox":[830,202,9,9]}
+{"kind":"textbox","id":"sh/21gje1gb","slide":1,"name":"probe-blackbox","text":"internals unobserved","textPreview":"internals unobserved","textChars":20,"textLines":1,"bbox":[780,216,72,24]}
+{"kind":"textbox","id":"sh/58nidczy","slide":1,"name":"probe-io","text":"instruction + history\n+ observed state\n-> target ID","textPreview":"instruction + history | + observed state | -> target ID","textChars":51,"textLines":3,"bbox":[778,251,76,48]}
+{"kind":"shape","id":"sh/k7e147id","slide":1,"name":"tp","bbox":[870,152,50,30]}
+{"kind":"textbox","id":"sh/a1s7y9cz","slide":1,"name":"tp-text","text":"TP","textPreview":"TP","textChars":2,"textLines":1,"bbox":[875,155,40,24]}
+{"kind":"shape","id":"sh/b218retk","slide":1,"name":"tr","bbox":[870,254,50,30]}
+{"kind":"textbox","id":"sh/c3ap0ju5","slide":1,"name":"tr-text","text":"TR","textPreview":"TR","textChars":2,"textLines":1,"bbox":[875,257,40,24]}
+{"kind":"shape","id":"sh/x4jqtoba","slide":1,"name":"p-in","bbox":[772,164,4,4]}
+{"kind":"shape","id":"sh/y5c72tsv","slide":1,"name":"r-in","bbox":[772,266,4,4]}
+{"kind":"shape","id":"sh/z6l8vetg","slide":1,"name":"p-out","bbox":[858,164,4,4]}
+{"kind":"shape","id":"sh/k7u94ja1","slide":1,"name":"r-out","bbox":[858,266,4,4]}
+{"kind":"shape","id":"sh/l83qxobm","slide":1,"bbox":[758.5,155.5,3,24]}
+{"kind":"shape","id":"sh/e987qpcr","slide":1,"bbox":[758.5,257.5,3,24]}
+{"kind":"shape","id":"sh/fah8jutc","slide":1,"bbox":[865.5,162.5,1,8]}
+{"kind":"shape","id":"sh/3ed4rq94","slide":1,"bbox":[865.5,264.5,1,8]}
+{"kind":"shape","id":"sh/id4nilsj","slide":1,"name":"p-in-port","bbox":[770,161,9,9]}
+{"kind":"shape","id":"sh/5gfmt0ra","slide":1,"name":"r-in-port","bbox":[770,263,9,9]}
+{"kind":"shape","id":"sh/4f65kvap","slide":1,"name":"p-out-port","bbox":[855,161,9,9]}
+{"kind":"shape","id":"sh/vad4nq9s","slide":1,"name":"r-out-port","bbox":[855,263,9,9]}
+{"kind":"textbox","id":"sh/hcvmpgry","slide":1,"name":"withheld","text":"Withheld: gold mode/target; normalized selector fields; generator winner IDs","textPreview":"Withheld: gold mode/target; normalized selector fields; generator winner IDs","textChars":76,"textLines":1,"bbox":[718,317,192,28]}
+{"kind":"shape","id":"sh/gbm5gbad","slide":1,"name":"evidence-spine","bbox":[961,58,2,278]}
+{"kind":"textbox","id":"sh/f6hoza9c","slide":1,"name":"readout-1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[950,55,25,25]}
+{"kind":"textbox","id":"sh/cri1k7q9","slide":1,"name":"pairacc-title","text":"PairAcc","textPreview":"PairAcc","textChars":7,"textLines":1,"bbox":[1010,52,82,28]}
+{"kind":"shape","id":"sh/xsr2tc7u","slide":1,"name":"pairacc-formula","bbox":[1092,53,167,34]}
+{"kind":"textbox","id":"sh/ap0jix83","slide":1,"name":"pairacc-formula-text","text":"T_P=A  AND  T_R=B","textPreview":"T_P=A  AND  T_R=B","textChars":17,"textLines":1,"bbox":[1100,57,151,25]}
+{"kind":"textbox","id":"sh/bq9kr2po","slide":1,"name":"pairacc-denom","text":"all complete changed-winner pairs","textPreview":"all complete changed-winner pairs","textChars":33,"textLines":1,"bbox":[985,86,274,22]}
+{"kind":"shape","id":"sh/kfi1o7q5","slide":1,"name":"c-sep-1","bbox":[985,112,274,1]}
+{"kind":"textbox","id":"sh/lgb2xc7q","slide":1,"name":"readout-2","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[950,126,25,25]}
+{"kind":"textbox","id":"sh/je9kvmpk","slide":1,"name":"sub-title","text":"Conditional substitution","textPreview":"Conditional substitution","textChars":24,"textLines":1,"bbox":[1010,123,249,27]}
+{"kind":"textbox","id":"sh/8j2lsrqh","slide":1,"name":"sub-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[998,162,30,30]}
+{"kind":"shape","id":"sh/tkb21w72","slide":1,"name":"sub-clock-face","bbox":[1104,162,30,30]}
+{"kind":"shape","id":"sh/tgjuls7q","slide":1,"name":"sub-clock-hand-v","bbox":[1118.7,167.4,2,9.6]}
+{"kind":"shape","id":"sh/sfatsnq5","slide":1,"name":"sub-clock-hand-h","bbox":[1118.7,176.7,6.6,2]}
+{"kind":"shape","id":"sh/7e1cjipk","slide":1,"name":"sub-clock-hub","bbox":[1116.9,174.9,4.2,4.2]}
+{"kind":"textbox","id":"sh/6dsbqd8f","slide":1,"name":"sub-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1220,162,30,30]}
+{"kind":"shape","id":"sh/lczah87u","slide":1,"bbox":[1028,177,76,0]}
+{"kind":"shape","id":"sh/kbqto3q9","slide":1,"bbox":[1134,177,86,0]}
+{"kind":"textbox","id":"sh/jahsfypo","slide":1,"name":"sub-label","text":"correct bind       refresh       final B","textPreview":"correct bind       refresh       final B","textChars":40,"textLines":1,"bbox":[985,193,274,18]}
+{"kind":"textbox","id":"sh/yp8bmd83","slide":1,"name":"sub-denom","text":"Preserve: correct binding + completed refresh + changed winner\n+ surviving, action-valid A","textPreview":"Preserve: correct binding + completed refresh + changed winner | + surviving, action-valid A","textChars":90,"textLines":2,"bbox":[985,212,274,37]}
+{"kind":"shape","id":"sh/p83utc7y","slide":1,"name":"c-sep-2","bbox":[985,254,274,1]}
+{"kind":"textbox","id":"sh/47ut07qd","slide":1,"name":"readout-3","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[950,269,25,25]}
+{"kind":"textbox","id":"sh/nux8ne5g","slide":1,"name":"exec-title","text":"Execution subset","textPreview":"Execution subset","textChars":16,"textLines":1,"bbox":[1010,266,249,27]}
+{"kind":"shape","id":"sh/ov69wz61","slide":1,"name":"exec-id","bbox":[998,305,42,30]}
+{"kind":"textbox","id":"sh/9gfqp4nm","slide":1,"name":"exec-id-text","text":"ID","textPreview":"ID","textChars":2,"textLines":1,"bbox":[1004,308,30,24]}
+{"kind":"shape","id":"sh/ep47qpoz","slide":1,"name":"write","bbox":[1090,305,72,30]}
+{"kind":"textbox","id":"sh/0rm9sz6p","slide":1,"name":"write-text","text":"WRITE","textPreview":"WRITE","textChars":5,"textLines":1,"bbox":[1112,307,44,25]}
+{"kind":"shape","id":"sh/1svql4na","slide":1,"name":"diff","bbox":[1182,305,72,30]}
+{"kind":"textbox","id":"sh/jmh8vy5o","slide":1,"name":"diff-text","text":"DIFF","textPreview":"DIFF","textChars":4,"textLines":1,"bbox":[1205,307,43,25]}
+{"kind":"shape","id":"sh/f69onql0","slide":1,"bbox":[1040,320,50,0]}
+{"kind":"shape","id":"sh/u50nel4f","slide":1,"bbox":[1162,320,20,0]}
+{"kind":"textbox","id":"sh/hsr6pg36","slide":1,"name":"exec-denom","text":"executed model-issued writes only","textPreview":"executed model-issued writes only","textChars":33,"textLines":1,"bbox":[985,333,274,14]}
+{"kind":"image","id":"im/5kbylwvy","slide":1,"name":"","alt":"Layers3 icon","bbox":[31,54,15,15]}
+{"kind":"image","id":"im/fqdorm1g","slide":1,"name":"","alt":"TimerReset icon","bbox":[31,81,15,15]}
+{"kind":"image","id":"im/bu5kjeh8","slide":1,"name":"","alt":"LockKeyhole icon","bbox":[81,154,22,22]}
+{"kind":"image","id":"im/c7e1szed","slide":1,"name":"","alt":"DatabaseBackup icon","bbox":[397,173,20,20]}
+{"kind":"image","id":"im/a9432d4j","slide":1,"name":"","alt":"RefreshCcw icon","bbox":[92,252,22,22]}
+{"kind":"image","id":"im/po7ix43u","slide":1,"name":"","alt":"DatabaseBackup icon","bbox":[409,270,20,20]}
+{"kind":"image","id":"im/qpk7itw3","slide":1,"name":"","alt":"ScanSearch icon","bbox":[804,141,24,24]}
+{"kind":"image","id":"im/3ylcnqh8","slide":1,"name":"","alt":"EyeOff icon","bbox":[700,320,14,14]}
+{"kind":"image","id":"im/va1cjqhc","slide":1,"name":"","alt":"BadgeCheck icon","bbox":[985,55,20,20]}
+{"kind":"image","id":"im/nypgje1s","slide":1,"name":"","alt":"Route icon","bbox":[985,126,20,20]}
+{"kind":"image","id":"im/7mlsvmls","slide":1,"name":"","alt":"DatabaseZap icon","bbox":[985,269,20,20]}
+{"kind":"image","id":"im/yxsrihkb","slide":1,"name":"","alt":"SquarePen icon","bbox":[1096,312,14,14]}
+{"kind":"image","id":"im/bu18n2lk","slide":1,"name":"","alt":"Database icon","bbox":[1188,312,14,14]}
+{"kind":"notes","id":"nt/th2pkh","slide":1,"text":"[Sources]\n- Anonymous TRI manuscript: matched-pair construction, strict estimands, withheld fields, and execution trace.\n- User-provided strong-paper examples: composition references only; no scientific content copied.\n- Lucide Icons (ISC License): Layers3, TimerReset, LockKeyhole, RefreshCcw, DatabaseBackup, ScanSearch, EyeOff, BadgeCheck, Route, DatabaseZap, SquarePen, Database."}

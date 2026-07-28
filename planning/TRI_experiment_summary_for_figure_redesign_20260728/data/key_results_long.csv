@@ -1,0 +1,348 @@
+experiment,dataset,model,condition,metric,numerator,denominator,value,unit,ci95_low,ci95_high,evidence_status,source_file,notes
+PairAcc / identifiability,v3,Qwen3.5,Generic:all,preserve_accuracy,27,80,33.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Generic:all,reevaluate_accuracy,76,80,95.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Generic:all,pairacc,23,80,28.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Generic:changed_winner_core,preserve_accuracy,3,32,9.375,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Generic:changed_winner_core,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Generic:changed_winner_core,pairacc,3,32,9.375,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Generic:stable_control,preserve_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Generic:stable_control,reevaluate_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Generic:stable_control,pairacc,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Generic:invalidity_policy,preserve_accuracy,8,32,25.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Generic:invalidity_policy,reevaluate_accuracy,28,32,87.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Generic:invalidity_policy,pairacc,4,32,12.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:all,preserve_accuracy,45,80,56.25,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:all,reevaluate_accuracy,70,80,87.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:all,pairacc,38,80,47.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:changed_winner_core,preserve_accuracy,7,32,21.875,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:changed_winner_core,reevaluate_accuracy,29,32,90.625,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:changed_winner_core,pairacc,7,32,21.875,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:stable_control,preserve_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:stable_control,reevaluate_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:stable_control,pairacc,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:invalidity_policy,preserve_accuracy,22,32,68.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:invalidity_policy,reevaluate_accuracy,25,32,78.125,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Generic:invalidity_policy,pairacc,15,32,46.875,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:all,preserve_accuracy,73,80,91.25,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:all,reevaluate_accuracy,79,80,98.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:all,pairacc,72,80,90.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:changed_winner_core,preserve_accuracy,31,32,96.875,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:changed_winner_core,reevaluate_accuracy,31,32,96.875,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:changed_winner_core,pairacc,30,32,93.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:stable_control,preserve_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:stable_control,reevaluate_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:stable_control,pairacc,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:invalidity_policy,preserve_accuracy,26,32,81.25,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:invalidity_policy,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,CTA:invalidity_policy,pairacc,26,32,81.25,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:all,preserve_accuracy,74,80,92.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:all,reevaluate_accuracy,80,80,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:all,pairacc,74,80,92.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:changed_winner_core,preserve_accuracy,31,32,96.875,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:changed_winner_core,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:changed_winner_core,pairacc,31,32,96.875,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:stable_control,preserve_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:stable_control,reevaluate_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:stable_control,pairacc,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:invalidity_policy,preserve_accuracy,27,32,84.375,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:invalidity_policy,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,CTA:invalidity_policy,pairacc,27,32,84.375,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:all,preserve_accuracy,78,80,97.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:all,reevaluate_accuracy,77,80,96.25,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:all,pairacc,75,80,93.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:changed_winner_core,preserve_accuracy,30,32,93.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:changed_winner_core,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:changed_winner_core,pairacc,30,32,93.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:stable_control,preserve_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:stable_control,reevaluate_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:stable_control,pairacc,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:invalidity_policy,preserve_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:invalidity_policy,reevaluate_accuracy,29,32,90.625,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-free:invalidity_policy,pairacc,29,32,90.625,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:all,preserve_accuracy,77,80,96.25,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:all,reevaluate_accuracy,80,80,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:all,pairacc,77,80,96.25,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:changed_winner_core,preserve_accuracy,29,32,90.625,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:changed_winner_core,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:changed_winner_core,pairacc,29,32,90.625,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:stable_control,preserve_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:stable_control,reevaluate_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:stable_control,pairacc,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:invalidity_policy,preserve_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:invalidity_policy,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-free:invalidity_policy,pairacc,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:all,preserve_accuracy,80,80,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:all,reevaluate_accuracy,77,80,96.25,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:all,pairacc,77,80,96.25,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:changed_winner_core,preserve_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:changed_winner_core,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:changed_winner_core,pairacc,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:stable_control,preserve_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:stable_control,reevaluate_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:stable_control,pairacc,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:invalidity_policy,preserve_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:invalidity_policy,reevaluate_accuracy,29,32,90.625,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,Qwen3.5,Lifecycle-gated:invalidity_policy,pairacc,29,32,90.625,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:all,preserve_accuracy,80,80,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:all,reevaluate_accuracy,80,80,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:all,pairacc,80,80,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:changed_winner_core,preserve_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:changed_winner_core,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:changed_winner_core,pairacc,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:stable_control,preserve_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:stable_control,reevaluate_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:stable_control,pairacc,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:invalidity_policy,preserve_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:invalidity_policy,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,GLM-5.1,Lifecycle-gated:invalidity_policy,pairacc,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:all,preserve_accuracy,80,80,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:all,reevaluate_accuracy,16,80,20.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:all,pairacc,16,80,20.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:changed_winner_core,preserve_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:changed_winner_core,reevaluate_accuracy,0,32,0.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:changed_winner_core,pairacc,0,32,0.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:stable_control,preserve_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:stable_control,reevaluate_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:stable_control,pairacc,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:invalidity_policy,preserve_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:invalidity_policy,reevaluate_accuracy,0,32,0.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Lock+validity:invalidity_policy,pairacc,0,32,0.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:all,preserve_accuracy,16,80,20.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:all,reevaluate_accuracy,80,80,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:all,pairacc,16,80,20.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:changed_winner_core,preserve_accuracy,0,32,0.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:changed_winner_core,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:changed_winner_core,pairacc,0,32,0.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:stable_control,preserve_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:stable_control,reevaluate_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:stable_control,pairacc,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:invalidity_policy,preserve_accuracy,0,32,0.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:invalidity_policy,reevaluate_accuracy,32,32,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Always-Reevaluate:invalidity_policy,pairacc,0,32,0.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):all,preserve_accuracy,74,80,92.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):all,reevaluate_accuracy,74,80,92.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):all,pairacc,68,80,85.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):changed_winner_core,preserve_accuracy,30,32,93.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):changed_winner_core,reevaluate_accuracy,30,32,93.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):changed_winner_core,pairacc,28,32,87.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):stable_control,preserve_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):stable_control,reevaluate_accuracy,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):stable_control,pairacc,16,16,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):invalidity_policy,preserve_accuracy,28,32,87.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):invalidity_policy,reevaluate_accuracy,28,32,87.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v3,model-independent,Rule v2 (post-hoc):invalidity_policy,pairacc,24,32,75.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Qwen3.5,Generic:changed_winner_core,preserve_accuracy,,80,38.333,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Qwen3.5,Generic:changed_winner_core,reevaluate_accuracy,,80,56.667,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Qwen3.5,Generic:changed_winner_core,pairacc,7,80,8.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Qwen3.5,CTA:changed_winner_core,preserve_accuracy,,80,86.667,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Qwen3.5,CTA:changed_winner_core,reevaluate_accuracy,,80,55.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Qwen3.5,CTA:changed_winner_core,pairacc,31,80,38.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Qwen3.5,Lifecycle-Gated:changed_winner_core,preserve_accuracy,,80,79.167,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Qwen3.5,Lifecycle-Gated:changed_winner_core,reevaluate_accuracy,,80,63.333,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Qwen3.5,Lifecycle-Gated:changed_winner_core,pairacc,40,80,50.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,GLM-5.1,Generic:changed_winner_core,preserve_accuracy,,80,45.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,GLM-5.1,Generic:changed_winner_core,reevaluate_accuracy,,80,95.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,GLM-5.1,Generic:changed_winner_core,pairacc,15,80,18.75,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,GLM-5.1,CTA:changed_winner_core,preserve_accuracy,,80,91.667,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,GLM-5.1,CTA:changed_winner_core,reevaluate_accuracy,,80,96.667,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,GLM-5.1,CTA:changed_winner_core,pairacc,66,80,82.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,GLM-5.1,Lifecycle-Gated:changed_winner_core,preserve_accuracy,,80,99.167,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,GLM-5.1,Lifecycle-Gated:changed_winner_core,reevaluate_accuracy,,80,95.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,GLM-5.1,Lifecycle-Gated:changed_winner_core,pairacc,73,80,91.25,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,DeepSeek,Generic:changed_winner_core,preserve_accuracy,,80,47.5,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,DeepSeek,Generic:changed_winner_core,reevaluate_accuracy,,80,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,DeepSeek,Generic:changed_winner_core,pairacc,17,80,21.25,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,DeepSeek,CTA:changed_winner_core,preserve_accuracy,,80,90.833,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,DeepSeek,CTA:changed_winner_core,reevaluate_accuracy,,80,91.667,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,DeepSeek,CTA:changed_winner_core,pairacc,64,80,80.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Always,Lock+validity:changed_winner_core,preserve_accuracy,,80,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Always,Lock+validity:changed_winner_core,reevaluate_accuracy,,80,33.333,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Always,Lock+validity:changed_winner_core,pairacc,0,80,0.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Always,Reevaluate:changed_winner_core,preserve_accuracy,,80,33.333,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Always,Reevaluate:changed_winner_core,reevaluate_accuracy,,80,100.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+PairAcc / identifiability,v7,Always,Reevaluate:changed_winner_core,pairacc,0,80,0.0,percent,,,post-primary replication/audit; zero API,matched_pairacc_and_marginals.csv,
+Matched-call decision visibility,Authored,Qwen3.5,History-only->Decision-visible,changed_pairacc_effect,5->13,32,25.0,percentage_points,6.25,46.154,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+Matched-call decision visibility,Authored,GLM-5.1,History-only->Decision-visible,changed_pairacc_effect,8->25,32,53.125,percentage_points,28.571,77.778,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+Matched-call decision visibility,Source-derived,Qwen3.5,History-only->Decision-visible,changed_pairacc_effect,12->13,30,3.333,percentage_points,-11.111,20.0,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+Matched-call decision visibility,Source-derived,GLM-5.1,History-only->Decision-visible,changed_pairacc_effect,11->20,30,30.0,percentage_points,0.0,55.556,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+Matched-call decision visibility,Source-derived,DeepSeek,History-only->Decision-visible,changed_pairacc_effect,19->22,30,10.0,percentage_points,-10.0,30.0,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+Matched-call decision visibility,Authored,Qwen3.5,History-only->Decision-visible,actionable_e2e_effect,100->106,128,4.688,percentage_points,0.0,9.375,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+Matched-call decision visibility,Authored,GLM-5.1,History-only->Decision-visible,actionable_e2e_effect,102->120,128,14.062,percentage_points,8.397,20.0,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+Matched-call decision visibility,Rewrite,Qwen3.5,History-only->Decision-visible,actionable_e2e_effect,30->30,40,0.0,percentage_points,-10.0,9.524,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+Matched-call decision visibility,Rewrite,GLM-5.1,History-only->Decision-visible,actionable_e2e_effect,31->39,40,20.0,percentage_points,8.571,32.5,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+Matched-call decision visibility,Source-derived,Qwen3.5,History-only->Decision-visible,actionable_e2e_effect,39->39,60,0.0,percentage_points,-6.667,6.667,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+Matched-call decision visibility,Source-derived,GLM-5.1,History-only->Decision-visible,actionable_e2e_effect,37->48,60,18.333,percentage_points,8.333,30.0,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+Matched-call decision visibility,Source-derived,DeepSeek,History-only->Decision-visible,actionable_e2e_effect,45->47,60,3.333,percentage_points,-5.0,11.667,post-primary replication/audit,main_figure_paired_scores.csv,"PairAcc and E2E intervals are separate, not a joint confidence region."
+revision_full_diagnostic,authored full diagnostic,GLM-5.1,history_only->decision_visible,actionable_e2e_effect,,,14.062,percentage_points,8.397,20.0,post-primary replication/audit,revision_decision_visible_gains.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,GLM-5.1,history_only->decision_visible,changed_pairacc_effect,,,53.125,percentage_points,28.571,77.778,post-primary replication/audit,revision_decision_visible_gains.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,Qwen3.5,history_only->decision_visible,actionable_e2e_effect,,,4.688,percentage_points,0.0,9.375,post-primary replication/audit,revision_decision_visible_gains.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,Qwen3.5,history_only->decision_visible,changed_pairacc_effect,,,25.0,percentage_points,6.25,46.154,post-primary replication/audit,revision_decision_visible_gains.csv,rows=160; clusters=80
+revision_human_rewrite,human rewrite,GLM-5.1,history_only->decision_visible,actionable_e2e_effect,,,20.0,percentage_points,8.571,32.5,post-primary replication/audit,revision_decision_visible_gains.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,GLM-5.1,history_only->decision_visible,changed_pairacc_effect,,,66.667,percentage_points,0.0,100.0,post-primary replication/audit,revision_decision_visible_gains.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,Qwen3.5,history_only->decision_visible,actionable_e2e_effect,,,0.0,percentage_points,-10.0,9.524,post-primary replication/audit,revision_decision_visible_gains.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,Qwen3.5,history_only->decision_visible,changed_pairacc_effect,,,33.333,percentage_points,0.0,100.0,post-primary replication/audit,revision_decision_visible_gains.csv,rows=50; clusters=43
+revision_source_grounded,source-grounded controlled contrast,GLM-5.1,history_only->decision_visible,actionable_e2e_effect,,,18.333,percentage_points,8.333,30.0,post-primary replication/audit,revision_decision_visible_gains.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,GLM-5.1,history_only->decision_visible,changed_pairacc_effect,,,30.0,percentage_points,0.0,55.556,post-primary replication/audit,revision_decision_visible_gains.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,Qwen3.5,history_only->decision_visible,actionable_e2e_effect,,,0.0,percentage_points,-6.667,6.667,post-primary replication/audit,revision_decision_visible_gains.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,Qwen3.5,history_only->decision_visible,changed_pairacc_effect,,,3.333,percentage_points,-11.111,20.0,post-primary replication/audit,revision_decision_visible_gains.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,DeepSeek,history_only->decision_visible,actionable_e2e_effect,,,3.333,percentage_points,-5.0,11.667,post-primary replication/audit,revision_decision_visible_gains.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,DeepSeek,history_only->decision_visible,changed_pairacc_effect,,,10.0,percentage_points,-10.0,30.0,post-primary replication/audit,revision_decision_visible_gains.csv,rows=60; clusters=30
+revision_source_grounded,AgentDojo,GLM-5.1,decision_enforced,e2e,14,20,70.0,percent,55.0,85.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,GLM-5.1,decision_enforced,pairacc,4,10,40.0,percent,10.0,70.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,GLM-5.1,decision_visible,e2e,12,20,60.0,percent,35.0,80.125,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,GLM-5.1,decision_visible,pairacc,4,10,40.0,percent,10.0,70.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,GLM-5.1,history_only,e2e,11,20,55.0,percent,30.0,80.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,GLM-5.1,history_only,pairacc,4,10,40.0,percent,10.0,70.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,GLM-5.1,decision_enforced,e2e,20,20,100.0,percent,100.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,GLM-5.1,decision_enforced,pairacc,10,10,100.0,percent,100.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,GLM-5.1,decision_visible,e2e,20,20,100.0,percent,100.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,GLM-5.1,decision_visible,pairacc,10,10,100.0,percent,100.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,GLM-5.1,history_only,e2e,15,20,75.0,percent,60.0,90.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,GLM-5.1,history_only,pairacc,5,10,50.0,percent,20.0,80.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,GLM-5.1,decision_enforced,e2e,18,20,90.0,percent,75.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,GLM-5.1,decision_enforced,pairacc,8,10,80.0,percent,50.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,GLM-5.1,decision_visible,e2e,16,20,80.0,percent,65.0,95.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,GLM-5.1,decision_visible,pairacc,6,10,60.0,percent,30.0,90.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,GLM-5.1,history_only,e2e,11,20,55.0,percent,40.0,70.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,GLM-5.1,history_only,pairacc,2,10,20.0,percent,0.0,50.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,Qwen3.5,decision_enforced,e2e,14,20,70.0,percent,50.0,90.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,Qwen3.5,decision_enforced,pairacc,5,10,50.0,percent,20.0,80.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,Qwen3.5,decision_visible,e2e,12,20,60.0,percent,34.875,85.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,Qwen3.5,decision_visible,pairacc,5,10,50.0,percent,20.0,80.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,Qwen3.5,history_only,e2e,11,20,55.0,percent,30.0,80.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,Qwen3.5,history_only,pairacc,4,10,40.0,percent,10.0,70.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,Qwen3.5,decision_enforced,e2e,20,20,100.0,percent,100.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,Qwen3.5,decision_enforced,pairacc,10,10,100.0,percent,100.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,Qwen3.5,decision_visible,e2e,18,20,90.0,percent,75.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,Qwen3.5,decision_visible,pairacc,8,10,80.0,percent,50.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,Qwen3.5,history_only,e2e,18,20,90.0,percent,75.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,Qwen3.5,history_only,pairacc,8,10,80.0,percent,50.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,Qwen3.5,decision_enforced,e2e,9,20,45.0,percent,25.0,65.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,Qwen3.5,decision_enforced,pairacc,2,10,20.0,percent,0.0,50.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,Qwen3.5,decision_visible,e2e,9,20,45.0,percent,35.0,50.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,Qwen3.5,decision_visible,pairacc,0,10,0.0,percent,0.0,0.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,Qwen3.5,history_only,e2e,10,20,50.0,percent,50.0,50.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,Qwen3.5,history_only,pairacc,0,10,0.0,percent,0.0,0.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,DeepSeek,decision_enforced,e2e,15,20,75.0,percent,55.0,95.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,DeepSeek,decision_enforced,pairacc,6,10,60.0,percent,30.0,90.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,DeepSeek,decision_visible,e2e,15,20,75.0,percent,50.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,DeepSeek,decision_visible,pairacc,7,10,70.0,percent,40.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,DeepSeek,history_only,e2e,13,20,65.0,percent,35.0,90.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,AgentDojo,DeepSeek,history_only,pairacc,6,10,60.0,percent,30.0,90.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,DeepSeek,decision_enforced,e2e,19,20,95.0,percent,85.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,DeepSeek,decision_enforced,pairacc,9,10,90.0,percent,70.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,DeepSeek,decision_visible,e2e,19,20,95.0,percent,85.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,DeepSeek,decision_visible,pairacc,9,10,90.0,percent,70.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,DeepSeek,history_only,e2e,20,20,100.0,percent,100.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,STATE-Bench,DeepSeek,history_only,pairacc,10,10,100.0,percent,100.0,100.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,DeepSeek,decision_enforced,e2e,13,20,65.0,percent,40.0,90.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,DeepSeek,decision_enforced,pairacc,5,10,50.0,percent,20.0,80.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,DeepSeek,decision_visible,e2e,13,20,65.0,percent,35.0,90.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,DeepSeek,decision_visible,pairacc,6,10,60.0,percent,30.0,90.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,DeepSeek,history_only,e2e,12,20,60.0,percent,40.0,80.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+revision_source_grounded,ToolSandbox,DeepSeek,history_only,pairacc,3,10,30.0,percent,0.0,60.0,post-primary source-derived controlled contrast,revision_source_grounded_by_source.csv,Not a native benchmark score or prevalence estimate.
+v7 core replication and deterministic replay,v7,Qwen3.5,Generic,e2e_accuracy,,240,47.5,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,Qwen3.5,Generic,pairacc,7,80,8.75,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,Qwen3.5,Generic,conditional_substitution,43,72,59.72222222222222,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,Qwen3.5,Generic,core_substitution_writes,43,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,Qwen3.5,Generic,all_wrong_writes,44,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,Qwen3.5,Generic,non_core_wrong_writes,1,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,Qwen3.5,CTA,e2e_accuracy,,240,70.833,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,Qwen3.5,CTA,pairacc,31,80,38.75,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,Qwen3.5,CTA,conditional_substitution,0,71,0.0,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,Qwen3.5,CTA,core_substitution_writes,0,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,Qwen3.5,CTA,all_wrong_writes,8,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,Qwen3.5,CTA,non_core_wrong_writes,8,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,Generic,e2e_accuracy,,240,70.0,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,Generic,pairacc,15,80,18.75,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,Generic,conditional_substitution,38,80,47.5,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,Generic,core_substitution_writes,38,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,Generic,all_wrong_writes,38,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,Generic,non_core_wrong_writes,0,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,CTA,e2e_accuracy,,240,94.167,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,CTA,pairacc,66,80,82.5,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,CTA,conditional_substitution,0,70,0.0,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,CTA,core_substitution_writes,0,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,CTA,all_wrong_writes,14,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,GLM-5.1,CTA,non_core_wrong_writes,14,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,Generic,e2e_accuracy,,240,73.75,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,Generic,pairacc,17,80,21.25,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,Generic,conditional_substitution,59,79,74.68354430379746,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,Generic,core_substitution_writes,59,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,Generic,all_wrong_writes,60,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,Generic,non_core_wrong_writes,1,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,CTA,e2e_accuracy,,240,91.25,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,CTA,pairacc,64,80,80.0,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,CTA,conditional_substitution,0,70,0.0,percent,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,CTA,core_substitution_writes,0,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,CTA,all_wrong_writes,17,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 core replication and deterministic replay,v7,DeepSeek,CTA,non_core_wrong_writes,17,,,count,,,post-primary replication/audit,v7_e2e_wrong_writes.csv,
+v7 shared eligibility,v7,Qwen3.5,Generic,shared_eligible_substitution,41,66,62.121,percent,,,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,Qwen3.5,Generic,pairacc,7,80,8.75,percent,2.5,16.25,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,Qwen3.5,CTA,shared_eligible_substitution,0,66,0.0,percent,,,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,Qwen3.5,CTA,pairacc,31,80,38.75,percent,26.25,51.25,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,Qwen3.5,CTA_minus_Generic,pairacc,,80,30.0,percent,16.25,43.75,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,GLM-5.1,Generic,shared_eligible_substitution,30,70,42.857,percent,,,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,GLM-5.1,Generic,pairacc,15,80,18.75,percent,8.75,30.0,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,GLM-5.1,CTA,shared_eligible_substitution,0,70,0.0,percent,,,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,GLM-5.1,CTA,pairacc,66,80,82.5,percent,73.75,90.0,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,GLM-5.1,CTA_minus_Generic,pairacc,,80,63.75,percent,52.5,75.0,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,DeepSeek,Generic,shared_eligible_substitution,50,69,72.464,percent,,,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,DeepSeek,Generic,pairacc,17,80,21.25,percent,11.25,32.5,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,DeepSeek,CTA,shared_eligible_substitution,0,69,0.0,percent,,,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,DeepSeek,CTA,pairacc,64,80,80.0,percent,70.0,88.75,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+v7 shared eligibility,v7,DeepSeek,CTA_minus_Generic,pairacc,,80,58.75,percent,43.75,72.5,post-primary replication/audit; zero API,v7_shared_eligible_pairacc_and_substitution.csv,
+40-task model-facing SQLite,SQLite trajectory test,Qwen3.5,Generic,correct_final_state,27,40,67.5,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+40-task model-facing SQLite,SQLite trajectory test,Qwen3.5,Generic,core_tri_write,8,40,20.0,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+40-task model-facing SQLite,SQLite trajectory test,Qwen3.5,Generic,fallback_wrong_write,5,40,12.5,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+40-task model-facing SQLite,SQLite trajectory test,Qwen3.5,Generic,unneeded_reject,0,40,0.0,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+40-task model-facing SQLite,SQLite trajectory test,Qwen3.5,Generic,strict_core_write_rate,8,8,100.0,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+40-task model-facing SQLite,SQLite trajectory test,Qwen3.5,Generic,stable_write_rate,0,4,0.0,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+40-task model-facing SQLite,SQLite trajectory test,GLM-5.1,Generic,correct_final_state,26,40,65.0,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+40-task model-facing SQLite,SQLite trajectory test,GLM-5.1,Generic,core_tri_write,6,40,15.0,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+40-task model-facing SQLite,SQLite trajectory test,GLM-5.1,Generic,fallback_wrong_write,2,40,5.0,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+40-task model-facing SQLite,SQLite trajectory test,GLM-5.1,Generic,unneeded_reject,6,40,15.0,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+40-task model-facing SQLite,SQLite trajectory test,GLM-5.1,Generic,strict_core_write_rate,6,8,75.0,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+40-task model-facing SQLite,SQLite trajectory test,GLM-5.1,Generic,stable_write_rate,0,4,0.0,percent,,,secondary frozen execution test,sqlite_model_facing_outcomes.csv,
+revision_full_diagnostic,authored full diagnostic,GLM-5.1,decision_enforced vs decision_visible,repairs,4,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,GLM-5.1,decision_enforced vs decision_visible,harms,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,GLM-5.1,decision_enforced vs decision_visible,compiler_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,GLM-5.1,decision_enforced vs decision_visible,history_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,GLM-5.1,decision_enforced vs decision_visible,visible_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,GLM-5.1,decision_enforced vs decision_visible,incomplete_tasks,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,Qwen3.5,decision_enforced vs decision_visible,repairs,18,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,Qwen3.5,decision_enforced vs decision_visible,harms,8,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,Qwen3.5,decision_enforced vs decision_visible,compiler_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,Qwen3.5,decision_enforced vs decision_visible,history_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,Qwen3.5,decision_enforced vs decision_visible,visible_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_full_diagnostic,authored full diagnostic,Qwen3.5,decision_enforced vs decision_visible,incomplete_tasks,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=160; clusters=80
+revision_human_rewrite,human rewrite,GLM-5.1,decision_enforced vs decision_visible,repairs,2,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,GLM-5.1,decision_enforced vs decision_visible,harms,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,GLM-5.1,decision_enforced vs decision_visible,compiler_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,GLM-5.1,decision_enforced vs decision_visible,history_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,GLM-5.1,decision_enforced vs decision_visible,visible_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,GLM-5.1,decision_enforced vs decision_visible,incomplete_tasks,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,Qwen3.5,decision_enforced vs decision_visible,repairs,8,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,Qwen3.5,decision_enforced vs decision_visible,harms,5,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,Qwen3.5,decision_enforced vs decision_visible,compiler_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,Qwen3.5,decision_enforced vs decision_visible,history_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,Qwen3.5,decision_enforced vs decision_visible,visible_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_human_rewrite,human rewrite,Qwen3.5,decision_enforced vs decision_visible,incomplete_tasks,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=50; clusters=43
+revision_source_grounded,source-grounded controlled contrast,GLM-5.1,decision_enforced vs decision_visible,repairs,4,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,GLM-5.1,decision_enforced vs decision_visible,harms,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,GLM-5.1,decision_enforced vs decision_visible,compiler_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,GLM-5.1,decision_enforced vs decision_visible,history_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,GLM-5.1,decision_enforced vs decision_visible,visible_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,GLM-5.1,decision_enforced vs decision_visible,incomplete_tasks,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,Qwen3.5,decision_enforced vs decision_visible,repairs,9,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,Qwen3.5,decision_enforced vs decision_visible,harms,5,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,Qwen3.5,decision_enforced vs decision_visible,compiler_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,Qwen3.5,decision_enforced vs decision_visible,history_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,Qwen3.5,decision_enforced vs decision_visible,visible_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,Qwen3.5,decision_enforced vs decision_visible,incomplete_tasks,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,DeepSeek,decision_enforced vs decision_visible,repairs,4,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,DeepSeek,decision_enforced vs decision_visible,harms,4,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,DeepSeek,decision_enforced vs decision_visible,compiler_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,DeepSeek,decision_enforced vs decision_visible,history_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,DeepSeek,decision_enforced vs decision_visible,visible_actor_failures,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30
+revision_source_grounded,source-grounded controlled contrast,DeepSeek,decision_enforced vs decision_visible,incomplete_tasks,0,,,count,,,post-primary zero-call enforcement audit,revision_enforcement_and_failures.csv,rows=60; clusters=30

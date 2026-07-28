@@ -1,0 +1,26 @@
+{
+  "status": "Figure 3 C/D candidates only; not integrated into the paper",
+  "source": "./paper/tri_final_figures/data/summary_csv/matched_pairacc_and_marginals.csv",
+  "source_sha256": "7ac145be8a950367d65573e6431749b1771c7fc6fa6a6651cccad4509a7d990c",
+  "slice": "v3 changed_winner_core",
+  "common_denominator": 32,
+  "minimum_text_pt": 7.0,
+  "png_dpi": 400,
+  "pdf_fonttype": 42,
+  "outputs": {
+    "option_c": {
+      "stem": "./paper/tri_final_figures/outputs/figure3_options_cd_v1/figure3_option_c_pair_outcomes",
+      "size_inches": [
+        3.35,
+        2.48
+      ]
+    },
+    "option_d": {
+      "stem": "./paper/tri_final_figures/outputs/figure3_options_cd_v1/figure3_option_d_grouped_endpoints",
+      "size_inches": [
+        3.35,
+        2.62
+      ]
+    }
+  }
+}

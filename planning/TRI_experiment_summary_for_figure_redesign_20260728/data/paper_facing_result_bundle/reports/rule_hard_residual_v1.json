@@ -1,0 +1,103 @@
+{
+  "status": "post_hoc_residual_audit_zero_api",
+  "selection": "Rows on which benchmark-aware Rule* v2 predicts the wrong exact target",
+  "rule_source": "deterministic_discourse_rule_v2_v7.jsonl",
+  "rule_sha256": "8b7cc1a5c8f0fb3944562c6ff19931b4bdfae330a2f392a974a87c9bc4fae4ec",
+  "rule_hard_rows": 20,
+  "preserve_rows": 10,
+  "reevaluate_rows": 10,
+  "complete_rule_hard_pairs": 0,
+  "results": {
+    "Qwen / History-only": {
+      "correct": 10,
+      "n": 20,
+      "preserve_correct": 0,
+      "preserve_n": 10,
+      "reevaluate_correct": 10,
+      "reevaluate_n": 10,
+      "source": "v7_qwen_interactive_matched_full_v1.jsonl",
+      "sha256": "5c0d70f535928215d33fa1995c9b275634921b0e2a46e1594492d66b00327384"
+    },
+    "Qwen / Timing-reminder": {
+      "correct": 13,
+      "n": 20,
+      "preserve_correct": 4,
+      "preserve_n": 10,
+      "reevaluate_correct": 9,
+      "reevaluate_n": 10,
+      "source": "v7_qwen_full_history_once_matched_full_v1.jsonl",
+      "sha256": "c05d7029cac932ccd203a085544c7a13ebbfbeabfc9e00c9851dad27d4926d6c"
+    },
+    "Qwen / CTA": {
+      "correct": 13,
+      "n": 20,
+      "preserve_correct": 7,
+      "preserve_n": 10,
+      "reevaluate_correct": 6,
+      "reevaluate_n": 10,
+      "source": "v7_qwen_compile_then_act_full.jsonl",
+      "sha256": "8975072588396f30f74b1a46b19238f053d680212cce5fc7692f5621fdb6adcf"
+    },
+    "GLM / History-only": {
+      "correct": 10,
+      "n": 20,
+      "preserve_correct": 0,
+      "preserve_n": 10,
+      "reevaluate_correct": 10,
+      "reevaluate_n": 10,
+      "source": "v7_glm_interactive_matched_full_v1.jsonl",
+      "sha256": "e185ee3586b30b6ede15736538dffb3ff3ba7b24c2a49197ff6c10e2e27a7933"
+    },
+    "GLM / Timing-reminder": {
+      "correct": 20,
+      "n": 20,
+      "preserve_correct": 10,
+      "preserve_n": 10,
+      "reevaluate_correct": 10,
+      "reevaluate_n": 10,
+      "source": "v7_glm_full_history_once_matched_full_v1.jsonl",
+      "sha256": "b4c9136a9fc1c3632dc14b9a457b144aece00ec9d20d6c6116e89f49556794dc"
+    },
+    "GLM / CTA": {
+      "correct": 20,
+      "n": 20,
+      "preserve_correct": 10,
+      "preserve_n": 10,
+      "reevaluate_correct": 10,
+      "reevaluate_n": 10,
+      "source": "v7_glm_compile_then_act_full.jsonl",
+      "sha256": "87eb48ddf9f71e18862a2e51006b436127b72f291a72b473bfbdb61d25d6ec75"
+    },
+    "DeepSeek / History-only": {
+      "correct": 15,
+      "n": 20,
+      "preserve_correct": 5,
+      "preserve_n": 10,
+      "reevaluate_correct": 10,
+      "reevaluate_n": 10,
+      "source": "v7_deepseek_interactive_matched_full_v1.jsonl",
+      "sha256": "8bf26098f57b1375d703c0d3a9e5f59a80403aa6f62e319c36806a32bf05c34b"
+    },
+    "DeepSeek / Timing-reminder": {
+      "correct": 18,
+      "n": 20,
+      "preserve_correct": 9,
+      "preserve_n": 10,
+      "reevaluate_correct": 9,
+      "reevaluate_n": 10,
+      "source": "v7_deepseek_full_history_once_matched_full_v1.jsonl",
+      "sha256": "fce5e2b3f30b322fb121e62ee327017d8a62fac78c173e80a65656b60987a83e"
+    },
+    "DeepSeek / CTA": {
+      "correct": 16,
+      "n": 20,
+      "preserve_correct": 8,
+      "preserve_n": 10,
+      "reevaluate_correct": 8,
+      "reevaluate_n": 10,
+      "source": "v7_deepseek_compile_then_act_full_v1.jsonl",
+      "sha256": "feebe4689c5ec8c313dcf094567f38ab6c3beeead1a4a2446a28341c96441cc5"
+    }
+  },
+  "boundary": "The subset is selected after observing Rule* errors and contains no complete Preserve/Reevaluate pair; row accuracy is descriptive and PairAcc is undefined."
+}

@@ -1,0 +1,1063 @@
+{
+  "definition": "PairAcc is the fraction of complete dataset-matched Preserve/Reevaluate pairs for which both task outcomes are correct. Pairs hold S0, S1, selector, action, schema, and update fixed. Preserve and Reevaluate marginal accuracy are also reported to expose one-sided policies. Missing outputs and API/parse/protocol failures are incorrect under ITT.",
+  "pairing": "explicit_anchor is paired with implicit_dynamic; implicit_anchor is paired with explicit_dynamic when both occur. Stable is a control slice; changed-winner core contains flip and name_collision; remove/invalidate form a separate policy slice.",
+  "inventory": {
+    "v3": {
+      "tasks": 160,
+      "pairs": 80,
+      "slice_pairs": {
+        "all": 80,
+        "changed_winner_core": 32,
+        "stable_control": 16,
+        "invalidity_policy": 32
+      }
+    },
+    "v7": {
+      "tasks": 240,
+      "pairs": 120,
+      "slice_pairs": {
+        "all": 120,
+        "changed_winner_core": 80,
+        "stable_control": 40,
+        "invalidity_policy": 0
+      }
+    }
+  },
+  "results": [
+    {
+      "dataset": "v3",
+      "model": "Qwen3.5",
+      "controller": "Generic",
+      "source": "runs/20260717T025047Z_Qwen_Qwen3.5-122B-A10B_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 80,
+          "preserve_correct": 27,
+          "preserve_accuracy": 0.3375,
+          "reevaluate_correct": 76,
+          "reevaluate_accuracy": 0.95,
+          "both_correct": 23,
+          "pair_accuracy": 0.2875
+        },
+        "changed_winner_core": {
+          "pairs": 32,
+          "preserve_correct": 3,
+          "preserve_accuracy": 0.09375,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 3,
+          "pair_accuracy": 0.09375
+        },
+        "stable_control": {
+          "pairs": 16,
+          "preserve_correct": 16,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 32,
+          "preserve_correct": 8,
+          "preserve_accuracy": 0.25,
+          "reevaluate_correct": 28,
+          "reevaluate_accuracy": 0.875,
+          "both_correct": 4,
+          "pair_accuracy": 0.125
+        }
+      }
+    },
+    {
+      "dataset": "v3",
+      "model": "GLM-5.1",
+      "controller": "Generic",
+      "source": "runs/20260717T032824Z_Pro_zai-org_GLM-5.1_generic_structured_ledger_then_act_v3_language_clusters_nothinking.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 80,
+          "preserve_correct": 45,
+          "preserve_accuracy": 0.5625,
+          "reevaluate_correct": 70,
+          "reevaluate_accuracy": 0.875,
+          "both_correct": 38,
+          "pair_accuracy": 0.475
+        },
+        "changed_winner_core": {
+          "pairs": 32,
+          "preserve_correct": 7,
+          "preserve_accuracy": 0.21875,
+          "reevaluate_correct": 29,
+          "reevaluate_accuracy": 0.90625,
+          "both_correct": 7,
+          "pair_accuracy": 0.21875
+        },
+        "stable_control": {
+          "pairs": 16,
+          "preserve_correct": 16,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 32,
+          "preserve_correct": 22,
+          "preserve_accuracy": 0.6875,
+          "reevaluate_correct": 25,
+          "reevaluate_accuracy": 0.78125,
+          "both_correct": 15,
+          "pair_accuracy": 0.46875
+        }
+      }
+    },
+    {
+      "dataset": "v3",
+      "model": "Qwen3.5",
+      "controller": "CTA",
+      "source": "runs/v3_exact_predecessor_qwen_full.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 80,
+          "preserve_correct": 73,
+          "preserve_accuracy": 0.9125,
+          "reevaluate_correct": 79,
+          "reevaluate_accuracy": 0.9875,
+          "both_correct": 72,
+          "pair_accuracy": 0.9
+        },
+        "changed_winner_core": {
+          "pairs": 32,
+          "preserve_correct": 31,
+          "preserve_accuracy": 0.96875,
+          "reevaluate_correct": 31,
+          "reevaluate_accuracy": 0.96875,
+          "both_correct": 30,
+          "pair_accuracy": 0.9375
+        },
+        "stable_control": {
+          "pairs": 16,
+          "preserve_correct": 16,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 32,
+          "preserve_correct": 26,
+          "preserve_accuracy": 0.8125,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 26,
+          "pair_accuracy": 0.8125
+        }
+      }
+    },
+    {
+      "dataset": "v3",
+      "model": "GLM-5.1",
+      "controller": "CTA",
+      "source": "runs/v3_exact_predecessor_glm_full.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 80,
+          "preserve_correct": 74,
+          "preserve_accuracy": 0.925,
+          "reevaluate_correct": 80,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 74,
+          "pair_accuracy": 0.925
+        },
+        "changed_winner_core": {
+          "pairs": 32,
+          "preserve_correct": 31,
+          "preserve_accuracy": 0.96875,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 31,
+          "pair_accuracy": 0.96875
+        },
+        "stable_control": {
+          "pairs": 16,
+          "preserve_correct": 16,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 32,
+          "preserve_correct": 27,
+          "preserve_accuracy": 0.84375,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 27,
+          "pair_accuracy": 0.84375
+        }
+      }
+    },
+    {
+      "dataset": "v3",
+      "model": "Qwen3.5",
+      "controller": "Lifecycle-free",
+      "source": "runs/v3_factorial_qwen_primary_lifecycle_free.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 80,
+          "preserve_correct": 78,
+          "preserve_accuracy": 0.975,
+          "reevaluate_correct": 77,
+          "reevaluate_accuracy": 0.9625,
+          "both_correct": 75,
+          "pair_accuracy": 0.9375
+        },
+        "changed_winner_core": {
+          "pairs": 32,
+          "preserve_correct": 30,
+          "preserve_accuracy": 0.9375,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 30,
+          "pair_accuracy": 0.9375
+        },
+        "stable_control": {
+          "pairs": 16,
+          "preserve_correct": 16,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 32,
+          "preserve_correct": 32,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 29,
+          "reevaluate_accuracy": 0.90625,
+          "both_correct": 29,
+          "pair_accuracy": 0.90625
+        }
+      }
+    },
+    {
+      "dataset": "v3",
+      "model": "GLM-5.1",
+      "controller": "Lifecycle-free",
+      "source": "runs/v3_factorial_glm_primary_lifecycle_free.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 80,
+          "preserve_correct": 77,
+          "preserve_accuracy": 0.9625,
+          "reevaluate_correct": 80,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 77,
+          "pair_accuracy": 0.9625
+        },
+        "changed_winner_core": {
+          "pairs": 32,
+          "preserve_correct": 29,
+          "preserve_accuracy": 0.90625,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 29,
+          "pair_accuracy": 0.90625
+        },
+        "stable_control": {
+          "pairs": 16,
+          "preserve_correct": 16,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 32,
+          "preserve_correct": 32,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 32,
+          "pair_accuracy": 1.0
+        }
+      }
+    },
+    {
+      "dataset": "v3",
+      "model": "Qwen3.5",
+      "controller": "Lifecycle-gated",
+      "source": "runs/20260717T030034Z_Qwen_Qwen3.5-122B-A10B_factorized_hybrid_compile_then_act_v3_language_clusters_nothinking.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 80,
+          "preserve_correct": 80,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 77,
+          "reevaluate_accuracy": 0.9625,
+          "both_correct": 77,
+          "pair_accuracy": 0.9625
+        },
+        "changed_winner_core": {
+          "pairs": 32,
+          "preserve_correct": 32,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 32,
+          "pair_accuracy": 1.0
+        },
+        "stable_control": {
+          "pairs": 16,
+          "preserve_correct": 16,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 32,
+          "preserve_correct": 32,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 29,
+          "reevaluate_accuracy": 0.90625,
+          "both_correct": 29,
+          "pair_accuracy": 0.90625
+        }
+      }
+    },
+    {
+      "dataset": "v3",
+      "model": "GLM-5.1",
+      "controller": "Lifecycle-gated",
+      "source": "runs/20260717T034201Z_Pro_zai-org_GLM-5.1_factorized_hybrid_compile_then_act_v3_language_clusters_nothinking.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 80,
+          "preserve_correct": 80,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 80,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 80,
+          "pair_accuracy": 1.0
+        },
+        "changed_winner_core": {
+          "pairs": 32,
+          "preserve_correct": 32,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 32,
+          "pair_accuracy": 1.0
+        },
+        "stable_control": {
+          "pairs": 16,
+          "preserve_correct": 16,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 32,
+          "preserve_correct": 32,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 32,
+          "pair_accuracy": 1.0
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "model": "Qwen3.5",
+      "controller": "Generic",
+      "source": "runs/v7_qwen_generic_structured_ledger_then_act_full.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 120,
+          "preserve_correct": 46,
+          "preserve_accuracy": 0.38333333333333336,
+          "reevaluate_correct": 68,
+          "reevaluate_accuracy": 0.5666666666666667,
+          "both_correct": 34,
+          "pair_accuracy": 0.2833333333333333
+        },
+        "changed_winner_core": {
+          "pairs": 80,
+          "preserve_correct": 10,
+          "preserve_accuracy": 0.125,
+          "reevaluate_correct": 41,
+          "reevaluate_accuracy": 0.5125,
+          "both_correct": 7,
+          "pair_accuracy": 0.0875
+        },
+        "stable_control": {
+          "pairs": 40,
+          "preserve_correct": 36,
+          "preserve_accuracy": 0.9,
+          "reevaluate_correct": 27,
+          "reevaluate_accuracy": 0.675,
+          "both_correct": 27,
+          "pair_accuracy": 0.675
+        },
+        "invalidity_policy": {
+          "pairs": 0,
+          "preserve_correct": 0,
+          "preserve_accuracy": null,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": null,
+          "both_correct": 0,
+          "pair_accuracy": null
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "model": "GLM-5.1",
+      "controller": "Generic",
+      "source": "runs/v7_glm_generic_structured_ledger_then_act_full.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 120,
+          "preserve_correct": 54,
+          "preserve_accuracy": 0.45,
+          "reevaluate_correct": 114,
+          "reevaluate_accuracy": 0.95,
+          "both_correct": 51,
+          "pair_accuracy": 0.425
+        },
+        "changed_winner_core": {
+          "pairs": 80,
+          "preserve_correct": 16,
+          "preserve_accuracy": 0.2,
+          "reevaluate_correct": 76,
+          "reevaluate_accuracy": 0.95,
+          "both_correct": 15,
+          "pair_accuracy": 0.1875
+        },
+        "stable_control": {
+          "pairs": 40,
+          "preserve_correct": 38,
+          "preserve_accuracy": 0.95,
+          "reevaluate_correct": 38,
+          "reevaluate_accuracy": 0.95,
+          "both_correct": 36,
+          "pair_accuracy": 0.9
+        },
+        "invalidity_policy": {
+          "pairs": 0,
+          "preserve_correct": 0,
+          "preserve_accuracy": null,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": null,
+          "both_correct": 0,
+          "pair_accuracy": null
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "model": "DeepSeek-V4-Pro",
+      "controller": "Generic",
+      "source": "runs/v7_deepseek_generic_structured_ledger_then_act_full_v1.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 120,
+          "preserve_correct": 57,
+          "preserve_accuracy": 0.475,
+          "reevaluate_correct": 120,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 57,
+          "pair_accuracy": 0.475
+        },
+        "changed_winner_core": {
+          "pairs": 80,
+          "preserve_correct": 17,
+          "preserve_accuracy": 0.2125,
+          "reevaluate_correct": 80,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 17,
+          "pair_accuracy": 0.2125
+        },
+        "stable_control": {
+          "pairs": 40,
+          "preserve_correct": 40,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 40,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 40,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 0,
+          "preserve_correct": 0,
+          "preserve_accuracy": null,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": null,
+          "both_correct": 0,
+          "pair_accuracy": null
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "model": "Qwen3.5",
+      "controller": "CTA",
+      "source": "runs/v7_qwen_compile_then_act_full.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 120,
+          "preserve_correct": 104,
+          "preserve_accuracy": 0.8666666666666667,
+          "reevaluate_correct": 66,
+          "reevaluate_accuracy": 0.55,
+          "both_correct": 59,
+          "pair_accuracy": 0.49166666666666664
+        },
+        "changed_winner_core": {
+          "pairs": 80,
+          "preserve_correct": 70,
+          "preserve_accuracy": 0.875,
+          "reevaluate_correct": 35,
+          "reevaluate_accuracy": 0.4375,
+          "both_correct": 31,
+          "pair_accuracy": 0.3875
+        },
+        "stable_control": {
+          "pairs": 40,
+          "preserve_correct": 34,
+          "preserve_accuracy": 0.85,
+          "reevaluate_correct": 31,
+          "reevaluate_accuracy": 0.775,
+          "both_correct": 28,
+          "pair_accuracy": 0.7
+        },
+        "invalidity_policy": {
+          "pairs": 0,
+          "preserve_correct": 0,
+          "preserve_accuracy": null,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": null,
+          "both_correct": 0,
+          "pair_accuracy": null
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "model": "GLM-5.1",
+      "controller": "CTA",
+      "source": "runs/v7_glm_compile_then_act_full.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 120,
+          "preserve_correct": 110,
+          "preserve_accuracy": 0.9166666666666666,
+          "reevaluate_correct": 116,
+          "reevaluate_accuracy": 0.9666666666666667,
+          "both_correct": 106,
+          "pair_accuracy": 0.8833333333333333
+        },
+        "changed_winner_core": {
+          "pairs": 80,
+          "preserve_correct": 70,
+          "preserve_accuracy": 0.875,
+          "reevaluate_correct": 76,
+          "reevaluate_accuracy": 0.95,
+          "both_correct": 66,
+          "pair_accuracy": 0.825
+        },
+        "stable_control": {
+          "pairs": 40,
+          "preserve_correct": 40,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 40,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 40,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 0,
+          "preserve_correct": 0,
+          "preserve_accuracy": null,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": null,
+          "both_correct": 0,
+          "pair_accuracy": null
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "model": "DeepSeek-V4-Pro",
+      "controller": "CTA",
+      "source": "runs/v7_deepseek_compile_then_act_full_v1.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 120,
+          "preserve_correct": 109,
+          "preserve_accuracy": 0.9083333333333333,
+          "reevaluate_correct": 110,
+          "reevaluate_accuracy": 0.9166666666666666,
+          "both_correct": 103,
+          "pair_accuracy": 0.8583333333333333
+        },
+        "changed_winner_core": {
+          "pairs": 80,
+          "preserve_correct": 70,
+          "preserve_accuracy": 0.875,
+          "reevaluate_correct": 70,
+          "reevaluate_accuracy": 0.875,
+          "both_correct": 64,
+          "pair_accuracy": 0.8
+        },
+        "stable_control": {
+          "pairs": 40,
+          "preserve_correct": 39,
+          "preserve_accuracy": 0.975,
+          "reevaluate_correct": 40,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 39,
+          "pair_accuracy": 0.975
+        },
+        "invalidity_policy": {
+          "pairs": 0,
+          "preserve_correct": 0,
+          "preserve_accuracy": null,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": null,
+          "both_correct": 0,
+          "pair_accuracy": null
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "model": "Qwen3.5",
+      "controller": "Lifecycle-gated",
+      "source": "runs/v7_qwen_factorized_hybrid_compile_then_act_full.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 120,
+          "preserve_correct": 95,
+          "preserve_accuracy": 0.7916666666666666,
+          "reevaluate_correct": 76,
+          "reevaluate_accuracy": 0.6333333333333333,
+          "both_correct": 67,
+          "pair_accuracy": 0.5583333333333333
+        },
+        "changed_winner_core": {
+          "pairs": 80,
+          "preserve_correct": 64,
+          "preserve_accuracy": 0.8,
+          "reevaluate_correct": 46,
+          "reevaluate_accuracy": 0.575,
+          "both_correct": 40,
+          "pair_accuracy": 0.5
+        },
+        "stable_control": {
+          "pairs": 40,
+          "preserve_correct": 31,
+          "preserve_accuracy": 0.775,
+          "reevaluate_correct": 30,
+          "reevaluate_accuracy": 0.75,
+          "both_correct": 27,
+          "pair_accuracy": 0.675
+        },
+        "invalidity_policy": {
+          "pairs": 0,
+          "preserve_correct": 0,
+          "preserve_accuracy": null,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": null,
+          "both_correct": 0,
+          "pair_accuracy": null
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "model": "GLM-5.1",
+      "controller": "Lifecycle-gated",
+      "source": "runs/v7_glm_factorized_hybrid_compile_then_act_full.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 120,
+          "preserve_correct": 119,
+          "preserve_accuracy": 0.9916666666666667,
+          "reevaluate_correct": 114,
+          "reevaluate_accuracy": 0.95,
+          "both_correct": 113,
+          "pair_accuracy": 0.9416666666666667
+        },
+        "changed_winner_core": {
+          "pairs": 80,
+          "preserve_correct": 79,
+          "preserve_accuracy": 0.9875,
+          "reevaluate_correct": 74,
+          "reevaluate_accuracy": 0.925,
+          "both_correct": 73,
+          "pair_accuracy": 0.9125
+        },
+        "stable_control": {
+          "pairs": 40,
+          "preserve_correct": 40,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 40,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 40,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 0,
+          "preserve_correct": 0,
+          "preserve_accuracy": null,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": null,
+          "both_correct": 0,
+          "pair_accuracy": null
+        }
+      }
+    },
+    {
+      "dataset": "v3",
+      "model": "model-independent",
+      "controller": "Always-Lock+validity",
+      "source": "deterministic control",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 80,
+          "preserve_correct": 80,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 0.2,
+          "both_correct": 16,
+          "pair_accuracy": 0.2
+        },
+        "changed_winner_core": {
+          "pairs": 32,
+          "preserve_correct": 32,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": 0.0,
+          "both_correct": 0,
+          "pair_accuracy": 0.0
+        },
+        "stable_control": {
+          "pairs": 16,
+          "preserve_correct": 16,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 32,
+          "preserve_correct": 32,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": 0.0,
+          "both_correct": 0,
+          "pair_accuracy": 0.0
+        }
+      }
+    },
+    {
+      "dataset": "v3",
+      "model": "model-independent",
+      "controller": "Always-Reevaluate",
+      "source": "deterministic control",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 80,
+          "preserve_correct": 16,
+          "preserve_accuracy": 0.2,
+          "reevaluate_correct": 80,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 0.2
+        },
+        "changed_winner_core": {
+          "pairs": 32,
+          "preserve_correct": 0,
+          "preserve_accuracy": 0.0,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 0,
+          "pair_accuracy": 0.0
+        },
+        "stable_control": {
+          "pairs": 16,
+          "preserve_correct": 16,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 32,
+          "preserve_correct": 0,
+          "preserve_accuracy": 0.0,
+          "reevaluate_correct": 32,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 0,
+          "pair_accuracy": 0.0
+        }
+      }
+    },
+    {
+      "dataset": "v3",
+      "model": "model-independent",
+      "controller": "Rule v2 (post-hoc)",
+      "source": "runs/deterministic_discourse_rule_v2_v3.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 80,
+          "preserve_correct": 74,
+          "preserve_accuracy": 0.925,
+          "reevaluate_correct": 74,
+          "reevaluate_accuracy": 0.925,
+          "both_correct": 68,
+          "pair_accuracy": 0.85
+        },
+        "changed_winner_core": {
+          "pairs": 32,
+          "preserve_correct": 30,
+          "preserve_accuracy": 0.9375,
+          "reevaluate_correct": 30,
+          "reevaluate_accuracy": 0.9375,
+          "both_correct": 28,
+          "pair_accuracy": 0.875
+        },
+        "stable_control": {
+          "pairs": 16,
+          "preserve_correct": 16,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 16,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 16,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 32,
+          "preserve_correct": 28,
+          "preserve_accuracy": 0.875,
+          "reevaluate_correct": 28,
+          "reevaluate_accuracy": 0.875,
+          "both_correct": 24,
+          "pair_accuracy": 0.75
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "model": "model-independent",
+      "controller": "Always-Lock+validity",
+      "source": "deterministic control",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 120,
+          "preserve_correct": 120,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 40,
+          "reevaluate_accuracy": 0.3333333333333333,
+          "both_correct": 40,
+          "pair_accuracy": 0.3333333333333333
+        },
+        "changed_winner_core": {
+          "pairs": 80,
+          "preserve_correct": 80,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": 0.0,
+          "both_correct": 0,
+          "pair_accuracy": 0.0
+        },
+        "stable_control": {
+          "pairs": 40,
+          "preserve_correct": 40,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 40,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 40,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 0,
+          "preserve_correct": 0,
+          "preserve_accuracy": null,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": null,
+          "both_correct": 0,
+          "pair_accuracy": null
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "model": "model-independent",
+      "controller": "Always-Reevaluate",
+      "source": "deterministic control",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 120,
+          "preserve_correct": 40,
+          "preserve_accuracy": 0.3333333333333333,
+          "reevaluate_correct": 120,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 40,
+          "pair_accuracy": 0.3333333333333333
+        },
+        "changed_winner_core": {
+          "pairs": 80,
+          "preserve_correct": 0,
+          "preserve_accuracy": 0.0,
+          "reevaluate_correct": 80,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 0,
+          "pair_accuracy": 0.0
+        },
+        "stable_control": {
+          "pairs": 40,
+          "preserve_correct": 40,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 40,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 40,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 0,
+          "preserve_correct": 0,
+          "preserve_accuracy": null,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": null,
+          "both_correct": 0,
+          "pair_accuracy": null
+        }
+      }
+    },
+    {
+      "dataset": "v7",
+      "model": "model-independent",
+      "controller": "Rule v2 (post-hoc)",
+      "source": "runs/deterministic_discourse_rule_v2_v7.jsonl",
+      "missing_outputs_itt_incorrect": 0,
+      "api_or_status_errors": 0,
+      "parse_or_protocol_errors": 0,
+      "slices": {
+        "all": {
+          "pairs": 120,
+          "preserve_correct": 110,
+          "preserve_accuracy": 0.9166666666666666,
+          "reevaluate_correct": 110,
+          "reevaluate_accuracy": 0.9166666666666666,
+          "both_correct": 100,
+          "pair_accuracy": 0.8333333333333334
+        },
+        "changed_winner_core": {
+          "pairs": 80,
+          "preserve_correct": 70,
+          "preserve_accuracy": 0.875,
+          "reevaluate_correct": 70,
+          "reevaluate_accuracy": 0.875,
+          "both_correct": 60,
+          "pair_accuracy": 0.75
+        },
+        "stable_control": {
+          "pairs": 40,
+          "preserve_correct": 40,
+          "preserve_accuracy": 1.0,
+          "reevaluate_correct": 40,
+          "reevaluate_accuracy": 1.0,
+          "both_correct": 40,
+          "pair_accuracy": 1.0
+        },
+        "invalidity_policy": {
+          "pairs": 0,
+          "preserve_correct": 0,
+          "preserve_accuracy": null,
+          "reevaluate_correct": 0,
+          "reevaluate_accuracy": null,
+          "both_correct": 0,
+          "pair_accuracy": null
+        }
+      }
+    }
+  ],
+  "availability_note": "v7 Lifecycle-gated outputs exist for Qwen and GLM, but not DeepSeek; no value is imputed."
+}

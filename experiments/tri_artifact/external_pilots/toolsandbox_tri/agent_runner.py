@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import time
@@ -263,6 +264,7 @@ def main() -> None:
     parser.add_argument("--max-tokens", type=int, default=700)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--protocol-addendum")
     args = parser.parse_args()
     key = os.environ.get("LLM_API_KEY")
     if not key:
@@ -287,6 +289,9 @@ def main() -> None:
         if args.data
         else build_pilot_scenarios()
     )
+    addendum_sha256 = None
+    if args.protocol_addendum:
+        addendum_sha256 = hashlib.sha256(Path(args.protocol_addendum).read_bytes()).hexdigest()
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     safe_model = args.model.replace("/", "_").replace(":", "_")
     output = Path(args.output) if args.output else Path("runs") / (
@@ -327,6 +332,7 @@ def main() -> None:
                     "run_timestamp": stamp,
                     "latency_s": round(time.time() - row_started, 3),
                     "api_request_attempts": client.request_attempts - attempts_before,
+                    "protocol_addendum_sha256": addendum_sha256,
                 }
             )
             handle.write(json.dumps(row, ensure_ascii=False) + "\n")
