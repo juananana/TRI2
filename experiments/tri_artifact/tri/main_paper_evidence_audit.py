@@ -156,15 +156,17 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
     call_models = {row["model"]: row for row in call_matched["models"]}
     call_qwen = call_models["Qwen/Qwen3.5-122B-A10B"]
     call_glm = call_models["Pro/zai-org/GLM-5.1"]
-    revision_full = load_json(root / "reports/revision_full_diagnostic_v2.json")
+    revision_full = load_json(root / "reports/revision_full_diagnostic_v3.json")
     revision_models = {row["model"]: row for row in revision_full["models"]}
     revision_qwen = revision_models["Qwen/Qwen3.5-122B-A10B"]
     revision_glm = revision_models["Pro/zai-org/GLM-5.1"]
-    revision_source = load_json(root / "reports/revision_source_grounded_v2.json")
+    revision_source = load_json(root / "reports/revision_source_grounded_v3.json")
     revision_source_models = {row["model"]: row for row in revision_source["models"]}
     source_qwen = revision_source_models["Qwen/Qwen3.5-122B-A10B"]
     source_glm = revision_source_models["Pro/zai-org/GLM-5.1"]
     source_deepseek = revision_source_models["deepseek-ai/DeepSeek-V4-Pro"]
+    revision_four = load_json(root / "reports/revision_full_diagnostic_four_model_v2.json")
+    revision_four_models = {row["model"]: row for row in revision_four["models"]}
     binding_drift = load_json(root / "reports/binding_drift_tri_glm_v7_full_v1.json")
     binding_summaries = binding_drift["summaries"]
     rule_residual = load_json(root / "reports/rule_hard_residual_v1.json")
@@ -180,6 +182,15 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
     repeat_models = {row["model"]: row for row in repeat_stability["models"]}
     repeat_qwen = repeat_models["Qwen3.5"]
     repeat_glm = repeat_models["GLM-5.1"]
+    full_history = load_json(root / "reports/v7_matched_full_history_three_model_final_v1.json")
+    full_history_pairs = {
+        (row["model"], row["controller_a"], row["controller_b"]): row
+        for row in full_history["pairs"]
+    }
+    full_history_cta = {
+        model: full_history_pairs[(model, "full_history_once", "compile_then_act")]
+        for model in ("Qwen3.5", "GLM-5.1", "DeepSeek")
+    }
 
     figure_paths = [
         paper_path.parent / "Figures" / "fig1_shared_transition.pdf",
@@ -187,7 +198,7 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
         paper_path.parent / "Figures" / "result_policy_discrimination.pdf",
         paper_path.parent / "Figures" / "fig3_substitution_flow.pdf",
         paper_path.parent / "Figures" / "fig4_sqlite_outcome_tree.pdf",
-        paper_path.parent / "Figures" / "result_decision_transfer.pdf",
+        paper_path.parent / "Figures" / "fig_submission_critical_pairacc_effects.pdf",
         paper_path.parent / "Figures" / "fig_s2_changed_calibration_round5.pdf",
         paper_path.parent / "Figures" / "fig_s8_external_boundary_round5.pdf",
         paper_path.parent / "Figures" / "fig4_wrong_write_mirror_round3.pdf",
@@ -214,7 +225,8 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
             and "Figures/fig_enforcement_repairs_harms_compact.pdf" in supplement_text
             and "Figures/tri_comprehensive_results.pdf" in supplement_text
             and "Post-primary audits from frozen \\PrimaryDiagnostic{} and \\NewSchemaReplication{} outputs" in supplement_text
-            and "Claim-to-evidence map" in normalized_paper
+            and "Evidence boundary. Each row separates the completed evidence from the strongest"
+            in supplement_text
             and "TRI diagnostic construction and observable endpoints" in normalized_paper
             and "it is an evaluation workflow, not a controller architecture" in normalized_paper
             and "Figures/fig2_policy_rulers.pdf" not in paper_text
@@ -223,7 +235,14 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
                 "Ten-schema conditional outcomes after correct initial binding" in normalized_paper
                 or "Ten-schema outcomes after correct initial binding" in normalized_paper
             )
-            and "Secondary/frozen 40-task SQLite outcomes for Generic" in normalized_paper
+            and (
+                "Strict SQLite opportunities for Generic after correct pre-refresh binding to A"
+                in normalized_paper
+                or "Secondary/frozen SQLite consequence test for Generic" in normalized_paper
+                or "Secondary/frozen 40-task SQLite outcomes for Generic" in normalized_paper
+                or "Complete 40-task SQLite outcomes and strict refreshed-winner writes for Generic"
+                in normalized_paper
+            )
             and "Source-derived controlled-contrast fingerprints" in supplement_text
             and "Row-level repairs and harms" in supplement_text
             and all(token in paper_text for token in ("41/66", "30/70", "50/69", "8/8", "6/8"))
@@ -238,16 +257,30 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
         "shared_deepseek_claim_present": "50/69" in paper_text and "CTA substitutes on none" in normalized_paper,
         "qwen_primary_claim_present": all(
             token in paper_text
-            for token in ("103/160", "157/160", "+33.8 points", "[18.1, 49.4]", "95/128", "125--128/128")
+            for token in (
+                "103/160",
+                "157/160",
+                "+33.8 points",
+                "[18.1, 50.0]",
+                "Qwen Lifecycle-Gated reaches 125/128 versus Generic 95/128",
+            )
         ),
         "glm_primary_claim_present": all(
-            token in paper_text for token in ("115/160", "160/160", "+28.1 points", "[18.1, 38.1]", "93/128", "125--128/128")
+            token in paper_text
+            for token in (
+                "115/160",
+                "160/160",
+                "+28.1 points",
+                "[18.1, 38.1]",
+                "GLM CTA reaches 128/128 versus Generic",
+                "93/128",
+            )
         ),
         "human_agreement_claim_present": (
             "majority--gold agreement is 98.0\\% on 50 dynamic items" in normalized_paper
             and "86.7\\% on 30 anchored actionable items" in normalized_paper
             and "55.0\\% on 20 action-invalid \\textsc{Reject} items" in normalized_paper
-            and "its 38.6\\% retained-label agreement is descriptive"
+            and "We therefore center actionable referent identity and treat fallback policy separately"
             in normalized_paper
             and "All & 100 & 86.0 & 72.0 & .708 & .709" in supplement_text
             and "Blinded Human Agreement Audit" in supplement_text
@@ -274,7 +307,7 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
             and [row["opportunities"] for row in external_extension] == [70, 73, 64, 87]
             and [row["mechanism_errors"] for row in external_extension] == [0, 0, 0, 0]
             and [row["wrong_writes"] for row in external_extension] == [6, 13, 5, 4]
-            and "zero substitutions in four conditions over 64--87 eligible opportunities"
+            and "finds zero substitutions in four Qwen/GLM controller conditions over 64--87 eligible rows each"
             in normalized_paper
         ),
         "source_anchored_transfer_claim_matches_report": (
@@ -300,7 +333,7 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
             and selection_summary["aggregate_suboptimal_rows"] == 0
             and selection_summary["aggregate_pairacc_optimal_rows"] == 5
             and abs(selection_summary["maximum_worst_case_selection_regret"] - 1.0) < 1e-12
-            and "Across five candidate sets, aggregate E2E and PairAcc nevertheless choose the same tested policy; there is no ranking reversal"
+            and "Across five tested controller candidate sets, aggregate E2E and PairAcc choose the same policy; there is no ranking reversal"
             in normalized_paper
             and "All 15" in normalized_supplement
             and "Maximum worst-case regret is 100 points" in normalized_supplement
@@ -322,7 +355,7 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
             and call_qwen["enforcement"]["harms"] == 8
             and call_qwen["enforcement"]["repairs"] == 4
             and call_glm["enforcement"]["changed"] == 0
-            and revision_full["report_version"] == "TRI-revision-matched-audit-report-v2"
+            and revision_full["report_version"] == "TRI-revision-matched-audit-report-v3"
             and revision_qwen["rows"] == 160
             and revision_glm["rows"] == 160
             and revision_qwen["metrics"]["history_only"]["changed_pairacc"]["numerator"] == 5
@@ -343,10 +376,11 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
                     "PairAcc rises from 5/32 to 13/32 for Qwen and from 8/32 to 25/32 for GLM",
                     "estimates the complete block rather than any field",
                     "RQ3: Does Decision Visibility Change Outcomes under Equal Calls?",
-                    "One compiler call and two actor calls; actor order alternates by task index",
-                    "Byte-identical instruction, states, selected ID, selector, action, and tool schema",
-                    "Decision-enforced & Zero-call deterministic transform, not a third actor condition",
-                    "does not identify any field or framing component separately",
+                    "using the same base payloads, states, tool schemas, and call count",
+                    "The visible block jointly contains the predicted reference mode, bound ID, and selector restatement",
+                    "Decision-enforced applies it offline",
+                    "No predeclared field-level contrast met the cross-model promotion gate",
+                    "supported intervention remains composite rather than attributable to one field",
                 )
             )
             and "Qwen & History-only & 5/32 & 100/128 & 21/32 & 22/28" in supplement_text
@@ -355,6 +389,32 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
             and "GLM & Decision-visible & 25/32 & 120/128 & 21/32 & 0/25" in supplement_text
             and "Offline enforcement produces 18 repairs and eight harms for Qwen"
             in normalized_supplement
+        ),
+        "four_model_pairacc_interval_repair_matches_report": (
+            revision_four["report_version"] == "TRI-revision-matched-audit-report-v3"
+            and len(revision_four["report_amendments"]) == 2
+            and revision_four_models["Qwen/Qwen3.5-122B-A10B"]
+            ["decision_visible_minus_history"]["changed_pairacc"]["ci95_cluster"]
+            == [0.09375, 0.40625]
+            and revision_four_models["Pro/zai-org/GLM-5.1"]
+            ["decision_visible_minus_history"]["changed_pairacc"]["ci95_cluster"]
+            == [0.34375, 0.6875]
+            and revision_four_models["deepseek-ai/DeepSeek-V4-Pro"]
+            ["decision_visible_minus_history"]["changed_pairacc"]["ci95_cluster"]
+            == [0.25, 0.625]
+            and revision_four_models["Pro/MiniMaxAI/MiniMax-M2.5"]
+            ["decision_visible_minus_history"]["changed_pairacc"]["ci95_cluster"]
+            == [0.1875, 0.5]
+            and all(
+                token in generated_text
+                for token in (
+                    "+25.0 [9.4,40.6]",
+                    "+53.1 [34.4,68.8]",
+                    "+43.8 [25.0,62.5]",
+                    "+34.4 [18.8,50.0]",
+                    "pair-cluster-resampling 95\\% CIs",
+                )
+            )
         ),
         "decision_block_stratification_matches_report": (
             decision_block["evidence_status"] == "post-primary zero-API descriptive audit"
@@ -376,7 +436,7 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
             and decision_glm["by_compiler_mode_correctness"]["correct"]["exact_target"]
             ["decision_visible"]["numerator"] == 136
             and (
-                "Across all matched-call audits, both actors receive the same initial ID and the visible selector restates the base selector"
+                "Across nine audited matched-call inventories, both actors receive the same initial ID"
                 in normalized_paper
                 or "initial-ID values are exact repetitions in 760/760 audited records" in normalized_paper
             )
@@ -437,8 +497,29 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
             and "conditional substitution is 5/10, 5/11, and 7/11 for Qwen and 4/12, 5/12, and 6/12 for GLM"
             in normalized_supplement
         ),
+        "full_history_baseline_claim_matches_report": (
+            full_history_cta["Qwen3.5"]["delta_b_minus_a"] == 0.0125
+            and full_history_cta["Qwen3.5"]["ci95_state_cluster"]
+            == [-0.06666666666666667, 0.09166666666666666]
+            and full_history_cta["GLM-5.1"]["delta_b_minus_a"] == 0.13333333333333333
+            and full_history_cta["GLM-5.1"]["ci95_state_cluster"]
+            == [0.0875, 0.17916666666666667]
+            and full_history_cta["DeepSeek"]["delta_b_minus_a"] == 0.15416666666666667
+            and full_history_cta["DeepSeek"]["ci95_state_cluster"]
+            == [0.09166666666666666, 0.21666666666666667]
+            and all(
+                token in normalized_paper
+                for token in (
+                    "Against final-step-aware full history on the same 240 rows",
+                    "$+1.2$ [$-6.7,9.2$] points for Qwen",
+                    "$+13.3$ [$8.8,17.9$] for GLM",
+                    "$+15.4$ [$9.2,21.7$] for DeepSeek",
+                    "the Qwen interval includes zero",
+                )
+            )
+        ),
         "source_grounded_matched_claim_matches_report": (
-            revision_source["report_version"] == "TRI-revision-matched-audit-report-v2"
+            revision_source["report_version"] == "TRI-revision-matched-audit-report-v3"
             and revision_source["evidence_status"] == "post-primary; protocol frozen before own calls"
             and all(model["rows"] == 60 for model in revision_source["models"])
             and all(model["logical_calls"]["completed"] == 180 for model in revision_source["models"])
@@ -560,6 +641,13 @@ def build_report(root: Path = ROOT, paper_path: Path = PAPER) -> dict[str, Any]:
             ],
         },
         "selection_regret": selection_summary,
+        "full_history_cta_deltas": {
+            model: {
+                "delta": row["delta_b_minus_a"],
+                "ci95": row["ci95_state_cluster"],
+            }
+            for model, row in full_history_cta.items()
+        },
         "checks": checks,
         "all_checks_pass": all(checks.values()),
         "boundaries": [

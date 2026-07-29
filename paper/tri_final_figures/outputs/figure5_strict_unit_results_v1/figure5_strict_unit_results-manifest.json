@@ -1,0 +1,27 @@
+{
+  "status": "Figure 5 strict-opportunity unit result chart",
+  "source": "data/summary_csv/sqlite_model_facing_outcomes.csv",
+  "source_sha256": "89a9fb91adc4794c5150d3dadc3a039ba18b5840c54146a85a0976a69a91bf48",
+  "size_inches": [
+    3.35,
+    2.05
+  ],
+  "minimum_text_pt": 7.0,
+  "strict_counts": {
+    "stable": {
+      "Qwen": "0/4",
+      "GLM": "0/4"
+    },
+    "changed": {
+      "Qwen": "8/8",
+      "GLM": "6/8"
+    }
+  },
+  "encoding": {
+    "unit": "one strict opportunity",
+    "coral_B": "wrong-target write to refreshed winner B",
+    "outlined_dot": "other outcome; not asserted to be correct or safe",
+    "shape": "Qwen circle; GLM square",
+    "top_glyphs": "post-refresh winner and continued validity manipulation"
+  }
+}

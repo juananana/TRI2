@@ -293,6 +293,29 @@
     "aggregate_pairacc_optimal_rows": 5,
     "maximum_worst_case_selection_regret": 1.0
   },
+  "full_history_cta_deltas": {
+    "Qwen3.5": {
+      "delta": 0.0125,
+      "ci95": [
+        -0.06666666666666667,
+        0.09166666666666666
+      ]
+    },
+    "GLM-5.1": {
+      "delta": 0.13333333333333333,
+      "ci95": [
+        0.0875,
+        0.17916666666666667
+      ]
+    },
+    "DeepSeek": {
+      "delta": 0.15416666666666667,
+      "ci95": [
+        0.09166666666666666,
+        0.21666666666666667
+      ]
+    }
+  },
   "checks": {
     "split_result_figures_match_frozen_sources": true,
     "shared_qwen_claim_present": true,
@@ -307,9 +330,11 @@
     "source_anchored_transfer_claim_matches_report": true,
     "selection_regret_claim_matches_report": true,
     "call_matched_claim_matches_report": true,
+    "four_model_pairacc_interval_repair_matches_report": true,
     "decision_block_stratification_matches_report": true,
     "oracle_stage_decomposition_matches_report": true,
     "temperature_zero_repeat_matches_report": true,
+    "full_history_baseline_claim_matches_report": true,
     "source_grounded_matched_claim_matches_report": true,
     "binding_drift_author_adaptation_matches_report": true,
     "rule_hard_residual_matches_report": true,

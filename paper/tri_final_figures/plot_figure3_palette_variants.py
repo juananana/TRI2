@@ -34,6 +34,9 @@ def darken(color: str, factor: float = 0.78) -> str:
 
 def render_candidate(data: list[dict], output_dir: Path, slug: str) -> Path:
     palette = PALETTES[slug]
+    base.INK = "#264A56"
+    base.MUTED = "#5F6B70"
+    base.GRID = "#D6E0DE"
     base.PAIR = palette["primary"]
     base.PAIR_EDGE = darken(palette["primary"])
     base.PRESERVE = palette["secondary"]
@@ -106,8 +109,21 @@ def main() -> None:
     contact_sheet = args.output_dir / "figure3_palette_acd_comparison.png"
     make_contact_sheet(stems, contact_sheet)
     manifest = {
-        "status": "palette comparison only; not integrated into the paper",
+        "status": "Figure 3 v3 palette/accessibility comparison; Forest Ember selected",
         "figure": "selected Figure 3 pair-outcome composition",
+        "selected": "d_forest_ember",
+        "minimum_text_pt": 7.0,
+        "accessibility_encoding": {
+            "both_correct": "solid dark fill",
+            "preserve_only": "sparse forward diagonal",
+            "reevaluate_only": "sparse backward diagonal",
+            "neither": "plain neutral fill",
+        },
+        "shared_neutrals": {
+            "ink": "#264A56",
+            "muted": "#5F6B70",
+            "grid": "#D6E0DE",
+        },
         "source": str(base.DATA),
         "source_sha256": hashlib.sha256(base.DATA.read_bytes()).hexdigest(),
         "shortlist": list(SHORTLIST),

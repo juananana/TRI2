@@ -1,0 +1,27 @@
+{
+  "data": "data/summary_csv/sqlite_model_facing_outcomes.csv",
+  "strict_stable": {
+    "Qwen": "0/4",
+    "GLM": "0/4"
+  },
+  "strict_changed": {
+    "Qwen": "8/8",
+    "GLM": "6/8"
+  },
+  "full_40_task_context": {
+    "Qwen": {
+      "correct": 27,
+      "tri": 8,
+      "fallback": 5,
+      "reject": 0
+    },
+    "GLM": {
+      "correct": 26,
+      "tri": 6,
+      "fallback": 2,
+      "reject": 6
+    }
+  },
+  "visual_claim": "The changed-winner failure occurs at the compiled-ID to model-call handoff.",
+  "result_encoding": "model shape + exact wrong-target-write fraction"
+}

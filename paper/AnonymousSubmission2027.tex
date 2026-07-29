@@ -42,12 +42,12 @@ backends on 240 authored tasks spanning ten schemas, an author-designed Generic 
 substituted the refreshed winner in 41/66, 30/70,
 and 50/69 cases where both probes exposed the correct initial binding; a Compile-then-act probe
 with an explicit decision record made no substitutions in those cases. A SQLite tool-loop test
-traced the same error pattern into writes to the wrong entity. With equal calls and identical base
-actor inputs, exposing a composite decision block improved authored PairAcc for Qwen and GLM.
-Effects on pairs adapted from public benchmarks varied by model. Limited human agreement audits
-did not establish open-language transfer. TRI provides a controlled diagnostic for selective
-re-resolution; native prevalence and
-generalization to open-ended language remain unresolved.
+separately observed refreshed-winner writes after correct pre-refresh binding. Under equal calls
+and byte-identical base actor inputs, exposing a composite decision block improved authored PairAcc
+across four tested model backends.
+Effects on author-adapted public-benchmark pairs were model-dependent. TRI therefore provides a
+controlled diagnostic for selective re-resolution and its executed consequences; the present
+evaluation does not estimate native-task prevalence or unrestricted language transfer.
 \end{abstract}
 
 \section{Introduction}
@@ -98,8 +98,8 @@ winner. A post-primary 240-task controlled replication spanning ten schemas meas
 with three model backends. A separate SQLite study follows the selected ID through a mutation
 issued by the model.
 
-Controller probes test whether an executable decision representation changes this behavior after
-the initial selection is visible. The primary comparison contrasts complete controller packages.
+Controller probes test whether exposing a structured decision record changes this behavior after
+the initial selection is supplied. The primary comparison contrasts complete controller packages.
 An equal-call comparison then holds the base actor payload and call count fixed while exposing a
 composite decision block. PairAcc rises
 from 5/32 to 13/32 for Qwen and from 8/32 to 25/32 for GLM. Gains on pairs adapted from public
@@ -114,11 +114,14 @@ The paper makes three contributions:
 \nopagebreak[4]
 \begin{itemize}
     \item We distinguish authorization from initial binding and post-commitment persistence, then
-    identify selective resolution with crossed bound/deferred directions and opposite-gold PairAcc.
-    \item A post-primary controlled replication links substitution after a correct binding to
-    wrong-entity writes, while keeping initial binding and fallback errors outside the TRI endpoint.
-    \item Equal-call probes estimate the effect of exposing one complete decision block; mixed
-    transfer and a strong post-hoc rule bound claims about components, architecture, and scope.
+    show how crossed bound/deferred directions and opposite-gold PairAcc distinguish selective
+    resolution within an exact-target three-policy class.
+    \item A post-primary controlled replication localizes substitution after a correct binding; a
+    separate SQLite tool-loop test shows that such substitution can reach wrong-entity writes.
+    Initial-binding and fallback errors remain outside the TRI endpoint.
+    \item Equal-call probes estimate a composite timing-decision contrast across four
+    backends; comparisons with full history, component controls, and a deterministic event-order
+    rule show that the diagnostic does not depend on a unique architecture.
 \end{itemize}
 
 \section{Related Work}
@@ -290,13 +293,14 @@ architecture.
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/fig2_diagnostic_workflow.pdf}
-\caption{TRI diagnostic construction and observable endpoints. A changed-winner pair holds
-$S_0$, $S_1$, selector $q$, action, schema, and controller interface. $A$ wins in $S_0$; $B$
-wins in $S_1$, while $A$ remains present and action-valid. Preserve binds $A$ before refresh,
-whereas Reevaluate defers $q$ and targets $B$ afterward. PairAcc requires both outputs to be
-correct, conditional substitution isolates $A\!\rightarrow\!B$ after a correct binding, and the
-execution subset records which entity receives the write. Gold resolution modes and targets are
-withheld from the probe.}
+\caption{TRI diagnostic construction and observable endpoints. \textbf{A}: a shared changed-winner
+transition makes $A$ win in $S_0$ and $B$ win in $S_1$, while $A$ remains present and action-valid.
+\textbf{B}: matched Preserve and Reevaluate instructions hold the states, selector, action, schema,
+and controller interface fixed; only commitment timing, and therefore the gold target, changes.
+\textbf{C}: both members enter the same opaque probe with the same interface and inputs; resolution
+modes and targets are withheld. \textbf{D}: PairAcc tests joint correctness, conditional substitution
+isolates $A\!\rightarrow\!B$ after a correct binding, and the execution subset records which entity
+receives the write.}
 \label{fig:tri-diagnostic-workflow}
 \end{figure*}
 
@@ -314,8 +318,9 @@ writes, invalid attempts, and collateral changes.
 
 \subsection{Controller Probes}
 Generic Structured Ledger (Generic) retains the instruction, selected ID, entity snapshot,
-selector, action, and preconditions. It does not encode resolution mode. Compile-then-act (CTA)
-emits the binding time, selector, and bound ID before refresh. Lifecycle records add validity and
+selector, action, and preconditions. It does not encode the reference mode (bound or deferred).
+Compile-then-act (CTA) emits a pre-refresh record containing the reference mode, selector, and bound
+ID. Lifecycle records add validity and
 fallback fields, while actor-mediated and gated variants test soft and hard use of that record.
 These large language model (LLM) controllers are operational probes for the same timing decision.
 The typed record and gate branches are supplementary. Generic exposes both the old selected entity
@@ -330,31 +335,11 @@ Controllers receive the instruction's natural-language selector. Gold targets, n
 selector fields, and pre- and post-refresh winner IDs are withheld. The primary Qwen comparison is
 a package contrast with unequal calls because Lifecycle-Gated skips an actor call on valid Preserve
 rows. Later equal-call experiments compare History-only and Decision-visible actors using the same
-base payloads, states, tool schemas, and call count. The visible block jointly contains predicted
-mode, bound ID, and selector restatement; Decision-enforced applies it offline. The same interface
+base payloads, states, tool schemas, and call count. The visible block jointly contains the predicted
+reference mode, bound ID, and selector restatement; Decision-enforced applies it offline. The same interface
 is used for authored, rewritten, and public-benchmark-adapted tasks. Prompts, payloads, and exact
 scoring rules are supplementary. The PDF supplement gives the verbatim interface; prompts,
 payloads, raw outputs, and scoring code are in the anonymous Code and Data Supplement.
-
-\begin{table}[t]
-\centering
-\footnotesize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}p{0.25\columnwidth}p{0.69\columnwidth}@{}}
-\toprule
-Condition & Equal-call interface per task \\
-\midrule
-Shared calls & One compiler call and two actor calls; actor order alternates by task index. \\
-Actor base & Byte-identical instruction, states, selected ID, selector, action, and tool schema. \\
-History-only & Base payload only. \\
-Decision-visible & Same base plus parsed \texttt{reference\_mode}, \texttt{bound\_target\_id}, and \texttt{selector}. \\
-Decision-enforced & Zero-call deterministic transform, not a third actor condition. \\
-\bottomrule
-\end{tabular}
-\caption{Equal-call actor interface. The contrast estimates the conditional effect of exposing the
-complete decision block; it does not identify any field or framing component separately.}
-\label{tab:equal-call-interface}
-\end{table}
 
 \paragraph{Construct and transfer protocols.}
 One adult volunteer rewrote 50 sampled scalar instructions. Three other adults independently
@@ -366,34 +351,17 @@ schemas from three public resources, with matched interfaces and call counts.
 
 \subsection{Evidence Status}
 The Qwen package comparison is primary/frozen, with a later GLM replication. The ten-schema
-attribution, equal-call contrasts, human agreement audits, and external audits are post-primary;
+controller audit, equal-call contrasts, human agreement audits, and external audits are post-primary;
 Rule* is post-hoc. The supplement gives the complete chronology, denominators, intervals, and
-failure accounting. Qwen3.5-122B-A10B (Qwen), GLM-5.1 (GLM), and, in later transfer tests,
-DeepSeek-V4-Pro (DeepSeek) use one temperature-zero protocol. The artifact contains frozen
+failure accounting. Paper-facing backends are Qwen3.5-122B-A10B (Qwen), GLM-5.1 (GLM),
+DeepSeek-V4-Pro (DeepSeek), and, in four-model matched controls, MiniMax-M2.5 (MiniMax).
+Each frozen experiment records its exact model set and temperature-zero settings. The artifact contains frozen
 inventories, prompts, outputs, reports, hashes, and the error taxonomy.
 
 These evidence families answer different questions and are not pooled. Deterministic controls
 establish policy discrimination; authored runs spanning ten schemas locate substitution after
 correct binding; the SQLite subset tests execution; equal-call contrasts test the composite
-decision block; and external adaptations and audits bound transfer and occurrence.
-
-\begin{table*}[t]
-\centering
-\small
-\begin{tabular}{@{}p{0.18\textwidth}p{0.27\textwidth}p{0.18\textwidth}p{0.29\textwidth}@{}}
-\toprule
-Claim & Direct evidence & Status & Boundary \\
-\midrule
-Identify selective resolution & Changed-winner pairs with opposite targets and deterministic extremes & Formal + offline audit & Exact targets within three policy extremes; no internal-mechanism identification \\
-Locate substitution and writes & Ten-schema audit and SQLite tool-loop trajectories & Post-primary + secondary frozen & Author-designed controller and tasks; not a prevalence estimate \\
-Test an executable decision block & Equal-call History-only vs. Decision-visible conditions & Post-primary, frozen before own calls & Initial ID already visible; block and framing are not separated \\
-Bound transfer and practical scope & Human rewrites, public-benchmark adaptations, low-intervention tests, and public benchmark audits & Post-primary/descriptive & Mixed transfer, failed human follow-up, and uncalibrated native recall \\
-\bottomrule
-\end{tabular}
-\caption{Claim-to-evidence map. Evidence families answer distinct questions and retain their
-chronology; no row upgrades another row's evidentiary status.}
-\label{tab:claim-evidence-map}
-\end{table*}
+decision block; and external adaptations and retrieval audits probe transfer and observed coverage.
 
 \section{Results}
 
@@ -403,9 +371,10 @@ construct transfers.
 
 \subsection{RQ1: Does Pairing Identify Selective Resolution?}
 \paragraph{Policy discrimination.}
-Always-Lock and Always-Reevaluate each score 60.0\% in aggregate, but succeed on complementary
+On the 160-row \PrimaryDiagnostic{}, Always-Lock and Always-Reevaluate each score 60.0\% in
+aggregate, but succeed on complementary
 instruction types and score 0/32 changed-winner PairAcc (Figure~\ref{fig:policy-discrimination}).
-Across five candidate sets, aggregate E2E and PairAcc nevertheless choose the same tested policy;
+Across five tested controller candidate sets, aggregate E2E and PairAcc choose the same policy;
 there is no ranking reversal. Rule* is post-hoc, and its strong score limits algorithmic novelty.
 
 \begin{figure}[t]
@@ -421,24 +390,31 @@ Always-Reevaluate succeed on complementary members but never complete a pair; Ru
 \paragraph{Primary package comparison.}
 The primary comparison changes the complete controller package and uses different numbers of model
 calls. Across 160 tasks, Qwen E2E changes from 103/160 for Generic to 157/160 for Lifecycle-Gated
-(+33.8 points; language-template-cluster 95\% confidence interval (CI) [18.1, 49.4]); the later GLM replication changes
+(+33.8 points; language-template-cluster 95\% confidence interval (CI) [18.1, 50.0]); the later GLM replication changes
 from 115/160 to 160/160 (+28.1 points; 95\% CI [18.1, 38.1]). On 128 actionable tasks,
-Lifecycle-Gated and CTA reach 125--128/128, versus 95/128 and 93/128 for Generic. Fallback cases are
+Qwen Lifecycle-Gated reaches 125/128 versus Generic 95/128; GLM CTA reaches 128/128 versus Generic
+93/128. Fallback cases are
 supplementary. This is a package contrast, not the effect of one timing field.
 
 \paragraph{Conditional target substitution.}
 We condition on a correct initial ID, completed refresh, distinct new winner, and surviving valid
 old target, excluding initial-binding, tool-order, and validity failures. In the 240-task,
-ten-schema replication, Generic substitutes on 41/66, 30/70, and 50/69 rows eligible under both
-controllers; CTA substitutes on none (Figure~\ref{fig:shared-eligible-target-flow}). The pattern
+ten-schema replication, conditional on both controllers exposing the correct initial binding,
+Generic substitutes on 41/66, 30/70, and 50/69 shared-eligible rows; CTA substitutes on none
+(Figure~\ref{fig:shared-eligible-target-flow}). The pattern
 appears for Qwen, GLM, and DeepSeek under the same author-designed controller.
+These conditional Preserve-row counts use a different denominator from the 80 changed pairs used
+for PairAcc.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{Figures/fig3_substitution_flow.pdf}
-\caption{Ten-schema outcomes after correct initial binding. A: Generic versus CTA substitution on
-rows eligible under both controllers (Wilson 95\% CIs; zero CTA estimates lie at the lower bound); ellipses group controller endpoints and
-lines link models. B: changed-winner PairAcc over 80 pairs (cluster-bootstrap 95\% CIs); labels are
+\caption{Ten-schema outcomes after correct initial binding. A: Preserve-row substitution for
+Generic versus CTA on
+the same rows eligible under both controllers (Wilson 95\% CIs); these shared-eligible denominators
+are conditional subsets, not rates over all 240 tasks. Open Generic and filled CTA endpoints are
+linked within model, and zero CTA estimates lie at the lower bound. B: changed-winner PairAcc over
+all 80 pairs (cluster-bootstrap 95\% CIs); labels are
 rounded percentages. Counts (Qwen/GLM/DeepSeek) are Generic 7/15/17 of 80 and CTA 31/66/64 of 80.
 CTA makes no common-eligible substitutions; neither endpoint is a safety rate.}
 \label{fig:shared-eligible-target-flow}
@@ -454,10 +430,11 @@ produces six unneeded rejections. These trajectories locate the failure between 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{Figures/fig4_sqlite_outcome_tree.pdf}
-\caption{Secondary/frozen 40-task SQLite outcomes for Generic. Panel A partitions trajectories into
-correct states, TRI wrong-target writes, fallback writes, and rejections. Panel B gives strict-case
-write rates with Wilson 95\% intervals: Stable is 0/4 for both models; Changed is 8/8 for Qwen and
-6/8 for GLM. Model-issued tool calls are not a prevalence estimate.}
+\caption{Complete 40-task SQLite outcomes and strict refreshed-winner writes for Generic. Outcome
+strips partition each model's trajectories into correct final states, strict B writes, fallback B
+writes, and unneeded rejections (left to right). Stable keeps A ranked first; Changed makes B first
+while A remains valid. Strict B-write rates use Wilson 95\% CIs; exact fractions are 0/4 Stable for
+both models and 8/8 Qwen, 6/8 GLM in Changed. This controlled test is not a prevalence estimate.}
 \label{fig:sqlite-outcomes}
 \end{figure}
 
@@ -468,33 +445,35 @@ wrong-target write. This target-to-write consistency check is supplementary.
 \IfFileExists{generated/submission_critical_main.tex}{%
 \input{generated/submission_critical_main.tex}%
 }{%
-The equal-call test holds base payloads, states, and tool schemas fixed. Exposing predicted mode,
+The equal-call test holds base payloads, states, and tool schemas fixed. Exposing predicted reference mode,
 bound ID, and selector restatement improves authored PairAcc and actionable E2E for both models
 (Figure~\ref{fig:submission-critical-effects}), but estimates the complete block rather than any field.
 Hard enforcement repairs and harms some Qwen rows; this is a descriptive comparison, not a
-mechanism-separating test. The full decomposition is supplementary.
+mechanism-separating test. Detailed results are supplementary.
 }%
 
-Across all matched-call audits, both actors receive the same initial ID; the visible selector and
-initial-ID values are exact repetitions in 760/760 audited records. This excludes new field values,
+Across nine audited matched-call inventories, both actors receive the same initial ID; the visible
+selector and initial-ID values are exact repetitions in 760/760 audited records. This excludes new field values,
 but not repetition, salience, or structured-framing effects. Compiler-output strata are
 supplementary and descriptive.
 
-\subsection{RQ4: Does the Finding Transfer?}
+A frozen three-model, eight-cell decomposition further separates placebo structure, selector and
+ID repetition, mode, their combinations, and an explicit follow directive. No predeclared
+field-level contrast met the cross-model promotion gate; component effects were model-dependent,
+so the supported intervention remains composite rather than attributable to one field.
+
+\subsection{RQ4: How Far Does the Diagnostic Transfer?}
 
 \paragraph{Construct scope.}
 In the earlier three-annotator convenience sample, majority--gold agreement is 98.0\% on 50 dynamic
 items and 86.7\% on 30 anchored actionable items, but 55.0\% on 20 action-invalid \textsc{Reject}
-items. A frozen follow-up missed its eligibility gate and produced no predeclared item endpoint;
-its 38.6\% retained-label agreement is descriptive. We therefore center actionable referent
-identity, treat fallback policy separately, and do not take this limited agreement as evidence of
-open-language transfer.
+items. We therefore center actionable referent identity and treat fallback policy separately.
 
 \paragraph{Human rewrites.}
 On the 48 rewrites with determinate majority labels, CTA reaches 89.6\% for Qwen and 93.8\% for GLM.
 Equal-call actionable E2E is 30/40 for both Qwen conditions and rises from 31/40 to 39/40 for GLM.
-Only three changed pairs are complete, so PairAcc is descriptive. One volunteer does not establish
-open-language transfer.
+Only three changed pairs are complete, so PairAcc is descriptive. These reformulations test wording
+robustness within one volunteer's rewrites rather than population-level language transfer.
 
 \paragraph{Pairs adapted from public benchmarks.}
 The 30-pair test uses states and tool schemas from STATE-Bench, AgentDojo, and ToolSandbox, with
@@ -505,7 +484,10 @@ PairAcc effects are 16.7, 23.3, and 6.7 points for Qwen, GLM, and DeepSeek; a fi
 
 \paragraph{Representation and rule boundaries.}
 CTA, Lifecycle, and a full-history timing reminder improve some authored conditions, but no
-representation dominates across models and datasets. Rule*, written after error inspection,
+representation dominates across models and datasets. Against final-step-aware full history on the
+same 240 rows, CTA E2E differs by $+1.2$ [$-6.7,9.2$] points for Qwen, $+13.3$ [$8.8,17.9$] for
+GLM, and $+15.4$ [$9.2,21.7$] for DeepSeek; the Qwen interval includes zero. Rule*, written after
+error inspection,
 reaches 92.5\% on \PrimaryDiagnostic{}, 96.0\% on rewrites, and 91.7\% on
 \NewSchemaReplication{}, showing usable event-order cues in the authored inventory. After freezing,
 it reaches only 15/60 exact targets and 2/30 PairAcc on the public-benchmark adaptations, where
@@ -517,7 +499,8 @@ raises gated accuracy from 66/80 to 78/80; replacing mode does not. In this Qwen
 the remaining loss is concentrated in selector grounding.
 
 \paragraph{Coverage in native tasks.}
-An extension finds zero substitutions in four conditions over 64--87 eligible opportunities.
+A frozen 96-task ToolSandbox-style extension finds zero substitutions in four Qwen/GLM controller
+conditions over 64--87 eligible rows each.
 Across 20 STATE-Bench and AgentDojo clusters
 \cite{microsoft2026statebench,debenedetti2024agentdojo}, only Qwen ordinary history on AgentDojo
 shows substitutions: 2/7 changed rows versus 0/7 matched Stable rows. The other combinations of
@@ -534,49 +517,36 @@ passes, CTA remains above Generic and records no substitutions. Full results are
 
 \section{Discussion}
 
-TRI pairs instructions that share a transition but place the action reference on opposite sides of
-it. PairAcc tests joint correctness, conditional substitution localizes post-binding failures, and
-SQLite traces identify the written entity. In these candidate sets, the diagnostic reveals
-complementary success patterns without changing the controller chosen by aggregate E2E; the
-diagnostic need not reverse every ranking.
+TRI places the action reference on opposite sides of a shared transition. PairAcc tests joint
+correctness, conditional substitution localizes post-binding failures, and SQLite traces identify
+the written entity. The candidate sets reveal complementary success patterns without changing the
+aggregate-selected controller; the diagnostic need not reverse every ranking.
 
-The composite decision block improves authored PairAcc, but the probes do not identify a unique
-architecture or field-specific effect. Enforcement can preserve a wrong compiled decision. Rule*'s
-authored strength and external failure are consistent with a boundary between event-order
-extraction and selector grounding.
-
-Transfer remains model-dependent: only GLM shows a clear external-adaptation E2E gain, the
-low-intervention extension is null, and the retrieval audit finds no native eligible case.
-Prevalence therefore remains unresolved.
+Matched-interface block exposure improves authored PairAcc but identifies neither a unique
+architecture nor a field-specific effect; enforcement can preserve a wrong compiled decision.
+The eight-cell decomposition likewise finds no component contrast that promotes across models.
+Rule*'s authored strength and external failure separate event-order extraction from selector
+grounding. Transfer remains model-dependent: only GLM has a clear external-adaptation E2E gain,
+the low-intervention extension is null, and the retrieval audit finds no native eligible case.
 
 \section{Limitations}
 
-The diagnostic covers single-refresh scalar tasks and simplifies ambiguity, repair, partial
-observability, identity migration, and composition. The ten-schema replication retains authored
-templates; volunteer rewrites contain only three complete changed pairs, and a model-authored audit
-yields none accepted by both judges. Open-language generalization remains unresolved.
-
-The results-folder example is illustrative and was selected from an author--assistant workflow;
-it is not counted as independent natural-log or prevalence evidence.
-
-Agreement is higher for referent identity than for fallback policy; Reject, Clarify, and
-licensed reselection may each be reasonable when the old target is action-invalid. Multiple
-refreshes and referent roles require richer state. The scalar record does not compose automatically.
-
-External nulls may reflect low prevalence, coverage, or retrieval misses; recall is uncalibrated.
-The primary package comparison uses unequal calls. The equal-call intervention is composite and
-begins after supplying the initial ID, while adaptations retain author-supplied timing contrasts.
-Provider weights lack immutable revision identifiers, and the repeat subset is too sparse for
-repeated PairAcc.
+Evaluation centers controlled single-refresh tasks and authored timing contrasts. Volunteer
+rewrites add limited wording variation, while public-suite retrieval has uncalibrated recall and
+does not estimate native prevalence. Agreement is higher for referent identity than for fallback
+policy; ambiguity, invalid targets, multiple refreshes, and referent composition require richer
+policies. The primary package contrast uses unequal calls, and matched-call tests estimate only a
+composite decision-visibility contrast after the initial ID. Provider weights lack immutable
+revision IDs.
 
 \section{Conclusion}
 
-TRI is a normative matched unit test of referential commitment across state refreshes. PairAcc
-separates selective resolution from unconditional policies, while execution probes connect target
-replacement to writes. Structured decision visibility improves authored PairAcc across four
-models; transfer is model-conditional and prevalence unresolved. Evidence is limited to the tested
-single-refresh scalar policies and complete-block intervention; it does not establish native
-prevalence, open-language transfer, or the necessity of a unique architecture.
+TRI is a matched test of referential commitment across refreshes. Within the tested exact-target
+class, changed-winner PairAcc separates selective from unconditional policies, and execution probes
+connect target replacement to writes. Complete-block exposure improves authored PairAcc at four
+matched hosted endpoints, with model-dependent transfer. Together, the results establish a
+controlled diagnostic for comparing resolution-time decisions and their execution consequences
+without privileging a unique record format.
 
 \clearpage
 {\small

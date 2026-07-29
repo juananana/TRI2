@@ -1,0 +1,110 @@
+{"kind":"deck","id":"pr/x7wmvn","name":"Deck"}
+{"kind":"layout","layoutId":"e48a5d9f-dfe0-4039-9f0d-573944a9ea77","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"e8598408-443f-4997-9150-a4d7886e7a30","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/zc2qss","slide":1,"title":"A","textShapes":51}
+{"kind":"shape","id":"sh/qlgv6x8f","slide":1,"name":"divider-ab","bbox":[800,20,2,460]}
+{"kind":"shape","id":"sh/d87uhc76","slide":1,"name":"divider-bc","bbox":[1075,20,2,460]}
+{"kind":"textbox","id":"sh/c7yd876l","slide":1,"name":"phase-A","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[20,18,32,32]}
+{"kind":"textbox","id":"sh/za9cjmpc","slide":1,"name":"phase-A-title","text":"Construct the matched pair","textPreview":"Construct the matched pair","textChars":26,"textLines":1,"bbox":[64,17,726,44]}
+{"kind":"textbox","id":"sh/y9gvahor","slide":1,"name":"phase-B","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[815,18,32,32]}
+{"kind":"textbox","id":"sh/lcrelw72","slide":1,"name":"phase-B-title","text":"Run the pair","textPreview":"Run the pair","textChars":12,"textLines":1,"bbox":[859,17,206,44]}
+{"kind":"textbox","id":"sh/0bidcr6h","slide":1,"name":"phase-C","text":"C","textPreview":"C","textChars":1,"textLines":1,"bbox":[1090,18,32,32]}
+{"kind":"textbox","id":"sh/ne9wnmp8","slide":1,"name":"phase-C-title","text":"Readouts","textPreview":"Readouts","textChars":8,"textLines":1,"bbox":[1134,17,246,44]}
+{"kind":"shape","id":"sh/md0vehon","slide":1,"name":"contract","bbox":[30,68,750,50]}
+{"kind":"textbox","id":"sh/x0zq90ju","slide":1,"name":"fixed-label","text":"FIXED CONTRACT","textPreview":"FIXED CONTRACT","textChars":14,"textLines":1,"bbox":[75,78,142,30]}
+{"kind":"textbox","id":"sh/ad87el03","slide":1,"name":"fixed-items","text":"S0, S1, q, action, schema, I/O","textPreview":"S0, S1, q, action, schema, I/O","textChars":30,"textLines":1,"bbox":[225,78,292,30]}
+{"kind":"textbox","id":"sh/beho7q1o","slide":1,"name":"change-label","text":"ONLY CHANGE","textPreview":"ONLY CHANGE","textChars":11,"textLines":1,"bbox":[525,78,126,30]}
+{"kind":"textbox","id":"sh/k3apkfi5","slide":1,"name":"change-items","text":"commit point","textPreview":"commit point","textChars":12,"textLines":1,"bbox":[655,78,108,30]}
+{"kind":"shape","id":"sh/l4jqdkjq","slide":1,"name":"preserve-rule","bbox":[30,135,750,2]}
+{"kind":"shape","id":"sh/y187i50f","slide":1,"name":"preserve-anchor","bbox":[48,150,217,66]}
+{"kind":"textbox","id":"sh/z2h8ba1k","slide":1,"name":"preserve-token","text":"P","textPreview":"P","textChars":1,"textLines":1,"bbox":[48,160,42,42]}
+{"kind":"textbox","id":"sh/87apofih","slide":1,"name":"preserve-title","text":"PRESERVE","textPreview":"PRESERVE","textChars":8,"textLines":1,"bbox":[105,147,160,34]}
+{"kind":"textbox","id":"sh/98jqhkj2","slide":1,"name":"preserve-body","text":"commit at S0","textPreview":"commit at S0","textChars":12,"textLines":1,"bbox":[105,182,160,30]}
+{"kind":"shape","id":"sh/hof61kb6","slide":1,"name":"bind-box","bbox":[300,151,170,58]}
+{"kind":"textbox","id":"sh/gn6psfal","slide":1,"name":"bind-text","text":"bind q to A","textPreview":"bind q to A","textChars":11,"textLines":1,"bbox":[308,156,154,48]}
+{"kind":"shape","id":"sh/vmxozat0","slide":1,"name":"gold-a-box","bbox":[680,154,82,52]}
+{"kind":"textbox","id":"sh/ulo7q5sf","slide":1,"name":"gold-a-text","text":"gold A","textPreview":"gold A","textChars":6,"textLines":1,"bbox":[688,159,66,42]}
+{"kind":"shape","id":"sh/5szq5kb2","slide":1,"bbox":[265,180,35,3]}
+{"kind":"shape","id":"sh/4rqpwzah","slide":1,"bbox":[470,180,210,0]}
+{"kind":"shape","id":"sh/3qh83utw","slide":1,"name":"state-rule-top","bbox":[30,240,750,1]}
+{"kind":"shape","id":"sh/ip87upsr","slide":1,"name":"state-rule-bottom","bbox":[30,350,750,1]}
+{"kind":"textbox","id":"sh/lwv6t0by","slide":1,"name":"shared-state-title","text":"SHARED STATE","textPreview":"SHARED STATE","textChars":12,"textLines":1,"bbox":[48,258,160,30]}
+{"kind":"textbox","id":"sh/kvmpkvad","slide":1,"name":"shared-state-note","text":"same transition","textPreview":"same transition","textChars":15,"textLines":1,"bbox":[48,290,160,28]}
+{"kind":"shape","id":"sh/a1knu18b","slide":1,"name":"state-s0","bbox":[220,255,145,78]}
+{"kind":"textbox","id":"sh/b2t4369w","slide":1,"name":"state-s0-label","text":"S0","textPreview":"S0","textChars":2,"textLines":1,"bbox":[230,262,52,24]}
+{"kind":"textbox","id":"sh/w325wbq1","slide":1,"name":"state-s0-query","text":"q(S0)=A","textPreview":"q(S0)=A","textChars":7,"textLines":1,"bbox":[278,262,77,24]}
+{"kind":"shape","id":"sh/x4bm5wrm","slide":1,"name":"state-s0-rule","bbox":[230,291,125,1]}
+{"kind":"shape","id":"sh/y5kny187","slide":1,"name":"state-s0-winner-box","bbox":[245,298,95,28]}
+{"kind":"textbox","id":"sh/j6d4769s","slide":1,"name":"state-s0-winner-text","text":"A wins","textPreview":"A wins","textChars":6,"textLines":1,"bbox":[253,303,79,18]}
+{"kind":"shape","id":"sh/krm50bqd","slide":1,"name":"refresh","bbox":[425,257,74,74]}
+{"kind":"textbox","id":"sh/e903mh83","slide":1,"name":"refresh-label","text":"refresh","textPreview":"refresh","textChars":7,"textLines":1,"bbox":[408,332,108,24]}
+{"kind":"shape","id":"sh/fa94vm9o","slide":1,"name":"state-s1","bbox":[555,255,190,78]}
+{"kind":"textbox","id":"sh/vehs3ex0","slide":1,"name":"state-s1-label","text":"S1","textPreview":"S1","textChars":2,"textLines":1,"bbox":[565,262,52,24]}
+{"kind":"textbox","id":"sh/ud8ba9gf","slide":1,"name":"state-s1-query","text":"q(S1)=B","textPreview":"q(S1)=B","textChars":7,"textLines":1,"bbox":[613,262,122,24]}
+{"kind":"shape","id":"sh/hgza5of6","slide":1,"name":"state-s1-rule","bbox":[565,291,170,1]}
+{"kind":"shape","id":"sh/gfqtcjyl","slide":1,"name":"state-s1-winner-box","bbox":[563,298,82,28]}
+{"kind":"textbox","id":"sh/3i1s7exc","slide":1,"name":"state-s1-winner-text","text":"B wins","textPreview":"B wins","textChars":6,"textLines":1,"bbox":[571,303,66,18]}
+{"kind":"shape","id":"sh/ihsbetgr","slide":1,"name":"state-s1-valid-box","bbox":[655,298,82,28]}
+{"kind":"textbox","id":"sh/5kju9of2","slide":1,"name":"state-s1-valid-text","text":"A valid","textPreview":"A valid","textChars":7,"textLines":1,"bbox":[663,303,66,18]}
+{"kind":"shape","id":"sh/4jatgjyx","slide":1,"bbox":[365,294,60,0]}
+{"kind":"shape","id":"sh/rm1cbyx8","slide":1,"bbox":[499,294,56,0]}
+{"kind":"shape","id":"sh/qlsbitwn","slide":1,"name":"reevaluate-rule","bbox":[30,365,750,2]}
+{"kind":"shape","id":"sh/obu9s3u1","slide":1,"name":"reevaluate-anchor","bbox":[48,380,217,66]}
+{"kind":"textbox","id":"sh/pc3a18vm","slide":1,"name":"reevaluate-token","text":"R","textPreview":"R","textChars":1,"textLines":1,"bbox":[48,390,42,42]}
+{"kind":"textbox","id":"sh/2pcrqtcv","slide":1,"name":"reevaluate-title","text":"REEVALUATE","textPreview":"REEVALUATE","textChars":10,"textLines":1,"bbox":[105,376,175,34]}
+{"kind":"textbox","id":"sh/nalszydg","slide":1,"name":"reevaluate-body","text":"commit at S1","textPreview":"commit at S1","textChars":12,"textLines":1,"bbox":[105,411,160,28]}
+{"kind":"shape","id":"sh/0na9ojup","slide":1,"name":"resolve-box","bbox":[480,381,170,58]}
+{"kind":"textbox","id":"sh/1o3axova","slide":1,"name":"resolve-text","text":"resolve q to B","textPreview":"resolve q to B","textChars":14,"textLines":1,"bbox":[488,386,154,48]}
+{"kind":"shape","id":"sh/elsrmtcz","slide":1,"name":"gold-b-box","bbox":[680,384,82,52]}
+{"kind":"textbox","id":"sh/fm1svyd4","slide":1,"name":"gold-b-text","text":"gold B","textPreview":"gold B","textChars":6,"textLines":1,"bbox":[688,389,66,42]}
+{"kind":"shape","id":"sh/sja9kjut","slide":1,"bbox":[265,410,215,3]}
+{"kind":"shape","id":"sh/dkjatove","slide":1,"bbox":[650,410,30,0]}
+{"kind":"textbox","id":"sh/tgbqxkn2","slide":1,"name":"withheld","text":"GOLD WITHHELD","textPreview":"GOLD WITHHELD","textChars":13,"textLines":1,"bbox":[825,78,230,30]}
+{"kind":"shape","id":"sh/sf2pofmh","slide":1,"name":"withheld-rule","bbox":[855,112,170,2]}
+{"kind":"textbox","id":"sh/7et8va5w","slide":1,"name":"p-run","text":"P","textPreview":"P","textChars":1,"textLines":1,"bbox":[828,188,44,44]}
+{"kind":"textbox","id":"sh/6dk7m5or","slide":1,"name":"r-run","text":"R","textPreview":"R","textChars":1,"textLines":1,"bbox":[828,298,44,44]}
+{"kind":"shape","id":"sh/5crqt0n6","slide":1,"name":"probe","bbox":[880,155,120,220]}
+{"kind":"textbox","id":"sh/ja98rq50","slide":1,"name":"probe-title","text":"SAME PROBE","textPreview":"SAME PROBE","textChars":10,"textLines":1,"bbox":[890,214,100,28]}
+{"kind":"textbox","id":"sh/i907ilof","slide":1,"name":"probe-kind","text":"opaque","textPreview":"opaque","textChars":6,"textLines":1,"bbox":[890,250,100,24]}
+{"kind":"shape","id":"sh/p8vq54na","slide":1,"name":"tp-box","bbox":[1014,188,55,44]}
+{"kind":"textbox","id":"sh/47m9wzmp","slide":1,"name":"tp-text","text":"T_P","textPreview":"T_P","textChars":3,"textLines":1,"bbox":[1022,193,39,34]}
+{"kind":"shape","id":"sh/2hwvax0v","slide":1,"name":"tr-box","bbox":[1014,298,55,44]}
+{"kind":"textbox","id":"sh/ni5w32hg","slide":1,"name":"tr-text","text":"T_R","textPreview":"T_R","textChars":3,"textLines":1,"bbox":[1022,303,39,34]}
+{"kind":"shape","id":"sh/o3edc7y1","slide":1,"name":"probe-p-in","bbox":[868,207,6,6]}
+{"kind":"shape","id":"sh/p4ne5czm","slide":1,"name":"probe-p-out","bbox":[1004,207,6,6]}
+{"kind":"shape","id":"sh/edcv6d0z","slide":1,"name":"probe-r-in","bbox":[868,317,6,6]}
+{"kind":"shape","id":"sh/felwzihk","slide":1,"name":"probe-r-out","bbox":[1004,317,6,6]}
+{"kind":"shape","id":"sh/0fud8ni5","slide":1,"bbox":[868,210,4,0]}
+{"kind":"shape","id":"sh/1gne1sza","slide":1,"bbox":[868,320,4,0]}
+{"kind":"shape","id":"sh/y9gfihg3","slide":1,"bbox":[1010,210,4,0]}
+{"kind":"shape","id":"sh/japwbmho","slide":1,"bbox":[1010,320,4,0]}
+{"kind":"textbox","id":"sh/7qlwvm9s","slide":1,"name":"probe-note","text":"same I/O; two independent runs","textPreview":"same I/O; two independent runs","textChars":30,"textLines":1,"bbox":[825,400,230,52]}
+{"kind":"textbox","id":"sh/6pcv2h87","slide":1,"name":"pairacc-title","text":"PairAcc","textPreview":"PairAcc","textChars":7,"textLines":1,"bbox":[1100,75,270,32]}
+{"kind":"shape","id":"sh/ts3excry","slide":1,"name":"pairacc-formula-box","bbox":[1110,115,250,52]}
+{"kind":"textbox","id":"sh/srud4rqd","slide":1,"name":"pairacc-formula-text","text":"T_P=A  AND  T_R=B","textPreview":"T_P=A  AND  T_R=B","textChars":17,"textLines":1,"bbox":[1118,120,234,42]}
+{"kind":"textbox","id":"sh/j21wr29w","slide":1,"name":"pairacc-slice","text":"complete pairs","textPreview":"complete pairs","textChars":14,"textLines":1,"bbox":[1110,168,250,28]}
+{"kind":"shape","id":"sh/i1svyx8b","slide":1,"name":"readout-sep-1","bbox":[1100,205,270,1]}
+{"kind":"textbox","id":"sh/5o3etcrm","slide":1,"name":"sub-title","text":"Conditional substitution","textPreview":"Conditional substitution","textChars":24,"textLines":1,"bbox":[1090,218,290,32]}
+{"kind":"textbox","id":"sh/knud07qh","slide":1,"name":"sub-a","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[1115,273,38,38]}
+{"kind":"shape","id":"sh/by1wn29k","slide":1,"name":"sub-refresh-box","bbox":[1178,266,100,52]}
+{"kind":"textbox","id":"sh/axsvux8z","slide":1,"name":"sub-refresh-text","text":"refresh","textPreview":"refresh","textChars":7,"textLines":1,"bbox":[1186,271,84,42]}
+{"kind":"textbox","id":"sh/036to36x","slide":1,"name":"sub-b","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[1300,273,38,38]}
+{"kind":"shape","id":"sh/14zaxo7i","slide":1,"bbox":[1153,292,25,0]}
+{"kind":"shape","id":"sh/e1obmtor","slide":1,"bbox":[1278,292,22,0]}
+{"kind":"textbox","id":"sh/z2xsvypc","slide":1,"name":"sub-slice","text":"eligible Preserve","textPreview":"eligible Preserve","textChars":17,"textLines":1,"bbox":[1110,320,250,28]}
+{"kind":"shape","id":"sh/o7qts369","slide":1,"name":"readout-sep-2","bbox":[1100,350,270,1]}
+{"kind":"textbox","id":"sh/98zu187e","slide":1,"name":"exec-title","text":"Execution subset","textPreview":"Execution subset","textChars":16,"textLines":1,"bbox":[1100,365,220,32]}
+{"kind":"shape","id":"sh/n6hszypo","slide":1,"name":"exec-id-box","bbox":[1110,414,58,44]}
+{"kind":"textbox","id":"sh/4bmtwjqp","slide":1,"name":"exec-id-text","text":"ID","textPreview":"ID","textChars":2,"textLines":1,"bbox":[1118,419,42,34]}
+{"kind":"shape","id":"sh/pcfap47a","slide":1,"name":"exec-write-box","bbox":[1185,414,78,44]}
+{"kind":"textbox","id":"sh/214f6p03","slide":1,"name":"exec-write-text","text":"write","textPreview":"write","textChars":5,"textLines":1,"bbox":[1193,419,62,34]}
+{"kind":"shape","id":"sh/n2dgfu1o","slide":1,"name":"exec-diff-box","bbox":[1280,414,90,44]}
+{"kind":"textbox","id":"sh/o36x8zi9","slide":1,"name":"exec-diff-text","text":"state diff","textPreview":"state diff","textChars":10,"textLines":1,"bbox":[1288,419,74,34]}
+{"kind":"shape","id":"sh/p4fyh4ju","slide":1,"bbox":[1168,436,17,0]}
+{"kind":"shape","id":"sh/a5oza90f","slide":1,"bbox":[1263,436,17,0]}
+{"kind":"textbox","id":"sh/b6xgje1k","slide":1,"name":"exec-slice","text":"executed writes","textPreview":"executed writes","textChars":15,"textLines":1,"bbox":[1110,460,250,28]}
+{"kind":"image","id":"im/fudor258","slide":1,"name":"","alt":"arrows-right-left icon","bbox":[44,81,24,24]}
+{"kind":"image","id":"im/exg3edcv","slide":1,"name":"","alt":"refresh icon","bbox":[446,268,32,32]}
+{"kind":"image","id":"im/b6dsj61o","slide":1,"name":"","alt":"robot icon","bbox":[924,174,32,32]}
+{"kind":"image","id":"im/hwbad0b6","slide":1,"name":"","alt":"database-cog icon","bbox":[1330,368,24,24]}
+{"kind":"notes","id":"nt/zc2qss","slide":1,"text":"[Sources]\n- TRI Figure 1: palette and heading family.\n- draw_learning/01407-AAAI24.ZhaoA.pdf: large aligned regions.\n- draw_learning/accept_ACL_4820_Revealing_Procedural_Reas.pdf: single-baseline method flow.\n- draw_learning/26253-AAAI26.GuoZ-NLP.pdf: horizontal semantic bands.\n- draw_learning/16627-AAAI26.WangZ-NLP.pdf: compact outcome rows.\n- Anonymous TRI manuscript: all scientific labels and boundaries."}

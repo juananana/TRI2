@@ -1,0 +1,13 @@
+{
+  "status": "Provisional integrated Figure 5 profile; further visual optimization planned",
+  "source": "/Users/chu/Documents/Codex/2026-07-15/k-y/TRI/paper/tri_final_figures/data/summary_csv/sqlite_model_facing_outcomes.csv",
+  "source_sha256": "89a9fb91adc4794c5150d3dadc3a039ba18b5840c54146a85a0976a69a91bf48",
+  "size_inches": [
+    3.35,
+    2.16
+  ],
+  "minimum_text_pt": 7.0,
+  "png_dpi": 400,
+  "pdf_fonttype": 42,
+  "encoding": "Qwen uses a clean lavender family and GLM a rose-coral family derived from the supplied reference image. Every filled mark uses a slightly darker same-hue outline rather than a universal ink border, and Wilson intervals use a darker tone from that same model family; shade order is Correct, Strict B, Fallback B, Reject. Strict rows use model-color fill, direct fractions, explicit denominators, and Wilson 95% intervals."
+}

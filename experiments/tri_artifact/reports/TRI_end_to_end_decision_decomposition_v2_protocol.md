@@ -59,8 +59,8 @@ The neutral ID control tests ID repetition without that leak. Actor order rotate
 modulo eight; each cell occupies each ordinal position exactly ten times over 80 rows.
 
 Each task plans nine logical calls (one compiler and eight actors): 720 per model and 2,160 over
-the three-model full matrix. Provider-reported prompt, completion, cached, and total tokens are
-retained and summarized by cell; exact token equality is not assumed.
+the three-model full matrix. Provider-reported prompt, completion, total, cache-hit, and cache-miss
+tokens are retained and summarized by cell; exact token equality is not assumed.
 
 ## Frozen endpoints and contrasts
 
@@ -86,8 +86,9 @@ API/parse/upstream failures, calls, retries, wall time where available, and toke
 ## Inference and promotion gate
 
 - Cluster bootstrap unit: `state_cluster_id`; 10,000 percentile replicates; seed `20260729`.
-- Exact paired discordance tests are auxiliary.
-- Holm correction applies within each model across the 24 contrast-endpoint tests.
+- Two-sided paired `state_cluster_id` sign-flip tests are auxiliary.
+- Holm correction applies within each model across the fixed 24 contrast-endpoint tests; an
+  unavailable endpoint enters the family with adjustment value one rather than shrinking it.
 - No pooled model significance test and no accuracy-based stopping rule.
 
 A field-level contrast may enter the main claim only when its PairAcc 95% interval is strictly

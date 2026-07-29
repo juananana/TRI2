@@ -17,12 +17,14 @@ REPORTS = [
     "reports/main_paper_evidence_audit_v1.md",
     "reports/call_matched_authorization_ablation_v2.json",
     "reports/call_matched_authorization_ablation_v2.md",
-    "reports/revision_full_diagnostic_v2.json",
-    "reports/revision_full_diagnostic_v2.md",
-    "reports/revision_human_rewrite_v2.json",
-    "reports/revision_human_rewrite_v2.md",
-    "reports/revision_source_grounded_v2.json",
-    "reports/revision_source_grounded_v2.md",
+    "reports/revision_full_diagnostic_v3.json",
+    "reports/revision_full_diagnostic_v3.md",
+    "reports/revision_full_diagnostic_four_model_v2.json",
+    "reports/revision_full_diagnostic_four_model_v2.md",
+    "reports/revision_human_rewrite_v3.json",
+    "reports/revision_human_rewrite_v3.md",
+    "reports/revision_source_grounded_v3.json",
+    "reports/revision_source_grounded_v3.md",
     "reports/revision_source_grounded_rule_star_frozen_v1.json",
     "reports/revision_source_grounded_rule_star_frozen_v1.md",
     "reports/public_audit_injected_sensitivity_v1.json",
@@ -147,9 +149,11 @@ artifact locations.
 
 1. `reports/current_claim_provenance.md`: evidence chronology and claim status.
 2. `reports/main_paper_evidence_audit_v1.md`: source-derived checks of manuscript numbers.
-3. `reports/revision_full_diagnostic_v2.md`: full-diagnostic equal-call confirmation.
-4. `reports/revision_human_rewrite_v2.md`: model-dependent equal-call transfer to volunteer rewrites.
-5. `reports/revision_source_grounded_v2.md`: model-dependent matched-call results across three
+3. `reports/revision_full_diagnostic_v3.md`: full-diagnostic equal-call confirmation with the
+   post-run PairAcc interval repair; the four-model matrix is in
+   `reports/revision_full_diagnostic_four_model_v2.md`.
+4. `reports/revision_human_rewrite_v3.md`: model-dependent equal-call transfer to volunteer rewrites.
+5. `reports/revision_source_grounded_v3.md`: model-dependent matched-call results across three
    source-derived controlled substrates.
 6. `reports/call_matched_authorization_ablation_v2.md`: earlier cross-schema matched-call ablation.
 7. `reports/external_public_opportunity_audit_v1.md` and

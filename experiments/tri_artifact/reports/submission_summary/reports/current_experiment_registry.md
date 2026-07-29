@@ -13,7 +13,8 @@ replication/audit`, `post-hoc`, and `planned/unverified`.
 | v3 component addenda | Which package components explain the contrast? | Same v3 inventory; validity-only gate, Lifecycle-free, mode-only, untyped plan, and exact historical CTA | Each addendum uses its frozen protocol; zero-API derived cells and new-call cells remain distinct | `post-primary replication/audit`; frozen before each addendum's own calls | Associates the gain with an executable discourse-sensitive transition decision; cannot be relabeled as primary causal decomposition. |
 | Crossed domain--template sensitivity | Does the primary interval depend on clustering only by language template? | Complete $8\times20$ primary inventory; paired Lifecycle-Gated minus Generic E2E; template, domain, and two-way pigeonhole bootstrap | Exact task and metadata matching; 10,000 draws, seed 20260725 | `post-primary replication/audit`; zero API | Widest intervals remain above zero for Qwen and GLM. This does not repair package-level causal attribution or authored-language dependence. |
 | Call/information-matched authorization ablation | Does showing the same compiler decision to a call-matched actor reduce changed-pair errors, and what does enforcing that compiler output change? | Frozen 40-pair Flip inventory; one shared compiler and two matched actor calls per task; target PairAcc, conditional substitution, repair, and harm | Both model health gates and 80-row full runs completed; every API/parse failure remains in ITT; enforcement sees compiler output but no gold mode | `post-primary replication/audit`; Qwen and GLM complete | Decision visibility improves PairAcc and reduces Preserve substitution for both models, but hard enforcement harms Qwen more often than it repairs it and changes no GLM target. This supports executable timing information, not a unique architecture or uniformly beneficial gate. |
-| Complete-diagnostic matched-call revision audit | Does decision visibility help under equal calls across the full 160-row diagnostic rather than only Flip? | Frozen 160 rows/80 pairs; 32 actionable changed pairs, 128 actionable rows, and 32 Reject-policy rows reported separately | Qwen/GLM smoke and full runs complete; all 960 logical calls completed without retry or final failure; ITT retains every row | `post-primary replication/audit`; protocol frozen before own calls | Decision visibility raises changed PairAcc 5/32 to 13/32 Qwen and 8/32 to 25/32 GLM; Reject remains a separate policy slice. |
+| Complete-diagnostic matched-call revision audit | Does decision visibility help under equal calls across the full 160-row diagnostic rather than only Flip? | Frozen 160 rows/80 pairs; 32 actionable changed pairs, 128 actionable rows, and 32 Reject-policy rows reported separately; Qwen, GLM, DeepSeek, and MiniMax | All four smoke/full runs complete; 480/480 logical calls per model; ITT retains every row; a post-run zero-API repair resamples eligible pairs directly after the original reporter dropped repeated cluster draws | `post-primary replication/audit`; protocol frozen before own calls; interval repair disclosed | Decision-visible minus History-only changed PairAcc is +25.0 [9.4,40.6], +53.1 [34.4,68.8], +43.8 [25.0,62.5], and +34.4 [18.8,50.0] points for Qwen, GLM, DeepSeek, and MiniMax; point estimates and denominators are unchanged, Reject remains separate, and the complete block is not a field-level causal estimate. |
+| Convention-told natural-history control | Does telling the timing convention in prose, without a structured decision block or compiler ID, change PairAcc? | Existing 80-row/40-pair Flip inventory; Plain-history versus Convention-told; Qwen, GLM, DeepSeek, and MiniMax | One call per condition with byte-matched user payloads; 160/160 logical calls per model; one GLM parse/incomplete ITT row retained | `post-primary replication/audit`; protocol frozen before calls | PairAcc effects are -5.0, +10.0, +7.5, and +25.0 points. The effect is model-conditional and uses a separate inventory from the full-diagnostic decision-block contrast. |
 | Decision-block stratification | Does the visible block add new interface values, and how do gains vary with compiler correctness? | Nine frozen matched inventories, 760 records; authored rows stratified by mode and Preserve-ID correctness; existing v7 40-pair end-to-end boundary | Exact copies required for redundancy counts; repairs and harms use task-matched actors; compiler strata are post-treatment | `post-primary replication/audit`; zero API | Initial-ID and selector values are redundant in 760/760 records. Visibility is associated with gains when compiler outputs are correct and can propagate wrong outputs. No mediation or component-causal claim. |
 | Human-rewrite matched-call revision audit | Does the equal-call contrast transfer to the 50 existing volunteer rewrites? | Frozen 50 rows; 48 determinate human majorities, 41 actionable majorities, three complete actionable changed pairs | Existing human labels only; Qwen/GLM full runs complete with no retry or final failure | `post-primary replication/audit`; protocol frozen before own calls | GLM improves actionable E2E 31/40 to 39/40; Qwen is unchanged at 30/40. Three complete changed pairs are a small-sample sensitivity, not open-language validation. |
 | Three-source matched-call revision audit | Does the equal-call contrast persist on source-derived states and schemas? | Frozen 30 changed pairs: ten each from STATE-Bench, AgentDojo, and ToolSandbox; Qwen/GLM plus DeepSeek replication | All three smoke/full matrices complete; 540 logical calls, no retry or final failure | `post-primary replication/audit`; protocol frozen before own calls | PairAcc changes 12/30 to 13/30 Qwen, 11/30 to 20/30 GLM, and 19/30 to 22/30 DeepSeek; only GLM E2E excludes zero. Controlled contrast, not native behavior or prevalence. |
@@ -57,27 +58,38 @@ replication/audit`, `post-hoc`, and `planned/unverified`.
 
 ## Planned but Unverified
 
-- Independent public-suite opportunity-recall audit;
+- Independent public-suite opportunity-recall audit: the 3,600-unit population, 116-candidate
+  census, 699-row blind frame, role-blind packet v4, and hash-gated opaque-return ingestion are
+  frozen; three-way independent labels remain uncollected and model prelabels cannot enter the
+  majority;
 - 12-writer independently authored controlled-language holdout, followed by three blind
   annotators and a minimum gate of 40 clear complete pairs;
-- frozen end-to-end decision-block decomposition: Qwen/GLM, 80 rows per model, 48-call smoke
-  before the 960-call full matrix, with no resolver-produced initial ID;
-- frozen Convention-told natural-history control on the existing 40-pair Flip inventory,
-  prospectively extended to Qwen, GLM, DeepSeek, and MiniMax: one call in both conditions,
-  byte-matched user payloads, no structured ID or compiler block, and changed PairAcc as the
-  primary endpoint; runner/report/test dry runs pass, but the first launch was blocked before
-  process creation and made zero API attempts;
-- frozen submission-critical full-diagnostic extension (DeepSeek/MiniMax), source-derived repeat
-  (Qwen/GLM/DeepSeek plus MiniMax first pass), and four-cell ToolSandbox-style null repeat; all
-  remain planned/unverified until complete versioned cells exist;
+- frozen end-to-end decision-block decomposition v2: Qwen/GLM/DeepSeek, 80 rows and 720 logical
+  calls per model after an eight-row health smoke, with no resolver-produced initial ID and
+  cluster-level bootstrap/sign-flip inference;
 - independently authored deployment-style evaluation-decision study under
   `TRI_deployment_evaluation_decision_protocol.md`: 40 eligible workflow clusters, two pinned
   stateful tool environments, 120 executed rows, three models, and a frozen six-controller
-  selection set;
+  selection set; the implementation requires 30 ordered candidates per environment, a hash-locked
+  ethics/writer/annotator provenance gate, target-ID majority adjudication, target-level preflight
+  diffs, a complete raw execution matrix, ITT failure accounting, and a separately hashed post-hoc
+  Rule* baseline before it can emit a selection report;
 - larger frozen role-indexed multi-refresh evaluation.
 
-These are not current-submission evidence. The external-confirmation gate remains No-Go because
-the required independent writers and annotators are unavailable.
+These planned items are not current-submission evidence. The current writer collection remains
+No-Go because eligibility records are incomplete, only 44/120 writer targets align with the assigned
+operation order, and only 2/60 pairs pass the pre-annotation design-fidelity gate; no annotator or
+model stage can promote it.
+
+## Completed Non-Evidence QA
+
+- Public-recall model prelabels: Qwen/GLM/DeepSeek each pass an eight-row smoke and complete all 699
+  logical rows. Parsed coverage is 699/695/685, so the frozen complete-panel report gate fails. The
+  post-run partial artifact retains 18 missing model labels, excludes them from votes, and supplies a
+  699-unit author-QA queue. Public packet copies make the failure-aware report reproducible without
+  the private role key; a separate aggregate quality report is hash-bound to that excluded key.
+  These diagnostics are not independent-human evidence and cannot support prevalence, recall,
+  agreement, or a natural-zero claim.
 
 The completed SiliconFlow candidate annotation is listed above as model-assisted post-primary
 evidence. Its addendum preserves the interrupted 84/160 checkpoint, eight sandbox-DNS failures,

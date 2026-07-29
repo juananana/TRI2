@@ -148,4 +148,88 @@ def test_synthetic_full_report_has_all_cells_and_promotion_gate() -> None:
     report = build_report(rows, seed=1, samples=10)
     assert len(report["models"]) == 1
     assert set(report["models"][0]["cells"]) == set(ACTOR_CONDITIONS)
+    assert report["bootstrap"]["unit"] == "state_cluster_id"
+    assert report["models"][0]["operations"]["logical_calls_planned"] == 720
+    assert report["models"][0]["operations"]["http_attempts"] == 720
+    assert report["models"][0]["operations"]["retries"] == 0
+    assert report["models"][0]["cells"]["full_follow"]["tokens"] == {
+        "prompt_tokens": 800,
+        "completion_tokens": 160,
+        "total_tokens": 960,
+    }
+    assert report["models"][0]["cells"]["full_follow"]["changes_vs_history_only"]["e2e"] == {
+        "repairs": 0,
+        "harms": 0,
+    }
+    assert report["claim_promotion"]["report_eligible"] is False
+    assert not any(
+        item["eligible_for_field_claim"]
+        for item in report["claim_promotion"]["decisions"]
+    )
+    assert all(
+        item["holm_family_size"] == 24
+        for item in report["models"][0]["contrasts"]
+    )
     assert report["claim_promotion"]["decisions"]
+    with pytest.raises(ValueError, match="complete frozen three-model matrix"):
+        build_report(
+            rows,
+            seed=1,
+            samples=10,
+            claim_promotion_eligible=True,
+        )
+
+
+def test_report_retains_parse_failures_as_itt_and_counts_transport() -> None:
+    tasks = load_frozen_tasks(TASKS)
+    rows = [_synthetic_row(task, index) for index, task in enumerate(tasks)]
+    failed = rows[0]["actors"]["selector_only"]
+    failed["parsed"] = None
+    failed["error"] = "schema_error"
+    failed["error_kind"] = "parse_or_schema"
+    rows[0]["outcomes"]["selector_only"] = None
+    report = build_report(rows, seed=2, samples=20)
+    cell = report["models"][0]["cells"]["selector_only"]
+    assert cell["metrics"]["e2e"]["denominator"] == 80
+    assert cell["metrics"]["e2e"]["numerator"] == 79
+    assert cell["operations"]["failures"]["parse_or_schema"] == 1
+    assert cell["operations"]["logical_calls_transport_completed"] == 80
+    assert cell["operations"]["logical_calls_parsed"] == 79
+    assert cell["changes_vs_history_only"]["e2e"] == {"repairs": 0, "harms": 1}
+    contrast = next(
+        item for item in report["models"][0]["contrasts"]
+        if item["left"] == "history_only"
+        and item["right"] == "selector_only"
+        and item["metric"] == "e2e"
+    )
+    assert contrast["repairs"] == 0
+    assert contrast["harms"] == 1
+    assert contrast["p_value_method"] == "two-sided paired state-cluster sign-flip"
+    assert "tokens_right_minus_left" in contrast["resource_difference"]
+
+
+def test_substitution_repairs_and_harms_use_adverse_metric_direction() -> None:
+    tasks = load_frozen_tasks(TASKS)
+    rows = [_synthetic_row(task, index) for index, task in enumerate(tasks)]
+    preserve = next(
+        row for row in rows if row["task"]["reference_mode_gold"] == "preserve"
+    )
+    substitute = preserve["task"]["post_refresh_target"]
+    for condition in ("history_only", "placebo"):
+        preserve["actors"][condition]["parsed"]["target_id"] = substitute
+        preserve["outcomes"][condition] = substitute
+    preserve["actors"]["full_follow"]["usage"]["prompt_cache_hit_tokens"] = 3
+    report = build_report(rows, seed=3, samples=20)
+    model = report["models"][0]
+    assert model["cells"]["full_follow"]["changes_vs_history_only"][
+        "preserve_conditional_substitution"
+    ] == {"repairs": 1, "harms": 0}
+    contrast = next(
+        item for item in model["contrasts"]
+        if item["left"] == "placebo"
+        and item["right"] == "full_follow"
+        and item["metric"] == "preserve_conditional_substitution"
+    )
+    assert contrast["repairs"] == 1
+    assert contrast["harms"] == 0
+    assert model["cells"]["full_follow"]["tokens"]["prompt_cache_hit_tokens"] == 3

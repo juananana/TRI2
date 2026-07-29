@@ -17,11 +17,13 @@ phase-space, trajectory, attribution, and clustering references used for visual 
 
 ## TRI Mapping
 
-- Figure 1 remains the shared-transition mechanism overview.
-- Figure 2 uses a Preserve/Reevaluate policy phase map with PairAcc annotations.
-- Figure 3 uses uncertainty-aware Generic-to-CTA slopes for conditional substitution.
-- Figure 4 combines complete SQLite outcome accounting with the Stable/Changed strict-case slope.
-- Figure 5 uses an effect-and-CI matrix for authored and source-derived transfer.
+- Figure 1 remains the problem-definition example.
+- Figure 2 connects the matched diagnostic construction to its observable readouts.
+- Figure 3 uses a stacked pair-outcome composition for policy discrimination.
+- Figure 4 combines Generic-to-CTA substitution slopes with grouped PairAcc bars.
+- Figure 5 uses a single handoff aperture to connect bound identity to the executed SQLite row.
+- Figure 6 groups the two unpooled equal-call bars tightly within model on one shared pp axis;
+  lavender and teal identify the audits without a cross-inventory connecting line.
 
 ## Rejected Patterns
 
@@ -41,13 +43,12 @@ phase-space, trajectory, attribution, and clustering references used for visual 
 - Let adjacent panels divide the argument. One panel should show the paired within-model change;
   the next can group by controller to show cross-model consistency instead of repeating the same
   pairing with a second legend.
-- When adjacent figures already use several endpoint-and-interval comparisons, a compact effect
-  matrix can expose cross-metric heterogeneity without another forest or dumbbell panel.
+- A familiar grouped-bar form can simplify the final comparison when the axis starts at zero and
+  whiskers preserve uncertainty; color identifies the two audits, not the four models.
 - Direct-label only a sparse set of decisive values. Rounded percentages can sit above six bars;
   exact counts and denominator qualifications belong in the caption and frozen table.
 - Remove arrows unless direction itself is an estimand or process relation. Ordered axes and linked
   endpoints already communicate a Generic-to-CTA contrast.
-- Vary form only when the data structure changes. The SQLite Stable/Changed comparison retains a
-  slope because the transition is the result; transfer uses a two-column effect matrix because its
-  ten estimates form a model-by-endpoint comparison. Each matrix cell still carries its effect and
-  CI, with fill and border style indicating whether the interval excludes zero.
+- Vary form only when the data structure changes. The SQLite Stable/Changed result uses an
+  identity-to-action aperture because the handoff is the scientific object. Equal-call effects use
+  grouped bars because both audits share a pp scale but remain unpooled.

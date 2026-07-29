@@ -28,6 +28,8 @@ Status: zero-API static manuscript audit.
 | `no_overstated_tie_or_sample_sufficiency_language` | PASS |
 | `external_extension_has_four_paper_facing_conditions` | PASS |
 | `source_anchored_transfer_retains_boundary` | PASS |
+| `public_model_prelabels_remain_non_evidence` | PASS |
+| `failed_writer_holdout_is_disclosed_without_endpoint` | PASS |
 | `conclusion_retains_scope_boundary` | PASS |
 | `equal_call_interface_is_self_contained` | PASS |
 | `replication_denominator_is_explicit` | PASS |

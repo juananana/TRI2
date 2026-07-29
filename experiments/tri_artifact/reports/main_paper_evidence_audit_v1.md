@@ -17,9 +17,11 @@
 | source anchored transfer claim matches report | yes |
 | selection regret claim matches report | yes |
 | call matched claim matches report | yes |
+| four model pairacc interval repair matches report | yes |
 | decision block stratification matches report | yes |
 | oracle stage decomposition matches report | yes |
 | temperature zero repeat matches report | yes |
+| full history baseline claim matches report | yes |
 | source grounded matched claim matches report | yes |
 | binding drift author adaptation matches report | yes |
 | rule hard residual matches report | yes |

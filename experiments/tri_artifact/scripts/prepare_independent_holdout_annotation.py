@@ -6,6 +6,7 @@ from pathlib import Path
 
 from tri.independent_language_holdout import (
     WRITERS,
+    design_fidelity_summary,
     load_assignments,
     load_jsonl,
     normalize_wjx_writer_export,
@@ -117,16 +118,21 @@ def merge_eligibility(
     writer_id: str, raw: dict[str, str], ledger_row: dict[str, object]
 ) -> dict[str, str]:
     merged = dict(raw)
-    response_id = next(
+    platform_response_id = next(
         (
             str(raw.get(name, "")).strip()
-            for name in ("response_id", "participant_id", "participant_code", "答卷编号", "序号")
+            for name in ("答卷编号", "序号", "response_id", "participant_id", "participant_code")
             if str(raw.get(name, "")).strip()
         ),
         "",
     )
-    if not response_id or response_id != ledger_row["response_id"]:
+    namespaced_response_id = f"{writer_id}:{platform_response_id}"
+    if (
+        not platform_response_id
+        or str(ledger_row["response_id"]) not in {platform_response_id, namespaced_response_id}
+    ):
         raise ValueError(f"eligibility response_id does not match WJX export for {writer_id}")
+    merged["response_id"] = str(ledger_row["response_id"])
     for field in (
         "adult",
         "english_task_ability",
@@ -167,6 +173,7 @@ def main() -> None:
     parser.add_argument(
         "--eligibility-ledger",
         type=Path,
+        required=True,
         help=(
             "Private 12-row sidecar for consent, independence, completion, compensation, and "
             "the applicable ethics/policy determination."
@@ -194,11 +201,7 @@ def main() -> None:
 
     raw_rows = []
     source_hashes = {}
-    eligibility = (
-        load_eligibility_ledger(args.eligibility_ledger)
-        if args.eligibility_ledger is not None
-        else None
-    )
+    eligibility = load_eligibility_ledger(args.eligibility_ledger)
     for writer_id in WRITERS:
         path = export_map[writer_id]
         exports = read_table(path)
@@ -206,8 +209,7 @@ def main() -> None:
             raise ValueError(f"{writer_id} export must contain exactly one submitted response")
         source_hashes[writer_id] = sha256_path(path)
         raw = exports[0]
-        if eligibility is not None:
-            raw = merge_eligibility(writer_id, raw, eligibility[writer_id])
+        raw = merge_eligibility(writer_id, raw, eligibility[writer_id])
         raw_rows.extend(
             normalize_wjx_writer_export(
                 writer_id,
@@ -217,6 +219,7 @@ def main() -> None:
             )
         )
     authored = validate_writer_returns(raw_rows, assignments, pair_map)
+    design = design_fidelity_summary(authored)
 
     output = args.output or args.packet / "validated_annotation_packet"
     output.mkdir(parents=True, exist_ok=False)
@@ -225,24 +228,29 @@ def main() -> None:
         "".join(json.dumps(row, sort_keys=True, ensure_ascii=True) + "\n" for row in authored),
         encoding="utf-8",
     )
+    scenario_path = output / "private_scenario_key.jsonl"
+    scenario_path.write_bytes(args.private_scenario_key.read_bytes())
     forms = output / "annotator_wjx_forms"
     write_annotation_wjx_forms(authored, pairs, assignments, forms)
+    annotation_key = output / "private_annotation_key.jsonl"
     manifest = {
         "status": "post-primary human collection; awaiting blind annotation",
         "writer_rows": len(authored),
         "writers": len(WRITERS),
+        **design,
         "writer_export_sha256": source_hashes,
-        "eligibility_ledger_sha256": (
-            sha256_path(args.eligibility_ledger)
-            if args.eligibility_ledger is not None
-            else None
-        ),
-        "private_scenario_key_sha256": sha256_path(args.private_scenario_key),
+        "eligibility_ledger_sha256": sha256_path(args.eligibility_ledger),
+        "private_scenario_key_sha256": sha256_path(scenario_path),
         "allocation_sha256": sha256_path(args.packet / "writer_allocation.csv"),
         "locked_authored_instructions_sha256": sha256_path(authored_path),
         "annotator_forms": 36,
+        "private_annotation_key_sha256": sha256_path(annotation_key),
         "model_calls_allowed": False,
-        "next_gate": "three independent annotators x 120 rows and >=40 clear complete pairs",
+        "next_gate": (
+            "design-fidelity gate failure; annotation cannot reach 40 complete pairs"
+            if not design["annotation_gate_feasible"]
+            else "three independent annotators x 120 rows and >=40 clear complete pairs"
+        ),
     }
     (output / "processing_manifest.json").write_text(
         json.dumps(manifest, indent=2, ensure_ascii=True) + "\n", encoding="utf-8"

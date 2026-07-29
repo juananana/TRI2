@@ -1,0 +1,38 @@
+{
+  "status": "Figure-4-aligned Figure 5 candidate: full outcome composition plus strict contrast",
+  "source": "/Users/chu/Documents/Codex/2026-07-15/k-y/TRI/paper/tri_final_figures/data/summary_csv/sqlite_model_facing_outcomes.csv",
+  "source_sha256": "89a9fb91adc4794c5150d3dadc3a039ba18b5840c54146a85a0976a69a91bf48",
+  "size_inches": [
+    3.35,
+    2.28
+  ],
+  "minimum_text_pt": 6.8,
+  "png_dpi": 400,
+  "pdf_fonttype": 42,
+  "panel_a": "n=40/model mutually exclusive outcome partition with direct counts",
+  "panel_b": "Stable versus Changed strict B-write rates with Wilson 95% CI and exact fractions",
+  "frozen_values": {
+    "Qwen3.5": [
+      40,
+      27,
+      8,
+      5,
+      0,
+      8,
+      8,
+      0,
+      4
+    ],
+    "GLM-5.1": [
+      40,
+      26,
+      6,
+      2,
+      6,
+      6,
+      8,
+      0,
+      4
+    ]
+  }
+}

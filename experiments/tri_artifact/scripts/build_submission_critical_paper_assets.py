@@ -71,29 +71,24 @@ def _effect_text(model: dict[str, Any], family: str) -> str:
 def build_main(convention: dict[str, Any], matched: dict[str, Any]) -> str:
     convention_models = ordered_models(convention)
     matched_models = ordered_models(matched)
-    convention_estimates = ", ".join(
-        f"{MODEL_LABEL[item['model']]} {_effect_text(item, 'convention').split()[0]}"
-        for item in convention_models
-    )
-    matched_estimates = ", ".join(
-        f"{MODEL_LABEL[item['model']]} {_effect_text(item, 'matched').split()[0]}"
-        for item in matched_models
-    )
     convention_failures = sum(item["failures"]["incomplete_tasks"] for item in convention_models)
     matched_failures = sum(item["failures"]["incomplete_tasks"] for item in matched_models)
     return (
-        "The equal-call controls separate natural-language convention from executable decision "
-        "visibility (Figure~\\ref{fig:submission-critical-effects}). Convention-told effects are "
-        f"model-conditional ({convention_estimates} pp), whereas Decision-visible improves changed "
-        f"PairAcc for all four models ({matched_estimates} pp). The panels use different frozen "
-        "inventories and are not pooled; Convention and decision-block runs contain "
+        "Two post-primary equal-call audits test different ways of exposing timing information on "
+        "separate frozen inventories (Figure~\\ref{fig:submission-critical-effects}). Convention-told "
+        "effects are model-conditional, with Qwen and DeepSeek intervals including zero, whereas "
+        "Decision-visible yields positive changed-winner PairAcc effects with all four intervals "
+        "above zero. The "
+        "inventories are not pooled; Convention-told and decision-block runs contain "
         f"{convention_failures} and {matched_failures} incomplete ITT rows, respectively.\n\n"
         "\\begin{figure}[t]\n"
         "\\centering\n"
         "\\includegraphics[width=0.97\\columnwidth]{Figures/fig_submission_critical_pairacc_effects.pdf}\n"
-        "\\caption{Post-primary equal-call contrasts. A: natural-language convention only "
-        "(40 changed pairs). B: complete decision block visible to the actor (32 actionable changed "
-        "pairs). Bars are cluster-bootstrap 95\\% CIs; inventories are separate and unpooled.}\n"
+        "\\caption{Post-primary equal-call changed-winner PairAcc effects. Left lavender bars: "
+        "Convention-told versus Plain history (40 changed pairs); right teal bars: Decision-visible "
+        "versus History-only (32 actionable changed pairs). Whiskers are cluster-resampling 95\\% "
+        "CIs (state clusters left; matched pairs right). Inventories are separate and unpooled; "
+        "side-by-side placement is descriptive.}\n"
         "\\label{fig:submission-critical-effects}\n"
         "\\end{figure}\n"
     )
@@ -153,8 +148,8 @@ def build_supplement(convention: dict[str, Any], matched: dict[str, Any]) -> str
             "\\bottomrule",
             "\\end{tabular}",
             "\\caption{Four-model full-diagnostic matched-call audit on 32 actionable changed pairs. "
-            "Decision-visible jointly exposes the compiler mode, bound ID, and selector restatement; "
-            "the contrast is not an individual-field effect.}",
+            "Decision-visible jointly exposes the compiler reference mode, bound ID, and selector restatement; "
+            "the contrast is not an individual-field effect. Differences use pair-cluster-resampling 95\\% CIs.}",
             "\\label{tab:supp-four-model-matched}",
             "\\end{table}",
             "",
@@ -248,7 +243,7 @@ def main() -> None:
     parser.add_argument(
         "--matched",
         type=Path,
-        default=REPORTS / "revision_full_diagnostic_four_model_v1.json",
+        default=REPORTS / "revision_full_diagnostic_four_model_v2.json",
     )
     args = parser.parse_args()
     convention, matched = load(args.convention), load(args.matched)
@@ -256,7 +251,7 @@ def main() -> None:
     ordered_models(matched)
     if not FIGURE_PYTHON.is_file():
         raise FileNotFoundError(f"Figure environment not found: {FIGURE_PYTHON}")
-    figure_script = PAPER / "tri_final_figures" / "plot_submission_critical_effects.py"
+    figure_script = REPOSITORY / "experiments/tri_artifact/scripts/plot_submission_critical_effect_bars.py"
     subprocess.run(
         [
             str(FIGURE_PYTHON),

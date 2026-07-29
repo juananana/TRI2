@@ -1,0 +1,33 @@
+{
+  "audit_version": "TRI-public-recall-blind-packets-v4",
+  "evidence_status": "packets only; no labels",
+  "rows_per_labeler": 699,
+  "human_annotators": [
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "model_prelabelers": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "packet_sha256": {
+    "human_forms/annotator_A1.jsonl": "b634b28e33a77ff199350ac44b52172eb080b04af6f469641575ceea6f8cf305",
+    "human_forms/annotator_A2.jsonl": "2d071d9b8b1f1450a591ad6aaa43c4d245cda48f2b9b9db9ed0687dac0f1dff4",
+    "human_forms/annotator_A3.jsonl": "7ca26eb463a5507be5fc06717d6bf64568252d508f02c596120b367322df7f93",
+    "model_prelabels/model_prelabel_M1.jsonl": "54c95a4a0332e8cd22186a19912f1fe4d568a7fef42766cbb8e00fd253414d66",
+    "model_prelabels/model_prelabel_M2.jsonl": "4c7a53b2781a2b79eb091b342c5089bd3e6a7fa72e6c0d9a692ff75fd77a7c2b",
+    "model_prelabels/model_prelabel_M3.jsonl": "d1071038485410742899c85be43421ff7ee41578830fa22d0609bfbeb419b88a"
+  },
+  "frame_sha256": "c5f4c56b0e9df0cfa17f57914c730a2d5aeeb6f094fdbba41430bbc2c27beedb",
+  "private_annotation_key_sha256": "b0326e693dbf7175b5e3d8975e09e884ce27c276aa2571ad9a5cf0b6bce92b64",
+  "sampling_roles_hidden": true,
+  "control_gold_hidden": true,
+  "source_identity_hidden": true,
+  "uniform_outer_evidence_schema": true,
+  "suite_native_control_documents": true,
+  "derived_classifications_removed": true,
+  "model_prelabels_are_human_evidence": false,
+  "next_gate": "lock three independent human returns before exposing model prelabels"
+}

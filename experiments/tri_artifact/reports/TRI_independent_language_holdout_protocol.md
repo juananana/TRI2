@@ -11,7 +11,10 @@ study is post-primary evidence frozen before its own model calls.
 The study tests transfer beyond author-written instruction templates. It remains a controlled
 intervention and does not estimate native-workflow prevalence. Human writers and annotators cannot
 be replaced by an LLM. Model-assisted form checking may be reported only as engineering QA and
-never contributes to participant counts, agreement, or the clarity gate.
+never contributes to participant counts, agreement, or the clarity gate. Any model prelabels use
+the separate `M1`--`M3` namespace and opaque item IDs; the formal validator accepts only human
+`A1`--`A3` labels with a locked independent-human provenance manifest stating that annotators did
+not see model suggestions before submission.
 
 ## Ethics and recruitment gate
 
@@ -63,8 +66,10 @@ confidence values, or Stage A hash mismatches stop processing.
 
 Only after all 120 rows pass validation may the processor write the locked authored-instruction
 file and generate annotator forms. It randomizes a separate 120-item order for each annotator and
-keeps the two members of every pair non-adjacent. Writer intent, condition, pair membership, design
-gold, and model outputs are hidden from annotators.
+keeps the two members of every pair non-adjacent. Forms use opaque `BI-*` item IDs; condition- and
+pair-bearing source IDs remain only in a private sidecar stored outside the distributable form
+directory. Writer intent, condition, pair membership, design gold, and model outputs are hidden
+from annotators.
 
 ## Blind interpretation and clarity gate
 
@@ -72,8 +77,11 @@ Each annotator labels all 120 instructions exactly once. Allowed responses are t
 in the refreshed state or CLARIFY, with confidence from 1 to 5. Annotator IDs must be unique and
 must match the three frozen roles.
 
-An item is clear when writer intent is determinate and at least two of three annotators choose that
-intent. A pair is clear only when both members are clear. At least 40 clear complete pairs are
+An item is clear when writer intent is determinate, matches the target implied by its assigned
+operation order, and at least two of three annotators choose that intent. The design-fidelity
+requirement prevents a writer's inverted or otherwise noncompliant interpretation from silently
+changing the intended Preserve/Reevaluate contrast. A pair is clear only when both members are
+clear. At least 40 clear complete pairs are
 required before any model call. If the gate fails, the collection is reported only as a semantic
 boundary analysis. All 120 rows remain in all-item sensitivity reports.
 

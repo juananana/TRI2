@@ -1,0 +1,18 @@
+{
+  "audit_version": "TRI-public-candidate-reconciliation-v1",
+  "evidence_status": "inventory reconciliation; not prevalence or recall evidence",
+  "payload_backed_inventory": 80,
+  "natural_triage_inventory": 72,
+  "overlap": 30,
+  "payload_only": 50,
+  "triage_only": 42,
+  "union_audit_units": 122,
+  "audit_unit_union_frozen": true,
+  "benchmark_population_complete": true,
+  "sampling_allowed": true,
+  "sampling_blocker": null,
+  "population_rows": 3600,
+  "routed_candidate_census_rows": 116,
+  "population_sha256": "e5c1a19bc8044eade081ad402031d02e0a5143147e3082b7114b1f198f1d1e1f",
+  "routed_candidate_census_sha256": "881059186ce039d09d3748aa349bad423ba9455a342de2326b95e327acb5a39a"
+}

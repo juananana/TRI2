@@ -82,7 +82,8 @@ ToolSandbox-style null repeat:
 
 ```bash
 cd .
-.venv-toolsandbox/bin/python paper/tri_final_figures/plot_submission_critical_effects.py
+MPLCONFIGDIR=/private/tmp/tri-mpl-cache \
+  .fig_venv/bin/python paper/tri_final_figures/plot_submission_critical_effects.py
 pdffonts paper/tri_final_figures/outputs/fig_submission_critical_pairacc_effects_v1.pdf
 ```
 
@@ -96,4 +97,3 @@ complete. Do not bypass this check or create a partial-model main-text figure.
 - Source-repeat runs do not increase the 30-pair sample size.
 - ToolSandbox-style runs are controlled external-style trajectories, not official/native scores.
 - If the main-paper lock has passed, update only the supplement and artifact.
-

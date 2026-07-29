@@ -1,0 +1,62 @@
+{
+  "report_version": "TRI-public-recall-model-prelabel-review-v1",
+  "evidence_status": "incomplete model-prelabel diagnostic for author QA; no model-consensus or independent-human evidence",
+  "rows": 699,
+  "model_coverage": {
+    "M1": {
+      "rows": 699,
+      "complete": 699,
+      "incomplete": 0
+    },
+    "M2": {
+      "rows": 699,
+      "complete": 695,
+      "incomplete": 4
+    },
+    "M3": {
+      "rows": 699,
+      "complete": 685,
+      "incomplete": 14
+    }
+  },
+  "complete_model_panel_rows": 681,
+  "incomplete_model_panel_rows": 18,
+  "complete_panel_strict_vote_histogram": {
+    "0": 524,
+    "1": 127,
+    "2": 12,
+    "3": 18
+  },
+  "complete_panel_provisional_majority_positive_rows": 30,
+  "author_qa_required": true,
+  "missing_model_labels_are_votes": false,
+  "formal_review_report_gate_passed": false,
+  "author_qa_must_not_overlap_independent_annotators": true,
+  "independent_human_evidence": false,
+  "prevalence_or_recall_claim_allowed": false,
+  "provenance": {
+    "packet_manifest_sha256": "4be069681465313120062d2e8e09f465b25d6594c0cbd64eca94abd7e9f40820",
+    "packet_sha256": {
+      "M1": "54c95a4a0332e8cd22186a19912f1fe4d568a7fef42766cbb8e00fd253414d66",
+      "M2": "4c7a53b2781a2b79eb091b342c5089bd3e6a7fa72e6c0d9a692ff75fd77a7c2b",
+      "M3": "d1071038485410742899c85be43421ff7ee41578830fa22d0609bfbeb419b88a"
+    },
+    "protocol_sha256": "89daec1a96d34b750080dfd056ad51c51ff25590136e836cc95fc213dd557d91",
+    "health_smoke_sha256": {
+      "M1": "d4a93b6f1b7721561da49d43062705e342bead5a77d734fde51524cf38e3fe8f",
+      "M2": "79cd44ce27d7881e962b9b023d38b0220c405508da7dddcf61e71f18f8630d52",
+      "M3": "7b841c50078b4e90aa184a169d61f360e592cc22f87cf0cd04d1022b5cb215d9"
+    },
+    "run_sha256": {
+      "M1": "8cde5b60f49d786d1f1c0d91fb3270ba61edfb168634f832573de97c162c09f3",
+      "M2": "34d47ee9b4ad7a5984dc9a1595cffb854576466e3244680ebecbfb79a04e593d",
+      "M3": "dd1c8cc0dcef311deb1f7de0d37ca52b7580c8ae32a2f9300bcc94f05f523935"
+    },
+    "model_return_sha256": {
+      "M1": "317558d52191b9cd99078f3e5e72134c88a54aa9a1bcfab247eb565282b3326f",
+      "M2": "6807848677d258c3e9dc8100eb18a2160952a85f9635f8db0924476348972114",
+      "M3": "4b4c74c0203a32524dbbda3329667c60e3208f298f283a698feb71a1b27f1701"
+    },
+    "formal_review_report_eligible": false
+  }
+}

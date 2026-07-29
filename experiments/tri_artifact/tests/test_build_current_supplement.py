@@ -4,6 +4,9 @@ import tempfile
 import unittest
 import zipfile
 import re
+import os
+import subprocess
+import sys
 from pathlib import Path
 
 from scripts.build_current_supplement import TASK_EMAIL_CONTENT_FILES, build
@@ -67,6 +70,12 @@ class CurrentSupplementTest(unittest.TestCase):
                 self.assertIn("tri_artifact/paper/aaai2027.sty", names)
                 self.assertIn("tri_artifact/paper/supplementary_material.tex", names)
                 self.assertIn(
+                    "tri_artifact/paper/generated/submission_critical_main.tex", names
+                )
+                self.assertIn(
+                    "tri_artifact/paper/generated/submission_critical_supplement.tex", names
+                )
+                self.assertIn(
                     "tri_artifact/paper/source_anchored_external_transfer_table.tex",
                     names,
                 )
@@ -76,12 +85,14 @@ class CurrentSupplementTest(unittest.TestCase):
                     "fig2_policy_rulers.pdf",
                     "fig3_substitution_flow.pdf",
                     "fig4_sqlite_outcome_tree.pdf",
+                    "fig_submission_critical_pairacc_effects.pdf",
                     "fig5_paired_transfer_matrix.pdf",
                     "fig_s2_changed_calibration_round5.pdf",
                     "fig_s8_external_boundary_round5.pdf",
                     "fig4_wrong_write_mirror_round3.pdf",
                     "fig_source_model_transfer_fingerprints_compact.pdf",
                     "fig_enforcement_repairs_harms_compact.pdf",
+                    "result_policy_discrimination.pdf",
                 ):
                     self.assertIn(f"tri_artifact/paper/Figures/{figure}", names)
                 self.assertIn("tri_artifact/paper/figure_source/plot_round4_figure1.py", names)
@@ -112,6 +123,11 @@ class CurrentSupplementTest(unittest.TestCase):
                     "tri_artifact/tri/end_to_end_decision_decomposition_v2.py",
                     "tri_artifact/tests/test_end_to_end_decision_decomposition_v2.py",
                     "tri_artifact/reports/TRI_independent_language_holdout_protocol.md",
+                    "tri_artifact/scripts/prepare_independent_holdout_annotation.py",
+                    "tri_artifact/scripts/stage_independent_holdout_writer_returns.py",
+                    "tri_artifact/scripts/build_model_assisted_prelabel_packets.py",
+                    "tri_artifact/tri/independent_language_holdout.py",
+                    "tri_artifact/tests/test_independent_language_holdout.py",
                     "tri_artifact/scripts/freeze_independent_holdout_model_experiment.py",
                     "tri_artifact/scripts/report_independent_holdout_model_experiment.py",
                     "tri_artifact/scripts/run_independent_holdout_model_experiment.py",
@@ -121,14 +137,56 @@ class CurrentSupplementTest(unittest.TestCase):
                     "tri_artifact/reports/TRI_unified_environment_holdout_protocol.md",
                     "tri_artifact/scripts/freeze_unified_environment_holdout.py",
                     "tri_artifact/scripts/report_controller_selection.py",
+                    "tri_artifact/scripts/report_unified_environment_holdout.py",
                     "tri_artifact/scripts/build_unified_environment_forms.py",
                     "tri_artifact/tri/unified_environment_holdout.py",
                     "tri_artifact/tests/test_unified_environment_holdout.py",
                     "tri_artifact/reports/TRI_public_recall_calibrated_audit_protocol.md",
                     "tri_artifact/scripts/build_public_recall_calibrated_frame.py",
+                    "tri_artifact/scripts/build_public_recall_population.py",
+                    "tri_artifact/scripts/build_public_recall_annotation_packets.py",
+                    "tri_artifact/scripts/ingest_public_recall_annotations.py",
                     "tri_artifact/scripts/report_public_recall_calibrated_audit.py",
+                    "tri_artifact/reports/TRI_public_recall_model_prelabels_protocol.md",
+                    "tri_artifact/reports/TRI_public_recall_model_prelabels_failure_diagnostic_addendum.md",
+                    "tri_artifact/reports/TRI_public_recall_author_Q1_review_guide_zh.md",
+                    "tri_artifact/reports/public_recall_model_prelabels_partial_v1.json",
+                    "tri_artifact/reports/public_recall_model_prelabels_partial_v1_role_quality.json",
+                    "tri_artifact/reports/public_recall_model_prelabels_partial_v1_author_qa_queue.jsonl",
+                    "tri_artifact/reports/public_recall_model_prelabels_partial_v1_author_qa_template.csv",
+                    "tri_artifact/reports/public_recall_model_prelabels_partial_v1_M1_partial_returns.jsonl",
+                    "tri_artifact/reports/public_recall_model_prelabels_partial_v1_M2_partial_returns.jsonl",
+                    "tri_artifact/reports/public_recall_model_prelabels_partial_v1_M3_partial_returns.jsonl",
+                    "tri_artifact/runs/public_recall_model_prelabel_M1_smoke_v1.jsonl",
+                    "tri_artifact/runs/public_recall_model_prelabel_M2_smoke_v1.jsonl",
+                    "tri_artifact/runs/public_recall_model_prelabel_M3_smoke_v1.jsonl",
+                    "tri_artifact/runs/public_recall_model_prelabel_M1_full_v1.jsonl",
+                    "tri_artifact/runs/public_recall_model_prelabel_M2_full_v1.jsonl",
+                    "tri_artifact/runs/public_recall_model_prelabel_M3_full_v1.jsonl",
+                    "tri_artifact/scripts/run_public_recall_model_prelabels.py",
+                    "tri_artifact/scripts/report_public_recall_model_prelabels.py",
+                    "tri_artifact/scripts/ingest_public_recall_author_qa.py",
+                    "tri_artifact/scripts/build_public_recall_Q0_model_drafts.py",
+                    "tri_artifact/scripts/prepare_public_recall_author_Q1_batches.py",
+                    "tri_artifact/tri/private_role_registry.py",
+                    "tri_artifact/scripts/reconcile_public_audit_candidates.py",
                     "tri_artifact/tri/public_recall_calibrated_audit.py",
+                    "tri_artifact/tri/public_recall_model_prelabels.py",
                     "tri_artifact/tests/test_public_recall_calibrated_audit.py",
+                    "tri_artifact/tests/test_public_recall_model_prelabels.py",
+                    "tri_artifact/tests/test_public_recall_author_Q1_batches.py",
+                    "tri_artifact/tests/test_public_recall_Q0_model_drafts.py",
+                    "tri_artifact/data/public_candidate_reconciliation_v1.jsonl",
+                    "tri_artifact/reports/public_candidate_reconciliation_v1.json",
+                    "tri_artifact/data/public_recall_population_v1.jsonl",
+                    "tri_artifact/data/public_recall_candidate_census_v1.jsonl",
+                    "tri_artifact/data/public_recall_sampling_frame_v1.jsonl",
+                    "tri_artifact/data/public_recall_sampling_frame_v1.manifest.json",
+                    "tri_artifact/data/public_recall_model_prelabel_packets_v4/manifest.json",
+                    "tri_artifact/data/public_recall_model_prelabel_packets_v4/model_prelabels/model_prelabel_M1.jsonl",
+                    "tri_artifact/data/public_recall_model_prelabel_packets_v4/model_prelabels/model_prelabel_M2.jsonl",
+                    "tri_artifact/data/public_recall_model_prelabel_packets_v4/model_prelabels/model_prelabel_M3.jsonl",
+                    "tri_artifact/reports/public_recall_population_v1.json",
                     "tri_artifact/reports/TRI_submission_critical_replication_addendum_20260728.md",
                     "tri_artifact/reports/TRI_submission_critical_execution_runbook.md",
                     "tri_artifact/tri/convention_told_control.py",
@@ -138,6 +196,13 @@ class CurrentSupplementTest(unittest.TestCase):
                     "tri_artifact/tri/revision_repeat_stability.py",
                     "tri_artifact/scripts/report_revision_repeat_stability.py",
                     "tri_artifact/tests/test_revision_repeat_stability.py",
+                    "tri_artifact/tri/revision_matched_interval_repair.py",
+                    "tri_artifact/scripts/report_revision_matched_audit_v3.py",
+                    "tri_artifact/tests/test_revision_matched_interval_repair.py",
+                    "tri_artifact/reports/revision_full_diagnostic_v3.json",
+                    "tri_artifact/reports/revision_full_diagnostic_four_model_v2.json",
+                    "tri_artifact/reports/revision_human_rewrite_v3.json",
+                    "tri_artifact/reports/revision_source_grounded_v3.json",
                     "tri_artifact/scripts/run_submission_critical_matrix.py",
                     "tri_artifact/scripts/run_toolsandbox_null_repeat.py",
                     "tri_artifact/scripts/build_submission_critical_paper_assets.py",
@@ -174,6 +239,10 @@ class CurrentSupplementTest(unittest.TestCase):
                 )
                 self.assertIn("tri_artifact/human_validation/analysis.json", names)
                 self.assertFalse(any("annotation_key_private" in name for name in names))
+                self.assertFalse(any("private_annotation_key" in name for name in names))
+                self.assertFalse(
+                    any(name.startswith("tri_artifact/human_studies/") for name in names)
+                )
                 self.assertFalse(any("private_returns" in name for name in names))
                 self.assertFalse(any(name.endswith(".xlsx") for name in names))
                 self.assertFalse(any("TRI_AAAI" in name for name in names))
@@ -232,6 +301,24 @@ class CurrentSupplementTest(unittest.TestCase):
                                 )
                             )
                         self.assertNotIn(b"/Users/", data)
+                archive.extractall(directory)
+            extracted = Path(directory) / "tri_artifact"
+            environment = dict(os.environ)
+            environment["PYTHONPATH"] = str(extracted)
+            subprocess.run(
+                [
+                    sys.executable,
+                    "-c",
+                    (
+                        "import tri.private_role_registry; "
+                        "import scripts.prepare_public_recall_author_Q1_batches; "
+                        "import scripts.ingest_public_recall_author_qa"
+                    ),
+                ],
+                cwd=extracted,
+                env=environment,
+                check=True,
+            )
 
 
 if __name__ == "__main__":

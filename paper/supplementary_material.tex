@@ -63,7 +63,6 @@ Stage & Frozen status & Role in the manuscript \\
 \NewSchemaReplication{} & Post-primary replication; frozen before calls & New schemas and states; tests directional substitution \\
 Matched full-history baselines & Post-primary strong baseline; frozen before own calls & Ordinary and final-step-aware history across three model families \\
 Human agreement labels & Post-primary descriptive construct audit & Three independent labels for each of 100 original/rewrite items \\
-Six-form human follow-up & Post-primary audit; frozen eligibility gate failed & Descriptive recruitment, instrument, and gold-boundary evidence; no fixed-rater endpoint \\
 Human-rewrite model runs & Post-primary replication; frozen before own calls & Unchanged controllers on 50 volunteer rewrites \\
 Full-diagnostic matched-call confirmation & Post-primary; frozen before own calls; complete & Equal calls and base actor payloads on all 160 diagnostic rows \\
 Human-rewrite matched-call confirmation & Post-primary; frozen before own calls; complete & Equal-call transfer on 50 existing volunteer rewrites; model-dependent result \\
@@ -73,8 +72,9 @@ Source-derived matched-call contrast & Post-primary; frozen before own calls; co
 Pair accuracy (PairAcc) and identifiability & Post-primary, zero API & Matched, marginal, and shared-eligible reanalyses of frozen outputs \\
 Crossed-dependence sensitivity & Post-primary, zero API & Domain, template, and two-way resampling of the primary package contrast \\
 Call/information-matched ablation & Post-primary; both models complete & Shared compiler call and matched actor payloads; explicit-decision and enforcement contrasts \\
+Eight-cell decision decomposition & Post-primary; frozen before own calls; three models complete & Placebo, selector, ID, mode, combination, and follow controls; no field-level contrast passed the cross-model promotion gate \\
 Selection regret & Post-primary, zero API & Proxy maximizers and changed-PairAcc regret in frozen candidate sets \\
-Model-authored linguistic audit & Post-primary; transport-repaired & 24 generated pairs; no complete pair is accepted by both model judges \\
+Model-assisted linguistic sensitivity & Post-primary; transport-repaired & 24 generated pairs; auxiliary model-distribution check, not human evidence \\
 Strengthened deterministic rule & Post-hoc & Benchmark-aware deterministic audit after first-rule failure inspection \\
 Public-suite audits & Post-primary/descriptive & Coverage checklist for audited ToolSandbox, AppWorld, and $\tau^3$-Bench versions \\
 Injected audit sensitivity & Post-primary, zero API & Known-positive and one-feature-missing controls; implementation check only \\
@@ -82,8 +82,8 @@ Model-assisted recall triage & Post-primary, zero API & Candidate-label queue ov
 Source-anchored external transfer & Post-primary; frozen before calls & Author-adapted matched contrast on pinned STATE-Bench and AgentDojo states and source tools \\
 \bottomrule
 \end{tabular}
-\caption{Evidence status used throughout the paper. Planned or unverified analyses are not
-reported as results.}
+\caption{Evidence status used throughout the paper. Failed-gate stages are reported as study
+boundaries, not as empirical endpoints.}
 \label{tab:supp-chronology}
 \end{table}
 
@@ -946,8 +946,9 @@ winner, and is restricted to the actionable core.}
 \label{tab:supp-full-matched-confirmation}
 \end{table}
 
-Decision-visible minus History-only changed PairAcc is $+25.0$ points [6.3,46.2] for Qwen and
-$+53.1$ [28.6,77.8] for GLM. The actionable E2E differences are $+4.7$ [0.0,9.4] and
+Decision-visible minus History-only changed PairAcc is $+25.0$ points [9.4,40.6] for Qwen and
+$+53.1$ [34.4,68.8] for GLM. These pair-cluster-resampling intervals describe sensitivity over
+the tested authored clusters, not a population of natural tasks or model versions. The actionable E2E differences are $+4.7$ [0.0,9.4] and
 $+14.1$ [8.4,20.0]. Offline enforcement produces 18 repairs and eight harms for Qwen, and four
 repairs with no harms for GLM. All 960 planned logical calls complete without retry, transport,
 or parse failure. These results estimate decision visibility under matched calls and base payloads.
@@ -958,8 +959,9 @@ The tested compilers, representations, and gates remain observationally non-uniq
 }{}
 
 \paragraph{Decision-block stratification.}
-A zero-API audit checks the values carried by the matched interfaces. Across all 760 authored,
-rewrite, source-derived, and cross-schema records, the task initial ID and every compiler or actor
+A zero-API audit checks the values carried by the matched interfaces. Across nine audited
+inventories containing 760 authored, rewrite, source-derived, and cross-schema records, the task
+initial ID and every compiler or actor
 copy are identical (760/760). The compiler selector also equals the base selector in 760/760
 records. Decision-visible therefore restates existing values; this equality does not exclude a
 representation or salience effect.
@@ -1047,6 +1049,44 @@ PairAcc contrast against Decision-visible is $-7.5$ points [$-22.5,7.5$]. GLM en
 no outcome. All 480 logical calls complete without retry or parse failure. This result removes
 differences in call count and base actor payload for the explicit-decision contrast, not every
 difference in compiler prompting or representation.
+
+\subsection{Eight-Cell Decision Decomposition}
+This post-primary experiment was frozen before its own calls on the same 80-row, 40-pair
+changed-winner inventory. One shared compiler produces a model-selected initial ID and timing mode;
+eight matched actors receive the same instruction, states, selector, action, and tool schema. The
+actors add, in order, placebo structure, selector repetition, neutral ID repetition, mode, mode plus
+ID, mode plus ID and selector, or the complete block with an explicit follow directive. No actor
+receives a resolver-produced ID or gold target.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Model & H & P & S & I & M & M+I & M+I+S & Full \\
+\midrule
+Qwen & 11 & 11 & 12 & 12 & 14 & 15 & 12 & 11 \\
+GLM & 12 & 7 & 7 & 13 & 11 & 16 & 18 & 19 \\
+DeepSeek & 7 & 11 & 8 & 10 & 11 & 15 & 16 & 12 \\
+\bottomrule
+\end{tabular}
+\caption{Changed-winner PairAcc counts out of 40 for History-only (H), placebo structure (P),
+selector-only (S), neutral ID repetition (I), mode-only (M), incremental combinations, and the
+complete block with an explicit follow directive. Every cell is scored by intention to treat.}
+\label{tab:supp-decision-decomposition-v2}
+\end{table}
+
+None of the eight predeclared contrasts meets the cross-model field-promotion rule. Full minus
+placebo PairAcc is $0.0$ points [$-15.0$,15.0] for Qwen, $+30.0$ [15.0,45.0] for GLM, and $+2.5$
+[$-10.0$,15.0] for DeepSeek. Adding the follow directive to mode+ID+selector changes DeepSeek
+PairAcc by $-10.0$ points [$-20.0$,$-2.5$]. Thus the completed decomposition supports a
+model-dependent composite-interface interpretation, not a universal single-field or follow-directive
+effect. The eight frozen right-minus-left contrasts compare each single control with History-only,
+each incremental combination with its immediate predecessor, and Full with both its predecessor and
+Placebo. Promotion required a strictly positive PairAcc interval in at least two models and no
+strictly negative interval in any model. GLM completes 720/720 logical calls. Two Qwen and one DeepSeek compiler schema failures are
+retained; their 12 and six dependent actor calls, respectively, are scored as upstream ITT failures.
 
 \FloatBarrier
 
@@ -1250,10 +1290,11 @@ controlled mutation results condition on correct compilation of the lifecycle re
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.58\textwidth]{Figures/fig4_sqlite_outcome_tree.pdf}
-\caption{Outcomes for the 40 SQLite tool-loop trajectories summarized in the main paper. Panel A
-separates correct final states, TRI writes to the wrong target, writes in fallback cases, and
-unneeded rejections. Panel B compares write rates among cases meeting the strict eligibility
-conditions.}
+\caption{Strict-opportunity outcomes in the 40-task SQLite test. All plotted units have a correct
+pre-refresh binding to A. Stable keeps A first; Changed makes B first while A remains valid. Coral
+B units are model-issued wrong-target writes to B; outlined units are other outcomes, not a claim
+of correctness or safety. Exact fractions are 0/4 Stable for both models, 8/8 Changed for Qwen,
+and 6/8 Changed for GLM. Aggregate, fallback, and rejection counts remain in the text.}
 \label{fig:supp-sqlite-unit-chart}
 \end{figure}
 
@@ -1289,10 +1330,10 @@ observable initial binding, a surviving actionable old target, and a distinct re
 \label{tab:supp-source-matched}
 \end{table}
 
-Decision-visible minus History-only PairAcc is +3.3 points [$-11.1$,20.0] for Qwen, +30.0
-[0.0,55.6] for GLM, and +10.0 [$-10.0$,30.0] for DeepSeek. Corresponding E2E differences are
-0.0 [$-6.7$,6.7], +18.3 [8.3,30.0], and +3.3 [$-5.0$,11.7]. Thus only the GLM E2E interval
-excludes zero. Offline enforcement records 9/5, 4/0, and 4/4 repairs/harms for Qwen, GLM, and
+Decision-visible minus History-only PairAcc is +3.3 points [$-6.7$,13.3] for Qwen, +30.0
+[13.3,50.0] for GLM, and +10.0 [$-3.3$,23.3] for DeepSeek. Corresponding E2E differences are
+0.0 [$-6.7$,6.7], +18.3 [8.3,30.0], and +3.3 [$-5.0$,11.7]. Thus only the GLM E2E and PairAcc
+intervals exclude zero. Offline enforcement records 9/5, 4/0, and 4/4 repairs/harms for Qwen, GLM, and
 DeepSeek. The complete 540 logical calls have no retry, transport failure, or parse failure.
 
 \begin{table}[H]
@@ -1387,6 +1428,10 @@ coverage recall, and deployment prevalence remain unresolved.}
 \end{figure}
 
 \subsection{Official opportunity and released-trace audit}
+The audits in this subsection characterize whether pinned public suites expose the required
+structure under frozen retrieval and labeling procedures. They do not estimate natural prevalence,
+retrieval recall, or model failure rates.
+
 We audited the unmodified public inventories at the semantic-task level. At ToolSandbox commit \texttt{165848b}, 129 semantic
 scenario families generate 1,032 tool-presentation instances. None contains the strict sequence
 correct binding, independent external transition, and later substitutable entity mutation. One
@@ -1456,8 +1501,8 @@ Author-built retrieval retains 0, 57, and 23 source-anchored candidate clusters,
 finds zero strict native opportunities in each corpus. No released unit jointly exposes an observable
 pre-update binding, independent refresh, surviving action-valid old target, distinct refreshed winner,
 timing authorization, and target-level mutation. These are counts under the retrieval procedure,
-without independent recall calibration or prevalence meaning. The 80 BFCL/ToolTalk candidates support
-only further source inspection, not a native TRI positive or behavioral transfer result; the protocol,
+and the 80 BFCL/ToolTalk candidates support further source inspection rather than a native TRI
+positive or behavioral transfer result. The protocol,
 manifest, inventory, parser, and report are included in the Code and Data Supplement.
 
 A frozen post-primary annotation then sends each of these 80 candidates to Qwen3.5 and GLM-5.1.
@@ -1465,9 +1510,8 @@ The latest-pair view contains 145/160 exact-schema valid labels and retains 15 f
 labels; all 168 raw attempts, including eight superseded sandbox-DNS failures, remain in the log.
 Among 65 candidates with two valid labels, 24 have a model disagreement. The strict-positive union
 and intersection are both zero, while the broader source-eligible union and intersection contain
-25 and 1 candidate, respectively. Thus no strict-positive source verification is triggered. These are fallible
-model candidate labels, not independent review, recall calibration, a verified native opportunity,
-a behavioral result, or a prevalence estimate.
+25 and 1 candidate, respectively. Thus no strict-positive source verification is triggered. These
+fallible model labels are not used as human adjudications.
 
 \subsection{Frozen source-anchored external transfer}
 
@@ -1698,64 +1742,6 @@ study as descriptive agreement with the Preserve/Reevaluate core, not as evidenc
 conditional policy. Complete disagreement rows and the auditable analysis script accompany the
 Code and Data Supplement.
 
-\paragraph{Six-form follow-up audit (failed frozen gate; descriptive boundary).}
-We separately froze a follow-up with six disjoint 12-item forms, five valid labels per item,
-separate referent and execution judgments, and one reserve slot per form. The cutoff contains 31
-complete submissions. All respondents affirmed adulthood, independent English reading, consent,
-and completion of all 42 response questions. The frozen exclusion rules also required respondents
-to report no generative-AI, search, machine-translation, or other-person assistance and no technical
-issue affecting comprehension. Only 11 submissions pass both requirements.
-
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{lrrr}
-\toprule
-Form & Submitted & Eligibility-passing & Additional valid needed \\
-\midrule
-A & 5 & 1 & 4 \\
-B & 5 & 2 & 3 \\
-C & 5 & 1 & 4 \\
-D & 5 & 1 & 4 \\
-E & 6 & 3 & 2 \\
-F & 5 & 3 & 2 \\
-\midrule
-Total & 31 & 11 & 19 \\
-\bottomrule
-\end{tabular}
-\caption{Six-form follow-up at the fixed cutoff. The target is five valid labels in every form,
-not 30 pooled labels. The failed gate makes this a recruitment and construct-boundary audit rather
-than a fixed-rater agreement endpoint.}
-\label{tab:supp-wjx-incomplete}
-\end{table}
-
-Fifteen respondents reported prohibited assistance and 11 reported a comprehension-affecting
-technical issue; six reported both, giving nine assistance-only, five technical-only, and six
-joint exclusions. The 11 eligible submissions provide 132 labels, distributed as 36 items with
-one label, 12 with two, and 24 with three. Therefore no item has the required five valid labels,
-and the frozen Fleiss' $\kappa$, Krippendorff's $\alpha$, and 18-pair endpoint are unavailable.
-For diagnosis only, eligible label-level agreement with author gold is 51/132 (38.6\%) for
-referent identity and 34/132 (25.8\%) for execution. The median completion time is 330 seconds, and
-30/31 submissions finish below ten minutes versus the planned 12--15 minutes.
-
-We retain two non-evidentiary sensitivities rather than discarding the excluded responses. A
-post-hoc slice that ignores the assistance exclusion but retains the technical-issue exclusion has
-20 participants, with referent agreement 92/240 (38.3\%) and execution agreement 61/240 (25.4\%).
-The assistance question combines translation, generative AI, search, and another person's help,
-so this slice cannot isolate benign translation. The widest sensitivity uses all 30 primary
-submissions: referent majority agrees with gold on 27/72 items, execution majority on 19/72, and
-referent changed-pair accuracy is 3/18. These outcomes do not rescue the audit and cannot be
-compared as a completed replication of the earlier three-annotator study.
-
-We classify this completed cutoff as a post-primary failed-gate audit. It supplies descriptive
-boundary evidence and does not strengthen the TRI gold. At least 19 additional eligibility-passing
-responses are needed, distributed 4/3/4/4/2/2 across A--F. Because the frozen allocation included only one reserve per
-form, further recruitment requires a prospective amendment before collection. A repaired study
-should keep the frozen items and gold, separate translation from AI/search/other-person help, add
-a pre-item comprehension gate, and recruit from a monitored panel. The private platform exports
-and response mapping are excluded from the anonymous artifact. The public aggregate outputs retain
-only form-level source hashes, de-identified eligibility codes, and per-item response counts.
-
 \paragraph{Human-majority model sensitivity.}
 Of the 50 original items, 46 have a determinate human majority, 42 majorities match benchmark
 gold, and 35 are unanimously gold-aligned. Re-scoring frozen model outputs against the human
@@ -1849,22 +1835,13 @@ $+20.0$ [8.6,32.5] for GLM. All 300 planned logical calls completed without tran
 parse failure. The mixed Qwen result and the three-pair changed subset are retained. This test uses
 one-volunteer wording of authored semantics and is not an open-language benchmark.
 
-\section{Model-Authored Linguistic Stress Audit}
-This post-primary audit tests dependence on the authors' surface templates without treating model
-output as independent human language. Before the calls, we froze 24 actionable changed-winner workflow
-specifications over 24 new schemas. DeepSeek-V4-Pro then wrote one Preserve and one Reevaluate
-instruction per specification without seeing the original instructions, Rule* cues, controller
-outputs, or entity IDs. Gold follows only from the frozen event order and states. All 48 generated
-rows remain in ITT. Qwen3.5 and GLM-5.1 separately classified timing and checked selector, action,
-and ambiguity; these labels are a model-assisted sensitivity, not independent annotation.
-
-All 24 authoring calls, 96 judge calls, and 384 full controller calls completed without retry or
-parse failure. Qwen accepted 25/48 instructions and GLM accepted 33/48, but their intersection
-contains only 11 rows and no complete opposite-gold pair. Qwen classified 23/24 Reevaluate rows as
-Preserve, while GLM classified 14/24 Preserve rows as Reevaluate. Both marked selector and action
-fidelity and unambiguity true on all rows. Because no complete pair was accepted by both judges,
-their labels cannot support a joint PairAcc sensitivity. The disagreement is itself a construct-validity failure for model-only replacement of independent
-writers and annotators.
+\section{Model-Assisted Linguistic Sensitivity}
+This post-primary auxiliary check probes dependence on the authors' surface templates without
+treating model output as human language. We froze 24 actionable changed-winner specifications over
+24 new schemas; DeepSeek-V4-Pro generated one Preserve and one Reevaluate instruction per
+specification without seeing entity IDs, controller outputs, or Rule* cues. Gold follows from the
+frozen event order and states, and all 48 generated rows remain in intention-to-treat (ITT)
+scoring. Qwen3.5 and GLM-5.1 separately checked timing, selector, action, and ambiguity.
 
 \begin{table}[H]
 \centering
@@ -1880,20 +1857,16 @@ GLM-5.1 & CTA & 36/48 & 12/24 & 0/12 & 0 \\
 Rule* & post-hoc & 15/48 & 5/24 & -- & 28 unresolved \\
 \bottomrule
 \end{tabular}
-\caption{Post-primary model-authored stress audit. CTA--Generic PairAcc is +50.0 points with
+\caption{Post-primary model-assisted linguistic sensitivity. CTA--Generic PairAcc is +50.0 points with
 state-pair bootstrap interval $[+29.2,+70.8]$ for each model. Conditional substitution requires
-an exact correct initial ID. No complete pair passes both model judges, so these results do not
-establish open-language transfer.}
+an exact correct initial ID. This is an ITT result on the frozen generated distribution.}
 \end{table}
 
-The first aggregate report incorrectly scored every model row as wrong because the new
-\texttt{MAS-01-A}-style IDs contain two hyphens, whereas the pre-existing normalizer retained only
-\texttt{MAS-01}. The invalid all-zero report and raw rows are preserved. Before complete-set
-reparsing, we froze a zero-request transport repair that accepts only a final actor
-\texttt{target\_id} or compiled ID exactly equal to a serialized state ID; it uses no fuzzy,
-display-name, or semantic matching. The table reports the repaired audit with a post-primary,
-transport-repaired evidence status. The ITT direction is consistent with the controlled diagnosis,
-but model authoring and judge disagreement leave the open-language concern unresolved.
+The two model judges jointly accept no complete opposite-gold pair, so their labels do not define an
+independent-language endpoint. The table is therefore an auxiliary model-distribution sensitivity,
+not independent human evidence or an open-language claim. A frozen zero-request exact-ID reparse
+produced the reported table; the original invalid report, repair rule, raw outputs, and hashes remain
+in the Code and Data Supplement.
 
 \section{Code and Data Supplement Map}
 \enlargethispage{2\baselineskip}
@@ -1922,12 +1895,13 @@ evidence. The authors verified the manuscript claims, references, code, and repo
 The paper-facing API runs use SiliconFlow's OpenAI-compatible
 \texttt{https://api.siliconflow.cn/v1/chat/completions} endpoint and the exact provider model IDs
 \texttt{Qwen/Qwen3.5-122B-A10B}, \texttt{Pro/zai-org/GLM-5.1}, and
-\texttt{deepseek-ai/DeepSeek-V4-Pro}. The provider did not expose immutable weight revisions or
+\texttt{deepseek-ai/DeepSeek-V4-Pro}; the four-model matched-call and convention controls also use
+\texttt{Pro/MiniMaxAI/MiniMax-M2.5}. The provider did not expose immutable weight revisions or
 serving hardware, which limits exact API replay. Frozen primary and cross-schema calls use
 temperature zero, thinking disabled, and a 1,200-token output cap. Per-row timestamps, request attempts, retries,
 latency, and configuration are stored in raw JSONL. Protocol files record timeout, retry, smoke,
 and stopping rules for each extension, while prompts are literal strings in the versioned
-runners. Paper-facing primary and replication calls span July 17--26, 2026 (UTC). Offline reports
+runners. Paper-facing primary and replication calls span July 17--28, 2026 (UTC). Offline reports
 and tests were verified on macOS 26.5.1 arm64 with Python 3.12.13 and
 pytest 9.1.1; core generation, scoring, bootstrap, and SQLite replay use the Python standard
 library. These local details reproduce analysis from frozen outputs, not provider inference.

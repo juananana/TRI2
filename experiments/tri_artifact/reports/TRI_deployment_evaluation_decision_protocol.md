@@ -91,8 +91,8 @@ transport retry policy.
 
 For every environment--model--controller cell:
 
-1. changed PairAcc over all 40 frozen Preserve/Reevaluate pairs;
-2. row-level E2E over all 120 rows;
+1. changed PairAcc over the 20 frozen Preserve/Reevaluate pairs in that environment;
+2. row-level E2E over the 60 rows in that environment;
 3. Preserve conditional substitution, requiring a correct observable initial binding, completed
    refresh, distinct refreshed winner, and surviving action-valid old target;
 4. strict wrong-entity writes, all wrong writes, invalid attempts, unnecessary rejection, and
@@ -101,6 +101,10 @@ For every environment--model--controller cell:
 
 Stable errors and changed errors remain separate. Zero conditional substitutions is not overall
 success, and refusal is not counted as a correct actionable task.
+
+The unchanged benchmark-aware Rule* is executed once on all 120 locked rows as a formal post-hoc
+strong baseline. It is labeled post-hoc, its source hash is frozen before execution, and it is not
+added to or substituted for any member of the six-controller selection set.
 
 ## Frozen selection comparison
 

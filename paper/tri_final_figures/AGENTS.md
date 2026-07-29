@@ -46,6 +46,10 @@ table and let the figure show the pattern.
   target for ordinary text and important labels.
 - Avoid light green, yellow, or orange text on white. Use the established teal, coral, amber,
   charcoal, and neutral-gray palette consistently.
+- For filled bars, areas, and color blocks, avoid a universal black or charcoal border. Use an
+  outline from the same hue family that is slightly darker than the fill. Error bars or intervals
+  drawn inside a colored mark should also use a darker tone from that mark's hue family. Reserve
+  dark neutral ink for axes, reference lines, and structural marks that need neutral emphasis.
 
 ## Size, Export, And Lines
 
@@ -63,6 +67,8 @@ table and let the figure show the pattern.
 - No label may be clipped by the canvas or become unreadable after single-column reduction.
 - Use line breaks, aligned columns, and concise labels to reduce unused whitespace.
 - Keep related values adjacent and visibly separate different endpoints or denominators.
+- State shared row definitions and denominators once in a compact header or key instead of
+  repeating them at every y-axis tick. Keep repeated tick labels to the shortest unambiguous form.
 - Do not connect independent metrics, datasets, or denominators in a way that implies a trajectory
   or common scale.
 - Every figure must communicate one review-critical question. Its title, labels, and caption must

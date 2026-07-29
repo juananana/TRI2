@@ -1,0 +1,43 @@
+{
+  "audit_version": "TRI-public-recall-sampling-frame-v1",
+  "evidence_status": "frozen blind-annotation frame; no labels",
+  "rows": 699,
+  "natural_rows": 639,
+  "control_rows": 60,
+  "by_dataset": {
+    "API-Bank": {
+      "random_non_candidate": 100,
+      "retrieved_candidate": 6
+    },
+    "AppWorld": {
+      "random_non_candidate": 100,
+      "retrieved_candidate": 1
+    },
+    "BFCL": {
+      "random_non_candidate": 100,
+      "retrieved_candidate": 65
+    },
+    "ToolSandbox": {
+      "random_non_candidate": 100,
+      "retrieved_candidate": 9
+    },
+    "ToolTalk": {
+      "random_non_candidate": 23,
+      "retrieved_candidate": 27
+    },
+    "tau3-bench": {
+      "random_non_candidate": 100,
+      "retrieved_candidate": 8
+    }
+  },
+  "per_dataset_noncandidate_cap": 100,
+  "seed": 20260729,
+  "population_sha256": "e5c1a19bc8044eade081ad402031d02e0a5143147e3082b7114b1f198f1d1e1f",
+  "candidate_census_sha256": "881059186ce039d09d3748aa349bad423ba9455a342de2326b95e327acb5a39a",
+  "population_report_sha256": "7ef53ea9f25bb253a512b1d4d465619cad2129bdb9f648d73ee4843122fb1b90",
+  "controls_sha256": "c13b317d79f20c88ae382ae88c9bfe199975182c8d0df75e0d247e9f61c8fc9e",
+  "frame_sha256": "c5f4c56b0e9df0cfa17f57914c730a2d5aeeb6f094fdbba41430bbc2c27beedb",
+  "human_labels_complete": false,
+  "model_calls_allowed": false,
+  "next_gate": "three independent blind labels per row; controls excluded from estimates"
+}

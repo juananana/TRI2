@@ -55,7 +55,9 @@ def test_generated_fragments_keep_the_two_denominators_separate():
     supplement = build_supplement(convention, matched)
     assert "40 changed pairs" in main
     assert "32 actionable changed" in main
-    assert "different frozen inventories and are not pooled" in main
+    assert "separate frozen inventories" in main
+    assert "inventories are not pooled" in main
+    assert "changed-winner PairAcc" in main
     assert "fig_submission_critical_pairacc_effects.pdf" in main
     assert "Convention-told natural-history control" in supplement
     assert "Four-model full-diagnostic matched-call audit" in supplement

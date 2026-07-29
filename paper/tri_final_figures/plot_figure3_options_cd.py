@@ -65,6 +65,7 @@ def configure() -> None:
             "xtick.labelsize": 7.0,
             "ytick.labelsize": 7.0,
             "axes.linewidth": 0.65,
+            "hatch.linewidth": 0.28,
             "pdf.fonttype": 42,
             "ps.fonttype": 42,
             "svg.fonttype": "none",
@@ -142,13 +143,13 @@ def draw_outcome_composition(data: list[dict[str, int | str | float]]) -> plt.Fi
     fig, ax = plt.subplots(figsize=(3.35, 2.25))
     y = np.arange(len(data))[::-1]
     categories = [
-        ("both", "Both correct", PAIR, PAIR_EDGE),
-        ("preserve_only", "Preserve only", PRESERVE_LIGHT, PRESERVE),
-        ("reevaluate_only", "Reeval. only", REEVALUATE_LIGHT, REEVALUATE),
-        ("neither", "Neither", NEITHER, NEITHER_EDGE),
+        ("both", "Both correct", PAIR, PAIR_EDGE, ""),
+        ("preserve_only", "Preserve only", PRESERVE_LIGHT, PRESERVE, "/"),
+        ("reevaluate_only", "Reeval. only", REEVALUATE_LIGHT, REEVALUATE, "\\"),
+        ("neither", "Neither", NEITHER, NEITHER_EDGE, ""),
     ]
     left = np.zeros(len(data))
-    for key, _, color, edge in categories:
+    for key, _, color, edge, hatch in categories:
         values = np.asarray([int(row[key]) for row in data])
         ax.barh(
             y,
@@ -158,6 +159,7 @@ def draw_outcome_composition(data: list[dict[str, int | str | float]]) -> plt.Fi
             color=color,
             edgecolor=edge,
             linewidth=0.50,
+            hatch=hatch,
             zorder=2,
         )
         left += values
@@ -187,9 +189,10 @@ def draw_outcome_composition(data: list[dict[str, int | str | float]]) -> plt.Fi
     ax.grid(axis="x", color=GRID, lw=0.45, alpha=0.82, zorder=0)
     ax.spines[["top", "right", "left"]].set_visible(False)
     handles = [
-        Patch(facecolor=color, edgecolor=edge, linewidth=0.65, label=label)
-        for _, label, color, edge in categories
+        Patch(facecolor=color, edgecolor=edge, linewidth=0.65, hatch=hatch, label=label)
+        for _, label, color, edge, hatch in categories
     ]
+    handles = [handles[index] for index in (0, 2, 1, 3)]
     ax.legend(
         handles=handles,
         ncol=2,

@@ -1,0 +1,246 @@
+{
+  "file": "fig2_tri_diagnostic_workflow_v19_structured.drawio",
+  "summary": {
+    "total_findings": 18,
+    "fail": 0,
+    "warn": 18,
+    "passed": true,
+    "clean": false
+  },
+  "fails": [],
+  "warns": [
+    {
+      "rule": "spacing-inconsistent-h",
+      "element_id": "phase-A",
+      "message": "Row at y≈18: horizontal gaps vary (gaps=['763', '243'], mean=503, cv=0.52). Use uniform spacing.",
+      "detail": {
+        "row_y": 18,
+        "gaps": [
+          763.0,
+          243.0
+        ],
+        "mean": 503.0,
+        "cv": 0.52,
+        "element_ids": [
+          "phase-A",
+          "phase-B",
+          "phase-C"
+        ]
+      }
+    },
+    {
+      "rule": "spacing-inconsistent-h",
+      "element_id": "state-s0",
+      "message": "Row at y≈255: horizontal gaps vary (gaps=['60', '56', '370', '25', '22'], mean=107, cv=1.24). Use uniform spacing.",
+      "detail": {
+        "row_y": 255,
+        "gaps": [
+          60.0,
+          56.0,
+          370.0,
+          25.0,
+          22.0
+        ],
+        "mean": 106.6,
+        "cv": 1.24,
+        "element_ids": [
+          "state-s0",
+          "refresh",
+          "state-s1",
+          "sub-a",
+          "sub-refresh",
+          "sub-b"
+        ]
+      }
+    },
+    {
+      "rule": "spacing-inconsistent-h",
+      "element_id": "reevaluate-token",
+      "message": "Row at y≈390: horizontal gaps vary (gaps=['390', '30', '568'], mean=329, cv=0.68). Use uniform spacing.",
+      "detail": {
+        "row_y": 390,
+        "gaps": [
+          390.0,
+          30.0,
+          568.0
+        ],
+        "mean": 329.3,
+        "cv": 0.68,
+        "element_ids": [
+          "reevaluate-token",
+          "resolve",
+          "gold-b",
+          "exec-icon"
+        ]
+      }
+    },
+    {
+      "rule": "color-too-many-fills",
+      "element_id": "*",
+      "message": "9 distinct fill colors used across diagram. Palette is scattered — reduce to 3-6 fill colors. Colors: #248d82, #264a56, #a9b6b8, #c12a36, #dceff0, #f7fafa, #f8e8e9, #fff5de, #ffffff",
+      "detail": {
+        "fill_count": 9,
+        "colors": [
+          "#248d82",
+          "#264a56",
+          "#a9b6b8",
+          "#c12a36",
+          "#dceff0",
+          "#f7fafa",
+          "#f8e8e9",
+          "#fff5de",
+          "#ffffff"
+        ]
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "phase-A",
+      "message": "Isolated colored shape 'phase-A' (32x32, fill=#264a56, label='A') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "phase-A",
+        "fill_color": "#264a56",
+        "label": "A",
+        "size": "32x32"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "phase-B",
+      "message": "Isolated colored shape 'phase-B' (32x32, fill=#248d82, label='B') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "phase-B",
+        "fill_color": "#248d82",
+        "label": "B",
+        "size": "32x32"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "phase-C",
+      "message": "Isolated colored shape 'phase-C' (32x32, fill=#264a56, label='C') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "phase-C",
+        "fill_color": "#264a56",
+        "label": "C",
+        "size": "32x32"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "preserve-token",
+      "message": "Isolated colored shape 'preserve-token' (42x42, fill=#c12a36, label='P') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "preserve-token",
+        "fill_color": "#c12a36",
+        "label": "P",
+        "size": "42x42"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "refresh",
+      "message": "Isolated colored shape 'refresh' (74x74, fill=#fff5de, label='') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "refresh",
+        "fill_color": "#fff5de",
+        "label": "",
+        "size": "74x74"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "reevaluate-token",
+      "message": "Isolated colored shape 'reevaluate-token' (42x42, fill=#248d82, label='R') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "reevaluate-token",
+        "fill_color": "#248d82",
+        "label": "R",
+        "size": "42x42"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "p-run",
+      "message": "Isolated colored shape 'p-run' (44x44, fill=#c12a36, label='P') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "p-run",
+        "fill_color": "#c12a36",
+        "label": "P",
+        "size": "44x44"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "r-run",
+      "message": "Isolated colored shape 'r-run' (44x44, fill=#248d82, label='R') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "r-run",
+        "fill_color": "#248d82",
+        "label": "R",
+        "size": "44x44"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "sub-a",
+      "message": "Isolated colored shape 'sub-a' (38x38, fill=#c12a36, label='A') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "sub-a",
+        "fill_color": "#c12a36",
+        "label": "A",
+        "size": "38x38"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "sub-b",
+      "message": "Isolated colored shape 'sub-b' (38x38, fill=#248d82, label='B') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "sub-b",
+        "fill_color": "#248d82",
+        "label": "B",
+        "size": "38x38"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "state-s0",
+      "message": "Box 'state-s0' (145×78) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "state-s0",
+        "size": "145×78"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "refresh",
+      "message": "Box 'refresh' (74×74) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "refresh",
+        "size": "74×74"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "state-s1",
+      "message": "Box 'state-s1' (190×78) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "state-s1",
+        "size": "190×78"
+      }
+    },
+    {
+      "rule": "orphan-empty-box",
+      "element_id": "probe",
+      "message": "Box 'probe' (120×220) has no text label. Add content or reduce size.",
+      "detail": {
+        "box_id": "probe",
+        "size": "120×220"
+      }
+    }
+  ],
+  "vertex_count": 72,
+  "edge_count": 14,
+  "canvas": "1400x500"
+}

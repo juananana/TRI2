@@ -1,0 +1,245 @@
+{
+  "report_eligible": true,
+  "ineligible_reason": null,
+  "rule": "PairAcc CI positive in at least two of three models and negative in none",
+  "decisions": [
+    {
+      "contrast": "placebo-history_only",
+      "eligible_for_field_claim": false,
+      "positive_models": 1,
+      "has_significant_reverse_model": true,
+      "model_intervals": [
+        {
+          "model": "Pro/zai-org/GLM-5.1",
+          "ci95": [
+            -0.22500000000000003,
+            -0.024999999999999994
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-122B-A10B",
+          "ci95": [
+            -0.175,
+            0.175
+          ]
+        },
+        {
+          "model": "deepseek-ai/DeepSeek-V4-Pro",
+          "ci95": [
+            0.024999999999999994,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "contrast": "selector_only-history_only",
+      "eligible_for_field_claim": false,
+      "positive_models": 0,
+      "has_significant_reverse_model": true,
+      "model_intervals": [
+        {
+          "model": "Pro/zai-org/GLM-5.1",
+          "ci95": [
+            -0.22500000000000003,
+            -0.02500000000000001
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-122B-A10B",
+          "ci95": [
+            -0.1,
+            0.15000000000000002
+          ]
+        },
+        {
+          "model": "deepseek-ai/DeepSeek-V4-Pro",
+          "ci95": [
+            0.0,
+            0.07500000000000001
+          ]
+        }
+      ]
+    },
+    {
+      "contrast": "id_control-history_only",
+      "eligible_for_field_claim": false,
+      "positive_models": 0,
+      "has_significant_reverse_model": false,
+      "model_intervals": [
+        {
+          "model": "Pro/zai-org/GLM-5.1",
+          "ci95": [
+            -0.07500000000000001,
+            0.125
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-122B-A10B",
+          "ci95": [
+            -0.07500000000000001,
+            0.125
+          ]
+        },
+        {
+          "model": "deepseek-ai/DeepSeek-V4-Pro",
+          "ci95": [
+            0.0,
+            0.15000000000000002
+          ]
+        }
+      ]
+    },
+    {
+      "contrast": "mode_only-history_only",
+      "eligible_for_field_claim": false,
+      "positive_models": 1,
+      "has_significant_reverse_model": false,
+      "model_intervals": [
+        {
+          "model": "Pro/zai-org/GLM-5.1",
+          "ci95": [
+            -0.12499999999999997,
+            0.050000000000000024
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-122B-A10B",
+          "ci95": [
+            -0.025000000000000022,
+            0.19999999999999996
+          ]
+        },
+        {
+          "model": "deepseek-ai/DeepSeek-V4-Pro",
+          "ci95": [
+            0.024999999999999994,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "contrast": "mode_plus_id-mode_only",
+      "eligible_for_field_claim": false,
+      "positive_models": 1,
+      "has_significant_reverse_model": false,
+      "model_intervals": [
+        {
+          "model": "Pro/zai-org/GLM-5.1",
+          "ci95": [
+            0.025000000000000022,
+            0.22500000000000003
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-122B-A10B",
+          "ci95": [
+            -0.125,
+            0.175
+          ]
+        },
+        {
+          "model": "deepseek-ai/DeepSeek-V4-Pro",
+          "ci95": [
+            -0.07499999999999998,
+            0.27499999999999997
+          ]
+        }
+      ]
+    },
+    {
+      "contrast": "mode_plus_id_selector-mode_plus_id",
+      "eligible_for_field_claim": false,
+      "positive_models": 0,
+      "has_significant_reverse_model": false,
+      "model_intervals": [
+        {
+          "model": "Pro/zai-org/GLM-5.1",
+          "ci95": [
+            -0.04999999999999999,
+            0.15000000000000002
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-122B-A10B",
+          "ci95": [
+            -0.2,
+            0.04999999999999999
+          ]
+        },
+        {
+          "model": "deepseek-ai/DeepSeek-V4-Pro",
+          "ci95": [
+            -0.07500000000000001,
+            0.125
+          ]
+        }
+      ]
+    },
+    {
+      "contrast": "full_follow-mode_plus_id_selector",
+      "eligible_for_field_claim": false,
+      "positive_models": 0,
+      "has_significant_reverse_model": true,
+      "model_intervals": [
+        {
+          "model": "Pro/zai-org/GLM-5.1",
+          "ci95": [
+            -0.07500000000000007,
+            0.12500000000000006
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-122B-A10B",
+          "ci95": [
+            -0.125,
+            0.07500000000000001
+          ]
+        },
+        {
+          "model": "deepseek-ai/DeepSeek-V4-Pro",
+          "ci95": [
+            -0.2,
+            -0.024999999999999967
+          ]
+        }
+      ]
+    },
+    {
+      "contrast": "full_follow-placebo",
+      "eligible_for_field_claim": false,
+      "positive_models": 1,
+      "has_significant_reverse_model": false,
+      "model_intervals": [
+        {
+          "model": "Pro/zai-org/GLM-5.1",
+          "ci95": [
+            0.14999999999999997,
+            0.45000000000000007
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-122B-A10B",
+          "ci95": [
+            -0.15000000000000002,
+            0.15000000000000002
+          ]
+        },
+        {
+          "model": "deepseek-ai/DeepSeek-V4-Pro",
+          "ci95": [
+            -0.1,
+            0.15000000000000002
+          ]
+        }
+      ]
+    }
+  ],
+  "never_promotes": [
+    "architecture necessity",
+    "internal mechanism",
+    "open-language transfer",
+    "prevalence"
+  ]
+}

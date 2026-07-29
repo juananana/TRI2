@@ -1,0 +1,39 @@
+{
+  "effects_pp": {
+    "DeepSeek": {
+      "convention_told": 7.5,
+      "decision_visible": 43.75
+    },
+    "GLM": {
+      "convention_told": 10.0,
+      "decision_visible": 53.125
+    },
+    "MiniMax": {
+      "convention_told": 25.0,
+      "decision_visible": 34.375
+    },
+    "Qwen": {
+      "convention_told": -5.0,
+      "decision_visible": 25.0
+    }
+  },
+  "encoding": {
+    "bar_height": "changed PairAcc effect in percentage points",
+    "left_lavender_bar": "Convention told minus Plain history",
+    "model": "x-axis label",
+    "right_teal_bar": "Decision visible minus History only",
+    "whisker": "cluster-bootstrap 95% CI"
+  },
+  "inputs": {
+    "convention": "experiments/tri_artifact/reports/convention_told_natural_history_v1.json",
+    "decision_visible": "experiments/tri_artifact/reports/revision_full_diagnostic_four_model_v2.json"
+  },
+  "insertion": "0.97 columnwidth",
+  "minimum_text_pt": 7.0,
+  "source_minimum_text_pt": 6.1,
+  "source_size_in": [
+    2.8,
+    2.48
+  ],
+  "status": "Figure 6 integrated two-color grouped effect bars"
+}

@@ -1,0 +1,65 @@
+{
+  "status": "Figure 3 v3 palette/accessibility comparison; Forest Ember selected",
+  "figure": "selected Figure 3 pair-outcome composition",
+  "selected": "d_forest_ember",
+  "minimum_text_pt": 7.0,
+  "accessibility_encoding": {
+    "both_correct": "solid dark fill",
+    "preserve_only": "sparse forward diagonal",
+    "reevaluate_only": "sparse backward diagonal",
+    "neither": "plain neutral fill"
+  },
+  "shared_neutrals": {
+    "ink": "#264A56",
+    "muted": "#5F6B70",
+    "grid": "#D6E0DE"
+  },
+  "source": "/Users/chu/Documents/Codex/2026-07-15/k-y/TRI/paper/tri_final_figures/data/summary_csv/matched_pairacc_and_marginals.csv",
+  "source_sha256": "7ac145be8a950367d65573e6431749b1771c7fc6fa6a6651cccad4509a7d990c",
+  "shortlist": [
+    "a_ocean_breeze",
+    "c_ink_blush",
+    "d_forest_ember"
+  ],
+  "palettes": {
+    "a_ocean_breeze": {
+      "label": "A  Ocean breeze",
+      "primary": "#51999F",
+      "secondary": "#ED8D5A",
+      "tertiary": "#7BC0CD",
+      "support": "#BFDFD2",
+      "neutral": "#69737A",
+      "primary_light": "#D9EBEC",
+      "secondary_light": "#FAE1D4",
+      "note": "Xiaohongshu scientific-figure palette; yellow members omitted"
+    },
+    "c_ink_blush": {
+      "label": "C  Ink blue + blush",
+      "primary": "#637A9F",
+      "secondary": "#D88B96",
+      "tertiary": "#6C9488",
+      "support": "#BCC9DD",
+      "neutral": "#66717C",
+      "primary_light": "#DFE5EE",
+      "secondary_light": "#F3E0E4",
+      "note": "cooler conference-paper palette with restrained rose"
+    },
+    "d_forest_ember": {
+      "label": "D  Forest ember",
+      "primary": "#407A7F",
+      "secondary": "#E56D4E",
+      "tertiary": "#60AA84",
+      "support": "#B8D0C7",
+      "neutral": "#5F6B70",
+      "primary_light": "#D9E7E7",
+      "secondary_light": "#F8DDD5",
+      "note": "higher-contrast version of the approved tropical-forest system"
+    }
+  },
+  "outputs": {
+    "a_ocean_breeze": "paper/tri_final_figures/outputs/figure3_palette_final_v3/figure3_palette_a_ocean_breeze",
+    "c_ink_blush": "paper/tri_final_figures/outputs/figure3_palette_final_v3/figure3_palette_c_ink_blush",
+    "d_forest_ember": "paper/tri_final_figures/outputs/figure3_palette_final_v3/figure3_palette_d_forest_ember"
+  },
+  "contact_sheet": "paper/tri_final_figures/outputs/figure3_palette_final_v3/figure3_palette_acd_comparison.png"
+}

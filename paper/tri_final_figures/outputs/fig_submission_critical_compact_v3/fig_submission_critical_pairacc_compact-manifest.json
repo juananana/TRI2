@@ -1,0 +1,75 @@
+{
+  "status": "Figure 6 v3 shape-coded equal-call effects; candidate not integrated",
+  "size_inches": [
+    3.35,
+    2.42
+  ],
+  "minimum_text_pt": 5.9,
+  "sources": {
+    "convention": "/Users/chu/Documents/Codex/2026-07-15/k-y/TRI/experiments/tri_artifact/reports/convention_told_natural_history_v1.json",
+    "convention_sha256": "dde5e3c23132f84a12c9136c4cad2b70b8eb8bf3f2902c61d93d930f0737dd03",
+    "decision_visible": "/Users/chu/Documents/Codex/2026-07-15/k-y/TRI/experiments/tri_artifact/reports/revision_full_diagnostic_four_model_v1.json",
+    "decision_visible_sha256": "1bdb21cc041f92bf7424ae74e67499d760134c400f532e22f44944b043099970"
+  },
+  "groups": {
+    "convention_told_40_pairs": [
+      {
+        "model": "Qwen",
+        "effect_pp": -5.0,
+        "ci95_low_pp": -12.5,
+        "ci95_high_pp": 0.0
+      },
+      {
+        "model": "GLM",
+        "effect_pp": 10.0,
+        "ci95_low_pp": 2.5,
+        "ci95_high_pp": 20.0
+      },
+      {
+        "model": "DeepSeek",
+        "effect_pp": 7.5,
+        "ci95_low_pp": -5.0,
+        "ci95_high_pp": 20.0
+      },
+      {
+        "model": "MiniMax",
+        "effect_pp": 25.0,
+        "ci95_low_pp": 12.5,
+        "ci95_high_pp": 37.5
+      }
+    ],
+    "decision_visible_32_pairs": [
+      {
+        "model": "Qwen",
+        "effect_pp": 25.0,
+        "ci95_low_pp": 6.25,
+        "ci95_high_pp": 46.154
+      },
+      {
+        "model": "GLM",
+        "effect_pp": 53.125,
+        "ci95_low_pp": 28.571,
+        "ci95_high_pp": 77.778
+      },
+      {
+        "model": "DeepSeek",
+        "effect_pp": 43.75,
+        "ci95_low_pp": 16.667,
+        "ci95_high_pp": 71.429
+      },
+      {
+        "model": "MiniMax",
+        "effect_pp": 34.375,
+        "ci95_low_pp": 11.111,
+        "ci95_high_pp": 58.333
+      }
+    ]
+  },
+  "encoding": {
+    "bar": "effect estimate from zero",
+    "translucent_band": "cluster-bootstrap 95% CI",
+    "marker_shape": "model identity",
+    "filled_marker_and_bar": "CI excludes zero",
+    "open_marker_and_bar": "CI crosses zero"
+  }
+}

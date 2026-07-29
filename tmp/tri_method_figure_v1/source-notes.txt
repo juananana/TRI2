@@ -1,0 +1,27 @@
+Communication job: by the end of the figure, an AAAI reviewer should understand how TRI turns one
+controlled state transition into a matched Preserve/Reevaluate diagnostic and why the three
+reported endpoints answer different questions.
+
+Scope decisions:
+- Do not repeat Figure 1's email scenario.
+- Do not depict CTA or Lifecycle as the paper's unique method.
+- Do not mix empirical results into the method figure.
+- Hold S0, S1, selector, action, and schema fixed; vary only commitment timing.
+- Show PairAcc, conditional substitution, and executed state diff as distinct endpoints.
+
+Visual references inspected:
+- draw_learning/01407-AAAI24.ZhaoA.pdf
+- draw_learning/16627-AAAI26.WangZ-NLP.pdf
+- draw_learning/26253-AAAI26.GuoZ-NLP.pdf
+- draw_learning/KDD_3421_Mining_Point_of_No_Return.pdf
+- draw_learning/accept_ACL_4820_Revealing_Procedural_Reas.pdf
+- draw_learning/accept_ICML_9079_The_Geometry_of_Narrow_Fi.pdf
+- draw_learning/accept_SymPareto_A_Dynamic_GainDegradation_Co-Evolution_Framework_for_Pareto-Optimal_Task_Scheduling_in_Autonomous_Intelligent_Systems.pdf
+
+Reusable lessons applied:
+- One left-to-right reading path.
+- Shared inputs above/left, contrast in the center, outputs and scoring at the end.
+- Short direct labels, no explanatory paragraphs inside the figure.
+- Color reinforces, but lane position and solid/dashed structure carry the distinction too.
+- Caption should carry denominators and evidence status; the method figure should not.
+

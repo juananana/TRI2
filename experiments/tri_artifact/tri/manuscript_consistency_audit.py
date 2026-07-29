@@ -96,25 +96,25 @@ def build_report(paper: Path = PAPER, bib: Path = BIB) -> dict[str, Any]:
         for phrase in (
             "a diagnostic built from matched Preserve/Reevaluate pairs",
             "In a post-primary controlled replication across three model backends on 240 authored tasks spanning ten schemas, an author-designed Generic controller",
-            "Effects on pairs adapted from public benchmarks varied by model",
-            "Limited human agreement audits did not establish open-language transfer",
+            "across four tested model backends",
+            "Effects on author-adapted public-benchmark pairs were model-dependent",
             "a controlled diagnostic for selective re-resolution",
-            "native prevalence and generalization to open-ended language remain unresolved",
+            "does not estimate native-task prevalence or unrestricted language transfer",
         )
     )
     checks["abstract_chronology_is_explicit"] = all(
         phrase in normalized_paper
         for phrase in (
             "In a post-primary controlled replication across three model backends on 240 authored tasks spanning ten schemas",
-            "A SQLite tool-loop test",
-            "With equal calls and identical base actor inputs, exposing a composite decision block",
+            "A SQLite tool-loop test separately observed refreshed-winner writes",
+            "Under equal calls and byte-identical base actor inputs, exposing a composite decision block",
         )
     )
     checks["body_chronology_is_explicit"] = all(
         phrase in normalized_paper
         for phrase in (
             "The Qwen package comparison is primary/frozen, with a later GLM replication",
-            "The ten-schema attribution, equal-call contrasts, human agreement audits, and external audits are post-primary",
+            "The ten-schema controller audit, equal-call contrasts, human agreement audits, and external audits are post-primary",
             "Rule* is post-hoc",
         )
     )
@@ -123,7 +123,7 @@ def build_report(paper: Path = PAPER, bib: Path = BIB) -> dict[str, Any]:
         for phrase in (
             "The primary comparison changes the complete controller package and uses different numbers of model calls",
             "Qwen E2E changes from 103/160 for Generic to 157/160 for Lifecycle-Gated",
-            "language-template-cluster 95\\% confidence interval (CI) [18.1, 49.4]",
+            "language-template-cluster 95\\% confidence interval (CI) [18.1, 50.0]",
             "the later GLM replication changes from 115/160 to 160/160 (+28.1 points; 95\\% CI [18.1, 38.1])",
             "The equal-call test holds base payloads, states, and tool schemas fixed",
             "estimates the complete block rather than any field",
@@ -182,19 +182,36 @@ def build_report(paper: Path = PAPER, bib: Path = BIB) -> dict[str, Any]:
         )
     )
     checks["claim_evidence_map_and_result_status_are_explicit"] = (
-        "Post-primary audits from frozen \\PrimaryDiagnostic{} and \\NewSchemaReplication{} outputs"
-        in normalized_supplement
+        all(
+            phrase in normalized_supplement
+            for phrase in (
+                "Post-primary audits from frozen \\PrimaryDiagnostic{} and \\NewSchemaReplication{} outputs",
+                "Evidence boundary. Each row separates the completed evidence from the strongest",
+                "Aggregate-score certification",
+                "Natural prevalence",
+            )
+        )
         and all(
             phrase in normalized_paper
             for phrase in (
-                "Claim-to-evidence map",
-                "Exact targets within three policy extremes; no internal-mechanism identification",
                 "Ten-schema conditional outcomes after correct initial binding"
                 if "Ten-schema conditional outcomes after correct initial binding" in normalized_paper
                 else "Ten-schema outcomes after correct initial binding",
-                "Secondary/frozen 40-task SQLite outcomes for Generic",
+                (
+                    "Strict SQLite opportunities for Generic after correct pre-refresh binding to A"
+                    if "Strict SQLite opportunities for Generic after correct pre-refresh binding to A" in normalized_paper
+                    else (
+                        "Secondary/frozen SQLite consequence test for Generic"
+                        if "Secondary/frozen SQLite consequence test for Generic" in normalized_paper
+                        else (
+                            "Secondary/frozen 40-task SQLite outcomes for Generic"
+                            if "Secondary/frozen 40-task SQLite outcomes for Generic" in normalized_paper
+                            else "Complete 40-task SQLite outcomes and strict refreshed-winner writes for Generic"
+                        )
+                    )
+                ),
                 "The Qwen package comparison is primary/frozen",
-                "The ten-schema attribution, equal-call contrasts, human agreement audits, and external audits are post-primary",
+                "The ten-schema controller audit, equal-call contrasts, human agreement audits, and external audits are post-primary",
                 "Rule* is post-hoc",
             )
         )
@@ -209,7 +226,7 @@ def build_report(paper: Path = PAPER, bib: Path = BIB) -> dict[str, Any]:
         )
     )
     checks["external_extension_has_four_paper_facing_conditions"] = (
-        "An extension finds zero substitutions in four conditions over 64--87 eligible opportunities"
+        "A frozen 96-task ToolSandbox-style extension finds zero substitutions in four Qwen/GLM controller conditions over 64--87 eligible rows each"
         in normalized_paper
         and "five conditions" not in paper_text.lower()
     )
@@ -223,21 +240,45 @@ def build_report(paper: Path = PAPER, bib: Path = BIB) -> dict[str, Any]:
             "no method consistently improves execution accuracy",
         )
     )
+    checks["public_model_prelabels_remain_non_evidence"] = all(
+        phrase in normalized_supplement
+        for phrase in (
+            "Model-assisted recall triage",
+            "The strict-positive union and intersection are both zero",
+            "fallible model labels are not used as human adjudications",
+        )
+    ) and "126 natural units positive" not in normalized_paper
+    checks["failed_writer_holdout_is_disclosed_without_endpoint"] = all(
+        phrase not in normalized_paper
+        for phrase in (
+            "independent-language holdout result",
+            "independent writer validation",
+            "open-language generalization is established",
+        )
+    ) and all(
+        phrase in normalized_supplement
+        for phrase in (
+            "Model-Assisted Linguistic Sensitivity",
+            "auxiliary model-distribution sensitivity",
+            "not independent human evidence or an open-language claim",
+        )
+    )
     checks["conclusion_retains_scope_boundary"] = all(
         phrase in normalized_paper
         for phrase in (
-            "Evidence is limited to the tested single-refresh scalar policies and complete-block intervention",
-            "does not establish native prevalence, open-language transfer, or the necessity of a unique architecture",
+            "Within the tested exact-target class",
+            "with model-dependent transfer",
+            "without privileging a unique record format",
         )
     )
     checks["equal_call_interface_is_self_contained"] = all(
         phrase in normalized_paper
         for phrase in (
             "RQ3: Does Decision Visibility Change Outcomes under Equal Calls?",
-            "One compiler call and two actor calls; actor order alternates by task index",
-            "Byte-identical instruction, states, selected ID, selector, action, and tool schema",
-            "Decision-enforced & Zero-call deterministic transform, not a third actor condition",
-            "does not identify any field or framing component separately",
+            "using the same base payloads, states, tool schemas, and call count",
+            "The visible block jointly contains the predicted reference mode, bound ID, and selector restatement",
+            "Decision-enforced applies it offline",
+            "estimates the complete block rather than any field",
         )
     )
     checks["replication_denominator_is_explicit"] = all(

@@ -1,0 +1,67 @@
+{
+  "evidence_status": "post-run model-QA diagnostic; not independent-human, prevalence, or recall evidence",
+  "model_quality": {
+    "M1": {
+      "complete": 699,
+      "incomplete": 0,
+      "strict_positive": 30,
+      "natural_strict_positive": 0,
+      "positive_control_correct": 30,
+      "positive_control_available": 30,
+      "negative_control_correct": 30,
+      "negative_control_available": 30
+    },
+    "M2": {
+      "complete": 695,
+      "incomplete": 4,
+      "strict_positive": 24,
+      "natural_strict_positive": 0,
+      "positive_control_correct": 24,
+      "positive_control_available": 30,
+      "negative_control_correct": 27,
+      "negative_control_available": 27
+    },
+    "M3": {
+      "complete": 685,
+      "incomplete": 14,
+      "strict_positive": 151,
+      "natural_strict_positive": 126,
+      "positive_control_correct": 24,
+      "positive_control_available": 30,
+      "negative_control_correct": 29,
+      "negative_control_available": 30
+    }
+  },
+  "role_summary": {
+    "retrieved_candidate": {
+      "rows": 116,
+      "complete_model_panels": 115,
+      "incomplete_model_panels": 1,
+      "complete_panel_majority_positive": 0
+    },
+    "random_non_candidate": {
+      "rows": 523,
+      "complete_model_panels": 509,
+      "incomplete_model_panels": 14,
+      "complete_panel_majority_positive": 0
+    },
+    "injected_control": {
+      "rows": 60,
+      "complete_model_panels": 57,
+      "incomplete_model_panels": 3,
+      "complete_panel_majority_positive": 30
+    }
+  },
+  "complete_panel_positive_control_majority_correct": 30,
+  "positive_control_total": 30,
+  "complete_panel_negative_control_majority_correct": 27,
+  "negative_control_total": 30,
+  "natural_zero_claim_allowed": false,
+  "independent_human_evidence": false,
+  "prevalence_or_recall_claim_allowed": false,
+  "provenance": {
+    "private_annotation_key_sha256": "b0326e693dbf7175b5e3d8975e09e884ce27c276aa2571ad9a5cf0b6bce92b64",
+    "private_key_in_public_artifact": false,
+    "public_report_sha256": "958b3f8c82b938465ee8328ed9f4f490ee042ac78bf37fe9e98827871ee9d112"
+  }
+}

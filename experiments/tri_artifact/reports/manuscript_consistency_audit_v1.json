@@ -27,6 +27,8 @@
     "no_overstated_tie_or_sample_sufficiency_language": true,
     "external_extension_has_four_paper_facing_conditions": true,
     "source_anchored_transfer_retains_boundary": true,
+    "public_model_prelabels_remain_non_evidence": true,
+    "failed_writer_holdout_is_disclosed_without_endpoint": true,
     "conclusion_retains_scope_boundary": true,
     "equal_call_interface_is_self_contained": true,
     "replication_denominator_is_explicit": true,
@@ -38,16 +40,16 @@
       "definition": 321
     },
     "LLM": {
-      "first": 16497,
-      "definition": 16475
+      "first": 16865,
+      "definition": 16843
     },
     "CTA": {
-      "first": 7278,
+      "first": 7509,
       "definition": 890
     },
     "ID": {
-      "first": 2715,
-      "definition": 2696
+      "first": 2747,
+      "definition": 2728
     },
     "APIs": {
       "first": -1,
@@ -62,12 +64,12 @@
       "definition": 542
     },
     "E2E": {
-      "first": 11993,
-      "definition": 11981
+      "first": 12225,
+      "definition": 12213
     },
     "ITT": {
       "first": -1,
-      "definition": 15612
+      "definition": 15938
     }
   },
   "missing_bibliography_entries": [],

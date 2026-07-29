@@ -163,14 +163,14 @@ def report_full_diagnostic() -> None:
     _run(
         [
             str(PYTHON),
-            "scripts/report_revision_matched_audit.py",
+            "scripts/report_revision_matched_audit_v3.py",
             "--audit",
             "full_diagnostic",
             *[str(path) for path in inputs],
             "--json-output",
-            str(ROOT / "reports" / "revision_full_diagnostic_four_model_v1.json"),
+            str(ROOT / "reports" / "revision_full_diagnostic_four_model_v2.json"),
             "--md-output",
-            str(ROOT / "reports" / "revision_full_diagnostic_four_model_v1.md"),
+            str(ROOT / "reports" / "revision_full_diagnostic_four_model_v2.md"),
         ]
     )
 

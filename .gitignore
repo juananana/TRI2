@@ -22,11 +22,14 @@ node_modules/
 *.synctex.gz
 
 # Human-study private materials: keep locally, never stage or publish
+experiments/tri_artifact/human_studies/
 experiments/tri_artifact/human_validation/*.xlsx
 experiments/tri_artifact/human_validation/private_returns/
 experiments/tri_artifact/human_validation/annotation_key_private.csv
 experiments/tri_artifact/human_validation/00_你先填写_实验协调表.csv
 experiments/tri_artifact/human_validation/作者试填_不计入正式统计.csv
+human_experiment/
+pkcs11.txt
 
 # Temporary experiment outputs
 experiments/tri_artifact/runs/*.tmp

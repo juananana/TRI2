@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
@@ -14,7 +15,7 @@ import matplotlib as mpl
 mpl.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import FancyBboxPatch, Patch
+from matplotlib.patches import Patch, Rectangle
 from PIL import Image
 
 
@@ -126,32 +127,56 @@ def clean(ax: plt.Axes) -> None:
     ax.tick_params(length=2.4, width=0.65, pad=2)
 
 
-def add_soft_enclosure(
+def add_group_cue(
     ax: plt.Axes,
     bounds: tuple[float, float, float, float],
     *,
-    rounding: float,
+    style: str,
 ) -> None:
-    """Add a balanced rounded enclosure in axes coordinates."""
+    """Group endpoints without capsule- or ellipse-like containers."""
     x, y, width, height = bounds
-    ax.add_patch(
-        FancyBboxPatch(
-            (x, y),
-            width,
-            height,
-            boxstyle=f"round,pad=0.008,rounding_size={rounding}",
-            transform=ax.transAxes,
-            facecolor="#F1F4F4",
-            edgecolor=MUTED,
-            linewidth=0.75,
-            linestyle=(0, (3, 2)),
-            zorder=0.5,
-            clip_on=False,
+    if style == "none":
+        return
+    if style == "band":
+        ax.add_patch(
+            Rectangle(
+                (x, y),
+                width,
+                height,
+                transform=ax.transAxes,
+                facecolor="#F1F4F4",
+                edgecolor="none",
+                zorder=0.5,
+                clip_on=False,
+            )
         )
-    )
+        return
+    if style == "brackets":
+        cap = min(0.035, width * 0.16)
+        line_style = {
+            "transform": ax.transAxes,
+            "color": MUTED,
+            "linewidth": 0.70,
+            "linestyle": (0, (2.4, 2.0)),
+            "zorder": 0.5,
+            "clip_on": False,
+        }
+        ax.plot([x, x], [y, y + height], **line_style)
+        ax.plot([x, x + cap], [y, y], **line_style)
+        ax.plot([x, x + cap], [y + height, y + height], **line_style)
+        right = x + width
+        ax.plot([right, right], [y, y + height], **line_style)
+        ax.plot([right - cap, right], [y, y], **line_style)
+        ax.plot([right - cap, right], [y + height, y + height], **line_style)
+        return
+    raise ValueError(f"unknown grouping style: {style}")
 
 
-def draw(rows: dict[tuple[str, str], dict[str, str]]) -> plt.Figure:
+def draw(
+    rows: dict[tuple[str, str], dict[str, str]],
+    *,
+    grouping_style: str = "none",
+) -> plt.Figure:
     configure()
     fig, (ax_a, ax_b) = plt.subplots(
         1,
@@ -161,8 +186,8 @@ def draw(rows: dict[tuple[str, str], dict[str, str]]) -> plt.Figure:
     )
 
     # Panel A: the markers are controller conditions, not world states.
-    add_soft_enclosure(ax_a, (0.04, 0.315, 0.30, 0.57), rounding=0.14)
-    add_soft_enclosure(ax_a, (0.66, 0.065, 0.31, 0.22), rounding=0.10)
+    add_group_cue(ax_a, (0.04, 0.315, 0.30, 0.57), style=grouping_style)
+    add_group_cue(ax_a, (0.66, 0.065, 0.31, 0.22), style=grouping_style)
 
     endpoint_offsets = [-0.11, 0.0, 0.11]
     for endpoint_offset, (model, _short, marker, color) in zip(
@@ -291,15 +316,15 @@ def draw(rows: dict[tuple[str, str], dict[str, str]]) -> plt.Figure:
     return fig
 
 
-def save(fig: plt.Figure) -> None:
-    STEM.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(STEM.with_suffix(".pdf"), metadata={"Creator": "TRI Figure 4 recovered final"})
-    fig.savefig(STEM.with_suffix(".svg"))
-    png = STEM.with_suffix(".png")
+def save(fig: plt.Figure, *, stem: Path, grouping_style: str) -> None:
+    stem.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(stem.with_suffix(".pdf"), metadata={"Creator": "TRI Figure 4 grouping refinement"})
+    fig.savefig(stem.with_suffix(".svg"))
+    png = stem.with_suffix(".png")
     fig.savefig(png, dpi=400)
     plt.close(fig)
     with Image.open(png).convert("RGB") as image:
-        image.convert("L").save(STEM.with_name(STEM.name + "-grayscale").with_suffix(".png"))
+        image.convert("L").save(stem.with_name(stem.name + "-grayscale").with_suffix(".png"))
         rgb = np.asarray(image, dtype=np.float32) / 255.0
         deuteranopia = np.array(
             [
@@ -311,24 +336,37 @@ def save(fig: plt.Figure) -> None:
         )
         simulated = np.clip(rgb @ deuteranopia.T, 0.0, 1.0)
         Image.fromarray(np.uint8(np.round(simulated * 255))).save(
-            STEM.with_name(STEM.name + "-deuteranopia").with_suffix(".png")
+            stem.with_name(stem.name + "-deuteranopia").with_suffix(".png")
         )
     manifest = {
-        "status": "unified v6 A/B result with rounded endpoint enclosures and direct bar values",
+        "status": "unified Figure 4 A/B result with direct endpoints and no decorative enclosure",
+        "grouping_style": grouping_style,
         "source": str(DATA),
         "source_sha256": hashlib.sha256(DATA.read_bytes()).hexdigest(),
         "size_inches": [3.35, 2.16],
         "minimum_text_pt": 7.0,
         "png_dpi": 400,
         "pdf_fonttype": 42,
-        "panel_a": "Generic open to CTA filled; rounded endpoint enclosures replace ellipses; visible lower caps at the zero boundary; Wilson 95% CI; y-axis -20 to 105",
+        "panel_a": f"Generic open to CTA filled; grouping={grouping_style}; visible lower caps at the zero boundary; Wilson 95% CI; y-axis -20 to 105",
         "panel_b": "controller-grouped bars with direct integer percentages; cluster-bootstrap 95% CI; exact counts retained outside the plot",
     }
-    manifest_path = STEM.with_name(STEM.name + "-manifest").with_suffix(".json")
+    manifest_path = stem.with_name(stem.name + "-manifest").with_suffix(".json")
     manifest_path.write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
     )
 
 
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--grouping", choices=("none", "band", "brackets"), default="none")
+    parser.add_argument("--stem", type=Path, default=STEM)
+    args = parser.parse_args()
+    save(
+        draw(read_rows(), grouping_style=args.grouping),
+        stem=args.stem,
+        grouping_style=args.grouping,
+    )
+
+
 if __name__ == "__main__":
-    save(draw(read_rows()))
+    main()

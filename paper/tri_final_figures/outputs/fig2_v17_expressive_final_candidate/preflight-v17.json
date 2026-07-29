@@ -1,0 +1,107 @@
+{
+  "file": "fig2_tri_diagnostic_workflow_v17_expressive.drawio",
+  "summary": {
+    "total_findings": 5,
+    "fail": 0,
+    "warn": 5,
+    "passed": true,
+    "clean": false
+  },
+  "fails": [],
+  "warns": [
+    {
+      "rule": "spacing-inconsistent-h",
+      "element_id": "preserve",
+      "message": "Row at y≈126: horizontal gaps vary (gaps=['39', '175', '50', '85', '8', '13'], mean=62, cv=0.92). Use uniform spacing.",
+      "detail": {
+        "row_y": 126,
+        "gaps": [
+          39.0,
+          175.0,
+          50.0,
+          85.0,
+          8.0,
+          13.0
+        ],
+        "mean": 61.7,
+        "cv": 0.92,
+        "element_ids": [
+          "preserve",
+          "s0",
+          "s1",
+          "target_a",
+          "probe_p",
+          "probe",
+          "tp"
+        ]
+      }
+    },
+    {
+      "rule": "spacing-inconsistent-h",
+      "element_id": "reevaluate",
+      "message": "Row at y≈244: horizontal gaps vary (gaps=['472', '85', '139'], mean=232, cv=0.74). Use uniform spacing.",
+      "detail": {
+        "row_y": 244,
+        "gaps": [
+          472.0,
+          85.0,
+          139.0
+        ],
+        "mean": 232.0,
+        "cv": 0.74,
+        "element_ids": [
+          "reevaluate",
+          "target_b",
+          "probe_r",
+          "tr"
+        ]
+      }
+    },
+    {
+      "rule": "spacing-inconsistent-v",
+      "element_id": "fixed_icon",
+      "message": "Column at x≈36: vertical gaps vary (gaps=['17', '46', '77'], mean=47, cv=0.52). Use uniform spacing.",
+      "detail": {
+        "col_x": 36,
+        "gaps": [
+          17.0,
+          46.0,
+          77.0
+        ],
+        "mean": 46.7,
+        "cv": 0.52,
+        "element_ids": [
+          "fixed_icon",
+          "preserve",
+          "reevaluate",
+          "pairacc_icon"
+        ]
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "probe_p",
+      "message": "Isolated colored shape 'probe_p' (32x32, fill=#b2242f, label='P') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "probe_p",
+        "fill_color": "#b2242f",
+        "label": "P",
+        "size": "32x32"
+      }
+    },
+    {
+      "rule": "solitary-decoration-block",
+      "element_id": "probe_r",
+      "message": "Isolated colored shape 'probe_r' (32x32, fill=#318383, label='R') has no semantic label. If it carries no meaning, delete it or replace with a labeled box.",
+      "detail": {
+        "element_id": "probe_r",
+        "fill_color": "#318383",
+        "label": "R",
+        "size": "32x32"
+      }
+    }
+  ],
+  "vertex_count": 40,
+  "edge_count": 13,
+  "canvas": "1280x480"
+}

@@ -1,0 +1,30 @@
+{
+  "source": "data/summary_csv/sqlite_model_facing_outcomes.csv",
+  "controller": "Generic",
+  "tasks_per_model": 40,
+  "strict": {
+    "stable": {
+      "Qwen": "0/4",
+      "GLM": "0/4"
+    },
+    "changed": {
+      "Qwen": "8/8",
+      "GLM": "6/8"
+    }
+  },
+  "full_40_task_context": {
+    "Qwen": {
+      "correct": 27,
+      "tri": 8,
+      "fallback": 5,
+      "reject": 0
+    },
+    "GLM": {
+      "correct": 26,
+      "tri": 6,
+      "fallback": 2,
+      "reject": 6
+    }
+  },
+  "claim_boundary": "Controlled model-issued SQLite writes; not a prevalence estimate."
+}

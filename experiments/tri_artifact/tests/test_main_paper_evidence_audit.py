@@ -26,6 +26,10 @@ def test_main_paper_evidence_audit_matches_frozen_sources() -> None:
     assert all(row["mechanism_errors"] == 0 for row in report["external_extension"])
     assert report["source_anchored_external_transfer"]["preserve_changed_substitutions"] == [2, 64]
     assert report["source_anchored_external_transfer"]["state_bench_substitutions"] == [0, 34]
+    assert report["full_history_cta_deltas"]["Qwen3.5"] == {
+        "delta": 0.0125,
+        "ci95": [-0.06666666666666667, 0.09166666666666666],
+    }
 
 
 def test_default_paper_path_prefers_archive_layout(tmp_path) -> None:

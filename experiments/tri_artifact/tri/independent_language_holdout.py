@@ -13,6 +13,7 @@ from typing import Any, Iterable
 SEED = 20260727
 WRITERS = tuple(f"W{index}" for index in range(1, 13))
 ANNOTATORS = tuple(f"A{index}" for index in range(1, 4))
+MODEL_PRELABELERS = tuple(f"M{index}" for index in range(1, 4))
 DOMAINS = 10
 PAIRS_PER_DOMAIN = 6
 PAIRS = DOMAINS * PAIRS_PER_DOMAIN
@@ -375,6 +376,10 @@ def build_annotation_order(assignments: list[dict[str, Any]], annotator: str) ->
     return order
 
 
+def blind_item_id(item_id: str) -> str:
+    return "BI-" + sha256_bytes(f"{SEED}:{item_id}".encode("utf-8"))[:16].upper()
+
+
 def _wjx_intro(stage: str) -> list[str]:
     participation = "\u2028".join(
         [
@@ -729,7 +734,7 @@ def annotation_wjx(
         pair = pair_map[authored["pair_id"]]
         candidates = sorted({str(row["id"]) for row in pair["refreshed_state"]})
         block = [
-            f"【情境 {index:02d}｜{item_id}】",
+            f"【情境 {index:02d}｜{blind_item_id(item_id)}】",
             f"写作者的英文请求：{authored['instruction']}",
             "当前可见记录：",
             *_readable_state(pair["initial_state"]),
@@ -769,20 +774,103 @@ def write_annotation_wjx_forms(
     authored_map = {row["item_id"]: row for row in authored}
     pair_map = {row["pair_id"]: row for row in pairs}
     order_manifest = {}
+    private_key = []
     for annotator in ANNOTATORS:
         order = build_annotation_order(assignments, annotator)
         if len(order) != INSTRUCTIONS or len(set(order)) != INSTRUCTIONS:
             raise ValueError(f"invalid annotation order for {annotator}")
-        order_manifest[annotator] = order
+        order_manifest[annotator] = [blind_item_id(item_id) for item_id in order]
         for batch in range(1, 13):
             item_ids = order[(batch - 1) * 10 : batch * 10]
             (output / f"annotator_{annotator}_part_{batch:02d}_wjx.txt").write_text(
                 annotation_wjx(annotator, batch, item_ids, authored_map, pair_map),
                 encoding="utf-8",
             )
+    for item_id in sorted(authored_map):
+        private_key.append(
+            {"blind_item_id": blind_item_id(item_id), "item_id": item_id}
+        )
     (output / "annotation_orders.json").write_text(
         json.dumps(order_manifest, indent=2, ensure_ascii=True) + "\n", encoding="utf-8"
     )
+    (output.parent / "private_annotation_key.jsonl").write_text(
+        "".join(canonical_json(row) + "\n" for row in private_key), encoding="utf-8"
+    )
+
+
+def build_blind_prelabel_tasks(
+    authored: list[dict[str, Any]],
+    pairs: list[dict[str, Any]],
+    assignments: list[dict[str, Any]],
+    prelabeler: str,
+) -> list[dict[str, Any]]:
+    """Build model-assisted prelabel inputs with all design and writer labels removed."""
+    if prelabeler not in MODEL_PRELABELERS:
+        raise ValueError(f"unknown model-prelabeler ID: {prelabeler}")
+    if len(authored) != INSTRUCTIONS or len({row["item_id"] for row in authored}) != INSTRUCTIONS:
+        raise ValueError("blind prelabel tasks require all 120 writer items")
+    authored_map = {row["item_id"]: row for row in authored}
+    pair_map = {row["pair_id"]: row for row in pairs}
+    order_role = f"A{prelabeler[1:]}"
+    tasks = []
+    for sequence_index, item_id in enumerate(
+        build_annotation_order(assignments, order_role), start=1
+    ):
+        authored_row = authored_map[item_id]
+        pair = pair_map[authored_row["pair_id"]]
+        allowed = sorted({str(record["id"]) for record in pair["refreshed_state"]})
+        tasks.append(
+            {
+                "model_prelabeler_id": prelabeler,
+                "sequence_index": sequence_index,
+                "blind_item_id": blind_item_id(item_id),
+                "instruction": authored_row["instruction"],
+                "initial_state": pair["initial_state"],
+                "refreshed_state": pair["refreshed_state"],
+                "entity": pair["entity"],
+                "action": pair["action"],
+                "allowed_targets": allowed + ["CLARIFY"],
+                "response_schema": {
+                    "target": "one allowed_targets value",
+                    "confidence": "integer 1-5",
+                    "reason": "brief interpretation rationale",
+                },
+                "evidence_status": "model-assisted prelabel; human review required",
+            }
+        )
+    forbidden = {
+        "writer_id",
+        "item_id",
+        "writer_intent",
+        "writer_confidence",
+        "mode",
+        "reference_mode_design",
+        "pair_id",
+        "design_target",
+        "correct_target",
+        "gold",
+    }
+    if any(forbidden.intersection(row) for row in tasks):
+        raise ValueError("blind prelabel task leaked a hidden design or writer field")
+    return tasks
+
+
+def resolve_blind_annotation_returns(
+    rows: list[dict[str, str]], key_rows: list[dict[str, str]]
+) -> list[dict[str, str]]:
+    key = {
+        str(row.get("blind_item_id", "")): str(row.get("item_id", ""))
+        for row in key_rows
+    }
+    if len(key) != INSTRUCTIONS or "" in key or len(set(key.values())) != INSTRUCTIONS:
+        raise ValueError("private annotation key must map 120 unique blind IDs to items")
+    resolved = []
+    for row in rows:
+        blind = str(row.get("blind_item_id", "")).strip()
+        if blind not in key:
+            raise ValueError(f"unknown blind annotation ID: {blind}")
+        resolved.append({**row, "item_id": key[blind]})
+    return resolved
 
 
 def _question_number(header: str) -> int | None:
@@ -853,13 +941,13 @@ def _submission_id(raw: dict[str, str], writer_id: str) -> str:
     return value
 
 
-def normalize_wjx_writer_export(
+def normalize_wjx_writer_content(
     writer_id: str,
     raw: dict[str, str],
     assignments: list[dict[str, Any]],
     pair_map: dict[str, dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """Convert one complete two-page WJX writer submission to ten locked item rows."""
+    """Parse the 33 core questions without treating missing eligibility fields as satisfied."""
     if writer_id not in WRITERS:
         raise ValueError(f"unknown writer ID: {writer_id}")
     numbered, headers = _numbered_fields(raw)
@@ -876,28 +964,6 @@ def normalize_wjx_writer_export(
     )
     consent = _yes_no(_first_value(raw, ("consent",)) or numbered[3], "consent")
 
-    no_assistance_raw = _first_value(
-        raw,
-        ("no_assistance", "未使用辅助确认", "独立作答确认"),
-    ) or numbered.get(34, "")
-    if no_assistance_raw:
-        no_assistance = _yes_no(no_assistance_raw, "no_assistance")
-    else:
-        used_assistance_raw = _first_value(raw, ("used_assistance", "使用辅助"))
-        if not used_assistance_raw:
-            raise ValueError(f"missing no-assistance confirmation for {writer_id}")
-        no_assistance = not _yes_no(used_assistance_raw, "used_assistance")
-
-    technical_raw = _first_value(raw, ("technical_issue", "技术问题")) or numbered.get(35, "")
-    if not technical_raw:
-        raise ValueError(f"missing technical-issue response for {writer_id}")
-    technical_issue = _yes_no(technical_raw, "technical_issue")
-
-    completed_raw = _first_value(
-        raw,
-        ("completed", "completion_confirmed", "答题状态", "完成状态"),
-    ) or numbered.get(36, "")
-    completed = _yes_no(completed_raw, "completed")
     submission_id = _submission_id(raw, writer_id)
 
     stage_a: dict[str, dict[str, Any]] = {}
@@ -939,18 +1005,60 @@ def normalize_wjx_writer_export(
                 "age_18": age_18,
                 "english_independent": english_independent,
                 "consent": consent,
-                "no_assistance": no_assistance,
-                "technical_issue": technical_issue,
-                "completed": completed,
             }
         )
     return normalized
 
 
-def validate_writer_returns(
+def normalize_wjx_writer_export(
+    writer_id: str,
+    raw: dict[str, str],
+    assignments: list[dict[str, Any]],
+    pair_map: dict[str, dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Convert one fully eligible two-page WJX submission to ten locked item rows."""
+    rows = normalize_wjx_writer_content(writer_id, raw, assignments, pair_map)
+    numbered, _ = _numbered_fields(raw)
+
+    no_assistance_raw = _first_value(
+        raw,
+        ("no_assistance", "未使用辅助确认", "独立作答确认"),
+    ) or numbered.get(34, "")
+    if no_assistance_raw:
+        no_assistance = _yes_no(no_assistance_raw, "no_assistance")
+    else:
+        used_assistance_raw = _first_value(raw, ("used_assistance", "使用辅助"))
+        if not used_assistance_raw:
+            raise ValueError(f"missing no-assistance confirmation for {writer_id}")
+        no_assistance = not _yes_no(used_assistance_raw, "used_assistance")
+
+    technical_raw = _first_value(raw, ("technical_issue", "技术问题")) or numbered.get(35, "")
+    if not technical_raw:
+        raise ValueError(f"missing technical-issue response for {writer_id}")
+    technical_issue = _yes_no(technical_raw, "technical_issue")
+
+    completed_raw = _first_value(
+        raw,
+        ("completed", "completion_confirmed", "答题状态", "完成状态"),
+    ) or numbered.get(36, "")
+    completed = _yes_no(completed_raw, "completed")
+    return [
+        {
+            **row,
+            "no_assistance": no_assistance,
+            "technical_issue": technical_issue,
+            "completed": completed,
+        }
+        for row in rows
+    ]
+
+
+def _validate_writer_returns(
     rows: list[dict[str, Any]],
     assignments: list[dict[str, Any]],
     pair_map: dict[str, dict[str, Any]],
+    *,
+    require_complete_eligibility: bool,
 ) -> list[dict[str, Any]]:
     assigned = {row["item_id"]: row for row in assignments}
     observed_ids = [row.get("item_id") for row in rows]
@@ -972,9 +1080,11 @@ def validate_writer_returns(
             raise ValueError(f"writer {writer_id} has inconsistent response identifiers")
         submission_ids.append(next(iter(ids)))
         for field in ("age_18", "english_independent", "consent", "no_assistance", "completed"):
+            if not require_complete_eligibility and field in {"no_assistance", "completed"}:
+                continue
             if {row.get(field) for row in group} != {True}:
                 raise ValueError(f"writer {writer_id} failed eligibility field {field}")
-        if {row.get("technical_issue") for row in group} != {False}:
+        if require_complete_eligibility and {row.get("technical_issue") for row in group} != {False}:
             raise ValueError(f"writer {writer_id} reported an understanding-affecting technical issue")
     if len(set(submission_ids)) != len(WRITERS):
         raise ValueError("writer response identifiers must be unique")
@@ -1000,6 +1110,11 @@ def validate_writer_returns(
             raise ValueError(f"invalid writer confidence for {row['item_id']}") from exc
         if confidence not in range(1, 6):
             raise ValueError(f"invalid writer confidence for {row['item_id']}")
+        design_target = (
+            pair["pre_refresh_target"]
+            if assignment["mode"] == "preserve"
+            else pair["post_refresh_target"]
+        )
         normalized.append(
             {
                 **assignment,
@@ -1007,11 +1122,61 @@ def validate_writer_returns(
                 "instruction_sha256": expected_hash,
                 "writer_intent": intent,
                 "writer_intent_determinate": intent != "CLARIFY",
+                "design_target": design_target,
+                "design_intent_aligned": intent == design_target,
                 "writer_confidence": confidence,
                 "allowed_target_ids": sorted(allowed),
             }
         )
     return sorted(normalized, key=lambda row: row["item_id"])
+
+
+def validate_provisional_writer_returns(
+    rows: list[dict[str, Any]],
+    assignments: list[dict[str, Any]],
+    pair_map: dict[str, dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Validate authored content for staging while leaving the eligibility gate failed."""
+    return _validate_writer_returns(
+        rows,
+        assignments,
+        pair_map,
+        require_complete_eligibility=False,
+    )
+
+
+def validate_writer_returns(
+    rows: list[dict[str, Any]],
+    assignments: list[dict[str, Any]],
+    pair_map: dict[str, dict[str, Any]],
+) -> list[dict[str, Any]]:
+    return _validate_writer_returns(
+        rows,
+        assignments,
+        pair_map,
+        require_complete_eligibility=True,
+    )
+
+
+def design_fidelity_summary(authored: list[dict[str, Any]]) -> dict[str, Any]:
+    if len(authored) != INSTRUCTIONS:
+        raise ValueError("design-fidelity summary requires all 120 writer items")
+    by_pair: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for item in authored:
+        by_pair[item["pair_id"]].append(item)
+    if len(by_pair) != PAIRS or any(len(members) != 2 for members in by_pair.values()):
+        raise ValueError("design-fidelity summary requires 60 complete pairs")
+    aligned_items = sum(bool(item.get("design_intent_aligned")) for item in authored)
+    aligned_pairs = sum(
+        all(bool(item.get("design_intent_aligned")) for item in members)
+        for members in by_pair.values()
+    )
+    return {
+        "design_aligned_items": aligned_items,
+        "design_aligned_complete_pairs": aligned_pairs,
+        "maximum_possible_clear_complete_pairs": aligned_pairs,
+        "annotation_gate_feasible": aligned_pairs >= 40,
+    }
 
 
 def validate_annotation_returns(
@@ -1066,7 +1231,11 @@ def clear_complete_pairs(
     for item in authored:
         labels = by_item[item["item_id"]]
         agreeing = sum(row["matches_writer_intent"] for row in labels)
-        item_clear[item["item_id"]] = item["writer_intent_determinate"] and agreeing >= 2
+        item_clear[item["item_id"]] = (
+            item["writer_intent_determinate"]
+            and bool(item.get("design_intent_aligned"))
+            and agreeing >= 2
+        )
     by_pair = defaultdict(list)
     for item in authored:
         by_pair[item["pair_id"]].append(item)
@@ -1075,9 +1244,11 @@ def clear_complete_pairs(
         for pair_id, members in by_pair.items()
         if len(members) == 2 and all(item_clear[row["item_id"]] for row in members)
     ]
+    design = design_fidelity_summary(authored)
     return {
         "clear_items": sum(item_clear.values()),
         "clear_complete_pairs": len(clear_pairs),
+        **design,
         "main_paper_threshold_met": len(clear_pairs) >= 40,
         "clear_pair_ids": sorted(clear_pairs),
         "item_clear": item_clear,

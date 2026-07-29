@@ -1,0 +1,42 @@
+{
+  "audit_version": "TRI-public-recall-population-v1",
+  "evidence_status": "frozen sampling frame input; no human labels",
+  "population_rows": 3600,
+  "candidate_rows": 116,
+  "population_by_dataset": {
+    "API-Bank": 528,
+    "AppWorld": 244,
+    "BFCL": 200,
+    "ToolSandbox": 129,
+    "ToolTalk": 50,
+    "tau3-bench": 2449
+  },
+  "candidates_by_dataset": {
+    "API-Bank": 6,
+    "AppWorld": 1,
+    "BFCL": 65,
+    "ToolSandbox": 9,
+    "ToolTalk": 27,
+    "tau3-bench": 8
+  },
+  "population_sha256": "e5c1a19bc8044eade081ad402031d02e0a5143147e3082b7114b1f198f1d1e1f",
+  "candidate_sha256": "881059186ce039d09d3748aa349bad423ba9455a342de2326b95e327acb5a39a",
+  "commits": {
+    "ToolSandbox": "165848b9a78cead7ca7fe7c89c688b58e6501219",
+    "AppWorld": "a072b7a86e7c1d5b1d7175659d750ebb9b79f10a",
+    "tau3-bench": "cf71a8070269883e38a365ffa85f78f46844c1f4",
+    "API-Bank": "12e8158b7628c168f07e8f31fbbe3445e99f44cf",
+    "BFCL": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+    "ToolTalk": "e05f4ce6132c80ed33392b81535b077d56ab28fd"
+  },
+  "unit_definition": {
+    "ToolSandbox": "semantic scenario family",
+    "AppWorld": "generator family (three released task instances)",
+    "tau3-bench": "core task definition",
+    "API-Bank": "released test unit",
+    "BFCL": "multi-turn task cluster across variants",
+    "ToolTalk": "released dialogue"
+  },
+  "model_calls_allowed": false,
+  "next_gate": "freeze stratified sample and collect three independent human labels"
+}

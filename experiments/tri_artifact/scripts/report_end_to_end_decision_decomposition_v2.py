@@ -42,7 +42,12 @@ def main() -> None:
         for model, model_rows in by_model.items():
             validate_run_inventory(model_rows, model, tasks)
 
-    report = build_report(rows, seed=args.seed, samples=args.bootstrap_samples)
+    report = build_report(
+        rows,
+        seed=args.seed,
+        samples=args.bootstrap_samples,
+        claim_promotion_eligible=not args.allow_partial,
+    )
     report["provenance"] = {
         "inputs": [
             {"path": str(path), "sha256": sha256_path(path), "rows": len(load_jsonl(path))}
@@ -56,10 +61,11 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     args.output.with_suffix(".md").write_text(markdown, encoding="utf-8")
-    args.output.with_name(args.output.stem + "_claim_promotion.json").write_text(
-        json.dumps(report["claim_promotion"], indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
+    if not args.allow_partial:
+        args.output.with_name(args.output.stem + "_claim_promotion.json").write_text(
+            json.dumps(report["claim_promotion"], indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
     print(markdown)
 
 

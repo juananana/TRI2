@@ -11,14 +11,17 @@
 | qwen primary claim present | yes |
 | glm primary claim present | yes |
 | human agreement claim present | yes |
+| replication structure and denominator present | yes |
 | coverage scope present | yes |
 | external extension four condition scope matches sources | yes |
 | source anchored transfer claim matches report | yes |
 | selection regret claim matches report | yes |
 | call matched claim matches report | yes |
+| four model pairacc interval repair matches report | yes |
 | decision block stratification matches report | yes |
 | oracle stage decomposition matches report | yes |
 | temperature zero repeat matches report | yes |
+| full history baseline claim matches report | yes |
 | source grounded matched claim matches report | yes |
 | binding drift author adaptation matches report | yes |
 | rule hard residual matches report | yes |
@@ -42,5 +45,5 @@
 | toolsandbox_single_turn_matched_generic_glm_full_v1.json | 96 | 87 | 0 | 4 |
 
 - The audit checks numerical and provenance consistency, not natural prevalence.
-- Human and public-suite classifications retain the limitations stated in the paper.
+- Human agreement and public-suite classifications retain the limitations stated in the paper.
 - Provider inference cannot be reproduced exactly because immutable serving revisions are unavailable.

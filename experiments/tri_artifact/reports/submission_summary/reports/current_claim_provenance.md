@@ -4,10 +4,12 @@ This map corresponds to the current canonical `AnonymousSubmission2027.tex` and 
 artifact reports. Inference is model-specific unless explicitly described as descriptive.
 `Formal deduction` below denotes a non-empirical theorem or probability identity; it does not
 upgrade or replace the four empirical chronology labels used elsewhere in this registry.
-An earlier three-annotator convenience sample supports the Preserve/Reevaluate core, whereas the
+An earlier three-annotator convenience sample shows higher agreement for the actionable
+Preserve/Reevaluate core than for fallback policy, whereas the
 separately frozen six-form follow-up fails its eligibility and instrument-diagnostic gates and
-supplies descriptive boundary evidence rather than a fixed-rater endpoint. Neither study validates conditional policies or establishes invalid-target rejection
-as natural referential semantics.
+supplies descriptive boundary evidence rather than a fixed-rater endpoint. Neither study
+establishes open-language transfer, validates conditional policies, or establishes invalid-target
+rejection as natural referential semantics.
 
 | Manuscript evidence | Frozen data / protocol | Raw model outputs | Derived report / code |
 |---|---|---|---|
@@ -45,7 +47,7 @@ as natural referential semantics.
 | v6 GLM replication, conservative ITT | same v6 data and protocol | `runs/v6_glm_exact_cta_full.jsonl`; `runs/v6_glm_role_indexed_full.jsonl` | `reports/v6_glm_role_heldout_itt_report.json` |
 | v6 GLM transport-complete sensitivity | automatically selected retry subsets; original failures retained | `runs/v6_glm_exact_cta_transport_retry.jsonl`; `runs/v6_glm_role_indexed_transport_retry.jsonl`; corresponding `transport_recovered` derived files | `reports/v6_glm_role_heldout_recovered_report.json`; `scripts/make_transport_retry_subset.py`; `scripts/merge_transport_retries.py` |
 | v6 matched scalar-vs-role addendum | same v6 data; `reports/TRI_v6_matched_scalar_addendum_protocol.md` | `runs/v6_qwen_scalar_lifecycle_full.jsonl`; `runs/v6_qwen_role_indexed_full.jsonl`; `runs/v6_glm_scalar_lifecycle_full.jsonl`; GLM ITT and transport-recovered role files above | `reports/v6_matched_scalar_role_report.json`; `tri/v6_matched_role_report.py`; `tests/test_v6_matched_role_report.py` |
-| Blind human construct validation | 100 randomized original/rewrite items; private mapping in `human_validation/annotation_key_private.csv` | three private XLSX returns; de-identified responses in `human_validation/normalized_returns/` | `human_validation/analysis.json`; `human_validation/analysis.md`; `scripts/analyze_human_validation.py` |
+| Blinded human agreement audit (post-primary descriptive construct audit) | 100 randomized original/rewrite items; private mapping in `human_validation/annotation_key_private.csv` | three private XLSX returns; de-identified responses in `human_validation/normalized_returns/` | `human_validation/analysis.json`; `human_validation/analysis.md`; `scripts/analyze_human_validation.py`; convenience-sample agreement only, not open-language validation |
 | Six-form human construct follow-up (post-primary failed-gate audit) | `reports/TRI_wjx_30_human_construct_audit_protocol.md`; six disjoint 12-item forms; frozen five-label target | 31 private XLSX submissions retained outside the artifact; private response mapping excluded; report records form-keyed SHA-256 hashes and de-identified per-item count tables | `reports/wjx_six_form_human_construct_audit_incomplete_cutoff_v1.{json,md}`; `reports/wjx_six_form_human_construct_audit_{selection_ledger,item_counts}_v1.json`; `tri/wjx_human_audit.py`; `scripts/analyze_wjx_human_audit.py`; `tests/test_wjx_human_audit.py`; 11/31 eligibility-passing, so no fixed-rater endpoint; relaxed sensitivities remain weak and are descriptive boundary evidence |
 | Model sensitivity on human-majority targets | 46 original items with determinate majority from the human study | unchanged v3 Generic, Historical CTA, Lifecycle-free, and Lifecycle-Gated runs listed above | `human_validation/model_human_subset.json`; `human_validation/model_human_subset.md`; `scripts/analyze_human_supported_model_subset.py` |
 | Referential-core versus reject-policy sensitivity | unchanged 160-task v3 inventory; split by whether benchmark gold is `INVALID_BOUND_ENTITY` | unchanged v3 Generic, Historical CTA, Lifecycle-free, and Lifecycle-Gated runs listed above | `reports/v3_referential_policy_slices.json`; `reports/v3_referential_policy_slices.md`; `scripts/analyze_referential_policy_slices.py` |
@@ -74,12 +76,13 @@ as natural referential semantics.
 | Call/information-matched authorization ablation (post-primary; Qwen/GLM complete) | automatically selected 80-row/40-pair Flip inventory, SHA-256 `5862e0ae...a826c`; amended protocol records the failed empty-content infrastructure smoke and freezes explicit thinking disablement before corrected runs | `runs/call_matched_authorization_{qwen,glm}_full_v2.jsonl`; 80/80 complete rows each, 480/480 logical calls, 0 retries; hashes `19177bef...c063f` and `f996d826...e9f5` | `reports/call_matched_authorization_ablation_v2.{json,md}`; Decision-visible minus History-only changed PairAcc +20.0 [2.5,37.5] Qwen and +30.0 [17.5,45.0] GLM; Preserve substitution -42.9 [-61.5,-24.2] and -50.0 [-70.6,-30.0]; Qwen enforcement harms 8 vs repairs 4, GLM changes none |
 | Model-authored linguistic stress audit (post-primary; transport-repaired) | `reports/TRI_model_authored_linguistic_stress_protocol.md`; 24-domain semantic inventory SHA-256 `50407590...0c45ed`; derived 48-row inventory SHA-256 `58343e4e...3b959b`; gold is deterministic and independent of author/judge outputs | 24 DeepSeek author rows, 96 Qwen/GLM judge rows, and four 48-row Generic/CTA runs; all full calls complete with zero retry; exact raw files and hashes recorded in the repaired report | `reports/model_authored_linguistic_stress_transport_repaired_v2.{json,md}`; invalid all-zero v1 report retained; exact-ID repair addendum hash `acb84df0...478a7cc`; Generic/CTA PairAcc 0/12 of 24 for both models, but dual judges accept 11/48 rows and 0 complete pairs, so no open-language claim |
 | Epoch-Scoped Referential SSA feasibility smoke (post-primary No-Go; not manuscript evidence) | frozen 20-task method-upgrade manifest, hash `e651f4db...9181`; `reports/TRI_rssa_20task_protocol.md`; prefix-resume and alpha-renaming scoring amendments disclosed separately | `runs/rssa_smoke_qwen_v1.jsonl`; `runs/rssa_smoke_glm_v1.jsonl`; 20/20 unique rows each; GLM strict JSON schema 0/20 because all responses were fenced | `reports/rssa_smoke_v1.{json,md}`; prospective decision `NO-GO`; Qwen epoch 11/20, composition roles 0/4, Free 5/20, Enforced 6/20; `reports/rssa_glm_format_audit_v1.{json,md}` is explicitly post-hoc and finds 20/20 relaxed parse, 20/20 epoch/edge, but only 8/20 binding inventory and 12/20 semantic structure failures; no expansion and no paper promotion |
-| Paper figures | frozen summary CSVs and report JSON derived from the reports above; Figure 1 is a supplied explanatory raster converted losslessly to PDF | no new model calls | `paper/tri_final_figures/plot_round4_figures.py`, `plot_round5_figures.py`, and `plot_round5_supplement.py`; the supplied Figure 1 PNG and converted PDF are archived together, Figures 2--4 retain round4, Figure 5 separates PairAcc from E2E in round5, and two crowded supplement panels are replaced by versioned round5 figures; plotting source and seven summary CSVs are included in the anonymous artifact |
+| Paper figures | frozen summary CSVs and report JSON derived from the reports above; Figure 1 uses the restored author-provided artwork with an editable companion PPTX | no new model calls | `paper/Figures/fig1_shared_transition.pdf` and `paper/tri_final_figures/outputs/fig1_shared_transition_symmetric_v3_editable.pptx`; Figure 1 remains a problem-definition illustration rather than evidence about a latent mechanism; remaining plotting sources and summary CSVs are included in the anonymous artifact |
 
-| Full-diagnostic matched-call confirmation (post-primary; frozen before own calls) | `data/revision_full_diagnostic_v1.jsonl`; `reports/TRI_revision_matched_audits_protocol.md`; freeze manifest `reports/revision_matched_audits_manifest_v1.json` | `runs/revision_full_diagnostic_{qwen,glm}_full_v1.jsonl`; 160/160 task rows per model, 480/480 logical calls per model, zero retry or final failure | `reports/revision_full_diagnostic_v2.{json,md}`; `scripts/report_revision_matched_audit_v2.py`; changed PairAcc 5/32 to 13/32 Qwen and 8/32 to 25/32 GLM; v2 excludes Reject rows from actionable substitution denominators |
+| Four-model full-diagnostic matched-call confirmation (post-primary; frozen before own calls; zero-API interval repair) | `data/revision_full_diagnostic_v1.jsonl`; `reports/TRI_revision_matched_audits_protocol.md`; freeze manifest `reports/revision_matched_audits_manifest_v1.json` | `runs/revision_full_diagnostic_{qwen,glm}_full_v1.jsonl`; `runs/revision_full_diagnostic_{deepseek,minimax}_full_v2.jsonl`; 160/160 task rows and 480/480 logical calls per model, zero incomplete rows | `reports/revision_full_diagnostic_four_model_v2.{json,md}` supersedes the retained v1 report; `tri/revision_matched_interval_repair.py`; Decision-visible minus History-only changed PairAcc is +25.0 [9.4,40.6] Qwen, +53.1 [34.4,68.8] GLM, +43.8 [25.0,62.5] DeepSeek, and +34.4 [18.8,50.0] MiniMax points; all four repaired pair-cluster intervals exclude zero; point estimates, denominators, raw rows, and failure accounting are unchanged |
+| Four-model Convention-told natural-history control (post-primary) | existing 80-row/40-pair Flip inventory; `reports/TRI_convention_told_natural_history_protocol.md`; one call per condition, byte-matched user payloads, no structured ID or compiler block | `runs/convention_told_{qwen,glm,deepseek,minimax}_full_v1.jsonl`; 80/80 rows and 160/160 logical calls per model; one GLM parse/incomplete ITT row, all others complete | `reports/convention_told_natural_history_v1.{json,md}`; Convention-minus-Plain PairAcc is -5.0 Qwen, +10.0 GLM, +7.5 DeepSeek, and +25.0 MiniMax points; model-conditional convention effect on a separate frozen inventory, not a component estimate of the decision block |
 | Decision-block stratification (post-primary; zero API) | nine frozen matched inventories, 760 records; authored rows stratified by compiler mode and Preserve-ID correctness; existing v7 40-pair boundary | no new model calls; exact actor/compiler request payloads and frozen outputs only | `reports/decision_block_stratification_v1.{json,md}`; `tri/decision_block_stratification.py`; all initial-ID copies and selector restatements equal in 760/760 records; gains concentrate in compiler-correct strata, while wrong outputs can harm Qwen; post-treatment description, not mediation or a single-field effect |
-| Human-rewrite matched-call confirmation (post-primary; frozen before own calls) | `data/revision_human_rewrite_v1.jsonl`; same protocol and manifest; 50 existing volunteer rewrites | `runs/revision_human_rewrite_{qwen,glm}_full_v1.jsonl`; 50/50 rows and 150/150 logical calls per model, zero retry or final failure | `reports/revision_human_rewrite_v2.{json,md}`; Qwen actionable E2E 30/40 to 30/40 and GLM 31/40 to 39/40; only three actionable changed pairs; one-volunteer rewrites of authored tasks, not open-language validation |
-| Source-grounded matched-call transfer (post-primary; frozen before own calls) | `data/revision_source_grounded_v1.jsonl`; same protocol and manifest; 30 changed pairs balanced across STATE-Bench, AgentDojo, and ToolSandbox substrates | `runs/revision_source_grounded_{qwen,glm,deepseek}_full_v1.jsonl`; 60/60 rows and 180/180 logical calls per model, zero retry or final failure | `reports/revision_source_grounded_v2.{json,md}`; PairAcc 12/30 to 13/30 Qwen, 11/30 to 20/30 GLM, and 19/30 to 22/30 DeepSeek; only GLM E2E interval excludes zero; controlled source-grounded intervention, not native benchmark behavior or prevalence |
+| Human-rewrite matched-call confirmation (post-primary; frozen before own calls; zero-API interval repair) | `data/revision_human_rewrite_v1.jsonl`; same protocol and manifest; 50 existing volunteer rewrites | `runs/revision_human_rewrite_{qwen,glm}_full_v1.jsonl`; 50/50 rows and 150/150 logical calls per model, zero retry or final failure | `reports/revision_human_rewrite_v3.{json,md}` supersedes v2 for current reporting; Qwen actionable E2E 30/40 to 30/40 and GLM 31/40 to 39/40; changed-PairAcc intervals are [0,100] over only three actionable pairs; one-volunteer rewrites of authored tasks do not establish open-language generalization |
+| Source-grounded matched-call transfer (post-primary; frozen before own calls; zero-API interval repair) | `data/revision_source_grounded_v1.jsonl`; same protocol and manifest; 30 changed pairs balanced across STATE-Bench, AgentDojo, and ToolSandbox substrates | `runs/revision_source_grounded_{qwen,glm,deepseek}_full_v1.jsonl`; 60/60 rows and 180/180 logical calls per model, zero retry or final failure | `reports/revision_source_grounded_v3.{json,md}` supersedes v2 for current reporting; PairAcc 12/30 to 13/30 Qwen, 11/30 to 20/30 GLM, and 19/30 to 22/30 DeepSeek; repaired PairAcc-difference intervals are [-6.7,13.3], [13.3,50.0], and [-3.3,23.3]; only GLM E2E and PairAcc-difference intervals exclude zero; controlled intervention, not native benchmark behavior or prevalence |
 | Injected public-audit implementation sensitivity (post-primary, zero API) | six schema-shaped control sets with five strict positives and five one-feature-missing hard negatives per suite | no model calls | `reports/public_audit_injected_sensitivity_v1.{json,md}`; deterministic checker retrieves 30/30 positives and excludes 30/30 hard negatives; implementation check only, not natural semantic recall or benchmark undercoverage |
 | Model-assisted public recall triage (post-primary, zero API) | `data/model_assisted_public_recall_triage_v1.jsonl`; protocol in `reports/TRI_model_assisted_public_recall_triage_protocol.md`; 72 natural candidate records and 60 injected controls | no model API calls in this artifact run; labels are a model-assisted engineering triage over existing records | `reports/model_assisted_public_recall_triage_v1.{json,md}`; 0/72 natural strict candidates, 30/30 strict-positive controls recovered, and 30/30 hard-negative controls excluded; not independent recall calibration, prevalence, native-opportunity evidence, or behavioral evidence |
 | Concurrent Binding Drift baseline adaptation (post-primary) | complete 240-row actionable v7 inventory; public commit `0e040e...`; frozen author-adaptation protocol | `runs/binding_drift_tri_glm_self_reverify_v7_full_v1.jsonl`; 240/240 rows, 240 requests, zero retry/final failure | `reports/binding_drift_tri_glm_v7_full_v1.{json,md}`; Entity Lock Preserve/Reevaluate 120/40 of 120, GLM self-reverify 39/116, CTA 110/116; adaptation retains the full TRI instruction and is neither an official reproduction nor information-matched CTA comparison |
@@ -92,20 +95,55 @@ as natural referential semantics.
   two-model experiment without a resolver-produced initial ID. Only zero-API dry runs and failed
   sandbox-DNS smoke attempts exist; no model result is paper evidence.
 - `TRI_independent_language_holdout_protocol.md` defines the prospective 12-writer plus three-
-  annotator collection. Human returns, the clarity gate, and model runs are incomplete, so this is
-  not current evidence.
-- `TRI_convention_told_natural_history_protocol.md` freezes an equal-call, one-call-per-condition
-  natural-history contrast with no structured ID or compiler block. No condition-specific smoke
-  or full run exists, so it is planned/unverified and not manuscript evidence. The prospectively
-  frozen `TRI_submission_critical_replication_addendum_20260728.md` extends the unchanged contrast
-  to DeepSeek and MiniMax, freezes the two-model full-diagnostic extension and two negative-result
-  repeats, and supplies zero-API-validated runners/reporters/tests. Attempted launches were blocked
-  before process creation by the execution environment's third-party data-egress policy; therefore
-  they produced zero API attempts and no behavioral evidence.
+  annotator collection. Twelve private writer exports now exist, but required eligibility fields
+  are incomplete. The completed collection contains 120 instructions; 44/120 writer targets align
+  with the assigned operation order, and only 2/60 complete pairs satisfy the pre-annotation
+  design-fidelity gate.
+  The 40-pair clarity threshold is therefore unreachable for this collection; it is not current
+  evidence and no holdout model run is permitted.
 - `TRI_deployment_evaluation_decision_protocol.md` freezes a prospective 40-cluster,
   two-environment executed-workflow and controller-selection design. No eligible human-authored
   inventory, environment freeze manifest, adjudication, or model run exists, so it is not current
   evidence and cannot support practical selection or prevalence claims.
+- `TRI_end_to_end_decision_decomposition_v2_protocol.md` supersedes the earlier two-model ladder
+  for a planned three-model, eight-cell decomposition. It adds placebo, selector-only, and neutral
+  model-produced ID controls while preserving ITT and the no-gold-input boundary. Its reporter
+  uses `state_cluster_id` bootstrap and sign-flip inference and retains per-cell failures, calls,
+  retries, observed request time, tokens, repairs, and harms. No model calls or behavioral results
+  exist; the v2 runner/reporter are readiness artifacts only.
+- `TRI_unified_environment_holdout_protocol.md` and `tri/unified_environment_holdout.py` define the
+  planned 12-writer, three-annotator, AgentDojo/ToolSandbox holdout and its 30+30 candidate,
+  preordered 20+20 clear-cluster gate. The freeze rejects missing ethics/writer/annotator
+  provenance, compares target-ID writer intent with a three-annotator majority, and requires
+  target-level preflight diffs; the reporter derives endpoints from the complete raw tool-execution
+  matrix, keeps failures in ITT, enumerates all ties, and scores frozen Rule* separately. No eligible
+  candidate inventory or environment execution exists; no transfer or selection claim may cite this code.
+- `TRI_public_recall_calibrated_audit_protocol.md` and `tri/public_recall_calibrated_audit.py`
+  define a planned candidate-plus-stratified-random public audit with weighted prevalence and
+  finite-population zero-positive bounds. The 80/72 reconciliation preserves 122 mixed-role audit
+  units; a separate routed census contains 116 candidates within a frozen 3,600-unit six-suite
+  population. The 699-row blind frame contains all candidates, up to 100 random non-candidates per
+  suite, and 60 controls. Packet v4 removes derived classifications and gives natural units and
+  suite-native controls the same outer evidence schema;
+  opaque-return ingestion requires complete hash-locked A1--A3 independent-human provenance and
+  excludes M1--M3 prelabels from every majority label. The frame has no human labels and therefore
+  cannot yet calibrate recall or prevalence.
+- `TRI_public_recall_model_prelabels_protocol.md` and its runner define provisional Qwen/GLM/
+  DeepSeek labels over the 699-row blind packet solely to prioritize later human review. All three
+  eight-row smokes pass and the three 699-row full inventories are closed; M1/M2/M3 have
+  699/695/685 parsed labels and 0/4/14 retained parse/schema failures. The frozen formal
+  three-model completeness gate therefore fails. `public_recall_model_prelabels_partial_v1.json`
+  supplies an explicitly ineligible failure-aware author-QA queue; model or Q1 labels cannot unlock
+  the human gate, prevalence, recall, or agreement claims. The public packet copy under
+  `data/public_recall_model_prelabel_packets_v4/` is byte-identical to the frozen v4 inputs, so the
+  partial report can be regenerated without `human_studies/`. Role/control summaries are written
+  separately to `public_recall_model_prelabels_partial_v1_role_quality.json` only after validating
+  the private key against the manifest hash; the key is not included in the public artifact.
+- `scripts/build_public_recall_Q0_model_drafts.py` converts the same incomplete three-model panel
+  into a private 699-row review aid. It preserves ties and missing votes, writes only `q0_*`
+  fields, and cannot set `human_Q1_reviewed` or enter A1--A3 majority labels. The generated CSV and
+  manifest remain under ignored `human_studies/`; only the generator and boundary tests are public.
+  This draft is workflow assistance, not a new annotation result or occurrence estimate.
 
 - `human_validation/annotation_key_private.csv`, raw participant workbooks, blank/coordination
   forms, and author trial files are excluded from the public artifact. De-identified normalized
